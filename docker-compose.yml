@@ -1,0 +1,79 @@
+version: "2"
+
+services:
+  # https proxy, hands connection down to the web-server.
+  https:
+    image: zazukoians/hitch
+    ports:
+      - '443:443'
+    environment:
+      HITCH_PARAMS: --backend=[web]:80 --frontend=[*]:443
+    links:
+      - web
+
+  # Pure web-server, hands php-requests off to fpm.
+  web:
+    image: reload/drupal-apache-fpm
+    ports:
+      - '80:80'
+    volumes_from:
+      - webroot
+    links:
+      - fpm
+
+  # Instance of the php-image configured to serve fpm-requests.
+  fpm:
+    image: reload/drupal-php7-fpm
+    ports:
+      - '9000:9000'
+    volumes_from:
+      - webroot
+    links:
+      - db
+    environment:
+      PATH: '/var/www/vendor/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+
+  # Mariadb database, initialized with a nighly pre-build datadir.
+  db:
+    image: mariadb:10
+    ports:
+      - '3306'
+    volumes_from:
+      - db-data
+    # Notice the following environment-variables only takes effect if db-data
+    # is a database-dump and not a datadir image.
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db
+      MYSQL_USER: db
+      MYSQL_PASSWORD: db
+  
+  # Pre-build datadir, the datadir has the root/root db/db credentials burned 
+  # in and uses the databasename "db"
+  db-data:
+    image: reload/db-datadir:ddsdk2016-latest
+
+  # Drush startet off of the common php-image.
+  drush:
+    image: reload/drupal-php7-fpm
+    entrypoint: /usr/local/bin/drush
+    command: version
+    volumes_from:
+      - webroot
+    working_dir: /var/www/web
+    links:
+      - db
+    environment:
+      PATH: '/var/www/vendor/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+
+  # Webroot and volumned paths needs to be accessible from multiple containers so
+  # we set up all paths once and for all via a single volumne-container.
+  webroot:
+    image: tianon/true
+    volumes:
+      - './web:/var/www/web:rw'
+      - './vendor:/var/www/vendor:ro'
+      - './config:/var/www/config:rw'
+      - './docker/docker.settings.php:/var/www/web/sites/default/settings.php:ro'
+      - './docker/docker.services.yml:/var/www/web/sites/default/services.yml:ro'
+      - './docker/docker.development.services.yml:/var/www/web/sites/development.services.yml:ro'
