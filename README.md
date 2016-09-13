@@ -11,7 +11,7 @@ Prerequisite:
 * Run docker-compose up from the root of the project
 * Run `docker-compose run drush cim -y` 
 * Run `docker-compose run drush updb -y` to run update-hooks
-* Run `docker-compose run cr`
+* Run `docker-compose run drush cr`
 * Access your dockerhost on port 80 (eg. http://local.docker or localhost)
 
 ### Scripted
