@@ -7,6 +7,7 @@
     "build": "npm install && gulp sass:prod"
   },
   "devDependencies": {
+    "bootstrap-sass": "^3.3.7",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-jshint": "^2.0.0",

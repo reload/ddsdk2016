@@ -17,14 +17,15 @@ var path = {
   sass: 'theme_assets/mungo/sass',
   css: 'web/themes/custom/mungo/css',
   js_src: 'theme_assets/mungo/javascript',
-  js_dest: 'web/themes/custom/mungo/js'
+  js_dest: 'web/themes/custom/mungo/js',
+  bootstrap: 'node_modules/bootstrap-sass/assets/stylesheets'
 };
 
 gulp.task('sass', function () {
   return gulp.src(path.sass + '/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({
-      includePaths: bourbon.includePaths,
+      includePaths: [bourbon.includePaths, path.bootstrap],
       outputStyle: 'expanded'
     }).on('error', notify.onError(function (error) {
       return "\n\nSASS error: " + error.message;
