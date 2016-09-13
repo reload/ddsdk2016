@@ -6,4 +6,4 @@ version: 0.1
 core: 8.x
 
 libraries:
-  - mungo/base
+  - mungo/mungo-theme
