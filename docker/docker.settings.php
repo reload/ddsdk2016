@@ -16,7 +16,7 @@ $settings['update_free_access'] = FALSE;
 $settings['container_yamls'][] = __DIR__ . '/services.yml';
 
 $config_directories = array(
-  CONFIG_SYNC_DIRECTORY => __DIR__ . '/../../../config/drupal',
+  CONFIG_SYNC_DIRECTORY => __DIR__ . '/../../../configuration/drupal',
 );
 
 $settings['install_profile'] = 'standard';

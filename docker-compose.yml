@@ -73,7 +73,7 @@ services:
     volumes:
       - './web:/var/www/web:rw'
       - './vendor:/var/www/vendor:ro'
-      - './config:/var/www/config:rw'
+      - './configuration:/var/www/configuration:rw'
       - './docker/docker.settings.php:/var/www/web/sites/default/settings.php:ro'
       - './docker/docker.services.yml:/var/www/web/sites/default/services.yml:ro'
       - './docker/docker.development.services.yml:/var/www/web/sites/development.services.yml:ro'
