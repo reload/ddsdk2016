@@ -1,0 +1,7 @@
+base:
+  version: 0.1
+  css:
+    theme:
+      css/mungo.base.css: {}
+      css/mungo.components.css: {}
+      css/mungo.layout.css: {}
