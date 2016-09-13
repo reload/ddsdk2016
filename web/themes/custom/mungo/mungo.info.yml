@@ -1,0 +1,7 @@
+name: Mungo
+type: theme
+description: 'Mungo is a Mongoose with courrage and speed as its main perks.'
+package: Core
+version: 0.1
+core: 8.x
+
