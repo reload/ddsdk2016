@@ -1,0 +1,22 @@
+{
+  "name": "Mungo",
+  "description": "Build assets for the Drupal theme Mungo",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "npm install && gulp",
+    "build": "npm install && gulp sass:prod"
+  },
+  "devDependencies": {
+    "eslint": "^2.11.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-sass": "^2.2.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "jshint": "^2.9.1",
+    "jshint-stylish": "^2.1.0",
+    "node-bourbon": "^4.2.8",
+    "node-sass": "^3.4.2"
+  }
+}
