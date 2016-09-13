@@ -10,3 +10,6 @@ mungo-theme:
 
   js:
     js/bundle.js : {}
+  dependencies:
+    - core/jquery
+    - core/drupal
