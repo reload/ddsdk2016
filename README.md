@@ -6,6 +6,8 @@ Prerequisite:
 * Docker + docker-compose installed
 * Access to https://hub.docker.com/r/reload/db-data or a databasedump
 
+Then do either a manual or scripted reset.
+
 ### Manually
 * Run docker-compose up from the root of the project
 * Run `docker-compose run drush cim -y` 
