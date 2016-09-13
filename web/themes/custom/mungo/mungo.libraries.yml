@@ -1,7 +1,12 @@
-base:
+mungo-theme:
   version: 0.1
   css:
-    theme:
+    base:
       css/mungo.base.css: {}
-      css/mungo.components.css: {}
+    components:
+     css/mungo.components.css: {}
+    layout:
       css/mungo.layout.css: {}
+
+  js:
+    js/bundle.js : {}
