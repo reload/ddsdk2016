@@ -11,6 +11,9 @@ build:
     # Disable default dependencies - we where getting postgresql and redis.
     postgresql: false
     redis: false
+  dependencies:
+    after:
+      - 'mkdir tests/reports'
   tests:
     override:
       -
