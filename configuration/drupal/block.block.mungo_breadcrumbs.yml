@@ -1,15 +1,15 @@
-uuid: a934af94-d2d0-4ea6-91e7-1691fcfbebf3
+uuid: 9c39e935-7827-4bed-925c-767f9667cb30
 langcode: en
 status: true
 dependencies:
   module:
     - system
   theme:
-    - bartik
+    - mungo
 _core:
   default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
-id: bartik_breadcrumbs
-theme: bartik
+id: mungo_breadcrumbs
+theme: mungo
 region: breadcrumb
 weight: 0
 provider: null
