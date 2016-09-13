@@ -18,7 +18,7 @@ sudo echo ""
 
 # Clear all running containers.
 echoc "*** Removing existing containers" 
-docker-compose kill && docker-compose rm --all -v -f
+docker-compose kill && docker-compose rm -v -f
 
 # Composer silently kills any valid sudo leases, to avoid elevation-exploits in
 # scripts - we disable this to make sure we only have to give sudo a password
