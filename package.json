@@ -7,9 +7,8 @@
     "build": "npm install && gulp sass:prod"
   },
   "devDependencies": {
-    "eslint": "^2.11.1",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean": "^0.3.2",
     "gulp-jshint": "^2.0.0",
     "gulp-notify": "^2.2.0",
     "gulp-sass": "^2.2.0",
