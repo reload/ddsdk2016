@@ -1,18 +1,44 @@
-uuid: 0b004b05-a254-477b-8981-8223171f11d1
+uuid: 3d277426-0bd3-44ea-8fe2-50a167e654a8
 langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.article.field_main_media
+    - field.field.node.article.field_paragraphs
+    - field.field.node.article.field_subtitle
     - node.type.article
   module:
+    - entity_reference_revisions
     - user
-_core:
-  default_config_hash: 1x2VMLBhwpRPa-_Q_6J_ZN4QNazwCmP1dt01Zc-Iors
 id: node.article.default
 targetEntityType: node
 bundle: article
 mode: default
 content:
+  field_main_media:
+    type: entity_reference_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+  field_paragraphs:
+    type: entity_reference_revisions_entity_view
+    weight: 3
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_subtitle:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
   links:
-    weight: 100
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
 hidden: {  }

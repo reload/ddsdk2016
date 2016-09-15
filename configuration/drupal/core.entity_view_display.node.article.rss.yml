@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.rss
+    - field.field.node.article.field_main_media
     - node.type.article
   module:
     - user
@@ -16,4 +17,5 @@ mode: rss
 content:
   links:
     weight: 100
-hidden: {  }
+hidden:
+  field_main_media: true

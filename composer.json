@@ -22,7 +22,10 @@
         "drupal/core": "~8.2",
         "drush/drush": "~8.0",
         "drupal/console": "~1.0",
-        "drupal/paragraphs": "^8"
+        "drupal/paragraphs": "^8",
+        "drupal/media_entity": "^8",
+        "drupal/media_entity_image": "^8",
+        "drupal/inline_entity_form": "^8"
     },
     "require-dev": {
         "behat/mink": "~1.7",
