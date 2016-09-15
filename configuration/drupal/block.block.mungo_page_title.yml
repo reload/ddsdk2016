@@ -1,13 +1,13 @@
-uuid: 59f6dfbc-a446-48f4-921c-26b4e5a7df5c
+uuid: 9a2839a7-b197-450f-8cf6-c51b0b8d1534
 langcode: en
 status: true
 dependencies:
   theme:
-    - bartik
+    - mungo
 _core:
   default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
-id: bartik_page_title
-theme: bartik
+id: mungo_page_title
+theme: mungo
 region: content
 weight: -50
 provider: null

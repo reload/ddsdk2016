@@ -1,4 +1,4 @@
-uuid: 7bbcb783-550c-4513-8391-50b5d2041000
+uuid: 193a52fb-c4ab-47e5-b20c-c7c1204d5ab0
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,11 @@ dependencies:
   module:
     - system
   theme:
-    - bartik
+    - mungo
 _core:
   default_config_hash: DweBpscQZdG0-fHkSpUzdYucrNH45G_KF7Z82V-oyQM
-id: bartik_account_menu
-theme: bartik
+id: mungo_account_menu
+theme: mungo
 region: secondary_menu
 weight: 0
 provider: null
