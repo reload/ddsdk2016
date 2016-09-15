@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_main_media
     - media_entity.bundle.image
+    - media_entity.bundle.video
     - node.type.article
 id: node.article.field_main_media
 field_name: field_main_media
@@ -21,8 +22,9 @@ settings:
   handler_settings:
     target_bundles:
       image: image
+      video: video
     sort:
       field: _none
     auto_create: false
-    auto_create_bundle: ''
+    auto_create_bundle: image
 field_type: entity_reference
