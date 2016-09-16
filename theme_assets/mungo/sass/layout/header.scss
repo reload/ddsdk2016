@@ -1,0 +1,85 @@
+.inline-children {
+  & > * {
+    display: inline-block;
+  }
+}
+
+/**
+ * Header specifics.
+ */
+
+/**
+ * Fix position the header and push the content same height.
+ */
+header.header-fixed {
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  top: 0;
+  z-index:1;
+}
+body .layout-container {
+  padding-top: 100px;
+}
+
+
+header.header-fixed {
+  /**
+   * Box shadow soley for development purpose.
+   */
+  box-shadow: 0 0 10px red;
+  .region-top-menu {
+    height: 30px;
+    .container {
+      padding-top: 4px;
+    }
+  }
+
+  .region-primary-menu {
+    height: 70px;
+    text-transform: uppercase;
+    .container {
+      position: relative;
+      .block-system-branding-block {
+        position: absolute;
+        top: $spacing-small;
+        left: 0;
+        img {
+          width: 122px;
+          height: 50px;
+        }
+      }
+      .block-system-menu-blockmain {
+        padding-top: 24px;
+      }
+    }
+  }
+
+  /**
+   * Searchbox in header.
+   */
+
+  .block-search {
+    label {
+      color: $bluish;
+      margin-left: $spacing-large;
+      &:after {
+        content: '';
+      }
+    }
+    position: relative;
+    form {
+      position: absolute;
+      display: none;
+    }
+    #search-field-expose {
+      display: none;
+      &:checked ~ form {
+        display: block;
+      }
+    }
+
+  }
+}
+
+

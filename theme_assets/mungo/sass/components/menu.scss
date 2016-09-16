@@ -1,0 +1,17 @@
+.dropdown-menu {
+  ul ul {
+    display: none;
+  }
+}
+.inline-menu {
+  // Spacing should be large, but only half of it pr element.
+  $halfsize: $spacing-large / 2;
+  ul {
+    // Subtract the added spacing on the container.
+    margin: 0 (-$halfsize);
+  }
+  li {
+    display: inline-block;
+    margin: 0 $halfsize;
+  }
+}
