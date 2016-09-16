@@ -19,3 +19,5 @@ content:
     weight: 100
 hidden:
   field_main_media: true
+  field_paragraphs: true
+  field_subtitle: true
