@@ -17,21 +17,30 @@ echoc () {
 sudo echo ""
 
 # Clear all running containers.
-echoc "*** Removing existing containers" 
+echoc "*** Removing existing containers"
 docker-compose kill && docker-compose rm -v -f
+
+# TODO: The following asset and package-related steps should be performed in a
+#       build-script placed in a standard location eg scripts/build
 
 # Composer silently kills any valid sudo leases, to avoid elevation-exploits in
 # scripts - we disable this to make sure we only have to give sudo a password
 # once.
-echoc "Composer install'ing"
+echoc "*** Composer installing"
 COMPOSER_ALLOW_SUPERUSER=1 composer install
 
+echoc "*** NPM installing"
+npm install
+
+echoc "*** Doing an initial gulp build"
+gulp build
+
 # Start up containers in the background and continue imidiately
-echoc "*** Starting new containers" 
+echoc "*** Starting new containers"
 docker-compose up --remove-orphans -d
 
 # Sleep while containers are starting up then perform a reset
-sleep ${SLEEP_BEFORE_RESET} 
+sleep ${SLEEP_BEFORE_RESET}
 
 # Perform the drupal-specific reset
 echoc "*** Resetting Drupal"
