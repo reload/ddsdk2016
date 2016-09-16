@@ -4,11 +4,14 @@
   }
 }
 .inline-menu {
+  // Spacing should be large, but only half of it pr element.
+  $halfsize: $spacing-large / 2;
   ul {
-    margin: 0 (- $spacing-large / 2);
+    // Subtract the added spacing on the container.
+    margin: 0 (-$halfsize);
   }
   li {
     display: inline-block;
-    margin: 0 ($spacing-large / 2);
+    margin: 0 $halfsize;
   }
 }

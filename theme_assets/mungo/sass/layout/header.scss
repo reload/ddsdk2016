@@ -1,3 +1,16 @@
+.inline-children {
+  & > * {
+    display: inline-block;
+  }
+}
+
+/**
+ * Header specifics.
+ */
+
+/**
+ * Fix position the header and push the content same height.
+ */
 header.header-fixed {
   position: fixed;
   width: 100%;
@@ -9,15 +22,6 @@ body .layout-container {
   padding-top: 100px;
 }
 
-.inline-children {
-  & > * {
-    display: inline-block;
-  }
-}
-
-/**
- * Header specifics.
- */
 
 header.header-fixed {
   /**
