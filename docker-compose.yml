@@ -37,7 +37,7 @@ services:
   db:
     image: mariadb:10
     ports:
-      - '3306'
+      - '3306:3306'
     volumes_from:
       - db-data
     # Notice the following environment-variables only takes effect if db-data
