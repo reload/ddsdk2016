@@ -1,15 +1,15 @@
-uuid: 8bfd4317-7950-4a5e-ba9a-8d22cce5e3ea
+uuid: 5d11e87b-5aae-4f97-85f6-70225b545ae0
 langcode: en
 status: true
 dependencies:
   module:
     - help
   theme:
-    - bartik
+    - mungo
 _core:
   default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
-id: bartik_help
-theme: bartik
+id: mungo_help
+theme: mungo
 region: content
 weight: -30
 provider: null

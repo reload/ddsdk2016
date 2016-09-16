@@ -1,0 +1,16 @@
+mungo-theme:
+  version: 0.1
+  css:
+    base:
+      css/bootstrap.custom.css: {}
+      css/mungo.base.css: {}
+    components:
+     css/mungo.components.css: {}
+    layout:
+      css/mungo.layout.css: {}
+
+  js:
+    js/bundle.js : {}
+  dependencies:
+    - core/jquery
+    - core/drupal
