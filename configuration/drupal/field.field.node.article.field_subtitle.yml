@@ -10,7 +10,7 @@ field_name: field_subtitle
 entity_type: node
 bundle: article
 label: Subtitle
-description: ''
+description: 'Lead- text displayed after the articles title. Also used as the articles default summary.'
 required: false
 translatable: false
 default_value: {  }

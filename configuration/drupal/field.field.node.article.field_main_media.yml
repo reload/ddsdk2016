@@ -12,7 +12,7 @@ field_name: field_main_media
 entity_type: node
 bundle: article
 label: 'Main Media'
-description: ''
+description: 'Add an image or a video as the main media displayed as the lead element of the article and in lists and elements that references the article.'
 required: false
 translatable: false
 default_value: {  }

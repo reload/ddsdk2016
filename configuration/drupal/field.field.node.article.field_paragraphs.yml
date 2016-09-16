@@ -13,7 +13,7 @@ field_name: field_paragraphs
 entity_type: node
 bundle: article
 label: Paragraphs
-description: ''
+description: 'The article is build up by a number of paragraphs. Select the type you want to add.'
 required: false
 translatable: false
 default_value: {  }
