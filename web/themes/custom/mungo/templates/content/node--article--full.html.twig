@@ -78,31 +78,46 @@
     node.isSticky() ? 'node--sticky',
     not node.isPublished() ? 'node--unpublished',
     view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'col-lg-8',
   ]
 %}
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
 
-  {{ title_prefix }}
-  {% if not page %}
-    <h2{{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
-  {% endif %}
-  {{ title_suffix }}
+    {{ title_prefix }}
+    {% if not page %}
+      <h2{{ title_attributes }}>
+        <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+      </h2>
+    {% else %}
+      <h1 class="page-title">{{ label }}</h1>
+    {% endif %}
 
-  {% if display_submitted %}
-    <footer class="node__meta">
-      {{ author_picture }}
-      <div{{ author_attributes.addClass('node__submitted') }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-        {{ metadata }}
-      </div>
-    </footer>
-  {% endif %}
+
+    {{ title_suffix }}
+
+    {% if display_submitted %}
+      <footer class="node__meta">
+          {{ author_picture }}
+        <div{{ author_attributes.addClass('node__submitted') }}>
+            {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+            {{ metadata }}
+        </div>
+      </footer>
+    {% endif %}
 
   <div{{ content_attributes.addClass('node__content') }}>
-    {{ content }}
+      {{ content }}
   </div>
 
 </article>
+
+<aside class="col-lg-4" style="background-color: #f5f5f5">
+  <h2>Hurtige genveje</h2>
+  <ul>
+    <li>Some link</li>
+    <li>Some link</li>
+    <li>Some link</li>
+    <li>Some link</li>
+  </ul>
+</aside>
