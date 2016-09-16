@@ -17,3 +17,4 @@ Then do either a manual or scripted reset.
 
 ### Scripted
 From the root of the project, execute `scripts/docker/docker-reset.sh`
+
