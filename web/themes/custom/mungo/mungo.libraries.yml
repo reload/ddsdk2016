@@ -8,9 +8,11 @@ mungo-theme:
      css/mungo.components.css: {}
     layout:
       css/mungo.layout.css: {}
+    theme:
+      css/mungo.theme.css: {}
 
   js:
-    js/bundle.js : {}
+    js/base.js : {}
   dependencies:
     - core/jquery
     - core/drupal

@@ -1,0 +1,6 @@
+.right-aligned {
+  // For some odd reason all menus are left aligned.
+  &, ul.menu {
+    text-align: right;
+  }
+}

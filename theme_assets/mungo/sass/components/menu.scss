@@ -1,0 +1,14 @@
+.dropdown-menu {
+  ul ul {
+    display: none;
+  }
+}
+.inline-menu {
+  ul {
+    margin: 0 (- $spacing-large / 2);
+  }
+  li {
+    display: inline-block;
+    margin: 0 ($spacing-large / 2);
+  }
+}

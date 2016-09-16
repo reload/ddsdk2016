@@ -1,0 +1,14 @@
+.marine-background {
+  background-color: $marine-blue;
+  &, a {
+    color: #fff;
+  }
+}
+
+.white-background {
+  background-color: #fff;
+  &, a {
+    color: #000;
+  }
+
+}
