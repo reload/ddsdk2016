@@ -1,6 +1,6 @@
 uuid: 193a52fb-c4ab-47e5-b20c-c7c1204d5ab0
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.account
@@ -12,7 +12,7 @@ _core:
   default_config_hash: DweBpscQZdG0-fHkSpUzdYucrNH45G_KF7Z82V-oyQM
 id: mungo_account_menu
 theme: mungo
-region: secondary_menu
+region: '-1'
 weight: 0
 provider: null
 plugin: 'system_menu_block:account'
