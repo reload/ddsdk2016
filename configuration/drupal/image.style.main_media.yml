@@ -1,0 +1,7 @@
+uuid: 08a3e11b-b150-40b8-8735-5e74093ce3a5
+langcode: en
+status: true
+dependencies: {  }
+name: main_media
+label: 'Main Media'
+effects: {  }
