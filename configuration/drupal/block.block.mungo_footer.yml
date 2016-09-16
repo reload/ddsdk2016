@@ -1,6 +1,6 @@
 uuid: d5c96c52-12d9-4e34-b763-e3484b71b102
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.footer
@@ -12,8 +12,8 @@ _core:
   default_config_hash: kkISXE1LT2FJEoYnqCrCpeFB-2pmGmMxMklVk7rQcfg
 id: mungo_footer
 theme: mungo
-region: footer_menu
-weight: -6
+region: '-1'
+weight: -3
 provider: null
 plugin: 'system_menu_block:footer'
 settings:
