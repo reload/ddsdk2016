@@ -4,3 +4,9 @@
     text-align: right;
   }
 }
+
+.aligned--center {
+  &, ul.menu {
+    text-align: center;
+  }
+}
