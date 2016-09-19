@@ -5,13 +5,15 @@
 /**
  * SMACSS Base.
  */
-@import "base/typography";
 @import "base/alignment";
+@import "base/media";
+@import "base/typography";
 
 /**
  * SMACSS Components.
  */
 @import "components/menu";
+@import "components/main-media";
 
 /**
  * SMACSS Layout.
