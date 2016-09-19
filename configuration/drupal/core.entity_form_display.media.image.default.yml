@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.media.image.field_byline
+    - field.field.media.image.field_caption
     - field.field.media.image.field_image
     - image.style.thumbnail
     - media_entity.bundle.image
@@ -13,8 +15,22 @@ targetEntityType: media
 bundle: image
 mode: default
 content:
+  field_byline:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_caption:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
   field_image:
-    weight: 11
+    weight: 0
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
