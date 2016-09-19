@@ -1,0 +1,24 @@
+uuid: 24333084-1e8a-493a-b8b7-e4153bad54de
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-social
+  module:
+    - system
+  theme:
+    - mungo
+id: footersocial
+theme: mungo
+region: footer_social
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer-social'
+settings:
+  id: 'system_menu_block:footer-social'
+  label: 'Følg os her'
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+visibility: {  }

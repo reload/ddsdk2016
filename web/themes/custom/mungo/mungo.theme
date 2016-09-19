@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * @file
+ * Main theme-file for the Mungo theme.
+ */
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function mungo_preprocess_field(&$variables) {
+  $field_name = $variables['field_name'];
+  if (in_array($variables['field_name'], ['field_caption', 'field_byline'])) {
+    // Handle various main-media fields.
+    _mungo_preprocess_field_main_media($field_name, $variables);
+  } elseif (in_array($field_name, ['field_subtitle', 'field_formatted_text'])) {
+    _mungo_preprocess_field_article_text($field_name, $variables);
+  }
+}
+
+/**
+ * Internal function for processing main media fields.
+ *
+ * @param $field_name
+ *   The field currently being preprocessed.
+ *
+ * @param $variables
+ *   Variables to preprocess
+ */
+function _mungo_preprocess_field_main_media($field_name, &$variables) {
+  if ($field_name == 'field_caption') {
+    $variables['attributes']['class'][] = 'caption';
+  } elseif ($field_name == 'field_byline') {
+    $variables['attributes']['class'][] = 'byline';
+  }
+}
+
+/**
+ * Internal function for processing main media fields.
+ *
+ * @param $field_name
+ *   The field currently being preprocessed.
+ *
+ * @param $variables
+ *   Variables to preprocess
+ */
+function _mungo_preprocess_field_article_text($field_name, &$variables) {
+  $variables['attributes']['class'][] = 'article-text';
+
+  if ($field_name == 'field_subtitle') {
+    $variables['attributes']['class'][] = 'subtitle';
+  }
+
+}
