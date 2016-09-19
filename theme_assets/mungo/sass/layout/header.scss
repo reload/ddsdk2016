@@ -1,16 +1,3 @@
-.inline-children {
-  & > * {
-    display: inline-block;
-  }
-}
-
-/**
- * Header specifics.
- */
-
-/**
- * Fix position the header and push the content same height.
- */
 header.header-fixed {
   position: fixed;
   width: 100%;
@@ -22,6 +9,15 @@ body .layout-container {
   padding-top: 100px;
 }
 
+.inline-children {
+  & > * {
+    display: inline-block;
+  }
+}
+
+/**
+ * Header specifics.
+ */
 
 header.header-fixed {
   /**
@@ -37,7 +33,6 @@ header.header-fixed {
 
   .region-primary-menu {
     height: 70px;
-    text-transform: uppercase;
     .container {
       position: relative;
       .block-system-branding-block {
@@ -49,7 +44,7 @@ header.header-fixed {
           height: 50px;
         }
       }
-      .block-system-menu-blockmain {
+      .menu--main {
         padding-top: 24px;
       }
     }
