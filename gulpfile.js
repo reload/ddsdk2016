@@ -18,7 +18,9 @@ var path = {
   css: 'web/themes/custom/mungo/css',
   js_src: 'theme_assets/mungo/javascript',
   js_dest: 'web/themes/custom/mungo/js',
-  bootstrap: 'node_modules/bootstrap-sass/assets/stylesheets'
+  bootstrap: 'node_modules/bootstrap-sass/assets/stylesheets',
+  images_src: 'theme_assets/mungo/images',
+  images_dest: 'web/themes/custom/mungo/images'
 };
 
 gulp.task('sass', function () {
@@ -41,10 +43,16 @@ gulp.task('javascript', function () {
 
     .pipe(gulp.dest(path.js_dest))
 });
+gulp.task('images', function () {
+  return gulp.src(path.images_src + '/*.*')
+
+    .pipe(gulp.dest(path.images_dest))
+});
 
 gulp.task('watch', function () {
   gulp.watch([path.sass + '/*.scss', path.sass + '/*/*.scss'], ['sass']);
   gulp.watch(path.js_src + '/*.js', ['javascript']);
+  gulp.watch(path.js_src + '/*.js', ['images']);
 });
 
 gulp.task('clean', function () {
@@ -52,6 +60,4 @@ gulp.task('clean', function () {
     .pipe(clean());
 });
 
-gulp.task('build', ['clean', 'sass', 'javascript']);
-
-gulp.task('default', ['clean', 'sass', 'javascript', 'watch']);
+gulp.task('default', ['clean', 'sass', 'javascript', 'images', 'watch']);
