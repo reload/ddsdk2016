@@ -62,7 +62,9 @@ hooks:
     # Build theme assets.
     build: |
       mv web/sites/default/settings.platformsh.php web/sites/default/settings.php
-    # TODO: npm build
+      npm install
+      gulp build
+
     # We run deploy hook after your application has been deployed and started.
     deploy: |
       cd web
