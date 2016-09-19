@@ -1,6 +1,6 @@
 uuid: a31b0655-393d-4c77-8966-282435c36a10
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -10,8 +10,8 @@ _core:
   default_config_hash: jQQUUWN2Uxr5qZtc9zcJKBCxpKY8orN1u2HPqYYRQDI
 id: mungo_powered
 theme: mungo
-region: sidebar_first
-weight: -5
+region: '-1'
+weight: -7
 provider: null
 plugin: system_powered_by_block
 settings:
