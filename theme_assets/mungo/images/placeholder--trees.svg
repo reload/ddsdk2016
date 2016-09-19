@@ -1,0 +1,6 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'>
+  <rect width='100%' height='100%' fill='#1d6d38'/>
+  <line x1='0' x2='100' y1='0' y2='100' stroke='gainsboro'/>
+  <line x1='100' x2='0' y1='0' y2='100' stroke='gainsboro'/>
+  <text x='50' y='57' font-size='22' font='Verdana, sans-serif' fill='white' text-anchor='middle'>Trees</text>
+</svg>

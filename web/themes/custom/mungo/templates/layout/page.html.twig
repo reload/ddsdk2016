@@ -78,11 +78,21 @@
         {% endif %}
 
     </main>
+    <footer role="contentinfo">
+        <div class="footer_top marine-lighter-background">
+            <div class="container">
+                {{ page.footer_menu }}
+                {{ page.footer_contact }}
+            </div>
+        </div>
+        <div class="footer_bottom marine-background">
+            <div class="container">
+                {{ page.footer_social }}
+            </div>
 
-    {% if page.footer %}
-        <footer role="contentinfo">
-            {{ page.footer }}
-        </footer>
-    {% endif %}
+        </div>
+
+
+    </footer>
 
 </div>{# /.layout-container #}

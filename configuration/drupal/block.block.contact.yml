@@ -1,0 +1,25 @@
+uuid: 7997aa49-5ab6-4c32-a8d1-c8ba0d5e1225
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:a08c08a9-2bdb-4d9c-8b91-509f4286cde0'
+  module:
+    - block_content
+  theme:
+    - mungo
+id: contact
+theme: mungo
+region: footer_contact
+weight: -7
+provider: null
+plugin: 'block_content:a08c08a9-2bdb-4d9c-8b91-509f4286cde0'
+settings:
+  id: 'block_content:a08c08a9-2bdb-4d9c-8b91-509f4286cde0'
+  label: Kontakt
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

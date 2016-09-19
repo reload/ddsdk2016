@@ -4,6 +4,13 @@
     color: #fff;
   }
 }
+.marine-lighter-background {
+  background-color: $marine-lighter-blue;
+  &, a {
+    color: #fff;
+  }
+}
+
 
 .white-background {
   background-color: #fff;
