@@ -60,4 +60,6 @@ gulp.task('clean', function () {
     .pipe(clean());
 });
 
+gulp.task('build', ['clean', 'sass', 'javascript', 'images']);
+
 gulp.task('default', ['clean', 'sass', 'javascript', 'images', 'watch']);
