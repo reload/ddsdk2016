@@ -1,0 +1,33 @@
+.menu--dropdown {
+  .menu-item--expanded ul {
+    display: none;
+  }
+}
+
+.menu--inline {
+
+  // Spacing should be large, but only half of it pr element.
+  $halfsize: $spacing-large / 2;
+  &.menu {
+    // Subtract the added spacing on the container.
+    margin: 0 (-$halfsize);
+    li {
+      display: inline-block;
+      margin: 0 $halfsize;
+      vertical-align: top;
+
+      li {
+        display: block;
+      }
+    }
+  }
+}
+
+.menu--capitalize-first-level {
+   li {
+    text-transform: uppercase;
+     li {
+       text-transform: none;
+     }
+  }
+}

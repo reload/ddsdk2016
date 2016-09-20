@@ -1,0 +1,8 @@
+uuid: d33eecd6-33a3-4941-8f59-8e15b4b41cfd
+langcode: en
+status: true
+dependencies: {  }
+id: top-menu
+label: 'Top menu'
+description: 'Site top menu'
+locked: false

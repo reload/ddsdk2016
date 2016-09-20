@@ -3,14 +3,9 @@ mungo-theme:
   css:
     base:
       css/bootstrap.custom.css: {}
-      css/mungo.base.css: {}
-    components:
-     css/mungo.components.css: {}
-    layout:
-      css/mungo.layout.css: {}
-
+      css/mungo.bundle.css: {}
   js:
-    js/bundle.js : {}
+    js/base.js : {}
   dependencies:
     - core/jquery
     - core/drupal

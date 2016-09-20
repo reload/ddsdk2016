@@ -1,6 +1,6 @@
 uuid: 9a2839a7-b197-450f-8cf6-c51b0b8d1534
 langcode: en
-status: true
+status: false
 dependencies:
   theme:
     - mungo
@@ -8,8 +8,8 @@ _core:
   default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
 id: mungo_page_title
 theme: mungo
-region: content
-weight: -50
+region: '-1'
+weight: -6
 provider: null
 plugin: page_title_block
 settings:

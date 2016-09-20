@@ -1,0 +1,21 @@
+uuid: 7741e71a-486e-4d90-8685-873a328d2c46
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_formatted_text
+    - paragraphs.paragraphs_type.text
+  module:
+    - text
+id: paragraph.text.field_formatted_text
+field_name: field_formatted_text
+entity_type: paragraph
+bundle: text
+label: text
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
