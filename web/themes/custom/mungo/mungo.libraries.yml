@@ -13,5 +13,5 @@ typekit:
   version: 1.x
   header: true
   js:
-    //use.typekit.net/del2tvj.js: { every_page: true }
+    https://use.typekit.net/del2tvj.js: { every_page: true }
     js/typekit.js: { every_page: true }
