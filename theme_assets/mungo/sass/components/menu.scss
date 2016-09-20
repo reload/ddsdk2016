@@ -4,11 +4,17 @@
   }
 }
 
+.menu--clean {
+  li {
+    padding: 0;
+  }
+}
+
 .menu--inline {
 
   // Spacing should be large, but only half of it pr element.
   $halfsize: $spacing-large / 2;
-  &.menu {
+  &.menu--clean {
     // Subtract the added spacing on the container.
     margin: 0 (-$halfsize);
     li {

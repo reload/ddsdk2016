@@ -27,7 +27,8 @@ header.header-fixed {
   .region-top-menu {
     height: 30px;
     .container {
-      padding-top: 4px;
+      // Centre menu vertically, visually.
+      padding-top: 7px;
     }
   }
 
@@ -46,7 +47,8 @@ header.header-fixed {
         }
       }
       .menu--main {
-        padding-top: 24px;
+        // Centre menu vertically, visually.
+        padding-top: 27px;
       }
     }
   }
@@ -57,6 +59,18 @@ header.header-fixed {
 
   .block-search {
     label {
+
+      &:after {
+        content: ' ';
+        background: url('../images/placeholder.svg');
+        height: 15px;
+        width: 15px;
+        display: inline-block;
+        margin-left: $spacing-small;
+      }
+      // Make search "link/button/menuitem" standout.
+      cursor: pointer;
+      text-transform: uppercase;
       color: $bluish;
       margin-left: $spacing-large;
       &:after {
@@ -65,9 +79,12 @@ header.header-fixed {
     }
     position: relative;
     form {
+      width: 100%;
+      background: red;
       position: absolute;
       display: none;
     }
+    // Open collapse search field.
     #search-field-expose {
       display: none;
       &:checked ~ form {
