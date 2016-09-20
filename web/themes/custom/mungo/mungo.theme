@@ -52,3 +52,16 @@ function _mungo_preprocess_field_article_text($field_name, &$variables) {
   }
 
 }
+
+/**
+ * Internal function for processing main media fields.
+ *
+ * @param $field_name
+ *   The field currently being preprocessed.
+ *
+ * @param $variables
+ *   Variables to preprocess
+ */
+function _mungo_preprocess_menu(&$variables) {
+  var_dump($variables);
+}

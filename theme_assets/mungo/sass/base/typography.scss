@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css?family=Alfa+Slab+One|Enriqueta|Montserrat';
+@import 'https://fonts.googleapis.com/css?family=Alfa+Slab+One|Enriqueta';
 
 body {
   font-size: 13px;
@@ -23,4 +23,13 @@ h1.page-title {
   &.subtitle {
     font-weight: bold;
   }
+}
+
+
+.capitalized-menu-item {
+  font-size: 1em;
+  margin: 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
 }
