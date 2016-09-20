@@ -9,3 +9,9 @@ mungo-theme:
   dependencies:
     - core/jquery
     - core/drupal
+typekit:
+  version: 1.x
+  header: true
+  js:
+    https://use.typekit.net/del2tvj.js: { every_page: true }
+    js/typekit.js: { every_page: true }

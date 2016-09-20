@@ -8,6 +8,7 @@ core: 8.x
 
 libraries:
   - mungo/mungo-theme
+  - mungo/typekit
 
 regions:
   header: Header

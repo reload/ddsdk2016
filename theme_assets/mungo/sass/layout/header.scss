@@ -28,7 +28,7 @@ header.header-fixed {
     height: 30px;
     .container {
       // Centre menu vertically, visually.
-      padding-top: 7px;
+      padding-top: 8px;
     }
   }
 
@@ -48,7 +48,7 @@ header.header-fixed {
       }
       .menu--main {
         // Centre menu vertically, visually.
-        padding-top: 27px;
+        padding-top: 28px;
       }
     }
   }
@@ -70,7 +70,6 @@ header.header-fixed {
       }
       // Make search "link/button/menuitem" standout.
       cursor: pointer;
-      text-transform: uppercase;
       color: $bluish;
       margin-left: $spacing-large;
       &:after {
