@@ -1,5 +1,5 @@
 (function ($, Drupal) {
-  Drupal.behaviors.myModuleBehavior = {
+  Drupal.behaviors.move_header = {
     attach: function (context, settings) {
       /**
        * Position the site menu when toolbar is active.
