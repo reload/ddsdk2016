@@ -1,7 +1,13 @@
 
+.footer_bottom {
+  padding: $spacing-large 0;
 
+}
 
 .menu--social-links {
+  // Set relative in order to position graphics used in footer.
+  position: relative;
+  padding-top: $spacing-small;
   &:after {
     content: '';
     background: url('../images/placeholder--trees.svg');
@@ -10,7 +16,7 @@
     display: block;
     position: absolute;
     right: 0;
-    bottom: 0;
+    bottom: -$spacing-large;
   }
 }
 
