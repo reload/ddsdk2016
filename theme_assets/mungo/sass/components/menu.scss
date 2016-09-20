@@ -4,14 +4,22 @@
   }
 }
 
+// Must be set directly on UL or OL.
 .menu--clean {
-  li {
+  &, li {
+    margin: 0;
+    list-style: none;
     padding: 0;
+  }
+}
+// Must be set directly on LI.
+.menu--arrow-item {
+  &:before {
+    content: "\2192";
   }
 }
 
 .menu--inline {
-
   // Spacing should be large, but only half of it pr element.
   $halfsize: $spacing-large / 2;
   &.menu--clean {
@@ -26,14 +34,5 @@
         display: block;
       }
     }
-  }
-}
-
-.menu--capitalize-first-level {
-   li {
-
-     li {
-       text-transform: none;
-     }
   }
 }

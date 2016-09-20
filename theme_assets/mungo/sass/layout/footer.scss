@@ -1,8 +1,14 @@
 
+.footer_top {
+  .menu--footer li {
+    padding-top: $spacing-small;
+  }
+}
+
 .footer_bottom {
   padding: $spacing-large 0;
-
 }
+
 
 .menu--social-links {
   // Set relative in order to position graphics used in footer.

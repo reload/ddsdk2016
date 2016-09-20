@@ -38,7 +38,7 @@
     %}
 <ul{{ attributes.addClass(classes) }}>
     {% else %}
-    <ul class="menu">
+    <ul class="menu--clean">
         {% endif %}
         {% for item in items %}
             {%
@@ -52,7 +52,9 @@
         {% if menu_level == 0 %}
             {% set classes = classes|merge(['col-lg-2']) %}
         {% endif %}
-
+        {% if menu_level == 1 %}
+            {% set classes = classes|merge(['menu--arrow-item']) %}
+        {% endif %}
             <li{{ item.attributes.addClass(classes) }}>
                 {% if menu_level == 0 %}
                 {{ link(item.title, item.url, { 'class':['capitalized-menu-item']}) }}
