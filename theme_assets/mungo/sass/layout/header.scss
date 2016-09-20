@@ -38,7 +38,8 @@ header.header-fixed {
       .block-system-branding-block {
         position: absolute;
         top: $spacing-small;
-        left: 0;
+        // Move left to align with bootstraps .container.b
+        left: $spacing-small;
         img {
           width: 122px;
           height: 50px;
