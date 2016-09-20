@@ -1,0 +1,29 @@
+uuid: b7ae785b-f4a7-42af-89ea-502eb3fe4d2c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.person.field_person_image
+    - field.field.taxonomy_term.person.field_presentation_name
+    - taxonomy.vocabulary.person
+id: taxonomy_term.person.default
+targetEntityType: taxonomy_term
+bundle: person
+mode: default
+content:
+  field_person_image:
+    weight: 0
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_presentation_name:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+hidden:
+  description: true

@@ -1,0 +1,51 @@
+uuid: b56dbb98-81e8-4c44-bec0-6b7e44f4cc89
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.person.field_person_image
+    - field.field.taxonomy_term.person.field_presentation_name
+    - taxonomy.vocabulary.person
+  module:
+    - inline_entity_form
+    - text
+id: taxonomy_term.person.default
+targetEntityType: taxonomy_term
+bundle: person
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 3
+    settings:
+      placeholder: ''
+      rows: 5
+    third_party_settings: {  }
+  field_person_image:
+    weight: 1
+    settings:
+      form_mode: default
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      match_operator: CONTAINS
+      override_labels: false
+      allow_existing: false
+    third_party_settings: {  }
+    type: inline_entity_form_complex
+  field_presentation_name:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  name:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  path: true
