@@ -1,0 +1,68 @@
+<?php
+
+/**
+ * @file
+ * Module for handling the Person term and its usage.
+ */
+
+use Drupal\user\Entity\User;
+
+/**
+ * Implements hook_form_alter().
+ */
+function dds_person_form_alter(&$form, &$form_state, $form_id) {
+
+  // Pre-select a default-author if the user has specified one in his or her
+  // profile.
+  // We only alter specific forms we know to contain the author-field.
+  if (in_array($form_id, ['node_article_form'])) {
+    // Only continue if we can find a default person.
+    if (empty($person_term = dds_person_default_person_for_user())) {
+      return;
+    }
+
+    // Make sure we're dealing with a select-list. Should this change we'd have
+    // to update the pre-selection code.
+    if (!empty($form['field_content_author']['widget']['#type']) && $form['field_content_author']['widget']['#type'] == 'select') {
+
+      // If the widget does not already have a value, use the default from the
+      // currently logged in user.
+      if (empty($form['field_content_author']['widget']['#default_value'])) {
+        $form['field_content_author']['widget']['#default_value'][] = $person_term->id();
+      }
+    }
+  }
+}
+
+/**
+ * Finds the default person for a user.
+ *
+ * @param int $uid
+ *   UID of the user to load the default person for, defaults to current user.
+ *
+ * @return null|Term
+ *   Returns NULL if the user has not specified a person term, or if the term
+ *   could not be found. If found the term is returned.
+ */
+function dds_person_default_person_for_user($uid = NULL) {
+  if ($uid == NULL) {
+    $uid = \Drupal::currentUser()->id();
+  }
+
+  // Make sure the user has a default (at this point we can assume the user is
+  // logged in as the form was hit).
+  try {
+    $user = User::load($uid);
+    $default_author = $user->get('field_user_default_author');
+    if (empty($entity_reference = $default_author->first())) {
+      return NULL;
+    }
+
+    return $default_author->first()->entity;
+
+  }
+  catch (\InvalidArgumentException $e) {
+    // Unable to get the user, just fail silently.
+    return NULL;
+  }
+}
