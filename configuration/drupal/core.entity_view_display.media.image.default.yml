@@ -17,7 +17,7 @@ mode: default
 content:
   field_byline:
     weight: 1
-    label: hidden
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
