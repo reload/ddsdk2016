@@ -50,6 +50,9 @@ $settings['extension_discovery_scan_tests'] = TRUE;
 // Enable access to rebuild.php.
 $settings['rebuild_access'] = TRUE;
 
+// Set up stage file proxy.
+$config['stage_file_proxy.settings']['origin'] = 'http://develop-sr3snxi-55isd6w54kg6s.eu.platform.sh/';
+
 /**
  * Include environment-specific local overrides
  */
