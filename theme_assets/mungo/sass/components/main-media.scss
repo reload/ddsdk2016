@@ -6,20 +6,25 @@
 }
 
 .main-media {
-  .caption, .byline {
-  }
-}
 
-
-.main-media {
-  .byline {
-    float: right;
+  .byline, .caption {
     // Prevent the caption to the left of the byline to get to close if it
     // wraps.
-    padding-bottom: 1em;
 
+    padding-bottom: $spacing-small;
+    padding-top: $spacing-small;
+  }
+  .byline {
+
+    .byline--label {
+      &:after {
+        content: ':';
+      }
+    }
+    color: $warm-grey;
+    float: right;
     // Inject some spacing to the first line of the caption to the left of this
     // field.
-    padding-left: 2em;
+    padding-left: $spacing-small;
   }
 }

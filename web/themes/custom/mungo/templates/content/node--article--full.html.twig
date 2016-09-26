@@ -78,10 +78,12 @@
     node.isSticky() ? 'node--sticky',
     not node.isPublished() ? 'node--unpublished',
     view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-    'col-lg-8',
+    'col-lg-9',
   ]
 %}
 {{ attach_library('classy/node') }}
+<div class="container">
+<section class="row">
 <article{{ attributes.addClass(classes) }}>
 
     {{ title_prefix }}
@@ -112,12 +114,25 @@
 
 </article>
 
-<aside class="col-lg-4" style="background-color: #f5f5f5">
-  <h2>Hurtige genveje</h2>
-  <ul>
-    <li>Some link</li>
-    <li>Some link</li>
-    <li>Some link</li>
-    <li>Some link</li>
-  </ul>
+<aside class="col-lg-3">
+  <div style="background-color: #f5f5f5">
+    <h2>Hurtige genveje</h2>
+    <ul>
+      <li>Some link</li>
+      <li>Some link</li>
+      <li>Some link</li>
+      <li>Some link</li>
+    </ul>
+  </div>
+    <div style="background-color: #f5f5f5">
+        <h2>Mest læste</h2>
+        <ul>
+            <li>Some link</li>
+            <li>Some link</li>
+            <li>Some link</li>
+            <li>Some link</li>
+        </ul>
+    </div>
 </aside>
+</section>
+</div>
