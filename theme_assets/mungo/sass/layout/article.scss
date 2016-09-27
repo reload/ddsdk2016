@@ -1,0 +1,19 @@
+// General layout and styling for articles.
+.page-node-type-article {
+  // Author, share-links etc
+  .node__meta {
+    // Sourround the meta-area with borders on mobile.
+    border-top: 1px solid $pale-grey;
+    border-bottom: 1px solid $pale-grey;
+
+
+    display: flex;
+    align-items: center;
+
+    @media (min-width: $screen-lg-min) {
+      border: none;
+      display: block;
+    }
+  }
+}
+

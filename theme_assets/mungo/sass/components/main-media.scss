@@ -4,6 +4,10 @@
   @media (min-width: $screen-lg-min) {
     border-bottom: 1px solid $pale-grey;
   }
+
+  // Clear space between the image and the next article element.
+  margin-bottom: 10px;
+
   @include clearfix;
 }
 

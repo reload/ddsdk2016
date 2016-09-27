@@ -13,12 +13,14 @@
 /**
  * SMACSS Components.
  */
+@import "components/author-presentation";
 @import "components/menu";
 @import "components/main-media";
 
 /**
  * SMACSS Layout.
  */
+@import "layout/article";
 @import "layout/header";
 @import "layout/footer";
 @import "layout/footer--social-links";
