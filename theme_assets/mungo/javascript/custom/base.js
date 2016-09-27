@@ -1,3 +1,8 @@
+/**
+ * @file
+ * General javascript functionallity for the site.
+ */
+
 (function ($, Drupal) {
   Drupal.behaviors.move_header = {
     attach: function (context, settings) {

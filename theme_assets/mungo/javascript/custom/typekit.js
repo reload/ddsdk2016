@@ -6,5 +6,5 @@
 try {
   Typekit.load();
 }
-catch(e) {
+catch (e) {
 }
