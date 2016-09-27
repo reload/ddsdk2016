@@ -45,7 +45,7 @@ function dds_person_form_alter(&$form, &$form_state, $form_id) {
  *   could not be found. If found the term is returned.
  */
 function dds_person_default_person_for_user($uid = NULL) {
-  if ($uid == NULL) {
+  if ($uid === NULL) {
     $uid = \Drupal::currentUser()->id();
   }
 
