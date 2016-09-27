@@ -85,31 +85,45 @@
 <div class="container">
 <section class="row">
 <article{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if not page %}
+    <h2{{ title_attributes }}>
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+    </h2>
+  {% else %}
+    <h1 class="page-title">{{ label }}</h1>
+  {% endif %}
+  {{ title_suffix }}
 
-    {{ title_prefix }}
-    {% if not page %}
-      <h2{{ title_attributes }}>
-        <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-      </h2>
-    {% else %}
-      <h1 class="page-title">{{ label }}</h1>
-    {% endif %}
+  {{ content.field_main_media }}
+  <div class="hidden-md hidden-lg">{{ content.field_subtitle }}</div>
 
+  <div class="row">
+    <!-- Article author and matadata -->
+    <div class="col-lg-3">
+      <footer class="node__meta author-presentation">
+          <div class="author__image">
+              {{ author_presentation.image }}
+          </div>
 
-    {{ title_suffix }}
+          <div class="author__meta">
+            <div class="published-on">
+                {{ node.createdTime | format_date('publication_date') }}
+            </div>
 
-    {% if display_submitted %}
-      <footer class="node__meta">
-          {{ author_picture }}
-        <div{{ author_attributes.addClass('node__submitted') }}>
-            {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-            {{ metadata }}
-        </div>
+            <div class="author__name">
+                {% trans with {'context': 'Byline'} %}By: {{ author_presentation.name }}{% endtrans %}
+            </div>
+          </div>
       </footer>
-    {% endif %}
-
-  <div{{ content_attributes.addClass('node__content') }}>
-      {{ content }}
+    </div>
+    <!-- Article main content -->
+    <div{{ content_attributes.addClass(['node__content', 'col-lg-9']) }}>
+      <div class=" hidden-xs hidden-sm">{{ content.field_subtitle }}</div>
+      {# We leave out any fields we've output manually at this point #}
+      {# field_content_author is left out as it is a part of author_presentation #}
+      {{ content | without('field_content_author', 'field_subtitle', 'field_main_media' ) }}
+    </div>
   </div>
 
 </article>
