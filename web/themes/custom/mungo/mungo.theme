@@ -5,6 +5,9 @@
  * Main theme-file for the Mungo theme.
  */
 
+use Drupal\node\Entity\Node;
+use Drupal\taxonomy\Entity\Term;
+
 /**
  * Implements hook_preprocess_HOOK().
  */
@@ -13,24 +16,26 @@ function mungo_preprocess_field(&$variables) {
   if (in_array($variables['field_name'], ['field_caption', 'field_byline'])) {
     // Handle various main-media fields.
     _mungo_preprocess_field_main_media($field_name, $variables);
-  } elseif (in_array($field_name, ['field_subtitle', 'field_formatted_text'])) {
+  }
+  elseif (in_array($field_name, ['field_subtitle', 'field_formatted_text'])) {
     _mungo_preprocess_field_article_text($field_name, $variables);
   }
+
 }
 
 /**
  * Internal function for processing main media fields.
  *
- * @param $field_name
+ * @param string $field_name
  *   The field currently being preprocessed.
- *
- * @param $variables
- *   Variables to preprocess
+ * @param array $variables
+ *   Variables to preprocess.
  */
 function _mungo_preprocess_field_main_media($field_name, &$variables) {
   if ($field_name == 'field_caption') {
     $variables['attributes']['class'][] = 'caption';
-  } elseif ($field_name == 'field_byline') {
+  }
+  elseif ($field_name == 'field_byline') {
     $variables['attributes']['class'][] = 'byline';
   }
 }
@@ -38,30 +43,102 @@ function _mungo_preprocess_field_main_media($field_name, &$variables) {
 /**
  * Internal function for processing main media fields.
  *
- * @param $field_name
+ * @param string $field_name
  *   The field currently being preprocessed.
- *
- * @param $variables
- *   Variables to preprocess
+ * @param array $variables
+ *   Variables to preprocess.
  */
 function _mungo_preprocess_field_article_text($field_name, &$variables) {
   $variables['attributes']['class'][] = 'article-text';
 
-  if ($field_name == 'field_subtitle') {
+  if ($field_name === 'field_subtitle') {
     $variables['attributes']['class'][] = 'subtitle';
   }
 
 }
 
 /**
- * Internal function for processing main media fields.
+ * Implements hook_preprocess_HOOK().
  *
- * @param $field_name
- *   The field currently being preprocessed.
- *
- * @param $variables
- *   Variables to preprocess
+ * Preprocessing of variables for various content-types.
  */
-function _mungo_preprocess_menu(&$variables) {
-  var_dump($variables);
+function mungo_preprocess_node(&$variables) {
+  if (isset($variables['node'])) {
+    /** @var Node $node */
+    $node = $variables['node'];
+
+    if ($node->getType() === 'article') {
+      _mungo_preprocess_node_article($node, $variables);
+    }
+  }
+}
+
+/**
+ * Prepare variables for article-nodes.
+ */
+function _mungo_preprocess_node_article(Node $node, &$variables) {
+  // Add author presentation.
+  if (!empty($node->field_content_author->entity)) {
+    $presentation = _mungo_preprocess_author_presentation($node->field_content_author->entity);
+    if (!empty($presentation)) {
+      $variables['author_presentation'] = $presentation;
+    }
+  }
+
+}
+
+/**
+ * Render variables needed for presentation of a person as a author.
+ *
+ * @param Term $person
+ *   A Person term.
+ *
+ * @return array
+ *   The variables that could be extracted.
+ */
+function _mungo_preprocess_author_presentation(Term $person) {
+  if (!($person instanceof Term)
+    || $person->getVocabularyId() !== 'person'
+  ) {
+    // Bail out if we don't have the expected author.
+    \Drupal::logger('mungo')->error('Expected person term');
+    return [];
+  }
+
+  // Get the image off of the person.
+  if (!empty($person->field_person_image->entity->field_image->entity)) {
+    /** @var \Drupal\file\Entity\File $person_image */
+    $person_image = $person->field_person_image->entity->field_image->entity;
+
+    // Style the author image.
+    $image_style_vars = array(
+      'style_name' => 'author_image',
+      'uri' => $person_image->getFileUri(),
+    );
+
+    // The image.factory service will check if our image is valid.
+    /** @var \Drupal\Core\Image\Image $image */
+    $image = \Drupal::service('image.factory')->get($person_image->getFileUri());
+    if ($image->isValid()) {
+      $image_style_vars['width'] = $image->getWidth();
+      $image_style_vars['height'] = $image->getHeight();
+    }
+    else {
+      $image_style_vars['width'] = $image_style_vars['height'] = NULL;
+    }
+
+    // Setup render-array for the author image.
+    $return['image'] = [
+      '#theme' => 'image_style',
+      '#width' => $image_style_vars['width'],
+      '#height' => $image_style_vars['height'],
+      '#style_name' => $image_style_vars['style_name'],
+      '#uri' => $image_style_vars['uri'],
+    ];
+  }
+
+  // Extract the value to use as when presenting the author.
+  $return['name'] = $person->field_presentation_name->value;
+
+  return $return;
 }
