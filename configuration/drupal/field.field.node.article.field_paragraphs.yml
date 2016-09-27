@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_paragraphs
     - node.type.article
+    - paragraphs.paragraphs_type.factbox
     - paragraphs.paragraphs_type.text
   module:
     - entity_reference_revisions
@@ -23,8 +24,12 @@ settings:
   handler_settings:
     target_bundles:
       text: text
+      factbox: factbox
     target_bundles_drag_drop:
       text:
         enabled: true
         weight: 2
+      factbox:
+        enabled: true
+        weight: 3
 field_type: entity_reference_revisions
