@@ -2,7 +2,6 @@ mungo-theme:
   version: 0.1
   css:
     base:
-      css/bootstrap.custom.css: {}
       css/mungo.bundle.css: {}
   js:
     js/base.js : {}
