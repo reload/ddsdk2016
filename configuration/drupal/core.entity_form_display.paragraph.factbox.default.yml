@@ -1,0 +1,25 @@
+uuid: 0d4fbd42-c1f2-4fa5-8603-930ab1c9894a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.factbox.field_factbox_text
+    - paragraphs.paragraphs_type.factbox
+  module:
+    - text
+id: paragraph.factbox.default
+targetEntityType: paragraph
+bundle: factbox
+mode: default
+content:
+  field_factbox_text:
+    weight: 0
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+hidden:
+  created: true
+  status: true
+  uid: true
