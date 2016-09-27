@@ -78,7 +78,13 @@ function mungo_preprocess_node(&$variables) {
  */
 function _mungo_preprocess_node_article(Node $node, &$variables) {
   // Add author presentation.
-  $variables['author_presentation'] = _mungo_preprocess_author_presentation($node->field_content_author->entity);
+  if (!empty($node->field_content_author->entity)) {
+    $presentation = _mungo_preprocess_author_presentation($node->field_content_author->entity);
+    if (!empty($presentation)) {
+      $variables['author_presentation'] = $presentation;
+    }
+  }
+
 }
 
 /**
@@ -100,39 +106,36 @@ function _mungo_preprocess_author_presentation(Term $person) {
   }
 
   // Get the image off of the person.
-  if (empty($person->field_person_image->entity->field_image->entity)) {
-    \Drupal::logger('mungo')->error('Encountered an author without an image');
-    return [];
+  if (!empty($person->field_person_image->entity->field_image->entity)) {
+    /** @var \Drupal\file\Entity\File $person_image */
+    $person_image = $person->field_person_image->entity->field_image->entity;
+
+    // Style the author image.
+    $image_style_vars = array(
+      'style_name' => 'author_image',
+      'uri' => $person_image->getFileUri(),
+    );
+
+    // The image.factory service will check if our image is valid.
+    /** @var \Drupal\Core\Image\Image $image */
+    $image = \Drupal::service('image.factory')->get($person_image->getFileUri());
+    if ($image->isValid()) {
+      $image_style_vars['width'] = $image->getWidth();
+      $image_style_vars['height'] = $image->getHeight();
+    }
+    else {
+      $image_style_vars['width'] = $image_style_vars['height'] = NULL;
+    }
+
+    // Setup render-array for the author image.
+    $return['image'] = [
+      '#theme' => 'image_style',
+      '#width' => $image_style_vars['width'],
+      '#height' => $image_style_vars['height'],
+      '#style_name' => $image_style_vars['style_name'],
+      '#uri' => $image_style_vars['uri'],
+    ];
   }
-
-  /** @var \Drupal\file\Entity\File $person_image */
-  $person_image = $person->field_person_image->entity->field_image->entity;
-
-  // Style the author image.
-  $image_style_vars = array(
-    'style_name' => 'author_image',
-    'uri' => $person_image->getFileUri(),
-  );
-
-  // The image.factory service will check if our image is valid.
-  /** @var \Drupal\Core\Image\Image $image */
-  $image = \Drupal::service('image.factory')->get($person_image->getFileUri());
-  if ($image->isValid()) {
-    $image_style_vars['width'] = $image->getWidth();
-    $image_style_vars['height'] = $image->getHeight();
-  }
-  else {
-    $image_style_vars['width'] = $image_style_vars['height'] = NULL;
-  }
-
-  // Setup render-array for the author image.
-  $return['image'] = [
-    '#theme' => 'image_style',
-    '#width' => $image_style_vars['width'],
-    '#height' => $image_style_vars['height'],
-    '#style_name' => $image_style_vars['style_name'],
-    '#uri' => $image_style_vars['uri'],
-  ];
 
   // Extract the value to use as when presenting the author.
   $return['name'] = $person->field_presentation_name->value;

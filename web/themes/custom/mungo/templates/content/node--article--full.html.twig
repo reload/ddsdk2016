@@ -102,9 +102,12 @@
     <!-- Article author and matadata -->
     <div class="col-lg-3">
       <footer class="node__meta author-presentation">
-          <div class="author__image">
-              {{ author_presentation.image }}
-          </div>
+          {% if author_presentation %}
+            {% if author_presentation.image %}
+              <div class="author__image">
+                  {{ author_presentation.image }}
+              </div>
+            {% endif %}
 
           <div class="author__meta">
             <div class="published-on">
@@ -115,7 +118,15 @@
                 {% trans with {'context': 'Byline'} %}By: {{ author_presentation.name }}{% endtrans %}
             </div>
           </div>
+          {%  else %}
+        <div class="author__meta">
+          <div class="published-on">
+              {{ node.createdTime | format_date('publication_date') }}
+          </div>
+        </div>
+          {% endif %}
       </footer>
+
     </div>
     <!-- Article main content -->
     <div{{ content_attributes.addClass(['node__content', 'col-lg-9']) }}>
