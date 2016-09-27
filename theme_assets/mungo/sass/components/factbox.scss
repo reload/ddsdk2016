@@ -1,0 +1,43 @@
+// A inline factbox used in articles.
+.factbox {
+  // Surround the factbox with a border.
+  border: 2px solid $medium-pink;
+
+  // Setup internal and external spacing - for mobile we only want outer-spacing
+  // towards the elements before and after us.
+  padding: $spacing-small;
+  margin: $spacing-small 0;
+
+  // Based off of a picture-text, but with a slightly larger size to be more
+  // readable.
+  @extend .font-picturetext;
+  font-size: 14px;
+
+  // For tables we float the box and fix the size. Slightly larger spacing.
+  // As we now have text to the right of us we're only clearing the left-margin.
+  @media (min-width: $screen-sm-min) {
+    float: left;
+    width: 300px;
+
+    margin: $spacing-medium;
+    margin-left: 0;
+  }
+
+  // For desktops we keep the factbox floated, but pull it out to the left so
+  // that it only exends a bit in to the text.
+  @media (min-width: $screen-lg-min) {
+    padding: $spacing-large;
+    margin: $spacing-large;
+    margin-left: -220px;
+  }
+
+  // Make sure the first heading of a factbox does not have any margin as the
+  // factbox itself has more than enough padding internally.
+  .factbox__body {
+    h1, h2, h3 {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}

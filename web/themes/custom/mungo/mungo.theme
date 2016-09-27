@@ -20,7 +20,10 @@ function mungo_preprocess_field(&$variables) {
   elseif (in_array($field_name, ['field_subtitle', 'field_formatted_text'])) {
     _mungo_preprocess_field_article_text($field_name, $variables);
   }
-
+  elseif (in_array($field_name, ['field_factbox_text'])) {
+    // Clean the classes on factboxes.
+    $variables['attributes']['class'][] = 'factbox__body';
+  }
 }
 
 /**
@@ -55,6 +58,24 @@ function _mungo_preprocess_field_article_text($field_name, &$variables) {
     $variables['attributes']['class'][] = 'subtitle';
   }
 
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Preprocess paragraphs.
+ */
+function mungo_preprocess_paragraph(&$variables) {
+  if (empty($variables['paragraph']->getType())) {
+    return;
+  }
+
+  switch ($variables['paragraph']->getType()) {
+    case 'factbox':
+      // Add a clean class to factboxes.
+      $variables['attributes']['class'][] = 'factbox';
+      break;
+  }
 }
 
 /**
