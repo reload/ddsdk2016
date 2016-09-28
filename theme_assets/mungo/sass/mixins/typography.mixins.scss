@@ -1,0 +1,14 @@
+// Mixins for fonts from the zeplin styleguide.
+// All mixins are labled with their name from the styleguide via a comment
+// preceding the mixin.
+
+/* Billedtext */
+@mixin image-text {
+  font-size: 11px;
+  font-family: $std-font;
+  color: black;
+
+  @media (min-width: $screen-lg-min) {
+    font-size: 13px;
+  }
+}

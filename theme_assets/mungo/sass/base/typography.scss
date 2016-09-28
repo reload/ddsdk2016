@@ -36,12 +36,5 @@ h1.page-title {
 }
 
 .font-picturetext {
-  font-size: 11px;
-  font-family: $std-font;
-  color: black;
-
-  @media (min-width: $screen-lg-min) {
-    font-size: 13px;
-  }
-
+ @include image-text;
 }
