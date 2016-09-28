@@ -64,6 +64,11 @@ gulp.task('clean', function () {
     .pipe(clean());
 });
 
-gulp.task('build', ['clean', 'sass', 'javascript', 'images']);
+var runSequence = require('run-sequence');
+gulp.task('build', function() {
+  runSequence ('clean', ['sass', 'javascript', 'images']);
+});
 
-gulp.task('default', ['clean', 'sass', 'javascript', 'images', 'watch']);
+gulp.task('default', function() {
+  runSequence ('clean', ['sass', 'javascript', 'images'], 'watch');
+});
