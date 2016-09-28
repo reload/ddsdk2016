@@ -1,4 +1,4 @@
-// Styling of main-media used in an article
+// Styling of main-media used in the top of an article.
 
 .main-media {
   @media (min-width: $screen-lg-min) {
@@ -11,7 +11,7 @@
   @include clearfix;
 }
 
-.main-media {
+.media {
 
   .byline, .caption {
     // Prevent the caption to the left of the byline to get to close if it

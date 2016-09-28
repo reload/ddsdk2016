@@ -30,7 +30,7 @@ function mungo_preprocess_field(&$variables) {
   }
   elseif (in_array($field_name, ['field_video_caption'])) {
     // Clean the classes on factboxes.
-    $variables['attributes']['class'][] = 'video__caption';
+    $variables['attributes']['class'][] = 'caption';
   }
 }
 
@@ -82,6 +82,11 @@ function mungo_preprocess_paragraph(&$variables) {
     case 'factbox':
       // Add a clean class to factboxes.
       $variables['attributes']['class'][] = 'factbox';
+      break;
+
+    case 'video':
+      // Add a clean class to videos.
+      $variables['attributes']['class'][] = 'media';
       break;
   }
 }
