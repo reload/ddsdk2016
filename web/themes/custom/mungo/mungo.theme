@@ -24,6 +24,14 @@ function mungo_preprocess_field(&$variables) {
     // Clean the classes on factboxes.
     $variables['attributes']['class'][] = 'factbox__body';
   }
+  elseif (in_array($field_name, ['field_video'])) {
+    // Clean the classes on factboxes.
+    $variables['attributes']['class'][] = 'video';
+  }
+  elseif (in_array($field_name, ['field_video_caption'])) {
+    // Clean the classes on factboxes.
+    $variables['attributes']['class'][] = 'video__caption';
+  }
 }
 
 /**
