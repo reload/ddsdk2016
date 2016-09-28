@@ -27,7 +27,6 @@ h1.page-title {
   }
 }
 
-
 .capitalized-menu-item {
   font-size: 1em;
   margin: 0;
@@ -37,7 +36,5 @@ h1.page-title {
 }
 
 .font-picturetext {
-  font-size: 11px;
-  font-family: $std-font;
-  color: black;
+ @include image-text;
 }

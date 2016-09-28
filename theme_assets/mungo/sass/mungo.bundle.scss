@@ -4,6 +4,11 @@
 @import "variables";
 
 /**
+ * Mixins.
+ */
+@import "mixins/typography.mixins";
+
+/**
  * SMACSS Base.
  */
 @import "base/alignment";
@@ -17,6 +22,7 @@
 @import "components/factbox";
 @import "components/menu";
 @import "components/main-media";
+@import "components/video";
 
 /**
  * SMACSS Layout.

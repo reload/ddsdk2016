@@ -1,3 +1,5 @@
+// Basic styling related to media (images and video).
+
 // Media-elements that should maximize their size relative to their parent.
 .fluid-media {
   img {
@@ -5,3 +7,31 @@
     height: auto;
   }
 }
+
+// Styling of caption and bylines.
+.media {
+  .byline, .caption {
+    // Prevent the caption to the left of the byline to get to close if it
+    // wraps.
+
+    padding-bottom: $spacing-small;
+    padding-top: $spacing-small;
+
+    @include image-text;
+  }
+  .byline {
+
+    .byline--label {
+      &:after {
+        content: ':';
+      }
+    }
+    color: $warm-grey;
+
+    float: right;
+    // Inject some spacing to the first line of the caption to the left of this
+    // field.
+    padding-left: $spacing-small;
+  }
+}
+
