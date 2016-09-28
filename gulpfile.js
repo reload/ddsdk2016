@@ -12,15 +12,19 @@ var sourcemaps = require('gulp-sourcemaps');
 var notify = require('gulp-notify');
 var bourbon =  require('node-bourbon');
 
+var asset_paths = {
+  src: 'web/themes/custom/mungo/assets_src',
+  dest: 'web/themes/custom/mungo/assets'
+};
 
 var path = {
-  sass: 'theme_assets/mungo/sass',
-  css: 'web/themes/custom/mungo/css',
-  js_src: 'theme_assets/mungo/javascript',
-  js_dest: 'web/themes/custom/mungo/js',
+  sass: asset_paths.src + '/sass',
+  css: asset_paths.dest + '/css',
+  js_src: asset_paths.src + '/js',
+  js_dest: asset_paths.dest + '/js',
   bootstrap: 'node_modules/bootstrap-sass/assets/stylesheets',
-  images_src: 'theme_assets/mungo/images',
-  images_dest: 'web/themes/custom/mungo/images'
+  images_src: asset_paths.src + '/images',
+  images_dest: asset_paths.dest + '/images'
 };
 
 gulp.task('sass', function () {
@@ -56,7 +60,7 @@ gulp.task('watch', function () {
 });
 
 gulp.task('clean', function () {
-  return gulp.src([path.css, path.js_dest], {read: false})
+  return gulp.src([asset_paths.dest], {read: false})
     .pipe(clean());
 });
 
