@@ -19,6 +19,8 @@
 
     padding-bottom: $spacing-small;
     padding-top: $spacing-small;
+
+    @extend .font-picturetext;
   }
   .byline {
 
@@ -27,7 +29,7 @@
         content: ':';
       }
     }
-    color: $warm-grey;
+
     float: right;
     // Inject some spacing to the first line of the caption to the left of this
     // field.

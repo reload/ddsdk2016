@@ -27,7 +27,6 @@ h1.page-title {
   }
 }
 
-
 .capitalized-menu-item {
   font-size: 1em;
   margin: 0;
@@ -40,4 +39,9 @@ h1.page-title {
   font-size: 11px;
   font-family: $std-font;
   color: black;
+
+  @media (min-width: $screen-lg-min) {
+    font-size: 13px;
+  }
+
 }
