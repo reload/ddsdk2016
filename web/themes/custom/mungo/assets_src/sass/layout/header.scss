@@ -25,6 +25,11 @@ header.header-fixed {
    */
   box-shadow: 0 0 10px $bluish;
   .region-top-menu {
+    // Hide the top menu on mobile. Show from tablet and up.
+    display: none;
+    @include media-small {
+      display: block;
+    }
     height: 30px;
     .container {
       // Centre menu vertically, visually.
