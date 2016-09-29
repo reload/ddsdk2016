@@ -1,0 +1,28 @@
+uuid: b8ecd077-7837-4719-9699-6174669eb386
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.dynamic_deck.field_paragraphs
+    - paragraphs.paragraphs_type.dynamic_deck
+  module:
+    - paragraphs
+id: paragraph.dynamic_deck.default
+targetEntityType: paragraph
+bundle: dynamic_deck
+mode: default
+content:
+  field_paragraphs:
+    type: entity_reference_paragraphs
+    weight: 0
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true
