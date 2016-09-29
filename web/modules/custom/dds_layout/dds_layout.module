@@ -1,0 +1,56 @@
+<?php
+use Drupal\paragraphs\Entity\Paragraph;
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * - Clean up paragraph class-names.
+ */
+function dds_layout_preprocess_paragraph(&$variables) {
+  /** @var Paragraph $paragraph */
+  $paragraph = $variables['paragraph'];
+  $paragraph_type = $paragraph->getType();
+
+  if ($paragraph_type === '2_col_deck') {
+    $variables['attributes']['class'][] = 'deck';
+    $variables['attributes']['class'][] = 'deck--2col';
+
+  }
+  elseif ($paragraph->getType() === 'dynamic_deck') {
+    $variables['attributes']['class'][] = 'deck';
+    $variables['attributes']['class'][] = 'deck--dynamic';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * - Clean up classes for decks and their columns.
+ */
+function dds_layout_preprocess_field(&$variables) {
+  $field_name = $variables['field_name'];
+  // Prepare the item-count and bundle if available.
+  $item_count = isset($variables['items']) && is_array($variables['items']) ? count($variables['items']) : 0;
+  $bundle = isset($variables['element']['#bundle']) ? $variables['element']['#bundle'] : NULL;
+
+  // Handle 2col.
+  if ($bundle === '2_col_deck') {
+    if ($field_name === 'field_2col_paragraphs_left') {
+      $variables['attributes']['class'][] = 'deck__column';
+      $variables['attributes']['class'][] = 'deck__column--left';
+      $variables['attributes']['data-item-count'] = $item_count;
+    }
+    elseif ($field_name === 'field_2col_paragraphs_right') {
+      $variables['attributes']['class'][] = 'deck__column';
+      $variables['attributes']['class'][] = 'deck__column--right';
+      $variables['attributes']['data-item-count'] = $item_count;
+    }
+  }
+  // Handle dynamic decks (with 1 column)
+  elseif ($bundle === 'dynamic_deck') {
+    if ($field_name === 'field_paragraphs') {
+      $variables['attributes']['class'][] = 'deck__column';
+      $variables['attributes']['data-item-count'] = $item_count;
+    }
+  }
+}
