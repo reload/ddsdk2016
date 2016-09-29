@@ -2,11 +2,9 @@
 <ruleset name="drupal_core">
     <file>web/modules/custom</file>
     <file>web/themes</file>
-    <file>theme_assets</file>
     <arg name="extensions" value="php,module,inc,install,test,profile,theme,js,css,info,txt"/>
 
     <!--Exclude third party code.-->
-    <exclude-pattern>./web/themes/custom/mungo/css/*</exclude-pattern>
-    <exclude-pattern>./web/themes/custom/mungo/js/*</exclude-pattern>
-    <exclude-pattern>./theme_assets/*/javascript/contrib/*</exclude-pattern>
+    <exclude-pattern>./web/themes/custom/mungo/assets/*</exclude-pattern>
+    <exclude-pattern>./web/themes/custom/mungo/assets_src/js/contrib/*</exclude-pattern>
 </ruleset>
