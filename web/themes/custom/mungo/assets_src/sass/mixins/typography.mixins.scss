@@ -12,3 +12,29 @@
     font-size: 13px;
   }
 }
+
+/* ProximaNova-Semibold */
+@mixin proxima-nova-semibold {
+  font-size: 11px;
+  font-weight: 600;
+  font-family: $std-font;
+  letter-spacing: 1.5px;
+
+  @include media-small {
+    font-size: 17px;
+  }
+}
+
+
+/* Listerubrik - small */
+@mixin list-heading-small {
+  font-family: $std-font;
+
+  letter-spacing: 0.2px;
+  color: $black;
+  font-weight: bold;
+
+  @include media-small {
+    font-size: 18px;
+  }
+}
