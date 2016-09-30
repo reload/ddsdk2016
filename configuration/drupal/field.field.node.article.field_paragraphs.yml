@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.field_paragraphs
     - node.type.article
     - paragraphs.paragraphs_type.factbox
+    - paragraphs.paragraphs_type.content_link
     - paragraphs.paragraphs_type.text
     - paragraphs.paragraphs_type.video
   module:
@@ -26,6 +27,7 @@ settings:
     target_bundles:
       text: text
       factbox: factbox
+      content_link: content_link
       video: video
     target_bundles_drag_drop:
       text:
@@ -34,6 +36,9 @@ settings:
       factbox:
         enabled: true
         weight: 3
+      content_link:
+        enabled: true
+        weight: 5
       video:
         enabled: true
         weight: 6
