@@ -1,0 +1,14 @@
+uuid: 47f5f28a-da4d-426a-bde7-32dcfdfbe21e
+langcode: en
+status: true
+dependencies: {  }
+name: thumbnail_4_3
+label: 'Thumbnail 4:3'
+effects:
+  55fb9b4e-ba68-4556-8a9d-545b0fd4f826:
+    uuid: 55fb9b4e-ba68-4556-8a9d-545b0fd4f826
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 100
+      height: 75
