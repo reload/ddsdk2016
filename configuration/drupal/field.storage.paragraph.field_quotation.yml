@@ -1,0 +1,19 @@
+uuid: 15d96e99-3d86-4103-9d9e-dc7c1e9655b5
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_quotation
+field_name: field_quotation
+entity_type: paragraph
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

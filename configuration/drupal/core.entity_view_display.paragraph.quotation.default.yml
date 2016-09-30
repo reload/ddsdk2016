@@ -1,0 +1,21 @@
+uuid: beb1f548-e561-425a-b3b7-25a7d5a1db75
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.quotation.field_quotation
+    - paragraphs.paragraphs_type.quotation
+id: paragraph.quotation.default
+targetEntityType: paragraph
+bundle: quotation
+mode: default
+content:
+  field_quotation:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+hidden:
+  created: true
+  uid: true
