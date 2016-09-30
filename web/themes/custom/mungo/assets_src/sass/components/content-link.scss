@@ -28,9 +28,7 @@
 
   // Lead text and label for the link.
   .content-link--text--lead {
-    @include proxima-nova-semibold;
-    color: $bluish;
-    text-transform: uppercase;
+    @include content-link-label;
     margin-bottom: $spacing-small
   }
 
