@@ -1,0 +1,25 @@
+uuid: ffe6b3a8-14e0-470d-be87-eb92b2da7ca1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.dynamic_deck.field_paragraphs
+    - paragraphs.paragraphs_type.dynamic_deck
+  module:
+    - entity_reference_revisions
+id: paragraph.dynamic_deck.default
+targetEntityType: paragraph
+bundle: dynamic_deck
+mode: default
+content:
+  field_paragraphs:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  uid: true

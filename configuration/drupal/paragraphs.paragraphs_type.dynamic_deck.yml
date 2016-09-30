@@ -1,0 +1,6 @@
+uuid: ff82be1d-daa5-43ba-b127-451d701c8edc
+langcode: en
+status: true
+dependencies: {  }
+id: dynamic_deck
+label: 'Dynamic deck'
