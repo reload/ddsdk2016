@@ -12,6 +12,7 @@ module:
   dblog: 0
   dds_layout: 0
   dds_person: 0
+  dds_content_link: 0
   dynamic_page_cache: 0
   editor: 0
   editor_advanced_link: 0

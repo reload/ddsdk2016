@@ -5,6 +5,7 @@
  * Main theme-file for the Mungo theme.
  */
 
+use Drupal\file\Entity\File;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
 
@@ -87,6 +88,11 @@ function mungo_preprocess_paragraph(&$variables) {
     case 'video':
       // Add a clean class to videos.
       $variables['attributes']['class'][] = 'media';
+      break;
+
+    case 'content_link':
+      // Add a clean class to videos.
+      _mungo_preprocess_paragraph_content_link($variables);
       break;
   }
 }
@@ -175,4 +181,101 @@ function _mungo_preprocess_author_presentation(Term $person) {
   $return['name'] = $person->field_presentation_name->value;
 
   return $return;
+}
+
+/**
+ * Preprocessing of content link paragraph types.
+ */
+function _mungo_preprocess_paragraph_content_link(&$variables) {
+
+  // Prepare the variables we'll use to extract the data we need.
+  /** @var Paragraph $paragraph */
+  $paragraph = $variables['paragraph'];
+  /** @var LinkItem $link */
+  $link = $paragraph->get('field_content_link')->first();
+  $lead = empty($paragraph->get('field_content_link_lead')->first()) ? NULL : $paragraph->get('field_content_link_lead')->first()->value;
+  $show_thumbnail = (boolean) $variables['paragraph']->get('field_show_thumbnail')->first()->value;
+
+  // Setup the variables we'll try to prepare for the template.
+  $thumbnail = NULL;
+  // Default to using link title if available, might be overriden for internal
+  // links.
+  $title = empty($link->get('title')) ? '' : $link->get('title')->getValue();;
+
+  // Handle internal links.
+  if (!$link->isExternal()) {
+    $uri = $link->get('uri');
+    $uri_value = $uri->getValue();
+
+    $link_title = empty($link->get('title')) ? '' : $link->get('title')->getValue();
+
+    if ($show_thumbnail || !empty($link_title)) {
+      // Load the node if we need it.
+      if (preg_match('#^entity:node/(?P<nid>\d+)$#', $uri_value, $matches)) {
+        $node = Node::load($matches['nid']);
+      }
+
+      if (empty($link_title)) {
+        $title = $node->getTitle();
+      }
+      else {
+        $title = $link_title;
+      }
+
+      if (preg_match('#^entity:node/(?P<nid>\d+)$#', $uri_value, $matches)) {
+        $node = Node::load($matches['nid']);
+        if ($node->hasField('field_main_media')) {
+
+          /** @var \Drupal\media_entity\Entity\Media $main_media */
+          $main_media = $node->get('field_main_media')->first()->entity;
+
+          /** @var File $image_file */
+          $image_file = $main_media->get('field_image')->entity;
+
+          $thumbnail = _mungo_render_image_with_style($image_file, 'thumbnail_4_3');
+
+        }
+      }
+    }
+  }
+
+  // Blank out any existing content.
+  $variables['content'] = [];
+
+  // Add our RAs.
+  $variables['content']['lead'] = $lead;
+  $variables['content']['thumbnail'] = $thumbnail;
+  $variables['content']['url'] = $link->getUrl()->toString();
+  $variables['content']['title'] = $title;
+}
+
+/**
+ * Given an image file, produce a image_style render array for a style.
+ */
+function _mungo_render_image_with_style(File $image_file, string $style) : array {
+  // Style the author image.
+  $image_style_vars = array(
+    'style_name' => $style,
+    'uri' => $image_file->getFileUri(),
+  );
+
+  // Load the image from the file so that we can know its size.
+  /** @var Image $image */
+  $image = \Drupal::service('image.factory')->get($image_file->getFileUri());
+  if ($image->isValid()) {
+    $image_style_vars['width'] = $image->getWidth();
+    $image_style_vars['height'] = $image->getHeight();
+  }
+  else {
+    $image_style_vars['width'] = $image_style_vars['height'] = NULL;
+  }
+
+  // Setup render-array for the author image.
+  return [
+    '#theme' => 'image_style',
+    '#width' => $image_style_vars['width'],
+    '#height' => $image_style_vars['height'],
+    '#style_name' => $image_style_vars['style_name'],
+    '#uri' => $image_style_vars['uri'],
+  ];
 }

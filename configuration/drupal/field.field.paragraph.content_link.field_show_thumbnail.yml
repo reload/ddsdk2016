@@ -1,0 +1,23 @@
+uuid: 1f4a2094-9269-421c-8532-0790dc5bce91
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_show_thumbnail
+    - paragraphs.paragraphs_type.content_link
+id: paragraph.content_link.field_show_thumbnail
+field_name: field_show_thumbnail
+entity_type: paragraph
+bundle: content_link
+label: 'Show thumbnail'
+description: 'Should a thumbnail be displayed if available? (only applicable for internal links)'
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

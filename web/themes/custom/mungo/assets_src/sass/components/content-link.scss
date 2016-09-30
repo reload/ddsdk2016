@@ -1,0 +1,47 @@
+// Styling of a content link.
+//
+// A content link consists of an optional image a lead-text and the link itself.
+.content-link {
+  // Set border around paragraph.
+  border-top: 1px solid $pale-grey;
+  border-bottom: 1px solid $pale-grey;
+
+  // Make sure we have plenty spacing between the border and our inner content.
+  padding-top: $spacing-medium;
+  padding-bottom: $spacing-medium;
+
+  // We're floating (optional) thumbnail - make sure our container conforms to
+  // its size if it is there.
+  @include clearfix;
+
+  // We always take up the entire width of the text-area.
+  clear: both;
+
+  // An optional thumbnail of the content.
+  .content-link--image {
+    float:left;
+    margin-right: $spacing-small;
+    @include media-small {
+      margin-right: $spacing-medium;
+    }
+  }
+
+  // Lead text and label for the link.
+  .content-link--text--lead {
+    @include content-link-label;
+    margin-bottom: $spacing-small
+  }
+
+  .content-link--text--title {
+    @include list-heading-small;
+  }
+}
+
+// Handle the situation where the content-link container is an a-tag.
+a.content-link:hover {
+  // Display: block to our content is clickable.
+  display: block;
+
+  // We don't want any hoverstate.
+  text-decoration: none;
+}
