@@ -1,6 +1,107 @@
-.menu--dropdown {
-  .menu-item--expanded ul {
-    display: none;
+
+// The site main menu. All representations.
+.block.menu--main {
+
+  a {
+    text-decoration: none;
+  }
+
+  // Handle label, checkbox and ul.menu--main
+  @include mungo-burger;
+
+  @include media-small {
+    position: inherit;
+    text-align: left;
+    padding-top: 60px;
+  }
+  @include media-medium {
+    text-align: right;
+    padding-top: 0;
+  }
+
+  // Mobile dropdown visual representation and reset on desktop.
+  ul.menu--main {
+    background-color: rgba(red, 0.3);
+    background-color: #fff;
+    a {
+      display: block;
+      padding: $spacing-medium;
+      @include media-small {
+        padding: 11px;
+      }
+      @include media-medium {
+        padding: 26px $spacing-medium;
+      }
+    }
+
+    // Only target first level here.
+    & > li {
+      @include main-menu-entries--mobile;
+      @include media-small {
+        @include main-menu-entries;
+      }
+      border-top: 1px solid $pinkish-grey;
+      text-align: left;
+      position: relative;
+
+      @include media-small {
+        background: transparent;
+        padding: 0;
+        border: 0 none;
+        &.opened > a,
+        & > a:hover{
+          background-color: $white-two;
+        }
+      }
+
+      // Second level in menu
+      ul {
+        @include media-small {
+          background: $white-two;
+          position: fixed;
+          margin-left: 0;
+          border-bottom: 5px solid $marine-blue;
+        }
+        li {
+          border-top: 1px solid $pale-grey;
+          a {
+            padding: 10px 20px;
+          }
+          a:hover {
+            background-color: $pale-grey;
+          }
+        }
+      }
+    }
+  }
+
+  .menu-item--expanded {
+    position: relative;
+    ul {
+      display: none;
+
+    }
+    &.opened ul {
+      display: block;
+    }
+  }
+
+  // Inline the menu when bigger than mobile.
+  @include media-small {
+    // Spacing should be large, but only half of it pr element.
+    $halfsize: $spacing-large / 2;
+    ul {
+      // Subtract the added spacing on the container.
+      margin: 0 (-$halfsize);
+      li {
+        display: inline-block;
+        vertical-align: top;
+
+        li {
+          display: block;
+        }
+      }
+    }
   }
 }
 
@@ -20,18 +121,19 @@
 }
 
 .menu--inline {
-  // Spacing should be large, but only half of it pr element.
-  $halfsize: $spacing-large / 2;
-  &.menu--clean {
-    // Subtract the added spacing on the container.
-    margin: 0 (-$halfsize);
-    li {
-      display: inline-block;
-      margin: 0 $halfsize;
-      vertical-align: top;
-
+  @include media-small {
+    // Spacing should be large, but only half of it pr element.
+    $halfsize: $spacing-large / 2;
+    &.menu--clean {
+      // Subtract the added spacing on the container.
+      margin: 0 (-$halfsize);
       li {
-        display: block;
+        display: inline-block;
+        vertical-align: top;
+
+        li {
+          display: block;
+        }
       }
     }
   }
