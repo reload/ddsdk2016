@@ -39,3 +39,13 @@
     font-size: 18px;
   }
 }
+
+/* Quote */
+@mixin quote-text {
+  font-family: $feature-font;
+
+  font-size: 17px;
+  line-height: 1.65;
+  letter-spacing: 0.8px;
+  color: $light-black;
+}
