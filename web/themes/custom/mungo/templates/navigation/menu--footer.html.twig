@@ -32,9 +32,7 @@
   {% if items %}
     {% if menu_level == 0 %}
     {%
-    set classes = [
-    'menu--clean',
-    ]
+    set classes = []
     %}
 <ul{{ attributes.addClass(classes) }}>
     {% else %}
@@ -50,7 +48,7 @@
             ]
             %}
         {% if menu_level == 0 %}
-            {% set classes = classes|merge(['col-lg-2']) %}
+            {% set classes = classes|merge(['col-xs-6', 'col-sm-3', 'col-md-2', 'col-md-pull-3']) %}
         {% endif %}
         {% if menu_level == 1 %}
             {% set classes = classes|merge(['menu--arrow-item']) %}

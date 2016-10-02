@@ -58,7 +58,7 @@
   }
 }
 /* Primary menu overrides for tablet and desktop */
-@mixin main-menu-entries{
+@mixin main-menu-entries {
   a {
     color: #000
   }
@@ -66,5 +66,17 @@
   text-transform: uppercase;
   &:after {
     content: '';
+  }
+}
+
+@mixin inline-menu {
+  // Spacing should be large, but only half of it pr element.
+  $halfsize: $spacing-large / 2;
+
+  // Subtract the added spacing on the container.
+  margin: 0 (-$halfsize);
+  li {
+    display: inline-block;
+    vertical-align: top;
   }
 }
