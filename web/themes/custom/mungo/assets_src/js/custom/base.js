@@ -1,6 +1,6 @@
 /**
  * @file
- * General javascript functionallity for the site.
+ * General javascript functionality for the site.
  */
 
 (function ($, Drupal) {

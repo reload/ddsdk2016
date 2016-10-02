@@ -1,8 +1,8 @@
 /**
  * @file
- * 
  * Handle dropdown specific click on first menu level.
  */
+
 (function ($, Drupal) {
   Drupal.behaviors.dropdownmenu = {
     attach: function (context, settings) {

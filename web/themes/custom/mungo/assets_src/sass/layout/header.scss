@@ -20,7 +20,6 @@ body .layout-container {  padding-top: 100px;  }
   body .layout-container {  padding-top: 130px;  }
 }
 
-
 /**
  * Header specifics.
  */
@@ -44,7 +43,6 @@ header.header-fixed {
   }
 
   .region-primary-menu {
-    //height: 70px;
     .container {
       position: relative;
       text-align: right;
@@ -57,7 +55,6 @@ header.header-fixed {
           // Move left to align with bootstraps .container.b
           left: $spacing-small;
         }
-
         img {
           width: 122px;
           height: 50px;
@@ -101,7 +98,6 @@ header.header-fixed {
         content: '';
       }
     }
-    //position: relative;
     form {
       width: 100%;
       background: red;
@@ -115,6 +111,5 @@ header.header-fixed {
         display: block;
       }
     }
-
   }
 }
