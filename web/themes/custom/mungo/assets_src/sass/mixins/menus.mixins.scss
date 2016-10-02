@@ -1,3 +1,4 @@
+/* Tie together the burger menu handle (checkbox and label) with the UL. */
 @mixin mungo-burger {
   ul.menu--main {
     display: none;
@@ -23,7 +24,6 @@
     top: 23px;
     right: 10px;
 
-    //border: 1px solid red;
     @include burger(30px, 3px, 7px, $bluish);
     @include media-small {
       display: none;
@@ -40,7 +40,7 @@
   }
 }
 
-
+/* Primary menu representation on mobile devices */
 @mixin main-menu-entries--mobile  {
   font-weight: 600;
   font-size: 16px;
@@ -57,6 +57,7 @@
     transform: rotate(90deg);
   }
 }
+/* Primary menu overrides for tablet and desktop */
 @mixin main-menu-entries{
   a {
     color: #000
