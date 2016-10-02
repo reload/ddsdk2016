@@ -33,35 +33,34 @@
     {% if menu_level == 0 %}
     {%
     set classes = [
-    'menu--clean',
-    'menu--inline',
-    'menu--dropdown'
+    'menu--main',
+    'menu--clean'
     ]
     %}
+
+<input type="checkbox" id="main-menu-toggle">
+<label for="main-menu-toggle" class="burger--main--menu--toggle"></label>
 <ul{{ attributes.addClass(classes) }}>
     {% else %}
-    <ul class="menu">
-        {% endif %}
-        {% for item in items %}
-            {%
-            set classes = [
-            'menu-item',
-            item.is_expanded ? 'menu-item--expanded',
-            item.is_collapsed ? 'menu-item--collapsed',
-            item.in_active_trail ? 'menu-item--active-trail',
-            ]
-            %}
-            <li{{ item.attributes.addClass(classes) }}>
-                {% if menu_level == 0 %}
-                    {{ link(item.title, item.url, { 'class':['capitalized-menu-item']}) }}
-                {% else %}
-                    {{ link(item.title, item.url) }}
-                {% endif %}
-                {% if item.below %}
-                    {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-                {% endif %}
-            </li>
-        {% endfor %}
-    </ul>
+<ul class="menu">
     {% endif %}
-    {% endmacro %}
+    {% for item in items %}
+        {%
+        set classes = [
+        'menu-item',
+        item.is_expanded ? 'menu-item--expanded',
+        item.is_collapsed ? 'menu-item--collapsed',
+        item.in_active_trail ? 'menu-item--active-trail',
+        ]
+        %}
+        <li{{ item.attributes.addClass(classes) }}>
+                {{ link(item.title, item.url) }}
+
+            {% if item.below %}
+                {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endmacro %}

@@ -23,6 +23,7 @@ var path = {
   js_src: asset_paths.src + '/js',
   js_dest: asset_paths.dest + '/js',
   bootstrap: 'node_modules/bootstrap-sass/assets/stylesheets',
+  sass_burger: 'node_modules/sass-burger',
   images_src: asset_paths.src + '/images',
   images_dest: asset_paths.dest + '/images'
 };
@@ -31,7 +32,7 @@ gulp.task('sass', function () {
   return gulp.src(path.sass + '/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({
-      includePaths: [bourbon.includePaths, path.bootstrap],
+      includePaths: [bourbon.includePaths, path.bootstrap, path.sass_burger],
       outputStyle: 'expanded'
     }).on('error', notify.onError(function (error) {
       return "\n\nSASS error: " + error.message;

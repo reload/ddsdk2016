@@ -1,0 +1,69 @@
+@mixin mungo-burger {
+  ul.menu--main {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 70px);
+    overflow: scroll;
+    @include media-small {
+      position: inherit;
+      display: block;
+      top: 0;
+      width: auto;
+      height: auto;
+      background: none;
+      overflow: auto;
+    }
+  }
+  .burger--main--menu--toggle {
+    z-index: 1;
+    position: absolute !important;
+    top: 23px;
+    right: 10px;
+
+    //border: 1px solid red;
+    @include burger(30px, 3px, 7px, $bluish);
+    @include media-small {
+      display: none;
+    }
+  }
+  #main-menu-toggle {
+    display: none;
+  }
+  #main-menu-toggle:checked ~ .burger--main--menu--toggle {
+    @include burger-to-cross;
+  }
+  #main-menu-toggle:checked ~ .menu--main {
+    display: block;
+  }
+}
+
+
+@mixin main-menu-entries--mobile  {
+  font-weight: 600;
+  font-size: 16px;
+  &:after {
+    color: $bluish;
+    font-weight: 100;
+    position: absolute;
+    right: $spacing-small;
+    top: -18px;
+    font-size: 60px;
+    content: '›';
+  }
+  &.opened:after {
+    transform: rotate(90deg);
+  }
+}
+@mixin main-menu-entries{
+  a {
+    color: #000
+  }
+  font-size: 13px;
+  text-transform: uppercase;
+  &:after {
+    content: '';
+  }
+}

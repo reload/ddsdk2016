@@ -5,6 +5,7 @@ mungo-theme:
       assets/css/mungo.bundle.css: {}
   js:
     assets/js/base.js : {}
+    assets/js/dropdownmenu.js: {}
   dependencies:
     - core/jquery
     - core/drupal
@@ -14,3 +15,4 @@ typekit:
   js:
     https://use.typekit.net/del2tvj.js: { every_page: true }
     assets/js/typekit.js: { every_page: true }
+
