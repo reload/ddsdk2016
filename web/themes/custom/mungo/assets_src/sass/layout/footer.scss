@@ -1,7 +1,7 @@
 
 .footer_top {
   .menu--footer li {
-    padding-top: $spacing-small;
+    padding-bottom: $spacing-medium;
   }
 }
 
@@ -11,9 +11,16 @@
 
 
 .menu--social-links {
+  // Ensure that the social menu is ontop of footer graphics.
+  position: relative;
+  z-index: 1;
+  padding: 0;
+  padding-top: $spacing-small;
+  @include inline-menu;
+}
+.region-footer-social {
   // Set relative in order to position graphics used in footer.
   position: relative;
-  padding-top: $spacing-small;
   &:after {
     content: '';
     background: url('../images/placeholder--trees.svg');
@@ -23,5 +30,15 @@
     position: absolute;
     right: 0;
     bottom: -$spacing-large;
+  }
+}
+
+.menu--footer {
+  ul {
+    padding: 0;
+  }
+  li {
+    list-style: none;
+
   }
 }
