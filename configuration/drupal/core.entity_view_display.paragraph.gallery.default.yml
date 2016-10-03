@@ -1,0 +1,23 @@
+uuid: 096131e3-c57f-48ea-bec3-7b8334239512
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.gallery.field_gallery_image
+    - paragraphs.paragraphs_type.gallery
+id: paragraph.gallery.default
+targetEntityType: paragraph
+bundle: gallery
+mode: default
+content:
+  field_gallery_image:
+    weight: 0
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+hidden:
+  created: true
+  uid: true
