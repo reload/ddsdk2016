@@ -1,0 +1,29 @@
+uuid: 9913b90b-d94d-4c3d-8237-19929ac0dbed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_user_default_author
+    - taxonomy.vocabulary.person
+  module:
+    - user
+id: user.user.field_user_default_author
+field_name: field_user_default_author
+entity_type: user
+bundle: user
+label: 'Default author'
+description: 'Author to pre-select by default when creating an article.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      person: person
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,46 @@
+uuid: a3638e05-fab5-4943-b60f-fae1523e5c92
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_paragraphs
+    - paragraphs.paragraphs_type.dynamic_deck
+    - paragraphs.paragraphs_type.factbox
+    - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.video
+  module:
+    - entity_reference_revisions
+id: paragraph.dynamic_deck.field_paragraphs
+field_name: field_paragraphs
+entity_type: paragraph
+bundle: dynamic_deck
+label: Paragraphs
+description: 'Insert one or more paragraphs.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      factbox: factbox
+      text: text
+      video: video
+    target_bundles_drag_drop:
+      dynamic_deck:
+        weight: 5
+        enabled: false
+      2col_deck:
+        weight: 6
+        enabled: false
+      factbox:
+        enabled: true
+        weight: 6
+      text:
+        enabled: true
+        weight: 7
+      video:
+        enabled: true
+        weight: 8
+field_type: entity_reference_revisions

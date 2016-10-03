@@ -1,0 +1,6 @@
+uuid: 0770c87d-606d-46d2-8856-ab7c6ac23f2a
+langcode: en
+status: true
+dependencies: {  }
+id: 2col_deck
+label: '2 column deck'

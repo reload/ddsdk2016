@@ -1,0 +1,23 @@
+uuid: f030bb0e-2189-4ee8-8148-a5b58d8b6df3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content_link
+    - paragraphs.paragraphs_type.content_link
+  module:
+    - link
+id: paragraph.content_link.field_content_link
+field_name: field_content_link
+entity_type: paragraph
+bundle: content_link
+label: Link
+description: "Internal or External link.\r\nExternal links must have a link-text.\r\nInternal links will have a thubnail displayed next to it pr default, this can be disabled."
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

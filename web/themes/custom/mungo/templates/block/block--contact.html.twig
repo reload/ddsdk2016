@@ -30,14 +30,16 @@ set classes = [
 'block',
 'block-' ~ configuration.provider|clean_class,
 'block-' ~ plugin_id|clean_class,
-'col-lg-push-2',
-'col-lg-2'
+'col-xs-6',
+'col-sm-3',
+'col-md-push-9',
+'col-md-3'
 ]
 %}
 <div{{ attributes.addClass(classes) }}>
     {{ title_prefix }}
     {% if label %}
-        <h2{{ title_attributes }}>{{ label }}</h2>
+        <h2{{ title_attributes.addClass('capitalized-menu-item') }}>{{ label }}</h2>
     {% endif %}
     {{ title_suffix }}
     {% block content %}

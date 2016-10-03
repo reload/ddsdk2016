@@ -1,0 +1,25 @@
+uuid: cf3d95ec-9a82-4346-a98c-1ac42deec487
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_video
+    - paragraphs.paragraphs_type.video
+  module:
+    - video_embed_field
+id: paragraph.video.field_video
+field_name: field_video
+entity_type: paragraph
+bundle: video
+label: Video
+description: 'Specify the full URL to a vimeo or youtube video. Eg. https://www.youtube.com/watch?v=vc_7j6TNHQg or https://vimeo.com/78451097'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_providers:
+    vimeo: '0'
+    youtube: '0'
+    youtube_playlist: '0'
+field_type: video_embed_field

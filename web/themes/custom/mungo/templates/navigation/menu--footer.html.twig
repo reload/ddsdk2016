@@ -32,27 +32,33 @@
   {% if items %}
     {% if menu_level == 0 %}
     {%
-    set classes = [
-    'menu',
-    'menu--capitalize-first-level'
-    ]
+    set classes = []
     %}
 <ul{{ attributes.addClass(classes) }}>
     {% else %}
-    <ul class="menu">
+    <ul class="menu--clean">
         {% endif %}
         {% for item in items %}
             {%
             set classes = [
             'menu-item',
-            'col-lg-2',
             item.is_expanded ? 'menu-item--expanded',
             item.is_collapsed ? 'menu-item--collapsed',
             item.in_active_trail ? 'menu-item--active-trail',
             ]
             %}
+        {% if menu_level == 0 %}
+            {% set classes = classes|merge(['col-xs-6', 'col-sm-3', 'col-md-2', 'col-md-pull-3']) %}
+        {% endif %}
+        {% if menu_level == 1 %}
+            {% set classes = classes|merge(['menu--arrow-item']) %}
+        {% endif %}
             <li{{ item.attributes.addClass(classes) }}>
+                {% if menu_level == 0 %}
+                {{ link(item.title, item.url, { 'class':['capitalized-menu-item']}) }}
+                {% else %}
                 {{ link(item.title, item.url) }}
+                {% endif %}
                 {% if item.below %}
                     {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
                 {% endif %}

@@ -1,0 +1,26 @@
+uuid: 26c691b5-068b-4162-9fac-5abd44881020
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.content_link.field_content_link
+    - field.field.paragraph.content_link.field_content_link_lead
+    - field.field.paragraph.content_link.field_show_thumbnail
+    - paragraphs.paragraphs_type.content_link
+id: paragraph.content_link.default
+targetEntityType: paragraph
+bundle: content_link
+mode: default
+content:
+  field_content_link_lead:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+hidden:
+  created: true
+  field_content_link: true
+  field_show_thumbnail: true
+  uid: true

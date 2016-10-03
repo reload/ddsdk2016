@@ -1,0 +1,82 @@
+/* Tie together the burger menu handle (checkbox and label) with the UL. */
+@mixin mungo-burger {
+  ul.menu--main {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 70px);
+    overflow: scroll;
+    @include media-small {
+      position: inherit;
+      display: block;
+      top: 0;
+      width: auto;
+      height: auto;
+      background: none;
+      overflow: auto;
+    }
+  }
+  .burger--main--menu--toggle {
+    z-index: 1;
+    position: absolute !important;
+    top: 23px;
+    right: 10px;
+
+    @include burger(30px, 3px, 7px, $bluish);
+    @include media-small {
+      display: none;
+    }
+  }
+  #main-menu-toggle {
+    display: none;
+  }
+  #main-menu-toggle:checked ~ .burger--main--menu--toggle {
+    @include burger-to-cross;
+  }
+  #main-menu-toggle:checked ~ .menu--main {
+    display: block;
+  }
+}
+
+/* Primary menu representation on mobile devices */
+@mixin main-menu-entries--mobile  {
+  font-weight: 600;
+  font-size: 16px;
+  &:after {
+    color: $bluish;
+    font-weight: 100;
+    position: absolute;
+    right: $spacing-small;
+    top: -18px;
+    font-size: 60px;
+    content: '›';
+  }
+  &.opened:after {
+    transform: rotate(90deg);
+  }
+}
+/* Primary menu overrides for tablet and desktop */
+@mixin main-menu-entries {
+  a {
+    color: #000
+  }
+  font-size: 13px;
+  text-transform: uppercase;
+  &:after {
+    content: '';
+  }
+}
+
+@mixin inline-menu {
+  // Spacing should be large, but only half of it pr element.
+  $halfsize: $spacing-large / 2;
+
+  // Subtract the added spacing on the container.
+  margin: 0 (-$halfsize);
+  li {
+    display: inline-block;
+    vertical-align: top;
+  }
+}

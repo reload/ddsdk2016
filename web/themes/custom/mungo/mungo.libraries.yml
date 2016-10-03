@@ -2,10 +2,17 @@ mungo-theme:
   version: 0.1
   css:
     base:
-      css/bootstrap.custom.css: {}
-      css/mungo.bundle.css: {}
+      assets/css/mungo.bundle.css: {}
   js:
-    js/base.js : {}
+    assets/js/base.js : {}
+    assets/js/dropdownmenu.js: {}
   dependencies:
     - core/jquery
     - core/drupal
+typekit:
+  version: 1.x
+  header: true
+  js:
+    https://use.typekit.net/del2tvj.js: { every_page: true }
+    assets/js/typekit.js: { every_page: true }
+

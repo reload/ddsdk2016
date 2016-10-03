@@ -1,0 +1,19 @@
+uuid: 3da2b4d7-7d77-4c39-846d-26551ff55643
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_presentation_name
+    - taxonomy.vocabulary.person
+id: taxonomy_term.person.field_presentation_name
+field_name: field_presentation_name
+entity_type: taxonomy_term
+bundle: person
+label: 'Presentation Name'
+description: 'Short presentation of the person.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -10,6 +10,9 @@ module:
   contextual: 0
   datetime: 0
   dblog: 0
+  dds_layout: 0
+  dds_person: 0
+  dds_content_link: 0
   dynamic_page_cache: 0
   editor: 0
   editor_advanced_link: 0
@@ -32,9 +35,11 @@ module:
   page_cache: 0
   paragraphs: 0
   path: 0
+  reloadtina: 0
   responsive_image: 0
   search: 0
   shortcut: 0
+  stage_file_proxy: 0
   system: 0
   taxonomy: 0
   text: 0

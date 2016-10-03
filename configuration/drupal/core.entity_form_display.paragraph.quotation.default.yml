@@ -1,0 +1,23 @@
+uuid: c2da5c01-c5f6-40a7-9d1a-4db79ac07f29
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.quotation.field_quotation
+    - paragraphs.paragraphs_type.quotation
+id: paragraph.quotation.default
+targetEntityType: paragraph
+bundle: quotation
+mode: default
+content:
+  field_quotation:
+    weight: 0
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+hidden:
+  created: true
+  status: true
+  uid: true

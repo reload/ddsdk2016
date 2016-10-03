@@ -1,0 +1,40 @@
+@import 'https://fonts.googleapis.com/css?family=Alfa+Slab+One|Enriqueta';
+
+body {
+  font-size: 13px;
+  font-family: $std-font;
+}
+
+a {
+  text-decoration: none;
+}
+
+// Article titles.
+h1.page-title {
+  font-size: 46px;
+  font-weight: bold;
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+
+.article-text {
+  font-size: 17px;
+  line-height: 2;
+
+  &.subtitle {
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+.capitalized-menu-item {
+  font-size: 1em;
+  margin: 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+}
+
+.font-picturetext {
+ @include image-text;
+}

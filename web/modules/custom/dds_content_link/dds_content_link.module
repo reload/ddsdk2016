@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * @file
+ * Functionality for smaller widgets that does warrant their own module.
+ */
+
+use Drupal\Component\Utility\NestedArray;
+use Drupal\Component\Utility\UrlHelper;
+use Drupal\Core\Field\FieldItemList;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_field_widget_form_alter().
+ */
+function dds_content_link_field_widget_form_alter(&$element, &$form_state, $context) {
+  if (isset($context['items']) && $context['items'] instanceof FieldItemList && $context['items']->getName() === 'field_content_link') {
+    $element['#element_validate'][] = '_dds_content_link_validate';
+  }
+}
+
+/**
+ * Validate the link-field on content-link paragraph types.
+ */
+function _dds_content_link_validate($element, FormStateInterface &$form_state, $form) {
+  // Get the form value.
+  $values = $form_state->getValues();
+  // Make sure we have access to the form values and know our parents so that
+  // we can extract this widgets value from form_state.
+  if (0 === count($values) || empty($element['#parents'])) {
+    // Invalid state, no point in attempting to validate.
+    return;
+  }
+  // Extract the value for the element.
+  $value = NestedArray::getValue($values, $element['#parents']);
+
+  // Check if the url is external, set an error if an external link is specified
+  // but no title.
+  $external = UrlHelper::isExternal($value['uri']);
+  if ($external && empty($value['title'])) {
+    $form_state->setError($element, t('External content link paragraphs must have a link text.'));
+  }
+}

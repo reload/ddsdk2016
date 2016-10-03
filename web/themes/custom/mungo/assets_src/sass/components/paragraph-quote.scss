@@ -1,0 +1,64 @@
+// The quotation-paragraph consists of a quote in large types preceeded by a
+// Large quotation-mark. The quotation-mark is insert via a paragraph-specific
+// template.
+
+// Wrapper for the entire quotation.
+.paragraph--type--quotation {
+  @include quote-text;
+
+  // We generally control the spacing to our sourrunding elements via margin.
+  // For the default mobile-styling we have a width of 100% and rely on the
+  // default inter-paragraph spacing to be in place.
+  padding: 0;
+
+  // On tables we float the quotation and insert it into the body-text left.
+  @include media-small {
+    float: left;
+    width: 280px;
+    margin: $spacing-medium;
+
+    // We have to drop all spacing to left-align with the border of the body-
+    // text.
+    margin-left: 0;
+  }
+
+  // For desktops we keep the quotation floated, but pull it to the left out of
+  // the body-text so that it only extends a bit in to the text.
+  @include media-large {
+    width: 380px;
+    margin-left: -250px;
+
+    // We use the left-padding to make sure we don't extend outside of the page-
+    // container.
+    padding-left: $spacing-large;
+  }
+}
+
+// The red quotation-mark hanging over the quotation.
+.quotation--quote--pre {
+  // The outer container acts a normal block-element, and has the mark
+  // positioned inside it. This allows us to position the mark relative to the
+  // container once and for all regardless of breakpoints.
+  position: relative;
+  height: 40px;
+  width: 40px;
+  margin-bottom: $spacing-small;
+
+  // As we're messing pretty heavily with font-sizes here, and a quotation-mark
+  // is offset quite a bit from the baseline, the positioning is very hand-
+  // tweaked.
+  .inner {
+    color: $medium-pink;
+    font-family: $std-font;
+    font-size: 145px;
+    position: absolute;
+    top: 50px;
+
+    // We want the mark to left-align tightly with the text.
+    left: -4px;
+
+    // By zeroing the line-height the positioning gets a bit easier.
+    line-height: 0;
+  }
+
+}

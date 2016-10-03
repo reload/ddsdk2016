@@ -1,0 +1,115 @@
+/* Handle the fixed top menu position and size */
+header.header-fixed {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index :1;
+  background-color: #fff;
+}
+
+header.header-fixed {  height: 70px;  }
+body .layout-container {  padding-top: 100px;  }
+
+@include media-small {
+  header.header-fixed {  height: 130px;  }
+  body .layout-container {  padding-top: 160px;  }
+}
+
+@include media-medium {
+  header.header-fixed {  height: 100px;  }
+  body .layout-container {  padding-top: 130px;  }
+}
+
+/**
+ * Header specifics.
+ */
+
+header.header-fixed {
+  /**
+   * Box shadow soley for development purpose.
+   */
+  box-shadow: 0 0 10px $bluish;
+  .region-top-menu {
+    // Hide the top menu on mobile. Show from tablet and up.
+    display: none;
+    @include media-small {
+      display: block;
+    }
+    height: 30px;
+    .container {
+      // Centre menu vertically, visually.
+      padding-top: 8px;
+    }
+  }
+
+  .region-primary-menu {
+    .container {
+      position: relative;
+      text-align: right;
+      .block-system-branding-block {
+        margin-top: $spacing-small;
+        text-align: center;
+        @include media-small {
+          position: absolute;
+          z-index: 1;
+          // Move left to align with bootstraps .container.b
+          left: $spacing-small;
+        }
+        img {
+          width: 122px;
+          height: 50px;
+        }
+      }
+    }
+  }
+
+  /**
+   * Searchbox in header.
+   */
+
+  .block-search {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include media-small {
+      left: auto;
+      right: 0;
+    }
+    @include media-medium {
+      position: relative;
+    }
+
+    label {
+
+      &:after {
+        content: ' ';
+        background: url('../images/placeholder.svg');
+        height: 15px;
+        width: 15px;
+        display: inline-block;
+        margin-left: $spacing-small;
+      }
+      // Make search "link/button/menuitem" standout.
+      cursor: pointer;
+      color: $bluish;
+      margin-left: $spacing-large;
+      &:after {
+        content: '';
+      }
+    }
+    form {
+      width: 100%;
+      background: red;
+      position: absolute;
+      display: none;
+    }
+    // Open collapse search field.
+    #search-field-expose {
+      display: none;
+      &:checked ~ form {
+        display: block;
+      }
+    }
+  }
+}

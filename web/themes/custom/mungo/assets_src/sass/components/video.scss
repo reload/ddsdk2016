@@ -1,0 +1,6 @@
+// Styling of a responsive main-media used in an article
+.video {
+  // The responsive video is 100% and cannot support a floating element next
+  // to it, so we do a full clear.
+  clear: both;
+}
