@@ -38,10 +38,12 @@
 }
 
 // Handle the situation where the content-link container is an a-tag.
-a.content-link:hover {
-  // Display: block to our content is clickable.
+a.content-link {
+  // Should act as a block-element to be clickable and have a border.
   display: block;
 
-  // We don't want any hoverstate.
-  text-decoration: none;
+  &:hover {
+    // We don't want any hoverstate.
+    text-decoration: none;
+  }
 }
