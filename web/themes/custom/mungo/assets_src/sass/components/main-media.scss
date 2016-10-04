@@ -1,9 +1,7 @@
 // Styling of main-media used in the top of an article.
 
 .main-media {
-  @media (min-width: $screen-lg-min) {
-    border-bottom: 1px solid $pale-grey;
-  }
+  border-bottom: 1px solid $pale-grey;
 
   // Clear space between the image and the next article element.
   margin-bottom: 10px;
