@@ -78,7 +78,7 @@
     node.isSticky() ? 'node--sticky',
     not node.isPublished() ? 'node--unpublished',
     view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-    'col-lg-9',
+    'col-md-9',
     'print-full-width'
   ]
 %}
@@ -101,7 +101,7 @@
 
   <div class="row">
     <!-- Article author and matadata -->
-    <div class="col-lg-3 print-full-width">
+    <div class="col-md-3 print-full-width">
       <footer class="node__meta author-presentation">
           {% if author_presentation %}
             {% if author_presentation.image %}
@@ -130,7 +130,7 @@
 
     </div>
     <!-- Article main content -->
-    <div{{ content_attributes.addClass(['node__content', 'col-lg-9', 'print-full-width']) }}>
+    <div{{ content_attributes.addClass(['node__content', 'col-md-9', 'print-full-width']) }}>
       <div class=" hidden-xs hidden-sm">{{ content.field_subtitle }}</div>
       {# We leave out any fields we've output manually at this point #}
       {# field_content_author is left out as it is a part of author_presentation #}
@@ -140,7 +140,7 @@
 
 </article>
 
-<aside class="col-lg-3 no-printing">
+<aside class="col-md-3 no-printing">
   <div style="background-color: #f5f5f5">
     <h2>Hurtige genveje</h2>
     <ul>

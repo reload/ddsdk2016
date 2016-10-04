@@ -6,11 +6,10 @@
     border-top: 1px solid $pale-grey;
     border-bottom: 1px solid $pale-grey;
 
-
     display: flex;
     align-items: center;
 
-    @media (min-width: $screen-lg-min) {
+    @include media-medium {
       border: none;
       display: block;
     }

@@ -15,22 +15,26 @@
   @include media-small {
     float: left;
     width: 280px;
-    margin: $spacing-medium;
+    margin-right: $spacing-medium;
 
     // We have to drop all spacing to left-align with the border of the body-
     // text.
     margin-left: 0;
   }
 
-  // For desktops we keep the quotation floated, but pull it to the left out of
-  // the body-text so that it only extends a bit in to the text.
+  // For landscape tables / desktops we keep the quotation floated, but pull it
+  // to the left out of the body-text so that it only extends a bit in to the
+  // text.
+  @include media-medium {
+    width: 340px;
+    margin-left: -175px;
+  }
+
+  // For desktops we have more space to the left of the body-text so we increase
+  // the size of the quotation slightly and pull it out even further.
   @include media-large {
     width: 380px;
-    margin-left: -250px;
-
-    // We use the left-padding to make sure we don't extend outside of the page-
-    // container.
-    padding-left: $spacing-large;
+    margin-left: -220px;
   }
 }
 
