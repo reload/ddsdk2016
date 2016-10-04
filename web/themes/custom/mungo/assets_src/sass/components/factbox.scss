@@ -13,21 +13,25 @@
   @extend .font-picturetext;
   font-size: 14px;
 
-  // For tables we float the box and fix the size. Slightly larger spacing.
-  // As we now have text to the right of us we're only clearing the left-margin.
-  @media (min-width: $screen-sm-min) {
+  @include media-small {
     float: left;
     width: 300px;
+    margin-right: $spacing-medium;
 
-    margin: $spacing-medium;
+    // We have to drop all spacing to left-align with the border of the body-
+    // text.
     margin-left: 0;
+  }
+
+  // For tables we float the box and fix the size. Slightly larger spacing.
+  // As we now have text to the right of us we're only clearing the left-margin.
+  @include media-medium {
+    margin-left: -180px;
   }
 
   // For desktops we keep the factbox floated, but pull it out to the left so
   // that it only exends a bit in to the text.
-  @media (min-width: $screen-lg-min) {
-    padding: $spacing-large;
-    margin: $spacing-large;
+  @include media-large {
     margin-left: -220px;
   }
 
