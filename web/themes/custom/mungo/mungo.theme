@@ -42,6 +42,15 @@ function mungo_preprocess_field(&$variables) {
   }
 }
 
+function mungo_form_search_block_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $form['keys']['#placeholder'] = t('Search for activities, events, papers etc.');
+  $form['actions']['search_submit'] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'button',
+    '#value' => '<span class="glyphicon glyphicon-search"></span>',
+  );
+}
+
 /**
  * Internal function for processing main media fields.
  *
