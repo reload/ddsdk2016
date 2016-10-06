@@ -13,6 +13,7 @@ module:
   datetime_range: 0
   dblog: 0
   dds_content_link: 0
+  dds_event: 0
   dds_layout: 0
   dds_person: 0
   dynamic_page_cache: 0

@@ -1,0 +1,5 @@
+services:
+  dds_event.config_subscriber:
+    class: Drupal\dds_event\EventSubscriber\DdsEventAddressFormatSubscriber
+    tags:
+      - { name: event_subscriber }
