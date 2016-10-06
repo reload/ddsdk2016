@@ -1,0 +1,9 @@
+uuid: 903dce22-ad80-4b57-874f-2174ad6851f6
+langcode: en
+status: true
+dependencies: {  }
+name: 'Event target group'
+vid: event_target_group
+description: ''
+hierarchy: 0
+weight: 0

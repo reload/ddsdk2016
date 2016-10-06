@@ -1,0 +1,21 @@
+uuid: e557c25f-f2c8-4ccf-909d-7bb12e2b5a3b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_signup_deadline
+    - node.type.event
+  module:
+    - datetime
+id: node.event.field_event_signup_deadline
+field_name: field_event_signup_deadline
+entity_type: node
+bundle: event
+label: 'Signup deadline'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

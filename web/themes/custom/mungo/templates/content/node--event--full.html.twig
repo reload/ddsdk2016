@@ -83,62 +83,17 @@
     'print-full-width'
   ]
 %}
-{% block main_media_suffix %}
-  <div class="hidden-md hidden-lg">{{ content.field_subtitle }}</div>
-{% endblock %}
-
-{% block main_content_sidebar %}
-  <footer class="node__meta author-presentation">
-      {% if author_presentation %}
-          {% if author_presentation.image %}
-            <div class="author__image">
-                {{ author_presentation.image }}
-            </div>
-          {% endif %}
-
-        <div class="author__meta">
-          <div class="published-on">
-              {{ node.createdTime | format_date('publication_date') }}
-          </div>
-
-          <div class="author__name">
-              {% trans with {'context': 'Byline'} %}By: {{ author_presentation.name }}{% endtrans %}
-          </div>
-        </div>
-      {%  else %}
-        <div class="author__meta">
-          <div class="published-on">
-              {{ node.createdTime | format_date('publication_date') }}
-          </div>
-        </div>
-      {% endif %}
-  </footer>
-{% endblock %}
 {% block main_content %}
-  <!-- Article main content -->
-  <div class=" hidden-xs hidden-sm">{{ content.field_subtitle }}</div>
-    {# We leave out any fields we've output manually at this point #}
-    {# field_content_author is left out as it is a part of author_presentation #}
-    {{ content | without('field_content_author', 'field_subtitle', 'field_main_media' ) }}
+<div class=" hidden-xs hidden-sm">{{ content.field_event_teaser }}</div>
+{# We leave out any fields we've output manually at this point #}
+{# field_content_author is left out as it is a part of author_presentation #}
+{{ content | without('field_teaser', 'field_main_media' ) }}
 {% endblock %}
 {% block sidebar %}
   <div style="background-color: #f5f5f5">
-    <h2>Hurtige genveje</h2>
-    <ul>
-      <li>Some link</li>
-      <li>Some link</li>
-      <li>Some link</li>
-      <li>Some link</li>
-    </ul>
-  </div>
-  <div style="background-color: #f5f5f5">
-    <h2>Mest læste</h2>
-    <ul>
-      <li>Some link</li>
-      <li>Some link</li>
-      <li>Some link</li>
-      <li>Some link</li>
-    </ul>
+    <h2>Arrangements detaljer</h2>
+    <p>
+      Sed elementum vel sapien et ultricies. Duis tincidunt eget tellus ac porttitor. Curabitur in augue nisl. Proin venenatis vel quam et pulvinar. Donec consequat aliquet ipsum, quis aliquam justo pretium pellentesque. Quisque auctor magna vitae nulla tristique ultrices sit amet quis dolor. Donec molestie augue ac felis eleifend, vitae interdum velit efficitur. Ut iaculis venenatis massa ac ullamcorper. Cras eget mi nec neque venenatis condimentum. Donec tempus justo in elit pharetra, id commodo ex vestibulum. Mauris tempus interdum ante quis mattis. Vestibulum pharetra tempor viverra. Vivamus tempus pharetra finibus. Curabitur et pulvinar ipsum. Suspendisse iaculis posuere mi, non bibendum ex semper eu.
+    </p>
   </div>
 {% endblock %}
-

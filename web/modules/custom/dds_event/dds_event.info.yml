@@ -1,0 +1,5 @@
+name: DDS Event
+description: Provides functionallity related to events.
+type: module
+package: DDS
+core: 8.x
