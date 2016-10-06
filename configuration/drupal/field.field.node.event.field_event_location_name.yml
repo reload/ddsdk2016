@@ -10,7 +10,7 @@ field_name: field_event_location_name
 entity_type: node
 bundle: event
 label: 'Event location name'
-description: 'Simple one-line description of where the event takes place - eg. "Holmen spejdercenter"'
+description: 'Simple one-line description of where the event takes place - eg. "Spejdercenter Holmen"'
 required: false
 translatable: false
 default_value: {  }

@@ -10,7 +10,7 @@ third_party_settings:
     parent: ''
 name: Event
 type: event
-description: ''
+description: 'Basic event, courses and other entities that can be displayed in a calendar.'
 help: ''
 new_revision: false
 preview_mode: 0

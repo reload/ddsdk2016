@@ -13,7 +13,7 @@ id: node.event.field_paragraphs
 field_name: field_paragraphs
 entity_type: node
 bundle: event
-label: Body
+label: 'Main event description'
 description: 'Main description of the event.'
 required: false
 translatable: true
