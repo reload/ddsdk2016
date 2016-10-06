@@ -15,6 +15,7 @@ class DdsEventAddressFormatSubscriber implements EventSubscriberInterface {
    * {@inheritdoc}
    */
   public static function getSubscribedEvents() {
+    $events = [];
     $events[AddressEvents::ADDRESS_FORMAT][] = array('onGetDefinition', 0);
     return $events;
   }
