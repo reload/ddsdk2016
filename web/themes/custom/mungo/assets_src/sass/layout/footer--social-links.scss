@@ -1,10 +1,9 @@
 .menu--social-links {
   a {
     display: inline-block;
-    border: 1px solid #fff;
     width: 48px;
     height: 48px;
-    border-radius: 24px;
+    margin: 0 $spacing-medium;
   }
 }
 
@@ -16,5 +15,17 @@
     font-size: 0;
     background: url('../images/placeholder.svg');
     background-size: cover;
+  }
+  a[href*='facebook'] {
+    background: url('../images/Ikoner_DDS_DK_ikon_Facebook_hvid.svg');
+  }
+  a[href*='youtube'] {
+    background: url('../images/Ikoner_DDS_DK_ikon_youtube_hvid.svg');
+  }
+  a[href*='twitter'] {
+    background: url('../images/Ikoner_DDS_DK_ikon_twitter_hvid.svg');
+  }
+  a[href*='instagram'] {
+    background: url('../images/Ikoner_DDS_DK_ikon_instagram_hvid.svg');
   }
 }

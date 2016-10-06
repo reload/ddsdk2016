@@ -4,33 +4,42 @@
     padding-bottom: $spacing-medium;
   }
 }
+.layout-container > footer {
+  overflow: hidden;
+}
 
+// Three image.
 .footer_bottom {
-  padding: $spacing-large 0;
+  .container {
+    position: relative;
+    &:after {
+      @include media-small {
+        content: '';
+        background: url('../images/footer_tree_dummy_ikon.svg');
+        background-repeat: no-repeat;
+        background-position: 0 5px;
+        height: 261px;
+        width: 279px;
+        display: block;
+        position: absolute;
+        right: -100px;
+        bottom: 0;
+      }
+    }
+  }
 }
 
 
-.menu--social-links {
-  // Ensure that the social menu is ontop of footer graphics.
-  position: relative;
-  z-index: 1;
+.men--social-links {
+
   padding: 0;
   padding-top: $spacing-small;
   @include inline-menu;
 }
 .region-footer-social {
+  padding: $spacing-large 0;
   // Set relative in order to position graphics used in footer.
-  position: relative;
-  &:after {
-    content: '';
-    background: url('../images/placeholder--trees.svg');
-    height: 160px;
-    width: 160px;
-    display: block;
-    position: absolute;
-    right: 0;
-    bottom: -$spacing-large;
-  }
+
 }
 
 .menu--footer {
