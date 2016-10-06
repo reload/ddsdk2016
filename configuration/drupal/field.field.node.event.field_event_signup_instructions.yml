@@ -1,0 +1,21 @@
+uuid: 3f887178-c77d-4e49-b5c1-91d5211d3529
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_signup_instructions
+    - node.type.event
+  module:
+    - text
+id: node.event.field_event_signup_instructions
+field_name: field_event_signup_instructions
+entity_type: node
+bundle: event
+label: 'Signup instructions'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

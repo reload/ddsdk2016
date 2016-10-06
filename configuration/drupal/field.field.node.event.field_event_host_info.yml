@@ -1,0 +1,21 @@
+uuid: 552e577e-2750-4e2d-afa8-fe6b05ad8cf6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_host_info
+    - node.type.event
+  module:
+    - text
+id: node.event.field_event_host_info
+field_name: field_event_host_info
+entity_type: node
+bundle: event
+label: 'Host information'
+description: 'Description and contact information for the host(s) of the event.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
