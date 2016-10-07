@@ -25,10 +25,6 @@ body .layout-container {  padding-top: 100px;  }
  */
 
 header.header-fixed {
-  /**
-   * Box shadow soley for development purpose.
-   */
-  box-shadow: 0 0 10px $bluish;
   .region-top-menu {
     // Hide the top menu on mobile. Show from tablet and up.
     display: none;
@@ -41,22 +37,18 @@ header.header-fixed {
       padding-top: 8px;
     }
   }
-
+  /* Display a line after menu */
   &:after {
-  display: block;
-  content: '';
-  height: 1px;
-  width: 100%;
-  background: red;
-  }
-
-  @include media-medium {
-    &:after {
-      //display: none;
+    display: block;
+    content: '';
+    height: 1px;
+    width: 100%;
+    @include background-image(linear-gradient(to left, transparent 0%, $warm-grey 25%, $warm-grey 75%, transparent 100%));
+    @include media-medium {
+      // Hide the line on desktop.
+      display: none;
     }
   }
-
-
 
   .region-primary-menu {
     .container {
