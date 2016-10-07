@@ -92,7 +92,6 @@
   {{ content | without('field_event_teaser', 'field_main_media', 'group_event_extra_info', 'group_signup_info', 'group_location_info', 'group_main_info' ) }}
 {% endblock %}
 {% block sidebar %}
-  {{ xdebug_break() }}
   <div class="box box--grey no-inline">
     <h2 class="box__heading">{% trans %}Extra information{% endtrans %}</h2>
     {{ content.group_event_extra_info }}
