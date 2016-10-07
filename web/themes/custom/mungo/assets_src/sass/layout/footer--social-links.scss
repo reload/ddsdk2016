@@ -13,19 +13,24 @@
 .menu--social-links {
   a {
     font-size: 0;
-    background: url('../images/placeholder.svg');
+    background-color: #fff;
     background-size: cover;
   }
   a[href*='facebook'] {
-    background: url('../images/Ikoner_DDS_DK_ikon_Facebook_hvid.svg');
+    -webkit-mask-image: url('../images/Ikoner_DDS_DK_ikon_Facebook.svg');
+    mask-image: url('../images/Ikoner_DDS_DK_ikon_Facebook.svg');
+    //background: url();
   }
   a[href*='youtube'] {
-    background: url('../images/Ikoner_DDS_DK_ikon_youtube_hvid.svg');
+    -webkit-mask-image: url('../images/Ikoner_DDS_DK_ikon_youtube.svg');
+    mask-image: url('../images/Ikoner_DDS_DK_ikon_youtube.svg');
   }
   a[href*='twitter'] {
-    background: url('../images/Ikoner_DDS_DK_ikon_twitter_hvid.svg');
+    -webkit-mask-image: url('../images/Ikoner_DDS_DK_ikon_twitter.svg');
+    mask-image: url('../images/Ikoner_DDS_DK_ikon_twitter.svg');
   }
   a[href*='instagram'] {
-    background: url('../images/Ikoner_DDS_DK_ikon_instagram_hvid.svg');
+    -webkit-mask-image: url('../images/Ikoner_DDS_DK_ikon_instagram.svg');
+    mask-image: url('../images/Ikoner_DDS_DK_ikon_instagram.svg');
   }
 }
