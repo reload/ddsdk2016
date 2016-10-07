@@ -6,6 +6,7 @@
  */
 
 use Drupal\file\Entity\File;
+
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
 
@@ -18,8 +19,14 @@ function mungo_preprocess_field(&$variables) {
     // Handle various main-media fields.
     _mungo_preprocess_field_main_media($field_name, $variables);
   }
-  elseif (in_array($field_name, ['field_subtitle', 'field_formatted_text'])) {
-    _mungo_preprocess_field_article_text($field_name, $variables);
+  elseif (in_array($field_name,
+    [
+      'field_event_teaser',
+      'field_subtitle',
+      'field_formatted_text',
+    ]
+  )) {
+    _mungo_preprocess_text_field($field_name, $variables);
   }
   elseif (in_array($field_name, ['field_factbox_text'])) {
     // Clean the classes on factboxes.
@@ -53,17 +60,17 @@ function _mungo_preprocess_field_main_media($field_name, &$variables) {
 }
 
 /**
- * Internal function for processing main media fields.
+ * Internal function for processing article-style text fields.
  *
  * @param string $field_name
  *   The field currently being preprocessed.
  * @param array $variables
  *   Variables to preprocess.
  */
-function _mungo_preprocess_field_article_text($field_name, &$variables) {
+function _mungo_preprocess_text_field($field_name, &$variables) {
   $variables['attributes']['class'][] = 'article-text';
 
-  if ($field_name === 'field_subtitle') {
+  if (in_array($field_name, ['field_subtitle', 'field_event_teaser'])) {
     $variables['attributes']['class'][] = 'subtitle';
   }
 

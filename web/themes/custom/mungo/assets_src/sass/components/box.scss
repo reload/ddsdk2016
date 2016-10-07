@@ -1,0 +1,41 @@
+// Styling of boxes
+
+.box {
+  padding: $spacing-small;
+
+  // Make sure the topmost heading does not add extra spacing - we have all
+  // the internal padding we need already.
+  h1, h2, h3 {
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  // Seperate the next box from this one.
+  margin-bottom: $spacing-medium;
+}
+
+.box__heading {
+  @include box-headline;
+}
+
+.box.box--grey {
+  background-color: $white-two;
+}
+
+// Slim-boxes minimizes their internal and external spacing.
+.box.box--slim {
+  padding-left: 0;
+  padding-right: 0;
+
+  // When displayed on a mobile still need to push the elements before and
+  // after us a bit away.
+  border-top: 1px solid $pale-grey;
+  border-bottom: 1px solid $pale-grey;
+
+  @include media-medium {
+    border: none;
+    padding: 0;
+  }
+
+}

@@ -12,7 +12,7 @@ field_name: field_event_signup_instructions
 entity_type: node
 bundle: event
 label: 'Signup instructions'
-description: ''
+description: 'How to sign up for the event.'
 required: false
 translatable: false
 default_value: {  }

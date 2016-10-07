@@ -83,17 +83,33 @@
     'print-full-width'
   ]
 %}
+{% block main_media_suffix %}
+  <div class="hidden-md hidden-lg">{{ content.field_event_teaser }}</div>
+{% endblock %}
 {% block main_content %}
-<div class=" hidden-xs hidden-sm">{{ content.field_event_teaser }}</div>
-{# We leave out any fields we've output manually at this point #}
-{# field_content_author is left out as it is a part of author_presentation #}
-{{ content | without('field_teaser', 'field_main_media' ) }}
+  <div class=" hidden-xs hidden-sm">{{ content.field_event_teaser }}</div>
+  {# We leave out any fields we've output manually at this point #}
+  {{ content | without('field_event_teaser', 'field_main_media', 'group_event_extra_info', 'group_signup_info', 'group_location_info', 'group_main_info' ) }}
 {% endblock %}
 {% block sidebar %}
-  <div style="background-color: #f5f5f5">
-    <h2>Arrangements detaljer</h2>
-    <p>
-      Sed elementum vel sapien et ultricies. Duis tincidunt eget tellus ac porttitor. Curabitur in augue nisl. Proin venenatis vel quam et pulvinar. Donec consequat aliquet ipsum, quis aliquam justo pretium pellentesque. Quisque auctor magna vitae nulla tristique ultrices sit amet quis dolor. Donec molestie augue ac felis eleifend, vitae interdum velit efficitur. Ut iaculis venenatis massa ac ullamcorper. Cras eget mi nec neque venenatis condimentum. Donec tempus justo in elit pharetra, id commodo ex vestibulum. Mauris tempus interdum ante quis mattis. Vestibulum pharetra tempor viverra. Vivamus tempus pharetra finibus. Curabitur et pulvinar ipsum. Suspendisse iaculis posuere mi, non bibendum ex semper eu.
-    </p>
+  <div class="box box--grey no-inline">
+    <h2 class="box__heading">{% trans %}Extra information{% endtrans %}</h2>
+    {{ content.group_event_extra_info }}
+  </div>
+  {% if content.group_signup_info %}
+  <div class="box box--grey no-inline">
+    <h2 class="box__heading">{% trans %}Signup{% endtrans %}</h2>
+  {{ content.group_signup_info }}
+  </div>
+  {% endif %}
+  <div class="box box--grey no-inline">
+    <h2 class="box__heading">{% trans %}Location{% endtrans %}</h2>
+  {{ content.group_location_info }}
+  </div>
+{% endblock %}
+{% block main_content_sidebar %}
+  <div class="box box--slim">
+    <h3 class="box__heading">{% trans with {'context': 'Event'}%}Main information{% endtrans %}</h3>
+    {{ content.group_main_info }}
   </div>
 {% endblock %}

@@ -10,7 +10,7 @@ field_name: field_course_id
 entity_type: node
 bundle: event
 label: 'Course id'
-description: ''
+description: 'Id from member service if available. If specified the signup-instructions does not have to be described.'
 required: false
 translatable: false
 default_value: {  }

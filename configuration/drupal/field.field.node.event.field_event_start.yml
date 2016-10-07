@@ -11,7 +11,7 @@ id: node.event.field_event_start
 field_name: field_event_start
 entity_type: node
 bundle: event
-label: 'Event start'
+label: Start
 description: ''
 required: true
 translatable: false
