@@ -88,6 +88,10 @@ header.header-fixed {
       margin-left: 10px;
       cursor: pointer;
       color: $bluish;
+      span {
+        // Make a little room between label and magnifying glass.
+        margin-left: $spacing-small;
+      }
 
       @include media-small {
         // Move to the right instead.
