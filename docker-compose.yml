@@ -30,6 +30,7 @@ services:
       - webroot
     links:
       - db
+      - solr
     environment:
       PATH: '/var/www/vendor/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
 
@@ -63,8 +64,16 @@ services:
     working_dir: /var/www/web
     links:
       - db
+      - solr
     environment:
       PATH: '/var/www/vendor/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+
+  solr:
+    image: blinkreaction/drupal-solr:4.x-stable
+    ports:
+      - '8983/tcp'
+    volumes:
+      - './web/modules/contrib/search_api_solr/solr-conf/4.x:/var/lib/solr/conf:ro'
 
   # Webroot and volumned paths needs to be accessible from multiple containers so
   # we set up all paths once and for all via a single volumne-container.
