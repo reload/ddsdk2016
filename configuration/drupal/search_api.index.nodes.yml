@@ -1,0 +1,352 @@
+uuid: 20c9c73a-0e71-411c-91fc-5369661b4692
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subtitle
+    - field.storage.node.field_course_id
+    - field.storage.node.field_event_end
+    - field.storage.node.field_event_is_all_day
+    - field.storage.node.field_event_location_name
+    - field.storage.node.field_event_price
+    - field.storage.node.field_event_signup_deadline
+    - field.storage.node.field_event_start
+    - field.storage.node.field_event_teaser
+    - field.storage.node.field_main_media
+    - field.storage.media.field_caption
+    - field.storage.media.field_byline
+    - field.storage.node.field_paragraphs
+    - field.storage.paragraph.field_factbox_text
+    - field.storage.node.field_event_target_group
+    - field.storage.node.field_content_author
+    - field.storage.taxonomy_term.field_presentation_name
+    - field.storage.paragraph.field_gallery_image
+    - field.storage.paragraph.field_quotation
+    - field.storage.paragraph.field_video_caption
+    - field.storage.node.field_event_address
+    - field.storage.node.field_event_type
+    - field.storage.paragraph.field_formatted_text
+    - field.storage.node.field_event_accommodation
+    - field.storage.node.field_event_host_info
+    - field.storage.node.field_event_signup_instructions
+    - search_api.server.solr
+  module:
+    - media_entity
+    - paragraphs
+    - taxonomy
+    - search_api
+    - node
+id: nodes
+name: Nodes
+description: ''
+read_only: false
+field_settings:
+  nid:
+    label: ID
+    datasource_id: 'entity:node'
+    property_path: nid
+    type: integer
+  type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
+  status:
+    label: 'Publishing status'
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+  created:
+    label: 'Authored on'
+    datasource_id: 'entity:node'
+    property_path: created
+    type: date
+  changed:
+    label: Changed
+    datasource_id: 'entity:node'
+    property_path: changed
+    type: date
+  field_subtitle:
+    label: Subtitle
+    datasource_id: 'entity:node'
+    property_path: field_subtitle
+    type: text
+    boost: !!float 2
+    dependencies:
+      config:
+        - field.storage.node.field_subtitle
+  field_course_id:
+    label: 'Course id'
+    datasource_id: 'entity:node'
+    property_path: field_course_id
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_course_id
+  field_event_end:
+    label: End
+    datasource_id: 'entity:node'
+    property_path: field_event_end
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_event_end
+  field_event_is_all_day:
+    label: 'All day event'
+    datasource_id: 'entity:node'
+    property_path: field_event_is_all_day
+    type: boolean
+    dependencies:
+      config:
+        - field.storage.node.field_event_is_all_day
+  field_event_location_name:
+    label: 'Event location name'
+    datasource_id: 'entity:node'
+    property_path: field_event_location_name
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_event_location_name
+  field_event_price:
+    label: Price
+    datasource_id: 'entity:node'
+    property_path: field_event_price
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_event_price
+  field_event_signup_deadline:
+    label: 'Signup deadline'
+    datasource_id: 'entity:node'
+    property_path: field_event_signup_deadline
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_event_signup_deadline
+  field_event_start:
+    label: Start
+    datasource_id: 'entity:node'
+    property_path: field_event_start
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_event_start
+  field_event_teaser:
+    label: Teaser
+    datasource_id: 'entity:node'
+    property_path: field_event_teaser
+    type: text
+    boost: !!float 2
+    dependencies:
+      config:
+        - field.storage.node.field_event_teaser
+  main_media_image_field_caption:
+    label: 'Main Media » Media » Image caption'
+    datasource_id: 'entity:node'
+    property_path: 'field_main_media:entity:field_caption'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_main_media
+        - field.storage.media.field_caption
+      module:
+        - media_entity
+  main_media_image_field_byline:
+    label: 'Main Media » Media » Image byline'
+    datasource_id: 'entity:node'
+    property_path: 'field_main_media:entity:field_byline'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_main_media
+        - field.storage.media.field_byline
+      module:
+        - media_entity
+  field_factbox_text:
+    label: 'Paragraphs » Paragraph » Text'
+    datasource_id: 'entity:node'
+    property_path: 'field_paragraphs:entity:field_factbox_text'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_paragraphs
+        - field.storage.paragraph.field_factbox_text
+      module:
+        - paragraphs
+  target_group_name:
+    label: 'Target group » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_event_target_group:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_event_target_group
+      module:
+        - taxonomy
+  field_presentation_name:
+    label: 'Author » Taxonomy term » Presentation Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_content_author:entity:field_presentation_name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_content_author
+        - field.storage.taxonomy_term.field_presentation_name
+      module:
+        - taxonomy
+  paragraph_images_field_byline:
+    label: 'Paragraphs » Paragraph » Images » Media » Image byline'
+    datasource_id: 'entity:node'
+    property_path: 'field_paragraphs:entity:field_gallery_image:entity:field_byline'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_paragraphs
+        - field.storage.paragraph.field_gallery_image
+        - field.storage.media.field_byline
+      module:
+        - paragraphs
+        - media_entity
+  paragraph_images_field_caption:
+    label: 'Paragraphs » Paragraph » Images » Media » Image caption'
+    datasource_id: 'entity:node'
+    property_path: 'field_paragraphs:entity:field_gallery_image:entity:field_caption'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_paragraphs
+        - field.storage.paragraph.field_gallery_image
+        - field.storage.media.field_caption
+      module:
+        - paragraphs
+        - media_entity
+  field_quotation:
+    label: 'Paragraphs » Paragraph » Quotation'
+    datasource_id: 'entity:node'
+    property_path: 'field_paragraphs:entity:field_quotation'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_paragraphs
+        - field.storage.paragraph.field_quotation
+      module:
+        - paragraphs
+  field_video_caption:
+    label: 'Paragraphs » Paragraph » Caption'
+    datasource_id: 'entity:node'
+    property_path: 'field_paragraphs:entity:field_video_caption'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_paragraphs
+        - field.storage.paragraph.field_video_caption
+      module:
+        - paragraphs
+  event_address_locality:
+    label: 'Event address » The locality (i.e. city).'
+    datasource_id: 'entity:node'
+    property_path: 'field_event_address:locality'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_event_address
+  event_address_country_code:
+    label: 'Event address » The two-letter country code.'
+    datasource_id: 'entity:node'
+    property_path: 'field_event_address:country_code'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_event_address
+  event_type_name:
+    label: 'Event type » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_event_type:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_event_type
+      module:
+        - taxonomy
+  postal_code:
+    label: 'Event address » The postal code.'
+    datasource_id: 'entity:node'
+    property_path: 'field_event_address:postal_code'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_event_address
+  title_full_text:
+    label: 'Title (fulltext)'
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    boost: !!float 3
+  field_formatted_text:
+    label: 'Paragraphs » Paragraph » text'
+    datasource_id: 'entity:node'
+    property_path: 'field_paragraphs:entity:field_formatted_text'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_paragraphs
+        - field.storage.paragraph.field_formatted_text
+      module:
+        - paragraphs
+  field_event_accomodation:
+    label: 'Accommodation » Processed text'
+    datasource_id: 'entity:node'
+    property_path: 'field_event_accommodation:processed'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_event_accommodation
+  field_event_host_info:
+    label: 'Host information » Processed text'
+    datasource_id: 'entity:node'
+    property_path: 'field_event_host_info:processed'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_event_host_info
+  field_event_signup_info:
+    label: 'Signup instructions » Processed text'
+    datasource_id: 'entity:node'
+    property_path: 'field_event_signup_instructions:processed'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_event_signup_instructions
+processor_settings:
+  add_url:
+    plugin_id: add_url
+    settings: {  }
+  aggregated_field:
+    plugin_id: aggregated_field
+    settings: {  }
+  rendered_item:
+    plugin_id: rendered_item
+    settings: {  }
+options:
+  index_directly: true
+  cron_limit: 50
+datasource_settings:
+  'entity:node':
+    plugin_id: 'entity:node'
+    settings:
+      bundles:
+        default: true
+        selected: {  }
+      languages:
+        default: true
+        selected: {  }
+tracker_settings:
+  default:
+    plugin_id: default
+    settings: {  }
+server: solr
