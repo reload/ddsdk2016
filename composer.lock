@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7311daafc495dabd7be7724ada978aad",
-    "content-hash": "e02fa1434d19e0296c6bef81262da537",
+    "hash": "b227bc5536fa5bb62d67f23cbe4c29b3",
+    "content-hash": "1db799745df77e075985f6073122062e",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1265,7 +1265,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/address-8.x-1.0-rc2.zip",
-                "reference": null,
+                "reference": "7f6c1fb090bc70cf14340f2d278343033a614c6b",
                 "shasum": null
             },
             "require": {
@@ -1654,6 +1654,12 @@
                 "symfony/css-selector": "~2.8"
             },
             "type": "drupal-core",
+            "extra": {
+                "patches_applied": {
+                    "2558207: Add hook to react to image_path_flush() - recommended by the Reloadtina module": "https://www.drupal.org/files/issues/add_hook_image_path_flush-2558207-4.patch",
+                    "2408549: Notify about overridden configuration": "https://www.drupal.org/files/issues/config-override-warning-2408549-29.patch"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Drupal\\Core\\": "lib/Drupal/Core",
@@ -1688,7 +1694,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/editor_advanced_link-8.x-1.3.zip",
-                "reference": null,
+                "reference": "fef08c8dd4b9ebff80d075da9c3222c118272165",
                 "shasum": null
             },
             "require": {
