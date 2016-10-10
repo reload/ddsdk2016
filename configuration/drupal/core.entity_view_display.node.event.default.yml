@@ -20,6 +20,7 @@ dependencies:
     - field.field.node.event.field_event_type
     - field.field.node.event.field_main_media
     - field.field.node.event.field_paragraphs
+    - field.field.node.event.field_programs
     - node.type.event
   module:
     - address
@@ -73,7 +74,7 @@ third_party_settings:
         - field_event_address
         - field_event_accommodation
       parent_name: ''
-      weight: 7
+      weight: 6
       label: 'Location info'
       format_type: html_element
       format_settings:
@@ -221,6 +222,14 @@ content:
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
+  field_programs:
+    type: entity_reference_revisions_entity_view
+    weight: 7
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
 hidden:
   field_event_is_all_day: true
   langcode: true

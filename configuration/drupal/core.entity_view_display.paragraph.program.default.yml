@@ -1,0 +1,33 @@
+uuid: b07ada51-c859-4d08-9db8-77b6c983e3b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.program.field_program_items
+    - field.field.paragraph.program.field_program_title
+    - paragraphs.paragraphs_type.program
+  module:
+    - entity_reference_revisions
+id: paragraph.program.default
+targetEntityType: paragraph
+bundle: program
+mode: default
+content:
+  field_program_items:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_program_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+hidden:
+  created: true
+  uid: true

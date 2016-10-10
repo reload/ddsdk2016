@@ -1,0 +1,19 @@
+uuid: 68eead18-cc57-4463-9f2b-d682cfc36fe8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_program_title
+    - paragraphs.paragraphs_type.program
+id: paragraph.program.field_program_title
+field_name: field_program_title
+entity_type: paragraph
+bundle: program
+label: 'Program Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

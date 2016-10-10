@@ -1,0 +1,26 @@
+uuid: 00476a9f-7221-468b-a87d-9ea31c7bb22c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_program_item_date
+    - paragraphs.paragraphs_type.program_item
+  module:
+    - datetime_range
+id: paragraph.program_item.field_program_item_date
+field_name: field_program_item_date
+entity_type: paragraph
+bundle: program_item
+label: 'Program Date'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+    default_end_date_type: now
+    default_end_date: now
+default_value_callback: ''
+settings: {  }
+field_type: daterange
