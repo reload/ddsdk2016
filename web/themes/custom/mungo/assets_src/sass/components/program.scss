@@ -1,0 +1,102 @@
+.program {
+  margin: 20px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.program--header {
+  // background-color: $white-two;
+  background-color: $marine-lighter-blue;
+  color: white;
+  padding: 10px;
+  font-size: 18px;
+  z-index: 1;
+  position: relative;
+
+  &:before {
+    @extend .glyphicon;
+    @extend .glyphicon-chevron-down;
+    @include transform(rotate(0deg));
+    @include transition(all 300ms ease-out);
+    position: absolute;
+    right: 20px;
+    line-height: 41px; // (font-size * 2) + (padding/2);
+
+    .js-active & {
+      @include transform(rotate(180deg));
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.program--items {
+}
+
+.program-item {
+
+  overflow: hidden;
+
+  &--header {
+    padding: 10px 20px;
+    border-bottom: 1px dashed $pale-grey;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    font-size: 16px;
+
+    &--text {
+      width: 60%;
+      float: left;
+    }
+
+    &--time {
+      width: 40%;
+      float: left;
+      text-align: right;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    &:before {
+      @extend .glyphicon;
+      @extend .glyphicon-menu-down;
+      @include transform(rotate(0deg));
+      @include transition(all 300ms ease-out);
+      position: absolute;
+      right: 20px;
+      bottom: 10px;
+      top: auto;
+      font-size: 12px;
+
+      .js-item-active & {
+        @include transform(rotate(180deg));
+      }
+    }
+  }
+
+  &--content {
+    padding: 0 20px 0 40px;
+    font-size: 16px;
+    // color: $marine-blue;
+    border-bottom: 1px dashed $pale-grey;
+    color: $warm-grey;
+  }
+}
+
+.slidedown {
+  transform: translate(0px,-20px) scale(1,0.95);
+  opacity: 0;
+  max-height: 0;
+  transition: 0.4s;
+  z-index: 1;
+
+  &.js-active {
+    max-height: 1000px;
+    transform: translateX(0px) translateY(0px) translateZ(0px) scaleX(1) scaleY(1) scaleZ(1);
+    display: block;
+    opacity: 1;
+  }
+}
