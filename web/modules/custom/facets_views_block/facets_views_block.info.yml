@@ -1,0 +1,8 @@
+name: Facets Views Block
+type: module
+description: Provide facets and exposed form to views block templates.
+package: Search
+core: 8.x
+dependencies:
+  - views
+  - block

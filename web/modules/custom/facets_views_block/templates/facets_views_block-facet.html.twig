@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - label: The configured label of the block if visible.
+ * - facet: The rendered facet group.
+ */
+#}
+{%
+  set classes = [
+   'filters',
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  <div class="filters__body">
+    <p class="filters__title">{{ label }}</p>
+    {{ facet }}
+  </div>
+</div>
