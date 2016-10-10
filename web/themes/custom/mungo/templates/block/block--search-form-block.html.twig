@@ -36,7 +36,7 @@ set classes = [
 <div{{ attributes.addClass(classes) }}>
     {{ title_prefix }}
     {% if label %}
-        <label{{ title_attributes.addClass('capitalized-menu-item') }} for="search-field-expose">{{ label }}</label>
+        <label{{ title_attributes.addClass('capitalized-menu-item') }} for="search-field-expose">{{ label }}<span class="glyphicon glyphicon-search" aria-hidden="true"></span></label>
         <input type="checkbox" id="search-field-expose" />
     {% endif %}
     {{ title_suffix }}

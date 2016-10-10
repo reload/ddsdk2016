@@ -9,6 +9,7 @@ use Drupal\file\Entity\File;
 
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -40,6 +41,18 @@ function mungo_preprocess_field(&$variables) {
     // Clean the classes on factboxes.
     $variables['attributes']['class'][] = 'caption';
   }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function mungo_form_search_block_form_alter(&$form, FormStateInterface $form_state) {
+  $form['keys']['#placeholder'] = t('Search for activities, events, papers etc.');
+  $form['actions']['search_submit'] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'button',
+    '#value' => '<span class="glyphicon glyphicon-search"></span>',
+  );
 }
 
 /**
