@@ -10,6 +10,7 @@ use Drupal\file\Entity\File;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -303,4 +304,20 @@ function _mungo_render_image_with_style(File $image_file, string $style) : array
     '#style_name' => $image_style_vars['style_name'],
     '#uri' => $image_style_vars['uri'],
   ];
+}
+
+/**
+ * Implements template_preprocess_views_view().
+ */
+function mungo_preprocess_views_view(&$variables) {
+  // Get view object.
+  /** @var ViewExecutable $view */
+  $view = $variables['view'];
+
+  // Views assumes that the default core block-layout will render its titel
+  // but we've disabled it to have more control over when the title is
+  // rendered, so we have to render the views title manually.
+  if ($view->current_display === 'events_overview') {
+    $variables['title'] = $view->getTitle();
+  }
 }
