@@ -89,7 +89,7 @@ function facets_views_block_preprocess_views_view(&$variables) {
       foreach ($parameters['f'] as $delta => $param) {
         // Facet query parameter format: "subject:138".
         $param = explode(':', $param);
-        if (in_array($param[0], $blacklist) && !empty($param[1])) {
+        if (!empty($param[1])) {
           $tags[] = Term::load($param[1]);
           unset($parameters['f'][$delta]);
         }
