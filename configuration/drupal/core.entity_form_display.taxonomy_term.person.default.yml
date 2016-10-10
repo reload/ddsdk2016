@@ -40,6 +40,11 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+  langcode:
+    type: language_select
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
   name:
     type: string_textfield
     weight: 0
