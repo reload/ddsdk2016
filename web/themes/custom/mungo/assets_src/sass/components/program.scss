@@ -5,7 +5,6 @@
 }
 
 .program--header {
-  // background-color: $white-two;
   background-color: $marine-lighter-blue;
   color: white;
   padding: 10px;
@@ -30,9 +29,6 @@
   &:hover {
     cursor: pointer;
   }
-}
-
-.program--items {
 }
 
 .program-item {
@@ -80,22 +76,21 @@
   &--content {
     padding: 0 20px 0 40px;
     font-size: 16px;
-    // color: $marine-blue;
     border-bottom: 1px dashed $pale-grey;
     color: $warm-grey;
   }
 }
 
 .slidedown {
-  transform: translate(0px,-20px) scale(1,0.95);
+  @include transform(translate(0px,-20px) scale(1,0.95));
   opacity: 0;
   max-height: 0;
   transition: 0.4s;
   z-index: 1;
 
   &.js-active {
-    max-height: 1000px;
-    transform: translateX(0px) translateY(0px) translateZ(0px) scaleX(1) scaleY(1) scaleZ(1);
+    max-height: 3000px;
+    @include transform(translateX(0px) translateY(0px) translateZ(0px) scaleX(1) scaleY(1) scaleZ(1));
     display: block;
     opacity: 1;
   }
