@@ -42,3 +42,4 @@ content:
     weight: 1
 hidden:
   contact: true
+  langcode: true

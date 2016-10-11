@@ -234,6 +234,11 @@ content:
       form_display_mode: default
     third_party_settings: {  }
     type: entity_reference_paragraphs
+  langcode:
+    type: language_select
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
   path:
     type: path
     weight: 5

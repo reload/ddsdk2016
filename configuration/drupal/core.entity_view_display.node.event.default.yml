@@ -214,4 +214,5 @@ content:
     type: entity_reference_revisions_entity_view
 hidden:
   field_event_is_all_day: true
+  langcode: true
   links: true

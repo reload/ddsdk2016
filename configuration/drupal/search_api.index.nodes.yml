@@ -298,30 +298,6 @@ field_settings:
         - field.storage.paragraph.field_formatted_text
       module:
         - paragraphs
-  field_event_accomodation:
-    label: 'Accommodation » Processed text'
-    datasource_id: 'entity:node'
-    property_path: 'field_event_accommodation:processed'
-    type: text
-    dependencies:
-      config:
-        - field.storage.node.field_event_accommodation
-  field_event_host_info:
-    label: 'Host information » Processed text'
-    datasource_id: 'entity:node'
-    property_path: 'field_event_host_info:processed'
-    type: text
-    dependencies:
-      config:
-        - field.storage.node.field_event_host_info
-  field_event_signup_info:
-    label: 'Signup instructions » Processed text'
-    datasource_id: 'entity:node'
-    property_path: 'field_event_signup_instructions:processed'
-    type: text
-    dependencies:
-      config:
-        - field.storage.node.field_event_signup_instructions
 processor_settings:
   add_url:
     plugin_id: add_url

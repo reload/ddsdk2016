@@ -27,3 +27,4 @@ content:
     type: string
 hidden:
   description: true
+  langcode: true
