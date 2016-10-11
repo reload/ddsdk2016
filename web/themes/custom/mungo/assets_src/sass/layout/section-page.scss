@@ -1,0 +1,17 @@
+.section-header {
+  position: relative;
+  // TODO Max height for development purpose.
+  max-height: 600px;
+  overflow: hidden;
+  .image-overlay {
+    position: absolute;
+    bottom: $spacing-xlarge;
+    left: 0;
+    right: 0;
+  }
+
+  .field--name-title {
+    @include feature-heading-medium;
+    margin-bottom: $spacing-small;
+  }
+}

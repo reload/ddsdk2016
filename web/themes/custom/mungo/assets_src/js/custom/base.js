@@ -16,4 +16,16 @@
       });
     }
   };
+  /**
+   * When found dymo-text class wrap each word in a span tag.
+   */
+  Drupal.behaviors.dymo_text = {
+    attach: function (context, settings) {
+      $('.dymo-text').each(function () {
+        var text = $(this).text().split(' ');
+        text = '<span>' + text.join('</span><span>') + '</span>';
+        $(this).html(text);
+      });
+    }
+  };
 })(jQuery, Drupal);

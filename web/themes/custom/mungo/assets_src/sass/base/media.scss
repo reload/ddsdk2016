@@ -34,3 +34,11 @@
     padding-left: $spacing-small;
   }
 }
+
+.full-width-image-container {
+  //@extend .container;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1600px;
+  width: auto;
+}

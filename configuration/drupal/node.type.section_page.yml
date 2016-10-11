@@ -1,0 +1,18 @@
+uuid: da955dee-6678-4597-b45d-59c4257bfc14
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Section page'
+type: section_page
+description: 'A page solely defined by paragraph elements. Usually used as frontpage and section frontpages pages.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

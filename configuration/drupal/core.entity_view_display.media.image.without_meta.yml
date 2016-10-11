@@ -1,0 +1,33 @@
+uuid: 181adc87-b664-4077-a0ad-31ab8247e845
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.without_meta
+    - field.field.media.image.field_byline
+    - field.field.media.image.field_caption
+    - field.field.media.image.field_image
+    - media_entity.bundle.image
+    - responsive_image.styles.wide
+  module:
+    - responsive_image
+id: media.image.without_meta
+targetEntityType: media
+bundle: image
+mode: without_meta
+content:
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      responsive_image_style: wide
+      image_link: ''
+    third_party_settings: {  }
+    type: responsive_image
+hidden:
+  created: true
+  field_byline: true
+  field_caption: true
+  name: true
+  thumbnail: true
+  uid: true

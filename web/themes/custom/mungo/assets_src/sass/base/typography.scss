@@ -18,12 +18,18 @@ h1.page-title {
 }
 
 .article-text {
-  font-size: 17px;
+  font-size: 15px;
   line-height: 2;
+  @include media-medium {
+    font-size: 17px;
+  }
 
   &.subtitle {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
+    @include media-medium {
+      font-size: 20px;
+    }
   }
 }
 
