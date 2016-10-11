@@ -50,5 +50,5 @@ hidden:
   field_event_type: true
   field_main_media: true
   field_paragraphs: true
-  langcode: true
   field_programs: true
+  langcode: true
