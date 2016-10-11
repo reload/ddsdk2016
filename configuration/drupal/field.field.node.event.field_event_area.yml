@@ -1,0 +1,28 @@
+uuid: d66e0214-a787-4ee7-b472-27b51664664d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_area
+    - node.type.event
+    - taxonomy.vocabulary.event_location_area
+id: node.event.field_event_area
+field_name: field_event_area
+entity_type: node
+bundle: event
+label: Area
+description: 'Where does the event takes place?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      event_location_area: event_location_area
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

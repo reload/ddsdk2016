@@ -1780,16 +1780,16 @@
         },
         {
             "name": "drupal/facets",
-            "version": "8.1.0-alpha5",
+            "version": "8.1.0-alpha6",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/facets.git",
-                "reference": "84f61a7c145ac3fee7b32ab5056c0e73086164a1"
+                "reference": "ca8ceb7e8393da80c37266e9665265d37f53b671"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/facets-8.x-1.0-alpha5.zip",
-                "reference": "84f61a7c145ac3fee7b32ab5056c0e73086164a1",
+                "url": "https://ftp.drupal.org/files/projects/facets-8.x-1.0-alpha6.zip",
+                "reference": null,
                 "shasum": null
             },
             "require": {
@@ -1821,7 +1821,7 @@
             ],
             "description": "Faceted search interfaces that can be used on Search API searchers.",
             "homepage": "https://www.drupal.org/project/facets",
-            "time": "2016-09-29 12:35:51"
+            "time": "2016-10-06 16:46:15"
         },
         {
             "name": "drupal/field_group",
@@ -5544,7 +5544,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/coder-8.x-2.9.zip",
-                "reference": null,
+                "reference": "b08682bd939cf7d3ac7034bee792aa17f80e19d7",
                 "shasum": null
             },
             "require": {

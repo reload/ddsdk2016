@@ -1,0 +1,43 @@
+uuid: 077c35d1-adf7-4604-9b8b-34d2088fa80e
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.events
+id: area
+name: Area
+url_alias: area
+weight: 0
+show_only_one_result: false
+field_identifier: field_event_area
+query_type_name: null
+facet_source_id: 'views_page:events__events_overview'
+widget:
+  type: checkbox
+  config:
+    show_numbers: false
+    soft_limit: 0
+query_operator: or
+exclude: false
+only_visible_when_facet_source_is_visible: true
+processor_configs:
+  display_value_widget_order:
+    processor_id: display_value_widget_order
+    weights:
+      sort: -10
+    settings:
+      sort: ASC
+  translate_entity:
+    processor_id: translate_entity
+    weights:
+      build: 5
+    settings: {  }
+  url_processor_handler:
+    processor_id: url_processor_handler
+    weights:
+      pre_query: -10
+      build: -10
+    settings: {  }
+empty_behavior:
+  behavior: none
+facet_configs: {  }

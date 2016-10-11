@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.event.field_course_id
     - field.field.node.event.field_event_accommodation
     - field.field.node.event.field_event_address
+    - field.field.node.event.field_event_area
     - field.field.node.event.field_event_end
     - field.field.node.event.field_event_host_info
     - field.field.node.event.field_event_is_all_day
@@ -34,6 +35,7 @@ hidden:
   field_course_id: true
   field_event_accommodation: true
   field_event_address: true
+  field_event_area: true
   field_event_end: true
   field_event_host_info: true
   field_event_is_all_day: true
