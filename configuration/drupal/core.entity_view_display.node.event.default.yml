@@ -34,6 +34,7 @@ third_party_settings:
       children:
         - field_event_start
         - field_event_end
+        - field_event_location_name
         - field_event_price
       parent_name: ''
       weight: 3
@@ -68,7 +69,6 @@ third_party_settings:
         id: ''
     group_location_info:
       children:
-        - field_event_location_name
         - field_event_area
         - field_event_address
         - field_event_accommodation
@@ -150,14 +150,14 @@ content:
     third_party_settings: {  }
     type: text_default
   field_event_location_name:
-    weight: 8
-    label: above
+    weight: 7
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_event_price:
-    weight: 7
+    weight: 8
     label: inline
     settings:
       link_to_entity: false

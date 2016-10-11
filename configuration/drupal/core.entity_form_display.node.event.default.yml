@@ -105,8 +105,8 @@ third_party_settings:
     group_event_location_info:
       children:
         - field_event_location_name
-        - field_event_address
         - field_event_area
+        - field_event_address
         - field_event_accommodation
       parent_name: ''
       weight: 4
@@ -141,13 +141,13 @@ content:
     third_party_settings: {  }
     type: text_textarea
   field_event_address:
-    weight: 12
+    weight: 13
     settings:
       default_country: DK
     third_party_settings: {  }
     type: address_default
   field_event_area:
-    weight: 13
+    weight: 12
     settings: {  }
     third_party_settings: {  }
     type: options_select
