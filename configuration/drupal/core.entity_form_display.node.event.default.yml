@@ -20,6 +20,7 @@ dependencies:
     - field.field.node.event.field_event_type
     - field.field.node.event.field_main_media
     - field.field.node.event.field_paragraphs
+    - field.field.node.event.field_programs
     - node.type.event
   module:
     - address
@@ -52,6 +53,7 @@ third_party_settings:
         - field_main_media
         - field_event_teaser
         - field_paragraphs
+        - field_programs
       parent_name: ''
       weight: 0
       label: 'Event presentation'
@@ -241,6 +243,16 @@ content:
       form_display_mode: default
     third_party_settings: {  }
     type: entity_reference_paragraphs
+  field_programs:
+    type: entity_reference_paragraphs
+    weight: 4
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+    third_party_settings: {  }
   langcode:
     type: language_select
     weight: 2

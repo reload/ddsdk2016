@@ -1,0 +1,21 @@
+uuid: b3c52b25-4cd6-40b4-a00f-c71d89601f7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_program_text
+    - paragraphs.paragraphs_type.program_item
+  module:
+    - text
+id: paragraph.program_item.field_program_text
+field_name: field_program_text
+entity_type: paragraph
+bundle: program_item
+label: 'Program Text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

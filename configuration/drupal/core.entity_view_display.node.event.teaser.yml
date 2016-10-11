@@ -21,6 +21,7 @@ dependencies:
     - field.field.node.event.field_event_type
     - field.field.node.event.field_main_media
     - field.field.node.event.field_paragraphs
+    - field.field.node.event.field_programs
     - node.type.event
   module:
     - user
@@ -49,4 +50,5 @@ hidden:
   field_event_type: true
   field_main_media: true
   field_paragraphs: true
+  field_programs: true
   langcode: true

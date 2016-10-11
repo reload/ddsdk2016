@@ -1,0 +1,40 @@
+uuid: 623a4df3-1cd2-43bd-bf7b-1317488ae995
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.program_item.field_program_description
+    - field.field.paragraph.program_item.field_program_item_date
+    - field.field.paragraph.program_item.field_program_text
+    - paragraphs.paragraphs_type.program_item
+  module:
+    - datetime_range
+    - text
+id: paragraph.program_item.default
+targetEntityType: paragraph
+bundle: program_item
+mode: default
+content:
+  field_program_description:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_program_item_date:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: daterange_default
+  field_program_text:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+hidden:
+  created: true
+  status: true
+  uid: true

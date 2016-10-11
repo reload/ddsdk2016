@@ -1,0 +1,57 @@
+uuid: c8603f8b-de5b-4047-9fb7-9add4a36014f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_programs
+    - node.type.event
+    - paragraphs.paragraphs_type.program
+  module:
+    - entity_reference_revisions
+id: node.event.field_programs
+field_name: field_programs
+entity_type: node
+bundle: event
+label: Programs
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      program: program
+    target_bundles_drag_drop:
+      program_item:
+        weight: 11
+        enabled: false
+      2col_deck:
+        weight: 12
+        enabled: false
+      content_link:
+        weight: 13
+        enabled: false
+      dynamic_deck:
+        weight: 14
+        enabled: false
+      factbox:
+        weight: 15
+        enabled: false
+      gallery:
+        weight: 16
+        enabled: false
+      program:
+        enabled: true
+        weight: 17
+      quotation:
+        weight: 18
+        enabled: false
+      text:
+        weight: 19
+        enabled: false
+      video:
+        weight: 20
+        enabled: false
+field_type: entity_reference_revisions
