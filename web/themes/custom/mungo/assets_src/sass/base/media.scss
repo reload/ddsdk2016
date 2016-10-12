@@ -34,9 +34,9 @@
     padding-left: $spacing-small;
   }
 }
-
+// Act like bootstrap container but stay at 1600px instead of 1170.
+// This is used to contain images that should be wider than large breakpoint.
 .full-width-image-container {
-  //@extend .container;
   margin-right: auto;
   margin-left: auto;
   max-width: 1600px;
