@@ -10,7 +10,6 @@ use Drupal\file\Entity\File;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -341,7 +340,7 @@ function _mungo_render_image_with_style(File $image_file, string $style) : array
  */
 function mungo_preprocess_views_view(&$variables) {
   // Get view object.
-  /** @var ViewExecutable $view */
+  /** @var \Drupal\views\ViewExecutable $view */
   $view = $variables['view'];
 
   // Views assumes that the default core block-layout will render its titel
