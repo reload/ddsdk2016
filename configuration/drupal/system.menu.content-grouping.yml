@@ -1,0 +1,8 @@
+uuid: 4b697f6a-a2df-4b03-90f0-51c813219b10
+langcode: und
+status: true
+dependencies: {  }
+id: content-grouping
+label: 'Content grouping'
+description: 'Groups two or more pages together. Grouped section-pages will have a menu linking to eachother.'
+locked: false
