@@ -1,0 +1,19 @@
+uuid: f48440d2-9f46-48cb-90ab-33323442b620
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_location_name
+    - node.type.event
+id: node.event.field_event_location_name
+field_name: field_event_location_name
+entity_type: node
+bundle: event
+label: 'Event location name'
+description: 'Simple one-line description of where the event takes place - eg. "Spejdercenter Holmen"'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

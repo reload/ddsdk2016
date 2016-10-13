@@ -29,7 +29,13 @@
         "drupal/video_embed_field": "^8",
         "drupal/editor_advanced_link": "^8",
         "drupal/stage_file_proxy": "^8",
-        "drupal/reloadtina": "^8"
+        "drupal/reloadtina": "^8",
+        "drupal/address": "^8",
+        "drupal/field_group": "^8",
+        "drupal/maxlength": "^8",
+        "drupal/search_api_solr": "^8",
+        "drupal/facets": "^8",
+        "drupal/search_api": "^8"
     },
     "require-dev": {
         "behat/mink": "~1.7",
@@ -76,6 +82,12 @@
             "web/profiles/contrib/{$name}": ["type:drupal-profile"],
             "web/themes/contrib/{$name}": ["type:drupal-theme"],
             "drush/contrib/{$name}": ["type:drupal-drush"]
+        },
+        "patches": {
+            "drupal/core": {
+                "2558207: Add hook to react to image_path_flush() - recommended by the Reloadtina module": "https://www.drupal.org/files/issues/add_hook_image_path_flush-2558207-4.patch",
+                "2408549: Notify about overridden configuration": "https://www.drupal.org/files/issues/config-override-warning-2408549-29.patch"
+            }
         }
     }
 }

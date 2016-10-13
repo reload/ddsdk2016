@@ -9,7 +9,7 @@ id: media.image.field_byline
 field_name: field_byline
 entity_type: media
 bundle: image
-label: Byline
+label: 'Image byline'
 description: 'The author of the media.'
 required: false
 translatable: false

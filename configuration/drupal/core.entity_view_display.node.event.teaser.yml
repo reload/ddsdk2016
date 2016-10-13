@@ -1,0 +1,49 @@
+uuid: 4e4f31be-87bc-4bfd-a49f-2b1ae3f9af55
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.event.field_course_id
+    - field.field.node.event.field_event_accommodation
+    - field.field.node.event.field_event_address
+    - field.field.node.event.field_event_end
+    - field.field.node.event.field_event_host_info
+    - field.field.node.event.field_event_is_all_day
+    - field.field.node.event.field_event_location_name
+    - field.field.node.event.field_event_price
+    - field.field.node.event.field_event_signup_deadline
+    - field.field.node.event.field_event_signup_instructions
+    - field.field.node.event.field_event_start
+    - field.field.node.event.field_event_target_group
+    - field.field.node.event.field_event_teaser
+    - field.field.node.event.field_event_type
+    - field.field.node.event.field_main_media
+    - field.field.node.event.field_paragraphs
+    - node.type.event
+  module:
+    - user
+id: node.event.teaser
+targetEntityType: node
+bundle: event
+mode: teaser
+content:
+  links:
+    weight: 100
+hidden:
+  field_course_id: true
+  field_event_accommodation: true
+  field_event_address: true
+  field_event_end: true
+  field_event_host_info: true
+  field_event_is_all_day: true
+  field_event_location_name: true
+  field_event_price: true
+  field_event_signup_deadline: true
+  field_event_signup_instructions: true
+  field_event_start: true
+  field_event_target_group: true
+  field_event_teaser: true
+  field_event_type: true
+  field_main_media: true
+  field_paragraphs: true

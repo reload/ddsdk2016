@@ -49,3 +49,25 @@
   letter-spacing: 0.8px;
   color: $light-black;
 }
+
+/* Blokoverskrift */
+@mixin box-headline {
+  font-family: $std-font;
+  font-size: 15px;
+  letter-spacing: 1.1px;
+
+  font-weight: normal;
+
+  color: $warm-grey;
+
+  @include media-small {
+    font-size: 18px;
+  }
+
+  @include media-medium {
+    font-size: 22px;
+  }
+}
+@mixin search-field {
+  font-size: 18px;
+}

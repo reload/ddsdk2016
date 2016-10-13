@@ -6,8 +6,10 @@
  */
 
 use Drupal\file\Entity\File;
+
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -18,8 +20,14 @@ function mungo_preprocess_field(&$variables) {
     // Handle various main-media fields.
     _mungo_preprocess_field_main_media($field_name, $variables);
   }
-  elseif (in_array($field_name, ['field_subtitle', 'field_formatted_text'])) {
-    _mungo_preprocess_field_article_text($field_name, $variables);
+  elseif (in_array($field_name,
+    [
+      'field_event_teaser',
+      'field_subtitle',
+      'field_formatted_text',
+    ]
+  )) {
+    _mungo_preprocess_text_field($field_name, $variables);
   }
   elseif (in_array($field_name, ['field_factbox_text'])) {
     // Clean the classes on factboxes.
@@ -33,6 +41,18 @@ function mungo_preprocess_field(&$variables) {
     // Clean the classes on factboxes.
     $variables['attributes']['class'][] = 'caption';
   }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function mungo_form_search_block_form_alter(&$form, FormStateInterface $form_state) {
+  $form['keys']['#placeholder'] = t('Search for activities, events, papers etc.');
+  $form['actions']['search_submit'] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'button',
+    '#value' => '<span class="glyphicon glyphicon-search"></span>',
+  );
 }
 
 /**
@@ -53,17 +73,17 @@ function _mungo_preprocess_field_main_media($field_name, &$variables) {
 }
 
 /**
- * Internal function for processing main media fields.
+ * Internal function for processing article-style text fields.
  *
  * @param string $field_name
  *   The field currently being preprocessed.
  * @param array $variables
  *   Variables to preprocess.
  */
-function _mungo_preprocess_field_article_text($field_name, &$variables) {
+function _mungo_preprocess_text_field($field_name, &$variables) {
   $variables['attributes']['class'][] = 'article-text';
 
-  if ($field_name === 'field_subtitle') {
+  if (in_array($field_name, ['field_subtitle', 'field_event_teaser'])) {
     $variables['attributes']['class'][] = 'subtitle';
   }
 

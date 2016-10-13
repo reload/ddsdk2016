@@ -2,7 +2,7 @@
 /**
  * @file
  * Platform.sh settings.
- * 
+ *
  * Moved in over settings.php during platform.sh build - see /.platform.app.yaml
  */
 
@@ -32,6 +32,16 @@ if (isset($_ENV['PLATFORM_RELATIONSHIPS'])) {
         $databases['default']['slave'][] = $database;
       }
     }
+  }
+
+  // Import solr-configuration from platform if available.
+  if (!empty($relationships['solr'])) {
+    $endpoint = $relationships['solr'][0];
+
+    // Override drupal configuration.
+    $config['search_api.server.solr']['backend_config']['host'] = $endpoint['host'];
+    $config['search_api.server.solr']['backend_config']['path'] = '/' . $endpoint['path'];
+    $config['search_api.server.solr']['backend_config']['port'] = $endpoint['port'];
   }
 }
 

@@ -1,0 +1,217 @@
+uuid: 666645f3-89ed-4728-8ee3-b6cf1a98a374
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.event.field_course_id
+    - field.field.node.event.field_event_accommodation
+    - field.field.node.event.field_event_address
+    - field.field.node.event.field_event_end
+    - field.field.node.event.field_event_host_info
+    - field.field.node.event.field_event_is_all_day
+    - field.field.node.event.field_event_location_name
+    - field.field.node.event.field_event_price
+    - field.field.node.event.field_event_signup_deadline
+    - field.field.node.event.field_event_signup_instructions
+    - field.field.node.event.field_event_start
+    - field.field.node.event.field_event_target_group
+    - field.field.node.event.field_event_teaser
+    - field.field.node.event.field_event_type
+    - field.field.node.event.field_main_media
+    - field.field.node.event.field_paragraphs
+    - node.type.event
+  module:
+    - address
+    - datetime
+    - entity_reference_revisions
+    - field_group
+    - text
+    - user
+third_party_settings:
+  field_group:
+    group_main_info:
+      children:
+        - field_event_start
+        - field_event_end
+        - field_event_price
+      parent_name: ''
+      weight: 3
+      label: 'Main info'
+      format_type: html_element
+      format_settings:
+        element: div
+        show_label: false
+        label_element: h3
+        effect: none
+        speed: fast
+        attributes: ''
+        classes: ''
+        id: ''
+    group_signup_info:
+      children:
+        - field_event_signup_deadline
+        - field_event_signup_instructions
+        - field_course_id
+      parent_name: ''
+      weight: 4
+      label: 'Signup info'
+      format_type: html_element
+      format_settings:
+        element: div
+        show_label: false
+        label_element: h3
+        effect: none
+        speed: fast
+        attributes: ''
+        classes: ''
+        id: ''
+    group_location_info:
+      children:
+        - field_event_location_name
+        - field_event_address
+        - field_event_accommodation
+      parent_name: ''
+      weight: 7
+      label: 'Location info'
+      format_type: html_element
+      format_settings:
+        element: div
+        show_label: false
+        label_element: h3
+        effect: none
+        speed: fast
+        attributes: ''
+        classes: ''
+        id: ''
+    group_event_extra_info:
+      children:
+        - field_event_type
+        - field_event_target_group
+        - field_event_host_info
+      parent_name: ''
+      weight: 5
+      label: 'Extra info'
+      format_type: html_element
+      format_settings:
+        element: div
+        show_label: false
+        label_element: h3
+        effect: none
+        speed: fast
+        attributes: ''
+        classes: ''
+        id: ''
+id: node.event.default
+targetEntityType: node
+bundle: event
+mode: default
+content:
+  field_course_id:
+    weight: 10
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+  field_event_accommodation:
+    weight: 10
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+  field_event_address:
+    weight: 9
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+  field_event_end:
+    type: datetime_default
+    weight: 6
+    label: inline
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+  field_event_host_info:
+    weight: 12
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+  field_event_location_name:
+    weight: 8
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_event_price:
+    weight: 7
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_event_signup_deadline:
+    weight: 8
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+  field_event_signup_instructions:
+    weight: 9
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+  field_event_start:
+    weight: 5
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    type: datetime_default
+  field_event_target_group:
+    weight: 11
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_event_teaser:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_event_type:
+    weight: 10
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_main_media:
+    weight: 0
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+  field_paragraphs:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+hidden:
+  field_event_is_all_day: true
+  links: true

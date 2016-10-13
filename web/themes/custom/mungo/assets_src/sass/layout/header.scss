@@ -7,16 +7,16 @@ header.header-fixed {
   background-color: #fff;
 }
 
-header.header-fixed {  height: 70px;  }
+header.header-fixed > div {  height: 70px;  }
 body .layout-container {  padding-top: 100px;  }
 
-@include media-small {
-  header.header-fixed {  height: 130px;  }
+@include media-small  {
+  header.header-fixed > div {  height: 130px;  }
   body .layout-container {  padding-top: 160px;  }
 }
 
 @include media-medium {
-  header.header-fixed {  height: 100px;  }
+  header.header-fixed > div {  height: 100px;  }
   body .layout-container {  padding-top: 130px;  }
 }
 
@@ -25,10 +25,6 @@ body .layout-container {  padding-top: 100px;  }
  */
 
 header.header-fixed {
-  /**
-   * Box shadow soley for development purpose.
-   */
-  box-shadow: 0 0 10px $bluish;
   .region-top-menu {
     // Hide the top menu on mobile. Show from tablet and up.
     display: none;
@@ -39,6 +35,18 @@ header.header-fixed {
     .container {
       // Centre menu vertically, visually.
       padding-top: 8px;
+    }
+  }
+  /* Display a line after menu */
+  &:after {
+    display: block;
+    content: '';
+    height: 1px;
+    width: 100%;
+    @include background-image(linear-gradient(to left, transparent 0%, $warm-grey 25%, $warm-grey 75%, transparent 100%));
+    @include media-medium {
+      // Hide the line on desktop.
+      display: none;
     }
   }
 
@@ -68,41 +76,86 @@ header.header-fixed {
    */
 
   .block-search {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    @include media-small {
-      left: auto;
-      right: 0;
-    }
+
     @include media-medium {
-      position: relative;
+      display: inline-block;
     }
 
     label {
-
-      &:after {
-        content: ' ';
-        background: url('../images/placeholder.svg');
-        height: 15px;
-        width: 15px;
-        display: inline-block;
-        margin-left: $spacing-small;
-      }
-      // Make search "link/button/menuitem" standout.
+      position: absolute;
+      top: 26px;
+      left: 0;
+      margin-left: 10px;
       cursor: pointer;
       color: $bluish;
-      margin-left: $spacing-large;
+      span {
+        // Make a little room between label and magnifying glass.
+        margin-left: $spacing-small;
+      }
+
+      @include media-small {
+        // Move to the right instead.
+        left: auto;
+        right: 0;
+      }
+      @include media-medium {
+        margin-left: $spacing-large;
+        position: relative;
+        top: -31px;
+      }
+
       &:after {
         content: '';
       }
     }
     form {
       width: 100%;
-      background: red;
+      background: $white-two;
       position: absolute;
       display: none;
+      left: 0;
+      right: 20px;
+      padding: $spacing-small;
+      padding-right: 60px + $spacing-small;
+      top: 70px;
+      @include search-field;
+      // Hide standard form-submit button. It has text and we dont need that.
+      .form-submit {
+        display: none;
+      }
+      button {
+        border: 1px solid $bluish;
+        background: $bluish;
+        color: #fff;
+        position: absolute;
+        right: $spacing-small;
+        top: $spacing-small;
+        width: 47px;
+        height: 47px;
+        @include media-medium {
+          width: 67px;
+          height: 67px;
+          right: $spacing-large;
+          top: $spacing-large;
+        }
+      }
+      input.form-search {
+        padding: $spacing-small;
+        @include media-medium {
+          padding: $spacing-medium;
+        }
+        width: 100%;
+        border: 1px solid $bluish;
+      }
+      @include media-small {
+        top: 100px;
+
+      }
+      @include media-medium {
+        padding: $spacing-large;
+        padding-right: 138px;
+        top: 70px;
+      }
     }
     // Open collapse search field.
     #search-field-expose {
@@ -111,5 +164,11 @@ header.header-fixed {
         display: block;
       }
     }
+  }
+}
+
+nav.menu--main {
+  @include media-medium{
+    display: inline-block;
   }
 }

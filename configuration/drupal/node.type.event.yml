@@ -1,0 +1,17 @@
+uuid: c5b2ff90-4dab-42e2-83e0-f1bd60c1d373
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Event
+type: event
+description: 'Basic event, courses and other entities that can be displayed in a calendar.'
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

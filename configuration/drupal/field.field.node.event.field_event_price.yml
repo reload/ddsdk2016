@@ -1,0 +1,19 @@
+uuid: d6fe043d-733e-4b01-8540-923405b60fd0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_price
+    - node.type.event
+id: node.event.field_event_price
+field_name: field_event_price
+entity_type: node
+bundle: event
+label: Price
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

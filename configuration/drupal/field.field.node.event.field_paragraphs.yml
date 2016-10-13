@@ -1,0 +1,53 @@
+uuid: 6ea6b734-4119-4c4b-ac71-e4fa4526f70a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraphs
+    - node.type.event
+    - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.video
+  module:
+    - entity_reference_revisions
+id: node.event.field_paragraphs
+field_name: field_paragraphs
+entity_type: node
+bundle: event
+label: 'Main event description'
+description: 'Main description of the event.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      text: text
+      video: video
+    target_bundles_drag_drop:
+      2col_deck:
+        weight: 9
+        enabled: false
+      content_link:
+        weight: 10
+        enabled: false
+      dynamic_deck:
+        weight: 11
+        enabled: false
+      factbox:
+        weight: 12
+        enabled: false
+      gallery:
+        weight: 13
+        enabled: false
+      quotation:
+        weight: 14
+        enabled: false
+      text:
+        enabled: true
+        weight: 15
+      video:
+        enabled: true
+        weight: 16
+field_type: entity_reference_revisions

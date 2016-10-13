@@ -1,0 +1,27 @@
+uuid: ca8addec-2f63-48dd-bf2f-84d11d483995
+langcode: en
+status: true
+dependencies:
+  module:
+    - search_api_solr
+id: solr
+name: Solr
+description: 'Main solr setup. All environments overrides the backend-configuration via their respective settings.php.'
+backend: search_api_solr
+backend_config:
+  scheme: http
+  host: solr
+  port: '8983'
+  path: /solr
+  core: ''
+  username: ''
+  password: ''
+  retrieve_data: false
+  highlight_data: false
+  excerpt: false
+  skip_schema_check: false
+  solr_version: ''
+  http_method: AUTO
+  site_hash: true
+  autocorrect_spell: true
+  autocorrect_suggest_words: true

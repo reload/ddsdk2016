@@ -1,0 +1,23 @@
+uuid: 9cc895da-4488-4f09-b29e-ecc5c237f72c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_course_id
+    - node.type.event
+id: node.event.field_course_id
+field_name: field_course_id
+entity_type: node
+bundle: event
+label: 'Course id'
+description: 'Id from member service if available. If specified the signup-instructions does not have to be described.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
