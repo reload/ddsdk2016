@@ -76,7 +76,9 @@
 
   // Subtract the added spacing on the container.
   margin: 0 (-$halfsize);
+  font-size: 0;
   li {
+    font-size: $std-font-size;
     display: inline-block;
     vertical-align: top;
   }

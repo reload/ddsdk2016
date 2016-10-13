@@ -6,6 +6,7 @@ mungo-theme:
   js:
     assets/js/base.js : {}
     assets/js/dropdownmenu.js: {}
+    assets/js/gallery.js : {}
   dependencies:
     - core/jquery
     - core/drupal
