@@ -1,12 +1,12 @@
-uuid: 3718bc79-8ad0-40c9-9378-bfe4cf5928ea
-langcode: en
+uuid: 8f3f263c-7c2b-4436-b906-0d10237482d9
+langcode: da
 status: true
 dependencies:
   module:
     - entity_reference_revisions
     - paragraphs
-id: paragraph.field_2col_paragraphs_left
-field_name: field_2col_paragraphs_left
+id: paragraph.field_3col_deck_col2
+field_name: field_3col_deck_col2
 entity_type: paragraph
 type: entity_reference_revisions
 settings:

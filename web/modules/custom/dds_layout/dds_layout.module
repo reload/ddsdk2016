@@ -39,12 +39,12 @@ function dds_layout_preprocess_field(&$variables) {
 
   // Handle 2col.
   if ($bundle === '2col_deck') {
-    if ($field_name === 'field_2col_paragraphs_left') {
+    if ($field_name === 'field_2col_deck_col1') {
       $variables['attributes']['class'][] = 'deck__column';
       $variables['attributes']['class'][] = 'deck__column--left';
       $variables['attributes']['data-item-count'] = $item_count;
     }
-    elseif ($field_name === 'field_2col_paragraphs_right') {
+    elseif ($field_name === 'field_2col_deck_col2') {
       $variables['attributes']['class'][] = 'deck__column';
       $variables['attributes']['class'][] = 'deck__column--right';
       $variables['attributes']['data-item-count'] = $item_count;

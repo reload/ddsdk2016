@@ -1,0 +1,6 @@
+uuid: 1726b330-92e2-43fb-bc1f-20887f45762d
+langcode: da
+status: true
+dependencies: {  }
+id: 3col_deck
+label: '3 column deck'

@@ -38,4 +38,5 @@ content:
     third_party_settings: {  }
     type: basic_string
 hidden:
+  langcode: true
   links: true
