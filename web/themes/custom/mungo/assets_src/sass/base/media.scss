@@ -41,4 +41,11 @@
   margin-left: auto;
   max-width: 1600px;
   width: auto;
+  img {
+    object-fit: contain;
+
+    background-color: #000;
+    min-height: 400px;
+  }
+
 }

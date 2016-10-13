@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.hero_banner.field_background_image
+    - field.field.paragraph.hero_banner.field_deck_color
     - field.field.paragraph.hero_banner.field_label
     - field.field.paragraph.hero_banner.field_links
     - paragraphs.paragraphs_type.hero_banner
@@ -21,12 +22,14 @@ content:
       form_mode: default
       label_singular: ''
       label_plural: ''
-      allow_new: true
-      match_operator: CONTAINS
       override_labels: false
-      allow_existing: false
     third_party_settings: {  }
-    type: inline_entity_form_complex
+    type: inline_entity_form_simple
+  field_deck_color:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
   field_label:
     weight: 1
     settings:

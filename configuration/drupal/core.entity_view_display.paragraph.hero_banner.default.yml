@@ -4,34 +4,42 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.hero_banner.field_background_image
+    - field.field.paragraph.hero_banner.field_deck_color
     - field.field.paragraph.hero_banner.field_label
     - field.field.paragraph.hero_banner.field_links
     - paragraphs.paragraphs_type.hero_banner
   module:
     - link
+    - options
 id: paragraph.hero_banner.default
 targetEntityType: paragraph
 bundle: hero_banner
 mode: default
 content:
   field_background_image:
-    weight: 3
-    label: above
+    weight: 0
+    label: hidden
     settings:
-      link: true
-      view_mode: default
+      view_mode: without_meta
+      link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
+  field_deck_color:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
   field_label:
     weight: 2
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_links:
     weight: 1
-    label: above
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
