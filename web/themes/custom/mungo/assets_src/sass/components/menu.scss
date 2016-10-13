@@ -22,10 +22,15 @@
   ul.menu--main {
     background-color: rgba(red, 0.3);
     background-color: #fff;
+    @include media-small {
+      background-color: transparent;
+      height: 70px;
+    }
     a {
       display: block;
       padding: $spacing-medium;
       @include media-small {
+        //display: inline-block;
         padding: 11px;
       }
       @include media-medium {
@@ -38,6 +43,8 @@
       @include main-menu-entries--mobile;
       @include media-small {
         @include main-menu-entries;
+        height: 70px;
+        overflow: hidden;
       }
       border-top: 1px solid $pinkish-grey;
       text-align: left;
@@ -47,6 +54,8 @@
         background: transparent;
         padding: 0;
         border: 0 none;
+
+
         &.opened > a,
         & > a:hover{
           background-color: $white-two;
