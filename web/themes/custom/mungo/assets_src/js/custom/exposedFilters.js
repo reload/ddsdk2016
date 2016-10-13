@@ -6,12 +6,12 @@
 (function ($, Drupal) {
   Drupal.behaviors.mungoViewsExposedFilters = {
     attach: function (context, settings) {
-      $( "#edit-event-before" ).datepicker({
+      $("#edit-event-before").datepicker({
         changeMonth: true,
         changeYear: true
       });
 
-      $( "#edit-event-after" ).datepicker({
+      $("#edit-event-after").datepicker({
         changeMonth: true,
         changeYear: true
       });
