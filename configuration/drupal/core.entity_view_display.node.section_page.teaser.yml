@@ -21,3 +21,4 @@ hidden:
   field_main_media: true
   field_section: true
   field_subtitle: true
+  langcode: true

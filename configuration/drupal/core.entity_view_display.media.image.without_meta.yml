@@ -28,6 +28,7 @@ hidden:
   created: true
   field_byline: true
   field_caption: true
+  langcode: true
   name: true
   thumbnail: true
   uid: true
