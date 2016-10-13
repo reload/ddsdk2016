@@ -146,6 +146,40 @@ function mungo_preprocess_paragraph(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_menu().
+ */
+function mungo_preprocess_menu(&$variables) {
+
+  if ($variables['menu_name'] == 'footer-social') {
+    foreach ($variables['items'] as $key => $item) {
+      switch (strtolower($item['title'])) {
+        case 'facebook':
+        case 'twitter':
+        case 'instagram':
+        case 'youtube':
+          $item['title'] = _mungo_replace_title_with_svg($item['title']);
+
+          $variables['items'][$key] = $item;
+          break;
+      }
+    }
+  }
+}
+
+/**
+ * Get file content based on part of title.
+ */
+function _mungo_replace_title_with_svg($title) {
+  $file_path = drupal_get_path('theme', 'mungo') . '/assets/images/Ikoner_DDS_DK_ikon_' . $title . '.svg';
+  if ($file = file_get_contents($file_path)) {
+    return '<div class="spejder-icon-wrapper">' . $file . '</div>';
+  }
+  else {
+    return FALSE;
+  }
+}
+
+/**
  * Implements hook_preprocess_HOOK().
  *
  * Preprocessing of variables for various content-types.
