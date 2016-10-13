@@ -37,12 +37,19 @@ set classes = [
 'view-id-' ~ id,
 'view-display-id-' ~ display_id,
 dom_id ? 'js-view-dom-id-' ~ dom_id,
+'container',
 ]
 %}
+{{ attach_library('mungo/exposed-filters') }}
 <div{{ attributes.addClass(classes) }}>
+  <div class="row">
     {{ title_prefix }}
     {% if title %}
-        {{ title }}
+      <div class="view-filters col-lg-12">
+        <h2 class="page-title">
+          {{ title }}
+        </h2>
+      </div>
     {% endif %}
     {{ title_suffix }}
     {% if header %}
@@ -51,8 +58,15 @@ dom_id ? 'js-view-dom-id-' ~ dom_id,
       </div>
     {% endif %}
     {% if exposed %}
-      <div class="view-filters">
-          {{ exposed }}
+      <div class="view-filters col-sm-4">
+        <div class="view-filters__inner">
+          <div class="filters-exposed">
+            {{ exposed }}
+          </div>
+          <div class="filters-facets js-filters">
+            {{ facets }}
+          </div>
+        </div>
       </div>
     {% endif %}
     {% if attachment_before %}
@@ -61,40 +75,37 @@ dom_id ? 'js-view-dom-id-' ~ dom_id,
       </div>
     {% endif %}
 
-  <div class="filters js-filters">
-      {{ facets }}
-  </div>
-
-
     {% if rows %}
-      <div class="view-content">
+      <div class="view-content col-sm-8">
+        <div class="view-content__inner">
           {{ rows }}
+        </div>
       </div>
+      {% if pager %}
+        {{ pager }}
+      {% endif %}
+      {% if attachment_after %}
+        <div class="attachment attachment-after">
+            {{ attachment_after }}
+        </div>
+      {% endif %}
+      {% if more %}
+          {{ more }}
+      {% endif %}
+      {% if footer %}
+        <div class="view-footer">
+            {{ footer }}
+        </div>
+      {% endif %}
+      {% if feed_icons %}
+        <div class="feed-icons">
+            {{ feed_icons }}
+        </div>
+      {% endif %}
     {% elseif empty %}
       <div class="view-empty">
           {{ empty }}
       </div>
     {% endif %}
-
-    {% if pager %}
-        {{ pager }}
-    {% endif %}
-    {% if attachment_after %}
-      <div class="attachment attachment-after">
-          {{ attachment_after }}
-      </div>
-    {% endif %}
-    {% if more %}
-        {{ more }}
-    {% endif %}
-    {% if footer %}
-      <div class="view-footer">
-          {{ footer }}
-      </div>
-    {% endif %}
-    {% if feed_icons %}
-      <div class="feed-icons">
-          {{ feed_icons }}
-      </div>
-    {% endif %}
+  </div>
 </div>
