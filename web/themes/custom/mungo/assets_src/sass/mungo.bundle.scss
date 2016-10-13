@@ -8,6 +8,7 @@
  * Mixins.
  */
 @import "mixins/breakpoints.mixins";
+@import "mixins/buttons.mixins";
 @import "mixins/menus.mixins";
 @import "mixins/typography.mixins";
 
@@ -28,6 +29,7 @@
 @import "components/box";
 @import "components/content-link";
 @import "components/factbox";
+@import "components/hero-banner";
 @import "components/main-media";
 @import "components/menu";
 @import "components/paragraph-quote";

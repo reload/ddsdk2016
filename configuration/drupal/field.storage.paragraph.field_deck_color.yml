@@ -1,0 +1,27 @@
+uuid: af07cddd-5e9c-4b2d-a0e8-9fa15a27d07a
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_deck_color
+field_name: field_deck_color
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: grey
+      label: Grey
+    -
+      value: white
+      label: White
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

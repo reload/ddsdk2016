@@ -41,9 +41,18 @@ set classes = [
 'paragraph',
 'paragraph--type--' ~ paragraph.bundle|clean_class,
 view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    'paragraphs-background-grey'
 ]
 %}
 
 <div{{ attributes.addClass(classes) }}>
-    {{ content }}
+    <div class="full-width-image-container">
+        {{ content.field_background_image }}
+        <div class="container">
+            <div class="content">
+                <h2>{{ content.field_label }}</h2>
+                {{ content.field_links }}
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,0 +1,15 @@
+
+
+@mixin cta-button-transparent {
+  min-width: 180px;
+  display: inline-block;
+  @include capitalized-small-text;
+  padding: $spacing-small;
+  color: #fff;
+  border: 1px solid #fff;
+  text-decoration: none;
+  &:hover {
+    background-color: #fff;
+    color: #000;
+  }
+}

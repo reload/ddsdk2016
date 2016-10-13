@@ -1,0 +1,21 @@
+uuid: c75af0ff-72f9-44ed-816c-8bed1d39a9da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_deck_color
+    - paragraphs.paragraphs_type.hero_banner
+  module:
+    - options
+id: paragraph.hero_banner.field_deck_color
+field_name: field_deck_color
+entity_type: paragraph
+bundle: hero_banner
+label: 'Deck color'
+description: 'Choose whatever background color the deck should have'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
