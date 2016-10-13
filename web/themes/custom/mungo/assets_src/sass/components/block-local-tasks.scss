@@ -1,0 +1,10 @@
+.block-local-tasks-container {
+  position: relative;
+  z-index: 1;
+  & > div {
+
+    top: 10px;
+    right: 10px;
+    position: absolute;
+  }
+}

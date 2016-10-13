@@ -1,0 +1,23 @@
+uuid: 353044b6-9934-4a40-b798-40f4ac9834bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_links
+    - paragraphs.paragraphs_type.hero_banner
+  module:
+    - link
+id: paragraph.hero_banner.field_links
+field_name: field_links
+entity_type: paragraph
+bundle: hero_banner
+label: Links
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

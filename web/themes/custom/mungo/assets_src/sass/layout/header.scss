@@ -3,21 +3,21 @@ header.header-fixed {
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 999; // We set this heigh to prevent content to overflow when scrolling.
+  z-index :2;
   background-color: #fff;
 }
 
 header.header-fixed > div {  height: 70px;  }
-body .layout-container {  padding-top: 100px;  }
+body .layout-container {  padding-top: 70px;  }
 
 @include media-small  {
   header.header-fixed > div {  height: 130px;  }
-  body .layout-container {  padding-top: 160px;  }
+  body .layout-container {  padding-top: 130px;  }
 }
 
 @include media-medium {
   header.header-fixed > div {  height: 100px;  }
-  body .layout-container {  padding-top: 130px;  }
+  body .layout-container {  padding-top: 100px;  }
 }
 
 /**
@@ -46,7 +46,6 @@ header.header-fixed {
     @include background-image(linear-gradient(to left, transparent 0%, $warm-grey 25%, $warm-grey 75%, transparent 100%));
     @include media-medium {
       // Hide the line on desktop.
-      display: none;
     }
   }
 

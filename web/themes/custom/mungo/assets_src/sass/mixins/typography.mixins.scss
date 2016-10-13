@@ -40,6 +40,36 @@
   }
 }
 
+@mixin list-heading-medium {
+
+}
+
+@mixin list-heading-large {
+
+}
+
+@mixin list-heading-xlarge {
+
+}
+
+@mixin feature-heading-small {
+
+}
+
+@mixin feature-heading-medium {
+  letter-spacing: 0.5px;
+  font-family: $feature-font;
+  font-size: 36px;
+}
+
+@mixin feature-heading-large {
+
+}
+
+@mixin feature-heading-xlarge {
+
+}
+
 /* Quote */
 @mixin quote-text {
   font-family: $feature-font;

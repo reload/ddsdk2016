@@ -1,0 +1,54 @@
+uuid: 970aa11e-344f-4885-9b3a-64e427dbaa0e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_section
+    - node.type.section_page
+    - paragraphs.paragraphs_type.hero_banner
+  module:
+    - entity_reference_revisions
+id: node.section_page.field_section
+field_name: field_section
+entity_type: node
+bundle: section_page
+label: section
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      hero_banner: hero_banner
+    target_bundles_drag_drop:
+      2col_deck:
+        weight: 9
+        enabled: false
+      hero_banner:
+        enabled: true
+        weight: 10
+      content_link:
+        weight: 10
+        enabled: false
+      dynamic_deck:
+        weight: 11
+        enabled: false
+      factbox:
+        weight: 12
+        enabled: false
+      gallery:
+        weight: 13
+        enabled: false
+      quotation:
+        weight: 14
+        enabled: false
+      text:
+        weight: 15
+        enabled: false
+      video:
+        weight: 16
+        enabled: false
+field_type: entity_reference_revisions
