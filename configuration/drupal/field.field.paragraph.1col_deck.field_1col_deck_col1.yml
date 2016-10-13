@@ -1,22 +1,20 @@
-uuid: 970aa11e-344f-4885-9b3a-64e427dbaa0e
-langcode: en
+uuid: 8aa00506-b67b-4707-966c-94492a996043
+langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_section
-    - node.type.section_page
+    - field.storage.paragraph.field_1col_deck_col1
     - paragraphs.paragraphs_type.1col_deck
-    - paragraphs.paragraphs_type.2col_deck
-    - paragraphs.paragraphs_type.3col_deck
-    - paragraphs.paragraphs_type.4col_deck
-    - paragraphs.paragraphs_type.hero_banner
+    - paragraphs.paragraphs_type.block
+    - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.video
   module:
     - entity_reference_revisions
-id: node.section_page.field_section
-field_name: field_section
-entity_type: node
-bundle: section_page
-label: Section
+id: paragraph.1col_deck.field_1col_deck_col1
+field_name: field_1col_deck_col1
+entity_type: paragraph
+bundle: 1col_deck
+label: Column
 description: ''
 required: false
 translatable: false
@@ -26,55 +24,53 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      1col_deck: 1col_deck
-      2col_deck: 2col_deck
-      3col_deck: 3col_deck
-      4col_deck: 4col_deck
-      hero_banner: hero_banner
+      text: text
+      video: video
+      block: block
     target_bundles_drag_drop:
-      1col_deck:
+      text:
         enabled: true
         weight: -31
-      2col_deck:
+      video:
         enabled: true
         weight: -30
-      3col_deck:
+      block:
         enabled: true
         weight: -29
-      4col_deck:
-        enabled: true
+      1col_deck:
         weight: -28
-      content_link:
+        enabled: false
+      2col_deck:
         weight: -27
         enabled: false
-      hero_banner:
-        enabled: true
+      3col_deck:
         weight: -26
-      dynamic_deck:
+        enabled: false
+      4col_deck:
         weight: -25
         enabled: false
-      factbox:
+      content_link:
         weight: -24
         enabled: false
-      gallery:
+      dynamic_deck:
         weight: -23
         enabled: false
-      block:
+      factbox:
         weight: -22
         enabled: false
-      quotation:
+      gallery:
         weight: -21
         enabled: false
-      text:
+      hero_banner:
         weight: -20
         enabled: false
-      video:
+      program:
         weight: -19
         enabled: false
-      program:
+      program_item:
         weight: -18
         enabled: false
-      program_item:
+      quotation:
         weight: -17
         enabled: false
 field_type: entity_reference_revisions

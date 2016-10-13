@@ -3,8 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.2col_deck.field_2col_paragraphs_left
-    - field.field.paragraph.2col_deck.field_2col_paragraphs_right
+    - field.field.paragraph.2col_deck.field_2col_column_size
+    - field.field.paragraph.2col_deck.field_2col_deck_col1
+    - field.field.paragraph.2col_deck.field_2col_deck_col2
     - paragraphs.paragraphs_type.2col_deck
   module:
     - entity_reference_revisions
@@ -13,7 +14,7 @@ targetEntityType: paragraph
 bundle: 2col_deck
 mode: default
 content:
-  field_2col_paragraphs_left:
+  field_2col_deck_col1:
     type: entity_reference_revisions_entity_view
     weight: 0
     label: hidden
@@ -21,9 +22,9 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-  field_2col_paragraphs_right:
+  field_2col_deck_col2:
     type: entity_reference_revisions_entity_view
-    weight: 2
+    weight: 1
     label: hidden
     settings:
       view_mode: default
@@ -31,4 +32,5 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_2col_column_size: true
   uid: true

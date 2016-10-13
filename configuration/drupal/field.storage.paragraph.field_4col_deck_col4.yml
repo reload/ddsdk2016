@@ -1,0 +1,20 @@
+uuid: 6c72776e-87b3-4d1c-8934-788016267f02
+langcode: da
+status: true
+dependencies:
+  module:
+    - entity_reference_revisions
+    - paragraphs
+id: paragraph.field_4col_deck_col4
+field_name: field_4col_deck_col4
+entity_type: paragraph
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
