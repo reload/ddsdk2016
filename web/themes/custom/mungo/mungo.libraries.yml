@@ -22,3 +22,11 @@ program:
   dependencies:
     - core/jquery
     - core/drupal
+exposed-filters:
+  version: 0.1
+  js:
+    assets/js/exposedFilters.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.ui.datepicker
