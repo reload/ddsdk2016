@@ -145,16 +145,8 @@ function mungo_preprocess_paragraph(&$variables) {
   }
   /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
   $paragraph = $variables['paragraph'];
-  if ($paragraph->hasField('field_deck_color')) {
-    switch ($paragraph->field_deck_color->value) {
-      case 'grey':
-        $variables['attributes']['class'][] = 'paragraphs--deck-color--grey';
-        break;
-
-      case 'white':
-        $variables['attributes']['class'][] = 'paragraphs--deck-color--white';
-        break;
-    }
+  if ($paragraph->hasField('field_deck_color') && !empty($paragraph->field_deck_color->value)) {
+    $variables['attributes']['class'][] = 'paragraphs--deck-color--' . $paragraph->field_deck_color->value;
   }
 }
 
