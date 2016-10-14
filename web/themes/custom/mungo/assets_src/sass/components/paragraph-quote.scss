@@ -4,6 +4,9 @@
 
 // Wrapper for the entire quotation.
 .paragraph--type--quotation {
+  // reset margin set by the general paragraph styling.
+  margin-bottom: 0;
+
   @include quote-text;
 
   // We generally control the spacing to our sourrunding elements via margin.
