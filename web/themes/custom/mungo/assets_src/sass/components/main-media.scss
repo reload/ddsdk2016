@@ -6,6 +6,12 @@
   // Clear space between the image and the next article element.
   margin-bottom: 10px;
 
+  // But not on section-pages as they potentially have a menu just
+  // underneath.
+  .section-header & {
+    margin-bottom: 0;
+  }
+
   @include clearfix;
 }
 

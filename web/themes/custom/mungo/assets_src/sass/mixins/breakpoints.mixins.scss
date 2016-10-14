@@ -16,3 +16,13 @@
     @content;
   }
 }
+
+// Mixin covering all "mobile" styling
+// Should _only_ be used for states that are exclusive for mobile - that is
+// things that it would not make sense having to reset when increasing to
+// desktop/tablet.
+@mixin max-media-small {
+  @media (max-width: $screen-sm-max) {
+    @content;
+  }
+}

@@ -22,6 +22,7 @@ program:
   dependencies:
     - core/jquery
     - core/drupal
+
 exposed-filters:
   version: 0.1
   js:
@@ -30,3 +31,11 @@ exposed-filters:
     - core/jquery
     - core/drupal
     - core/jquery.ui.datepicker
+
+grouping-menu:
+  version: 0.1
+  js:
+    assets/js/grouping-menu.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
