@@ -35,7 +35,8 @@
         "drupal/maxlength": "^8",
         "drupal/search_api_solr": "^8",
         "drupal/facets": "^8",
-        "drupal/search_api": "^8"
+        "drupal/search_api": "^8",
+        "drupal/admin_toolbar": "^8"
     },
     "require-dev": {
         "behat/mink": "~1.7",
