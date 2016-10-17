@@ -77,8 +77,9 @@ display:
           view_modes:
             'entity:node':
               article: default
-              event: teaser
+              event: search_index
               page: default
+              section_page: default
       fields:
         nid:
           table: search_api_index_nodes
