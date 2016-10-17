@@ -8,9 +8,8 @@
     attach: function (context, settings) {
       // Find all program headers for toggle.
       $('.grouping-menu__active_title').click(function () {
-        console.log(this);
+        // Toggle a class on the wrapping .grouping-menu element.
         $(this).parent().toggleClass('is-active');
-        $(this).toggleClass('is-active');
       });
     }
   };
