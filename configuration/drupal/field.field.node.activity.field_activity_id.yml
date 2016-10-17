@@ -1,0 +1,23 @@
+uuid: 7a0b8856-36e9-4513-99d6-87f979fff5cd
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_activity_id
+    - node.type.activity
+id: node.activity.field_activity_id
+field_name: field_activity_id
+entity_type: node
+bundle: activity
+label: 'Activity id'
+description: 'ID from the activity database. Eg, for the activity https://aktiviteterws.dds.dk/activities/303 the id is 303.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
