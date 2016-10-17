@@ -1,0 +1,17 @@
+uuid: 1b97abb4-3943-4e19-9a8e-971c4c307a65
+langcode: da
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Activity
+type: activity
+description: 'A reference to an activity from the activity-database (aktiviteter.dds.dk)'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

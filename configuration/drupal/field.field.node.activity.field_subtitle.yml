@@ -1,0 +1,19 @@
+uuid: feff507c-b361-4d4d-96f2-398b4934d351
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subtitle
+    - node.type.activity
+id: node.activity.field_subtitle
+field_name: field_subtitle
+entity_type: node
+bundle: activity
+label: Subtitle
+description: 'Short description of the activity.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
