@@ -1,0 +1,64 @@
+/**
+ * Theming of search result teaser views.
+ *
+ * TODO(ts) - should be refactored to be generel.
+ */
+.search-result {
+  background: white;
+  margin-bottom: 30px;
+  letter-spacing: 1.3px;
+  line-height: 1;
+}
+
+.search-result__header {
+  border-bottom: 1px solid $pale-grey;
+  padding: 5px 0 15px;
+  margin-bottom: 15px;
+}
+
+.search-result__content {
+  padding: 0 20px;
+}
+
+.search-result__event__type {
+  line-height: 1.65;
+}
+
+.search-result__title {
+  h2 {
+    @include list-heading-large;
+    margin: 0;
+    // TODO(ts) - must be generalized.
+    font-size: 36px;
+  }
+}
+
+.search-result__teaser {
+
+  .article-text.subtitle {
+    font-size: 17px;
+    line-height: 1.65;
+    font-weight: normal;
+    color: $black-light;
+  }
+}
+
+.search-result__meta-data__item {
+  margin: 0 0 10px;
+  // TODO(ts) - must be generalized.
+  font-size: 16px;
+  line-height: 1.65;
+  letter-spacing: 0.5px;
+
+  .field {
+    display: inline;
+  }
+}
+
+.search_result__label {
+  // TODO(ts) - must be generalized.
+  font-size: 18px;
+  color: $black-medium;
+  font-weight: bold;
+}
+
