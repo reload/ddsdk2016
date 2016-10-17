@@ -200,8 +200,6 @@ function mungo_preprocess_node(&$variables) {
   /** @var Node $node */
   $node = $variables['node'];
 
-  $r = 123;
-
   switch ($node->getType()) {
     case 'article':
       _mungo_preprocess_node_article($node, $variables);
