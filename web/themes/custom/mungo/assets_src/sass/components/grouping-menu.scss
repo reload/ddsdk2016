@@ -38,7 +38,7 @@ ul.menu.menu--grouping-menu {
     display: none;
   }
   padding: $spacing-small;
-  width: 350px;
+  width: $dropdown-menu-size;
 
   // Surround the button with a border
   border: 1px solid $bluish;
