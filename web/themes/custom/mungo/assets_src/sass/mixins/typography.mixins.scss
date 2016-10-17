@@ -126,3 +126,9 @@
   font-size: 40px;
   color: $black;
 }
+
+@mixin capitalized-menu-item {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+}
