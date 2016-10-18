@@ -25,8 +25,6 @@ function facets_views_block_preprocess_views_view(&$variables) {
   $view_id = $view->id();
   $view_display = $view->current_display;
 
-  $r = 123;
-
   // Ensure that we found both a view id and a display id.
   if (!$view_id || !$view_display) {
     return;
@@ -139,8 +137,8 @@ function facets_views_block_theme() {
  */
 function _facets_views_preprocess_filters($exposed_form, $facets) {
 
+  // Initialize weight.
   $weight = -1;
-
 
   // 1. search_text(exposed form).
   $exposed_form['search_text']['#weight'] = $weight++;
