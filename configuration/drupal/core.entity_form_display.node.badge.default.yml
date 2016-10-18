@@ -1,0 +1,124 @@
+uuid: 92d9b83d-df01-41e4-9ae7-f0883aaf1cf3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.without_meta
+    - field.field.node.badge.field_badge_cover_image
+    - field.field.node.badge.field_badge_progression
+    - field.field.node.badge.field_badge_target_group
+    - field.field.node.badge.field_badge_type
+    - field.field.node.badge.field_badge_level
+    - field.field.node.badge.field_main_media
+    - field.field.node.badge.field_paragraphs
+    - field.field.node.badge.field_subtitle
+    - node.type.badge
+  module:
+    - field_group
+    - inline_entity_form
+    - paragraphs
+    - path
+third_party_settings:
+  field_group:
+    group_progression:
+      children:
+        - field_badge_progression
+        - field_badge_level
+      parent_name: ''
+      weight: 5
+      label: Progression
+      format_type: fieldset
+      format_settings:
+        description: ''
+        classes: ''
+        id: ''
+        required_fields: true
+id: node.badge.default
+targetEntityType: node
+bundle: badge
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 11
+    settings: {  }
+    third_party_settings: {  }
+  field_badge_cover_image:
+    weight: 2
+    settings:
+      form_mode: without_meta
+      label_singular: ''
+      label_plural: ''
+      override_labels: false
+    third_party_settings: {  }
+    type: inline_entity_form_simple
+  field_badge_level:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_badge_progression:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_badge_target_group:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_badge_type:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_main_media:
+    weight: 1
+    settings:
+      form_mode: without_meta
+      label_singular: ''
+      label_plural: ''
+      override_labels: false
+    third_party_settings: {  }
+    type: inline_entity_form_simple
+  field_paragraphs:
+    weight: 9
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+  field_subtitle:
+    weight: 8
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  path:
+    type: path
+    weight: 12
+    settings: {  }
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 10
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  promote: true
+  sticky: true

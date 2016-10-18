@@ -1,0 +1,11 @@
+uuid: 824e43bc-665f-434e-a593-1675796d648b
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.progression_badge
+id: taxonomy_term.progression_badge
+target_entity_type_id: taxonomy_term
+target_bundle: progression_badge
+default_langcode: site_default
+language_alterable: false

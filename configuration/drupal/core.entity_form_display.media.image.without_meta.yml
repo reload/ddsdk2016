@@ -1,8 +1,9 @@
-uuid: ed04aead-b2ee-4253-bca1-faa1ced6a192
+uuid: edca0b9b-e759-456d-bd8a-db444b47540b
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.media.without_meta
     - field.field.media.image.field_byline
     - field.field.media.image.field_caption
     - field.field.media.image.field_image
@@ -10,25 +11,11 @@ dependencies:
     - media_entity.bundle.image
   module:
     - image
-id: media.image.default
+id: media.image.without_meta
 targetEntityType: media
 bundle: image
-mode: default
+mode: without_meta
 content:
-  field_byline:
-    type: string_textfield
-    weight: 1
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_caption:
-    type: string_textarea
-    weight: 2
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
   field_image:
     weight: 0
     settings:
@@ -38,6 +25,8 @@ content:
     type: image_image
 hidden:
   created: true
+  field_byline: true
+  field_caption: true
   langcode: true
   name: true
   uid: true

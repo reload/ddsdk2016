@@ -1,0 +1,80 @@
+uuid: faf59ecc-f7fd-414b-b8c3-77c29d4c3d1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraphs
+    - node.type.badge
+    - paragraphs.paragraphs_type.content_link
+    - paragraphs.paragraphs_type.factbox
+    - paragraphs.paragraphs_type.gallery
+    - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.video
+  module:
+    - entity_reference_revisions
+id: node.badge.field_paragraphs
+field_name: field_paragraphs
+entity_type: node
+bundle: badge
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      text: text
+      video: video
+      content_link: content_link
+      factbox: factbox
+      gallery: gallery
+    target_bundles_drag_drop:
+      text:
+        enabled: true
+        weight: -31
+      video:
+        enabled: true
+        weight: -30
+      content_link:
+        enabled: true
+        weight: -29
+      factbox:
+        enabled: true
+        weight: -28
+      gallery:
+        enabled: true
+        weight: -27
+      quotation:
+        weight: -26
+        enabled: false
+      1col_deck:
+        weight: -25
+        enabled: false
+      2col_deck:
+        weight: -24
+        enabled: false
+      3col_deck:
+        weight: -23
+        enabled: false
+      4col_deck:
+        weight: -22
+        enabled: false
+      block:
+        weight: -21
+        enabled: false
+      dynamic_deck:
+        weight: -20
+        enabled: false
+      hero_banner:
+        weight: -19
+        enabled: false
+      program:
+        weight: -18
+        enabled: false
+      program_item:
+        weight: -17
+        enabled: false
+field_type: entity_reference_revisions

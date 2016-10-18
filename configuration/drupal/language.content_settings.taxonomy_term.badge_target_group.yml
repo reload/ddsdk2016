@@ -1,0 +1,11 @@
+uuid: cf6b00c7-45eb-4b6a-b928-99b7140e2517
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.badge_target_group
+id: taxonomy_term.badge_target_group
+target_entity_type_id: taxonomy_term
+target_bundle: badge_target_group
+default_langcode: site_default
+language_alterable: false

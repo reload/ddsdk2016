@@ -1,0 +1,21 @@
+uuid: 7d4f8ead-7809-4639-826f-fa70664db3ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_badge_level
+    - node.type.badge
+  module:
+    - options
+id: node.badge.field_badge_level
+field_name: field_badge_level
+entity_type: node
+bundle: badge
+label: Level
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
