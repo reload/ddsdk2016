@@ -1,0 +1,28 @@
+uuid: ab12caf5-e98c-4c86-a9fa-e27b212c2fff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_badge_progression
+    - node.type.badge
+    - taxonomy.vocabulary.progression_badge
+id: node.badge.field_badge_progression
+field_name: field_badge_progression
+entity_type: node
+bundle: badge
+label: Progression
+description: 'Associate progression badges to its progress. <a href="/admin/structure/taxonomy/manage/progression_badge/add">Create a new progression</a>'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      progression_badge: progression_badge
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

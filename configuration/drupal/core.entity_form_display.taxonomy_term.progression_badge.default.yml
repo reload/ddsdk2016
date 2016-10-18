@@ -1,0 +1,22 @@
+uuid: 066e5bde-67c2-47be-a820-d21988b9003e
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.progression_badge
+id: taxonomy_term.progression_badge.default
+targetEntityType: taxonomy_term
+bundle: progression_badge
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  langcode: true
+  path: true

@@ -1,0 +1,9 @@
+uuid: 73ebdb86-84b8-420a-9327-7f6609476e20
+langcode: en
+status: true
+dependencies: {  }
+name: 'Progression badge'
+vid: progression_badge
+description: 'A progression containing 3 badges of individual levels'
+hierarchy: 0
+weight: 0

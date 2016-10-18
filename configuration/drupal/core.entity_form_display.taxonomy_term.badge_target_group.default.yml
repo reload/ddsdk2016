@@ -1,0 +1,22 @@
+uuid: 5cdbcf93-db5e-4242-b435-781d9c511ba8
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.badge_target_group
+id: taxonomy_term.badge_target_group.default
+targetEntityType: taxonomy_term
+bundle: badge_target_group
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  langcode: true
+  path: true

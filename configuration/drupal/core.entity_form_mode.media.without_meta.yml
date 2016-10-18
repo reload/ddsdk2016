@@ -1,0 +1,10 @@
+uuid: b46c0b13-ac0f-407c-82be-a4accbbb6e5e
+langcode: en
+status: true
+dependencies:
+  module:
+    - media_entity
+id: media.without_meta
+label: 'Without meta'
+targetEntityType: media
+cache: true

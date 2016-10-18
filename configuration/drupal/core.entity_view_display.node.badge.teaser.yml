@@ -1,0 +1,33 @@
+uuid: ed4a66ad-59d9-437f-8fc5-264fa8617b5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.badge.field_badge_progression
+    - field.field.node.badge.field_badge_target_group
+    - field.field.node.badge.field_badge_type
+    - field.field.node.badge.field_badge_level
+    - field.field.node.badge.field_main_media
+    - field.field.node.badge.field_paragraphs
+    - field.field.node.badge.field_subtitle
+    - node.type.badge
+  module:
+    - user
+id: node.badge.teaser
+targetEntityType: node
+bundle: badge
+mode: teaser
+content:
+  links:
+    weight: 100
+hidden:
+  field_badge_cover_image: true
+  field_badge_level: true
+  field_badge_progression: true
+  field_badge_target_group: true
+  field_badge_type: true
+  field_main_media: true
+  field_paragraphs: true
+  field_subtitle: true
+  langcode: true
