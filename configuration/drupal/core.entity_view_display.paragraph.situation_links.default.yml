@@ -1,0 +1,55 @@
+uuid: e5cde99d-e1eb-4d21-bfb2-7399a41be2e0
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.situation_links.field_color
+    - field.field.paragraph.situation_links.field_icon
+    - field.field.paragraph.situation_links.field_main_link
+    - field.field.paragraph.situation_links.field_situation_links
+    - paragraphs.paragraphs_type.situation_links
+  module:
+    - link
+    - options
+id: paragraph.situation_links.default
+targetEntityType: paragraph
+bundle: situation_links
+mode: default
+content:
+  field_color:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
+  field_icon:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
+  field_main_link:
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_situation_links:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+hidden:
+  created: true
+  uid: true

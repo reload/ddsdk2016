@@ -1,0 +1,21 @@
+uuid: 6eecbbdf-b9cc-44eb-b94e-d1536be8fd2b
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon
+    - paragraphs.paragraphs_type.situation_links
+  module:
+    - options
+id: paragraph.situation_links.field_icon
+field_name: field_icon
+entity_type: paragraph
+bundle: situation_links
+label: Icon
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

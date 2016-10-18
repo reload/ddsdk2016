@@ -6,6 +6,7 @@ dependencies:
     - field.storage.paragraph.field_4col_deck_col3
     - paragraphs.paragraphs_type.4col_deck
     - paragraphs.paragraphs_type.block
+    - paragraphs.paragraphs_type.situation_links
     - paragraphs.paragraphs_type.text
     - paragraphs.paragraphs_type.video
   module:
@@ -27,6 +28,7 @@ settings:
       text: text
       video: video
       block: block
+      situation_links: situation_links
     target_bundles_drag_drop:
       text:
         enabled: true
@@ -73,4 +75,7 @@ settings:
       quotation:
         weight: -17
         enabled: false
+      situation_links:
+        enabled: true
+        weight: 17
 field_type: entity_reference_revisions

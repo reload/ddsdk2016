@@ -1,0 +1,33 @@
+uuid: 3d3ebb53-c335-4e78-9127-cbba0e07241c
+langcode: da
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_color
+field_name: field_color
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: red
+      label: Red
+    -
+      value: yellow
+      label: Yellow
+    -
+      value: blue
+      label: Blue
+    -
+      value: grey
+      label: Grey
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
