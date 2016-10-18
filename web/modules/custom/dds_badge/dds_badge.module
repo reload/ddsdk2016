@@ -1,0 +1,75 @@
+<?php
+
+/**
+ * @file
+ * Functionallity related to the Badge content type and pages.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\Entity\Node;
+
+/**
+ * Implements hook_field_group_pre_render().
+ *
+ * Hide the progression field-group if the badge-type is not a progression.
+ */
+function dds_badge_field_group_pre_render(&$element, &$group, &$rendering_object) {
+  if ($group->group_name === 'group_progression') {
+    $element['#states'] = [
+      'invisible' => [
+        ':input[name="field_badge_type"]' => array('!value' => 'progression'),
+      ],
+    ];
+  }
+}
+
+/**
+ * Implements hook_field_widget_form_alter().
+ *
+ * Add a validation callback to the level and progression fields.
+ */
+function dds_badge_field_widget_form_alter(&$element, &$form_state, $context) {
+  if (isset($context['items'])
+    && in_array($context['items']->getName(), ['field_badge_progression', 'field_badge_level'])) {
+    $element['#element_validate'][] = '_dds_badge_progression_validate';
+  }
+}
+
+/**
+ * Validate fields that are depended on the badge-type being progression.
+ */
+function _dds_badge_progression_validate($element, FormStateInterface &$form_state, $form) {
+  // If the type of badge is progression, level and progression (term
+  // reference) are required. Set an error if we're missing a value.
+  $badge_type = $form_state->getValue('field_badge_type');
+  if ($badge_type === 'progression' || (is_array($badge_type) && isset($badge_type[0]['value']) && $badge_type[0]['value'] === 'progression')) {
+    if ($element['#name'] === 'field_badge_progression' && empty($form_state->getValue('field_badge_progression'))) {
+      $form_state->setError($element, t('Progression badges must be associated to a progression.'));
+    }
+
+    if ($element['#name'] === 'field_badge_level' && empty($form_state->getValue('field_badge_level'))) {
+      $form_state->setError($element, t('Progression badges must have a level.'));
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_presave().
+ *
+ * When saving badges, clear out the level and progression-reference fields
+ * if the type of badge is not progression.
+ */
+function dds_badge_entity_presave(EntityInterface $entity) {
+  if ($entity instanceof Node && $entity->getType() === 'badge') {
+    $badge_type = $entity->get('field_badge_type')->value;
+    if ($badge_type !== 'progression') {
+      if (!empty($entity->get('field_badge_progression')->referencedEntities())) {
+        $entity->set('field_badge_progression', NULL);
+      }
+      if (!empty($entity->get('field_badge_level')->value)) {
+        $entity->set('field_badge_level', NULL);
+      }
+    }
+  }
+}
