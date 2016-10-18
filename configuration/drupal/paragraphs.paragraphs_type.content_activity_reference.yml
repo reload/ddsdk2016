@@ -1,0 +1,6 @@
+uuid: 0dcde16b-79cf-490b-8962-836c0053d948
+langcode: en
+status: true
+dependencies: {  }
+id: content_activity_reference
+label: 'Content: Activity reference'
