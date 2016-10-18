@@ -25,6 +25,8 @@ function facets_views_block_preprocess_views_view(&$variables) {
   $view_id = $view->id();
   $view_display = $view->current_display;
 
+  $r = 123;
+
   // Ensure that we found both a view id and a display id.
   if (!$view_id || !$view_display) {
     return;
@@ -103,6 +105,9 @@ function facets_views_block_preprocess_views_view(&$variables) {
       }
     }
   }
+
+  // Reorder the facets and exposed filters.
+  $variables['exposed'] = _facets_views_reorder_filters($variables['exposed'], $variables['facets']);
 }
 
 /**
@@ -119,4 +124,56 @@ function facets_views_block_theme() {
       ],
     ],
   ];
+}
+
+/**
+ * Arrange Facets order and combine them with exposed filters.
+ *
+ * Order the exposed form in the "correct" order.
+ * We add the facets to the exposed form, by rendering them and
+ * adding them as markup in the form.
+ *
+ * @param array $exposed_form
+ * @param array $facets
+ * @return array
+ */
+function _facets_views_preprocess_filters($exposed_form, $facets) {
+
+  $weight = -1;
+
+
+  // 1. search_text(exposed form).
+  $exposed_form['search_text']['#weight'] = $weight++;
+  $exposed_form['search_text']['#attributes']['placeholder'] = t('type the word to be searched ...');
+
+  // 2. facets_event_type(facet).
+  $exposed_form['facets_event_type'] = [
+    '#type' => 'markup',
+    '#markup' => \Drupal::service('renderer')->render($facets['event_type']),
+    '#weight' => $weight++,
+  ];
+
+  // 3. facets_target_group(facet).
+  $exposed_form['facets_target_group'] = [
+    '#type' => 'markup',
+    '#markup' => \Drupal::service('renderer')->render($facets['target_group']),
+    '#weight' => $weight++,
+  ];
+
+  // 4. facets_target_group(facet).
+  $exposed_form['facets_area'] = [
+    '#type' => 'markup',
+    '#markup' => \Drupal::service('renderer')->render($facets['area']),
+    '#weight' => $weight++,
+  ];
+
+  // 5. event_after(exposed form).
+  $exposed_form['event_after']['#weight'] = $weight++;
+  $exposed_form['event_after']['#attributes']['placeholder'] = t('exclude results after this date ...');
+
+  // 6. event_before(exposed form).
+  $exposed_form['event_before']['#weight'] = $weight++;
+  $exposed_form['event_before']['#attributes']['placeholder'] = t('exclude results before this date ...');
+
+  return $exposed_form;
 }
