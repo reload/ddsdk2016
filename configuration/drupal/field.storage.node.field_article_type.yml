@@ -1,0 +1,30 @@
+uuid: d7aef68b-6dd9-4c0b-aeb6-fe3dfade1ab9
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_article_type
+field_name: field_article_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: standard
+      label: standard
+    -
+      value: simple
+      label: simple
+    -
+      value: long_read
+      label: long-read
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

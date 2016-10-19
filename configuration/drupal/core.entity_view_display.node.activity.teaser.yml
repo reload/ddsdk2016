@@ -15,4 +15,7 @@ content:
   links:
     weight: 100
 hidden:
+  field_activity_id: true
+  field_main_media: true
+  field_subtitle: true
   langcode: true

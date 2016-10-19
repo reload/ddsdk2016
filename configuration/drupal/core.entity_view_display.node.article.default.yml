@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.article.field_article_type
     - field.field.node.article.field_content_author
     - field.field.node.article.field_main_media
     - field.field.node.article.field_paragraphs
@@ -10,12 +11,19 @@ dependencies:
     - node.type.article
   module:
     - entity_reference_revisions
+    - options
     - user
 id: node.article.default
 targetEntityType: node
 bundle: article
 mode: default
 content:
+  field_article_type:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
   field_content_author:
     weight: 4
     label: hidden
