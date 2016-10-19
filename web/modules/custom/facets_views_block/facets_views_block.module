@@ -132,8 +132,12 @@ function facets_views_block_theme() {
  * adding them as markup in the form.
  *
  * @param array $exposed_form
+ *   The exposed form.
  * @param array $facets
+ *   The facets in render arrays.
+ *
  * @return array
+ *   Returns a modified exposed form with facets elements included.
  */
 function _facets_views_preprocess_filters($exposed_form, $facets) {
 
