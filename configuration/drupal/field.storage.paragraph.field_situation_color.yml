@@ -1,12 +1,12 @@
-uuid: 3d3ebb53-c335-4e78-9127-cbba0e07241c
+uuid: 706d7dfe-41ba-46b1-ac9b-f378a319c385
 langcode: en
 status: true
 dependencies:
   module:
     - options
     - paragraphs
-id: paragraph.field_color
-field_name: field_color
+id: paragraph.field_situation_color
+field_name: field_situation_color
 entity_type: paragraph
 type: list_string
 settings:

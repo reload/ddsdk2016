@@ -67,12 +67,10 @@ function mungo_preprocess_field(&$variables) {
       // margin.
       if (isset($herobannerfound) && $herobannerfound == TRUE && $paragraph->getType() == '4col_deck') {
         /** @var Attribute $attributes */
-        $paragraph->field_4col_deck_col1->getValue();
         if (!empty($paragraph->field_4col_deck_col1)) {
           $situation_link = reset($paragraph->field_4col_deck_col1->referencedEntities());
           if ($situation_link->getType() == 'situation_links') {
             $attributes = $variables['items'][$key]['attributes'];
-            $variables['items'][$key]['content']['attributes']['class'][] = 'yadda';
             $attributes->addClass('paragraph-set-negative-margin');
           }
         }
@@ -138,8 +136,10 @@ function mungo_preprocess_paragraph(&$variables) {
   if (empty($variables['paragraph']->getType())) {
     return;
   }
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $variables['paragraph'];
 
-  switch ($variables['paragraph']->getType()) {
+  switch ($paragraph->getType()) {
     case 'factbox':
       // Add a clean class to factboxes.
       $variables['attributes']['class'][] = 'factbox';
@@ -161,14 +161,12 @@ function mungo_preprocess_paragraph(&$variables) {
       break;
 
     case 'situation_links':
-
-      $paragraph = $variables['paragraph'];
-
-      if ($paragraph->hasField('field_main_link') && !(empty($paragraph->field_main_link->getValue()))) {
-        $variables['content']['main_link'] = $paragraph->field_main_link->getValue();
+      // Prepare properties for paragraph type situation links.
+      if ($paragraph->hasField('field_situation_main_link') && !(empty($paragraph->field_situation_main_link->getValue()))) {
+        $variables['content']['main_link'] = $paragraph->field_situation_main_link->getValue();
       }
-      if ($paragraph->hasField('field_color') && !empty($paragraph->field_color->value)) {
-        $variables['attributes']['class'][] = 'situation-links-color-' . $paragraph->field_color->value;
+      if ($paragraph->hasField('field_situation_color') && !empty($paragraph->field_situation_color->value)) {
+        $variables['attributes']['class'][] = 'situation-links-color-' . $paragraph->field_situation_color->value;
       }
       if ($paragraph->hasField('field_icon') && !empty($paragraph->field_icon->value)) {
         $variables['content']['icon'] = _mungo_replace_title_with_svg($paragraph->field_icon->value);
@@ -182,8 +180,6 @@ function mungo_preprocess_paragraph(&$variables) {
       _mungo_preprocess_deck_paragraph($variables['paragraph']->getType(), $variables);
       break;
   }
-  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
-  $paragraph = $variables['paragraph'];
   if ($paragraph->hasField('field_deck_color') && !empty($paragraph->field_deck_color->value)) {
     $variables['attributes']['class'][] = 'paragraphs--deck-color--' . $paragraph->field_deck_color->value;
   }

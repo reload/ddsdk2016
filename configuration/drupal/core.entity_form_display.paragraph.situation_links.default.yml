@@ -3,10 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.situation_links.field_color
     - field.field.paragraph.situation_links.field_icon
-    - field.field.paragraph.situation_links.field_main_link
+    - field.field.paragraph.situation_links.field_situation_color
     - field.field.paragraph.situation_links.field_situation_links
+    - field.field.paragraph.situation_links.field_situation_main_link
     - paragraphs.paragraphs_type.situation_links
   module:
     - link
@@ -15,25 +15,25 @@ targetEntityType: paragraph
 bundle: situation_links
 mode: default
 content:
-  field_color:
-    weight: 0
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
   field_icon:
     weight: 1
     settings: {  }
     third_party_settings: {  }
     type: options_select
-  field_main_link:
-    weight: 2
+  field_situation_color:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_situation_links:
+    weight: 3
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
-  field_situation_links:
-    weight: 3
+  field_situation_main_link:
+    weight: 5
     settings:
       placeholder_url: ''
       placeholder_title: ''

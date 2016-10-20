@@ -1,17 +1,17 @@
-uuid: c3c502da-32c1-42ef-be7b-ee1e22083993
+uuid: 894c14e9-c743-4cbe-9f4f-389aec0928ea
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_main_link
+    - field.storage.paragraph.field_situation_main_link
     - paragraphs.paragraphs_type.situation_links
   module:
     - link
-id: paragraph.situation_links.field_main_link
-field_name: field_main_link
+id: paragraph.situation_links.field_situation_main_link
+field_name: field_situation_main_link
 entity_type: paragraph
 bundle: situation_links
-label: 'Main link'
+label: 'Situation Main Link'
 description: ''
 required: true
 translatable: false
