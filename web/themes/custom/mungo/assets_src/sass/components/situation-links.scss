@@ -1,0 +1,138 @@
+/**
+ * @file
+ * Contains styling regarding situation links.
+ *
+ */
+.paragraph--type--situation-links {
+  @include clearfix;
+
+  // Initiate border. Color is overridden later.
+  // Mobile border is on left, desktop above and below.
+  border-left: 10px solid green;
+  @include media-medium {
+    border-top: 10px solid green;
+    border-left: 0 solid green;
+  }
+  border-bottom: 0 solid green;
+
+  // Set the border color.
+  &.situation-links-color{
+    &-red {
+      border-color: $medium-pink;
+    }
+    &-yellow {
+      border-color: $dull-yellow;
+    }
+    &-blue {
+      border-color: $bluish;
+    }
+    &-grey {
+      border-color: $pinkish-grey;
+    }
+  }
+  // On hover of the whole situation box do magic with borders.
+  // Add shadow and such.
+  &:hover {
+    border-right-width: 10px;
+    @include media-medium {
+      @include translate(0, -20px);
+      border-right-width: 0;
+      border-bottom-width: 10px;
+    }
+
+    box-shadow: 0 0 3px #000;
+    a {
+      color: $bluish;
+      text-decoration: none;
+    }
+  }
+
+  @include transition(all 0.4s);
+
+  // Size the icon
+  .icon {
+    float: left;
+    @include media-medium {
+      float:none;
+    }
+    padding: $spacing-small 0;
+    svg {
+      height: 100px;
+    }
+  }
+  background: #fff;
+  min-height: 120px;
+  @include media-medium {
+    text-align: center;
+    min-height: 350px;
+  }
+
+
+  // Vertically align middle.
+  & > a {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    @include media-medium {
+      display: block;
+    }
+  }
+
+  // The box heading.
+  h2 {
+    @include list-heading-small;
+    text-decoration: none;
+    margin: 0 $spacing-medium;
+    color: $bluish;
+    &:after {
+      content: " \2192";
+    }
+    @include media-medium {
+      color: #000;
+      &:after {
+        content: '';
+      }
+    }
+  }
+  // The list of links.
+  .field--name-field-situation-links {
+    display: none;
+    @include media-medium {
+      display: block;
+      a {
+        margin: 0 $spacing-medium;
+        display: block;
+        color: #000;
+        padding: 5px;
+        &:hover {
+          color: $light-navy;
+          text-decoration: underline;
+
+        }
+      }
+    }
+  }
+
+  // The general link at the bottom of the box.
+  position: relative;
+  .view-content-link {
+    display: none;
+    @include media-medium {
+      display: block;
+      position: absolute;
+      top:300px;
+      left: 0;
+      right: 0;
+      @include capitalized-small-text;
+      color: $bluish;
+      font-weight: 600;
+      &:after {
+        content: " \2192";
+      }
+    }
+
+  }
+}
+
+
+

@@ -57,6 +57,28 @@ function mungo_preprocess_field(&$variables) {
       $variables['item_col_classes'][] = 'col-md-6';
     }
   }
+  if ($field_name == 'field_section') {
+
+    foreach ($variables['items'] as $key => &$item) {
+      /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+      $paragraph = $item['content']['#paragraph'];
+
+      // If the a 4col_deck paragraph is right after a herobanner. Set negative
+      // margin.
+      if (isset($herobannerfound) && $herobannerfound == TRUE && $paragraph->getType() == '4col_deck') {
+        /** @var Attribute $attributes */
+        if (!empty($paragraph->field_4col_deck_col1)) {
+          $situation_link = reset($paragraph->field_4col_deck_col1->referencedEntities());
+          if ($situation_link->getType() == 'situation_links') {
+            $attributes = $variables['items'][$key]['attributes'];
+            $attributes->addClass('paragraph-set-negative-margin');
+          }
+        }
+      }
+      $herobannerfound = $paragraph->getType() == 'hero_banner' ? TRUE : FALSE;
+    }
+  }
+
 }
 
 /**
@@ -114,8 +136,10 @@ function mungo_preprocess_paragraph(&$variables) {
   if (empty($variables['paragraph']->getType())) {
     return;
   }
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $variables['paragraph'];
 
-  switch ($variables['paragraph']->getType()) {
+  switch ($paragraph->getType()) {
     case 'factbox':
       // Add a clean class to factboxes.
       $variables['attributes']['class'][] = 'factbox';
@@ -136,6 +160,19 @@ function mungo_preprocess_paragraph(&$variables) {
       _mungo_preprocess_paragraph_content_link($variables);
       break;
 
+    case 'situation_links':
+      // Prepare properties for paragraph type situation links.
+      if ($paragraph->hasField('field_situation_main_link') && !(empty($paragraph->field_situation_main_link->getValue()))) {
+        $variables['content']['main_link'] = $paragraph->field_situation_main_link->getValue();
+      }
+      if ($paragraph->hasField('field_situation_color') && !empty($paragraph->field_situation_color->value)) {
+        $variables['attributes']['class'][] = 'situation-links-color-' . $paragraph->field_situation_color->value;
+      }
+      if ($paragraph->hasField('field_icon') && !empty($paragraph->field_icon->value)) {
+        $variables['content']['icon'] = _mungo_replace_title_with_svg($paragraph->field_icon->value);
+      }
+      break;
+
     case '1col_deck':
     case '2col_deck':
     case '3col_deck':
@@ -143,8 +180,6 @@ function mungo_preprocess_paragraph(&$variables) {
       _mungo_preprocess_deck_paragraph($variables['paragraph']->getType(), $variables);
       break;
   }
-  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
-  $paragraph = $variables['paragraph'];
   if ($paragraph->hasField('field_deck_color') && !empty($paragraph->field_deck_color->value)) {
     $variables['attributes']['class'][] = 'paragraphs--deck-color--' . $paragraph->field_deck_color->value;
   }
@@ -567,6 +602,7 @@ function _mungo_preprocess_deck_paragraph($type, &$variables) {
   elseif ($type === '4col_deck') {
     foreach ($variables['cols'] as &$col) {
       $col['#attributes']['class'][] = 'col-md-3';
+      $col['#attributes']['class'][] = 'col-sm-6';
     }
   }
 }

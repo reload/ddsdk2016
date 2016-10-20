@@ -1,0 +1,21 @@
+uuid: ee252357-32e0-4993-9bc6-674db5367201
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_situation_color
+    - paragraphs.paragraphs_type.situation_links
+  module:
+    - options
+id: paragraph.situation_links.field_situation_color
+field_name: field_situation_color
+entity_type: paragraph
+bundle: situation_links
+label: 'Situation Color'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

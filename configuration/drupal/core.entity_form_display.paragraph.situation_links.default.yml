@@ -1,0 +1,45 @@
+uuid: 31f845bd-8f54-4de3-9669-21a38a6a949a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.situation_links.field_icon
+    - field.field.paragraph.situation_links.field_situation_color
+    - field.field.paragraph.situation_links.field_situation_links
+    - field.field.paragraph.situation_links.field_situation_main_link
+    - paragraphs.paragraphs_type.situation_links
+  module:
+    - link
+id: paragraph.situation_links.default
+targetEntityType: paragraph
+bundle: situation_links
+mode: default
+content:
+  field_icon:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_situation_color:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_situation_links:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  field_situation_main_link:
+    weight: 5
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+hidden:
+  created: true
+  status: true
+  uid: true
