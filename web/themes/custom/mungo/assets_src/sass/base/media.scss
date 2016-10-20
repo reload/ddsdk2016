@@ -37,13 +37,13 @@
 // Act like bootstrap container but stay at 1600px instead of 1170.
 // This is used to contain images that should be wider than large breakpoint.
 .full-width-image-container {
+  @extend .fluid-media;
   margin-right: auto;
   margin-left: auto;
   max-width: 1600px;
   width: auto;
   img {
-    object-fit: contain;
-
+    object-fit: cover;
     background-color: #000;
     min-height: 400px;
   }
