@@ -2,10 +2,8 @@
 
 /**
  * @file
- * Theming of a image with headlines.
+ * Theming of a image with text.
  */
-
-use Drupal\image\Entity\ImageStyle;
 
 /**
  * Implements hook_theme().
