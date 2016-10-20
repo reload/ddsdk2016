@@ -1,0 +1,20 @@
+/*
+ * General layout classes.
+ * --------------------------------------------------
+ */
+
+/*  Row with equal height columns.
+    ------------------------------------------------------- */
+.row-eq-height {
+  display: flex;
+}
+
+/*  Divider between columns.
+    ------------------------------------------------------- */
+.col-divider {
+  width: 100%;
+  display: inline-block;
+  min-height: 1px;
+  border-bottom: 1px solid $pinkish-grey;
+  margin: 40px 15px;
+}
