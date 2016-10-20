@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.article.field_article_type
     - field.field.node.article.field_content_author
     - field.field.node.article.field_main_media
     - field.field.node.article.field_paragraphs
@@ -51,4 +52,5 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_article_type: true
   langcode: true

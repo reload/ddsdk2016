@@ -27,6 +27,7 @@ dependencies:
     - field.storage.node.field_event_type
     - field.storage.paragraph.field_formatted_text
     - field.storage.node.field_event_area
+    - field.storage.node.field_article_type
     - search_api.server.solr
   module:
     - media_entity
@@ -320,6 +321,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_event_area
+  field_article_type:
+    label: 'Article Type'
+    datasource_id: 'entity:node'
+    property_path: field_article_type
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_article_type
 processor_settings:
   add_url:
     plugin_id: add_url

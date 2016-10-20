@@ -1,0 +1,23 @@
+uuid: c0800399-ddea-4645-865d-3fa8bfb7d44d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_article_type
+    - node.type.article
+  module:
+    - options
+id: node.article.field_article_type
+field_name: field_article_type
+entity_type: node
+bundle: article
+label: 'Article Type'
+description: '<b>standard</b> - standard article layout.<b>simple</b> - author is NOT required. Focus on text.<b>long-read</b> - rich layout article.'
+required: true
+translatable: false
+default_value:
+  -
+    value: standard
+default_value_callback: ''
+settings: {  }
+field_type: list_string
