@@ -12,7 +12,7 @@ field_name: field_article_type
 entity_type: node
 bundle: article
 label: 'Article Type'
-description: '<b>standard</b> - standard article layout.<br><b>simple</b> - author is NOT required. Focus on text.<br><b>long-read</b> - rich layout article.'
+description: '<b>standard</b> - standard article layout.<b>simple</b> - author is NOT required. Focus on text.<b>long-read</b> - rich layout article.'
 required: true
 translatable: false
 default_value:

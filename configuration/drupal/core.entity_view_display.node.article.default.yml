@@ -11,19 +11,12 @@ dependencies:
     - node.type.article
   module:
     - entity_reference_revisions
-    - options
     - user
 id: node.article.default
 targetEntityType: node
 bundle: article
 mode: default
 content:
-  field_article_type:
-    weight: 5
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
   field_content_author:
     weight: 4
     label: hidden
@@ -59,4 +52,5 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_article_type: true
   langcode: true

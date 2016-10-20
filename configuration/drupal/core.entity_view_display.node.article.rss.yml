@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.rss
+    - field.field.node.article.field_article_type
     - field.field.node.article.field_content_author
     - field.field.node.article.field_main_media
     - field.field.node.article.field_paragraphs
@@ -21,6 +22,7 @@ content:
   links:
     weight: 100
 hidden:
+  field_article_type: true
   field_content_author: true
   field_main_media: true
   field_paragraphs: true
