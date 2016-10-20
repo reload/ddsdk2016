@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Displays a top image with various text.
+ *
+ * Available variables:
+ * - title: Main title.
+ * - subtile: Smaller sub-title.
+ * - image: Image render array.
+ *
+ * @see template_preprocess_jamden_top_image()
+ *
+ */
+#}
+{% if image is not empty %}
+  <div class="full-width-image-container">
+      {{ image }}
+  </div>
+  <div class="cover-image__image-overlay">
+      <div>
+      <div class="container">
+        <div class="cover-image__title dymo-text">{{title}}</div>
+        <div class="cover-image__subtitle dymo-text">{{subtitle}}</div>
+      </div>
+      </div>
+  </div>
+{% endif %}

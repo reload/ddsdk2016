@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * Theming of a image with headlines.
+ */
+
+use Drupal\image\Entity\ImageStyle;
+
+/**
+ * Implements hook_theme().
+ */
+function dds_top_image_theme() {
+  $hooks = array();
+
+  $hooks['dds_top_image'] = [
+    'variables' => array(
+      'title' => NULL,
+      'subtitle' => NULL,
+      'image' => NULL,
+    ),
+  ];
+
+  return $hooks;
+}
