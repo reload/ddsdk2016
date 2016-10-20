@@ -247,7 +247,28 @@ function mungo_preprocess_node(&$variables) {
     case 'section_page':
       _mungo_preprocess_section_page($node, $variables);
       break;
+
+    case 'badge':
+      _mungo_preprocess_node_badge($node, $variables);
+      break;
   }
+}
+
+/**
+ * Prepare variables for badge node type.
+ */
+function _mungo_preprocess_node_badge(Node $node, &$variables) {
+  // Setup the top_image theme hook invocation.
+  // This serves as an example for now(TS)!
+  // $top_image = [
+  //   '#theme' => 'dds_top_image',
+  //   '#title' => $node->getTitle(),
+  //   '#subtitle' => $node->get('field_badge_summary')->value,
+  //   // This much be a render array.
+  //   '#image' => $variables['content']['field_badge_cover_image'],//$node->field_badge_cover_image,
+  // ];
+
+  //$variables['top_image'] = $top_image;
 }
 
 /**
