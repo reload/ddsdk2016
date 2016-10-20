@@ -5,10 +5,10 @@ dependencies:
   config:
     - core.entity_form_mode.media.without_meta
     - field.field.node.badge.field_badge_cover_image
+    - field.field.node.badge.field_badge_level
     - field.field.node.badge.field_badge_progression
     - field.field.node.badge.field_badge_target_group
     - field.field.node.badge.field_badge_type
-    - field.field.node.badge.field_badge_level
     - field.field.node.badge.field_main_media
     - field.field.node.badge.field_paragraphs
     - field.field.node.badge.field_subtitle
@@ -66,7 +66,7 @@ content:
     weight: 6
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: options_buttons
   field_badge_type:
     weight: 3
     settings: {  }
