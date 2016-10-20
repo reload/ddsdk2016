@@ -1,0 +1,20 @@
+.cover-image {
+  position: relative;
+
+  &__title {
+    @include feature-heading-medium;
+    margin-bottom: $spacing-small;
+  }
+
+  &__subtitle {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  &__image-overlay {
+    position: absolute;
+    bottom: $spacing-xlarge;
+    left: 0;
+    right: 0;
+  }
+}
