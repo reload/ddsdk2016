@@ -1,18 +1,18 @@
-uuid: 3c032000-a50d-4ffc-920b-7f81908dbb4f
+uuid: 3b3089a6-c5b2-4884-9a00-2d1f9e90ed03
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_subtitle
+    - field.storage.node.field_badge_summary
     - node.type.badge
-id: node.badge.field_subtitle
-field_name: field_subtitle
+id: node.badge.field_badge_summary
+field_name: field_badge_summary
 entity_type: node
 bundle: badge
-label: Subtitle
+label: 'Badge Summary'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
