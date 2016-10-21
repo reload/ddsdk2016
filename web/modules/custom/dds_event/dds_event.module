@@ -1,0 +1,19 @@
+<?php
+use Drupal\views\ViewExecutable;
+
+
+/**
+ * Implements hook_views_pre_view().
+ */
+function dds_event_views_pre_view(ViewExecutable $view, $display_id, array &$args) {
+  // Add today as default after filter if no other filters are given.
+  if ($view->id() === 'events' && $view->current_display === 'events_overview') {
+    // We detect filters via the url-query-string.
+    $args = \Drupal::request()->query->all();
+    if (empty($args)) {
+      $input = $view->getExposedInput();
+      $input['event_after'] = date('m/d/Y');
+      $view->setExposedInput($input);
+    }
+  }
+}
