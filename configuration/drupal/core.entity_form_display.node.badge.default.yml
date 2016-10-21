@@ -7,11 +7,11 @@ dependencies:
     - field.field.node.badge.field_badge_cover_image
     - field.field.node.badge.field_badge_level
     - field.field.node.badge.field_badge_progression
+    - field.field.node.badge.field_badge_summary
     - field.field.node.badge.field_badge_target_group
     - field.field.node.badge.field_badge_type
     - field.field.node.badge.field_main_media
     - field.field.node.badge.field_paragraphs
-    - field.field.node.badge.field_subtitle
     - node.type.badge
   module:
     - field_group
@@ -40,7 +40,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 11
+    weight: 9
     settings: {  }
     third_party_settings: {  }
   field_badge_cover_image:
@@ -62,6 +62,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+  field_badge_summary:
+    weight: 4
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
   field_badge_target_group:
     weight: 6
     settings: {  }
@@ -82,7 +89,7 @@ content:
     third_party_settings: {  }
     type: inline_entity_form_simple
   field_paragraphs:
-    weight: 9
+    weight: 7
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -91,16 +98,9 @@ content:
       form_display_mode: default
     third_party_settings: {  }
     type: entity_reference_paragraphs
-  field_subtitle:
-    weight: 8
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textarea
   path:
     type: path
-    weight: 12
+    weight: 10
     settings: {  }
     third_party_settings: {  }
   title:
@@ -112,7 +112,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 10
+    weight: 8
     settings:
       match_operator: CONTAINS
       size: 60

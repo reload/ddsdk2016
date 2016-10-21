@@ -18,12 +18,16 @@
         {{ image }}
     </div>
     <div class="cover-image__image-overlay">
-        <div>
+      <div>
         <div class="container">
-          <div class="cover-image__title dymo-text">{{title}}</div>
-          <div class="cover-image__subtitle dymo-text">{{subtitle}}</div>
+          {% if title is not empty %}
+            <div class="cover-image__title dymo-text">{{title}}</div>
+          {% endif %}
+          {% if subtitle is not empty %}
+            <div class="cover-image__subtitle dymo-text">{{subtitle}}</div>
+          {% endif %}
         </div>
-        </div>
+      </div>
     </div>
   </div>
 {% endif %}

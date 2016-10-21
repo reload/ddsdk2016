@@ -4,6 +4,7 @@
  */
 
 var gulp = require('gulp');
+var autoprefixer = require('gulp-autoprefixer');
 var clean = require('gulp-clean');
 var sass = require('gulp-sass');
 var jshint  = require('gulp-jshint');
@@ -52,6 +53,10 @@ gulp.task('sass', function () {
     }).on('error', notify.onError(function (error) {
       return "\n\nSASS error: " + error.message;
     })))
+    .pipe(autoprefixer({
+      browsers: ['last 4 versions'],
+      cascade: false
+    }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(path.stylesheets.dest))
 });
