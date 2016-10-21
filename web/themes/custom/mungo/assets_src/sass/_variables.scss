@@ -4,7 +4,14 @@ $std-font: "proxima-nova",sans-serif;
 $feature-font: 'Alfa Slab One', cursive;
 $read-font: 'Enriqueta', serif;
 
+$form-font-size: 13px;
+
 $spacing-small: 10px;
 $spacing-medium: 20px;
 $spacing-large: 30px;
 $spacing-xlarge: 60px;
+$spacing-input-submit: 16px 35px;
+$spacing-input: 8px 12px;
+
+// Menu that is rendered as a drop-down on mobile. Eg. see grouping-menu.
+$dropdown-menu-size: 350px;

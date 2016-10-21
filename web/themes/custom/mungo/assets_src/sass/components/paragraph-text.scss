@@ -1,0 +1,13 @@
+// The text-paragraph contains "Full HTML" formatted text.
+
+.paragraph--type--text {
+
+  // Lists has their bullets/numbers placed outside their bounding box, in
+  // order to not collide with floatet elements (eg. factboxes) we need to
+  // use the following hack to implement a poor-mans clearfix that will make
+  // sure the distance to the floated element takes our bullets/numbers in
+  // to account.
+  ul, ol {
+    overflow: auto;
+  }
+}

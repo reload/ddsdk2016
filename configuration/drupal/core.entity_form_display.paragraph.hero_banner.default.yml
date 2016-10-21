@@ -1,0 +1,50 @@
+uuid: 01f2f218-6b58-469f-9173-c36f8e5cfa78
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.hero_banner.field_background_image
+    - field.field.paragraph.hero_banner.field_deck_color
+    - field.field.paragraph.hero_banner.field_label
+    - field.field.paragraph.hero_banner.field_links
+    - paragraphs.paragraphs_type.hero_banner
+  module:
+    - inline_entity_form
+    - link
+id: paragraph.hero_banner.default
+targetEntityType: paragraph
+bundle: hero_banner
+mode: default
+content:
+  field_background_image:
+    weight: 0
+    settings:
+      form_mode: default
+      label_singular: ''
+      label_plural: ''
+      override_labels: false
+    third_party_settings: {  }
+    type: inline_entity_form_simple
+  field_deck_color:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_label:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_links:
+    weight: 2
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+hidden:
+  created: true
+  status: true
+  uid: true

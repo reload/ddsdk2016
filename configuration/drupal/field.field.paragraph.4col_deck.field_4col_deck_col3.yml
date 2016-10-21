@@ -1,0 +1,76 @@
+uuid: 8db796ee-d044-4da7-b920-0067e879d07e
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_4col_deck_col3
+    - paragraphs.paragraphs_type.4col_deck
+    - paragraphs.paragraphs_type.block
+    - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.video
+  module:
+    - entity_reference_revisions
+id: paragraph.4col_deck.field_4col_deck_col3
+field_name: field_4col_deck_col3
+entity_type: paragraph
+bundle: 4col_deck
+label: '3th column'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      text: text
+      video: video
+      block: block
+    target_bundles_drag_drop:
+      text:
+        enabled: true
+        weight: -31
+      video:
+        enabled: true
+        weight: -30
+      block:
+        enabled: true
+        weight: -29
+      1col_deck:
+        weight: -28
+        enabled: false
+      2col_deck:
+        weight: -27
+        enabled: false
+      3col_deck:
+        weight: -26
+        enabled: false
+      4col_deck:
+        weight: -25
+        enabled: false
+      content_link:
+        weight: -24
+        enabled: false
+      dynamic_deck:
+        weight: -23
+        enabled: false
+      factbox:
+        weight: -22
+        enabled: false
+      gallery:
+        weight: -21
+        enabled: false
+      hero_banner:
+        weight: -20
+        enabled: false
+      program:
+        weight: -19
+        enabled: false
+      program_item:
+        weight: -18
+        enabled: false
+      quotation:
+        weight: -17
+        enabled: false
+field_type: entity_reference_revisions

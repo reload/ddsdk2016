@@ -1,0 +1,19 @@
+uuid: 5e8616a5-1cdc-42ff-840a-c46b0fe14f4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_program_description
+    - paragraphs.paragraphs_type.program_item
+id: paragraph.program_item.field_program_description
+field_name: field_program_description
+entity_type: paragraph
+bundle: program_item
+label: 'Program Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

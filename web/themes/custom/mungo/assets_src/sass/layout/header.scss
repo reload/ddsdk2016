@@ -3,21 +3,21 @@ header.header-fixed {
   position: fixed;
   width: 100%;
   top: 0;
-  z-index :1;
+  z-index :2;
   background-color: #fff;
 }
 
 header.header-fixed > div {  height: 70px;  }
-body .layout-container {  padding-top: 100px;  }
+body .layout-container {  padding-top: 70px;  }
 
 @include media-small  {
   header.header-fixed > div {  height: 130px;  }
-  body .layout-container {  padding-top: 160px;  }
+  body .layout-container {  padding-top: 130px;  }
 }
 
 @include media-medium {
   header.header-fixed > div {  height: 100px;  }
-  body .layout-container {  padding-top: 130px;  }
+  body .layout-container {  padding-top: 100px;  }
 }
 
 /**
@@ -46,7 +46,6 @@ header.header-fixed {
     @include background-image(linear-gradient(to left, transparent 0%, $warm-grey 25%, $warm-grey 75%, transparent 100%));
     @include media-medium {
       // Hide the line on desktop.
-      display: none;
     }
   }
 
@@ -116,7 +115,7 @@ header.header-fixed {
       left: 0;
       right: 20px;
       padding: $spacing-small;
-      padding-right: 60px + $spacing-small;
+      padding-right: 56px;
       top: 70px;
       @include search-field;
       // Hide standard form-submit button. It has text and we dont need that.
@@ -140,8 +139,11 @@ header.header-fixed {
         }
       }
       input.form-search {
+        box-sizing: border-box;
         padding: $spacing-small;
+        height: 47px;
         @include media-medium {
+          height: 67px;
           padding: $spacing-medium;
         }
         width: 100%;
@@ -153,7 +155,7 @@ header.header-fixed {
       }
       @include media-medium {
         padding: $spacing-large;
-        padding-right: 138px;
+        padding-right: 96px;
         top: 70px;
       }
     }

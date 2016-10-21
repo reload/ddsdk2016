@@ -1,0 +1,98 @@
+uuid: dbe02052-a995-44fc-a810-7a1445de742f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index
+    - field.field.node.event.field_course_id
+    - field.field.node.event.field_event_accommodation
+    - field.field.node.event.field_event_address
+    - field.field.node.event.field_event_area
+    - field.field.node.event.field_event_end
+    - field.field.node.event.field_event_host_info
+    - field.field.node.event.field_event_is_all_day
+    - field.field.node.event.field_event_location_name
+    - field.field.node.event.field_event_price
+    - field.field.node.event.field_event_signup_deadline
+    - field.field.node.event.field_event_signup_instructions
+    - field.field.node.event.field_event_start
+    - field.field.node.event.field_event_target_group
+    - field.field.node.event.field_event_teaser
+    - field.field.node.event.field_event_type
+    - field.field.node.event.field_main_media
+    - field.field.node.event.field_paragraphs
+    - field.field.node.event.field_programs
+    - node.type.event
+  module:
+    - datetime
+    - user
+id: node.event.search_index
+targetEntityType: node
+bundle: event
+mode: search_index
+content:
+  field_event_end:
+    type: datetime_default
+    weight: 6
+    label: hidden
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+  field_event_location_name:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_event_price:
+    weight: 4
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_event_start:
+    weight: 2
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    type: datetime_default
+  field_event_teaser:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_event_type:
+    weight: 5
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_main_media:
+    weight: 0
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+hidden:
+  field_course_id: true
+  field_event_accommodation: true
+  field_event_address: true
+  field_event_area: true
+  field_event_host_info: true
+  field_event_is_all_day: true
+  field_event_signup_deadline: true
+  field_event_signup_instructions: true
+  field_event_target_group: true
+  field_paragraphs: true
+  field_programs: true
+  langcode: true
+  links: true

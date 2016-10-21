@@ -3,8 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.2col_deck.field_2col_paragraphs_left
-    - field.field.paragraph.2col_deck.field_2col_paragraphs_right
+    - field.field.paragraph.2col_deck.field_2col_column_size
+    - field.field.paragraph.2col_deck.field_2col_deck_col1
+    - field.field.paragraph.2col_deck.field_2col_deck_col2
     - paragraphs.paragraphs_type.2col_deck
   module:
     - paragraphs
@@ -13,7 +14,12 @@ targetEntityType: paragraph
 bundle: 2col_deck
 mode: default
 content:
-  field_2col_paragraphs_left:
+  field_2col_column_size:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_2col_deck_col1:
     type: entity_reference_paragraphs
     weight: 0
     settings:
@@ -23,9 +29,9 @@ content:
       add_mode: dropdown
       form_display_mode: default
     third_party_settings: {  }
-  field_2col_paragraphs_right:
+  field_2col_deck_col2:
     type: entity_reference_paragraphs
-    weight: 2
+    weight: 1
     settings:
       title: Paragraph
       title_plural: Paragraphs

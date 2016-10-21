@@ -27,7 +27,7 @@
   }
 }
 
-/* Listerubrik - small */
+/* Liste Rubrik - small */
 @mixin list-heading-small {
   font-family: $std-font;
 
@@ -38,6 +38,54 @@
   @include media-small {
     font-size: 18px;
   }
+}
+/* Liste Rubrik - medium */
+@mixin list-heading-medium {
+
+}
+/* Liste Rubrik - large */
+@mixin list-heading-large {
+  font-size: 21px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.38;
+  letter-spacing: 0.3px;
+}
+/* Liste Rubrik - extra large */
+@mixin list-heading-xlarge {
+
+}
+
+/* Alternativ Rubrik - small */
+@mixin feature-heading-small {
+  letter-spacing: 0.5px;
+  font-family: $feature-font;
+  font-size: 18px;
+  @include media-small {
+    font-size: 24px;
+  }
+
+}
+/* Alternativ Rubrik - medium */
+@mixin feature-heading-medium {
+  letter-spacing: 0.5px;
+  font-family: $feature-font;
+  font-size: 36px;
+}
+/* Alternativ Rubrik - large */
+@mixin feature-heading-large {
+
+}
+
+/* Alternativ Rubrik - extra large */
+@mixin feature-heading-xlarge {
+
+}
+
+/* emneord, link, button */
+@mixin capitalized-small-text {
+  text-transform: uppercase;
 }
 
 /* Quote */
@@ -70,4 +118,22 @@
 }
 @mixin search-field {
   font-size: 18px;
+}
+
+@mixin label {
+  font-size: 18px;
+  color: $black;
+  margin: 5px 0;
+  font-weight: normal;
+}
+
+@mixin page-title {
+  font-size: 40px;
+  color: $black;
+}
+
+@mixin capitalized-menu-item {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
 }

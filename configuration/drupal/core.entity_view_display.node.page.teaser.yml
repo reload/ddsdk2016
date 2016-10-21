@@ -19,3 +19,4 @@ content:
     weight: 101
 hidden:
   field_page_paragraphs: true
+  langcode: true

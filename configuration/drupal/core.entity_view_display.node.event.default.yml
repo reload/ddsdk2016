@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.event.field_course_id
     - field.field.node.event.field_event_accommodation
     - field.field.node.event.field_event_address
+    - field.field.node.event.field_event_area
     - field.field.node.event.field_event_end
     - field.field.node.event.field_event_host_info
     - field.field.node.event.field_event_is_all_day
@@ -19,6 +20,7 @@ dependencies:
     - field.field.node.event.field_event_type
     - field.field.node.event.field_main_media
     - field.field.node.event.field_paragraphs
+    - field.field.node.event.field_programs
     - node.type.event
   module:
     - address
@@ -33,6 +35,7 @@ third_party_settings:
       children:
         - field_event_start
         - field_event_end
+        - field_event_location_name
         - field_event_price
       parent_name: ''
       weight: 3
@@ -67,11 +70,11 @@ third_party_settings:
         id: ''
     group_location_info:
       children:
-        - field_event_location_name
+        - field_event_area
         - field_event_address
         - field_event_accommodation
       parent_name: ''
-      weight: 7
+      weight: 6
       label: 'Location info'
       format_type: html_element
       format_settings:
@@ -115,17 +118,24 @@ content:
     third_party_settings: {  }
     type: number_integer
   field_event_accommodation:
-    weight: 10
+    weight: 11
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
   field_event_address:
-    weight: 9
+    weight: 10
     label: above
     settings: {  }
     third_party_settings: {  }
     type: address_default
+  field_event_area:
+    weight: 9
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
   field_event_end:
     type: datetime_default
     weight: 6
@@ -141,14 +151,14 @@ content:
     third_party_settings: {  }
     type: text_default
   field_event_location_name:
-    weight: 8
-    label: above
+    weight: 7
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_event_price:
-    weight: 7
+    weight: 8
     label: inline
     settings:
       link_to_entity: false
@@ -180,7 +190,7 @@ content:
     weight: 11
     label: above
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     type: entity_reference_label
   field_event_teaser:
@@ -193,7 +203,7 @@ content:
     weight: 10
     label: above
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     type: entity_reference_label
   field_main_media:
@@ -212,6 +222,15 @@ content:
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
+  field_programs:
+    type: entity_reference_revisions_entity_view
+    weight: 7
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
 hidden:
   field_event_is_all_day: true
+  langcode: true
   links: true

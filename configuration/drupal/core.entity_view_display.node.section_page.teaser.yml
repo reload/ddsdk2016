@@ -1,0 +1,24 @@
+uuid: b77475af-0e3f-43da-94c0-75712e2bcc52
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.section_page.field_main_media
+    - field.field.node.section_page.field_section
+    - field.field.node.section_page.field_subtitle
+    - node.type.section_page
+  module:
+    - user
+id: node.section_page.teaser
+targetEntityType: node
+bundle: section_page
+mode: teaser
+content:
+  links:
+    weight: 100
+hidden:
+  field_main_media: true
+  field_section: true
+  field_subtitle: true
+  langcode: true

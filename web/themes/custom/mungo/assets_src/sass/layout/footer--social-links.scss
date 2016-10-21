@@ -1,4 +1,7 @@
-.menu--social-links {
+.block-system-menu-blockfooter-social {
+  ul {
+    @include inline-menu;
+  }
   a {
     display: inline-block;
     width: 48px;
@@ -10,27 +13,8 @@
 /**
  * Set icons.
  */
-.menu--social-links {
-  a {
-    font-size: 0;
-    background-color: #fff;
-    background-size: cover;
-  }
-  a[href*='facebook'] {
-    -webkit-mask-image: url('../images/Ikoner_DDS_DK_ikon_Facebook.svg');
-    mask-image: url('../images/Ikoner_DDS_DK_ikon_Facebook.svg');
-    //background: url();
-  }
-  a[href*='youtube'] {
-    -webkit-mask-image: url('../images/Ikoner_DDS_DK_ikon_youtube.svg');
-    mask-image: url('../images/Ikoner_DDS_DK_ikon_youtube.svg');
-  }
-  a[href*='twitter'] {
-    -webkit-mask-image: url('../images/Ikoner_DDS_DK_ikon_twitter.svg');
-    mask-image: url('../images/Ikoner_DDS_DK_ikon_twitter.svg');
-  }
-  a[href*='instagram'] {
-    -webkit-mask-image: url('../images/Ikoner_DDS_DK_ikon_instagram.svg');
-    mask-image: url('../images/Ikoner_DDS_DK_ikon_instagram.svg');
+.block-system-menu-blockfooter-social {
+  svg {
+    fill: #fff;
   }
 }

@@ -1,0 +1,23 @@
+uuid: 59d1e30d-4584-4005-b947-b180a2148a36
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_2col_column_size
+    - paragraphs.paragraphs_type.2col_deck
+  module:
+    - options
+id: paragraph.2col_deck.field_2col_column_size
+field_name: field_2col_column_size
+entity_type: paragraph
+bundle: 2col_deck
+label: 'Column sizes'
+description: 'Width of the two colums.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

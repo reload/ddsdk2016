@@ -16,4 +16,31 @@
       });
     }
   };
+  /**
+   * When found dymo-text class wrap each word in a span tag.
+   */
+  Drupal.behaviors.dymo_text = {
+    attach: function (context, settings) {
+      $('.dymo-text').each(function () {
+        var text = $(this).text().split(' ');
+        text = '<span>' + text.join('</span><span>') + '</span>';
+        $(this).html(text);
+      });
+    }
+  };
+
+  Drupal.behaviors.hero_banner_blur = {
+    attach: function (context, settings) {
+      $('.paragraph--type--hero-banner').each(function () {
+        var image = $('img', this);
+        var links = $('a', this);
+        links.on('mouseover', function () {
+          image.addClass('blured');
+        }).on('mouseout', function () {
+          image.removeClass('blured');
+        });
+      });
+    }
+  };
+
 })(jQuery, Drupal);

@@ -7,8 +7,8 @@ module:
   ckeditor: 0
   color: 0
   config: 0
+  config_translation: 0
   contact: 0
-  contextual: 0
   datetime: 0
   datetime_range: 0
   dblog: 0
@@ -22,6 +22,7 @@ module:
   entity: 0
   entity_reference_revisions: 0
   facets: 0
+  facets_views_block: 0
   field: 0
   field_group: 0
   field_ui: 0
@@ -31,7 +32,9 @@ module:
   history: 0
   image: 0
   inline_entity_form: 0
+  language: 0
   link: 0
+  locale: 0
   maxlength: 0
   media_entity: 0
   media_entity_image: 0

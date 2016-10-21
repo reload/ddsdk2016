@@ -1,0 +1,42 @@
+uuid: ec1134bb-af05-40e5-b8fc-0639363b52db
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.section_page.field_main_media
+    - field.field.node.section_page.field_section
+    - field.field.node.section_page.field_subtitle
+    - node.type.section_page
+  module:
+    - entity_reference_revisions
+    - user
+id: node.section_page.default
+targetEntityType: node
+bundle: section_page
+mode: default
+content:
+  field_main_media:
+    type: entity_reference_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: without_meta
+      link: false
+    third_party_settings: {  }
+  field_section:
+    type: entity_reference_revisions_entity_view
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_subtitle:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+hidden:
+  langcode: true
+  links: true

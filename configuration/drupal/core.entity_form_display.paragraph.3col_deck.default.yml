@@ -1,0 +1,50 @@
+uuid: 4ecd9a56-d2fc-4b99-bf0f-3781601904d8
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.3col_deck.field_3col_deck_col1
+    - field.field.paragraph.3col_deck.field_3col_deck_col2
+    - field.field.paragraph.3col_deck.field_3col_deck_col3
+    - paragraphs.paragraphs_type.3col_deck
+  module:
+    - paragraphs
+id: paragraph.3col_deck.default
+targetEntityType: paragraph
+bundle: 3col_deck
+mode: default
+content:
+  field_3col_deck_col1:
+    type: entity_reference_paragraphs
+    weight: 0
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+    third_party_settings: {  }
+  field_3col_deck_col2:
+    type: entity_reference_paragraphs
+    weight: 1
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+    third_party_settings: {  }
+  field_3col_deck_col3:
+    type: entity_reference_paragraphs
+    weight: 2
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

@@ -1,0 +1,6 @@
+uuid: 25823051-15d9-47b2-a340-155bdbc26d77
+langcode: en
+status: true
+dependencies: {  }
+id: block
+label: Block

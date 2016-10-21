@@ -1,0 +1,8 @@
+uuid: 1d7510a6-92ce-43d7-a27b-77c37c0f2daa
+langcode: en
+status: true
+dependencies: {  }
+id: views_page__events__events_overview
+name: 'views_page:events__events_overview'
+filter_key: null
+url_processor: query_string

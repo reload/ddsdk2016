@@ -1,0 +1,52 @@
+uuid: 99130d18-59fc-4be3-bc24-a3ab801f9044
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.4col_deck.field_4col_deck_col1
+    - field.field.paragraph.4col_deck.field_4col_deck_col2
+    - field.field.paragraph.4col_deck.field_4col_deck_col3
+    - field.field.paragraph.4col_deck.field_4col_deck_col4
+    - paragraphs.paragraphs_type.4col_deck
+  module:
+    - entity_reference_revisions
+id: paragraph.4col_deck.default
+targetEntityType: paragraph
+bundle: 4col_deck
+mode: default
+content:
+  field_4col_deck_col1:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_4col_deck_col2:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_4col_deck_col3:
+    type: entity_reference_revisions_entity_view
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_4col_deck_col4:
+    type: entity_reference_revisions_entity_view
+    weight: 3
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  uid: true

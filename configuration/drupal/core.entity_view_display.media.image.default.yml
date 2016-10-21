@@ -38,6 +38,7 @@ content:
     type: responsive_image
 hidden:
   created: true
+  langcode: true
   name: true
   thumbnail: true
   uid: true

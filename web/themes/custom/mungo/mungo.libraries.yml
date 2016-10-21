@@ -15,4 +15,27 @@ typekit:
   js:
     https://use.typekit.net/del2tvj.js: { every_page: true }
     assets/js/typekit.js: { every_page: true }
+program:
+  version: 0.1
+  js:
+    assets/js/program.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
 
+exposed-filters:
+  version: 0.1
+  js:
+    assets/js/exposedFilters.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.ui.datepicker
+
+grouping-menu:
+  version: 0.1
+  js:
+    assets/js/grouping-menu.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

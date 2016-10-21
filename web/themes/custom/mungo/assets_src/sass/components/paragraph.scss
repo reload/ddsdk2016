@@ -1,0 +1,10 @@
+// General styling for paragraphs.
+
+// General styling of a field that contain "article" paragraph types (text,
+// video, factbox, quote etc.).
+.field--name-field-paragraphs .paragraph {
+  // Add spacing between paragraphs.
+  // The individual paragraph-types has to opt out of this in their own
+  // styling if they dont want it.
+  margin-bottom: $spacing-small;
+}

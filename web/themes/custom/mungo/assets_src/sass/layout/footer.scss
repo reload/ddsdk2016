@@ -1,11 +1,11 @@
-
-.footer_top {
-  .menu--footer li {
-    padding-bottom: $spacing-medium;
+footer {
+  .layout-container > & {
+    overflow: hidden;
   }
 }
-.layout-container > footer {
-  overflow: hidden;
+
+.footer_top {
+  padding: 20px 0 30px;
 }
 
 // Three image.
@@ -29,17 +29,14 @@
   }
 }
 
-
 .menu--social-links {
-
+  @include inline-menu;
   padding: 0;
   padding-top: $spacing-small;
-  @include inline-menu;
 }
+
 .region-footer-social {
   padding: $spacing-large 0;
-  // Set relative in order to position graphics used in footer.
-
 }
 
 .menu--footer {
@@ -48,6 +45,6 @@
   }
   li {
     list-style: none;
-
+    line-height: 1.69;
   }
 }
