@@ -1,8 +1,9 @@
-uuid: f9a65d29-1a6c-4765-bf0d-fbc26c6acebc
+uuid: bf07bd2f-94c1-4667-ac3a-f8de7f317854
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.media.teaser
     - field.field.media.image.field_byline
     - field.field.media.image.field_caption
     - field.field.media.image.field_image
@@ -10,24 +11,11 @@ dependencies:
     - responsive_image.styles.16_9_responsive
   module:
     - responsive_image
-id: media.image.default
+id: media.image.teaser
 targetEntityType: media
 bundle: image
-mode: default
+mode: teaser
 content:
-  field_byline:
-    weight: 1
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-  field_caption:
-    weight: 2
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
   field_image:
     weight: 0
     label: hidden
@@ -38,6 +26,8 @@ content:
     type: responsive_image
 hidden:
   created: true
+  field_byline: true
+  field_caption: true
   langcode: true
   name: true
   thumbnail: true

@@ -1,0 +1,25 @@
+uuid: 47a8a2a2-86fc-4642-8cd3-2763d817e59c
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.1280x720px
+    - image.style.1600x900px
+    - image.style.400x225px
+    - image.style.960x540px
+id: 16_9_responsive
+label: '16:9 Responsive'
+image_style_mappings:
+  -
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: '(min-width: 1600px) 1600px, 100vw'
+      sizes_image_styles:
+        - 1280x720px
+        - 1600x900px
+        - 400x225px
+        - 960x540px
+breakpoint_group: responsive_image
+fallback_image_style: 960x540px

@@ -6,6 +6,9 @@ dependencies:
     - field.storage.paragraph.field_4col_deck_col3
     - paragraphs.paragraphs_type.4col_deck
     - paragraphs.paragraphs_type.block
+    - paragraphs.paragraphs_type.content_activity_reference
+    - paragraphs.paragraphs_type.content_article_reference
+    - paragraphs.paragraphs_type.content_event_reference
     - paragraphs.paragraphs_type.situation_links
     - paragraphs.paragraphs_type.text
     - paragraphs.paragraphs_type.video
@@ -29,6 +32,9 @@ settings:
       video: video
       block: block
       situation_links: situation_links
+      content_event_reference: content_event_reference
+      content_activity_reference: content_activity_reference
+      content_article_reference: content_article_reference
     target_bundles_drag_drop:
       text:
         enabled: true
@@ -78,4 +84,13 @@ settings:
       situation_links:
         enabled: true
         weight: 17
+      content_event_reference:
+        enabled: true
+        weight: 20
+      content_activity_reference:
+        enabled: true
+        weight: 26
+      content_article_reference:
+        enabled: true
+        weight: 27
 field_type: entity_reference_revisions
