@@ -475,30 +475,50 @@ function _mungo_preprocess_paragraph_content_link(&$variables) {
  * Given an image file, produce a image_style render array for a style.
  */
 function _mungo_render_image_with_style(File $image_file, string $style) : array {
-  // Style the author image.
-  $image_style_vars = array(
-    'style_name' => $style,
-    'uri' => $image_file->getFileUri(),
-  );
-
   // Load the image from the file so that we can know its size.
   /** @var Image $image */
   $image = \Drupal::service('image.factory')->get($image_file->getFileUri());
+  if ($image->isValid()) {
+    $image_dimensions['width'] = $image->getWidth();
+    $image_dimensions['height'] = $image->getHeight();
+  }
+  else {
+    $image_dimensions['width'] = $image_dimensions['height'] = NULL;
+  }
+
+  // Setup render-array for the image.
+  return [
+    '#theme' => 'image_style',
+    '#width' => $image_dimensions['width'],
+    '#height' => $image_dimensions['height'],
+    '#style_name' => $style,
+    '#uri' => $image_file->getFileUri(),
+  ];
+}
+
+/**
+ * Given an image file, produce a responsive_image render array for a style.
+ */
+function _mungo_render_image_uri_with_responsive_style(string $uri, string $style) : array {
+  // Load the image from the file so that we can know its size.
+  /** @var \Drupal\Core\Image\Image $image */
+  $image = \Drupal::service('image.factory')->get($uri);
   if ($image->isValid()) {
     $image_style_vars['width'] = $image->getWidth();
     $image_style_vars['height'] = $image->getHeight();
   }
   else {
-    $image_style_vars['width'] = $image_style_vars['height'] = NULL;
+    // Required for the responsive image-style.
+    return NULL;
   }
 
-  // Setup render-array for the author image.
+  // Setup render-array for the image.
   return [
-    '#theme' => 'image_style',
+    '#theme' => 'responsive_image',
     '#width' => $image_style_vars['width'],
     '#height' => $image_style_vars['height'],
-    '#style_name' => $image_style_vars['style_name'],
-    '#uri' => $image_style_vars['uri'],
+    '#responsive_image_style_id' => $style,
+    '#uri' => $uri,
   ];
 }
 
