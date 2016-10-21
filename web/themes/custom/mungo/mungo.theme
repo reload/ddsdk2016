@@ -261,7 +261,7 @@ function _mungo_preprocess_node_badge(Node $node, &$variables) {
   // Setup the top_image theme hook invocation.
   $top_image = [
     '#theme' => 'dds_top_image',
-    '#image' => $variables['content']['field_badge_cover_image'],
+    '#image' => empty($variables['content']['field_badge_cover_image']) ? NULL : $variables['content']['field_badge_cover_image'],
   ];
 
   $variables['top_image'] = $top_image;
