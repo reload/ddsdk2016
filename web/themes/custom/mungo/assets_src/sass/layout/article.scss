@@ -17,17 +17,33 @@
 }
 
 
-.node--view-mode-teaser {
+
+
+.node-teaser {
+  &:hover {
+    text-decoration: none;
+  }
   background-color: #fff;
   display: block;
-  position: relative;
 
-  .content-container {
+  .main-media {
+    margin: 0;
+    border: 0 none;
+  }
+  // Indent content that is not image.
+  &--content-container {
     color: #000;
     padding: $spacing-medium;
   }
 
-  .content-container h2 {
+  // Fields.
+  &--heading {
     @include list-heading-medium;
+  }
+  &--keyword {
+    @include pre-title;
+  }
+  &--read-more {
+    @include blue-arrowed-read-more;
   }
 }

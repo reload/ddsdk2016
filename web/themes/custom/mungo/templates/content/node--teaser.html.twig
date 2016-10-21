@@ -78,20 +78,19 @@ node.isPromoted() ? 'node--promoted',
 node.isSticky() ? 'node--sticky',
 not node.isPublished() ? 'node--unpublished',
 view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+'node-teaser'
 ]
 %}
 {{ attach_library('classy/node') }}
 
 <a{{ attributes.addClass(classes) }} href="{{ url }}">
-    <div class="main-media-container">
     {{ content.field_main_media }}
-    </div>
-    <div class="content-container">
-    {{ 'Keyword' }}
-    <h2{{ title_attributes }}>
+    <div class="node-teaser--content-container">
+    <div class="node-teaser--keyword">{{ 'Keyword' }}</div>
+    <h2 class="node-teaser--heading">
         {{ label }}
     </h2>
 
-    {{ 'Read more'|trans }}
+    <div class="node-teaser--read-more">{{ 'Read more'|trans }}</div>
     </div>
 </a>
