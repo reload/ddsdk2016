@@ -1,0 +1,34 @@
+{#
+/**
+ * @file
+ * Theme a exposted filter on the badge overview as a grouping menu.
+ */
+ #}
+
+{{ attach_library('mungo/grouping-menu') }}
+<div class="container">
+  <div class="grouping-menu clearfix">
+    {% for child in children %}
+      {% if child in selected %}
+        {% set item = attribute(element, child) %}
+        <div class="grouping-menu__active_title">{{ item }}</div>
+      {% endif %}
+    {% endfor %}
+
+    <div class="grouping-menu__menu">
+      {% if children %}
+        <ul class="menu menu--grouping-menu">
+          {% for child in children %}
+            {% set classes = child in selected ? 'menu-item--active-trail' %}
+            {% set item = attribute(element, child) %}
+            <li class="{{ classes }}">
+              {{ item }}
+            </li>
+
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  </div>
+</div>
+

@@ -1,15 +1,37 @@
-
-
-@mixin cta-button-transparent {
+@mixin cta-button {
   min-width: 180px;
   display: inline-block;
   @include capitalized-small-text;
   padding: $spacing-small;
+  text-decoration: none;
+}
+
+@mixin cta-button-transparent {
+  @include cta-button;
   color: #fff;
   border: 1px solid #fff;
-  text-decoration: none;
   &:hover {
     background-color: #fff;
     color: #000;
   }
+}
+
+// Use the state-argument when you need a button that acts like a menu and
+// you want to hightlight the currently selected button(s).
+@mixin cta-button-blue ($state: 'inactive'){
+  @include cta-button;
+  color: white;
+  border: 1px solid #fff;
+
+  @if $state == 'inactive' {
+    background-color: $bluish;
+
+    &:hover {
+      background-color: $light-navy;
+    }
+
+  } @else if $state == 'active' {
+    background-color: $light-navy;
+  }
+
 }
