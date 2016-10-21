@@ -5,4 +5,4 @@ dependencies: {  }
 id: article_list
 label: 'Article list'
 revision: 0
-description: fds
+description: Article reference list
