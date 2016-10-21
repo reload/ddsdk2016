@@ -79,8 +79,6 @@ function dds_badge_entity_presave(EntityInterface $entity) {
  * Implements hook_preprocess_HOOK().
  */
 function dds_badge_preprocess_views_view(&$variables) {
-  /** @var \Drupal\views\ViewExecutable $view */
-  $view = $variables['view'];
   // Override "all" lable for exposed filters.
   $variables['exposed']['type']['#options']['All'] = new TranslatableMarkup('Any type', [], ['context' => 'Badge overview filter']);
   $variables['exposed']['maalgruppe']['#options']['All'] = new TranslatableMarkup('Any', [], ['context' => 'Badge overview filter']);
@@ -92,5 +90,4 @@ function dds_badge_preprocess_views_view(&$variables) {
     '#subtitle' => theme_get_setting('badge_page_description', 'mungo'),
     '#image_uri' => theme_get_setting('badge_cover_image_path', 'mungo'),
   ];
-
 }
