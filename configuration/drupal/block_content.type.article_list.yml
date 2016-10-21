@@ -5,4 +5,9 @@ dependencies: {  }
 id: article_list
 label: 'Article list'
 revision: 0
+<<<<<<< 8e906b8692ebc8bc43f746a5d23820e5852ac5ba
 description: 'Article reference list'
+=======
+description: Article reference list
+
+>>>>>>> Add sidedeck to article and badge content types
