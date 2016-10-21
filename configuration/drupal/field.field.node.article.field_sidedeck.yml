@@ -1,0 +1,75 @@
+uuid: e5c9da58-baa1-4a17-9fb9-29f41e543071
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sidedeck
+    - node.type.article
+    - paragraphs.paragraphs_type.block
+  module:
+    - entity_reference_revisions
+id: node.article.field_sidedeck
+field_name: field_sidedeck
+entity_type: node
+bundle: article
+label: Sidedeck
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      block: block
+    target_bundles_drag_drop:
+      1col_deck:
+        weight: 17
+        enabled: false
+      2col_deck:
+        weight: 18
+        enabled: false
+      3col_deck:
+        weight: 19
+        enabled: false
+      4col_deck:
+        weight: 20
+        enabled: false
+      block:
+        enabled: true
+        weight: 21
+      content_link:
+        weight: 22
+        enabled: false
+      dynamic_deck:
+        weight: 23
+        enabled: false
+      factbox:
+        weight: 24
+        enabled: false
+      gallery:
+        weight: 25
+        enabled: false
+      hero_banner:
+        weight: 26
+        enabled: false
+      program:
+        weight: 27
+        enabled: false
+      program_item:
+        weight: 28
+        enabled: false
+      quotation:
+        weight: 29
+        enabled: false
+      situation_links:
+        weight: 30
+        enabled: false
+      text:
+        weight: 31
+        enabled: false
+      video:
+        weight: 32
+        enabled: false
+field_type: entity_reference_revisions

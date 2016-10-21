@@ -125,6 +125,11 @@ set classes = [
         </div>
         <div class="node--type-badge__aside col-md-4">
           <div class="node--type-badge__aside__inner">
+
+            {% if (node.field_sidedeck) %}
+                {{ content.field_sidedeck }}
+            {% endif %}
+
           </div>
         </div>
       </div>

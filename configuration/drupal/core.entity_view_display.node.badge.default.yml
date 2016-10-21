@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.badge.field_badge_type
     - field.field.node.badge.field_main_media
     - field.field.node.badge.field_paragraphs
+    - field.field.node.badge.field_sidedeck
     - node.type.badge
   module:
     - entity_reference_revisions
@@ -65,6 +66,14 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
+  field_sidedeck:
+    weight: 6
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
 hidden:
   field_badge_level: true
   field_badge_progression: true

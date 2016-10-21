@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.article.field_content_author
     - field.field.node.article.field_main_media
     - field.field.node.article.field_paragraphs
+    - field.field.node.article.field_sidedeck
     - field.field.node.article.field_subtitle
     - node.type.article
   module:
@@ -31,6 +32,7 @@ hidden:
   field_article_type: true
   field_content_author: true
   field_paragraphs: true
+  field_sidedeck: true
   field_subtitle: true
   langcode: true
   links: true

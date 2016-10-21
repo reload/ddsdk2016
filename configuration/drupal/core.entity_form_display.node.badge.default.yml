@@ -12,8 +12,10 @@ dependencies:
     - field.field.node.badge.field_badge_type
     - field.field.node.badge.field_main_media
     - field.field.node.badge.field_paragraphs
+    - field.field.node.badge.field_sidedeck
     - node.type.badge
   module:
+    - entity_reference_revisions
     - field_group
     - inline_entity_form
     - paragraphs
@@ -98,6 +100,14 @@ content:
       form_display_mode: default
     third_party_settings: {  }
     type: entity_reference_paragraphs
+  field_sidedeck:
+    weight: 26
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_autocomplete
   path:
     type: path
     weight: 10
