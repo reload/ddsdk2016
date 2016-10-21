@@ -444,18 +444,34 @@ function _mungo_preprocess_paragraph_content_link(&$variables) {
         $title = $link_title;
       }
 
+      // If this is a node-reference, process it's thumb.
       if (preg_match('#^entity:node/(?P<nid>\d+)$#', $uri_value, $matches)) {
         $node = Node::load($matches['nid']);
         if ($node->hasField('field_main_media')) {
-
           /** @var \Drupal\media_entity\Entity\Media $main_media */
           $main_media = $node->get('field_main_media')->first()->entity;
 
-          /** @var File $image_file */
-          $image_file = $main_media->get('field_image')->entity;
+          // Get the uri for the thumbnail of either an image or a video.
+          $thumbnail_uri = NULL;
+          if ($main_media->hasField('field_media_video_embed_field')) {
+            /** @var \Drupal\video_embed_field\ProviderManagerInterface $provider */
+            $provider_manager = \Drupal::service('video_embed_field.provider_manager');
+            $url = $main_media->field_media_video_embed_field->value;
 
-          $thumbnail = _mungo_render_image_with_style($image_file, 'thumbnail_4_3');
+            /** @var \Drupal\video_embed_field\ProviderPluginInterface $provider */
+            $provider = $provider_manager->loadProviderFromInput($url);
+            $provider->downloadThumbnail();
+            $thumbnail_uri = $provider->getLocalThumbnailUri();
+          }
+          elseif ($main_media->hasField('field_image')) {
+            /** @var File $image_file */
+            $image_file = $main_media->get('field_image')->entity;
 
+            $thumbnail_uri = $image_file->getFileUri();
+          }
+          if ($thumbnail_uri !== NULL) {
+            $thumbnail = _mungo_render_image_uri_with_style($thumbnail_uri, 'thumbnail_4_3');
+          }
         }
       }
     }
@@ -474,10 +490,11 @@ function _mungo_preprocess_paragraph_content_link(&$variables) {
 /**
  * Given an image file, produce a image_style render array for a style.
  */
-function _mungo_render_image_with_style(File $image_file, string $style) : array {
+function _mungo_render_image_uri_with_style($uri, string $style) : array {
+
   // Load the image from the file so that we can know its size.
-  /** @var Image $image */
-  $image = \Drupal::service('image.factory')->get($image_file->getFileUri());
+  /** @var \Drupal\Core\Image\Image $image */
+  $image = \Drupal::service('image.factory')->get($uri);
   if ($image->isValid()) {
     $image_dimensions['width'] = $image->getWidth();
     $image_dimensions['height'] = $image->getHeight();
@@ -492,7 +509,7 @@ function _mungo_render_image_with_style(File $image_file, string $style) : array
     '#width' => $image_dimensions['width'],
     '#height' => $image_dimensions['height'],
     '#style_name' => $style,
-    '#uri' => $image_file->getFileUri(),
+    '#uri' => $uri,
   ];
 }
 
