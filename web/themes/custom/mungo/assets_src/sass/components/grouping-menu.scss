@@ -15,7 +15,7 @@
 }
 
 // Styling of display and margins of elements. Heavyhanded selector to win
-// over vore.
+// over core.
 ul.menu.menu--grouping-menu {
   @include media-medium {
     @include inline-menu;
