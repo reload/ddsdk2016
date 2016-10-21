@@ -1,0 +1,28 @@
+// Styling of a menu consisting of call-to-action buttons
+
+
+// Inline the individual links.
+.large-button-menu--button {
+  display: inline-block;
+  text-align: center;
+
+  a {
+    @include cta-button-blue;
+    padding: $spacing-medium;
+    margin: $spacing-small;
+
+    // Reduce margin on larger devices.
+    @include media-small {
+      margin: $spacing-large/2;
+    }
+  }
+}
+
+// Styling of a active button - we may have multiple.
+.large-button-menu--button__active {
+  a {
+    @include cta-button-blue('active');
+    padding: $spacing-medium;
+  }
+}
+

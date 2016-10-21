@@ -32,6 +32,7 @@
 @import "components/factbox";
 @import "components/grouping-menu";
 @import "components/hero-banner";
+@import "components/large-button-menu";
 @import "components/main-media";
 @import "components/menu";
 @import "components/paragraph";
@@ -49,6 +50,7 @@
  * SMACSS Layout.
  */
 @import "layout/article";
+@import "layout/badge-overview";
 @import "layout/events";
 @import "layout/header";
 @import "layout/footer";

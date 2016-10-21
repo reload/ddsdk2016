@@ -1,0 +1,23 @@
+// Styling of the badge overview view page.
+
+// Views exposed filters introduces a margin between each item - we don't
+// want that.
+.badge-overview--filters .form-item {
+  margin-bottom: 0;
+}
+
+// Make sure the two menus aligns flush with the left side of the content
+// container
+.large-button-menu--button, ul.menu--grouping-menu li {
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+// Inject some whitespace around the "no results" section.
+.badge-overview--badges__no-results {
+  padding: $spacing-medium 0;
+}
+
+
+
