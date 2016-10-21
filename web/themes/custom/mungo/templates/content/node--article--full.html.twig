@@ -119,26 +119,13 @@
   <div class=" hidden-xs hidden-sm">{{ content.field_subtitle }}</div>
     {# We leave out any fields we've output manually at this point #}
     {# field_content_author is left out as it is a part of author_presentation #}
-    {{ content | without('field_content_author', 'field_subtitle', 'field_main_media' ) }}
+    {{ content | without('field_content_author', 'field_subtitle', 'field_main_media', 'field_sidedeck' ) }}
 {% endblock %}
 {% block sidebar %}
-  <div style="background-color: #f5f5f5">
-    <h2>Hurtige genveje</h2>
-    <ul>
-      <li>Some link</li>
-      <li>Some link</li>
-      <li>Some link</li>
-      <li>Some link</li>
-    </ul>
-  </div>
-  <div style="background-color: #f5f5f5">
-    <h2>Mest læste</h2>
-    <ul>
-      <li>Some link</li>
-      <li>Some link</li>
-      <li>Some link</li>
-      <li>Some link</li>
-    </ul>
-  </div>
+
+  {% if (node.field_sidedeck) %}
+    {{ content.field_sidedeck }}
+  {% endif %}
+
 {% endblock %}
 

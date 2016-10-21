@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.badge.field_badge_type
     - field.field.node.badge.field_main_media
     - field.field.node.badge.field_paragraphs
+    - field.field.node.badge.field_sidedeck
     - node.type.badge
   module:
     - user
@@ -31,4 +32,5 @@ hidden:
   field_badge_type: true
   field_main_media: true
   field_paragraphs: true
+  field_sidedeck: true
   langcode: true
