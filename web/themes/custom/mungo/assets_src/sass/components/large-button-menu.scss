@@ -8,7 +8,6 @@
 
   a {
     @include cta-button-blue;
-    padding: $spacing-medium;
     margin: $spacing-small;
 
     // Reduce margin on larger devices.
@@ -22,7 +21,6 @@
 .large-button-menu--button__active {
   a {
     @include cta-button-blue('active');
-    padding: $spacing-medium;
   }
 }
 
