@@ -100,13 +100,21 @@
                 {% trans with {'context': 'events'} -%}Date{%- endtrans %}:</span>
               {# If the date is on the same day #}
               {% if (start_date|date('Ymd') == end_date|date('Ymd')) %}
-                {{ start_date|date('d. F') }}
+
+                {% if (is_all_day) %}
+                  {{ start_date|format_date('event_date_long') }}
+                {% else %}
+                  {# Display time if it is not an all-day event #}
+                  {{ start_date|format_date('event_date_long_time') }}
+                {% endif %}
+
+
               {# If the date is within the same month #}
               {% elseif (start_date|date('Ym') == end_date|date('Ym')) %}
-                {{ start_date|date('d') }}-{{ end_date|date('d. F Y') }}
+                {{ start_date|format_date('event_date_only') }}-{{ end_date|format_date('event_date_long_year') }}
               {# Default #}
               {% else %}
-                {{ start_date|date('d. F Y') }} - {{ end_date|date('d. F Y') }}
+                {{ start_date|format_date('event_date_long_year') }} - {{ end_date|format_date('event_date_long_year') }}
               {% endif %}
               {# If event is an all day event #}
               {% if (is_all_day) %}
