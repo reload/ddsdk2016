@@ -87,6 +87,19 @@ set classes = [
   <header role="section-header" class="section-header">
     {{ top_image }}
   </header>
+  {# Insert level menu (will only be availble for progression badges #}
+  {% if level_menu %}
+    <div class="container">
+      <div class="large-button-menu large-button-menu__flush_left">
+        {% for level in level_menu %}
+          <div class="large-button-menu--button">
+            {{ level }}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+
   <div class="article-wrapper">
     <article{{ attributes.addClass(classes) }}>
       <div{{ content_attributes.addClass('node__content') }}>
