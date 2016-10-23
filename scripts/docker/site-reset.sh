@@ -17,5 +17,6 @@ sudo chmod 555 web/sites/default
 time docker-compose run --entrypoint "sh -c" --rm drush " \
   drush cim --preview=diff -y && \
   drush updb -y && \
+  drush search-api-clear
   drush cr
   "
