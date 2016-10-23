@@ -10,6 +10,9 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\node\Entity\Node;
 
+define('DDS_BADGE_TYPE_PROGRESSION', 'progression');
+define('DDS_BADGE_TYPE_SKILL', 'skill');
+
 /**
  * Implements hook_field_group_pre_render().
  *
