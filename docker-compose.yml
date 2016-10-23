@@ -16,6 +16,11 @@ services:
     image: reload/drupal-apache-fpm
     ports:
       - '80:80'
+    volumes:
+      # Temporary mount for the cron-configuration, we'll copy it into place
+      # with correct ownership via the init-script.
+      - './docker/cron/drupal-cron:/root/tmp.drupal-cron:ro'
+      - './docker/cron/setup-cron.sh:/etc/my_init.d/setup-cron.sh'
     volumes_from:
       - webroot
     links:
