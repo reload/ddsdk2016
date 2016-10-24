@@ -8,6 +8,7 @@ dependencies:
     - paragraphs.paragraphs_type.content_link
     - paragraphs.paragraphs_type.factbox
     - paragraphs.paragraphs_type.gallery
+    - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.text
     - paragraphs.paragraphs_type.video
   module:
@@ -27,6 +28,7 @@ settings:
   handler_settings:
     target_bundles:
       text: text
+      image: image
       video: video
       content_link: content_link
       factbox: factbox
@@ -34,47 +36,62 @@ settings:
     target_bundles_drag_drop:
       text:
         enabled: true
-        weight: -31
+        weight: -41
+      image:
+        enabled: true
+        weight: -40
       video:
         enabled: true
-        weight: -30
+        weight: -39
       content_link:
         enabled: true
-        weight: -29
+        weight: -38
       factbox:
         enabled: true
-        weight: -28
+        weight: -37
       gallery:
         enabled: true
-        weight: -27
+        weight: -36
       quotation:
-        weight: -26
+        weight: -35
         enabled: false
       1col_deck:
-        weight: -25
+        weight: -34
         enabled: false
       2col_deck:
-        weight: -24
+        weight: -33
         enabled: false
       3col_deck:
-        weight: -23
+        weight: -32
         enabled: false
       4col_deck:
-        weight: -22
+        weight: -31
         enabled: false
       block:
-        weight: -21
+        weight: -30
         enabled: false
       dynamic_deck:
-        weight: -20
+        weight: -29
         enabled: false
       hero_banner:
-        weight: -19
+        weight: -28
         enabled: false
       program:
-        weight: -18
+        weight: -27
         enabled: false
       program_item:
-        weight: -17
+        weight: -26
+        enabled: false
+      content_activity_reference:
+        weight: -25
+        enabled: false
+      content_article_reference:
+        weight: -24
+        enabled: false
+      content_event_reference:
+        weight: -23
+        enabled: false
+      situation_links:
+        weight: -22
         enabled: false
 field_type: entity_reference_revisions

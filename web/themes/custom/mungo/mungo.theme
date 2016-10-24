@@ -152,6 +152,11 @@ function mungo_preprocess_paragraph(&$variables) {
       $variables['attributes']['class'][] = 'media';
       break;
 
+    case 'image':
+      // Add a clean class to videos.
+      $variables['attributes']['class'][] = 'fluid-media';
+      break;
+
     case 'gallery':
       // Add a clean class to videos.
       $variables['attributes']['class'][] = 'gallery';
