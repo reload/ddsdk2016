@@ -1,0 +1,34 @@
+uuid: f2737447-105b-413b-8be7-e29f85722a61
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.content_list
+    - field.storage.block_content.field_content_list
+    - node.type.activity
+    - node.type.article
+    - node.type.badge
+    - node.type.event
+id: block_content.content_list.field_content_list
+field_name: field_content_list
+entity_type: block_content
+bundle: content_list
+label: 'Content List'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      activity: activity
+      article: article
+      badge: badge
+      event: event
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: activity
+field_type: entity_reference

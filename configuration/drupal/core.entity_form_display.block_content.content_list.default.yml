@@ -1,25 +1,23 @@
-uuid: 47fe6718-e054-4a57-9476-e4224134d68a
+uuid: fd5d4faf-81f8-49ba-9819-b19402fb62f6
 langcode: en
 status: true
 dependencies:
   config:
-    - block_content.type.article_list
-    - field.field.block_content.article_list.body
-  module:
-    - text
-id: block_content.article_list.default
+    - block_content.type.content_list
+    - field.field.block_content.content_list.field_content_list
+id: block_content.content_list.default
 targetEntityType: block_content
-bundle: article_list
+bundle: content_list
 mode: default
 content:
-  body:
-    type: text_textarea_with_summary
-    weight: 3
+  field_content_list:
+    weight: 4
     settings:
-      rows: 9
-      summary_rows: 3
+      match_operator: CONTAINS
+      size: 60
       placeholder: ''
     third_party_settings: {  }
+    type: entity_reference_autocomplete
   info:
     type: string_textfield
     weight: -5
