@@ -21,8 +21,14 @@ targetEntityType: node
 bundle: badge
 mode: teaser
 content:
-  links:
-    weight: 100
+  field_main_media:
+    type: entity_reference_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
 hidden:
   field_badge_cover_image: true
   field_badge_level: true
@@ -30,7 +36,7 @@ hidden:
   field_badge_summary: true
   field_badge_target_group: true
   field_badge_type: true
-  field_main_media: true
   field_paragraphs: true
   field_sidedeck: true
   langcode: true
+  links: true

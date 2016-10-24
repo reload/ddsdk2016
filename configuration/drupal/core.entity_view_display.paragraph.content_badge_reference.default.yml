@@ -1,0 +1,23 @@
+uuid: 3fa8271e-2cc3-4483-aade-00b99a57009e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.content_badge_reference.field_content_reference
+    - paragraphs.paragraphs_type.content_badge_reference
+id: paragraph.content_badge_reference.default
+targetEntityType: paragraph
+bundle: content_badge_reference
+mode: default
+content:
+  field_content_reference:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+hidden:
+  created: true
+  uid: true
