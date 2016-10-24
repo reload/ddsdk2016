@@ -8,7 +8,6 @@
 
   a {
     @include cta-button-blue;
-    padding: $spacing-medium;
     margin: $spacing-small;
 
     // Reduce margin on larger devices.
@@ -18,11 +17,15 @@
   }
 }
 
+// If wrapped in a container, the first button should drop its left margin
+// to be placed flush with the containers inner border.
+.container > .large-button-menu__flush_left > .large-button-menu--button:first-child a {
+  margin-left: 0;
+}
+
 // Styling of a active button - we may have multiple.
-.large-button-menu--button__active {
-  a {
+// The active class can be set on the wrapper as well as the link itself.
+.large-button-menu--button__active a, a.large-button-menu--button__active{
     @include cta-button-blue('active');
-    padding: $spacing-medium;
-  }
 }
 

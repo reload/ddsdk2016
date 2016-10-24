@@ -6,14 +6,6 @@
   margin-bottom: 0;
 }
 
-// Make sure the two menus aligns flush with the left side of the content
-// container
-.large-button-menu--button, ul.menu--grouping-menu li {
-  &:first-child {
-    margin-left: 0;
-  }
-}
-
 // Inject some whitespace around the "no results" section.
 .badge-overview--badges__no-results {
   padding: $spacing-medium 0;
