@@ -29,13 +29,13 @@
 
 /* Liste Rubrik - small */
 @mixin list-heading-small {
-  font-family: $std-font;
+  font-family: 14px;
   letter-spacing: 0.2px;
   color: $black;
   font-weight: bold;
 
   @include media-small {
-    font-size: 18px;
+    font-size: 14px;
   }
 }
 /* Liste Rubrik - medium */
