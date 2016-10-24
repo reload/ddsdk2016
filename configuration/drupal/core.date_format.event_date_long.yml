@@ -1,0 +1,8 @@
+uuid: 1037d1ca-c6e3-48e7-ba1a-a84bbd10e88a
+langcode: en
+status: true
+dependencies: {  }
+id: event_date_long
+label: 'Event - date long'
+locked: false
+pattern: 'd. F'
