@@ -8,6 +8,7 @@ dependencies:
     - paragraphs.paragraphs_type.block
     - paragraphs.paragraphs_type.content_activity_reference
     - paragraphs.paragraphs_type.content_article_reference
+    - paragraphs.paragraphs_type.content_badge_reference
     - paragraphs.paragraphs_type.content_event_reference
     - paragraphs.paragraphs_type.situation_links
     - paragraphs.paragraphs_type.text
@@ -33,6 +34,7 @@ settings:
       block: block
       situation_links: situation_links
       content_event_reference: content_event_reference
+      content_badge_reference: content_badge_reference
       content_activity_reference: content_activity_reference
       content_article_reference: content_article_reference
     target_bundles_drag_drop:
@@ -87,6 +89,9 @@ settings:
       content_event_reference:
         enabled: true
         weight: 20
+      content_badge_reference:
+        enabled: true
+        weight: 21
       content_activity_reference:
         enabled: true
         weight: 26

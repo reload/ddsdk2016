@@ -1,18 +1,18 @@
-uuid: 2845a9ee-5f86-4f30-b664-65ba48ad6186
+uuid: a056ec82-e721-43bd-a3f8-e073e109aa61
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_content_reference
-    - node.type.activity
-    - paragraphs.paragraphs_type.content_activity_reference
-id: paragraph.content_activity_reference.field_content_reference
+    - node.type.badge
+    - paragraphs.paragraphs_type.content_badge_reference
+id: paragraph.content_badge_reference.field_content_reference
 field_name: field_content_reference
 entity_type: paragraph
-bundle: content_activity_reference
-label: 'Content Reference'
+bundle: content_badge_reference
+label: 'Badge Reference'
 description: ''
-required: false
+required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''
@@ -20,7 +20,7 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
-      activity: activity
+      badge: badge
     sort:
       field: _none
     auto_create: false
