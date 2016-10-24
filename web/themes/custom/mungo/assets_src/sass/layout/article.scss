@@ -47,3 +47,11 @@
     @include blue-arrowed-read-more;
   }
 }
+
+.four-cols-deck .node-teaser--heading {
+  // default
+}
+.three-cols-deck .node-teaser--heading {
+  @include list-heading-large;
+}
+
