@@ -738,7 +738,7 @@ function _mungo_preprocess_deck_paragraph($type, &$variables) {
   }
   elseif ($type === '3col_deck') {
     foreach ($variables['cols'] as &$col) {
-      $col['#attributes']['class'][] = 'col-md-4';
+      $col['#attributes']['class'][] = 'col-sm-4';
     }
     $variables['attributes']['class'][] = 'three-cols-deck';
   }
