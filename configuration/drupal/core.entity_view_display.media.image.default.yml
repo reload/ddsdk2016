@@ -7,7 +7,7 @@ dependencies:
     - field.field.media.image.field_caption
     - field.field.media.image.field_image
     - media_entity.bundle.image
-    - responsive_image.styles.16_9_responsive
+    - responsive_image.styles.wide
   module:
     - responsive_image
 id: media.image.default
@@ -32,7 +32,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      responsive_image_style: 16_9_responsive
+      responsive_image_style: wide
       image_link: ''
     third_party_settings: {  }
     type: responsive_image
