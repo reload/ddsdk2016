@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_paragraphs
     - node.type.event
+    - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.text
     - paragraphs.paragraphs_type.video
   module:
@@ -24,30 +25,67 @@ settings:
   handler_settings:
     target_bundles:
       text: text
+      image: image
       video: video
     target_bundles_drag_drop:
       2col_deck:
-        weight: 9
+        weight: -41
         enabled: false
       content_link:
-        weight: 10
+        weight: -40
         enabled: false
       dynamic_deck:
-        weight: 11
+        weight: -39
         enabled: false
       factbox:
-        weight: 12
+        weight: -38
         enabled: false
       gallery:
-        weight: 13
+        weight: -37
         enabled: false
       quotation:
-        weight: 14
+        weight: -36
         enabled: false
       text:
         enabled: true
-        weight: 15
+        weight: -35
+      image:
+        enabled: true
+        weight: -34
       video:
         enabled: true
-        weight: 16
+        weight: -33
+      1col_deck:
+        weight: -32
+        enabled: false
+      3col_deck:
+        weight: -31
+        enabled: false
+      4col_deck:
+        weight: -30
+        enabled: false
+      block:
+        weight: -29
+        enabled: false
+      content_activity_reference:
+        weight: -28
+        enabled: false
+      content_article_reference:
+        weight: -27
+        enabled: false
+      content_event_reference:
+        weight: -26
+        enabled: false
+      hero_banner:
+        weight: -25
+        enabled: false
+      program:
+        weight: -24
+        enabled: false
+      program_item:
+        weight: -23
+        enabled: false
+      situation_links:
+        weight: -22
+        enabled: false
 field_type: entity_reference_revisions
