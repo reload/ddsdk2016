@@ -20,8 +20,16 @@
 
 
 .node-teaser {
+  transition: all 0.3s;
+  border-bottom: 5px solid #fff;
   &:hover {
     text-decoration: none;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    border-bottom: 5px solid $bluish;
+    img {
+      @include filter(brightness(80%));
+    }
+
   }
   background-color: #fff;
   display: block;
