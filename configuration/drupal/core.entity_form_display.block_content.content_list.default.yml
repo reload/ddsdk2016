@@ -5,29 +5,37 @@ dependencies:
   config:
     - block_content.type.content_list
     - field.field.block_content.content_list.field_content_list
+    - field.field.block_content.content_list.field_content_list_title
 id: block_content.content_list.default
 targetEntityType: block_content
 bundle: content_list
 mode: default
 content:
   field_content_list:
-    weight: 4
+    weight: 2
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+  field_content_list_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
   info:
     type: string_textfield
-    weight: -5
+    weight: 0
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 2
+    weight: 3
     settings: {  }
     third_party_settings: {  }
 hidden: {  }

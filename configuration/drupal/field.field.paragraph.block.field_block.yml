@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - block_content.type.basic
     - block_content.type.content_list
     - field.storage.paragraph.field_block
     - paragraphs.paragraphs_type.block
@@ -21,7 +20,6 @@ settings:
   handler: 'default:block_content'
   handler_settings:
     target_bundles:
-      basic: basic
       content_list: content_list
     sort:
       field: _none

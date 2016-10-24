@@ -1,0 +1,30 @@
+uuid: 89fa6eaa-9da1-4fd1-b359-58ff3af60d93
+langcode: da
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.list_teaser
+    - field.field.node.activity.field_activity_id
+    - field.field.node.activity.field_main_media
+    - field.field.node.activity.field_subtitle
+    - node.type.activity
+  module:
+    - user
+id: node.activity.list_teaser
+targetEntityType: node
+bundle: activity
+mode: list_teaser
+content:
+  field_main_media:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: teaser_list
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+hidden:
+  field_activity_id: true
+  field_subtitle: true
+  langcode: true
+  links: true

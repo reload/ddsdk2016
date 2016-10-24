@@ -1,9 +1,9 @@
-uuid: 9ee3c2dc-941f-467a-88e0-ba2eefcfa2ba
+uuid: e95c616e-854d-4444-a696-796f721ff559
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser_alternative
+    - core.entity_view_mode.node.list_teaser
     - field.field.node.event.field_course_id
     - field.field.node.event.field_event_accommodation
     - field.field.node.event.field_event_address
@@ -22,29 +22,24 @@ dependencies:
     - field.field.node.event.field_main_media
     - field.field.node.event.field_paragraphs
     - field.field.node.event.field_programs
+    - image.style.950x713
     - node.type.event
   module:
+    - media_entity
     - user
-id: node.event.teaser_alternative
+id: node.event.list_teaser
 targetEntityType: node
 bundle: event
-mode: teaser_alternative
+mode: list_teaser
 content:
-  field_event_type:
-    type: entity_reference_label
-    weight: 1
-    label: hidden
-    settings:
-      link: false
-    third_party_settings: {  }
   field_main_media:
     weight: 0
     label: hidden
     settings:
-      view_mode: without_meta
-      link: false
+      image_style: 950x713
+      image_link: ''
     third_party_settings: {  }
-    type: entity_reference_entity_view
+    type: media_thumbnail
 hidden:
   field_course_id: true
   field_event_accommodation: true
@@ -60,6 +55,7 @@ hidden:
   field_event_start: true
   field_event_target_group: true
   field_event_teaser: true
+  field_event_type: true
   field_paragraphs: true
   field_programs: true
   langcode: true

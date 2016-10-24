@@ -1,0 +1,32 @@
+uuid: fb77435c-3255-4cf2-835d-5afc599cc6b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.teaser_list
+    - field.field.media.video.field_caption
+    - field.field.media.video.field_media_video_embed_field
+    - image.style.950x713
+    - media_entity.bundle.video
+  module:
+    - video_embed_field
+id: media.video.teaser_list
+targetEntityType: media
+bundle: video
+mode: teaser_list
+content:
+  field_media_video_embed_field:
+    type: video_embed_field_thumbnail
+    weight: 0
+    label: hidden
+    settings:
+      image_style: 950x713
+      link_image_to: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_caption: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

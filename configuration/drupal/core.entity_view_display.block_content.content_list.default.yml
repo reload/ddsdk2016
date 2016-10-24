@@ -5,6 +5,7 @@ dependencies:
   config:
     - block_content.type.content_list
     - field.field.block_content.content_list.field_content_list
+    - field.field.block_content.content_list.field_content_list_title
 id: block_content.content_list.default
 targetEntityType: block_content
 bundle: content_list
@@ -14,9 +15,16 @@ content:
     weight: 1
     label: hidden
     settings:
-      view_mode: teaser_alternative
+      view_mode: list_teaser
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
+  field_content_list_title:
+    type: string
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
 hidden:
   langcode: true
