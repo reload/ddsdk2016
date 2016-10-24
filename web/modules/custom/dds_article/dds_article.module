@@ -37,7 +37,7 @@ function dds_article_node_article_edit_form_validate(&$form, FormStateInterface 
   $field_content_author = $form_state->getValue('field_content_author');
 
   // Set error if author is not sat and the article type is simple.
-  if ($field_article_type[0]['value'] !== DDS_ARTICLE_ARTICLE_TYPE_SIMPLE && empty($field_content_author)) {
+  if (!isset($field_article_type[0]['value']) || ($field_article_type[0]['value'] !== DDS_ARTICLE_ARTICLE_TYPE_SIMPLE && empty($field_content_author))) {
     $form_state->setError($form['field_content_author'], t('Content author is required!'));
   }
 }
