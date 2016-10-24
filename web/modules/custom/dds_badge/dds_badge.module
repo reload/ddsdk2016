@@ -128,8 +128,6 @@ function dds_badge_sort_nodes_by_level(&$nodes) {
       return 0;
     }
   );
-
-  return;
 }
 
 /**
