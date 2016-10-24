@@ -1,0 +1,1 @@
+1 * * * * root (. /etc/container_environment.sh && /usr/bin/curl --silent --compressed -H "Host: local.docker" http://localhost/cron/QCOOyHbejQwmAztTJZctoRM3eQgVeKZeRSt-q38lSgOcol5Ag5Ypo2_d633KMnLXw4oFWnVILQ?absolute=1) 2>&1 | /usr/bin/logger -t cron
