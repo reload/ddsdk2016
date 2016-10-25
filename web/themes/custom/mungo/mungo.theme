@@ -8,7 +8,6 @@
 use Drupal\Core\Link;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Template\Attribute;
-use Drupal\file\Entity\File;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\Core\Form\FormStateInterface;
@@ -63,6 +62,7 @@ function mungo_preprocess_field(&$variables) {
     foreach ($variables['items'] as $key => &$item) {
       /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
       $paragraph = $item['content']['#paragraph'];
+      $attributes = $variables['items'][$key]['attributes'];
 
       // If the a 4col_deck paragraph is right after a herobanner. Set negative
       // margin.
@@ -72,7 +72,6 @@ function mungo_preprocess_field(&$variables) {
           $entities = $paragraph->field_4col_deck_col1->referencedEntities();
           $situation_link = reset($entities);
           if ($situation_link->getType() == 'situation_links') {
-            $attributes = $variables['items'][$key]['attributes'];
             $attributes->addClass('paragraph-set-negative-margin');
           }
         }
@@ -633,7 +632,7 @@ function mungo_theme_suggestions_alter(array &$suggestions, array $variables, $h
       /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
       $paragraph = $variables['elements']['#paragraph'];
       if (in_array($paragraph->getType(),
-        ['1col_deck', '2col_deck', '3col_deck', '4col_deck'])) {
+        ['1col_deck', '2col_deck', '3col_deck', '4col_deck', 'list_deck'])) {
         $suggestions[] = $hook . '__deck';
         $suggestions[] = $hook . '__deck__' . $paragraph->getType();
       }
