@@ -10,7 +10,7 @@ dependencies:
     - paragraphs.paragraphs_type.3col_deck
     - paragraphs.paragraphs_type.4col_deck
     - paragraphs.paragraphs_type.hero_banner
-    - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.list_deck
   module:
     - entity_reference_revisions
 id: node.section_page.field_section
@@ -31,52 +31,79 @@ settings:
       2col_deck: 2col_deck
       3col_deck: 3col_deck
       4col_deck: 4col_deck
+      list_deck: list_deck
       hero_banner: hero_banner
-      text: text
     target_bundles_drag_drop:
       1col_deck:
         enabled: true
-        weight: -31
+        weight: -49
       2col_deck:
         enabled: true
-        weight: -30
+        weight: -48
       3col_deck:
         enabled: true
-        weight: -29
+        weight: -47
       4col_deck:
         enabled: true
-        weight: -28
-      content_link:
-        weight: -27
-        enabled: false
+        weight: -46
+      list_deck:
+        enabled: true
+        weight: -45
       hero_banner:
         enabled: true
-        weight: 10
+        weight: -44
+      view:
+        weight: -43
+        enabled: false
+      content_link:
+        weight: -42
+        enabled: false
       dynamic_deck:
-        weight: -25
+        weight: -41
         enabled: false
       factbox:
-        weight: -24
+        weight: -40
         enabled: false
       gallery:
-        weight: -23
+        weight: -39
         enabled: false
       block:
-        weight: -22
+        weight: -38
         enabled: false
       quotation:
-        weight: -21
+        weight: -37
         enabled: false
       text:
-        weight: -20
+        weight: -36
         enabled: false
       video:
-        weight: -19
+        weight: -35
         enabled: false
       program:
-        weight: -18
+        weight: -34
         enabled: false
       program_item:
-        weight: -17
+        weight: -33
+        enabled: false
+      content_activity_reference:
+        weight: -32
+        enabled: false
+      content_article_reference:
+        weight: -31
+        enabled: false
+      content_badge_reference:
+        weight: -30
+        enabled: false
+      content_event_reference:
+        weight: -29
+        enabled: false
+      image:
+        weight: -28
+        enabled: false
+      situation_links:
+        weight: -27
+        enabled: false
+      latest_content_list:
+        weight: -26
         enabled: false
 field_type: entity_reference_revisions

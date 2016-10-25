@@ -1,0 +1,25 @@
+uuid: 6fe80b24-98fe-4843-8101-420c8029e7ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_list_item_count
+    - paragraphs.paragraphs_type.latest_content_list
+id: paragraph.latest_content_list.field_list_item_count
+field_name: field_list_item_count
+entity_type: paragraph
+bundle: latest_content_list
+label: 'Item count'
+description: 'Number of items to display.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 3
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

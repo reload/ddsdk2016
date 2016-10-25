@@ -1,0 +1,16 @@
+uuid: 5d6352bf-9179-480c-b222-2363ada93aac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.latest_content_list.field_list_item_count
+    - paragraphs.paragraphs_type.latest_content_list
+id: paragraph.latest_content_list.default
+targetEntityType: paragraph
+bundle: latest_content_list
+mode: default
+content: {  }
+hidden:
+  created: true
+  field_list_item_count: true
+  uid: true

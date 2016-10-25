@@ -1,0 +1,48 @@
+uuid: bea92f48-6655-41e5-b68f-8beb2cefcc09
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.list_deck.field_deck_color
+    - field.field.paragraph.list_deck.field_deck_link
+    - field.field.paragraph.list_deck.field_deck_title
+    - field.field.paragraph.list_deck.field_list_paragraph
+    - paragraphs.paragraphs_type.list_deck
+  module:
+    - entity_reference_revisions
+    - link
+id: paragraph.list_deck.default
+targetEntityType: paragraph
+bundle: list_deck
+mode: default
+content:
+  field_deck_link:
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_deck_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_list_paragraph:
+    type: entity_reference_revisions_entity_view
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_deck_color: true
+  uid: true
