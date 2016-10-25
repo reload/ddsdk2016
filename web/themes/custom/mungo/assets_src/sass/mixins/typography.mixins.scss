@@ -137,9 +137,9 @@
 /* Blokoverskrift */
 @mixin box-headline {
   font-family: $std-font;
-  font-size: 15px;
+  font-size: 22px;
   letter-spacing: 1.1px;
-  font-weight: normal;
+  font-weight: 300;
   color: $warm-grey;
 
   @include media-small {
