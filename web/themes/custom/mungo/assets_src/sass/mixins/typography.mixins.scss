@@ -95,7 +95,14 @@
 @mixin feature-heading-medium {
   letter-spacing: 0.5px;
   font-family: $feature-font;
-  font-size: 36px;
+  font-size: 24px;
+  line-height: 32px;
+
+  @include media-medium {
+    font-size: 36px;
+    line-height: 46px;
+  }
+
 }
 /* Alternativ Rubrik - large */
 @mixin feature-heading-large {
@@ -193,5 +200,11 @@
   font-weight: 600;
   &:after {
     content: " \2192";
+  }
+}
+@mixin blue-arrowed-read-more-hover {
+  @include blue-arrowed-read-more;
+  &:after {
+    margin-left: $spacing-small;
   }
 }

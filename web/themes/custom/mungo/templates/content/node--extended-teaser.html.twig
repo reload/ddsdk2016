@@ -79,25 +79,25 @@ node.isSticky() ? 'node--sticky',
 not node.isPublished() ? 'node--unpublished',
 view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
 'node-extended-teaser',
-    'col-sm-6'
+    'content-container'
 ]
 %}
 {{ attach_library('classy/node') }}
 
-    <div class="row">
-<div class="col-sm-6">
-    {{ content.field_main_media }}
-</div>
-
-<a{{ attributes.addClass(classes) }} href="{{ url }}">
-    <div class="node-extended-teaser--content-container">
-        <div class="node-extended-teaser--keyword">{{ 'Keyword' }}</div>
-        <h2 class="node-extended-teaser--heading">
-            {{ label }}
-        </h2>
-        <div class="node-extended-teaser--subtitle">Subtitle</div>
-
-        <div class="node-teaser--read-more">{{ 'Read more'|trans }}</div>
+<div class="node-extended-teaser-container">
+    <div class="media-container">
+        {{ content.field_main_media }}
     </div>
-</a>
+
+    <a{{ attributes.addClass(classes) }} href="{{ url }}">
+        <div class="node-extended-teaser--content-container">
+            <div class="node-extended-teaser--keyword">{{ 'Keyword' }}</div>
+            <h2 class="node-extended-teaser--heading">
+                {{ label }}
+            </h2>
+            <div class="node-extended-teaser--subtitle">{{ content.field_subtitle }}</div>
+
+            <div class="node-extended-teaser--read-more">{{ 'Read more'|trans }}</div>
+        </div>
+    </a>
 </div>
