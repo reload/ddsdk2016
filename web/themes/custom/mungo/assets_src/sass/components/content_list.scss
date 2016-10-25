@@ -1,0 +1,23 @@
+/*  Paragraph block specific styles.
+    ------------------------------------------------------- */
+.field--name-field-content-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.paragraph--view-mode--teaser-list {
+  background-color: $white-two;
+  display: inline-block;
+  padding: 20px 10px;
+}
+
+.field--name-field-content-list-title {
+  @include box-headline;
+  margin-bottom: 15px;
+  // This ignore the title in flexbox layout.
+  flex: 0 0 100%;
+  padding-left: 10px;
+}

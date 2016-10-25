@@ -37,16 +37,23 @@
  * @see template_preprocess_field()
  */
 #}
-{% if label_hidden %}
-  {% if multiple %}
-      {% for item in items %}
-        {{ item.content }}
-      {% endfor %}
-  {% else %}
+{%
+  set classes = [
+    'field',
+    'field--name-' ~ field_name|clean_class,
+    'field--type-' ~ field_type|clean_class,
+    'field--label-' ~ label_display,
+  ]
+%}
+
+{% if multiple %}
+  <div{{ attributes.addClass(classes, 'field__items') }}>
     {% for item in items %}
       {{ item.content }}
     {% endfor %}
-  {% endif %}
+  </div>
 {% else %}
-  {{ item.content }}
+  {% for item in items %}
+    {{ item.content }}
+  {% endfor %}
 {% endif %}
