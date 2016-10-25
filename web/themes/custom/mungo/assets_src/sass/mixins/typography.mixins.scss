@@ -150,6 +150,13 @@
     font-size: 22px;
   }
 }
+
+// A variation of Blokoverskrift to be used as deck title.
+@mixin deck-headline {
+  @include box-headline;
+  text-transform: uppercase;
+}
+
 @mixin search-field {
   font-size: 18px;
 }
@@ -187,10 +194,15 @@
   letter-spacing: 1.3px;
 }
 
-@mixin blue-arrowed-read-more {
+@mixin blue-read-more {
   @include pre-title;
   color: $bluish;
   font-weight: 600;
+}
+
+@mixin blue-arrowed-read-more {
+  @include pre-title;
+  @include blue-read-more;
   &:after {
     content: " \2192";
   }
