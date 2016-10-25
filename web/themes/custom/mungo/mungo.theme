@@ -496,6 +496,11 @@ function _mungo_preprocess_paragraph_content_link(&$variables) {
         $node = Node::load($matches['nid']);
       }
 
+      // Abort if we're linked to a node that does not exist.
+      if (empty($node)) {
+        return;
+      }
+
       if (empty($link_title)) {
         $title = $node->getTitle();
       }
