@@ -1,6 +1,11 @@
 <?php
-use Drupal\views\ViewExecutable;
 
+/**
+ * @file
+ * Functionality related to events.
+ */
+
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_views_pre_view().
