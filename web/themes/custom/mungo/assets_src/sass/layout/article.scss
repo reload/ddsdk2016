@@ -102,14 +102,6 @@
   &--heading {
     @include list-heading-small;
 
-    // Override of the font-size. Accoding to the
-    // 11px on mobile and 14ox on tablet and desktop.
-    font-size: 11px;
-
-    @include media-small {
-      font-size: 14px;
-    }
-
     margin: 5px 0;
   }
 
