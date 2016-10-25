@@ -7,17 +7,22 @@ header.header-fixed {
   background-color: #fff;
 }
 
-header.header-fixed > div {  height: 70px;  }
-body .layout-container {  padding-top: 70px;  }
+// Magical values to push content down. This must adjusted if the fixed menu
+// changes.
+body .layout-container {
+  padding-top: 61px;
+}
 
 @include media-small  {
-  header.header-fixed > div {  height: 130px;  }
-  body .layout-container {  padding-top: 130px;  }
+  body .layout-container {
+    padding-top: 131px;
+  }
 }
 
 @include media-medium {
-  header.header-fixed > div {  height: 100px;  }
-  body .layout-container {  padding-top: 100px;  }
+  body .layout-container {
+    padding-top: 106px;
+  }
 }
 
 /**
