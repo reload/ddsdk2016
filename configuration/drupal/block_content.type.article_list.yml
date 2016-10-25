@@ -1,8 +1,0 @@
-uuid: 3af725b9-287b-494a-8004-7938ab5f396b
-langcode: en
-status: true
-dependencies: {  }
-id: article_list
-label: 'Article list'
-revision: 0
-description: 'Article reference list'

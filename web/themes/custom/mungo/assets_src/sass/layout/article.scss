@@ -1,5 +1,9 @@
-// General layout and styling for articles.
+/*  General layout and styling for articles.
+    ------------------------------------------------------- */
 .page-node-type-article {
+
+  background-color: white;
+
   // Author, share-links etc
   .node__meta {
     // Sourround the meta-area with borders on mobile.
@@ -16,9 +20,8 @@
   }
 }
 
-
-
-
+/*  Default teaser.
+    ------------------------------------------------------- */
 .node-teaser {
   transition: all 0.3s;
   border-bottom: 5px solid #fff;
@@ -63,3 +66,75 @@
   @include list-heading-large;
 }
 
+/*  List teaser variant.
+    ------------------------------------------------------- */
+.node-teaser--list {
+  // Adapt to the parent background.
+  background-color: transparent;
+  border-top: 1px solid $pinkish-grey;
+
+  // Override default teaser bottom.
+  border-bottom: none;
+  padding: 20px 0;
+  width: calc(100% - 10px);
+
+  // Add invisible border on the left to keep
+  // element from moving on hover:
+  border-left: 5px solid transparent;
+  margin-left: -5px;
+
+  @include media-small {
+    width: calc(50% - 10px);
+  }
+
+  @include media-medium {
+    width: calc(100% - 10px);
+  }
+
+  // Override hover state on teaser.
+  &:hover {
+    border-bottom: none;
+    box-shadow: none;
+    border-left: 5px solid $bluish;
+  }
+
+  // Fields.
+  &--heading {
+    @include list-heading-small;
+
+    margin: 5px 0;
+  }
+
+  &--main-media {
+    width: calc-percentage(3, 12);
+    display: inline-block;
+    float: left;
+
+    @include media-medium {
+      width: calc-percentage(4, 12);
+    }
+  }
+
+  &--meta {
+    width: calc-percentage(9, 12);
+    display: inline-block;
+    padding-left: 15px;
+
+    @include media-small {
+      width: calc-percentage(8, 12);
+    }
+
+    // If there is no image, we will render the meta data
+    // in full width.
+    .no-image & {
+      width: 100%;
+      padding-left: 0px;
+    }
+  }
+}
+
+/*  Sidebar deck globally.
+    ------------------------------------------------------- */
+.article__sidebar {
+  margin-top: 30px;
+}

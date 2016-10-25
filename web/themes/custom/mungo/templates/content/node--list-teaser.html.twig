@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Basic layout for article-type content.
+ * Theme override to display a node in list of teasers..
  *
  * Available variables:
  * - node: The node entity with limited access to object properties and methods.
@@ -71,64 +71,33 @@
  */
 #}
 {%
-  set classes = [
-    'node',
-    'node--type-' ~ node.bundle|clean_class,
-    node.isPromoted() ? 'node--promoted',
-    node.isSticky() ? 'node--sticky',
-    not node.isPublished() ? 'node--unpublished',
-    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-    'col-md-8',
-    'print-full-width'
-  ]
+set classes = [
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isPromoted() ? 'node--promoted',
+  node.isSticky() ? 'node--sticky',
+  not node.isPublished() ? 'node--unpublished',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  'node-teaser',
+  'node-teaser--list',
+]
 %}
 {{ attach_library('classy/node') }}
-<div class="container print-full-width">
-  <section class="row">
-    <article{{ attributes.addClass(classes) }}>
-        {{ title_prefix }}
-        {% if not page %}
-          <h2{{ title_attributes }}>
-            <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-          </h2>
-        {% else %}
-          <h1 class="page-title">{{ label }}</h1>
-        {% endif %}
-        {{ title_suffix }}
-        {{ content.field_main_media }}
-        {% block main_media_suffix %}{% endblock %}
-      <div class="row">
-        <div class="col-md-3 print-full-width">
-            {% block main_content_sidebar %}{% endblock %}
-        </div>
-        <!-- Main content -->
-        <div{{ content_attributes.addClass(['node__content', 'col-md-9', 'print-full-width']) }}>
-            {% block main_content %}{% endblock %}
-        </div>
-      </div>
-    </article>
 
-    <aside class="col-md-4 no-printing article__sidebar">
-        {% block sidebar %}
-          <div style="background-color: #f5f5f5">
-            <h2>Hurtige genveje</h2>
-            <ul>
-              <li>Some link</li>
-              <li>Some link</li>
-              <li>Some link</li>
-              <li>Some link</li>
-            </ul>
-          </div>
-          <div style="background-color: #f5f5f5">
-            <h2>Mest læste</h2>
-            <ul>
-              <li>Some link</li>
-              <li>Some link</li>
-              <li>Some link</li>
-              <li>Some link</li>
-            </ul>
-          </div>
-        {% endblock %}
-    </aside>
-  </section>
-</div>
+{% if not content.field_main_media|render %}
+  {% set attributes = attributes.addClass('no-image') %}
+{% endif %}
+
+<a{{ attributes.addClass(classes) }} href="{{ url }}">
+  {% if (node.field_main_media) %}
+    <div class="node-teaser--list--main-media">
+      {{ content.field_main_media }}
+    </div>
+  {% endif %}
+  <div class="node-teaser--list--meta">
+    <div class="node-teaser--keyword">{{ 'Keyword' }}</div>
+      <h2 class="node-teaser--list--heading">
+        {{ label }}
+      </h2>
+  </div>
+</a>

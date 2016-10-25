@@ -58,3 +58,26 @@ function dds_layout_preprocess_field(&$variables) {
     }
   }
 }
+
+/**
+ * Implements hook_form_alter().
+ */
+function dds_layout_form_alter(&$form, $form_state, $form_id) {
+  // Move the side-deck field into the edit-forms sidebar (aka the
+  // "advanced" group).
+  // We match node_<nodetype>_edit_form as well as node_<nodetype>_form.
+  if (preg_match('#^node_([a-z]+)(_edit)?_form$#', $form_id) && isset($form['field_sidedeck'])) {
+    $form['sidedeck_group'] = array(
+      '#type' => 'details',
+      '#title' => t('Sidedeck'),
+      '#description' => t('Content that should be displayed in the side-deck.'),
+      '#group' => 'advanced',
+      '#open' => FALSE,
+      // Push it all the way to the bottom.
+      '#weight' => 1000,
+    );
+
+    // Put the sidedeck field in the sidebar.
+    $form['field_sidedeck']['#group'] = 'sidedeck_group';
+  }
+}

@@ -1,0 +1,8 @@
+uuid: add752dc-6e80-4713-8b4c-d9295c3fe53b
+langcode: en
+status: true
+dependencies: {  }
+id: content_list
+label: 'Content List'
+revision: 0
+description: ''

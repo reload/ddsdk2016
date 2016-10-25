@@ -12,9 +12,9 @@
 /*  Divider between columns.
     ------------------------------------------------------- */
 .col-divider {
-  width: 100%;
-  display: inline-block;
-  min-height: 1px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  height:1px;
+  width:100%;
   border-bottom: 1px solid $pinkish-grey;
-  margin: 40px 15px;
 }

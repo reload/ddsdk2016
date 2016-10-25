@@ -15,6 +15,7 @@
 /**
  * SMACSS Base.
  */
+@import "base/functions";
 @import "base/alignment";
 @import "base/media";
 @import "base/typography";
@@ -45,6 +46,7 @@
 @import "components/facets";
 @import "components/cover_image";
 @import "components/badge";
+@import "components/content_list";
 
 /**
  * SMACSS Layout.

@@ -1,14 +1,15 @@
-uuid: 43879a3d-cfea-4f69-b0b1-377ba84b867e
+uuid: 24544e24-6586-46f6-8351-b3ffe6938628
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.paragraph.teaser_list
     - field.field.paragraph.block.field_block
     - paragraphs.paragraphs_type.block
-id: paragraph.block.default
+id: paragraph.block.teaser_list
 targetEntityType: paragraph
 bundle: block
-mode: default
+mode: teaser_list
 content:
   field_block:
     weight: 0

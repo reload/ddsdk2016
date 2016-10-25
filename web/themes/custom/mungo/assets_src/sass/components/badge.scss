@@ -4,9 +4,11 @@
 
  /*  Node badge - view mode full.
     ------------------------------------------------------- */
-.node--type-badge.node--view-mode-full {
+.node--type-badge {
 
-  padding: 50px 0;
+  &.node--view-mode-full {
+    padding: 50px 0;
+  }
 
   // Remove border from main media.
   .main-media {
