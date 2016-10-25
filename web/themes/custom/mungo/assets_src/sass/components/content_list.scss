@@ -16,7 +16,6 @@
 
 .field--name-field-content-list-title {
   @include box-headline;
-  margin-bottom: 15px;
   // This ignore the title in flexbox layout.
   flex: 0 0 100%;
   padding-left: 10px;
