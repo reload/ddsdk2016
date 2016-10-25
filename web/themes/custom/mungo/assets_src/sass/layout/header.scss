@@ -21,7 +21,7 @@ body .layout-container {
 
 @include media-medium {
   body .layout-container {
-    padding-top: 106px;
+    padding-top: 101px;
   }
 }
 
@@ -30,6 +30,15 @@ body .layout-container {
  */
 
 header.header-fixed {
+
+  > div {
+    height: 70px;
+
+    @include media-small {
+      height: auto;
+    }
+  }
+
   .region-top-menu {
     // Hide the top menu on mobile. Show from tablet and up.
     display: none;
@@ -49,9 +58,6 @@ header.header-fixed {
     height: 1px;
     width: 100%;
     @include background-image(linear-gradient(to left, transparent 0%, $warm-grey 25%, $warm-grey 75%, transparent 100%));
-    @include media-medium {
-      // Hide the line on desktop.
-    }
   }
 
   .region-primary-menu {
@@ -83,6 +89,7 @@ header.header-fixed {
 
     @include media-medium {
       display: inline-block;
+      float: right;
     }
 
     label {
@@ -101,11 +108,12 @@ header.header-fixed {
         // Move to the right instead.
         left: auto;
         right: 0;
+        // float: left;
       }
       @include media-medium {
         margin-left: $spacing-large;
         position: relative;
-        top: -31px;
+        // top: -31px;
       }
 
       &:after {
