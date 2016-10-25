@@ -18,6 +18,7 @@ module:
   dds_article: 0
   dds_badge: 0
   dds_content_link: 0
+  dds_content_list: 0
   dds_event: 0
   dds_layout: 0
   dds_person: 0
