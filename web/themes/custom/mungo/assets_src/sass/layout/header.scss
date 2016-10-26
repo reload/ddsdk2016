@@ -108,12 +108,10 @@ header.header-fixed {
         // Move to the right instead.
         left: auto;
         right: 0;
-        // float: left;
       }
       @include media-medium {
         margin-left: $spacing-large;
         position: relative;
-        // top: -31px;
       }
 
       &:after {
