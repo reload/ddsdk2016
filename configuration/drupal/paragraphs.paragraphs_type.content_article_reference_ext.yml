@@ -1,0 +1,6 @@
+uuid: b6a86d2e-3902-49ce-a3ad-6755932b6587
+langcode: en
+status: true
+dependencies: {  }
+id: content_article_reference_ext
+label: 'Content: Article reference (Extended)'

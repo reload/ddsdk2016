@@ -20,8 +20,71 @@
   }
 }
 
-/*  Default teaser.
+/*  Default and extended teaser.
     ------------------------------------------------------- */
+
+// Node extended teaser is special. It does not use bootstrap grid, but flexbox
+// in order to center vertically.
+.node-extended-teaser-container {
+  @include media-small {
+    display: flex;
+    align-items: center;
+    .media-container {
+      width: 50%;
+      margin-right: 15px;
+    }
+    .content-container {
+      width: 50%;
+      margin-left: 15px;
+    }
+  }
+
+  // Reset this.
+  .byline, .caption {
+    display: none;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  // Node teaser view. This doesn't include the main image.
+  .node-extended-teaser {
+
+    // Since all is a link. reset color.
+    color: #000;
+
+    // Fields.
+    &--heading {
+      @include feature-heading-medium;
+      margin: 0;
+      margin-bottom: $spacing-small;
+    }
+    &--keyword {
+      @include pre-title;
+    }
+    &--subtitle {
+      // Subtitle should not appear as subtitle on node-full-view.
+      .subtitle {
+        margin-bottom: $spacing-medium;
+        font-weight: 300;
+        font-size: 15px;
+        line-height: 25px;
+        @include media-small {
+          font-size: 17px;
+          line-height: 28px;
+        }
+      }
+    }
+    &--read-more {
+      @include blue-arrowed-read-more;
+    }
+  }
+  &:hover {
+    .node-extended-teaser--read-more {
+      @include blue-arrowed-read-more-hover;
+    }
+  }
+}
+
 .node-teaser {
   transition: all 0.3s;
   border-bottom: 5px solid #fff;
@@ -56,6 +119,11 @@
   }
   &--read-more {
     @include blue-arrowed-read-more;
+  }
+  &:hover {
+    .node-teaser--read-more {
+      @include blue-arrowed-read-more-hover;
+    }
   }
 }
 
