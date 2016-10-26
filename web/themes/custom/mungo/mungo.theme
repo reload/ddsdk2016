@@ -5,6 +5,7 @@
  * Main theme-file for the Mungo theme.
  */
 
+use Drupal\Core\Url;
 use Drupal\Core\Link;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Template\Attribute;
@@ -258,6 +259,20 @@ function mungo_preprocess_node(&$variables) {
       _mungo_preprocess_node_badge($node, $variables);
       break;
   }
+  $node_url = Url::fromUri('internal:' . $variables['url'], array('absolute' => TRUE));
+  $forward_url = Url::fromUri('internal:/forward' . $variables['url']);
+  $variables['social_links'] = array(
+    '#theme' => 'item_list',
+    '#attributes' => array(
+      'class' => array('share--icons')
+    ),
+    '#items' => array(
+      Link::fromTextAndUrl('<i class="fa fa-facebook" aria-hidden="true"></i>', Url::fromUri('https://www.facebook.com/sharer/sharer.php', array('query' => array('u' => $node_url->toString())))),
+      Link::fromTextAndUrl('<i class="fa fa-twitter" aria-hidden="true"></i>', Url::fromUri('https://twitter.com/home', array('query' => array('status' => $node_url->toString())))),
+      Link::fromTextAndUrl('<i class="fa fa-envelope" aria-hidden="true"></i>', $forward_url),
+      Link::fromTextAndUrl('<i class="fa fa-print" aria-hidden="true"></i>', $node_url),
+    ),
+  );
 }
 
 /**
