@@ -49,7 +49,7 @@ set classes = [
 
 <div{{ attributes.addClass(classes) }}>
   <div class="container">
-    <div class="row row--grid deck-box-head">
+    <div class="row deck-box-head">
       {% if content.field_deck_title|render or content.field_deck_link|render %}
         <div class="col-xs-12">
       <div class="deck-box-head--heading">
@@ -67,7 +67,7 @@ set classes = [
       {% endif %}
     </div>
 
-    <div class="row">
+    <div class="row row--grid">
       {% if cols %}
         {# If this is a column-based deck-type, only print the cols#}
         {% for col in cols %}
