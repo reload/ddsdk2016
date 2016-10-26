@@ -12,3 +12,23 @@
 .paragraph-set-negative-margin {
   margin-top: -100px;
 }
+
+// Address spacing in between cols when row is wrapped on multiple lines.
+.row--grid {
+  $spacing : 15px;
+  $halfspacing: $spacing/2;
+  margin-top: -$halfspacing;
+  margin-bottom: -$halfspacing;
+  @include media-small {
+    margin-top: -$spacing;
+    margin-bottom: -$spacing;
+  }
+ & > * {
+   padding-top: $halfspacing;
+   padding-bottom: $halfspacing;
+   @include media-small {
+     padding-top: $spacing;
+     padding-bottom: $spacing;
+   }
+ }
+}
