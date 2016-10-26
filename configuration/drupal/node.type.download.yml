@@ -1,0 +1,18 @@
+uuid: fb9f610d-3012-4748-ad3e-1b9a05e76db3
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Download
+type: download
+description: 'Upload a file.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false
