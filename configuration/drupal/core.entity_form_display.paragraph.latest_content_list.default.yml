@@ -1,0 +1,22 @@
+uuid: dbcddffc-3afc-42d1-bfff-a1d6c0f264d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.latest_content_list.field_list_item_count
+    - paragraphs.paragraphs_type.latest_content_list
+id: paragraph.latest_content_list.default
+targetEntityType: paragraph
+bundle: latest_content_list
+mode: default
+content:
+  field_list_item_count:
+    weight: 0
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+hidden:
+  created: true
+  status: true
+  uid: true

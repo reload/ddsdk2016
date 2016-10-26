@@ -1,0 +1,19 @@
+uuid: f4e0619c-6741-45cf-9389-8979d9deacf8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_deck_title
+    - paragraphs.paragraphs_type.list_deck
+id: paragraph.list_deck.field_deck_title
+field_name: field_deck_title
+entity_type: paragraph
+bundle: list_deck
+label: 'Deck title'
+description: 'Title displayed in the topmost left corner of the deck'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

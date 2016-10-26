@@ -1,0 +1,23 @@
+uuid: fd2f1df7-7066-448e-9922-05afe5b400ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_deck_link
+    - paragraphs.paragraphs_type.list_deck
+  module:
+    - link
+id: paragraph.list_deck.field_deck_link
+field_name: field_deck_link
+entity_type: paragraph
+bundle: list_deck
+label: 'Deck link'
+description: 'Link displayed in the topmost right corner of the deck'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

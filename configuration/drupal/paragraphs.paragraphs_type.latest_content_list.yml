@@ -1,0 +1,6 @@
+uuid: 9ec2d612-366b-4a49-9acf-57d45e05c733
+langcode: en
+status: true
+dependencies: {  }
+id: latest_content_list
+label: 'Latest content list'
