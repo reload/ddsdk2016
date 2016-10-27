@@ -2,6 +2,8 @@
 // The site main menu. All representations.
 .block.menu--main {
 
+  display: block;
+
   a {
     text-decoration: none;
   }
@@ -11,7 +13,7 @@
 
   @include media-small {
     position: inherit;
-    text-align: left;
+    text-align: right;
     padding-top: 60px;
   }
   @include media-medium {
@@ -22,6 +24,16 @@
   ul.menu--main {
     background-color: rgba(red, 0.3);
     background-color: #fff;
+    float: left;
+
+    @include media-small {
+      display: inline-block;
+    }
+
+    @include media-medium {
+      float: right;
+    }
+
     a {
       display: block;
       padding: $spacing-medium;
