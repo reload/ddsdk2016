@@ -5,7 +5,9 @@
  * Main theme-file for the Mungo theme.
  */
 
+
 use Drupal\Core\Link;
+use Drupal\Core\URL;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Template\Attribute;
 use Drupal\node\Entity\Node;
@@ -257,7 +259,21 @@ function mungo_preprocess_node(&$variables) {
     case 'badge':
       _mungo_preprocess_node_badge($node, $variables);
       break;
+    case 'download':
+      _mungo_preprocess_node_download($node, $variables);
+      break;
   }
+}
+
+/**
+ * Prepare variables for download node type.
+ */
+function _mungo_preprocess_node_download(Node $node, &$variables) {
+  $file = $node->get('field_file')->first()->entity;
+  $file_uri = $file->getFileUri();
+  $variables['file_url'] = Url::fromUri(file_create_url($file_uri));
+  // Create wrapper to avoid reflow and/or double images.
+  $variables['layout_attributes'] = new Attribute();
 }
 
 /**
