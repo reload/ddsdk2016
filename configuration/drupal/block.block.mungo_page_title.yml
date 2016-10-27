@@ -1,15 +1,18 @@
 uuid: 9a2839a7-b197-450f-8cf6-c51b0b8d1534
 langcode: en
-status: false
+status: true
 dependencies:
+  module:
+    - facets
+    - node
   theme:
     - mungo
 _core:
   default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
 id: mungo_page_title
 theme: mungo
-region: '-1'
-weight: -6
+region: content
+weight: -5
 provider: null
 plugin: page_title_block
 settings:
@@ -17,4 +20,17 @@ settings:
   label: 'Page title'
   provider: core
   label_display: '0'
-visibility: {  }
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }
+  node_type:
+    id: node_type
+    bundles:
+      activity: activity
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

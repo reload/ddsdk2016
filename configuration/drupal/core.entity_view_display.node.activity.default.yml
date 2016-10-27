@@ -15,7 +15,7 @@ bundle: activity
 mode: default
 content:
   field_activity_id:
-    weight: 103
+    weight: 0
     label: above
     settings:
       thousand_separator: ''
@@ -23,21 +23,19 @@ content:
     third_party_settings: {  }
     type: number_integer
   field_main_media:
-    weight: 102
+    weight: 2
     label: above
     settings:
-      link: true
+      view_mode: default
+      link: false
     third_party_settings: {  }
-    type: entity_reference_label
+    type: entity_reference_entity_view
   field_subtitle:
-    weight: 101
+    weight: 1
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
-  links:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   langcode: true
+  links: true
