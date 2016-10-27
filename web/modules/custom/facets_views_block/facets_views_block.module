@@ -43,7 +43,7 @@ function facets_views_block_preprocess_views_view(&$variables) {
   }
 
   // No source+facets, bail...
-  if (!$group) {
+  if (!$group || empty($group['facets'])) {
     return;
   }
 
@@ -146,7 +146,7 @@ function _facets_views_preprocess_filters($exposed_form, $facets) {
 
   // 1. search_text(exposed form).
   $exposed_form['search_text']['#weight'] = $weight++;
-  $exposed_form['search_text']['#attributes']['placeholder'] = t('type the word to be searched ...');
+  $exposed_form['search_text']['#attributes']['placeholder'] = t('Search for activities ...', [], ['context' => 'activity search']);
 
   // 2. facets_event_type(facet).
   $exposed_form['facets_event_type'] = [
