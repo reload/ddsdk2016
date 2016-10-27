@@ -1,0 +1,30 @@
+uuid: 67de4164-dd9e-49b6-926e-f9ba4b2784cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.download.field_download
+    - paragraphs.paragraphs_type.download
+  module:
+    - inline_entity_form
+id: paragraph.download.default
+targetEntityType: paragraph
+bundle: download
+mode: default
+content:
+  field_download:
+    weight: 0
+    settings:
+      form_mode: default
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      override_labels: false
+    third_party_settings: {  }
+    type: inline_entity_form_complex
+hidden:
+  created: true
+  status: true
+  uid: true
