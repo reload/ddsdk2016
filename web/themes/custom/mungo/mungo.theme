@@ -5,7 +5,6 @@
  * Main theme-file for the Mungo theme.
  */
 
-
 use Drupal\Core\Link;
 use Drupal\Core\URL;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
@@ -259,6 +258,7 @@ function mungo_preprocess_node(&$variables) {
     case 'badge':
       _mungo_preprocess_node_badge($node, $variables);
       break;
+
     case 'download':
       _mungo_preprocess_node_download($node, $variables);
       break;
@@ -279,7 +279,7 @@ function _mungo_preprocess_node_download(Node $node, &$variables) {
   $variables['layout_attributes'] = new Attribute();
 
   // Create forward url for mail.
-  $variables ['mail_url'] = '/forward/node/' . $node->get('nid')->value;
+  $variables['mail_url'] = '/forward/node/' . $node->get('nid')->value;
 }
 
 /**
