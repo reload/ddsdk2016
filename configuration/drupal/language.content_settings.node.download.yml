@@ -1,0 +1,11 @@
+uuid: a29ace74-36f0-48ce-83ab-7880adcb7546
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.download
+id: node.download
+target_entity_type_id: node
+target_bundle: download
+default_langcode: site_default
+language_alterable: false
