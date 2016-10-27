@@ -24,6 +24,19 @@
 @import "base/wysiwyg";
 
 /**
+ * SMACSS Layout.
+ */
+@import "layout/article";
+@import "layout/badge-overview";
+@import "layout/deck";
+@import "layout/events";
+@import "layout/header";
+@import "layout/footer";
+@import "layout/footer--social-links";
+@import "layout/section-page";
+@import "layout/layout";
+
+/**
  * SMACSS Components.
  */
 @import "components/author-presentation";
@@ -47,20 +60,7 @@
 @import "components/cover_image";
 @import "components/badge";
 @import "components/content_list";
-
-/**
- * SMACSS Layout.
- */
-@import "layout/article";
-@import "layout/badge-overview";
-@import "layout/deck";
-@import "layout/events";
-@import "layout/header";
-@import "layout/footer";
-@import "layout/footer--social-links";
-@import "layout/section-page";
-@import "layout/layout";
-
+@import "components/download";
 
 /**
  * SMACSS Theme.

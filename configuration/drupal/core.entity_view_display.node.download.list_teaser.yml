@@ -1,25 +1,25 @@
-uuid: a9a32917-1314-4dee-86cd-4ec9571842b2
+uuid: eb38ffcb-c36d-494b-ab92-58cf514605f0
 langcode: en
-status: false
+status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.node.list_teaser
     - field.field.node.download.field_file
     - node.type.download
   module:
     - file
     - user
-id: node.download.teaser
+id: node.download.list_teaser
 targetEntityType: node
 bundle: download
-mode: teaser
+mode: list_teaser
 content:
   field_file:
-    type: file_default
     weight: 0
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    type: file_default
 hidden:
   langcode: true
   links: true
