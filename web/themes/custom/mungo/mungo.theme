@@ -87,12 +87,33 @@ function mungo_preprocess_field(&$variables) {
  * Implements hook_form_FORM_ID_alter().
  */
 function mungo_form_search_block_form_alter(&$form, FormStateInterface $form_state) {
-  $form['keys']['#placeholder'] = t('Search for activities, events, papers etc.');
+  $form['search_text'] = $form['keys'];
+  $form['#action'] = '/soeg';
+  unset($form['keys']);
+
   $form['actions']['search_submit'] = array(
     '#type' => 'html_tag',
     '#tag' => 'button',
     '#value' => '<span class="glyphicon glyphicon-search"></span>',
   );
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function mungo_form_alter(&$form, &$form_state, $form_id) {
+  // Set identical place-holder text in a number of search form fields.
+  $search_placeholder_text = t('Search for content ...', [], ['context' => 'content search']);
+
+  // The search-page itself (/soeg).
+  if (!empty($form['#id']) && $form['#id'] === 'views-exposed-form-search-content-search') {
+    $form['search_text']['#placeholder'] = $search_placeholder_text;
+  }
+
+  // The search-popup in the menu.
+  if ($form_id === 'search_block_form') {
+    $form['keys']['#placeholder'] = $search_placeholder_text;
+  }
 }
 
 /**

@@ -63,6 +63,20 @@
 @import "components/download";
 
 /**
+ * SMACSS Layout.
+ */
+@import "layout/article";
+@import "layout/badge-overview";
+@import "layout/deck";
+@import "layout/events";
+@import "layout/header";
+@import "layout/footer";
+@import "layout/footer--social-links";
+@import "layout/section-page";
+@import "layout/layout";
+@import "layout/view-page";
+
+/**
  * SMACSS Theme.
  */
 @import "theme/backgrounds";

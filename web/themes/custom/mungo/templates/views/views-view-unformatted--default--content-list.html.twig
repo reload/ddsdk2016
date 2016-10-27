@@ -18,10 +18,12 @@
  */
 #}
 {# Dynamically adapt col-size to number of results. #}
-{% if rows|length <= 3 %}
-  {% set row_classes = ['col-sm-4'] %}
-{% else  %}
-  {% set row_classes = ['col-md-3', 'col-sm-6', 'col-xs-6'] %}
+{% if not row_classes %}
+  {% if rows|length <= 3 %}
+    {% set row_classes = ['col-sm-4'] %}
+  {% else  %}
+    {% set row_classes = ['col-md-3', 'col-sm-6', 'col-xs-6'] %}
+  {% endif %}
 {% endif %}
 {% for row in rows %}
   <div{{ row.attributes.addClass(row_classes) }}>

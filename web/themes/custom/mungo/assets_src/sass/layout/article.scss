@@ -88,6 +88,10 @@
 .node-teaser {
   transition: all 0.3s;
   border-bottom: 5px solid #fff;
+
+  height: 100%;
+  width: 100%;
+
   &:hover {
     text-decoration: none;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
