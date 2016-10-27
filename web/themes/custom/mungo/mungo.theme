@@ -259,19 +259,16 @@ function mungo_preprocess_node(&$variables) {
       _mungo_preprocess_node_badge($node, $variables);
       break;
   }
+
   $node_url = Url::fromUri('internal:' . $variables['url'], array('absolute' => TRUE));
-  $forward_url = Url::fromUri('internal:/forward' . $variables['url']);
   $variables['social_links'] = array(
-    '#theme' => 'item_list',
+    '#theme' => 'social_links',
     '#attributes' => array(
       'class' => array('share--icons')
     ),
-    '#items' => array(
-      Link::fromTextAndUrl('<i class="fa fa-facebook" aria-hidden="true"></i>', Url::fromUri('https://www.facebook.com/sharer/sharer.php', array('query' => array('u' => $node_url->toString())))),
-      Link::fromTextAndUrl('<i class="fa fa-twitter" aria-hidden="true"></i>', Url::fromUri('https://twitter.com/home', array('query' => array('status' => $node_url->toString())))),
-      Link::fromTextAndUrl('<i class="fa fa-envelope" aria-hidden="true"></i>', $forward_url),
-      Link::fromTextAndUrl('<i class="fa fa-print" aria-hidden="true"></i>', $node_url),
-    ),
+    '#facebook_link' => Url::fromUri('https://www.facebook.com/sharer/sharer.php', array('query' => array('u' => $node_url->toString()))),
+    '#twitter_link' => Url::fromUri('https://twitter.com/home', array('query' => array('status' => $node_url->toString()))),
+    '#forward_link' => Url::fromUri('internal:/forward' . $variables['url']),
   );
 }
 
@@ -768,4 +765,19 @@ function _mungo_preprocess_deck_paragraph($type, &$variables) {
     }
     $variables['attributes']['class'][] = 'four-cols-deck';
   }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function mungo_theme($existing, $type, $theme, $path) {
+  return array(
+    'social_links' => array(
+      'variables' => array(
+        'facebook_link' => NULL,
+        'twitter_link' => NULL,
+        'forward_link' => NULL,
+      ),
+    ),
+  );
 }
