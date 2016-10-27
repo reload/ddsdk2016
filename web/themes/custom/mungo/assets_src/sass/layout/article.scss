@@ -129,6 +129,11 @@
       @include blue-arrowed-read-more-hover;
     }
   }
+
+  // When no image.
+  .no-image img {
+    background: $marine-blue;
+  }
 }
 
 .four-cols-deck .node-teaser--heading {
