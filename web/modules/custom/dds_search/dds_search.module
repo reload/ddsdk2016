@@ -2,18 +2,54 @@
 
 /**
  * @file
- * Functionality for articles.
+ * Functionality for searches.
  */
+
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_form_alter().
  */
-function dds_article_preprocess_views_view_unformatted(&$variables) {
+function dds_search_preprocess_views_view_unformatted(&$variables) {
   /** @var \Drupal\views\ViewExecutable $view */
   $view = $variables['view'];
 
   // If we're rendering the search views, result, setup column widths.
   if ($view->id() === 'search' && $view->current_display === 'content_search') {
     $variables['row_classes'] = ['col-md-4', 'col-sm-6', 'col-xs-12'];
+  }
+
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function dds_search_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  //
+  // SITUATION: Search forms with facet filters and keywords search.
+  // PROBLEM: When searching for a keyword after using a facet filter, the
+  // facet filter is ignored by Views.
+  // SOLUTION: Add facet filters as hidden form fields to Views exposed
+  // forms.
+  // Code below comes from https://www.drupal.org/node/1381524.
+  // Only apply for search view.
+  if (!in_array($form_state->get('view')->id(), ['search', 'events'])) {
+    return;
+  }
+
+  // Only apply if any facet query parameters are provided.
+  $facet_query = \Drupal::request()->query->filter('f');
+  if (empty($facet_query)) {
+    return;
+  }
+
+  // Iterate through facet query parameters.
+  foreach ($facet_query as $key => $value) {
+    // Add hidden form field for facet parameter.
+    $form['f[' . $key . ']'] = array(
+      '#type' => 'hidden',
+      '#value' => $value,
+      '#weight' => -1,
+    );
   }
 }
