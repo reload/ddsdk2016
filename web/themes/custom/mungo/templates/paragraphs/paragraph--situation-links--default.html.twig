@@ -45,12 +45,12 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 %}
 
 <div{{ attributes.addClass(classes) }}>
-    <a href="{{ content.main_link.0.uri }}">
+    <a href="{{ content.main_link.link }}">
     <div class="icon">
     {{ content.icon|raw }}
     </div>
-    <h2>{{ content.main_link.0.title }}</h2>
+    <h2>{{ content.main_link.text }}</h2>
     </a>
     {{ content.field_situation_links }}
-    {{ link('View content'|trans, content.main_link.0.uri, {class: 'view-content-link'}) }}
+    {{ link('View content'|trans, content.main_link.link, {class: 'view-content-link'}) }}
 </div>

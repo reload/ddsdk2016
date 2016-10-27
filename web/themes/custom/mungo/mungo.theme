@@ -5,6 +5,7 @@
  * Main theme-file for the Mungo theme.
  */
 
+use Drupal\Core\Url;
 use Drupal\Core\Link;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Template\Attribute;
@@ -169,7 +170,9 @@ function mungo_preprocess_paragraph(&$variables) {
     case 'situation_links':
       // Prepare properties for paragraph type situation links.
       if ($paragraph->hasField('field_situation_main_link') && !(empty($paragraph->field_situation_main_link->getValue()))) {
-        $variables['content']['main_link'] = $paragraph->field_situation_main_link->getValue();
+        $link = $paragraph->field_situation_main_link->getValue();
+        $variables['content']['main_link']['text'] = $link[0]['title'];
+        $variables['content']['main_link']['link'] = Url::fromUri($link[0]['uri']);
       }
       if ($paragraph->hasField('field_situation_color') && !empty($paragraph->field_situation_color->value)) {
         $variables['attributes']['class'][] = 'situation-links-color-' . $paragraph->field_situation_color->value;
