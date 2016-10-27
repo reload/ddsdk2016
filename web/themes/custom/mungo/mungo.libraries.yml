@@ -15,6 +15,12 @@ typekit:
   js:
     https://use.typekit.net/del2tvj.js: { every_page: true }
     assets/js/typekit.js: { every_page: true }
+object-fit:
+  version: 0.1
+  footer: true
+  js:
+    assets/js/polyfill.object-fit.min.js : {}
+    assets/js/object-fit.js : {}
 program:
   version: 0.1
   js:
