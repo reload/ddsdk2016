@@ -264,7 +264,7 @@ function mungo_preprocess_node(&$variables) {
   $variables['social_links'] = array(
     '#theme' => 'social_links',
     '#attributes' => array(
-      'class' => array('share--icons')
+      'class' => array('share--icons'),
     ),
     '#facebook_link' => Url::fromUri('https://www.facebook.com/sharer/sharer.php', array('query' => array('u' => $node_url->toString()))),
     '#twitter_link' => Url::fromUri('https://twitter.com/home', array('query' => array('status' => $node_url->toString()))),
