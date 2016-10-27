@@ -1,8 +1,8 @@
 checks:
   php:
     code_rating: true
-    excluded_dependencies:
-      - drupal/core
+#    excluded_dependencies:
+#      - drupal/core
 
 build:
   environment:
