@@ -45,7 +45,33 @@
   img {
     object-fit: cover;
     background-color: #000;
-    min-height: 400px;
+
+    // Herobanner.
+    height: 480px;
+    @include media-small {
+      height: 410px;
+    }
+    @include media-medium {
+      height: 480px;
+    }
+    @include media-large {
+      height: 560px;
+    }
+  }
+  &.narrow {
+    img {
+      // Section page.
+      height: 280px;
+      @include media-small {
+        height: 330px;
+      }
+      @include media-medium {
+        height: 330px;
+      }
+      @include media-large {
+        height: 386px;
+      }
+    }
   }
 
 }
