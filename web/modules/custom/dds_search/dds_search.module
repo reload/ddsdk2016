@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Functionality for articles.
+ */
+
+/**
+ * Implements hook_form_alter().
+ */
+function dds_article_preprocess_views_view_unformatted(&$variables) {
+  /** @var \Drupal\views\ViewExecutable $view */
+  $view = $variables['view'];
+
+  // If we're rendering the search views, result, setup column widths.
+  if ($view->id() === 'search' && $view->current_display === 'content_search') {
+    $variables['row_classes'] = ['col-md-4', 'col-sm-6', 'col-xs-12'];
+  }
+}

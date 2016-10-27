@@ -1,0 +1,12 @@
+// Styling for view-pages
+
+// Add top and bottom spacing to be seperated from the pages head/foot.
+.view-page {
+  margin-top: $spacing-small;
+  margin-bottom: $spacing-small;
+
+  @include media-small {
+    margin-top: $spacing-medium;
+    margin-bottom: $spacing-medium;
+  }
+}
