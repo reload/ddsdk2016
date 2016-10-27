@@ -1,0 +1,9 @@
+services:
+  dds_activity.aktdbclient:
+    class: GuzzleHttp\Client
+    factory: dds_activity.aktdbclient.factory:get
+  dds_activity.aktdbclient.factory:
+    class: Drupal\dds_activity\ClientFactory
+  dds_activity.activity_fetcher:
+    class: Drupal\dds_activity\ActivityFetcher
+    arguments: ['@dds_activity.aktdbclient']

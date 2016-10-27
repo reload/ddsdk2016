@@ -1,0 +1,5 @@
+name: DDS Actvity
+description: Provides functionallity activities.
+type: module
+package: DDS
+core: 8.x

@@ -15,6 +15,7 @@ module:
   datetime: 0
   datetime_range: 0
   dblog: 0
+  dds_activity: 0
   dds_article: 0
   dds_badge: 0
   dds_content_link: 0
