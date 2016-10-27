@@ -631,6 +631,16 @@ function mungo_preprocess_views_view(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_links().
+ */
+function mungo_preprocess_links(&$variables) {
+  if ($variables['theme_hook_original'] == 'links__node') {
+    // Remove links to forward. This link is set directly in theme social_links.
+    unset($variables['links']['forward']);
+  }
+}
+
+/**
  * Implements hook_theme_suggestions_alter().
  *
  * We implement this alter to provide additional targeting options for the form
