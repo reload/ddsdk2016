@@ -5,9 +5,10 @@
  * Main theme-file for the Mungo theme.
  */
 
+use Drupal\Core\Link;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Template\Attribute;
 use Drupal\file\Entity\File;
-
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\Core\Form\FormStateInterface;
@@ -57,6 +58,29 @@ function mungo_preprocess_field(&$variables) {
       $variables['item_col_classes'][] = 'col-md-6';
     }
   }
+  if ($field_name == 'field_section') {
+
+    foreach ($variables['items'] as $key => &$item) {
+      /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+      $paragraph = $item['content']['#paragraph'];
+
+      // If the a 4col_deck paragraph is right after a herobanner. Set negative
+      // margin.
+      if (isset($herobannerfound) && $herobannerfound == TRUE && $paragraph->getType() == '4col_deck') {
+        /** @var Attribute $attributes */
+        if (!empty($paragraph->field_4col_deck_col1)) {
+          $entities = $paragraph->field_4col_deck_col1->referencedEntities();
+          $situation_link = reset($entities);
+          if ($situation_link->getType() == 'situation_links') {
+            $attributes = $variables['items'][$key]['attributes'];
+            $attributes->addClass('paragraph-set-negative-margin');
+          }
+        }
+      }
+      $herobannerfound = $paragraph->getType() == 'hero_banner' ? TRUE : FALSE;
+    }
+  }
+
 }
 
 /**
@@ -114,8 +138,10 @@ function mungo_preprocess_paragraph(&$variables) {
   if (empty($variables['paragraph']->getType())) {
     return;
   }
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $variables['paragraph'];
 
-  switch ($variables['paragraph']->getType()) {
+  switch ($paragraph->getType()) {
     case 'factbox':
       // Add a clean class to factboxes.
       $variables['attributes']['class'][] = 'factbox';
@@ -124,6 +150,11 @@ function mungo_preprocess_paragraph(&$variables) {
     case 'video':
       // Add a clean class to videos.
       $variables['attributes']['class'][] = 'media';
+      break;
+
+    case 'image':
+      // Add a clean class to videos.
+      $variables['attributes']['class'][] = 'fluid-media';
       break;
 
     case 'gallery':
@@ -136,6 +167,19 @@ function mungo_preprocess_paragraph(&$variables) {
       _mungo_preprocess_paragraph_content_link($variables);
       break;
 
+    case 'situation_links':
+      // Prepare properties for paragraph type situation links.
+      if ($paragraph->hasField('field_situation_main_link') && !(empty($paragraph->field_situation_main_link->getValue()))) {
+        $variables['content']['main_link'] = $paragraph->field_situation_main_link->getValue();
+      }
+      if ($paragraph->hasField('field_situation_color') && !empty($paragraph->field_situation_color->value)) {
+        $variables['attributes']['class'][] = 'situation-links-color-' . $paragraph->field_situation_color->value;
+      }
+      if ($paragraph->hasField('field_icon') && !empty($paragraph->field_icon->value)) {
+        $variables['content']['icon'] = _mungo_replace_title_with_svg($paragraph->field_icon->value);
+      }
+      break;
+
     case '1col_deck':
     case '2col_deck':
     case '3col_deck':
@@ -143,8 +187,6 @@ function mungo_preprocess_paragraph(&$variables) {
       _mungo_preprocess_deck_paragraph($variables['paragraph']->getType(), $variables);
       break;
   }
-  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
-  $paragraph = $variables['paragraph'];
   if ($paragraph->hasField('field_deck_color') && !empty($paragraph->field_deck_color->value)) {
     $variables['attributes']['class'][] = 'paragraphs--deck-color--' . $paragraph->field_deck_color->value;
   }
@@ -212,6 +254,75 @@ function mungo_preprocess_node(&$variables) {
     case 'section_page':
       _mungo_preprocess_section_page($node, $variables);
       break;
+
+    case 'badge':
+      _mungo_preprocess_node_badge($node, $variables);
+      break;
+  }
+}
+
+/**
+ * Prepare variables for badge node type.
+ */
+function _mungo_preprocess_node_badge(Node $node, &$variables) {
+  // Setup the top_image theme hook invocation.
+  $top_image = [
+    '#theme' => 'dds_top_image',
+    '#image' => empty($variables['content']['field_badge_cover_image']) ? NULL : $variables['content']['field_badge_cover_image'],
+  ];
+
+  $variables['top_image'] = $top_image;
+
+  // Add a level menu to badges.
+  if ($node->field_badge_type->value === DDS_BADGE_TYPE_PROGRESSION
+    && !empty($node->field_badge_progression)
+  ) {
+    // Pick out the progression term the node is associated with.
+    $progression_reference = $node->field_badge_progression->referencedEntities();
+    if (is_array($progression_reference)) {
+      /** @var Term $term */
+      $term = reset($progression_reference);
+
+      // Find all nodes that is in the progression.
+      $query = \Drupal::entityQuery('node')
+        ->condition('status', 1)
+        ->condition('type', 'badge')
+        ->condition('field_badge_progression.entity.tid', $term->tid->value);
+      $nids = $query->execute();
+
+      if (!empty($nids)) {
+        $nodes = Node::loadMultiple(array_values($nids));
+        dds_badge_sort_nodes_by_level($nodes);
+
+        $links = [];
+        foreach ($nodes as $linked_node) {
+          /** @var Node $linked_node */
+          /** @var OptionsProviderInterface $field_item */
+          $field_item = $linked_node->field_badge_level->get(0);
+          $option = $field_item->getPossibleOptions()[$field_item->value];
+
+          $link_option = [];
+          if ($linked_node->id() === $node->id()) {
+            $link_option = [
+              'attributes' => [
+                'class' => ['large-button-menu--button__active'],
+              ],
+            ];
+          }
+          /** @var \Drupal\Core\Url $url */
+          $url = $linked_node->toUrl();
+          $link_option += $url->getOptions();
+          $url->setOptions($link_option);
+          // @codingStandardsIgnoreStart
+          // We have to translate a variable.
+          $link_label = new TranslatableMarkup($option, [], ['context' => 'badge level']);
+          // @codingStandardsIgnoreEnd
+          $links[] = new Link($link_label, $url);
+        }
+
+        $variables['level_menu'] = $links;
+      }
+    }
   }
 }
 
@@ -238,7 +349,11 @@ function _mungo_preprocess_event(Node $node, &$variables) {
   }
 
   // Test if the fieldgroup "group_date_range is present.
-  if (!empty($variables['elements']['#fieldgroups']['group_date_range']) && $variables['view_mode'] === 'search_index') {
+  if (
+    $variables['view_mode'] === 'search_index'
+    && !empty($node->get('field_event_start')->value)
+    && !empty($node->get('field_event_end')->value)
+  ) {
     $variables['is_all_day'] = $node->get('field_event_is_all_day')->value;
     $variables['start_date'] = $node->get('field_event_start')->first()->get('date')->getValue()->getTimestamp();
     $variables['end_date'] = $node->get('field_event_end')->first()->get('date')->getValue()->getTimestamp();
@@ -388,18 +503,34 @@ function _mungo_preprocess_paragraph_content_link(&$variables) {
         $title = $link_title;
       }
 
+      // If this is a node-reference, process it's thumb.
       if (preg_match('#^entity:node/(?P<nid>\d+)$#', $uri_value, $matches)) {
         $node = Node::load($matches['nid']);
         if ($node->hasField('field_main_media')) {
-
           /** @var \Drupal\media_entity\Entity\Media $main_media */
           $main_media = $node->get('field_main_media')->first()->entity;
 
-          /** @var File $image_file */
-          $image_file = $main_media->get('field_image')->entity;
+          // Get the uri for the thumbnail of either an image or a video.
+          $thumbnail_uri = NULL;
+          if ($main_media->hasField('field_media_video_embed_field')) {
+            /** @var \Drupal\video_embed_field\ProviderManagerInterface $provider */
+            $provider_manager = \Drupal::service('video_embed_field.provider_manager');
+            $url = $main_media->field_media_video_embed_field->value;
 
-          $thumbnail = _mungo_render_image_with_style($image_file, 'thumbnail_4_3');
+            /** @var \Drupal\video_embed_field\ProviderPluginInterface $provider */
+            $provider = $provider_manager->loadProviderFromInput($url);
+            $provider->downloadThumbnail();
+            $thumbnail_uri = $provider->getLocalThumbnailUri();
+          }
+          elseif ($main_media->hasField('field_image')) {
+            /** @var File $image_file */
+            $image_file = $main_media->get('field_image')->entity;
 
+            $thumbnail_uri = $image_file->getFileUri();
+          }
+          if ($thumbnail_uri !== NULL) {
+            $thumbnail = _mungo_render_image_uri_with_style($thumbnail_uri, 'thumbnail_4_3');
+          }
         }
       }
     }
@@ -418,31 +549,52 @@ function _mungo_preprocess_paragraph_content_link(&$variables) {
 /**
  * Given an image file, produce a image_style render array for a style.
  */
-function _mungo_render_image_with_style(File $image_file, string $style) : array {
-  // Style the author image.
-  $image_style_vars = array(
-    'style_name' => $style,
-    'uri' => $image_file->getFileUri(),
-  );
+function _mungo_render_image_uri_with_style($uri, string $style) : array {
 
   // Load the image from the file so that we can know its size.
-  /** @var Image $image */
-  $image = \Drupal::service('image.factory')->get($image_file->getFileUri());
+  /** @var \Drupal\Core\Image\Image $image */
+  $image = \Drupal::service('image.factory')->get($uri);
+  if ($image->isValid()) {
+    $image_dimensions['width'] = $image->getWidth();
+    $image_dimensions['height'] = $image->getHeight();
+  }
+  else {
+    $image_dimensions['width'] = $image_dimensions['height'] = NULL;
+  }
+
+  // Setup render-array for the image.
+  return [
+    '#theme' => 'image_style',
+    '#width' => $image_dimensions['width'],
+    '#height' => $image_dimensions['height'],
+    '#style_name' => $style,
+    '#uri' => $uri,
+  ];
+}
+
+/**
+ * Given an image file, produce a responsive_image render array for a style.
+ */
+function _mungo_render_image_uri_with_responsive_style(string $uri, string $style) : array {
+  // Load the image from the file so that we can know its size.
+  /** @var \Drupal\Core\Image\Image $image */
+  $image = \Drupal::service('image.factory')->get($uri);
   if ($image->isValid()) {
     $image_style_vars['width'] = $image->getWidth();
     $image_style_vars['height'] = $image->getHeight();
   }
   else {
-    $image_style_vars['width'] = $image_style_vars['height'] = NULL;
+    // Required for the responsive image-style.
+    return NULL;
   }
 
-  // Setup render-array for the author image.
+  // Setup render-array for the image.
   return [
-    '#theme' => 'image_style',
+    '#theme' => 'responsive_image',
     '#width' => $image_style_vars['width'],
     '#height' => $image_style_vars['height'],
-    '#style_name' => $image_style_vars['style_name'],
-    '#uri' => $image_style_vars['uri'],
+    '#responsive_image_style_id' => $style,
+    '#uri' => $uri,
   ];
 }
 
@@ -488,6 +640,35 @@ function mungo_theme_suggestions_alter(array &$suggestions, array $variables, $h
       if (in_array($field_name, ['field_2col_deck_col1', 'field_2col_deck_col2'])) {
         $suggestions[] = $hook . '__' . $variables['element']['#entity_type'] . '__deckcolumn';
       }
+      break;
+
+    case 'bef_links':
+
+      // Attempt to find a usable machine-like name for the view via its
+      // path, and the name of the field being filtered on and add both as
+      // suggestions.
+      $base = $hook;
+      if (isset($variables['element']['#bef_path'])) {
+        /** @var Drupal\Core\Url $url */
+        $url = $variables['element']['#bef_path'];
+
+        // We assume the bef is attached to a view, in which case we can
+        // get a pretty good id out of the the route name.
+        // eg: view.badges.overview
+        // For a view named badges with a display named overview.
+        $route_name = $url->getRouteName();
+        if (!empty($route_name)) {
+          $route_path = str_replace('.', '_', $route_name);
+          $base = $hook . '__' . $route_path;
+          $suggestions[] = $base;
+        }
+      }
+
+      if (isset($variables['element']['#attributes']['name'])) {
+        $filter_name = $variables['element']['#attributes']['name'];
+        $suggestions[] = $base . '__' . $filter_name;
+      }
+
       break;
   }
 }
@@ -557,12 +738,15 @@ function _mungo_preprocess_deck_paragraph($type, &$variables) {
   }
   elseif ($type === '3col_deck') {
     foreach ($variables['cols'] as &$col) {
-      $col['#attributes']['class'][] = 'col-md-4';
+      $col['#attributes']['class'][] = 'col-sm-4';
     }
+    $variables['attributes']['class'][] = 'three-cols-deck';
   }
   elseif ($type === '4col_deck') {
     foreach ($variables['cols'] as &$col) {
       $col['#attributes']['class'][] = 'col-md-3';
+      $col['#attributes']['class'][] = 'col-sm-6';
     }
+    $variables['attributes']['class'][] = 'four-cols-deck';
   }
 }

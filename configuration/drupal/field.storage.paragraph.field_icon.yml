@@ -1,0 +1,45 @@
+uuid: dd14e23a-4060-41bd-91c4-8479a2e859c5
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_icon
+field_name: field_icon
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: diplom
+      label: Diplom
+    -
+      value: facebook
+      label: Facebook
+    -
+      value: instagram
+      label: Instagram
+    -
+      value: paere
+      label: Lightbulb
+    -
+      value: penge
+      label: Money
+    -
+      value: taske
+      label: Bag
+    -
+      value: twitter
+      label: Twitter
+    -
+      value: youtube
+      label: Youtube
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

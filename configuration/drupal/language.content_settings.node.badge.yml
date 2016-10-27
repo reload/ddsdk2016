@@ -1,0 +1,11 @@
+uuid: 696e3c2f-505e-49f5-839b-aef66854a2a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.badge
+id: node.badge
+target_entity_type_id: node
+target_bundle: badge
+default_langcode: site_default
+language_alterable: false

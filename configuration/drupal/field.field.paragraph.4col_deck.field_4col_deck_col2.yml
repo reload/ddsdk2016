@@ -1,11 +1,16 @@
 uuid: 76d23606-be7b-4c52-aae7-9b8a1d2221fd
-langcode: da
+langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_4col_deck_col2
     - paragraphs.paragraphs_type.4col_deck
     - paragraphs.paragraphs_type.block
+    - paragraphs.paragraphs_type.content_activity_reference
+    - paragraphs.paragraphs_type.content_article_reference
+    - paragraphs.paragraphs_type.content_badge_reference
+    - paragraphs.paragraphs_type.content_event_reference
+    - paragraphs.paragraphs_type.situation_links
     - paragraphs.paragraphs_type.text
     - paragraphs.paragraphs_type.video
   module:
@@ -27,6 +32,11 @@ settings:
       text: text
       video: video
       block: block
+      situation_links: situation_links
+      content_event_reference: content_event_reference
+      content_badge_reference: content_badge_reference
+      content_activity_reference: content_activity_reference
+      content_article_reference: content_article_reference
     target_bundles_drag_drop:
       text:
         enabled: true
@@ -73,4 +83,19 @@ settings:
       quotation:
         weight: -17
         enabled: false
+      situation_links:
+        enabled: true
+        weight: 17
+      content_event_reference:
+        enabled: true
+        weight: 20
+      content_badge_reference:
+        enabled: true
+        weight: 21
+      content_activity_reference:
+        enabled: true
+        weight: 26
+      content_article_reference:
+        enabled: true
+        weight: 27
 field_type: entity_reference_revisions

@@ -1,0 +1,155 @@
+<?php
+
+/**
+ * @file
+ * Functionallity related to the Badge content type and pages.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\node\Entity\Node;
+
+define('DDS_BADGE_TYPE_PROGRESSION', 'progression');
+define('DDS_BADGE_TYPE_SKILL', 'skill');
+
+
+define('DDS_BADGE_LEVEL_BASIC', 'basic');
+define('DDS_BADGE_LEVEL_INTERMEDIATE', 'intermediate');
+define('DDS_BADGE_LEVEL_EXPERT', 'expert');
+
+/**
+ * Implements hook_field_group_pre_render().
+ *
+ * Hide the progression field-group if the badge-type is not a progression.
+ */
+function dds_badge_field_group_pre_render(&$element, &$group, &$rendering_object) {
+  if ($group->group_name === 'group_progression') {
+    $element['#states'] = [
+      'invisible' => [
+        ':input[name="field_badge_type"]' => array('!value' => 'progression'),
+      ],
+    ];
+  }
+}
+
+/**
+ * Implements hook_field_widget_form_alter().
+ *
+ * Add a validation callback to the level and progression fields.
+ */
+function dds_badge_field_widget_form_alter(&$element, &$form_state, $context) {
+  if (isset($context['items'])
+    && in_array($context['items']->getName(), ['field_badge_progression', 'field_badge_level'])) {
+    $element['#element_validate'][] = '_dds_badge_progression_validate';
+  }
+}
+
+/**
+ * Validate fields that are depended on the badge-type being progression.
+ */
+function _dds_badge_progression_validate($element, FormStateInterface &$form_state, $form) {
+  // If the type of badge is progression, level and progression (term
+  // reference) are required. Set an error if we're missing a value.
+  $badge_type = $form_state->getValue('field_badge_type');
+  if ($badge_type === 'progression' || (is_array($badge_type) && isset($badge_type[0]['value']) && $badge_type[0]['value'] === 'progression')) {
+    if ($element['#name'] === 'field_badge_progression' && empty($form_state->getValue('field_badge_progression'))) {
+      $form_state->setError($element, t('Progression badges must be associated to a progression.'));
+    }
+
+    if ($element['#name'] === 'field_badge_level' && empty($form_state->getValue('field_badge_level'))) {
+      $form_state->setError($element, t('Progression badges must have a level.'));
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_presave().
+ *
+ * When saving badges, clear out the level and progression-reference fields
+ * if the type of badge is not progression.
+ */
+function dds_badge_entity_presave(EntityInterface $entity) {
+  if ($entity instanceof Node && $entity->getType() === 'badge') {
+    $badge_type = $entity->get('field_badge_type')->value;
+    if ($badge_type !== 'progression') {
+      if (!empty($entity->get('field_badge_progression')->referencedEntities())) {
+        $entity->set('field_badge_progression', NULL);
+      }
+      if (!empty($entity->get('field_badge_level')->value)) {
+        $entity->set('field_badge_level', NULL);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function dds_badge_preprocess_views_view(&$variables) {
+  // Override "all" lable for exposed filters.
+  $variables['exposed']['type']['#options']['All'] = new TranslatableMarkup('Any type', [], ['context' => 'Badge overview filter']);
+  $variables['exposed']['maalgruppe']['#options']['All'] = new TranslatableMarkup('Any', [], ['context' => 'Badge overview filter']);
+
+  // Add top-image with title/description configured in the theme.
+  $variables['top_image'] = [
+    '#theme' => 'dds_top_image',
+    '#title' => theme_get_setting('badge_page_title', 'mungo'),
+    '#subtitle' => theme_get_setting('badge_page_description', 'mungo'),
+    '#image_uri' => theme_get_setting('badge_cover_image_path', 'mungo'),
+  ];
+}
+
+/**
+ * Sort a list of nodes by their badge-level.
+ *
+ * The array will be sorted from lowest (basic) to highest level (expert).
+ *
+ * @param Node[] $nodes
+ *   Array of nodes, will be sorted by reference.
+ */
+function dds_badge_sort_nodes_by_level(&$nodes) {
+  if (!is_array($nodes) || count($nodes) === 0) {
+    return;
+  }
+
+  // Perform the sorting by level int value.
+  usort(
+    $nodes,
+    function ($a, $b) {
+      if (!empty($a->field_badge_level) && !empty($b->field_badge_level)) {
+        $a_val = $a->field_badge_level->get(0)->value;
+        $b_val = $b->field_badge_level->get(0)->value;
+
+        return dds_badge_level_to_int($a_val) <=> dds_badge_level_to_int($b_val);
+      }
+
+      // Fallback if we can't determine the level.
+      return 0;
+    }
+  );
+}
+
+/**
+ * Returns the integer-value for a badge level (basic:0 , intermediate: 1)
+ *
+ * @param string $level_name
+ *   Name of the level, eg "basic".
+ *
+ * @return int
+ *   The integer value, -1 if the level is unknown.
+ */
+function dds_badge_level_to_int($level_name) : int {
+  $level_map = [
+    DDS_BADGE_LEVEL_BASIC => 0,
+    DDS_BADGE_LEVEL_INTERMEDIATE => 1,
+    DDS_BADGE_LEVEL_EXPERT => 2,
+  ];
+
+  if (array_key_exists($level_name, $level_map)) {
+    return $level_map[$level_name];
+  }
+  else {
+    return -1;
+  }
+}

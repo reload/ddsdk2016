@@ -22,7 +22,7 @@ $config_directories = array(
 $settings['install_profile'] = 'standard';
 
 // Allow *.docker and *.ngrok.io domains
-$settings['trusted_host_patterns'] = ['^.*\.docker$', '.*\.ngrok\.io$'];
+$settings['trusted_host_patterns'] = ['^.*\.docker$', '.*\.ngrok\.io$', 'localhost'];
 
 // Assertions.
 assert_options(ASSERT_ACTIVE, TRUE);

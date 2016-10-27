@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * @file
+ * Functionality for articles.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+define('DDS_ARTICLE_ARTICLE_TYPE_SIMPLE', 'simple');
+define('DDS_ARTICLE_ARTICLE_TYPE_LONGREAD', 'long_read');
+define('DDS_ARTICLE_ARTICLE_TYPE_DEFAULT', 'default');
+
+/**
+ * Implements hook_form_alter().
+ */
+function dds_article_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  // Bail if the form is not related edit or creating an article.
+  if (!in_array($form_id, array('node_article_edit_form', 'node_article_form'))) {
+    return;
+  }
+
+  // Add custom validate for 'field_content_author'.
+  if (!empty($form['field_content_author'])) {
+    $form['#validate'][] = 'dds_article_node_article_edit_form_validate';
+  }
+}
+
+/**
+ * Custom validate for 'node_article form' and 'node_article_edit_form'.
+ */
+function dds_article_node_article_edit_form_validate(&$form, FormStateInterface $form_state) {
+
+  // Get user input.
+  $field_article_type = $form_state->getValue('field_article_type');
+  $field_content_author = $form_state->getValue('field_content_author');
+
+  // Set error if author is not sat and the article type is simple.
+  if (!isset($field_article_type[0]['value']) || ($field_article_type[0]['value'] !== DDS_ARTICLE_ARTICLE_TYPE_SIMPLE && empty($field_content_author))) {
+    $form_state->setError($form['field_content_author'], t('Content author is required!'));
+  }
+}

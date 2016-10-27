@@ -3,9 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.article.field_article_type
     - field.field.node.article.field_content_author
     - field.field.node.article.field_main_media
     - field.field.node.article.field_paragraphs
+    - field.field.node.article.field_sidedeck
     - field.field.node.article.field_subtitle
     - node.type.article
   module:
@@ -21,11 +23,16 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 3
+    weight: 4
     settings: {  }
     third_party_settings: {  }
-  field_content_author:
+  field_article_type:
     weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_content_author:
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -43,7 +50,17 @@ content:
     type: inline_entity_form_complex
   field_paragraphs:
     type: entity_reference_paragraphs
-    weight: 6
+    weight: 8
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+    third_party_settings: {  }
+  field_sidedeck:
+    type: entity_reference_paragraphs
+    weight: 26
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -52,7 +69,7 @@ content:
       form_display_mode: default
     third_party_settings: {  }
   field_subtitle:
-    weight: 5
+    weight: 7
     settings:
       rows: 5
       placeholder: ''
@@ -60,12 +77,12 @@ content:
     type: string_textarea
   langcode:
     type: language_select
-    weight: 2
+    weight: 5
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 4
+    weight: 6
     settings: {  }
     third_party_settings: {  }
   title:

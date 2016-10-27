@@ -1,0 +1,5 @@
+name: DDS Badge
+description: Functionality related to badges.
+type: module
+package: DDS
+core: 8.x

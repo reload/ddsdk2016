@@ -1,0 +1,32 @@
+uuid: edca0b9b-e759-456d-bd8a-db444b47540b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.without_meta
+    - field.field.media.image.field_byline
+    - field.field.media.image.field_caption
+    - field.field.media.image.field_image
+    - image.style.thumbnail
+    - media_entity.bundle.image
+  module:
+    - image
+id: media.image.without_meta
+targetEntityType: media
+bundle: image
+mode: without_meta
+content:
+  field_image:
+    weight: 0
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+hidden:
+  created: true
+  field_byline: true
+  field_caption: true
+  langcode: true
+  name: true
+  uid: true

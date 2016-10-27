@@ -1,0 +1,6 @@
+uuid: 7b9badf1-e510-4fef-9657-479e80a04819
+langcode: en
+status: true
+dependencies: {  }
+id: content_badge_reference
+label: 'Content: Badge reference'

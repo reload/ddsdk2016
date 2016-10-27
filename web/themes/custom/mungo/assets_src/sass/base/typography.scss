@@ -18,11 +18,7 @@ h1.page-title {
 }
 
 .article-text {
-  font-size: 15px;
-  line-height: 2;
-  @include media-medium {
-    font-size: 17px;
-  }
+  @include article-text;
 
   &.subtitle {
     font-size: 16px;
@@ -48,3 +44,6 @@ h1.page-title {
 .page-title {
   @include page-title;
 }
+
+/*  Base heading styles.
+    ------------------------------------------------------- */

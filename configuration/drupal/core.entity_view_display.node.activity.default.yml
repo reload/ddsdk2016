@@ -1,0 +1,41 @@
+uuid: 9888d88c-db20-43b2-9366-b4e769d2851d
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.node.activity.field_activity_id
+    - field.field.node.activity.field_main_media
+    - field.field.node.activity.field_subtitle
+    - node.type.activity
+  module:
+    - user
+id: node.activity.default
+targetEntityType: node
+bundle: activity
+mode: default
+content:
+  field_activity_id:
+    weight: 103
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+  field_main_media:
+    weight: 102
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_subtitle:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  links:
+    weight: 100
+hidden:
+  langcode: true

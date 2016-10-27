@@ -15,3 +15,51 @@
     }
   }
 }
+
+
+
+
+.node-teaser {
+  transition: all 0.3s;
+  border-bottom: 5px solid #fff;
+  &:hover {
+    text-decoration: none;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    border-bottom: 5px solid $bluish;
+    img {
+      @include filter(brightness(80%));
+    }
+
+  }
+  background-color: #fff;
+  display: block;
+
+  .main-media {
+    margin: 0;
+    border: 0 none;
+  }
+  // Indent content that is not image.
+  &--content-container {
+    color: #000;
+    padding: $spacing-medium;
+  }
+
+  // Fields.
+  &--heading {
+    @include list-heading-medium;
+  }
+  &--keyword {
+    @include pre-title;
+  }
+  &--read-more {
+    @include blue-arrowed-read-more;
+  }
+}
+
+.four-cols-deck .node-teaser--heading {
+  // default
+}
+.three-cols-deck .node-teaser--heading {
+  @include list-heading-large;
+}
+

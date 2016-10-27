@@ -74,68 +74,77 @@
 {% block title %}
 {% endblock %}
 {% block content %}
-  <div class="search-result__image">
-    {{ content.field_main_media }}
-  </div>
-  <div class="search-result__content">
-    <div class="search-result__header">
-      <div class="search-result__event__type">
-        {{ content.field_event_type }}
-      </div>
-      <div class="search-result__title">
-        <h2{{ title_attributes }}>
-          {{ label }}
-        </h2>
-      </div>
-      <div class="search-result__teaser">
-        {{ content.field_event_teaser }}
-      </div>
+  <a href="{{ url }}">
+    <div class="search-result__image">
+      {{ content.field_main_media }}
     </div>
-    <div class="search-result__meta-data">
-      <div class="row">
-        <div class="search-result__meta-data__item search-result__event__date_range col-sm-6">
-          <span class="search_result__label">
-            {% trans with {'context': 'events'} %}
-              Date
-            {% endtrans %}
-          :</span>
-          {# If the date is on the same day #}
-          {% if (start_date|date('Ymd') == end_date|date('Ymd')) %}
-            {{ start_date|date('d. F') }}
-          {# If the date is within the same month #}
-          {% elseif (start_date|date('Ym') == end_date|date('Ym')) %}
-            {{ start_date|date('d') }}-{{ end_date|date('d. F Y') }}
-          {# Default #}
-          {% else %}
-            {{ start_date|date('d. F Y') }} - {{ end_date|date('d. F Y') }}
-          {% endif %}
-          {# If event is an all day event #}
-          {% if (is_all_day) %}
-            {% trans with {'context': 'events'} %}
-              <span class="search-result__all_day">(All day event)</span>
-            {% endtrans %}
-          {% endif %}
+    <div class="search-result__content">
+      <div class="search-result__header">
+        <div class="search-result__event__type">
+          {{ content.field_event_type }}
         </div>
-        <div class="search-result__meta-data__item search-result__event__location col-sm-6">
-          <span class="search_result__label">
-            {% trans with {'context': 'events'} %}
-              Location
-            {% endtrans %}
-          :</span>
-          {{ content.field_event_location_name }}
+        <div class="search-result__title">
+          <h2{{ title_attributes }}>
+            {{ label }}
+          </h2>
+        </div>
+        <div class="search-result__teaser">
+          {{ content.field_event_teaser }}
         </div>
       </div>
-      <div class="row">
-        <div class="search-result__meta-data__item search-result__event__price col-sm-6">
-          <span class="search_result__label">
-            {% trans with {'context': 'events'} %}
-              Price
-            {% endtrans %}
-          :</span>
-          <span>{{ content.field_event_price }}<span>
-        </div>
-      </div>
-    </div>
-  </div>
+      <div class="search-result__meta-data">
+        <div class="row">
+          {% if start_date is not empty %}
+            <div class="search-result__meta-data__item search-result__event__date_range col-sm-6">
+              <span class="search_result__label">
+                {% trans with {'context': 'events'} -%}Date{%- endtrans %}:</span>
+              {# If the date is on the same day #}
+              {% if (start_date|date('Ymd') == end_date|date('Ymd')) %}
 
+                {% if (is_all_day) %}
+                  {{ start_date|format_date('event_date_long') }}
+                {% else %}
+                  {# Display time if it is not an all-day event #}
+                  {{ start_date|format_date('event_date_long_time') }}
+                {% endif %}
+
+
+              {# If the date is within the same month #}
+              {% elseif (start_date|date('Ym') == end_date|date('Ym')) %}
+                {{ start_date|format_date('event_date_only') }}-{{ end_date|format_date('event_date_long_year') }}
+              {# Default #}
+              {% else %}
+                {{ start_date|format_date('event_date_long_year') }} - {{ end_date|format_date('event_date_long_year') }}
+              {% endif %}
+              {# If event is an all day event #}
+              {% if (is_all_day) %}
+                {% trans with {'context': 'events'} -%}
+                <span class="search-result__all_day">(All day event)</span>
+                {%- endtrans %}
+              {% endif %}
+            </div>
+          {% endif %}
+          {% if node.field_event_location_name.value %}
+            <div class="search-result__meta-data__item search-result__event__location col-sm-6">
+              <span class="search_result__label">
+                {% trans with {'context': 'events'} -%}Location{%- endtrans %}:</span>
+              {{ content.field_event_location_name }}
+            </div>
+          {% endif %}
+        </div>
+        <div class="row">
+          {% if node.field_event_price.value %}
+            <div class="search-result__meta-data__item search-result__event__price col-sm-6">
+              <span class="search_result__label">
+                {% trans with {'context': 'events'} -%}Price{%- endtrans %}:
+              </span>
+              <span>
+                {{ content.field_event_price }}
+              <span>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </a>
 {% endblock %}

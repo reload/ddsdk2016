@@ -1,0 +1,6 @@
+uuid: 37321eb0-2f25-4756-b5ef-69c8d69103da
+langcode: en
+status: true
+dependencies: {  }
+id: content_event_reference
+label: 'Content: Event reference'

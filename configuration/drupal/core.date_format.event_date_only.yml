@@ -1,0 +1,8 @@
+uuid: cf156b40-7bf0-4226-8057-bba10723fb4b
+langcode: en
+status: true
+dependencies: {  }
+id: event_date_only
+label: 'Event - Date only'
+locked: false
+pattern: d

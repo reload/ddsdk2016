@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Theme a exposted filter on the badge overview as a button menu.
+ */
+ #}
+
+{% set classes = [
+'large-button-menu',
+] %}
+<div{{ attributes.addClass(classes) }}>
+  {% for child in children %}
+    {% set classes = ['large-button-menu--button'] %}
+    {% set item = attribute(element, child)|merge({'#attributes': {'class': classes}}) %}
+    {% if child in selected %}
+      {% set classes = classes|merge(['large-button-menu--button__active']) %}
+      {% set item = item|merge({'#attributes': {'class': classes}}) %}
+    {% endif %}
+    {{ item }}
+  {% endfor %}
+</div>

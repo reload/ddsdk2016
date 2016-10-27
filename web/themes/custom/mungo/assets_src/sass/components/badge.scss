@@ -1,0 +1,62 @@
+/**
+ * Theming of badge related view modes.
+ */
+
+ /*  Node badge - view mode full.
+    ------------------------------------------------------- */
+.node--type-badge.node--view-mode-full {
+
+  padding: 50px 0;
+
+  // Remove border from main media.
+  .main-media {
+    border: none;
+  }
+
+  // Style all field labels this way.
+  .field__label {
+    @include list-heading-medium;
+  }
+}
+
+.node--type-badge__title {
+  @include list-heading-xlarge;
+}
+
+.field--name-field-badge-type  {
+  @include pre-title;
+}
+
+.node--type-badge__target-group {
+
+  h2 {
+    margin: 5px 0 20px;
+  }
+
+  a {
+    @include article-text;
+    @include reset-link;
+  }
+}
+
+.field--name-field-badge-summary {
+  @include article-text;
+}
+
+// Make items equal height with flexbox, and align them
+// vertical center.
+.node--type-badge__header {
+  align-items: center;
+  justify-content: center;
+}
+
+.node--type-badge__aside {
+
+  &__inner {
+    // Insert aside styling here.
+  }
+}
+
+.article-wrapper {
+  background-color: white;
+}

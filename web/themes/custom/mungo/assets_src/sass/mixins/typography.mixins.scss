@@ -30,7 +30,6 @@
 /* Liste Rubrik - small */
 @mixin list-heading-small {
   font-family: $std-font;
-
   letter-spacing: 0.2px;
   color: $black;
   font-weight: bold;
@@ -41,20 +40,44 @@
 }
 /* Liste Rubrik - medium */
 @mixin list-heading-medium {
+  font-family: $std-font;
+  font-size: 18px;
+  font-weight: bold;
+  color: $black;
+  letter-spacing: 0.3px;
 
+  @include media-small {
+    font-size: 20px;
+  }
 }
 /* Liste Rubrik - large */
 @mixin list-heading-large {
-  font-size: 21px;
+  font-family: $std-font;
+  font-size: 31px;
   font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.38;
+  color: $black;
   letter-spacing: 0.3px;
+
+  @include media-small {
+    font-size: 33px;
+  }
 }
 /* Liste Rubrik - extra large */
 @mixin list-heading-xlarge {
+  font-family: $std-font;
+  font-size: 22px;
+  font-weight: bold;
+  color: $black;
+  letter-spacing: 0.3px;
+  line-height: 1.17;
 
+  @include media-small {
+    font-size: 33px;
+  }
+
+  @include media-large {
+    font-size: 46px;
+  }
 }
 
 /* Alternativ Rubrik - small */
@@ -75,12 +98,16 @@
 }
 /* Alternativ Rubrik - large */
 @mixin feature-heading-large {
-
+  font-family: $feature-font;
+  font-size: 50px;
+  letter-spacing: 1px;
 }
 
 /* Alternativ Rubrik - extra large */
 @mixin feature-heading-xlarge {
-
+  font-family: $feature-font;
+  font-size: 70px;
+  letter-spacing: 1.5px;
 }
 
 /* emneord, link, button */
@@ -88,10 +115,18 @@
   text-transform: uppercase;
 }
 
+/* Emneord */
+@mixin pre-title {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.3px;
+  color: $warm-grey;
+  text-transform: uppercase;
+}
+
 /* Quote */
 @mixin quote-text {
   font-family: $feature-font;
-
   font-size: 17px;
   line-height: 1.65;
   letter-spacing: 0.8px;
@@ -103,9 +138,7 @@
   font-family: $std-font;
   font-size: 15px;
   letter-spacing: 1.1px;
-
   font-weight: normal;
-
   color: $warm-grey;
 
   @include media-small {
@@ -132,8 +165,32 @@
   color: $black;
 }
 
+@mixin article-text {
+  font-size: 15px;
+  line-height: 2;
+  color: $black;
+  @include media-medium {
+    font-size: 17px;
+  }
+}
+
+@mixin reset-link {
+  color: $black;
+  text-decoration: none;
+  font-weight: normal;
+}
+
 @mixin capitalized-menu-item {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.3px;
+}
+
+@mixin blue-arrowed-read-more {
+  @include pre-title;
+  color: $bluish;
+  font-weight: 600;
+  &:after {
+    content: " \2192";
+  }
 }

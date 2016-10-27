@@ -1,0 +1,28 @@
+uuid: b51bf5c0-127e-4f40-a144-6e6ddbc43658
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content_reference
+    - node.type.article
+    - paragraphs.paragraphs_type.content_article_reference
+id: paragraph.content_article_reference.field_content_reference
+field_name: field_content_reference
+entity_type: paragraph
+bundle: content_article_reference
+label: 'Content Reference'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      article: article
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,30 @@
+uuid: dcd5a744-8f92-4e29-8f68-56dd546669c1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_badge_level
+field_name: field_badge_level
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: basic
+      label: Basic
+    -
+      value: intermediate
+      label: Intermediate
+    -
+      value: expert
+      label: Expert
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

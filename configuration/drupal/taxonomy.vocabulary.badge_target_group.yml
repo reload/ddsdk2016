@@ -1,0 +1,9 @@
+uuid: 346ed649-b7d2-46e8-8651-daadb98f4b18
+langcode: en
+status: true
+dependencies: {  }
+name: 'Badge target group'
+vid: badge_target_group
+description: ''
+hierarchy: 0
+weight: 0

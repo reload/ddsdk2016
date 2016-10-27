@@ -140,6 +140,8 @@ header.header-fixed {
       }
       input.form-search {
         box-sizing: border-box;
+        -webkit-appearance: none;
+        border-radius: 0;
         padding: $spacing-small;
         height: 47px;
         @include media-medium {

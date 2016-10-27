@@ -1,0 +1,19 @@
+uuid: 84af1a33-98d5-4370-9172-7258f15cf47a
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+id: paragraph.field_situation_main_link
+field_name: field_situation_main_link
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
