@@ -4,7 +4,7 @@
  */
 
 (function ($, Drupal) {
-  Drupal.behaviors.mungoProgram = {
+  Drupal.behaviors.articleSharePopup = {
     attach: function (context, settings) {
       // Handle popups.
       $('.share-popup .popup', context).on({
