@@ -71,39 +71,31 @@
  */
 #}
 {%
-  set classes = [
-    'node',
-    'node--type-' ~ node.bundle|clean_class,
-    node.isPromoted() ? 'node--promoted',
-    node.isSticky() ? 'node--sticky',
-    not node.isPublished() ? 'node--unpublished',
-    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-    'node-teaser',
-    'node-teaser--' ~ node.bundle|clean_class,
-  ]
+set classes = [
+'node',
+'node--type-' ~ node.bundle|clean_class,
+node.isPromoted() ? 'node--promoted',
+node.isSticky() ? 'node--sticky',
+not node.isPublished() ? 'node--unpublished',
+view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+'node-teaser',
+'node-teaser--' ~ node.bundle|clean_class,
+]
 %}
-
-{%
-  set layout_classes = [
-    'col-md-12',
-    'col-sm-6',
-    'col-xs-12',
-  ]
-%}
-
 {{ attach_library('classy/node') }}
 
-<div{{ layout_attributes.addClass(layout_classes) }}>
-  <article{{ attributes.addClass(classes) }}>
-    <div class="col-xs-3">
-      {% include 'themes/custom/mungo/assets_src/images/Ikoner_DDS_DK_ikon_download.svg' %}
+<article{{ attributes.addClass(classes) }} href="{{ url }}">
+
+    <div class="node-teaser--download--icon">
+        {% include 'themes/custom/mungo/assets_src/images/Ikoner_DDS_DK_ikon_download.svg' %}
     </div>
-    <div class="col-xs-9">
-      <h2 class="node-teaser--heading node-teaser--heading--download">
-        {{ label }}
-      </h2>
-      <a class="node-teaser--download--link" href="{{ file_url }}">{{ 'Download'|trans }}</a>
-      <a class="node-teaser--download--link node-teaser--download--send-mail" href="{{ mail_url }}">{{ 'Send by mail'|trans }}</a>
+
+    <div class="node-teaser--content-container">
+        <h2 class="node-teaser--heading">
+            {{ label }}
+        </h2>
+
+        <a class="node-teaser--download--link" href="{{ file_url }}">{{ 'Download'|trans }}</a>
+        <a class="node-teaser--download--link node-teaser--download--send-mail" href="{{ mail_url }}">{{ 'Send by mail'|trans }}</a>
     </div>
-  </article>
-</div>
+</article>

@@ -2,7 +2,7 @@
  * Download content type and teasers.
  */
 
-/*  Node download teaser.
+/*  Node download list-teaser.
     ------------------------------------------------------- */
 .node-teaser--download {
   padding: 15px 0;
@@ -53,4 +53,12 @@
 
 .node-teaser--download--send-mail {
   float: right;
+}
+
+/*  Node download teaser.
+    ------------------------------------------------------- */
+.node-teaser--download--icon {
+  max-width: 100px;
+  width: 100%;
+  margin: 20px auto 0;
 }
