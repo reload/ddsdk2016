@@ -4,10 +4,11 @@
  * Theme for share-icons.
  */
 #}
+{{ attach_library('mungo/share-popup') }}
 
-<ul class="share--icons">
-    <li><a href="{{ facebook_link }}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-    <li><a href="{{ twitter_link }}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+<ul class="share--icons share-popup">
+    <li><a href="{{ facebook_link }}" class="popup"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+    <li><a href="{{ twitter_link }}" class="popup"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
     <li><a href="{{ forward_link }}"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
-    <li><a href="#"><i class="fa fa-print" aria-hidden="true"></i></a></li>
+    <li><a href="#" class="print"><i class="fa fa-print" aria-hidden="true"></i></a></li>
 </ul>
