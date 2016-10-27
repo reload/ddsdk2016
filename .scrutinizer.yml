@@ -1,13 +1,11 @@
 checks:
   php:
     code_rating: true
-    excluded_dependencies:
-      - drupal/core
 
 build:
   environment:
-    php: '7.0.6'
-    node: 'v4.2.2'
+    php: '7.0.8'
+    node: 'v6.2.0'
     # Disable default dependencies - we where getting postgresql and redis.
     postgresql: false
     redis: false
