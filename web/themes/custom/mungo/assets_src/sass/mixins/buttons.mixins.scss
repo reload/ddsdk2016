@@ -33,5 +33,29 @@
   } @else if $state == 'active' {
     background-color: $light-navy;
   }
+}
 
+// Style links as squared buttons as long as they are somewhat short.
+@mixin squared-blue-button ($state: 'inactive') {
+  color: white;
+  display: inline-block;
+
+  @include capitalized-small-text;
+
+  text-decoration: none;
+
+  // Make the buttons square for short links.
+  min-width: $spacing-medium * 2;
+  padding: $spacing-small;
+
+  @if $state == 'inactive' {
+    background-color: $bluish;
+
+    &:hover {
+      background-color: $light-navy;
+    }
+
+  } @else if $state == 'active' {
+    background-color: $light-navy;
+  }
 }
