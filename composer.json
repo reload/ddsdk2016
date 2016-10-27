@@ -38,7 +38,8 @@
         "drupal/search_api": "^8",
         "drupal/admin_toolbar": "^8",
         "drupal/better_exposed_filters": "^8",
-        "drupal/twig_xdebug": "^8"
+        "drupal/twig_xdebug": "^8",
+        "drupal/forward": "^8.1"
     },
     "require-dev": {
         "behat/mink": "~1.7",

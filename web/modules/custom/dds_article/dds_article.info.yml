@@ -3,3 +3,5 @@ description: Provides functionallity articles.
 type: module
 package: DDS
 core: 8.x
+dependencies:
+  - forward

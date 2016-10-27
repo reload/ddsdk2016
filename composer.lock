@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "75cd0eea8f311f0068ea5e4813b14057",
-    "content-hash": "95e8ce594bac9f63301492000f28a18b",
+    "hash": "e9dffb4b67eb270a9d0bb781ddf6690a",
+    "content-hash": "e6fc8df595e660a11eb02b1d28a196b6",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -1997,6 +1997,45 @@
             "time": "2015-12-10 12:36:16"
         },
         {
+            "name": "drupal/forward",
+            "version": "8.1.7",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/forward",
+                "reference": "10e8b3a1695d07325c38e7bd64dbb0a30927cb45"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/forward-8.x-1.7.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "drupal/core": "8.*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-8.x-1.x": "8.1.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.drupal-composer.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "John Oltman",
+                    "email": "developer@sitebasin.com",
+                    "homepage": "https://www.drupal.org/u/john.oltman",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Forward pages and other site elements to a friend",
+            "homepage": "http://drupal.org/project/forward",
+            "time": "2016-04-23 16:49:32"
+        },
+        {
             "name": "drupal/inline_entity_form",
             "version": "8.1.0-alpha6",
             "source": {
@@ -2169,6 +2208,9 @@
             "extra": {
                 "branch-alias": {
                     "dev-8.x-1.x": "8.1.x-dev"
+                },
+                "patches_applied": {
+                    "2675136: Support field-groups": "https://www.drupal.org/files/issues/2675136-14.patch"
                 }
             },
             "notification-url": "https://packagist.drupal-composer.org/downloads/",
@@ -2346,7 +2388,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/twig_xdebug-8.x-1.0.zip",
-                "reference": null,
+                "reference": "89bb68cbcc869a5795b8e3bc9b395554f752b601",
                 "shasum": null
             },
             "require": {
@@ -5721,7 +5763,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/coder-8.x-2.9.zip",
-                "reference": "b08682bd939cf7d3ac7034bee792aa17f80e19d7",
+                "reference": null,
                 "shasum": null
             },
             "require": {

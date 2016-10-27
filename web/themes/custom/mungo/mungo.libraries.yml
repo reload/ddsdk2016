@@ -23,6 +23,13 @@ program:
     - core/jquery
     - core/drupal
 
+share-popup:
+  version: 0.1
+  js:
+    assets/js/share-popup.js : {}
+  dependencies:
+      - core/jquery
+      - core/drupal
 exposed-filters:
   version: 0.1
   js:
