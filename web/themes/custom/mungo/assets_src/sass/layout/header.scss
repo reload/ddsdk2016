@@ -31,6 +31,16 @@ body .layout-container {
 
 header.header-fixed {
 
+  .menu--top-menu {
+    ul {
+      margin-right: 0;
+    }
+    li{
+      display: inline-block;
+      margin-left: $spacing-medium;
+    }
+  }
+
   > div {
     height: 70px;
 
