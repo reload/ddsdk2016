@@ -2,7 +2,7 @@
  * Download content type and teasers.
  */
 
-/*  Node download teaser.
+/*  Node download list-teaser.
     ------------------------------------------------------- */
 .node-teaser--download {
   padding: 15px 0;
@@ -25,6 +25,38 @@
     border: none;
     box-shadow: none;
   }
+
+  // We set this here because i should have the same behaviour cross
+  // all devices.
+  &--link {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: $bluish;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  &--icon {
+    max-width: 100px;
+    width: 100%;
+    margin: 20px auto 0;
+
+    &--list-teaser {
+      max-width: 37px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0;
+    }
+  }
+
+  &--send-mail {
+    float: right;
+  }
 }
 
 .node-teaser--heading--download {
@@ -36,21 +68,5 @@
   text-overflow: ellipsis;
 }
 
-// We set this here because i should have the same behaviour cross
-// all devices.
-.node-teaser--download--link {
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: $bluish;
 
-  &:hover {
-    text-decoration: underline;
-    cursor: pointer;
-  }
-}
 
-.node-teaser--download--send-mail {
-  float: right;
-}
