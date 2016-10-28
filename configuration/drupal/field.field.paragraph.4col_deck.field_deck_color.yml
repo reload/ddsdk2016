@@ -1,0 +1,21 @@
+uuid: 80b07269-e4a5-4d03-96a5-10f9c2dc86d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_deck_color
+    - paragraphs.paragraphs_type.4col_deck
+  module:
+    - options
+id: paragraph.4col_deck.field_deck_color
+field_name: field_deck_color
+entity_type: paragraph
+bundle: 4col_deck
+label: 'Deck color'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

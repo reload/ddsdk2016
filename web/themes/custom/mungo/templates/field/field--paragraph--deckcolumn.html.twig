@@ -43,13 +43,13 @@ label_display == 'visually_hidden' ? 'visually-hidden',
 
 {% if label_hidden %}
   {% if multiple %}
-    <div{{ attributes.addClass(classes, 'field__items') }}>
+    <div{{ attributes }}>
         {# Wrap the items in a row if they have column classes#}
         {% if item_col_classes %}
           <div class="row">
         {% endif %}
         {% for item in items %}
-            <div{{ item.attributes.addClass('field__item', item_col_classes) }}>{{ item.content }}</div>
+            {{ item.content }}
         {% endfor %}
         {% if item_col_classes %}
           </div>
@@ -61,7 +61,7 @@ label_display == 'visually_hidden' ? 'visually-hidden',
       <div class="row">
     {% endif %}
     {% for item in items %}
-        <div{{ attributes.addClass(classes, 'field__item', item_col_classes) }}>{{ item.content }}</div>
+        {{ item.content }}
     {% endfor %}
     {% if item_col_classes %}
       </div>
