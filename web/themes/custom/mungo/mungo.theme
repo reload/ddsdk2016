@@ -171,8 +171,10 @@ function mungo_preprocess_paragraph(&$variables) {
       // Prepare properties for paragraph type situation links.
       if ($paragraph->hasField('field_situation_main_link') && !(empty($paragraph->field_situation_main_link->getValue()))) {
         $link = $paragraph->field_situation_main_link->getValue();
-        $variables['content']['main_link']['text'] = $link[0]['title'];
-        $variables['content']['main_link']['link'] = Url::fromUri($link[0]['uri']);
+        if (!empty($link[0])) {
+          $variables['content']['main_link']['text'] = $link[0]['title'];
+          $variables['content']['main_link']['link'] = Url::fromUri($link[0]['uri']);
+        }
       }
       if ($paragraph->hasField('field_situation_color') && !empty($paragraph->field_situation_color->value)) {
         $variables['attributes']['class'][] = 'situation-links-color-' . $paragraph->field_situation_color->value;
