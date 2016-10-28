@@ -1,0 +1,14 @@
+uuid: e9e3a85a-cccc-42a7-9e56-88f8fdb20a05
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.content_topic
+id: taxonomy_term.content_topic.default
+targetEntityType: taxonomy_term
+bundle: content_topic
+mode: default
+content: {  }
+hidden:
+  description: true
+  langcode: true

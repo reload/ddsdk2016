@@ -1,0 +1,22 @@
+uuid: bfa49769-36c0-498c-b2f2-5a42f2bbab80
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.content_target_group
+id: taxonomy_term.content_target_group.default
+targetEntityType: taxonomy_term
+bundle: content_target_group
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  langcode: true
+  path: true

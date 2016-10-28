@@ -1,0 +1,9 @@
+uuid: 6f6cc4a8-d4db-43b0-87ab-2458bf48f4bf
+langcode: en
+status: true
+dependencies: {  }
+name: 'Content category'
+vid: content_category
+description: 'Category for most content on the site.'
+hierarchy: 0
+weight: 0

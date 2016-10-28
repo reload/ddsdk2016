@@ -1,0 +1,9 @@
+uuid: 75d049ce-b87a-4ee0-8b43-3a25b930ba0b
+langcode: en
+status: true
+dependencies: {  }
+name: 'Content target group'
+vid: content_target_group
+description: 'Target group for content (anything but badges)'
+hierarchy: 0
+weight: 0
