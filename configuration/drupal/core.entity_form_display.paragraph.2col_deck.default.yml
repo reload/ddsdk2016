@@ -6,22 +6,43 @@ dependencies:
     - field.field.paragraph.2col_deck.field_2col_column_size
     - field.field.paragraph.2col_deck.field_2col_deck_col1
     - field.field.paragraph.2col_deck.field_2col_deck_col2
+    - field.field.paragraph.2col_deck.field_deck_color
+    - field.field.paragraph.2col_deck.field_deck_link
+    - field.field.paragraph.2col_deck.field_deck_title
     - paragraphs.paragraphs_type.2col_deck
   module:
+    - field_group
+    - link
     - paragraphs
+third_party_settings:
+  field_group:
+    group_deck_settings:
+      children:
+        - field_deck_title
+        - field_deck_link
+        - field_deck_color
+      parent_name: ''
+      weight: 0
+      label: 'Deck settings'
+      format_type: details
+      format_settings:
+        open: false
+        required_fields: true
+        classes: ''
+        id: ''
 id: paragraph.2col_deck.default
 targetEntityType: paragraph
 bundle: 2col_deck
 mode: default
 content:
   field_2col_column_size:
-    weight: 2
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: options_select
   field_2col_deck_col1:
     type: entity_reference_paragraphs
-    weight: 0
+    weight: 2
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -31,7 +52,7 @@ content:
     third_party_settings: {  }
   field_2col_deck_col2:
     type: entity_reference_paragraphs
-    weight: 1
+    weight: 3
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -39,6 +60,25 @@ content:
       add_mode: dropdown
       form_display_mode: default
     third_party_settings: {  }
+  field_deck_color:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_deck_link:
+    weight: 2
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  field_deck_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
 hidden:
   created: true
   status: true
