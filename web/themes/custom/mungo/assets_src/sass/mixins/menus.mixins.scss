@@ -22,6 +22,10 @@
     position: absolute !important;
     top: 23px;
     right: 10px;
+    &:before, 
+    &:after {
+      left: 0;
+    }
 
     @include burger(30px, 3px, 7px, $bluish);
     @include media-small {
