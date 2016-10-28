@@ -87,7 +87,7 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
 <article{{ attributes.addClass(classes) }} href="{{ url }}">
 
     <div class="node-teaser--download--icon">
-        {% include 'themes/custom/mungo/assets_src/images/Ikoner_DDS_DK_ikon_download.svg' %}
+        {{ svg_icon|raw }}
     </div>
 
     <div class="node-teaser--content-container">

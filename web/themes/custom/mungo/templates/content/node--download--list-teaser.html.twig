@@ -78,8 +78,8 @@
     node.isSticky() ? 'node--sticky',
     not node.isPublished() ? 'node--unpublished',
     view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-    'node-teaser',
     'node-teaser--' ~ node.bundle|clean_class,
+    'node-teaser--' ~ node.bundle|clean_class  ~ '--list-teaser'
   ]
 %}
 
@@ -96,7 +96,9 @@
 <div{{ layout_attributes.addClass(layout_classes) }}>
   <article{{ attributes.addClass(classes) }}>
     <div class="col-xs-3">
-      {% include 'themes/custom/mungo/assets_src/images/Ikoner_DDS_DK_ikon_download.svg' %}
+      <div class="node-teaser--download--icon node-teaser--download--icon--list-teaser">
+          {{ svg_icon|raw }}
+      </div>
     </div>
     <div class="col-xs-9">
       <h2 class="node-teaser--heading node-teaser--heading--download">
