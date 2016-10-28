@@ -1,0 +1,9 @@
+uuid: f6f6cb24-3efd-4840-bf80-8664fc81bf34
+langcode: en
+status: true
+dependencies: {  }
+name: 'Content tag'
+vid: content_tag
+description: 'Tags used for internal search and filtering'
+hierarchy: 0
+weight: 0

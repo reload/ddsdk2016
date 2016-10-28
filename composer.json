@@ -13,6 +13,21 @@
         {
             "type": "composer",
             "url": "https://packagist.drupal-composer.org"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "drmonty/chosen",
+                "version": "1.6.1",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/harvesthq/chosen/releases/download/v1.6.1/chosen_v1.6.1.zip",
+                    "type": "zip"
+                },
+                "require": {
+                    "composer/installers": "~1.0"
+                }
+            }
         }
     ],
     "require": {
@@ -39,7 +54,9 @@
         "drupal/admin_toolbar": "^8",
         "drupal/better_exposed_filters": "^8",
         "drupal/twig_xdebug": "^8",
-        "drupal/forward": "^8.1"
+        "drupal/forward": "^8.1",
+        "drupal/chosen": "^8",
+        "drmonty/chosen": "^1.6"
     },
     "require-dev": {
         "behat/mink": "~1.7",

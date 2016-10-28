@@ -1,0 +1,9 @@
+uuid: cf688e79-3cab-4381-a9f1-4cbd332c93c1
+langcode: en
+status: true
+dependencies: {  }
+name: 'Content topic'
+vid: content_topic
+description: 'Topic for all content-types'
+hierarchy: 0
+weight: 0
