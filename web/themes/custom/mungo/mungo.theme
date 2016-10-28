@@ -710,7 +710,7 @@ function mungo_theme_suggestions_alter(array &$suggestions, array $variables, $h
         $suggestions[] = $hook . '__deck__' . $paragraph->getType();
       }
 
-      // Suggestions for paragraphs that are referenced
+      // Suggestions for paragraphs that are referenced.
       $reference_types = [
         'content_article_reference',
         'content_badge_reference',
