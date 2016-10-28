@@ -11,7 +11,7 @@ field_name: field_content_topic
 entity_type: node
 bundle: article
 label: Topic
-description: ''
+description: 'Associates the content with a topic'
 required: true
 translatable: false
 default_value: {  }
