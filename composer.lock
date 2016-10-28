@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e9dffb4b67eb270a9d0bb781ddf6690a",
-    "content-hash": "e6fc8df595e660a11eb02b1d28a196b6",
+    "hash": "856987a485d9045b829d183f1210d2c9",
+    "content-hash": "d9099bffa8ebd31f507637913e1a3118",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -1273,6 +1273,20 @@
             "time": "2014-09-09 13:34:57"
         },
         {
+            "name": "drmonty/chosen",
+            "version": "1.6.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/harvesthq/chosen/releases/download/v1.6.1/chosen_v1.6.1.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "drupal-library"
+        },
+        {
             "name": "drupal-composer/drupal-scaffold",
             "version": "2.1.0",
             "source": {
@@ -1422,6 +1436,44 @@
             "description": "Provides advanced options (such as links, checkboxes, or jQueryUI widgets) for exposed Views elements.",
             "homepage": "https://www.drupal.org/project/better_exposed_filters",
             "time": "2016-05-31 18:36:06"
+        },
+        {
+            "name": "drupal/chosen",
+            "version": "8.2.0-beta2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/chosen",
+                "reference": "1d2c226202aae3431573c63cf242b16b52c061ae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/chosen-8.x-2.0-beta2.zip",
+                "reference": "1d2c226202aae3431573c63cf242b16b52c061ae",
+                "shasum": null
+            },
+            "require": {
+                "drupal/core": "8.*"
+            },
+            "replace": {
+                "drupal/chosen_field": "self.version",
+                "drupal/chosen_lib": "self.version"
+            },
+            "suggest": {
+                "drupal/core": "Required by drupal/chosen_field, drupal/chosen_lib"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-8.x-2.x": "8.2.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.drupal-composer.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Makes select elements more user-friendly using <a href=\"http://harvesthq.github.com/chosen/\">Chosen</a>.",
+            "homepage": "https://www.drupal.org/project/chosen",
+            "time": "2016-03-22 09:57:26"
         },
         {
             "name": "drupal/console",
@@ -2007,7 +2059,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/forward-8.x-1.7.zip",
-                "reference": null,
+                "reference": "10e8b3a1695d07325c38e7bd64dbb0a30927cb45",
                 "shasum": null
             },
             "require": {
@@ -5763,7 +5815,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/coder-8.x-2.9.zip",
-                "reference": null,
+                "reference": "b08682bd939cf7d3ac7034bee792aa17f80e19d7",
                 "shasum": null
             },
             "require": {
