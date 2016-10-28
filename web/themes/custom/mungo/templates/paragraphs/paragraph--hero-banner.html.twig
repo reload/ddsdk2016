@@ -44,7 +44,7 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     'paragraphs-background-grey'
 ]
 %}
-
+{{ attach_library('mungo/object-fit') }}
 <div{{ attributes.addClass(classes) }}>
     <div class="full-width-image-container">
         {{ content.field_background_image }}
