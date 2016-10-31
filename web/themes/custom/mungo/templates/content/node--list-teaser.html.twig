@@ -95,7 +95,11 @@ set classes = [
     </div>
   {% endif %}
   <div class="node-teaser--list--meta">
-    <div class="node-teaser--keyword">{{ 'Keyword' }}</div>
+    <div class="node-teaser--keyword">
+      {% if content.field_content_topic %}
+        {{ content.field_content_topic }}
+      {% endif %}
+    </div>
       <h2 class="node-teaser--list--heading">
         {{ label }}
       </h2>

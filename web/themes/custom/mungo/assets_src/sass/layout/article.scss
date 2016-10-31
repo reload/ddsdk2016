@@ -20,6 +20,25 @@
   }
 }
 
+// A small "keyword" label on top of the title.
+.node--view-mode-full {
+  .node--keyword {
+    @include pre-title;
+
+    // We need to get close to the title below us which has a margin so
+    // we use a negative margin to get close, and then compensate with
+    // a positive top-margin.
+    margin-top: $spacing-medium;
+    margin-bottom: -$spacing-medium;
+
+    @include media-small {
+      margin-top: $spacing-large;
+      margin-bottom: -$spacing-large;
+    }
+  }
+}
+
+
 /*  Default and extended teaser.
     ------------------------------------------------------- */
 
