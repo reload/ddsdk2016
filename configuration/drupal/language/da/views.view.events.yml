@@ -1,0 +1,19 @@
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Søg
+          reset_button_label: Nulstil
+      filters:
+        search_api_fulltext:
+          expose:
+            label: Fritekstsøgning
+        field_event_start:
+          expose:
+            label: Til
+          group_info:
+            description: ''
+        field_event_start_1:
+          expose:
+            label: Fra
