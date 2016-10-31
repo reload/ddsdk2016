@@ -10,7 +10,7 @@ header.header-fixed {
 // Magical values to push content down. This must adjusted if the fixed menu
 // changes.
 body .layout-container {
-  padding-top: 61px;
+  padding-top: 71px;
 }
 
 @include media-small  {
@@ -67,6 +67,9 @@ header.header-fixed {
     content: '';
     height: 1px;
     width: 100%;
+    // If you're debugging why the line is overlapping content below it
+    // you probably need to adjust the values in the body .layout-container
+    // selector in this file.
     @include background-image(linear-gradient(to left, transparent 0%, $warm-grey 25%, $warm-grey 75%, transparent 100%));
   }
 
