@@ -4,7 +4,7 @@ display:
       exposed_form:
         options:
           submit_button: Søg
-          reset_button_label: Nilstil
+          reset_button_label: Nulstil
       filters:
         search_api_fulltext:
           expose:
