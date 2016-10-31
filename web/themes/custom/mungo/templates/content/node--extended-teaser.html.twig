@@ -91,7 +91,11 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
 
     <a{{ attributes.addClass(classes) }} href="{{ url }}">
         <div class="node-extended-teaser--content-container">
-            <div class="node-extended-teaser--keyword">{{ 'Keyword' }}</div>
+            <div class="node-extended-teaser--keyword">
+              {% if content.field_content_topic %}
+                {{ content.field_content_topic }}
+              {% endif %}
+            </div>
             <h2 class="node-extended-teaser--heading">
                 {{ label }}
             </h2>

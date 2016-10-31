@@ -82,6 +82,13 @@
     'print-full-width'
   ]
 %}
+{% block title_prefix %}
+  <div class="node--keyword">
+    {% if content.field_content_topic %}
+      {{ content.field_content_topic }}
+    {% endif %}
+  </div>
+{% endblock %}
 {% block main_media_suffix %}
   <div class="hidden-md hidden-lg">{{ content.field_subtitle }}</div>
 {% endblock %}
@@ -119,7 +126,7 @@
   <div class=" hidden-xs hidden-sm">{{ content.field_subtitle }}</div>
     {# We leave out any fields we've output manually at this point #}
     {# field_content_author is left out as it is a part of author_presentation #}
-    {{ content | without('field_content_author', 'field_subtitle', 'field_main_media', 'field_sidedeck' ) }}
+    {{ content | without('field_content_author', 'field_subtitle', 'field_main_media', 'field_sidedeck', 'field_content_topic' ) }}
 {% endblock %}
 {% block sidebar %}
 

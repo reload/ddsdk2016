@@ -93,7 +93,11 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
         </div>
     {% endif %}
     <div class="node-teaser--content-container">
-    <div class="node-teaser--keyword">{{ 'Keyword' }}</div>
+    <div class="node-teaser--keyword">
+      {% if content.field_content_topic %}
+        {{ content.field_content_topic }}
+      {% endif %}
+    </div>
     <h2 class="node-teaser--heading">
         {{ label }}
     </h2>

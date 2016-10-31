@@ -732,6 +732,17 @@ function mungo_theme_suggestions_alter(array &$suggestions, array $variables, $h
       }
       break;
 
+    case 'taxonomy_term':
+      // Add view-modes to taxonomies.
+      if (!empty($variables['elements']['#view_mode'])) {
+        $view_mode = $variables['elements']['#view_mode'];
+        foreach ($suggestions as $id => $suggestion) {
+          $suggestions[] = $suggestion . '__' . $view_mode;
+        }
+        $suggestions[] = $hook . '__' . $variables['elements']['#view_mode'];
+      }
+      break;
+
     case 'bef_links':
 
       // Attempt to find a usable machine-like name for the view via its

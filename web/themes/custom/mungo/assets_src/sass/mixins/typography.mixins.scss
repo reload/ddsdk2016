@@ -27,6 +27,19 @@
   }
 }
 
+/* Artikel Rubrik */
+@mixin article-heading {
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1.2;
+  letter-spacing: 1px;
+
+  @include media-small {
+    font-size: 46px;
+    margin: $spacing-large 0;
+  }
+}
+
 /* Liste Rubrik - small */
 @mixin list-heading-small {
   font-family: $std-font;

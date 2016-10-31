@@ -1,0 +1,15 @@
+uuid: 7ffbf316-61e5-4fcc-84f2-8d85a69b873c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.plaintext
+    - taxonomy.vocabulary.content_topic
+id: taxonomy_term.content_topic.plaintext
+targetEntityType: taxonomy_term
+bundle: content_topic
+mode: plaintext
+content: {  }
+hidden:
+  description: true
+  langcode: true

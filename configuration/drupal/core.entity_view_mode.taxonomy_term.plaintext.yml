@@ -1,0 +1,10 @@
+uuid: 1d2ed3dd-5d7a-433d-a134-7aafce7ed4db
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.plaintext
+label: Plaintext
+targetEntityType: taxonomy_term
+cache: true
