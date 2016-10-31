@@ -9,6 +9,7 @@ use Drupal\Core\Link;
 use Drupal\Core\URL;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Template\Attribute;
+use Drupal\dds_activity\ActivityFetcher;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\Core\Form\FormStateInterface;
@@ -268,6 +269,13 @@ function mungo_preprocess_node(&$variables) {
   $node = $variables['node'];
 
   switch ($node->getType()) {
+    case 'activity':
+      if (!empty($node->get('field_activity_id')->value)) {
+        $activity_id = $node->get('field_activity_id')->value;
+        $variables['alternative_url'] = ActivityFetcher::AKTDB_VIEW_PREFIX . '/' . $activity_id;
+      }
+      break;
+
     case 'article':
       _mungo_preprocess_node_article($node, $variables);
       break;
