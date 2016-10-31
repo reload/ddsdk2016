@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "856987a485d9045b829d183f1210d2c9",
-    "content-hash": "d9099bffa8ebd31f507637913e1a3118",
+    "hash": "7c3f80b23fcccfa0c67ff82034934dc8",
+    "content-hash": "3c782fbd2c70e34fcf5538cbefebdbb7",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -173,16 +173,16 @@
         },
         {
             "name": "commerceguys/addressing",
-            "version": "v1.0.0-beta1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/commerceguys/addressing.git",
-                "reference": "e30e0495240a1dd8bcfb1ee656ba106137a27a89"
+                "reference": "bc8d8cbcc151dd0aacdd8efad95a44e9ba2126b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/commerceguys/addressing/zipball/e30e0495240a1dd8bcfb1ee656ba106137a27a89",
-                "reference": "e30e0495240a1dd8bcfb1ee656ba106137a27a89",
+                "url": "https://api.github.com/repos/commerceguys/addressing/zipball/bc8d8cbcc151dd0aacdd8efad95a44e9ba2126b0",
+                "reference": "bc8d8cbcc151dd0aacdd8efad95a44e9ba2126b0",
                 "shasum": ""
             },
             "require": {
@@ -232,7 +232,7 @@
                 "localization",
                 "postal"
             ],
-            "time": "2016-09-26 13:29:21"
+            "time": "2016-10-02 23:46:33"
         },
         {
             "name": "commerceguys/enum",
@@ -7106,7 +7106,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "commerceguys/addressing": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
