@@ -1,13 +1,13 @@
 // Styling of boxes
 
 .box {
-  padding: $spacing-small;
+  padding: $spacing-medium;
 
   // Make sure the topmost heading does not add extra spacing - we have all
   // the internal padding we need already.
   h1, h2, h3 {
     &:first-child {
-      margin-top: 0;
+      margin: 0;
     }
   }
 
@@ -38,4 +38,14 @@
     padding: 0;
   }
 
+}
+
+.box--meta-info {
+  .field__label {
+    @include label;
+  }
+
+  .field {
+    margin-bottom: 10px;
+  }
 }
