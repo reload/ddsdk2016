@@ -105,7 +105,7 @@
                   {{ start_date|format_date('event_date_long') }}
                 {% else %}
                   {# Display time if it is not an all-day event #}
-                  {{ start_date|format_date('event_date_long_time') }}
+                  {{ start_date|format_date('event_date_long_time') }} - {{ end_date|format_date('default_time') }}
                 {% endif %}
 
 
