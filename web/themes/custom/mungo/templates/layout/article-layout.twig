@@ -87,6 +87,7 @@
   <section class="row">
     <article{{ attributes.addClass(classes) }}>
         {{ title_prefix }}
+        {% block title_prefix %}{% endblock %}
         {% if not page %}
           <h2{{ title_attributes }}>
             <a href="{{ url }}" rel="bookmark">{{ label }}</a>
@@ -95,6 +96,7 @@
           <h1 class="page-title">{{ label }}</h1>
         {% endif %}
         {{ title_suffix }}
+        {% block title_suffix %}{% endblock %}
         {{ content.field_main_media }}
         {% block main_media_suffix %}{% endblock %}
       <div class="row">
