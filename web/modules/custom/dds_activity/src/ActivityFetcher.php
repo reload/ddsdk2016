@@ -11,6 +11,7 @@ use GuzzleHttp\Exception\RequestException;
 class ActivityFetcher {
   protected $activityData;
   const AKTDB_WS_ENDPOINT = 'https://aktiviteterws.dds.dk';
+  const AKTDB_VIEW_PREFIX = 'https://aktiviteter.dds.dk/aktivitet';
   const AKTDB_IMAGE_STORAGE_PREFIX = 'https://aktiviteter.dds.dk/sites/default/files/aktivws';
   protected $client;
 
