@@ -1,1 +1,9 @@
-.view-content__inner {}
+.page-node-type-event {
+  background-color: white;
+}
+
+.node--type-event--main-info {
+  .field__label {
+    width: 100%;
+  }
+}
