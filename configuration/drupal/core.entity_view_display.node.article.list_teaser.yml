@@ -6,6 +6,10 @@ dependencies:
     - core.entity_view_mode.node.list_teaser
     - field.field.node.article.field_article_type
     - field.field.node.article.field_content_author
+    - field.field.node.article.field_content_category
+    - field.field.node.article.field_content_tag
+    - field.field.node.article.field_content_target_group
+    - field.field.node.article.field_content_topic
     - field.field.node.article.field_main_media
     - field.field.node.article.field_paragraphs
     - field.field.node.article.field_sidedeck
@@ -29,6 +33,10 @@ content:
 hidden:
   field_article_type: true
   field_content_author: true
+  field_content_category: true
+  field_content_tag: true
+  field_content_target_group: true
+  field_content_topic: true
   field_paragraphs: true
   field_sidedeck: true
   field_subtitle: true
