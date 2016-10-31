@@ -80,7 +80,7 @@
 
   // The box heading.
   h2 {
-    @include list-heading-small;
+    @include list-heading-medium;
     text-decoration: none;
     margin: 0 $spacing-medium;
     color: $bluish;
