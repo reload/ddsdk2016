@@ -1,0 +1,36 @@
+uuid: 5659307b-b46a-4a11-aa56-67167e6adf5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.shortcuts.field_shortcuts
+    - field.field.paragraph.shortcuts.field_shortcuts_title
+    - paragraphs.paragraphs_type.shortcuts
+  module:
+    - link
+id: paragraph.shortcuts.default
+targetEntityType: paragraph
+bundle: shortcuts
+mode: default
+content:
+  field_shortcuts:
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_shortcuts_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+hidden:
+  created: true
+  uid: true
