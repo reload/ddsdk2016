@@ -1,0 +1,18 @@
+/**
+ * This is the file of shame.
+ *
+ * Put only styles in here
+ * that doesn't belong anywhere else.
+ *
+ * This can be quick and dirty theming that should be refactored
+ * later.
+ *
+ * The goal is to keep this file empty or at least empty it, once in a while.
+ */
+
+ /*  User login form - quick and dirty.
+    ------------------------------------------------------- */
+#user-login-form {
+  @extend .container;
+  padding: 20vh 5%;
+}
