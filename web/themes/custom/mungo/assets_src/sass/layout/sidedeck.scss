@@ -64,5 +64,20 @@
 
   .node-teaser--download {
     background-color: $white-two;
+
+    &--icon {
+      .spejder-icon-wrapper {
+        max-width: 40px;
+        margin: 0;
+      }
+    }
+
+    @include media-small {
+      @include make-sm-column(6);
+    }
+
+    @include media-medium {
+      width: 100%;
+    }
   }
 }

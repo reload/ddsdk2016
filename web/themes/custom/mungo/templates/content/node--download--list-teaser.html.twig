@@ -86,12 +86,12 @@
 {{ attach_library('classy/node') }}
 
 <article{{ attributes.addClass(classes) }}>
-  <div class="col-xs-2">
-    <div class="node-teaser--download--icon node-teaser--download--icon--list-teaser">
+  <div class="col-xs-3">
+    <a class="node-teaser--download--icon node-teaser--download--icon--list-teaser" href="{{ file_url }}">
         {{ svg_icon|raw }}
-    </div>
+    </a>
   </div>
-  <div class="col-xs-10">
+  <div class="col-xs-9">
     <h2 class="node-teaser--heading node-teaser--heading--download">
       {{ label }}
     </h2>

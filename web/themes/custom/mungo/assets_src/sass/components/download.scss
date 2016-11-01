@@ -38,32 +38,15 @@
   }
 
   &--icon {
-    max-width: 100px;
-    width: 100%;
-    margin: 20px auto 0;
-
-    &--list-teaser {
-      width: 200px;
-      max-width: 37px;
-      margin-top: 0;
-      padding: 0;
-
-      @include media-small {
-        margin-left: -13px;
-      }
+    .spejder-icon-wrapper {
+      max-width: 100px;
+      width: 100%;
+      margin: 20px auto 0;
     }
   }
 
   &--send-mail {
     float: right;
-  }
-
-  @include media-small {
-    @include make-sm-column(6);
-  }
-
-  @include media-medium {
-    width: 100%;
   }
 }
 
