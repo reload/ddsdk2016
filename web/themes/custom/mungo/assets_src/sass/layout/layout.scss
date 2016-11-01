@@ -23,6 +23,7 @@
 .row-equal-columns {
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
 
   // Safari fix for before and after on rows.
   &:before,
@@ -37,6 +38,7 @@
     display: flex;
     flex: 1;
     flex-wrap: wrap;
+    align-content: flex-start !important;
   }
 
   // Set width to 100% - Safari fix.
@@ -60,6 +62,7 @@
     display: flex;
     flex: 1;
     flex-wrap: wrap;
+
     padding-top: $halfspacing;
     padding-bottom: $halfspacing;
     @include media-small {
