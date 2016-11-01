@@ -7,5 +7,5 @@ dependencies:
 id: taxonomy_term.content_category
 target_entity_type_id: taxonomy_term
 target_bundle: content_category
-default_langcode: da
+default_langcode: site_default
 language_alterable: false

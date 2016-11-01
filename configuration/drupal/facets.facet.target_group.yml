@@ -1,4 +1,4 @@
-uuid: 1acd8efa-de2f-428c-a45e-450c76e26925
+uuid: a4a3c28a-30e9-47d9-90a8-fafea3a16906
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ name: 'Target group'
 url_alias: target_group
 weight: 0
 show_only_one_result: false
-field_identifier: field_event_target_group
+field_identifier: field_content_target_group
 query_type_name: null
 facet_source_id: 'views_page:events__events_overview'
 widget:
