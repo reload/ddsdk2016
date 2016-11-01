@@ -105,7 +105,9 @@ function facets_views_block_preprocess_views_view(&$variables) {
   }
 
   // Reorder the facets and exposed filters.
-  $variables['exposed'] = _facets_views_preprocess_filters($variables['exposed'], $variables['facets']);
+  if (!empty($variables['facets'])) {
+    $variables['exposed'] = _facets_views_preprocess_filters($variables['exposed'], $variables['facets']);
+  }
 }
 
 /**
