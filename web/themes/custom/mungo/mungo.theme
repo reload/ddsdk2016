@@ -46,7 +46,7 @@ function mungo_preprocess_field(&$variables) {
   }
   elseif (in_array($field_name, ['field_shortcuts'])) {
 
-    if (!empty($variables['items'] )) {
+    if (!empty($variables['items'])) {
       foreach ($variables['items'] as $delta => $value) {
         $variables['items'][$delta]['content']['#options']['attributes']['class'][] = 'shortcuts__link';
       }
