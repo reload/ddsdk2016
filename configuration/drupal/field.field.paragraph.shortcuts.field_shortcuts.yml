@@ -1,0 +1,23 @@
+uuid: 0b6baca3-49bd-4d96-8fa8-b2102e7787a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_shortcuts
+    - paragraphs.paragraphs_type.shortcuts
+  module:
+    - link
+id: paragraph.shortcuts.field_shortcuts
+field_name: field_shortcuts
+entity_type: paragraph
+bundle: shortcuts
+label: Shortcuts
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

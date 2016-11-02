@@ -1,0 +1,75 @@
+/*  Shortcuts theming.
+    ------------------------------------------------------- */
+.shortcuts__links {
+  // Remove list style.
+  list-style: none;
+  width: 100%;
+}
+
+.shortcuts__link-item {
+  // Layout.
+  float: left;
+  width: 100%;
+  border-top: 1px solid $pinkish-grey;
+
+  // Typography.
+  &:hover {
+
+    // The hover state should be activated on hover on the wrapper too.
+    .shortcuts__link {
+      color: $bluish-light;
+    }
+  }
+}
+
+.shortcuts__link {
+  // Layout.
+  display: inline-block;
+  position: relative;
+  padding: 15px 0 15px $shortcut-link-padding-left;
+  width: 100%;
+
+  // Typography.
+  @include list-heading-small;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+    color: $bluish-light;
+  }
+
+  // Add icon to left.
+  &:before {
+    position: relative;
+    content: " \2192";
+    color: $bluish-light;
+    left: -$shortcut-link-padding-left;
+    margin-left: 5px;
+  }
+}
+
+// Shortcuts title.
+.field--name-field-shortcuts-title {
+  @include box-headline;
+  padding: $spacing-small 0;
+}
+
+ /*  Paragraph specific theming.
+    ------------------------------------------------------- */
+
+// Global theming of the shortcuts paragraph.
+.paragraph--type--shortcuts {
+
+  // Layout.
+  padding: $spacing-small;
+  margin-bottom: 25px;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+
+  // Colors.
+  background: white;
+}
+
+
+

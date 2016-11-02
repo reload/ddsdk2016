@@ -84,11 +84,11 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
 %}
 {{ attach_library('classy/node') }}
 
-<article{{ attributes.addClass(classes) }} href="{{ url }}">
+<article{{ attributes.addClass(classes) }}>
 
-    <div class="node-teaser--download--icon">
+    <a class="node-teaser--download--icon" href="{{ file_url }}">
         {{ svg_icon|raw }}
-    </div>
+    </a>
 
     <div class="node-teaser--content-container">
         <h2 class="node-teaser--heading">

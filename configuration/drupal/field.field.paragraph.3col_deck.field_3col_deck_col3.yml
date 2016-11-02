@@ -10,6 +10,7 @@ dependencies:
     - paragraphs.paragraphs_type.content_article_reference
     - paragraphs.paragraphs_type.content_badge_reference
     - paragraphs.paragraphs_type.content_event_reference
+    - paragraphs.paragraphs_type.shortcuts
     - paragraphs.paragraphs_type.text
     - paragraphs.paragraphs_type.video
   module:
@@ -35,6 +36,7 @@ settings:
       content_badge_reference: content_badge_reference
       content_activity_reference: content_activity_reference
       content_article_reference: content_article_reference
+      shortcuts: shortcuts
     target_bundles_drag_drop:
       text:
         enabled: true
@@ -93,7 +95,25 @@ settings:
       content_article_reference:
         enabled: true
         weight: 27
+      content_article_reference_ext:
+        weight: 34
+        enabled: false
       situation_links:
         weight: 36
         enabled: false
+      download:
+        weight: 38
+        enabled: false
+      image:
+        weight: 43
+        enabled: false
+      latest_content_list:
+        weight: 44
+        enabled: false
+      list_deck:
+        weight: 45
+        enabled: false
+      shortcuts:
+        enabled: true
+        weight: 49
 field_type: entity_reference_revisions

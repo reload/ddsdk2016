@@ -30,8 +30,14 @@
     // Add padding and margin around the content list.
     padding: 10px;
     background: $white-two;
-    margin-right: 15px;
-    margin-left: 7px;
     margin-bottom: 25px;
+
+    @include media-small {
+      padding: 35px 15px 55px;
+    }
+
+    @include media-large {
+      padding: 10px;
+    }
   }
 }

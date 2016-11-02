@@ -161,6 +161,7 @@
   letter-spacing: 1.1px;
   font-weight: 300;
   color: $warm-grey;
+  text-transform: uppercase;
 
   @include media-small {
     font-size: 18px;

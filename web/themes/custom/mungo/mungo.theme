@@ -44,6 +44,14 @@ function mungo_preprocess_field(&$variables) {
     // Clean the classes on factboxes.
     $variables['attributes']['class'][] = 'caption';
   }
+  elseif (in_array($field_name, ['field_shortcuts'])) {
+
+    if (!empty($variables['items'])) {
+      foreach ($variables['items'] as $delta => $value) {
+        $variables['items'][$delta]['content']['#options']['attributes']['class'][] = 'shortcuts__link';
+      }
+    }
+  }
   elseif (in_array($field_name, ['field_2col_deck_col1', 'field_2col_deck_col2'])) {
     /** @var Paragraph $paragraph */
     $paragraph = $variables['element']['#object'];
@@ -848,6 +856,7 @@ function _mungo_preprocess_deck_paragraph($type, &$variables) {
   elseif ($type === '3col_deck') {
     foreach ($variables['cols'] as &$col) {
       $col['#attributes']['class'][] = 'col-sm-4';
+      $col['#attributes']['class'][] = 'col-xs-12';
     }
     $variables['attributes']['class'][] = 'three-cols-deck';
   }
