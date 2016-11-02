@@ -13,9 +13,13 @@ dependencies:
     - field.field.paragraph.key_figures.field_key_figures_label_1
     - field.field.paragraph.key_figures.field_key_figures_label_2
     - field.field.paragraph.key_figures.field_key_figures_label_3
+    - field.field.paragraph.key_figures.field_key_figures_link_1
+    - field.field.paragraph.key_figures.field_key_figures_link_2
+    - field.field.paragraph.key_figures.field_key_figures_link_3
     - paragraphs.paragraphs_type.key_figures
   module:
     - field_group
+    - link
 third_party_settings:
   field_group:
     group_key_figures_left:
@@ -23,6 +27,7 @@ third_party_settings:
         - field_key_figures_figure_1
         - field_key_figures_label_1
         - field_key_figures_desc_1
+        - field_key_figures_link_1
       parent_name: group_key_figures_cols
       weight: 14
       label: Left
@@ -52,6 +57,7 @@ third_party_settings:
         - field_key_figures_figure_2
         - field_key_figures_label_2
         - field_key_figures_desc_2
+        - field_key_figures_link_2
       parent_name: group_key_figures_cols
       weight: 15
       label: Middle
@@ -67,6 +73,7 @@ third_party_settings:
         - field_key_figures_figure_3
         - field_key_figures_label_3
         - field_key_figures_desc_3
+        - field_key_figures_link_3
       parent_name: group_key_figures_cols
       weight: 16
       label: Right
@@ -150,6 +157,27 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+  field_key_figures_link_1:
+    weight: 4
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  field_key_figures_link_2:
+    weight: 6
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  field_key_figures_link_3:
+    weight: 7
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
 hidden:
   created: true
   status: true
