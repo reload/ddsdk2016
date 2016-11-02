@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.badge.field_badge_summary
     - field.field.node.badge.field_badge_target_group
     - field.field.node.badge.field_badge_type
-    - field.field.node.badge.field_content_category
     - field.field.node.badge.field_content_tag
     - field.field.node.badge.field_content_topic
     - field.field.node.badge.field_main_media
@@ -45,7 +44,6 @@ hidden:
   field_badge_progression: true
   field_badge_summary: true
   field_badge_target_group: true
-  field_content_category: true
   field_content_tag: true
   field_content_topic: true
   field_paragraphs: true

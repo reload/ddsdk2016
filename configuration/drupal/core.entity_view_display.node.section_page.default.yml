@@ -19,34 +19,6 @@ targetEntityType: node
 bundle: section_page
 mode: default
 content:
-  field_content_category:
-    weight: 3
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-  field_content_tag:
-    weight: 4
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-  field_content_target_group:
-    weight: 5
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-  field_content_topic:
-    weight: 6
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
   field_main_media:
     type: entity_reference_entity_view
     weight: 0
@@ -70,5 +42,9 @@ content:
     third_party_settings: {  }
     type: basic_string
 hidden:
+  field_content_category: true
+  field_content_tag: true
+  field_content_target_group: true
+  field_content_topic: true
   langcode: true
   links: true

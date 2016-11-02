@@ -88,6 +88,7 @@ function dds_layout_form_alter(&$form, $form_state, $form_id) {
     // Put meta-fields in the side_deck.
     $content_meta_keys = [
       'field_article_type',
+      'field_badge_target_group',
       'field_content_author',
       'field_content_tag',
       'field_content_target_group',

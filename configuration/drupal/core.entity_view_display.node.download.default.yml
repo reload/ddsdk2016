@@ -3,6 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.download.field_content_category
+    - field.field.node.download.field_content_tag
+    - field.field.node.download.field_content_target_group
+    - field.field.node.download.field_content_topic
     - field.field.node.download.field_file
     - node.type.download
   module:
@@ -20,5 +24,9 @@ content:
     third_party_settings: {  }
     type: file_default
 hidden:
+  field_content_category: true
+  field_content_tag: true
+  field_content_target_group: true
+  field_content_topic: true
   langcode: true
   links: true

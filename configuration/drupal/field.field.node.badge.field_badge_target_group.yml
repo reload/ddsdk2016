@@ -10,7 +10,7 @@ id: node.badge.field_badge_target_group
 field_name: field_badge_target_group
 entity_type: node
 bundle: badge
-label: 'Target group'
+label: 'Badge target group'
 description: ''
 required: true
 translatable: false
