@@ -112,32 +112,11 @@ targetEntityType: node
 bundle: event
 mode: default
 content:
-  field_content_category:
-    weight: 13
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-  field_content_tag:
-    weight: 14
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
   field_content_target_group:
     weight: 11
     label: above
     settings:
       link: false
-    third_party_settings: {  }
-    type: entity_reference_label
-  field_content_topic:
-    weight: 16
-    label: above
-    settings:
-      link: true
     third_party_settings: {  }
     type: entity_reference_label
   field_course_id:
@@ -255,6 +234,9 @@ content:
       link: ''
     third_party_settings: {  }
 hidden:
+  field_content_category: true
+  field_content_tag: true
+  field_content_topic: true
   field_event_is_all_day: true
   langcode: true
   links: true

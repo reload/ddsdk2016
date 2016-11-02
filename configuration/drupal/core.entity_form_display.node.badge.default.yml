@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.badge.field_badge_summary
     - field.field.node.badge.field_badge_target_group
     - field.field.node.badge.field_badge_type
-    - field.field.node.badge.field_content_category
     - field.field.node.badge.field_content_tag
     - field.field.node.badge.field_content_topic
     - field.field.node.badge.field_main_media
@@ -44,7 +43,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 9
+    weight: 8
     settings: {  }
     third_party_settings: {  }
   field_badge_cover_image:
@@ -74,17 +73,12 @@ content:
     third_party_settings: {  }
     type: string_textarea
   field_badge_target_group:
-    weight: 6
+    weight: 13
     settings: {  }
     third_party_settings: {  }
     type: options_select
   field_badge_type:
     weight: 3
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-  field_content_category:
-    weight: 12
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -97,7 +91,7 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete_tags
   field_content_topic:
-    weight: 13
+    weight: 12
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -111,7 +105,7 @@ content:
     third_party_settings: {  }
     type: inline_entity_form_simple
   field_paragraphs:
-    weight: 7
+    weight: 6
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -121,7 +115,7 @@ content:
     third_party_settings: {  }
     type: entity_reference_paragraphs
   field_sidedeck:
-    weight: 11
+    weight: 10
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -132,7 +126,7 @@ content:
     type: entity_reference_paragraphs
   path:
     type: path
-    weight: 10
+    weight: 9
     settings: {  }
     third_party_settings: {  }
   title:
@@ -144,7 +138,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 8
+    weight: 7
     settings:
       match_operator: CONTAINS
       size: 60

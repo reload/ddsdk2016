@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.badge.field_badge_summary
     - field.field.node.badge.field_badge_target_group
     - field.field.node.badge.field_badge_type
-    - field.field.node.badge.field_content_category
     - field.field.node.badge.field_content_tag
     - field.field.node.badge.field_content_topic
     - field.field.node.badge.field_main_media
@@ -52,27 +51,6 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-  field_content_category:
-    weight: 9
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-  field_content_tag:
-    weight: 8
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-  field_content_topic:
-    weight: 7
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
   field_main_media:
     type: entity_reference_entity_view
     weight: 1
@@ -100,5 +78,7 @@ content:
 hidden:
   field_badge_level: true
   field_badge_progression: true
+  field_content_tag: true
+  field_content_topic: true
   langcode: true
   links: true
