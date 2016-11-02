@@ -85,7 +85,7 @@ gulp.task('fontawesome_fonts', function () {
     .pipe(gulp.dest(asset_paths.dest + '/fonts/font-awesome'))
 });
 gulp.task('object-fit-polyfill', function () {
-  return gulp.src('node_modules/object-fit/dist/*.min.js')
+  return gulp.src('node_modules/object-fit-images/dist/*.js')
     .pipe(gulp.dest(asset_paths.dest + '/js'))
 });
 
