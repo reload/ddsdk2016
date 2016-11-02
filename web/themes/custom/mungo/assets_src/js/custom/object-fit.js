@@ -2,11 +2,9 @@
  * @file
  * Trigger polyfill to support object-fit on IE.
  *
- * Polyfill from https://github.com/anselmh/object-fit.
+ * Polyfill from https://github.com/bfred-it/object-fit-images/.
  */
-
-objectFit.polyfill({
-  selector: 'img',
-  fittype: 'cover',
-  disableCrossDomain: 'true'
-});
+(function ($, Drupal) {
+  var images = $('.full-width-image-container img');
+  objectFitImages(images);
+})(jQuery, Drupal);
