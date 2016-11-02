@@ -3,6 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.section_page.field_content_category
+    - field.field.node.section_page.field_content_tag
+    - field.field.node.section_page.field_content_target_group
+    - field.field.node.section_page.field_content_topic
     - field.field.node.section_page.field_main_media
     - field.field.node.section_page.field_section
     - field.field.node.section_page.field_subtitle
@@ -15,6 +19,34 @@ targetEntityType: node
 bundle: section_page
 mode: default
 content:
+  field_content_category:
+    weight: 3
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_content_tag:
+    weight: 4
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_content_target_group:
+    weight: 5
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_content_topic:
+    weight: 6
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
   field_main_media:
     type: entity_reference_entity_view
     weight: 0
