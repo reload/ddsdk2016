@@ -1,0 +1,155 @@
+uuid: dcfb4c34-dfcb-4d07-9375-e216d392ce7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.key_figures.field_key_figures_deck_color
+    - field.field.paragraph.key_figures.field_key_figures_desc_1
+    - field.field.paragraph.key_figures.field_key_figures_desc_2
+    - field.field.paragraph.key_figures.field_key_figures_desc_3
+    - field.field.paragraph.key_figures.field_key_figures_figure_1
+    - field.field.paragraph.key_figures.field_key_figures_figure_2
+    - field.field.paragraph.key_figures.field_key_figures_figure_3
+    - field.field.paragraph.key_figures.field_key_figures_label_1
+    - field.field.paragraph.key_figures.field_key_figures_label_2
+    - field.field.paragraph.key_figures.field_key_figures_label_3
+    - paragraphs.paragraphs_type.key_figures
+  module:
+    - field_group
+    - options
+third_party_settings:
+  field_group:
+    group_key_figures_left:
+      children:
+        - field_key_figures_figure_1
+        - field_key_figures_label_1
+        - field_key_figures_desc_1
+      parent_name: ''
+      weight: 14
+      label: Left
+      format_type: html_element
+      format_settings:
+        label: Left
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: 'col-sm-4 col-xs-12'
+    group_key_figures_middle:
+      children:
+        - field_key_figures_figure_2
+        - field_key_figures_label_2
+        - field_key_figures_desc_2
+      parent_name: ''
+      weight: 17
+      label: Middle
+      format_type: html_element
+      format_settings:
+        label: Middle
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: 'col-sm-4 col-xs-12'
+    group_key_figures_right:
+      children:
+        - field_key_figures_figure_3
+        - field_key_figures_label_3
+        - field_key_figures_desc_3
+      parent_name: ''
+      weight: 20
+      label: Right
+      format_type: html_element
+      format_settings:
+        label: Right
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: 'col-sm-4 col-xs-12'
+id: paragraph.key_figures.default
+targetEntityType: paragraph
+bundle: key_figures
+mode: default
+content:
+  field_key_figures_deck_color:
+    weight: 11
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
+  field_key_figures_desc_1:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_key_figures_desc_2:
+    weight: 5
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_key_figures_desc_3:
+    weight: 6
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_key_figures_figure_1:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_key_figures_figure_2:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_key_figures_figure_3:
+    weight: 4
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_key_figures_label_1:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_key_figures_label_2:
+    weight: 4
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_key_figures_label_3:
+    weight: 5
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+hidden:
+  created: true
+  uid: true
