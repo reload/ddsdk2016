@@ -4,6 +4,10 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.event.field_content_category
+    - field.field.node.event.field_content_tag
+    - field.field.node.event.field_content_target_group
+    - field.field.node.event.field_content_topic
     - field.field.node.event.field_course_id
     - field.field.node.event.field_event_accommodation
     - field.field.node.event.field_event_address
@@ -16,7 +20,6 @@ dependencies:
     - field.field.node.event.field_event_signup_deadline
     - field.field.node.event.field_event_signup_instructions
     - field.field.node.event.field_event_start
-    - field.field.node.event.field_event_target_group
     - field.field.node.event.field_event_teaser
     - field.field.node.event.field_event_type
     - field.field.node.event.field_main_media
@@ -33,9 +36,9 @@ content:
   field_event_type:
     type: entity_reference_entity_view
     weight: 1
-    label: above
+    label: hidden
     settings:
-      view_mode: default
+      view_mode: plaintext
       link: false
     third_party_settings: {  }
   field_main_media:
@@ -47,6 +50,10 @@ content:
       link: false
     third_party_settings: {  }
 hidden:
+  field_content_category: true
+  field_content_tag: true
+  field_content_target_group: true
+  field_content_topic: true
   field_course_id: true
   field_event_accommodation: true
   field_event_address: true
@@ -59,7 +66,6 @@ hidden:
   field_event_signup_deadline: true
   field_event_signup_instructions: true
   field_event_start: true
-  field_event_target_group: true
   field_event_teaser: true
   field_paragraphs: true
   field_programs: true

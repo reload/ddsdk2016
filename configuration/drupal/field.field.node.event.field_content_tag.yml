@@ -1,28 +1,28 @@
-uuid: 217f718b-2e26-4e07-b179-701da8d975c1
+uuid: 4be24062-0384-4675-8d6b-0e7ef21a78b7
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_event_target_group
+    - field.storage.node.field_content_tag
     - node.type.event
-    - taxonomy.vocabulary.event_target_group
-id: node.event.field_event_target_group
-field_name: field_event_target_group
+    - taxonomy.vocabulary.content_tag
+id: node.event.field_content_tag
+field_name: field_content_tag
 entity_type: node
 bundle: event
-label: 'Target group'
+label: Tag
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      event_target_group: event_target_group
+      content_tag: content_tag
     sort:
       field: _none
-    auto_create: false
+    auto_create: true
     auto_create_bundle: ''
 field_type: entity_reference

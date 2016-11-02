@@ -3,6 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.event.field_content_category
+    - field.field.node.event.field_content_tag
+    - field.field.node.event.field_content_target_group
+    - field.field.node.event.field_content_topic
     - field.field.node.event.field_course_id
     - field.field.node.event.field_event_accommodation
     - field.field.node.event.field_event_address
@@ -15,7 +19,6 @@ dependencies:
     - field.field.node.event.field_event_signup_deadline
     - field.field.node.event.field_event_signup_instructions
     - field.field.node.event.field_event_start
-    - field.field.node.event.field_event_target_group
     - field.field.node.event.field_event_teaser
     - field.field.node.event.field_event_type
     - field.field.node.event.field_main_media
@@ -82,7 +85,7 @@ third_party_settings:
         - field_event_signup_instructions
         - field_course_id
       parent_name: ''
-      weight: 2
+      weight: 3
       label: 'Signup info'
       format_type: fieldset
       format_settings:
@@ -93,10 +96,9 @@ third_party_settings:
     group_event_extra_info:
       children:
         - field_event_type
-        - field_event_target_group
         - field_event_host_info
       parent_name: ''
-      weight: 3
+      weight: 4
       label: 'Extra info'
       format_type: fieldset
       format_settings:
@@ -111,7 +113,7 @@ third_party_settings:
         - field_event_address
         - field_event_accommodation
       parent_name: ''
-      weight: 4
+      weight: 5
       label: 'Location info'
       format_type: fieldset
       format_settings:
@@ -126,9 +128,32 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 8
+    weight: 9
     settings: {  }
     third_party_settings: {  }
+  field_content_category:
+    weight: 11
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_content_tag:
+    weight: 14
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete_tags
+  field_content_target_group:
+    weight: 13
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_content_topic:
+    weight: 12
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
   field_course_id:
     weight: 17
     settings:
@@ -202,11 +227,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
-  field_event_target_group:
-    weight: 9
-    settings: {  }
-    third_party_settings: {  }
-    type: options_buttons
   field_event_teaser:
     weight: 2
     settings:
@@ -260,20 +280,20 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 5
+    weight: 6
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 7
+    weight: 8
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 6
+    weight: 7
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -287,7 +307,7 @@ content:
         maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
   uid:
     type: entity_reference_autocomplete
-    weight: 9
+    weight: 10
     settings:
       match_operator: CONTAINS
       size: 60
