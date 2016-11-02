@@ -1,0 +1,28 @@
+uuid: d22183d5-405a-476f-a5a7-ac2bf62cc33b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content_topic
+    - node.type.section_page
+    - taxonomy.vocabulary.content_topic
+id: node.section_page.field_content_topic
+field_name: field_content_topic
+entity_type: node
+bundle: section_page
+label: Topic
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      content_topic: content_topic
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
