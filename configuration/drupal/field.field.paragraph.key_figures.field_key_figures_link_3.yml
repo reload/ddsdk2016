@@ -1,0 +1,23 @@
+uuid: 9f8489e2-eeb4-44a2-941a-b33c1837337b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_key_figures_link_3
+    - paragraphs.paragraphs_type.key_figures
+  module:
+    - link
+id: paragraph.key_figures.field_key_figures_link_3
+field_name: field_key_figures_link_3
+entity_type: paragraph
+bundle: key_figures
+label: Link
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 1
+  title: 0
+field_type: link

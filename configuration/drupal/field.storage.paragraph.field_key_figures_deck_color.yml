@@ -1,0 +1,30 @@
+uuid: 906e6836-f2e9-46b7-9104-9b815c95f8c5
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_key_figures_deck_color
+field_name: field_key_figures_deck_color
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '#ea636f'
+      label: Salmon
+    -
+      value: '#003366'
+      label: 'Marine blue'
+    -
+      value: '#e9ec5f'
+      label: 'Dull yellow'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

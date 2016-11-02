@@ -192,6 +192,34 @@ function mungo_preprocess_paragraph(&$variables) {
       $variables['attributes']['class'][] = 'gallery';
       break;
 
+    case 'key_figures':
+
+      if ($paragraph->hasField('field_key_figures_deck_color') && !(empty($paragraph->field_key_figures_deck_color->getValue()))) {
+        $color = $paragraph->field_key_figures_deck_color->getValue();
+        if (!empty($color[0])) {
+          $variables['color'] = $color[0]['value'];
+        }
+      }
+      if ($paragraph->hasField('field_key_figures_link_1') && !(empty($paragraph->field_key_figures_link_1->getValue()))) {
+        $link_1 = $paragraph->field_key_figures_link_1->getValue();
+        if (!empty($link_1[0])) {
+          $variables['content']['link_1'] = Url::fromUri($link_1[0]['uri']);
+        }
+      }
+      if ($paragraph->hasField('field_key_figures_link_2') && !(empty($paragraph->field_key_figures_link_2->getValue()))) {
+        $link_2 = $paragraph->field_key_figures_link_2->getValue();
+        if (!empty($link_2[0])) {
+          $variables['content']['link_2'] = Url::fromUri($link_2[0]['uri']);
+        }
+      }
+      if ($paragraph->hasField('field_key_figures_link_3') && !(empty($paragraph->field_key_figures_link_3->getValue()))) {
+        $link_3 = $paragraph->field_key_figures_link_3->getValue();
+        if (!empty($link_3[0])) {
+          $variables['content']['link_3'] = Url::fromUri($link_3[0]['uri']);
+        }
+      }
+      break;
+
     case 'content_link':
       // Add a clean class to videos.
       _mungo_preprocess_paragraph_content_link($variables);

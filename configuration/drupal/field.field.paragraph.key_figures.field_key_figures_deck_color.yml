@@ -1,0 +1,21 @@
+uuid: 64a312fa-8f91-4db7-ac11-d07f0d29cdd0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_key_figures_deck_color
+    - paragraphs.paragraphs_type.key_figures
+  module:
+    - options
+id: paragraph.key_figures.field_key_figures_deck_color
+field_name: field_key_figures_deck_color
+entity_type: paragraph
+bundle: key_figures
+label: 'Deck color'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
