@@ -1,0 +1,29 @@
+
+// General theming of the key_figures paragraphs deck.
+.paragraph--type--key-figures {
+  // Assume that all deck colors goes with white text. Otherwise introduce
+  // class to switch between black and white text.
+  &, a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  padding-top: $spacing-large;
+  padding-bottom: $spacing-large;
+  text-align: center;
+
+  // The figure. Since fields are numbered in the end, they have different
+  // classes. Therefore we select based on part of the class.
+  div[class*="field-key-figures-figure"] {
+    @include feature-heading-large;
+    margin-bottom: $spacing-small;
+    line-height: 1;
+  }
+  // Same basic idea with labels.
+  div[class*="field-key-figures-label"] {
+    @include list-heading-large;
+    // Color is overridden in mixin.
+    color: #fff;
+    margin-bottom: $spacing-small;
+  }
+}
