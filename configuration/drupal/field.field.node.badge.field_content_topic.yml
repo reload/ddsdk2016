@@ -1,0 +1,28 @@
+uuid: fca32196-5210-4b65-b907-de64901f137e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content_topic
+    - node.type.badge
+    - taxonomy.vocabulary.content_topic
+id: node.badge.field_content_topic
+field_name: field_content_topic
+entity_type: node
+bundle: badge
+label: Topic
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      content_topic: content_topic
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference
