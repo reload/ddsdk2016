@@ -774,6 +774,15 @@ function mungo_theme_suggestions_alter(array &$suggestions, array $variables, $h
       if (preg_match('#^field_\dcol_deck_col\d$#', $field_name)) {
         $suggestions[] = $hook . '__' . $variables['element']['#entity_type'] . '__deckcolumn';
       }
+      // Provide full view_mode for title and field_subtitle fields
+      // to differentiate on when to apply dymo-text.
+      // Could be applied to even more fields, but not necessary for now.
+      $target_fields = array('title', 'field_subtitle');
+      if (in_array($variables['element']['#field_name'], $target_fields) && $variables['element']['#view_mode'] == 'full') {
+        $entity_type = $variables['element']['#entity_type'];
+        $bundle = $variables['element']['#bundle'];
+        $suggestions[] = "{$hook}__{$entity_type}__{$field_name}__{$bundle}__full";
+      }
       break;
 
     case 'taxonomy_term':

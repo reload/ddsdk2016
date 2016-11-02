@@ -24,7 +24,7 @@
         var text = $(this).text().split(' ');
         text = '<span>' + text.join('</span><span>') + '</span>';
         $(this).html(text);
-      });
+      }).addClass('dymo-text-processed');
     }
   };
 
