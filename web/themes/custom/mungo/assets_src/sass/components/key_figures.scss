@@ -10,8 +10,11 @@
 
   padding-top: $spacing-large;
   padding-bottom: $spacing-large;
-  text-align: center;
-
+  div {
+    text-align: center;
+    display: block;
+  }
+  
   // The figure. Since fields are numbered in the end, they have different
   // classes. Therefore we select based on part of the class.
   div[class*="field-key-figures-figure"] {
