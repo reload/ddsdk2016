@@ -24,6 +24,7 @@
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
+  flex-direction: row;
 
   // Safari fix for before and after on rows.
   &:before,
@@ -31,12 +32,11 @@
     display: block;
   }
 
-  /* New nested flex container - Safari fix */
+  // /* New nested flex container - Safari fix */
   .node-teaser {
     width: auto !important;
     height: auto !important;
     display: flex;
-    flex: 1;
     flex-wrap: wrap;
     align-content: flex-start !important;
   }
@@ -60,7 +60,6 @@
   & > * {
     /* New nested flex container - Safari fix */
     display: flex;
-    flex: 1;
     flex-wrap: wrap;
 
     padding-top: $halfspacing;
