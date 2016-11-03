@@ -12,7 +12,7 @@ dependencies:
 id: contentgrouping
 theme: mungo
 region: header
-weight: 0
+weight: -9
 provider: null
 plugin: 'system_menu_block:content-grouping'
 settings:

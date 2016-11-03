@@ -6,6 +6,7 @@ dependencies:
     - field.storage.paragraph.field_1col_deck_col1
     - paragraphs.paragraphs_type.1col_deck
     - paragraphs.paragraphs_type.block
+    - paragraphs.paragraphs_type.content_article_reference_ext
     - paragraphs.paragraphs_type.text
     - paragraphs.paragraphs_type.video
   module:
@@ -27,6 +28,7 @@ settings:
       text: text
       video: video
       block: block
+      content_article_reference_ext: content_article_reference_ext
     target_bundles_drag_drop:
       text:
         enabled: true
@@ -72,5 +74,23 @@ settings:
         enabled: false
       quotation:
         weight: -17
+        enabled: false
+      content_badge_reference:
+        weight: 21
+        enabled: false
+      content_article_reference_ext:
+        enabled: true
+        weight: 22
+      content_activity_reference:
+        weight: 27
+        enabled: false
+      content_article_reference:
+        weight: 28
+        enabled: false
+      content_event_reference:
+        weight: 29
+        enabled: false
+      situation_links:
+        weight: 38
         enabled: false
 field_type: entity_reference_revisions

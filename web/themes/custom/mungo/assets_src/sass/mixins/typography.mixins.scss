@@ -27,6 +27,19 @@
   }
 }
 
+/* Artikel Rubrik */
+@mixin article-heading {
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1.2;
+  letter-spacing: 1px;
+
+  @include media-small {
+    font-size: 46px;
+    margin: $spacing-large 0;
+  }
+}
+
 /* Liste Rubrik - small */
 @mixin list-heading-small {
   font-family: $std-font;
@@ -34,50 +47,47 @@
   color: $black;
   font-weight: bold;
 
-  @include media-small {
-    font-size: 18px;
-  }
+  font-size: 11px;
+  @include media-small  {  font-size: 14px;  }
+  @include media-medium {  /* inherit */     }
+  @include media-large  {  /* inherit */     }
 }
 /* Liste Rubrik - medium */
 @mixin list-heading-medium {
   font-family: $std-font;
-  font-size: 18px;
   font-weight: bold;
   color: $black;
   letter-spacing: 0.3px;
 
-  @include media-small {
-    font-size: 20px;
-  }
+  font-size: 12px;
+  @include media-small  {  font-size: 18px;  }
+  @include media-medium {  /* inherit */     }
+  @include media-large  {  /* inherit */     }
 }
 /* Liste Rubrik - large */
 @mixin list-heading-large {
   font-family: $std-font;
-  font-size: 31px;
   font-weight: bold;
   color: $black;
   letter-spacing: 0.3px;
 
-  @include media-small {
-    font-size: 33px;
-  }
+  font-size: 18px;
+  @include media-small  {  font-size: 20px;  }
+  @include media-medium {  font-size: 21px;  }
+  @include media-large  {  /* inherit */     }
 }
 /* Liste Rubrik - extra large */
 @mixin list-heading-xlarge {
   font-family: $std-font;
-  font-size: 22px;
   font-weight: bold;
   color: $black;
   letter-spacing: 0.3px;
   line-height: 1.17;
 
-  @include media-small {
-    font-size: 33px;
-  }
-
-  @include media-large {
-    font-size: 46px;
-  }
+  font-size: 22px;
+  @include media-small  {  font-size: 24px;  }
+  @include media-medium {  font-size: 32px;  }
+  @include media-large  {  font-size: 46px;  }
 }
 
 /* Alternativ Rubrik - small */
@@ -94,7 +104,14 @@
 @mixin feature-heading-medium {
   letter-spacing: 0.5px;
   font-family: $feature-font;
-  font-size: 36px;
+  font-size: 24px;
+  line-height: 32px;
+
+  @include media-medium {
+    font-size: 36px;
+    line-height: 46px;
+  }
+
 }
 /* Alternativ Rubrik - large */
 @mixin feature-heading-large {
@@ -136,9 +153,9 @@
 /* Blokoverskrift */
 @mixin box-headline {
   font-family: $std-font;
-  font-size: 15px;
+  font-size: 22px;
   letter-spacing: 1.1px;
-  font-weight: normal;
+  font-weight: 300;
   color: $warm-grey;
 
   @include media-small {
@@ -149,6 +166,13 @@
     font-size: 22px;
   }
 }
+
+// A variation of Blokoverskrift to be used as deck title.
+@mixin deck-headline {
+  @include box-headline;
+  text-transform: uppercase;
+}
+
 @mixin search-field {
   font-size: 18px;
 }
@@ -186,11 +210,22 @@
   letter-spacing: 1.3px;
 }
 
-@mixin blue-arrowed-read-more {
+@mixin blue-read-more {
   @include pre-title;
   color: $bluish;
   font-weight: 600;
+}
+
+@mixin blue-arrowed-read-more {
+  @include pre-title;
+  @include blue-read-more;
   &:after {
     content: " \2192";
+  }
+}
+@mixin blue-arrowed-read-more-hover {
+  @include blue-arrowed-read-more;
+  &:after {
+    margin-left: $spacing-small;
   }
 }

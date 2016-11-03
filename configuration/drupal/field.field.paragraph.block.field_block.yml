@@ -3,8 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - block_content.type.article_list
-    - block_content.type.basic
+    - block_content.type.content_list
     - field.storage.paragraph.field_block
     - paragraphs.paragraphs_type.block
 id: paragraph.block.field_block
@@ -21,10 +20,9 @@ settings:
   handler: 'default:block_content'
   handler_settings:
     target_bundles:
-      article_list: article_list
-      basic: basic
+      content_list: content_list
     sort:
       field: _none
     auto_create: false
-    auto_create_bundle: article_list
+    auto_create_bundle: basic
 field_type: entity_reference

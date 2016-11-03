@@ -4,9 +4,11 @@
 
  /*  Node badge - view mode full.
     ------------------------------------------------------- */
-.node--type-badge.node--view-mode-full {
+.node--type-badge {
 
-  padding: 50px 0;
+  &.node--view-mode-full {
+    padding: 50px 0;
+  }
 
   // Remove border from main media.
   .main-media {
@@ -17,6 +19,38 @@
   .field__label {
     @include list-heading-medium;
   }
+
+  // Style target group items. Add commas if there a more than one item.
+  .field--name-field-badge-target-group {
+
+    margin: 5px 0 20px;
+
+    .field__item {
+
+      @include article-text;
+      display: inline-block;
+      margin-top: 5px;
+
+      &:after {
+        content: ",";
+        margin-right: 2px;
+      }
+
+      &:last-child {
+
+        &:after {
+          content: none;
+        }
+      }
+
+      &:first-child {
+
+        &:before {
+          content: none;
+        }
+      }
+    }
+  }
 }
 
 .node--type-badge__title {
@@ -25,18 +59,6 @@
 
 .field--name-field-badge-type  {
   @include pre-title;
-}
-
-.node--type-badge__target-group {
-
-  h2 {
-    margin: 5px 0 20px;
-  }
-
-  a {
-    @include article-text;
-    @include reset-link;
-  }
 }
 
 .field--name-field-badge-summary {
@@ -60,3 +82,4 @@
 .article-wrapper {
   background-color: white;
 }
+

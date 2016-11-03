@@ -87,7 +87,10 @@ function dds_badge_entity_presave(EntityInterface $entity) {
  * Implements hook_preprocess_HOOK().
  */
 function dds_badge_preprocess_views_view(&$variables) {
-  // Override "all" lable for exposed filters.
+  if ($variables['theme_hook_original'] !== "views_view__badges") {
+    return;
+  }
+  // Override "all" label for exposed filters.
   $variables['exposed']['type']['#options']['All'] = new TranslatableMarkup('Any type', [], ['context' => 'Badge overview filter']);
   $variables['exposed']['maalgruppe']['#options']['All'] = new TranslatableMarkup('Any', [], ['context' => 'Badge overview filter']);
 

@@ -4,6 +4,8 @@
 @import "variables";
 @import "burger";
 
+@import "polyfill.object-fit";
+
 /**
  * Mixins.
  */
@@ -15,12 +17,25 @@
 /**
  * SMACSS Base.
  */
+@import "base/functions";
 @import "base/alignment";
 @import "base/media";
 @import "base/typography";
 @import "base/print";
 @import "base/reset";
 @import "base/wysiwyg";
+
+/**
+ * SMACSS Layout.
+ */
+@import "layout/article";
+@import "layout/badge-overview";
+@import "layout/deck";
+@import "layout/header";
+@import "layout/footer";
+@import "layout/footer--social-links";
+@import "layout/section-page";
+@import "layout/layout";
 
 /**
  * SMACSS Components.
@@ -30,6 +45,7 @@
 @import "components/box";
 @import "components/content-link";
 @import "components/factbox";
+@import "components/share-icons";
 @import "components/grouping-menu";
 @import "components/hero-banner";
 @import "components/large-button-menu";
@@ -40,24 +56,15 @@
 @import "components/paragraph-text";
 @import "components/video";
 @import "components/program";
+@import "components/search-pager";
 @import "components/search-result";
 @import "components/situation-links";
 @import "components/facets";
 @import "components/cover_image";
 @import "components/badge";
-
-/**
- * SMACSS Layout.
- */
-@import "layout/article";
-@import "layout/badge-overview";
-@import "layout/events";
-@import "layout/header";
-@import "layout/footer";
-@import "layout/footer--social-links";
-@import "layout/section-page";
-@import "layout/layout";
-
+@import "components/content_list";
+@import "components/download";
+@import "components/event";
 
 /**
  * SMACSS Theme.

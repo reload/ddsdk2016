@@ -1,0 +1,24 @@
+uuid: 64985afe-b083-4a77-968e-10da14e6d63c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.download.field_file
+    - node.type.download
+  module:
+    - file
+    - user
+id: node.download.default
+targetEntityType: node
+bundle: download
+mode: default
+content:
+  field_file:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: file_default
+hidden:
+  langcode: true
+  links: true

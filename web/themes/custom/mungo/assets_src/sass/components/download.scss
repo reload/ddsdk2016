@@ -1,0 +1,72 @@
+/**
+ * Download content type and teasers.
+ */
+
+/*  Node download list-teaser.
+    ------------------------------------------------------- */
+.node-teaser--download {
+  padding: 15px 0;
+  background-color: $white-two;
+
+  // Remove border.
+  border: none;
+  display: inline-block;
+
+  // Normally a row would places around the cols of the teaser, but
+  // that is not possible here, because every single item is placed
+  // in the side-deck individually and therefor a row can not be placed.
+  // Therefor we do the following. (ts)
+  margin-left: -7.5px;
+  margin-bottom: 20px;
+  width: calc(100% + 7.5px);
+
+  // Remove hover effetcs.
+  &:hover {
+    border: none;
+    box-shadow: none;
+  }
+
+  // We set this here because i should have the same behaviour cross
+  // all devices.
+  &--link {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: $bluish;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  &--icon {
+    max-width: 100px;
+    width: 100%;
+    margin: 20px auto 0;
+
+    &--list-teaser {
+      max-width: 37px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0;
+    }
+  }
+
+  &--send-mail {
+    float: right;
+  }
+}
+
+.node-teaser--heading--download {
+  margin: 0 0 10px;
+
+  // Cut heading so it keeps on 1 line.
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+

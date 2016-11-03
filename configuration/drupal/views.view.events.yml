@@ -408,7 +408,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: events
+      path: arrangementer
       display_description: ''
     cache_metadata:
       max-age: 0

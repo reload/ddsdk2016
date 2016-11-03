@@ -78,7 +78,7 @@
     node.isSticky() ? 'node--sticky',
     not node.isPublished() ? 'node--unpublished',
     view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-    'col-md-9',
+    'col-md-8',
     'print-full-width'
   ]
 %}
@@ -87,6 +87,7 @@
   <section class="row">
     <article{{ attributes.addClass(classes) }}>
         {{ title_prefix }}
+        {% block title_prefix %}{% endblock %}
         {% if not page %}
           <h2{{ title_attributes }}>
             <a href="{{ url }}" rel="bookmark">{{ label }}</a>
@@ -95,6 +96,7 @@
           <h1 class="page-title">{{ label }}</h1>
         {% endif %}
         {{ title_suffix }}
+        {% block title_suffix %}{% endblock %}
         {{ content.field_main_media }}
         {% block main_media_suffix %}{% endblock %}
       <div class="row">
@@ -108,7 +110,7 @@
       </div>
     </article>
 
-    <aside class="col-md-3 no-printing article__sidebar">
+    <aside class="col-md-4 no-printing article__sidebar">
         {% block sidebar %}
           <div style="background-color: #f5f5f5">
             <h2>Hurtige genveje</h2>

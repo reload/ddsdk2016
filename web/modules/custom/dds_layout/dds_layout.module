@@ -58,3 +58,64 @@ function dds_layout_preprocess_field(&$variables) {
     }
   }
 }
+
+/**
+ * Implements hook_form_alter().
+ */
+function dds_layout_form_alter(&$form, $form_state, $form_id) {
+  // Move the side-deck field into the edit-forms sidebar (aka the
+  // "advanced" group).
+  // We match node_<nodetype>_edit_form as well as node_<nodetype>_form.
+  if (preg_match('#^node_([a-z]+)(_edit)?_form$#', $form_id)) {
+
+    // Put the sidedeck field in the sidebar.
+    if (isset($form['field_sidedeck'])) {
+      $form['sidedeck_group'] = array(
+        '#type' => 'details',
+        '#title' => t('Sidedeck'),
+        '#description' => t(
+          'Content that should be displayed in the side-deck.'
+        ),
+        '#group' => 'advanced',
+        '#open' => FALSE,
+        // Push it all the way to the bottom.
+        '#weight' => -999,
+      );
+
+      $form['field_sidedeck']['#group'] = 'sidedeck_group';
+    }
+
+    // Put meta-fields in the side_deck.
+    $content_meta_keys = [
+      'field_article_type',
+      'field_content_author',
+      'field_content_tag',
+      'field_content_target_group',
+      'field_content_topic',
+      'field_content_category',
+    ];
+    if (!empty(array_intersect($content_meta_keys, array_keys($form)))) {
+
+      // Create content meta advanced group.
+      $form['advanced_content_meta'] = array(
+        '#type' => 'details',
+        '#title' => t('Content meta'),
+        '#group' => 'advanced',
+        '#open' => TRUE,
+        // Push it all the way to the top.
+        '#weight' => -1000,
+      );
+
+      // Then put each of the fields in the newly created group.
+      foreach ($content_meta_keys as $key) {
+        $form[$key]['#group'] = 'advanced_content_meta';
+      }
+    }
+
+    if (!empty($form['field_content_target_group'])) {
+      $form['field_content_target_group']['#chosen'] = TRUE;
+    }
+
+  }
+
+}

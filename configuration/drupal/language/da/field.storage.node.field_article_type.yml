@@ -1,0 +1,8 @@
+settings:
+  allowed_values:
+    -
+      label: Artikel
+    -
+      label: Tekstside
+    -
+      label: Long-read

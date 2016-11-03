@@ -1,0 +1,21 @@
+uuid: 903d64c2-1111-456c-90a9-38b589835282
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_deck_color
+    - paragraphs.paragraphs_type.list_deck
+  module:
+    - options
+id: paragraph.list_deck.field_deck_color
+field_name: field_deck_color
+entity_type: paragraph
+bundle: list_deck
+label: 'Deck color'
+description: 'Color to use a background on the frontpage and on section-pages.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

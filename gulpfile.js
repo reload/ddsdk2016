@@ -38,6 +38,9 @@ var path = {
       dest: asset_paths.dest + '/fonts'
     }
   },
+  fontawesome: {
+    src: 'node_modules/font-awesome/scss',
+  },
   images: {
     src: asset_paths.src + '/images',
     dest: asset_paths.dest + '/images'
@@ -48,7 +51,7 @@ gulp.task('sass', function () {
   return gulp.src(path.stylesheets.src + '/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({
-      includePaths: [bourbon.includePaths, path.bootstrap.sass, path.stylesheets.burger],
+      includePaths: [bourbon.includePaths, path.bootstrap.sass, path.stylesheets.burger, path.fontawesome.src, 'node_modules/object-fit/dist/'],
       outputStyle: 'expanded'
     }).on('error', notify.onError(function (error) {
       return "\n\nSASS error: " + error.message;
@@ -77,6 +80,14 @@ gulp.task('bootstrap_fonts', function () {
   return gulp.src([path.bootstrap.fonts.src + '/*', path.bootstrap.fonts.src + '/*/*.*'])
     .pipe(gulp.dest(path.bootstrap.fonts.dest))
 });
+gulp.task('fontawesome_fonts', function () {
+  return gulp.src('node_modules/font-awesome/fonts/*.*')
+    .pipe(gulp.dest(asset_paths.dest + '/fonts/font-awesome'))
+});
+gulp.task('object-fit-polyfill', function () {
+  return gulp.src('node_modules/object-fit/dist/*.min.js')
+    .pipe(gulp.dest(asset_paths.dest + '/js'))
+});
 
 gulp.task('watch', function () {
   gulp.watch([path.stylesheets.src + '/*.scss', path.stylesheets.src + '/*/*.scss'], ['sass']);
@@ -91,7 +102,7 @@ gulp.task('clean', function () {
 
 
 gulp.task('build', function() {
-  runSequence ('clean', ['sass', 'javascript', 'images', 'bootstrap_fonts']);
+  runSequence ('clean', ['sass', 'javascript', 'images', 'bootstrap_fonts', 'fontawesome_fonts', 'object-fit-polyfill']);
 });
 
 gulp.task('default', function() {

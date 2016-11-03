@@ -1,0 +1,23 @@
+uuid: 6327c453-c316-42f7-be5b-5eed885c32be
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_deck_link
+    - paragraphs.paragraphs_type.4col_deck
+  module:
+    - link
+id: paragraph.4col_deck.field_deck_link
+field_name: field_deck_link
+entity_type: paragraph
+bundle: 4col_deck
+label: 'Deck link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

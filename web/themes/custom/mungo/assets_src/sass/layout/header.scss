@@ -7,17 +7,22 @@ header.header-fixed {
   background-color: #fff;
 }
 
-header.header-fixed > div {  height: 70px;  }
-body .layout-container {  padding-top: 70px;  }
+// Magical values to push content down. This must adjusted if the fixed menu
+// changes.
+body .layout-container {
+  padding-top: 71px;
+}
 
 @include media-small  {
-  header.header-fixed > div {  height: 130px;  }
-  body .layout-container {  padding-top: 130px;  }
+  body .layout-container {
+    padding-top: 131px;
+  }
 }
 
 @include media-medium {
-  header.header-fixed > div {  height: 100px;  }
-  body .layout-container {  padding-top: 100px;  }
+  body .layout-container {
+    padding-top: 101px;
+  }
 }
 
 /**
@@ -25,6 +30,25 @@ body .layout-container {  padding-top: 70px;  }
  */
 
 header.header-fixed {
+
+  .menu--top-menu {
+    ul {
+      margin-right: 0;
+    }
+    li{
+      display: inline-block;
+      margin-left: $spacing-medium;
+    }
+  }
+
+  > div {
+    height: 70px;
+
+    @include media-small {
+      height: auto;
+    }
+  }
+
   .region-top-menu {
     // Hide the top menu on mobile. Show from tablet and up.
     display: none;
@@ -43,10 +67,10 @@ header.header-fixed {
     content: '';
     height: 1px;
     width: 100%;
+    // If you're debugging why the line is overlapping content below it
+    // you probably need to adjust the values in the body .layout-container
+    // selector in this file.
     @include background-image(linear-gradient(to left, transparent 0%, $warm-grey 25%, $warm-grey 75%, transparent 100%));
-    @include media-medium {
-      // Hide the line on desktop.
-    }
   }
 
   .region-primary-menu {
@@ -78,6 +102,7 @@ header.header-fixed {
 
     @include media-medium {
       display: inline-block;
+      float: right;
     }
 
     label {
@@ -100,7 +125,6 @@ header.header-fixed {
       @include media-medium {
         margin-left: $spacing-large;
         position: relative;
-        top: -31px;
       }
 
       &:after {

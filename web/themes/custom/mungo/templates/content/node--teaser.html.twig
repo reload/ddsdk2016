@@ -83,10 +83,20 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
 %}
 {{ attach_library('classy/node') }}
 
-<a{{ attributes.addClass(classes) }} href="{{ url }}">
-    {{ content.field_main_media }}
+<a{{ attributes.addClass(classes) }} href="{{ alternative_url ? alternative_url : url }}">
+    {% if content.field_main_media|render %}
+        {{ content.field_main_media }}
+    {% else %}
+        <div class="no-image fluid-media">
+            <img src="/themes/custom/mungo/assets/images/no-image.svg" />
+        </div>
+    {% endif %}
     <div class="node-teaser--content-container">
-    <div class="node-teaser--keyword">{{ 'Keyword' }}</div>
+    <div class="node-teaser--keyword">
+      {% if content.field_content_topic %}
+        {{ content.field_content_topic }}
+      {% endif %}
+    </div>
     <h2 class="node-teaser--heading">
         {{ label }}
     </h2>

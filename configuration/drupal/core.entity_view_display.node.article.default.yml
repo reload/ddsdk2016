@@ -5,6 +5,10 @@ dependencies:
   config:
     - field.field.node.article.field_article_type
     - field.field.node.article.field_content_author
+    - field.field.node.article.field_content_category
+    - field.field.node.article.field_content_tag
+    - field.field.node.article.field_content_target_group
+    - field.field.node.article.field_content_topic
     - field.field.node.article.field_main_media
     - field.field.node.article.field_paragraphs
     - field.field.node.article.field_sidedeck
@@ -19,16 +23,24 @@ bundle: article
 mode: default
 content:
   field_content_author:
-    weight: 4
+    weight: 5
     label: hidden
     settings:
       link: true
       view_mode: default
     third_party_settings: {  }
     type: entity_reference_entity_view
+  field_content_topic:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: plaintext
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
   field_main_media:
     type: entity_reference_entity_view
-    weight: 1
+    weight: 2
     label: hidden
     settings:
       view_mode: default
@@ -36,7 +48,7 @@ content:
     third_party_settings: {  }
   field_paragraphs:
     type: entity_reference_revisions_entity_view
-    weight: 3
+    weight: 4
     label: hidden
     settings:
       view_mode: default
@@ -44,22 +56,25 @@ content:
     third_party_settings: {  }
   field_sidedeck:
     type: entity_reference_revisions_entity_view
-    weight: 5
+    weight: 6
     label: hidden
     settings:
-      view_mode: default
+      view_mode: teaser_list
       link: ''
     third_party_settings: {  }
   field_subtitle:
-    weight: 2
+    weight: 3
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
   links:
-    weight: 0
+    weight: 1
     settings: {  }
     third_party_settings: {  }
 hidden:
   field_article_type: true
+  field_content_category: true
+  field_content_tag: true
+  field_content_target_group: true
   langcode: true

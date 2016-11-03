@@ -1,0 +1,6 @@
+uuid: 2076473a-03eb-4853-9965-992df6798f70
+langcode: en
+status: true
+dependencies: {  }
+id: list_deck
+label: 'List deck'

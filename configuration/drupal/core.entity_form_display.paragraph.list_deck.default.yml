@@ -1,0 +1,69 @@
+uuid: cabe7408-37bc-49f2-a6fe-c0515ae35693
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.list_deck.field_deck_color
+    - field.field.paragraph.list_deck.field_deck_link
+    - field.field.paragraph.list_deck.field_deck_title
+    - field.field.paragraph.list_deck.field_list_paragraph
+    - paragraphs.paragraphs_type.list_deck
+  module:
+    - field_group
+    - link
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_deck_settings:
+      children:
+        - field_deck_title
+        - field_deck_link
+        - field_deck_color
+      parent_name: ''
+      weight: 0
+      label: 'Deck settings'
+      format_type: details
+      format_settings:
+        label: 'Deck settings'
+        open: true
+        required_fields: true
+        id: ''
+        classes: ''
+id: paragraph.list_deck.default
+targetEntityType: paragraph
+bundle: list_deck
+mode: default
+content:
+  field_deck_color:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_deck_link:
+    weight: 2
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  field_deck_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_list_paragraph:
+    type: entity_reference_paragraphs
+    weight: 4
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

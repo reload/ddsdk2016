@@ -1,0 +1,81 @@
+<?php
+
+/**
+ * @file
+ * Functionality to support lists of content.
+ */
+
+use Drupal\views\Views;
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function dds_content_list_preprocess_paragraph(&$variables) {
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $variables['paragraph'];
+  $paragraph_type = $paragraph->getType();
+
+  // If this is a latest-content-list paragraph-type gather in the data we
+  // need and render the latest_articles view into the theme-context.
+  if ($paragraph_type === 'latest_content_list') {
+    $view = Views::getView('latest_articles');
+    if (!$view || !$view->access('default')) {
+      return;
+    }
+
+    // Default.
+    $num_items = 3;
+    if ($paragraph->hasField('field_list_item_count') && !empty($paragraph->get('field_list_item_count')->value)) {
+      // Use configured override if available.
+      $num_items = (int) $paragraph->get('field_list_item_count')->value;
+    }
+    $view->setItemsPerPage($num_items);
+    $variables['content']['list'] = $view->render('default');
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_alter().
+ */
+function dds_content_list_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+  // Add suggestions to all theme-hooks that is related to rendering our
+  // lists of content.
+  // First extract information about the view we'll use in the suggestions.
+  $view_tags = [];
+  $view_id = NULL;
+  if (in_array($hook, ['views_view', 'views_view_unformatted'])) {
+    /** @var \Drupal\views\ViewExecutable $view */
+    $view = $variables['view'];
+    $view_id = $view->id();
+    $tags_string = $view->storage->get('tag');
+    if (!empty($tags_string)) {
+      $view_tags = array_map('trim', explode(',', $tags_string));
+    }
+  }
+
+  switch ($hook) {
+    case 'paragraph':
+      /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+      $paragraph = $variables['elements']['#paragraph'];
+      $paragraph_type = $paragraph->getType();
+      // We let theming of a content-list paragraph be handled by one
+      // common template.
+      if ($paragraph_type === 'latest_content_list') {
+        $suggestions[] = $hook . '__list';
+        $suggestions[] = $hook . '__list__' . $paragraph->getType();
+
+      }
+      break;
+
+    // If the view is tagged as a content-list, inject a suggestion that
+    // will cause the view and the row-style to be rendered with very little
+    // wrapping markup for better capability with bootstrap.
+    case 'views_view_unformatted':
+    case 'views_view':
+      if (in_array('dds_content_list', $view_tags, TRUE)) {
+        $suggestions[] = $hook . '__default__content_list';
+        $suggestions[] = $hook . '__' . $view_id . '__content_list';
+      }
+      break;
+  }
+}

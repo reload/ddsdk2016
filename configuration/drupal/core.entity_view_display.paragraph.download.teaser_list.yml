@@ -1,0 +1,24 @@
+uuid: 819dc5b7-8592-4dbe-860c-a85e582eae7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.teaser_list
+    - field.field.paragraph.download.field_download
+    - paragraphs.paragraphs_type.download
+id: paragraph.download.teaser_list
+targetEntityType: paragraph
+bundle: download
+mode: teaser_list
+content:
+  field_download:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: list_teaser
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+hidden:
+  created: true
+  uid: true

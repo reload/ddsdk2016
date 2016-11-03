@@ -1,0 +1,25 @@
+uuid: eb38ffcb-c36d-494b-ab92-58cf514605f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.list_teaser
+    - field.field.node.download.field_file
+    - node.type.download
+  module:
+    - file
+    - user
+id: node.download.list_teaser
+targetEntityType: node
+bundle: download
+mode: list_teaser
+content:
+  field_file:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: file_default
+hidden:
+  langcode: true
+  links: true

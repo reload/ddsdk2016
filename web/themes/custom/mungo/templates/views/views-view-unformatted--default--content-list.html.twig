@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Slimmed down template for content-list views.
+ *
+ * We keep it as simple as possible to avoid interfering with bootstrap
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{# Dynamically adapt col-size to number of results. #}
+{% if not row_classes %}
+  {% if rows|length <= 3 %}
+    {% set row_classes = ['col-sm-4'] %}
+  {% else  %}
+    {% set row_classes = ['col-md-3', 'col-sm-6', 'col-xs-6'] %}
+  {% endif %}
+{% endif %}
+{% for row in rows %}
+  <div{{ row.attributes.addClass(row_classes) }}>
+    {{ row.content }}
+  </div>
+{% endfor %}

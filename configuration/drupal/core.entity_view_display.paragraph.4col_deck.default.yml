@@ -7,9 +7,14 @@ dependencies:
     - field.field.paragraph.4col_deck.field_4col_deck_col2
     - field.field.paragraph.4col_deck.field_4col_deck_col3
     - field.field.paragraph.4col_deck.field_4col_deck_col4
+    - field.field.paragraph.4col_deck.field_deck_color
+    - field.field.paragraph.4col_deck.field_deck_link
+    - field.field.paragraph.4col_deck.field_deck_title
     - paragraphs.paragraphs_type.4col_deck
   module:
     - entity_reference_revisions
+    - link
+    - options
 id: paragraph.4col_deck.default
 targetEntityType: paragraph
 bundle: 4col_deck
@@ -47,6 +52,30 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
+  field_deck_color:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_deck_link:
+    weight: 5
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_deck_title:
+    weight: 6
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
 hidden:
   created: true
   uid: true

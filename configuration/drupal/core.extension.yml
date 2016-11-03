@@ -7,6 +7,8 @@ module:
   block: 0
   block_content: 0
   breakpoint: 0
+  chosen: 0
+  chosen_lib: 0
   ckeditor: 0
   color: 0
   config: 0
@@ -15,12 +17,15 @@ module:
   datetime: 0
   datetime_range: 0
   dblog: 0
+  dds_activity: 0
   dds_article: 0
   dds_badge: 0
   dds_content_link: 0
+  dds_content_list: 0
   dds_event: 0
   dds_layout: 0
   dds_person: 0
+  dds_search: 0
   dds_top_image: 0
   dynamic_page_cache: 0
   editor: 0
@@ -34,6 +39,7 @@ module:
   field_ui: 0
   file: 0
   filter: 0
+  forward: 0
   help: 0
   history: 0
   image: 0

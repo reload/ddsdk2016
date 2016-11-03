@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.field_sidedeck
     - node.type.article
     - paragraphs.paragraphs_type.block
+    - paragraphs.paragraphs_type.download
   module:
     - entity_reference_revisions
 id: node.article.field_sidedeck
@@ -23,6 +24,7 @@ settings:
   handler_settings:
     target_bundles:
       block: block
+      download: download
     target_bundles_drag_drop:
       1col_deck:
         weight: 17
@@ -54,6 +56,9 @@ settings:
       hero_banner:
         weight: 26
         enabled: false
+      download:
+        enabled: true
+        weight: 26
       program:
         weight: 27
         enabled: false
@@ -69,7 +74,31 @@ settings:
       text:
         weight: 31
         enabled: false
+      content_activity_reference:
+        weight: 32
+        enabled: false
       video:
         weight: 32
+        enabled: false
+      content_article_reference:
+        weight: 33
+        enabled: false
+      content_article_reference_ext:
+        weight: 34
+        enabled: false
+      content_badge_reference:
+        weight: 35
+        enabled: false
+      content_event_reference:
+        weight: 36
+        enabled: false
+      image:
+        weight: 42
+        enabled: false
+      latest_content_list:
+        weight: 43
+        enabled: false
+      list_deck:
+        weight: 44
         enabled: false
 field_type: entity_reference_revisions

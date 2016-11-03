@@ -1,0 +1,28 @@
+uuid: 3f637399-e013-4c72-939d-ed8415353621
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_download
+    - node.type.download
+    - paragraphs.paragraphs_type.download
+id: paragraph.download.field_download
+field_name: field_download
+entity_type: paragraph
+bundle: download
+label: Download
+description: 'Reference to the file a file download.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      download: download
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
