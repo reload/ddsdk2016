@@ -14,6 +14,11 @@
 
 .filters-exposed {
   margin-bottom: 20px;
+
+  input[type='submit'] {
+    width: 99%;
+    margin: 0 0 20px;
+  }
 }
 
 .view-filters__inner {
