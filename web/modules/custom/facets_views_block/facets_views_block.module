@@ -5,9 +5,6 @@
  * Add facets as views "blocks" for easier theming.
  */
 
-use Drupal\Core\Url;
-use Drupal\taxonomy\Entity\Term;
-
 /**
  * Implements hook_preprocess_views_view().
  *
@@ -75,38 +72,11 @@ function facets_views_block_preprocess_views_view(&$variables) {
     }
   }
 
-  // Add tag variable to the search view to indicate potential tags.
-  if ($view_id === 'search') {
-    // Get all tag terms so we can prepare a tag variable for the search view.
-    // We also unset the tag facet parameter from the parameters array so we can
-    // use the parameters as the query parameters in a "reset" link.
-    $parameters = \Drupal::request()->query->all();
-    if (!empty($parameters['f'])) {
-      $tags = [];
-      foreach ($parameters['f'] as $delta => $param) {
-        // Facet query parameter format: "subject:138".
-        $param = explode(':', $param);
-        if (!empty($param[1])) {
-          $tags[] = Term::load($param[1]);
-          unset($parameters['f'][$delta]);
-        }
-      }
-
-      // Prepare tag variable for the search view template.
-      if (!empty($tags) && $tags[0] instanceof Term) {
-        /* @var \Drupal\taxonomy\Entity\Term[] $tags */
-        $variables['tag']['text'] = $tags[0]->label();
-        // TODO: Generalize when this has to work for the general search.
-        $variables['tag']['url'] = Url::fromUri('internal:/events', [
-          'query' => $parameters,
-        ]);
-      }
-    }
-  }
-
-  // Reorder the facets and exposed filters.
   if (!empty($variables['facets'])) {
-    $variables['exposed'] = _facets_views_preprocess_filters($variables['exposed'], $variables['facets']);
+    // Reorder the facets and exposed filters on the events view page.
+    if ($view_id === 'events') {
+      _facets_views_preprocess_event_filters($variables);
+    }
   }
 }
 
@@ -132,52 +102,41 @@ function facets_views_block_theme() {
  * Order the exposed form in the "correct" order.
  * We add the facets to the exposed form, by rendering them and
  * adding them as markup in the form.
- *
- * @param array $exposed_form
- *   The exposed form.
- * @param array $facets
- *   The facets in render arrays.
- *
- * @return array
- *   Returns a modified exposed form with facets elements included.
  */
-function _facets_views_preprocess_filters($exposed_form, $facets) {
-
+function _facets_views_preprocess_event_filters(&$variables) {
   // Initialize weight.
   $weight = -1;
 
   // 1. search_text(exposed form).
-  $exposed_form['search_text']['#weight'] = $weight++;
-  $exposed_form['search_text']['#attributes']['placeholder'] = t('Search for activities ...', [], ['context' => 'activity search']);
+  $variables['exposed']['search_text']['#weight'] = $weight++;
+  $variables['exposed']['search_text']['#attributes']['placeholder'] = t('Search for activities ...', [], ['context' => 'activity search']);
 
   // 2. facets_event_type(facet).
-  $exposed_form['facets_event_type'] = [
+  $variables['exposed']['facets_event_type'] = [
     '#type' => 'markup',
-    '#markup' => \Drupal::service('renderer')->render($facets['event_type']),
+    '#markup' => \Drupal::service('renderer')->render($variables['facets']['event_type']),
     '#weight' => $weight++,
   ];
 
   // 3. facets_target_group(facet).
-  $exposed_form['facets_target_group'] = [
+  $variables['exposed']['facets_target_group'] = [
     '#type' => 'markup',
-    '#markup' => \Drupal::service('renderer')->render($facets['target_group']),
+    '#markup' => \Drupal::service('renderer')->render($variables['facets']['target_group']),
     '#weight' => $weight++,
   ];
 
   // 4. facets_target_group(facet).
-  $exposed_form['facets_area'] = [
+  $variables['exposed']['facets_area'] = [
     '#type' => 'markup',
-    '#markup' => \Drupal::service('renderer')->render($facets['area']),
+    '#markup' => \Drupal::service('renderer')->render($variables['facets']['area']),
     '#weight' => $weight++,
   ];
 
   // 5. event_after(exposed form).
-  $exposed_form['event_after']['#weight'] = $weight++;
-  $exposed_form['event_after']['#attributes']['placeholder'] = t('exclude results after this date ...');
+  $variables['exposed']['event_after']['#weight'] = $weight++;
+  $variables['exposed']['event_after']['#attributes']['placeholder'] = t('exclude results after this date ...');
 
   // 6. event_before(exposed form).
-  $exposed_form['event_before']['#weight'] = $weight++;
-  $exposed_form['event_before']['#attributes']['placeholder'] = t('exclude results before this date ...');
-
-  return $exposed_form;
+  $variables['exposed']['event_before']['#weight'] = $weight++;
+  $variables['exposed']['event_before']['#attributes']['placeholder'] = t('exclude results before this date ...');
 }
