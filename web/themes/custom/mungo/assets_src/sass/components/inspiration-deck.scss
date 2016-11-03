@@ -53,19 +53,45 @@
   }
 }
 
-// Overriding node_teaser theming and resetting image to span whole height of
-// container.
 .inspiration-deck {
   a {
     border: 0 none;
-    img {
-      object-fit: cover;
-      height: 100%;
-    }
+    // Overriding node_teaser theming and resetting image to span whole height of
+    // container.
+
     .main-media,
     .main-media * {
       display: block;
       height: 100%;
+      img {
+        @include filter(brightness(50%));
+        object-fit: cover;
+        height: 100%;
+      }
+    }
+    // Resetting the content container.
+    .node-teaser--content-container {
+      position: absolute;
+      bottom: 0;
+      color: #fff;
+      .node-teaser--read-more {
+        display: none;
+      }
+      h2 {
+        margin-bottom: 0;
+      }
+    }
+
+    // Resetting normal node_teaser hover effect, removing text and
+    // brighten image.
+    &:hover {
+      img {
+        @include filter(brightness(100%));
+      }
+      .node-teaser--content-container {
+        display: none;
+      }
+      border: 0;
     }
   }
 }
