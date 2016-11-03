@@ -7,6 +7,7 @@ dependencies:
     - paragraphs.paragraphs_type.1col_deck
     - paragraphs.paragraphs_type.block
     - paragraphs.paragraphs_type.content_article_reference_ext
+    - paragraphs.paragraphs_type.inspiration_deck
     - paragraphs.paragraphs_type.text
     - paragraphs.paragraphs_type.video
   module:
@@ -29,6 +30,7 @@ settings:
       video: video
       block: block
       content_article_reference_ext: content_article_reference_ext
+      inspiration_deck: inspiration_deck
     target_bundles_drag_drop:
       text:
         enabled: true
@@ -90,7 +92,22 @@ settings:
       content_event_reference:
         weight: 29
         enabled: false
+      download:
+        weight: 38
+        enabled: false
       situation_links:
         weight: 38
+        enabled: false
+      image:
+        weight: 43
+        enabled: false
+      inspiration_deck:
+        enabled: true
+        weight: 44
+      latest_content_list:
+        weight: 45
+        enabled: false
+      list_deck:
+        weight: 46
         enabled: false
 field_type: entity_reference_revisions
