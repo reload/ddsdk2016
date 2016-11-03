@@ -34,8 +34,6 @@
 
   // /* New nested flex container - Safari fix */
   .node-teaser {
-    width: auto !important;
-    height: auto !important;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start !important;
@@ -67,6 +65,18 @@
     @include media-small {
       padding-top: $spacing;
       padding-bottom: $spacing;
+    }
+  }
+}
+
+.is-safari {
+  // Ensure all elements on the same row has the same size.
+  .row-equal-columns {
+
+    // /* New nested flex container - Safari fix */
+    .node-teaser {
+      width: auto !important;
+      height: auto !important;
     }
   }
 }
