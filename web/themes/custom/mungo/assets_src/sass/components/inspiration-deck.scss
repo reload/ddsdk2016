@@ -84,7 +84,6 @@
       .node-teaser--read-more {
         display: none;
       }
-
     }
 
     // Resetting normal node_teaser hover effect, removing text and
@@ -94,6 +93,17 @@
         @include filter(brightness(100%));
       }
       border: 0;
+    }
+  }
+  .content {
+    color: #000;
+    text-decoration: none;
+    position: absolute;
+    bottom:0;
+    display: block;
+    padding: $spacing-medium;
+    p {
+      margin-bottom: 0;
     }
   }
 }
