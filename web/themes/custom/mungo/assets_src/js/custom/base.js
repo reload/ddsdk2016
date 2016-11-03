@@ -42,7 +42,6 @@
     }
   };
 
-
   Drupal.behaviors.browserDetect = {
     attach: function (context, settings) {
       var safari = navigator.userAgent.indexOf("Safari") > -1;
