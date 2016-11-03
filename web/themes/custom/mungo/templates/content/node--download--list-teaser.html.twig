@@ -83,29 +83,19 @@
   ]
 %}
 
-{%
-  set layout_classes = [
-    'col-md-12',
-    'col-sm-6',
-    'col-xs-12',
-  ]
-%}
-
 {{ attach_library('classy/node') }}
 
-<div{{ layout_attributes.addClass(layout_classes) }}>
-  <article{{ attributes.addClass(classes) }}>
-    <div class="col-xs-3">
-      <div class="node-teaser--download--icon node-teaser--download--icon--list-teaser">
-          {{ svg_icon|raw }}
-      </div>
-    </div>
-    <div class="col-xs-9">
-      <h2 class="node-teaser--heading node-teaser--heading--download">
-        {{ label }}
-      </h2>
-      <a class="node-teaser--download--link" href="{{ file_url }}">{{ 'Download'|trans }}</a>
-      <a class="node-teaser--download--link node-teaser--download--send-mail" href="{{ mail_url }}">{{ 'Send by mail'|trans }}</a>
-    </div>
-  </article>
-</div>
+<article{{ attributes.addClass(classes) }}>
+  <div class="col-xs-3">
+    <a class="node-teaser--download--icon node-teaser--download--icon--list-teaser" href="{{ file_url }}">
+        {{ svg_icon|raw }}
+    </a>
+  </div>
+  <div class="col-xs-9">
+    <h2 class="node-teaser--heading node-teaser--heading--download">
+      {{ label }}
+    </h2>
+    <a class="node-teaser--download--link" href="{{ file_url }}">{{ 'Download'|trans }}</a>
+    <a class="node-teaser--download--link node-teaser--download--send-mail" href="{{ mail_url }}">{{ 'Send by mail'|trans }}</a>
+  </div>
+</article>

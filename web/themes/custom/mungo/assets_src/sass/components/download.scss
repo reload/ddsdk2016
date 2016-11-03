@@ -6,19 +6,14 @@
     ------------------------------------------------------- */
 .node-teaser--download {
   padding: 15px 0;
-  background-color: $white-two;
+  background-color: white;
 
   // Remove border.
   border: none;
-  display: inline-block;
 
-  // Normally a row would places around the cols of the teaser, but
-  // that is not possible here, because every single item is placed
-  // in the side-deck individually and therefor a row can not be placed.
-  // Therefor we do the following. (ts)
-  margin-left: -7.5px;
-  margin-bottom: 20px;
-  width: calc(100% + 7.5px);
+  // Dimensions.
+  width: 100%;
+  height: 100%;
 
   // Remove hover effetcs.
   &:hover {
@@ -42,20 +37,23 @@
   }
 
   &--icon {
-    max-width: 100px;
-    width: 100%;
-    margin: 20px auto 0;
 
-    &--list-teaser {
-      max-width: 37px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 0;
+    text-align: center;
+    width: 100%;
+
+    .spejder-icon-wrapper {
+      max-width: 100%;
+      width: 120px;
+      margin: auto;
     }
   }
 
   &--send-mail {
     float: right;
+  }
+
+  .node-teaser--content-container {
+    width: 100%;
   }
 }
 
@@ -67,6 +65,3 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-
-

@@ -9,6 +9,8 @@ dependencies:
     - field.field.node.badge.field_badge_summary
     - field.field.node.badge.field_badge_target_group
     - field.field.node.badge.field_badge_type
+    - field.field.node.badge.field_content_tag
+    - field.field.node.badge.field_content_topic
     - field.field.node.badge.field_main_media
     - field.field.node.badge.field_paragraphs
     - field.field.node.badge.field_sidedeck
@@ -37,15 +39,14 @@ content:
     third_party_settings: {  }
     type: basic_string
   field_badge_target_group:
-    type: entity_reference_entity_view
+    type: entity_reference_label
     weight: 3
     label: above
     settings:
-      view_mode: default
       link: false
     third_party_settings: {  }
   field_badge_type:
-    type: list_key
+    type: list_default
     weight: 2
     label: hidden
     settings: {  }
@@ -77,5 +78,7 @@ content:
 hidden:
   field_badge_level: true
   field_badge_progression: true
+  field_content_tag: true
+  field_content_topic: true
   langcode: true
   links: true

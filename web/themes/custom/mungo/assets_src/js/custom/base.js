@@ -10,7 +10,6 @@
        * Position the site menu when toolbar is active.
        */
       $(document).on('drupalViewportOffsetChange.toolbar', function (event, offsets) {
-        console.log(offsets.top);
         $('header.header-fixed').css('top',(offsets.top));
         $('header.header-fixed').css('left',(offsets.left));
       });
@@ -25,7 +24,7 @@
         var text = $(this).text().split(' ');
         text = '<span>' + text.join('</span><span>') + '</span>';
         $(this).html(text);
-      });
+      }).addClass('dymo-text-processed');
     }
   };
 
@@ -43,4 +42,13 @@
     }
   };
 
+  Drupal.behaviors.browserDetect = {
+    attach: function (context, settings) {
+      var safari = navigator.userAgent.indexOf("Safari") > -1;
+
+      if (safari) {
+        $('body').addClass('is-safari');
+      }
+    }
+  };
 })(jQuery, Drupal);

@@ -3,6 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.download.field_content_category
+    - field.field.node.download.field_content_tag
+    - field.field.node.download.field_content_target_group
+    - field.field.node.download.field_content_topic
     - field.field.node.download.field_file
     - node.type.download
   module:
@@ -12,6 +16,29 @@ targetEntityType: node
 bundle: download
 mode: default
 content:
+  field_content_category:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_content_tag:
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete_tags
+  field_content_target_group:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_content_topic:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
   field_file:
     weight: 1
     settings:

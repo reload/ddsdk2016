@@ -92,11 +92,19 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
         </div>
     {% endif %}
     <div class="node-teaser--content-container">
-    <div class="node-teaser--keyword">
-      {% if content.field_content_topic %}
-        {{ content.field_content_topic }}
-      {% endif %}
-    </div>
+    {% if content.field_content_topic or content.field_content_topic or content.field_badge_type %}
+        <div class="node-teaser--keyword">
+          {% if node.bundle in ['article', 'section_page'] %}
+            {% if content.field_content_topic %}
+              {{ content.field_content_topic }}
+            {% endif %}
+          {% elseif node.bundle == 'event' %}
+            {{ content.field_event_type }}
+          {% elseif node.bundle == 'badge' %}
+            {{ content.field_badge_type }}
+          {% endif %}
+        </div>
+    {% endif %}
     <h2 class="node-teaser--heading">
         {{ label }}
     </h2>

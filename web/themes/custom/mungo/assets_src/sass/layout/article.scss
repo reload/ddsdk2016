@@ -229,6 +229,26 @@
       padding-left: 0px;
     }
   }
+
+  @include media-small {
+    // Overide border behaviour on tablet.
+    border-top: none;
+    border-bottom: 1px solid $pinkish-grey;
+
+    &:nth-child(1),
+    &:nth-child(2) {
+      border-top: 1px solid $pinkish-grey;
+    }
+  }
+
+  // On Desktop we go 100% again.
+  @include media-medium {
+    width: 100%;
+
+    // Reset.
+    border-top: 1px solid $pinkish-grey;
+    border-bottom: none;
+  }
 }
 
 /*  Sidebar deck globally.

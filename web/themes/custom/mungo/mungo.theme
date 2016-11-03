@@ -44,6 +44,28 @@ function mungo_preprocess_field(&$variables) {
     // Clean the classes on factboxes.
     $variables['attributes']['class'][] = 'caption';
   }
+  elseif (in_array($field_name, ['field_shortcuts'])) {
+
+    if (!empty($variables['items'])) {
+
+      $links = $variables['element']['#items']->getValue();
+
+      foreach ($variables['items'] as $delta => $value) {
+        $variables['items'][$delta]['content']['#options']['attributes']['class'][] = 'shortcuts__link';
+        $url = $variables['items'][$delta]['content']['#url'];
+        $link = $links[$delta];
+
+        if (!$url->isExternal() && empty($link['title'])) {
+          $uri_value = $url->getInternalPath();
+
+          if (preg_match('#^node/(?P<nid>\d+)$#', $uri_value, $matches)) {
+            $node = Node::load($matches['nid']);
+            $variables['items'][$delta]['content']['#title'] = $title = $node->getTitle();
+          }
+        }
+      }
+    }
+  }
   elseif (in_array($field_name, ['field_2col_deck_col1', 'field_2col_deck_col2'])) {
     /** @var Paragraph $paragraph */
     $paragraph = $variables['element']['#object'];
@@ -182,6 +204,34 @@ function mungo_preprocess_paragraph(&$variables) {
     case 'gallery':
       // Add a clean class to videos.
       $variables['attributes']['class'][] = 'gallery';
+      break;
+
+    case 'key_figures':
+
+      if ($paragraph->hasField('field_key_figures_deck_color') && !(empty($paragraph->field_key_figures_deck_color->getValue()))) {
+        $color = $paragraph->field_key_figures_deck_color->getValue();
+        if (!empty($color[0])) {
+          $variables['color'] = $color[0]['value'];
+        }
+      }
+      if ($paragraph->hasField('field_key_figures_link_1') && !(empty($paragraph->field_key_figures_link_1->getValue()))) {
+        $link_1 = $paragraph->field_key_figures_link_1->getValue();
+        if (!empty($link_1[0])) {
+          $variables['content']['link_1'] = Url::fromUri($link_1[0]['uri']);
+        }
+      }
+      if ($paragraph->hasField('field_key_figures_link_2') && !(empty($paragraph->field_key_figures_link_2->getValue()))) {
+        $link_2 = $paragraph->field_key_figures_link_2->getValue();
+        if (!empty($link_2[0])) {
+          $variables['content']['link_2'] = Url::fromUri($link_2[0]['uri']);
+        }
+      }
+      if ($paragraph->hasField('field_key_figures_link_3') && !(empty($paragraph->field_key_figures_link_3->getValue()))) {
+        $link_3 = $paragraph->field_key_figures_link_3->getValue();
+        if (!empty($link_3[0])) {
+          $variables['content']['link_3'] = Url::fromUri($link_3[0]['uri']);
+        }
+      }
       break;
 
     case 'content_link':
@@ -738,6 +788,15 @@ function mungo_theme_suggestions_alter(array &$suggestions, array $variables, $h
       if (preg_match('#^field_\dcol_deck_col\d$#', $field_name)) {
         $suggestions[] = $hook . '__' . $variables['element']['#entity_type'] . '__deckcolumn';
       }
+      // Provide full view_mode for title and field_subtitle fields
+      // to differentiate on when to apply dymo-text.
+      // Could be applied to even more fields, but not necessary for now.
+      $target_fields = array('title', 'field_subtitle');
+      if (in_array($variables['element']['#field_name'], $target_fields) && $variables['element']['#view_mode'] == 'full') {
+        $entity_type = $variables['element']['#entity_type'];
+        $bundle = $variables['element']['#bundle'];
+        $suggestions[] = "{$hook}__{$entity_type}__{$field_name}__{$bundle}__full";
+      }
       break;
 
     case 'taxonomy_term':
@@ -848,6 +907,7 @@ function _mungo_preprocess_deck_paragraph($type, &$variables) {
   elseif ($type === '3col_deck') {
     foreach ($variables['cols'] as &$col) {
       $col['#attributes']['class'][] = 'col-sm-4';
+      $col['#attributes']['class'][] = 'col-xs-12';
     }
     $variables['attributes']['class'][] = 'three-cols-deck';
   }

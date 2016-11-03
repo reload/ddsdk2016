@@ -121,7 +121,6 @@ forward_menu_menu: false
 forward_entity_taxonomy_term: false
 forward_taxonomy_term_badge_target_group: false
 forward_taxonomy_term_event_location_area: false
-forward_taxonomy_term_event_target_group: false
 forward_taxonomy_term_event_type: false
 forward_taxonomy_term_person: false
 forward_taxonomy_term_progression_badge: false

@@ -1,0 +1,6 @@
+uuid: 2daa4482-4dd8-4de2-ac9e-69fe42b9a7b6
+langcode: en
+status: true
+dependencies: {  }
+id: key_figures
+label: 'Key Figures'

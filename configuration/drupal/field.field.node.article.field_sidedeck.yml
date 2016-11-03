@@ -7,6 +7,7 @@ dependencies:
     - node.type.article
     - paragraphs.paragraphs_type.block
     - paragraphs.paragraphs_type.download
+    - paragraphs.paragraphs_type.shortcuts
   module:
     - entity_reference_revisions
 id: node.article.field_sidedeck
@@ -25,6 +26,7 @@ settings:
     target_bundles:
       block: block
       download: download
+      shortcuts: shortcuts
     target_bundles_drag_drop:
       1col_deck:
         weight: 17
@@ -53,15 +55,18 @@ settings:
       gallery:
         weight: 25
         enabled: false
-      hero_banner:
-        weight: 26
-        enabled: false
       download:
         enabled: true
         weight: 26
+      hero_banner:
+        weight: 26
+        enabled: false
       program:
         weight: 27
         enabled: false
+      shortcuts:
+        enabled: true
+        weight: 27
       program_item:
         weight: 28
         enabled: false

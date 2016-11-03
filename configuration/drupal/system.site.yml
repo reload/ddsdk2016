@@ -1,10 +1,10 @@
 uuid: 54b51f9d-45c3-4544-8da2-b05f2579aa74
-name: Site-Install
-mail: admin@example.com
+name: 'Det Danske Spejderkorps'
+mail: info@dds.dk
 slogan: ''
 page:
   403: ''
-  404: ''
+  404: /node/5
   front: /node/11
 admin_compact_mode: false
 weight_select_max: 100

@@ -3,6 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.section_page.field_content_category
+    - field.field.node.section_page.field_content_tag
+    - field.field.node.section_page.field_content_target_group
+    - field.field.node.section_page.field_content_topic
     - field.field.node.section_page.field_main_media
     - field.field.node.section_page.field_section
     - field.field.node.section_page.field_subtitle
@@ -38,5 +42,9 @@ content:
     third_party_settings: {  }
     type: basic_string
 hidden:
+  field_content_category: true
+  field_content_tag: true
+  field_content_target_group: true
+  field_content_topic: true
   langcode: true
   links: true

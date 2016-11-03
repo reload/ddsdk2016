@@ -1,6 +1,6 @@
 settings:
   allowed_values:
     -
-      label: Forløbsmærker
+      label: Forløbsmærke
     -
-      label: Færdighedsmærker
+      label: Færdighedsmærke

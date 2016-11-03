@@ -17,7 +17,6 @@ dependencies:
     - field.storage.media.field_byline
     - field.storage.node.field_paragraphs
     - field.storage.paragraph.field_factbox_text
-    - field.storage.node.field_event_target_group
     - field.storage.node.field_content_author
     - field.storage.taxonomy_term.field_presentation_name
     - field.storage.paragraph.field_gallery_image
@@ -28,6 +27,10 @@ dependencies:
     - field.storage.paragraph.field_formatted_text
     - field.storage.node.field_event_area
     - field.storage.node.field_article_type
+    - field.storage.node.field_content_category
+    - field.storage.node.field_content_tag
+    - field.storage.node.field_content_target_group
+    - field.storage.node.field_content_topic
     - search_api.server.solr
   module:
     - media_entity
@@ -177,16 +180,6 @@ field_settings:
         - field.storage.paragraph.field_factbox_text
       module:
         - paragraphs
-  target_group_name:
-    label: 'Target group » Taxonomy term » Name'
-    datasource_id: 'entity:node'
-    property_path: 'field_event_target_group:entity:name'
-    type: string
-    dependencies:
-      config:
-        - field.storage.node.field_event_target_group
-      module:
-        - taxonomy
   field_presentation_name:
     label: 'Author » Taxonomy term » Presentation Name'
     datasource_id: 'entity:node'
@@ -297,14 +290,6 @@ field_settings:
         - field.storage.paragraph.field_formatted_text
       module:
         - paragraphs
-  field_event_target_group:
-    label: 'Target group'
-    datasource_id: 'entity:node'
-    property_path: field_event_target_group
-    type: integer
-    dependencies:
-      config:
-        - field.storage.node.field_event_target_group
   field_event_type:
     label: 'Event type'
     datasource_id: 'entity:node'
@@ -329,6 +314,78 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_article_type
+  field_content_category_name:
+    label: 'Category » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_content_category:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_content_category
+      module:
+        - taxonomy
+  field_content_tag_name:
+    label: 'Tag » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_content_tag:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_content_tag
+      module:
+        - taxonomy
+  field_content_target_group_name:
+    label: 'Target group » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_content_target_group:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_content_target_group
+      module:
+        - taxonomy
+  field_content_topic_name:
+    label: 'Topic » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_content_topic:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_content_topic
+      module:
+        - taxonomy
+  field_content_category:
+    label: Category
+    datasource_id: 'entity:node'
+    property_path: field_content_category
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_content_category
+  field_content_tag:
+    label: Tag
+    datasource_id: 'entity:node'
+    property_path: field_content_tag
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_content_tag
+  field_content_target_group:
+    label: 'Target group'
+    datasource_id: 'entity:node'
+    property_path: field_content_target_group
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_content_target_group
+  field_content_topic:
+    label: Topic
+    datasource_id: 'entity:node'
+    property_path: field_content_topic
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_content_topic
 processor_settings:
   add_url:
     plugin_id: add_url

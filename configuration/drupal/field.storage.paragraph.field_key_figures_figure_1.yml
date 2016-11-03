@@ -1,0 +1,21 @@
+uuid: 020eb553-b361-4002-9463-6f41e0e32de4
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_key_figures_figure_1
+field_name: field_key_figures_figure_1
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

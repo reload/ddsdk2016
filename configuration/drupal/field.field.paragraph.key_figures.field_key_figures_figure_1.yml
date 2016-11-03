@@ -1,0 +1,19 @@
+uuid: dbb471c8-86ad-4268-a72e-851390b5f049
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_key_figures_figure_1
+    - paragraphs.paragraphs_type.key_figures
+id: paragraph.key_figures.field_key_figures_figure_1
+field_name: field_key_figures_figure_1
+entity_type: paragraph
+bundle: key_figures
+label: Figure
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
