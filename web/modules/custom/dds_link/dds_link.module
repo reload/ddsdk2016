@@ -13,16 +13,27 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Implements hook_field_widget_form_alter().
  */
-function dds_content_link_field_widget_form_alter(&$element, &$form_state, $context) {
-  if (isset($context['items']) && $context['items'] instanceof FieldItemList && $context['items']->getName() === 'field_content_link') {
-    $element['#element_validate'][] = '_dds_content_link_validate';
+function dds_link_field_widget_form_alter(&$element, &$form_state, $context) {
+
+  // Get field name.
+  $field_name = $context['items']->getName();
+
+  // Fields that shoudld be validated.
+  $fields = [
+    'field_content_link',
+    'field_shortcuts',
+  ];
+
+  if (isset($context['items']) && $context['items'] instanceof FieldItemList && in_array($field_name, $fields)) {
+    $element['#element_validate'][] = '_dds_link_validate';
   }
 }
 
 /**
  * Validate the link-field on content-link paragraph types.
  */
-function _dds_content_link_validate($element, FormStateInterface &$form_state, $form) {
+function _dds_link_validate($element, FormStateInterface &$form_state, $form) {
+  $r = 123;
   // Get the form value.
   $values = $form_state->getValues();
   // Make sure we have access to the form values and know our parents so that
@@ -38,6 +49,6 @@ function _dds_content_link_validate($element, FormStateInterface &$form_state, $
   // but no title.
   $external = UrlHelper::isExternal($value['uri']);
   if ($external && empty($value['title'])) {
-    $form_state->setError($element, t('External content link paragraphs must have a link text.'));
+    $form_state->setError($element, t('External links must have a link text.'));
   }
 }

@@ -1,5 +1,0 @@
-name: DDS Content link
-description: Provides functionallity for the "Content link" paragraph type.
-type: module
-package: DDS
-core: 8.x
