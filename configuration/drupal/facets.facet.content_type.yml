@@ -27,6 +27,18 @@ processor_configs:
       sort: -10
     settings:
       sort: ASC
+  exclude_specified_items:
+    processor_id: exclude_specified_items
+    weights:
+      build: -10
+    settings:
+      exclude: activity
+      regex: false
+  list_item:
+    processor_id: list_item
+    weights:
+      build: 5
+    settings: {  }
   url_processor_handler:
     processor_id: url_processor_handler
     weights:
