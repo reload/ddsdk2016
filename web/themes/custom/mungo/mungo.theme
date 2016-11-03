@@ -867,7 +867,7 @@ function _mungo_preprocess_deck_paragraph($type, &$variables) {
 
   if ($type === '1col_deck') {
     foreach ($variables['cols'] as &$col) {
-      $col['#attributes']['class'][] = 'col-md-12';
+      $col['#attributes']['class'][] = 'col-xs-12';
     }
   }
   elseif ($type === '2col_deck') {
