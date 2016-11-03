@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.paragraph.field_inspiration_deck_items
     - node.type.activity
+    - node.type.article
     - node.type.badge
     - node.type.event
     - node.type.section_page
@@ -24,6 +25,7 @@ settings:
   handler_settings:
     target_bundles:
       activity: activity
+      article: article
       badge: badge
       event: event
       section_page: section_page
