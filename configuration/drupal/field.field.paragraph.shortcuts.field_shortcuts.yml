@@ -12,7 +12,7 @@ field_name: field_shortcuts
 entity_type: paragraph
 bundle: shortcuts
 label: Shortcuts
-description: ''
+description: "Internal or External link. External links must have a link-text.\r\n "
 required: false
 translatable: false
 default_value: {  }
