@@ -1,0 +1,5 @@
+name: DDS link
+description: Provides functionality for links.
+type: module
+package: DDS
+core: 8.x
