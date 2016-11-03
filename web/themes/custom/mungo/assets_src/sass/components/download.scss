@@ -10,11 +10,10 @@
 
   // Remove border.
   border: none;
-  display: inline-block;
 
   // Dimensions.
-  margin-bottom: 25px;
   width: 100%;
+  height: 100%;
 
   // Remove hover effetcs.
   &:hover {
@@ -38,15 +37,23 @@
   }
 
   &--icon {
+
+    text-align: center;
+    width: 100%;
+
     .spejder-icon-wrapper {
-      max-width: 100px;
-      width: 100%;
-      margin: 20px auto 0;
+      max-width: 100%;
+      width: 120px;
+      margin: auto;
     }
   }
 
   &--send-mail {
     float: right;
+  }
+
+  .node-teaser--content-container {
+    width: 100%;
   }
 }
 
