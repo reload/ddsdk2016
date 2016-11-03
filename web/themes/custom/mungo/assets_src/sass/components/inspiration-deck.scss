@@ -64,7 +64,8 @@
       display: block;
       height: 100%;
       img {
-        @include filter(brightness(50%));
+        transition: all 0.3s;
+        @include filter(brightness(70%));
         object-fit: cover;
         height: 100%;
       }
@@ -73,13 +74,17 @@
     .node-teaser--content-container {
       position: absolute;
       bottom: 0;
-      color: #fff;
-      .node-teaser--read-more {
-        display: none;
+      .node-teaser--keyword,
+      h2 {
+        color: #fff;
       }
       h2 {
         margin-bottom: 0;
       }
+      .node-teaser--read-more {
+        display: none;
+      }
+
     }
 
     // Resetting normal node_teaser hover effect, removing text and
@@ -87,9 +92,6 @@
     &:hover {
       img {
         @include filter(brightness(100%));
-      }
-      .node-teaser--content-container {
-        display: none;
       }
       border: 0;
     }
