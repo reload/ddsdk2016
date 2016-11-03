@@ -50,5 +50,5 @@
         $('body').addClass('is-safari');
       }
     }
-  }
+  };
 })(jQuery, Drupal);
