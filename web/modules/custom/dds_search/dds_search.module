@@ -6,6 +6,10 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\views\ViewExecutable;
+
+const DDS_SEARCH_DATE_USER_FORMAT = 'd/m/Y';
+const DDS_SEARCH_DATE_EXECUTION_FORMAT = 'm/d/Y';
 
 /**
  * Implements hook_form_alter().
@@ -18,7 +22,6 @@ function dds_search_preprocess_views_view_unformatted(&$variables) {
   if ($view->id() === 'search' && $view->current_display === 'content_search') {
     $variables['row_classes'] = ['col-md-4', 'col-sm-6', 'col-xs-12'];
   }
-
 }
 
 /**
@@ -53,3 +56,34 @@ function dds_search_form_views_exposed_form_alter(&$form, FormStateInterface $fo
     );
   }
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function dds_search_form_alter(&$form, &$form_state, $form_id) {
+  // Add a validate-function on the events form to.
+  if ($form['#id'] === 'views-exposed-form-events-events-overview') {
+    foreach (['event_after', 'event_before'] as $element) {
+      if (empty($form[$element]['#element_validate'])) {
+        $form[$element]['#element_validate'][] = 'dds_search_date_reformat';
+      }
+      else {
+        array_unshift($form[$element]['#element_validate'], 'dds_search_date_reformat');
+      }
+    }
+  }
+}
+
+/**
+ * Reformat a date value from DK to US.
+ */
+function dds_search_date_reformat(array &$element, FormStateInterface $form_state, array &$complete_form) {
+  $value = $form_state->getValue($element['#name']);
+
+  if (!empty($value)) {
+    $date = DateTime::createFromFormat(DDS_SEARCH_DATE_USER_FORMAT, $value);
+    $new = $date->format(DDS_SEARCH_DATE_EXECUTION_FORMAT);
+    $form_state->setvalue($element['#name'], $new);
+  }
+}
+

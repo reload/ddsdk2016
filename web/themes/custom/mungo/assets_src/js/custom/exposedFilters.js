@@ -8,12 +8,14 @@
     attach: function (context, settings) {
       $("#edit-event-before").datepicker({
         changeMonth: true,
-        changeYear: true
+        changeYear: true,
+        dateFormat: 'dd/mm/yy'
       });
 
       $("#edit-event-after").datepicker({
         changeMonth: true,
-        changeYear: true
+        changeYear: true,
+        dateFormat: 'dd/mm/yy'
       });
     }
   };
