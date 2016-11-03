@@ -14,7 +14,6 @@ dependencies:
   module:
     - entity_reference_revisions
     - link
-    - options
 id: paragraph.4col_deck.default
 targetEntityType: paragraph
 bundle: 4col_deck
@@ -52,15 +51,9 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-  field_deck_color:
-    weight: 4
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
   field_deck_link:
-    weight: 5
-    label: above
+    weight: 4
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -70,12 +63,13 @@ content:
     third_party_settings: {  }
     type: link
   field_deck_title:
-    weight: 6
-    label: above
+    weight: 5
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
 hidden:
   created: true
+  field_deck_color: true
   uid: true
