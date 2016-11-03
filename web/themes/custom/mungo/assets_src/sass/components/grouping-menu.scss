@@ -10,7 +10,7 @@
   // On desktop we want the menu to be positioned close to the cover-image
   // and the next element.
   @include media-medium {
-    margin: 0;
+    margin: 15px 0 0;
   }
 }
 
@@ -39,6 +39,7 @@ ul.menu.menu--grouping-menu {
   }
   padding: $spacing-small;
   width: $dropdown-menu-size;
+  max-width: 100%;
 
   // Surround the button with a border
   border: 1px solid $bluish;
@@ -78,6 +79,7 @@ ul.menu.menu--grouping-menu {
       position: absolute;
       top: 0;
       width: 350px;
+      max-width: 100%;
 
       // Push the menu down so that the active-title shows on before it.
       margin-top: 35px;
@@ -89,6 +91,17 @@ ul.menu.menu--grouping-menu {
       z-index: 1;
       background-color: white;
       display: block;
+    }
+  }
+
+  .form-item.form-item-maalgruppe {
+    margin: -10px 0 0;
+  }
+
+  .badge-overview--filters {
+    > .container {
+      margin: 0;
+      padding: 0;
     }
   }
 }
