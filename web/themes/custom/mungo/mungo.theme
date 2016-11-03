@@ -47,8 +47,22 @@ function mungo_preprocess_field(&$variables) {
   elseif (in_array($field_name, ['field_shortcuts'])) {
 
     if (!empty($variables['items'])) {
+
+      $links = $variables['element']['#items']->getValue();
+
       foreach ($variables['items'] as $delta => $value) {
         $variables['items'][$delta]['content']['#options']['attributes']['class'][] = 'shortcuts__link';
+        $url = $variables['items'][$delta]['content']['#url'];
+        $link = $links[$delta];
+
+        if (!$url->isExternal() && empty($link['title'])) {
+          $uri_value = $url->getInternalPath();
+
+          if (preg_match('#^node/(?P<nid>\d+)$#', $uri_value, $matches)) {
+            $node = Node::load($matches['nid']);
+            $variables['items'][$delta]['content']['#title'] = $title = $node->getTitle();
+          }
+        }
       }
     }
   }
