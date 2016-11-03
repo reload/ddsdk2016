@@ -1,0 +1,38 @@
+uuid: cc398faf-e2f8-4a66-90b7-8f441c4b5d2e
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.search
+id: content_type
+name: 'Content type'
+url_alias: content_type
+weight: 0
+show_only_one_result: false
+field_identifier: type
+query_type_name: null
+facet_source_id: 'views_page:search__content_search'
+widget:
+  type: checkbox
+  config:
+    show_numbers: false
+    soft_limit: 0
+query_operator: or
+exclude: false
+only_visible_when_facet_source_is_visible: true
+processor_configs:
+  display_value_widget_order:
+    processor_id: display_value_widget_order
+    weights:
+      sort: -10
+    settings:
+      sort: ASC
+  url_processor_handler:
+    processor_id: url_processor_handler
+    weights:
+      pre_query: -10
+      build: -10
+    settings: {  }
+empty_behavior:
+  behavior: none
+facet_configs: {  }

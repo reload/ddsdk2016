@@ -75,38 +75,12 @@ function facets_views_block_preprocess_views_view(&$variables) {
     }
   }
 
-  // Add tag variable to the search view to indicate potential tags.
-  if ($view_id === 'search') {
-    // Get all tag terms so we can prepare a tag variable for the search view.
-    // We also unset the tag facet parameter from the parameters array so we can
-    // use the parameters as the query parameters in a "reset" link.
-    $parameters = \Drupal::request()->query->all();
-    if (!empty($parameters['f'])) {
-      $tags = [];
-      foreach ($parameters['f'] as $delta => $param) {
-        // Facet query parameter format: "subject:138".
-        $param = explode(':', $param);
-        if (!empty($param[1])) {
-          $tags[] = Term::load($param[1]);
-          unset($parameters['f'][$delta]);
-        }
-      }
 
-      // Prepare tag variable for the search view template.
-      if (!empty($tags) && $tags[0] instanceof Term) {
-        /* @var \Drupal\taxonomy\Entity\Term[] $tags */
-        $variables['tag']['text'] = $tags[0]->label();
-        // TODO: Generalize when this has to work for the general search.
-        $variables['tag']['url'] = Url::fromUri('internal:/events', [
-          'query' => $parameters,
-        ]);
-      }
-    }
-  }
-
-  // Reorder the facets and exposed filters.
   if (!empty($variables['facets'])) {
-    $variables['exposed'] = _facets_views_preprocess_filters($variables['exposed'], $variables['facets']);
+    // Reorder the facets and exposed filters on the events view page.
+    if ($view_id === 'events') {
+      $variables['exposed'] = _facets_views_preprocess_filters($variables['exposed'], $variables['facets']);
+    }
   }
 }
 
