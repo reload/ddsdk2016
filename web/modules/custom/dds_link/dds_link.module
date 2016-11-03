@@ -33,7 +33,6 @@ function dds_link_field_widget_form_alter(&$element, &$form_state, $context) {
  * Validate the link-field on content-link paragraph types.
  */
 function _dds_link_validate($element, FormStateInterface &$form_state, $form) {
-  $r = 123;
   // Get the form value.
   $values = $form_state->getValues();
   // Make sure we have access to the form values and know our parents so that
