@@ -1,0 +1,74 @@
+uuid: e90400a2-fc18-44b3-a321-3c9be99f800a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.inspiration_deck.field_insp_teaser_color
+    - field.field.paragraph.inspiration_deck.field_insp_teaser_heading
+    - field.field.paragraph.inspiration_deck.field_insp_teaser_link
+    - field.field.paragraph.inspiration_deck.field_insp_teaser_text
+    - field.field.paragraph.inspiration_deck.field_inspiration_deck_items
+    - paragraphs.paragraphs_type.inspiration_deck
+  module:
+    - field_group
+    - link
+third_party_settings:
+  field_group:
+    group_insp_teaser:
+      children:
+        - field_insp_teaser_color
+        - field_insp_teaser_heading
+        - field_insp_teaser_text
+        - field_insp_teaser_link
+      parent_name: ''
+      weight: 7
+      label: 'Teaser item'
+      format_type: fieldset
+      format_settings:
+        description: ''
+        classes: ''
+        id: ''
+        required_fields: true
+id: paragraph.inspiration_deck.default
+targetEntityType: paragraph
+bundle: inspiration_deck
+mode: default
+content:
+  field_insp_teaser_color:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_insp_teaser_heading:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_insp_teaser_link:
+    weight: 6
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  field_insp_teaser_text:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_inspiration_deck_items:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+hidden:
+  created: true
+  status: true
+  uid: true

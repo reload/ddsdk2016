@@ -1,0 +1,23 @@
+uuid: e2562748-6933-4e10-9d38-bdd7572c32b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_insp_teaser_link
+    - paragraphs.paragraphs_type.inspiration_deck
+  module:
+    - link
+id: paragraph.inspiration_deck.field_insp_teaser_link
+field_name: field_insp_teaser_link
+entity_type: paragraph
+bundle: inspiration_deck
+label: Link
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 1
+  title: 0
+field_type: link
