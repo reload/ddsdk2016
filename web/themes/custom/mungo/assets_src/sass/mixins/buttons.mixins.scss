@@ -2,8 +2,16 @@
   min-width: 180px;
   display: inline-block;
   @include capitalized-small-text;
-  padding: $spacing-small;
   text-decoration: none;
+  margin-right: 15px;
+  padding: 15px 35px;
+
+  @include max-media-xsmall {
+    padding: 10px 20px;
+    min-width: 1px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+  }
 }
 
 @mixin cta-button-transparent {

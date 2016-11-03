@@ -1,5 +1,13 @@
 // Styling of a menu consisting of call-to-action buttons
 
+.large-button-menu {
+  margin: 10px 0 0;
+
+  @include media-small {
+    margin: 10px 0;
+  }
+}
+
 // Inline the individual links.
 .large-button-menu--button {
   display: inline-block;
@@ -11,29 +19,11 @@
 .large-button-menu--button {
   a {
     @include cta-button-blue;
-    margin-right: 15px;
-    padding: 15px 35px;
-
-    @include max-media-xsmall {
-      padding: 10px 35px;
-      min-width: 1px;
-      margin-right: 5px;
-      margin-bottom: 10px;
-    }
   }
 
   &__active {
     a {
       @include cta-button-blue('active');
-      margin-right: 15px;
-      padding: 15px 35px;
-
-      @include max-media-xsmall {
-        padding: 10px 35px;
-        min-width: 1px;
-        margin-right: 5px;
-        margin-bottom: 10px;
-      }
     }
   }
 }
