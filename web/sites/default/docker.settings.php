@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Settings-file for Docker development environments.
+ */
+
 $databases['default']['default'] = array(
   'driver' => 'mysql',
   'database' => 'db',
@@ -13,7 +18,7 @@ $databases['default']['default'] = array(
 
 $settings['hash_salt'] = 'hardcodedsaltshouldneverbeusedoutsidedocker';
 $settings['update_free_access'] = FALSE;
-$settings['container_yamls'][] = __DIR__ . '/services.yml';
+$settings['container_yamls'][] = __DIR__ . '/docker.services.yml';
 
 $config_directories = array(
   CONFIG_SYNC_DIRECTORY => __DIR__ . '/../../../configuration/drupal',
@@ -27,9 +32,6 @@ $settings['trusted_host_patterns'] = ['^.*\.docker$', '.*\.ngrok\.io$', 'localho
 // Assertions.
 assert_options(ASSERT_ACTIVE, TRUE);
 \Drupal\Component\Assertion\Handle::register();
-
-// Enable local development services.
-$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';
 
 // Show all error messages, with backtrace information.
 $config['system.logging']['error_level'] = 'verbose';
@@ -56,13 +58,3 @@ $config['stage_file_proxy.settings']['origin'] = 'http://develop-sr3snxi-55isd6w
 // Solr config override.
 $config['search_api.server.solr']['backend_config']['host'] = 'solr';
 $config['search_api.server.solr']['backend_config']['path'] = '/solr';
-
-/**
- * Include environment-specific local overrides
- */
-if (file_exists(__DIR__ . '/settings.local.php')) {
-  include __DIR__ . '/settings.local.php';
-}
-
-
-

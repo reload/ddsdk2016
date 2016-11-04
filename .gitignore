@@ -21,7 +21,6 @@ web/sites/default/files
 
 # Ignore local settings file
 web/sites/default/settings.local.php
-web/sites/default/settings.php
 
 # Ignore docker compose override
 docker-compose.override.yml
