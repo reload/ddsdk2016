@@ -83,6 +83,7 @@
   ]
 %}
 {{ attach_library('classy/node') }}
+{% block body_head %}{% endblock %}
 <div class="container print-full-width">
   <section class="row">
     <article{{ attributes.addClass(classes) }}>
@@ -106,6 +107,9 @@
         <!-- Main content -->
         <div{{ content_attributes.addClass(['node__content', 'col-md-9', 'print-full-width']) }}>
             {% block main_content %}{% endblock %}
+        </div>
+        <div class="col-md-12">
+          {% block content_footer %}{% endblock %}
         </div>
       </div>
     </article>
