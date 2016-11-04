@@ -1,0 +1,32 @@
+uuid: 50471e03-6a7c-489c-b43d-d41c56d20ead
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:4faf93d4-fc7d-4b30-bc9e-c1712a63a3e6'
+  module:
+    - block_content
+    - facets
+  theme:
+    - mungo
+id: facebookpagesinfooter
+theme: mungo
+region: footer_top
+weight: 0
+provider: null
+plugin: 'block_content:4faf93d4-fc7d-4b30-bc9e-c1712a63a3e6'
+settings:
+  id: 'block_content:4faf93d4-fc7d-4b30-bc9e-c1712a63a3e6'
+  label: 'Facebook pages in footer'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }
