@@ -517,6 +517,13 @@ function _mungo_preprocess_section_page(Node $node, &$variables) {
  * Prepare variables for article-nodes.
  */
 function _mungo_preprocess_node_article(Node $node, &$variables) {
+  $ddsconfig = \Drupal::config('ddsdk');
+
+  // Show facebook-comments on all articles but simple articles.
+  if ($node->field_article_type->value !== 'simple' && !empty($ddsconfig->get('facebook.appid'))) {
+    $variables['facebook_comments'] = TRUE;
+    $variables['facebook_appid'] = $ddsconfig->get('facebook.appid');
+  }
   // Add author presentation.
   if (!empty($node->field_content_author->entity)) {
     $presentation = _mungo_preprocess_author_presentation($node->field_content_author->entity);
@@ -881,7 +888,7 @@ function _mungo_preprocess_deck_paragraph($type, &$variables) {
 
   if ($type === '1col_deck') {
     foreach ($variables['cols'] as &$col) {
-      $col['#attributes']['class'][] = 'col-md-12';
+      $col['#attributes']['class'][] = 'col-xs-12';
     }
   }
   elseif ($type === '2col_deck') {

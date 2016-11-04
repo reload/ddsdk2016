@@ -1,0 +1,19 @@
+uuid: 9a9af25e-9dde-4d0c-8e5b-0f2e73737b87
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_insp_teaser_heading
+    - paragraphs.paragraphs_type.inspiration_deck
+id: paragraph.inspiration_deck.field_insp_teaser_heading
+field_name: field_insp_teaser_heading
+entity_type: paragraph
+bundle: inspiration_deck
+label: Heading
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

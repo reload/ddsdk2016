@@ -1,0 +1,20 @@
+uuid: 32d47894-15b4-4463-926d-6e1c95e324cd
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - paragraphs
+id: paragraph.field_inspiration_deck_items
+field_name: field_inspiration_deck_items
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: 6
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

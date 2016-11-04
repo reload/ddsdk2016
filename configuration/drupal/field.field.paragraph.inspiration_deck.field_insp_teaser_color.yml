@@ -1,0 +1,21 @@
+uuid: 8f4481ce-18e6-4c99-968c-5b44b0be9c9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_insp_teaser_color
+    - paragraphs.paragraphs_type.inspiration_deck
+  module:
+    - options
+id: paragraph.inspiration_deck.field_insp_teaser_color
+field_name: field_insp_teaser_color
+entity_type: paragraph
+bundle: inspiration_deck
+label: Color
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

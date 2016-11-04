@@ -26,6 +26,7 @@ regions:
   breadcrumb: Breadcrumb
   content: Content
 
+  footer_top: 'Footer Top'
   footer_menu: 'Footer Menu'
   footer_contact: 'Footer Contact'
   footer_social: 'Footer Social'

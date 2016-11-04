@@ -61,7 +61,6 @@ mounts:
 hooks:
     # Build theme assets.
     build: |
-      mv web/sites/default/settings.platformsh.php web/sites/default/settings.php
       npm install
       gulp build
 
