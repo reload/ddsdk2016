@@ -92,7 +92,7 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
         </div>
     {% endif %}
     <div class="node-teaser--content-container">
-    {% if content.field_content_topic or content.field_content_topic or content.field_badge_type %}
+    {% if content.field_content_topic or content.field_content_topic or content.field_badge_type or content.field_event_type %}
         <div class="node-teaser--keyword">
           {% if node.bundle in ['article', 'section_page'] %}
             {% if content.field_content_topic %}

@@ -63,6 +63,9 @@
  *   current user is a logged-in member.
  * - is_admin: Flag for admin user status. Will be true when the current user
  *   is an administrator.
+ * - facebook_appid: Facebook App id to use for social plugins
+ * - facebook_comments: if specified facebook-comments are added after the
+ *   and facebook_appid is expected to be present
  *
  * @see template_preprocess_node()
  *
@@ -128,6 +131,27 @@
     {# field_content_author is left out as it is a part of author_presentation #}
     {{ content | without('field_content_author', 'field_subtitle', 'field_main_media', 'field_sidedeck', 'field_content_topic' ) }}
 {% endblock %}
+{% block content_footer %}
+  {% if facebook_comments %}
+    <div class="facebook-comments">
+      <div class="fb-comments" data-width="100%" data-href="{{ url('entity.node.canonical', {'node': node.id}) }}" data-numposts="10"></div>
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block body_head %}
+  {% if facebook_comments %}
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/da_DK/sdk.js#xfbml=1&version=v2.8&appId={{ facebook_appid }}";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+  {% endif %}
+{% endblock %}
+
 {% block sidebar %}
 
   {% if (node.field_sidedeck) %}
