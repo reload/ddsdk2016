@@ -88,7 +88,7 @@ set classes = [
   {% set attributes = attributes.addClass('no-image') %}
 {% endif %}
 
-<a{{ attributes.addClass(classes) }} href="{{ url }}">
+<a{{ attributes.addClass(classes) }} href="{{ alternative_url ? alternative_url : url }}">
   {% if (node.field_main_media) %}
     <div class="node-teaser--list--main-media">
       {{ content.field_main_media }}
