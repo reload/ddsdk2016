@@ -56,7 +56,8 @@
         "drupal/twig_xdebug": "^8",
         "drupal/forward": "^8.1",
         "drupal/chosen": "^8",
-        "drmonty/chosen": "^1.6"
+        "drmonty/chosen": "^1.6",
+        "commerceguys/addressing": "dev-master#bc8d8cbcc151dd0aacdd8efad95a44e9ba2126b0"
     },
     "require-dev": {
         "behat/mink": "~1.7",
