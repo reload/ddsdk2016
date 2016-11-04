@@ -1,0 +1,58 @@
+{#
+/**
+ * @file
+ * Theming of inspiration deck.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="inspiration-deck">
+    <div class="col-xs-12 col-sm-8 col-md-6 ratio-xs-4_3">
+        <div class="inner">
+            {{ content.field_inspiration_deck_items.0 }}
+        </div>
+    </div>
+    <div class="col-xs-6 col-sm-4 col-md-6 ratio-xs-4_3 ratio-md-8_3">
+        <div class="inner">
+            {{ content.field_inspiration_deck_items.1 }}
+        </div>
+    </div>
+    <div class="col-xs-6 col-sm-4 col-md-3 ratio-xs-4_3">
+        <div class="inner" style="background-color: {{ content.field_insp_teaser_color.0 }}">
+
+            {% if content.field_insp_teaser_link.0 %}
+            <a class="content" href="{{ content.field_insp_teaser_link.0 }}">
+                <h2>{{ content.field_insp_teaser_heading.0 }}</h2>
+                <p>{{ content.field_insp_teaser_text.0 }}</p>
+            </a>
+            {% else %}
+            <div class="content">
+                <h2>{{ content.field_insp_teaser_heading }}</h2>
+                <p>{{ content.field_insp_teaser_text }}</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-3 ratio-xs-8_3 ratio-sm-4_3">
+        <div class="inner">
+            {{ content.field_inspiration_deck_items.2 }}
+        </div>
+    </div>
+    <div class="col-xs-6 col-sm-8 col-md-3 ratio-xs-4_3 ratio-sm-8_3 ratio-md-4_3">
+        <div class="inner">
+            {{ content.field_inspiration_deck_items.3 }}
+        </div>
+    </div>
+    <div class="col-xs-6 col-sm-8 col-md-6 ratio-xs-4_3 ratio-sm-8_3">
+        <div class="inner">
+            {{ content.field_inspiration_deck_items.4 }}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-3 ratio-xs-8_3 ratio-sm-4_3 ratio-md-4_3">
+        <div class="inner">
+            {{ content.field_inspiration_deck_items.5 }}
+        </div>
+    </div>
+</div>

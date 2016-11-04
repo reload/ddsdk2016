@@ -1,0 +1,36 @@
+uuid: e6b74e3f-8d7a-488c-b16d-75d15be0fed3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_inspiration_deck_items
+    - node.type.activity
+    - node.type.article
+    - node.type.badge
+    - node.type.event
+    - node.type.section_page
+    - paragraphs.paragraphs_type.inspiration_deck
+id: paragraph.inspiration_deck.field_inspiration_deck_items
+field_name: field_inspiration_deck_items
+entity_type: paragraph
+bundle: inspiration_deck
+label: Inspiration
+description: 'Choose the 6 pieces of content that should make up the inspiration deck'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      activity: activity
+      article: article
+      badge: badge
+      event: event
+      section_page: section_page
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: activity
+field_type: entity_reference

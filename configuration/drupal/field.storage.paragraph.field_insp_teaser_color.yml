@@ -1,0 +1,30 @@
+uuid: 88add61f-7a68-4593-8608-155ce9a7adee
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_insp_teaser_color
+field_name: field_insp_teaser_color
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '#ea636f'
+      label: Salmon
+    -
+      value: '#003366'
+      label: 'Marine blue'
+    -
+      value: '#e9ec5f'
+      label: 'Dull yellow'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

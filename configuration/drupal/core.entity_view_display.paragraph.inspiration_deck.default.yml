@@ -1,0 +1,61 @@
+uuid: a144ef2f-6177-460e-9e9b-13f70ec724a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.inspiration_deck.field_insp_teaser_color
+    - field.field.paragraph.inspiration_deck.field_insp_teaser_heading
+    - field.field.paragraph.inspiration_deck.field_insp_teaser_link
+    - field.field.paragraph.inspiration_deck.field_insp_teaser_text
+    - field.field.paragraph.inspiration_deck.field_inspiration_deck_items
+    - paragraphs.paragraphs_type.inspiration_deck
+  module:
+    - link
+    - options
+id: paragraph.inspiration_deck.default
+targetEntityType: paragraph
+bundle: inspiration_deck
+mode: default
+content:
+  field_insp_teaser_color:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
+  field_insp_teaser_heading:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_insp_teaser_link:
+    weight: 4
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: true
+      url_plain: true
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    type: link
+  field_insp_teaser_text:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_inspiration_deck_items:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+hidden:
+  created: true
+  uid: true
