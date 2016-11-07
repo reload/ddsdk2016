@@ -75,10 +75,13 @@
       position: absolute;
       bottom: 0;
       .node-teaser--keyword,
-      h2 {
+      h2.node-teaser--heading {
         color: #fff;
       }
-      h2 {
+      h2.node-teaser--heading {
+        //@include list-heading-large;
+        @include inspiration_header;
+        color: #fff;
         margin-bottom: 0;
       }
       .node-teaser--read-more {
@@ -102,8 +105,12 @@
     bottom:0;
     display: block;
     padding: $spacing-medium;
+    h2 {
+      @include inspiration_teaser_header;
+
+    }
     p {
-      margin-bottom: 0;
+      @include inspiration_teaser_text;
     }
   }
 }

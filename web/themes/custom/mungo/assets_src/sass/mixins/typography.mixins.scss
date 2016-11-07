@@ -234,3 +234,38 @@
     margin-left: $spacing-small;
   }
 }
+
+/* These are only used on inspiration-deck */
+/* High candidates for refactor */
+@mixin inspiration_header {
+  font-size: 14px;
+  @include media-small {
+    font-size:20px;
+  }
+  @include media-large {
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+@mixin inspiration_teaser_header {
+  @include inspiration_header;
+  margin-bottom: 3px;
+  font-size:17px;
+  @include media-small {
+    margin-bottom: 6px;
+  }
+  @include media-large {
+    margin-bottom: 10px;
+    font-size: 32px;
+  }
+}
+@mixin inspiration_teaser_text {
+  font-weight: 600;
+  margin: 0;
+  @include media-small {
+    font-size: 14px;
+  }
+  @include media-large {
+    font-size: 18px;
+  }
+}
