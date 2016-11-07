@@ -37,9 +37,15 @@
       }
       a {
         @include cta-button-transparent;
+        // We need this fixed width to equal sized
+        // buttons on tablet and mobile.
+        width: 220px;
         margin: $spacing-small;
         @include media-small {
           margin: $spacing-large/2;
+        }
+        @include media-medium {
+          width: auto;
         }
       }
     }
