@@ -21,21 +21,28 @@ mode: teaser
 content:
   field_content_topic:
     type: entity_reference_entity_view
-    weight: 1
+    weight: 2
     label: hidden
     settings:
       view_mode: plaintext
       link: false
     third_party_settings: {  }
-  links:
+  field_main_media:
+    type: entity_reference_entity_view
     weight: 0
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+  links:
+    weight: 1
     settings: {  }
     third_party_settings: {  }
 hidden:
   field_content_category: true
   field_content_tag: true
   field_content_target_group: true
-  field_main_media: true
   field_section: true
   field_subtitle: true
   langcode: true
