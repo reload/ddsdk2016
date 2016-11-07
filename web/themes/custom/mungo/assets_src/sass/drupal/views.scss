@@ -1,0 +1,16 @@
+// Margins on views like search, badge overview etc.
+.view-id-search,
+.badge-overview--badges {
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+
+// We need to inject a row between the container and
+// the teasers.
+#views-exposed-form-badges-overview {
+  @extend .row;
+
+  @include max-media-small {
+    margin: 0;
+  }
+}

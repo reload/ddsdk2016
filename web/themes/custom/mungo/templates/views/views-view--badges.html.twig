@@ -57,20 +57,16 @@ dom_id ? 'js-view-dom-id-' ~ dom_id,
   {% endif %}
   <div class="paragraphs--deck-color--grey>">
     <div class="container">
-      <div class="row">
-        <div class="view-content col-sm-12">
+      <div class="row row-equal-columns badge-overview--badges">
           {% if rows %}
-            <div class="badge-overview--badges">
               {% for row in rows %}
                 {{ rows }}
               {% endfor %}
-            </div>
           {% else %}
             <div class="badge-overview--badges__no-results">
               <h3>{% trans with {context: 'badge overview'}%}No badges found{% endtrans %}</h3>
             </div>
           {% endif %}
-        </div>
       </div>
     </div>
   </div>
