@@ -6,6 +6,13 @@ dependencies:
     - field.storage.paragraph.field_2col_deck_col2
     - paragraphs.paragraphs_type.2col_deck
     - paragraphs.paragraphs_type.block
+    - paragraphs.paragraphs_type.content_activity_reference
+    - paragraphs.paragraphs_type.content_article_reference
+    - paragraphs.paragraphs_type.content_badge_reference
+    - paragraphs.paragraphs_type.content_event_reference
+    - paragraphs.paragraphs_type.latest_content_list
+    - paragraphs.paragraphs_type.list_deck
+    - paragraphs.paragraphs_type.shortcuts
     - paragraphs.paragraphs_type.text
     - paragraphs.paragraphs_type.video
   module:
@@ -27,6 +34,13 @@ settings:
       text: text
       video: video
       block: block
+      content_activity_reference: content_activity_reference
+      content_article_reference: content_article_reference
+      content_badge_reference: content_badge_reference
+      content_event_reference: content_event_reference
+      latest_content_list: latest_content_list
+      list_deck: list_deck
+      shortcuts: shortcuts
     target_bundles_drag_drop:
       text:
         enabled: true
@@ -72,5 +86,44 @@ settings:
         enabled: false
       quotation:
         weight: -17
+        enabled: false
+      content_activity_reference:
+        enabled: true
+        weight: 34
+      content_article_reference:
+        enabled: true
+        weight: 35
+      content_article_reference_ext:
+        weight: 36
+        enabled: false
+      content_badge_reference:
+        enabled: true
+        weight: 37
+      content_event_reference:
+        enabled: true
+        weight: 38
+      download:
+        weight: 40
+        enabled: false
+      image:
+        weight: 45
+        enabled: false
+      inspiration_deck:
+        weight: 46
+        enabled: false
+      key_figures:
+        weight: 47
+        enabled: false
+      latest_content_list:
+        enabled: true
+        weight: 48
+      list_deck:
+        enabled: true
+        weight: 49
+      shortcuts:
+        enabled: true
+        weight: 53
+      situation_links:
+        weight: 54
         enabled: false
 field_type: entity_reference_revisions
