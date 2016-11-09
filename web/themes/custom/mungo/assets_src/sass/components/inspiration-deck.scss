@@ -73,6 +73,7 @@
     // Resetting the content container.
     .node-teaser--content-container {
       position: absolute;
+      left: 0;
       bottom: 0;
       .node-teaser--keyword,
       h2.node-teaser--heading {
@@ -102,7 +103,8 @@
     color: #000;
     text-decoration: none;
     position: absolute;
-    bottom:0;
+    bottom: 0;
+    left: 0;
     display: block;
     padding: $spacing-medium;
     h2 {
