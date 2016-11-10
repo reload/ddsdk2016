@@ -194,12 +194,23 @@
   color: $black;
 }
 
+@mixin article-subtitle {
+  font-size: 16px;
+  font-weight: bold;
+  @include media-medium {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+
 @mixin article-text {
   font-size: 15px;
   line-height: 2;
   color: $black;
   @include media-medium {
     font-size: 17px;
+    line-height: 28px;
   }
 }
 
