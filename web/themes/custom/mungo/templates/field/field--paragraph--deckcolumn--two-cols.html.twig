@@ -42,48 +42,48 @@ label_display == 'visually_hidden' ? 'visually-hidden',
 %}
 
 {% if label_hidden %}
-  {% if multiple %}
-    <div{{ attributes }}>
+    {% if multiple %}
+        <div{{ attributes }}>
+            {# Wrap the items in a row if they have column classes#}
+            {% if item_col_classes %}
+            <div class="row row--grid">
+                {% endif %}
+                {% for item in items %}
+                    <div{{ item.attributes.addClass('field__item', item_col_classes) }}>{{ item.content }}</div>
+                {% endfor %}
+                {% if item_col_classes %}
+            </div>
+            {% endif %}
+        </div>
+    {% else %}
         {# Wrap the items in a row if they have column classes#}
         {% if item_col_classes %}
-          <div class="row">
+            <div class="row">
         {% endif %}
         {% for item in items %}
             {{ item.content }}
         {% endfor %}
         {% if item_col_classes %}
-          </div>
+            </div>
+        {% endif %}
+    {% endif %}
+{% else %}
+    <div{{ attributes.addClass(classes) }}>
+        <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
+        {% if multiple %}
+        <div class="field__items">
+            {% endif %}
+            {% if item_col_classes %}
+            <div class="row">
+                {% endif %}
+                {% for item in items %}
+                    <div{{ item.attributes.addClass('field__item', item_col_classes) }}>{{ item.content }}</div>
+                {% endfor %}
+                {% if item_col_classes %}
+            </div>
+            {% endif %}
+            {% if multiple %}
+        </div>
         {% endif %}
     </div>
-  {% else %}
-    {# Wrap the items in a row if they have column classes#}
-    {% if item_col_classes %}
-      <div class="row">
-    {% endif %}
-    {% for item in items %}
-        {{ item.content }}
-    {% endfor %}
-    {% if item_col_classes %}
-      </div>
-    {% endif %}
-  {% endif %}
-{% else %}
-  <div{{ attributes.addClass(classes) }}>
-    <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
-    {% if multiple %}
-    <div class="field__items">
-      {% endif %}
-      {% if item_col_classes %}
-        <div class="row">
-      {% endif %}
-      {% for item in items %}
-        <div{{ item.attributes.addClass('field__item', item_col_classes) }}>{{ item.content }}</div>
-      {% endfor %}
-      {% if item_col_classes %}
-        </div>
-      {% endif %}
-      {% if multiple %}
-    </div>
-    {% endif %}
-  </div>
 {% endif %}

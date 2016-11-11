@@ -800,6 +800,11 @@ function mungo_theme_suggestions_alter(array &$suggestions, array $variables, $h
       if (preg_match('#^field_\dcol_deck_col\d$#', $field_name)) {
         $suggestions[] = $hook . '__' . $variables['element']['#entity_type'] . '__deckcolumn';
       }
+      // Since two columns require extra wrapping of items this new template is
+      // used. This could and should be refactored but it works right now.
+      if ($field_name == 'field_2col_deck_col1') {
+        $suggestions[] = $hook . '__' . $variables['element']['#entity_type'] . '__deckcolumn__two_cols';
+      }
       // Provide full view_mode for title and field_subtitle fields
       // to differentiate on when to apply dymo-text.
       // Could be applied to even more fields, but not necessary for now.
