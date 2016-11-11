@@ -82,25 +82,30 @@ function mungo_preprocess_field(&$variables) {
     }
   }
   if ($field_name == 'field_section') {
+    $prevkey = NULL;
 
     foreach ($variables['items'] as $key => &$item) {
       /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
       $paragraph = $item['content']['#paragraph'];
-      $attributes = $variables['items'][$key]['attributes'];
 
       // If the a 4col_deck paragraph is right after a herobanner. Set negative
       // margin.
       if (isset($herobannerfound) && $herobannerfound == TRUE && $paragraph->getType() == '4col_deck') {
-        /** @var Attribute $attributes */
         if (!empty($paragraph->field_4col_deck_col1)) {
           $entities = $paragraph->field_4col_deck_col1->referencedEntities();
           $situation_link = reset($entities);
           if ($situation_link->getType() == 'situation_links') {
+            /** @var Attribute $attributes */
+            $attributes = $variables['items'][$key]['attributes'];
             $attributes->addClass('paragraph-set-negative-margin');
+            /** @var Attribute $attributes */
+            $prevel_attributes = $variables['items'][$prevkey]['attributes'];
+            $prevel_attributes->addClass('content-set-negative-margin');
           }
         }
       }
       $herobannerfound = $paragraph->getType() == 'hero_banner' ? TRUE : FALSE;
+      $prevkey = $key;
     }
   }
 

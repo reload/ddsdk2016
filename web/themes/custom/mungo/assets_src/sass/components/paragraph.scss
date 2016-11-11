@@ -12,3 +12,9 @@
 .paragraph-set-negative-margin {
   margin-top: -150px;
 }
+
+.content-set-negative-margin {
+  .container {
+    margin-bottom: 150px;
+  }
+}
