@@ -73,12 +73,16 @@
     // Resetting the content container.
     .node-teaser--content-container {
       position: absolute;
+      left: 0;
       bottom: 0;
       .node-teaser--keyword,
-      h2 {
+      h2.node-teaser--heading {
         color: #fff;
       }
-      h2 {
+      h2.node-teaser--heading {
+        //@include list-heading-large;
+        @include inspiration_header;
+        color: #fff;
         margin-bottom: 0;
       }
       .node-teaser--read-more {
@@ -99,11 +103,16 @@
     color: #000;
     text-decoration: none;
     position: absolute;
-    bottom:0;
+    bottom: 0;
+    left: 0;
     display: block;
     padding: $spacing-medium;
+    h2 {
+      @include inspiration_teaser_header;
+
+    }
     p {
-      margin-bottom: 0;
+      @include inspiration_teaser_text;
     }
   }
 }
@@ -116,6 +125,6 @@
 }
 
 // Wierd reset.
-.is-safari .row-equal-columns a.node-teaser {
+.is-safari .row-equal-columns .inspiration-deck a.node-teaser {
   height: 100% !important;
 }
