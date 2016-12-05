@@ -1439,19 +1439,20 @@
         },
         {
             "name": "drupal/chosen",
-            "version": "8.2.0-beta2",
+            "version": "8.2.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/chosen",
-                "reference": "1d2c226202aae3431573c63cf242b16b52c061ae"
+                "reference": "6c271b9a2c615b8922b2cfc266b5cbf190fcdd94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/chosen-8.x-2.0-beta2.zip",
-                "reference": "1d2c226202aae3431573c63cf242b16b52c061ae",
+                "url": "https://ftp.drupal.org/files/projects/chosen-8.x-2.1.zip",
+                "reference": null,
                 "shasum": null
             },
             "require": {
+                "drmonty/chosen": "~1.6",
                 "drupal/core": "8.*"
             },
             "replace": {
@@ -1467,13 +1468,22 @@
                     "dev-8.x-2.x": "8.2.x-dev"
                 }
             },
+            "autoload": {
+                "psr-4": {
+                    "Drupal\\chosen\\": "src/"
+                }
+            },
             "notification-url": "https://packagist.drupal-composer.org/downloads/",
             "license": [
                 "GPL-2.0+"
             ],
             "description": "Makes select elements more user-friendly using <a href=\"http://harvesthq.github.com/chosen/\">Chosen</a>.",
             "homepage": "https://www.drupal.org/project/chosen",
-            "time": "2016-03-22 09:57:26"
+            "keywords": [
+                "Chosen",
+                "Drupal"
+            ],
+            "time": "2016-11-10 09:57:12"
         },
         {
             "name": "drupal/console",
