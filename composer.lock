@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7c3f80b23fcccfa0c67ff82034934dc8",
-    "content-hash": "3c782fbd2c70e34fcf5538cbefebdbb7",
+    "hash": "fe7efe599681efab6d9e8309ed818156",
+    "content-hash": "36720c2114b35b57f9b377450c1f6e3e",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -1448,7 +1448,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/chosen-8.x-2.1.zip",
-                "reference": null,
+                "reference": "6c271b9a2c615b8922b2cfc266b5cbf190fcdd94",
                 "shasum": null
             },
             "require": {
@@ -1466,6 +1466,9 @@
             "extra": {
                 "branch-alias": {
                     "dev-8.x-2.x": "8.2.x-dev"
+                },
+                "patches_applied": {
+                    "2705891: Fix invisible required chosen widgets": "https://www.drupal.org/files/issues/client_side_validation-2705891-5.patch"
                 }
             },
             "autoload": {
@@ -1974,6 +1977,37 @@
             "description": "Adds a Entity Reference field type with revision support.",
             "homepage": "https://www.drupal.org/project/entity_reference_revisions",
             "time": "2016-07-21 15:50:27"
+        },
+        {
+            "name": "drupal/extlink",
+            "version": "8.1.0-alpha3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/extlink",
+                "reference": "62eca1c0f5c67a17676152e48ab49e86c195d78c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/extlink-8.x-1.0-alpha3.zip",
+                "reference": "62eca1c0f5c67a17676152e48ab49e86c195d78c",
+                "shasum": null
+            },
+            "require": {
+                "drupal/core": "8.*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-8.x-1.x": "8.1.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.drupal-composer.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Modify behavior and appearance of external links.",
+            "homepage": "https://www.drupal.org/project/extlink",
+            "time": "2016-09-13 01:17:04"
         },
         {
             "name": "drupal/facets",
