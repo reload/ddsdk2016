@@ -23,14 +23,14 @@ function dds_content_list_preprocess_paragraph(&$variables) {
       return;
     }
 
-    // Default.
+    // Default number of nodes we want to show.
     $num_items = 3;
     if ($paragraph->hasField('field_list_item_count') && !empty($paragraph->get('field_list_item_count')->value)) {
       // Use configured override if available.
       $num_items = (int) $paragraph->get('field_list_item_count')->value;
     }
     $view->setItemsPerPage($num_items);
-    $variables['content']['list'] = $view->render('default');
+    $variables['content']['list'] = $view->buildRenderable('default');
   }
 }
 
