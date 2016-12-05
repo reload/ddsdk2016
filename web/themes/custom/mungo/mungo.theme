@@ -710,7 +710,7 @@ function _mungo_render_image_uri_with_style($uri, string $style) : array {
 /**
  * Given an image file, produce a responsive_image render array for a style.
  */
-function _mungo_render_image_uri_with_responsive_style(string $uri, string $style) : array {
+function _mungo_render_image_uri_with_responsive_style(string $uri, string $style) {
   // Load the image from the file so that we can know its size.
   /** @var \Drupal\Core\Image\Image $image */
   $image = \Drupal::service('image.factory')->get($uri);
