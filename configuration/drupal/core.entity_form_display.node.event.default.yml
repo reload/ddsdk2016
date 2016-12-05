@@ -56,7 +56,6 @@ third_party_settings:
         - field_main_media
         - field_event_teaser
         - field_paragraphs
-        - field_programs
       parent_name: ''
       weight: 0
       label: 'Event presentation'
@@ -115,6 +114,18 @@ third_party_settings:
       parent_name: ''
       weight: 5
       label: 'Location info'
+      format_type: fieldset
+      format_settings:
+        description: ''
+        classes: ''
+        id: ''
+        required_fields: true
+    group_program:
+      children:
+        - field_programs
+      parent_name: ''
+      weight: 15
+      label: Program
       format_type: fieldset
       format_settings:
         description: ''
@@ -265,7 +276,7 @@ content:
     type: entity_reference_paragraphs
   field_programs:
     type: entity_reference_paragraphs
-    weight: 4
+    weight: 16
     settings:
       title: Paragraph
       title_plural: Paragraphs
