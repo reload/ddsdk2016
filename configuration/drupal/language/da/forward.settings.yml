@@ -1,0 +1,3 @@
+forward_form_instructions: 'Del <em>[forward:entity-title]</em> fra [site:name].'
+forward_email_subject: '[forward:sender-name] har sendt en artikel til dig fra [site:name]'
+forward_email_message: '[forward:sender-name] har delt en artikel fra [site:name] med dig.'

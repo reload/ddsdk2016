@@ -1,9 +1,9 @@
-uuid: 50471e03-6a7c-489c-b43d-d41c56d20ead
+uuid: cf3486e8-997b-47ed-95ec-b57d523e181c
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:4faf93d4-fc7d-4b30-bc9e-c1712a63a3e6'
+    - 'block_content:basic:a73d8b88-2e4a-4595-a628-2a0f84e6f3ee'
   module:
     - block_content
     - facets
@@ -14,12 +14,12 @@ theme: mungo
 region: footer_top
 weight: 0
 provider: null
-plugin: 'block_content:4faf93d4-fc7d-4b30-bc9e-c1712a63a3e6'
+plugin: 'block_content:a73d8b88-2e4a-4595-a628-2a0f84e6f3ee'
 settings:
-  id: 'block_content:4faf93d4-fc7d-4b30-bc9e-c1712a63a3e6'
+  id: 'block_content:a73d8b88-2e4a-4595-a628-2a0f84e6f3ee'
   label: 'Facebook pages in footer'
   provider: block_content
-  label_display: visible
+  label_display: '0'
   status: true
   info: ''
   view_mode: full
