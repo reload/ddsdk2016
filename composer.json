@@ -114,7 +114,7 @@
                 "2675136: Support field-groups": "https://www.drupal.org/files/issues/2675136-14.patch"
             },
             "drupal/chosen": {
-                "2705891: Fix invisible required chosen widgets": "https://www.drupal.org/files/issues/chosen-hidden-validation-temp-fix-2705891.patch"
+                "2705891: Fix invisible required chosen widgets": "https://www.drupal.org/files/issues/client_side_validation-2705891-5.patch"
             }
         }
     }
