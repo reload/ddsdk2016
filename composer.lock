@@ -2320,16 +2320,16 @@
         },
         {
             "name": "drupal/search_api",
-            "version": "8.1.0-beta2",
+            "version": "8.1.0-beta3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/search_api",
-                "reference": "bb7f8865c1d7cc1d768648696d2f5ef27c2a7eae"
+                "reference": "70428afd7db89cdbcd46cd5062aca8c85ad88cd2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.0-beta2.zip",
-                "reference": "bb7f8865c1d7cc1d768648696d2f5ef27c2a7eae",
+                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.0-beta3.zip",
+                "reference": null,
                 "shasum": null
             },
             "require": {
@@ -2370,20 +2370,20 @@
             ],
             "description": "Provides a generic framework for modules offering search capabilities.",
             "homepage": "https://www.drupal.org/project/search_api",
-            "time": "2016-09-28 10:30:20"
+            "time": "2016-10-24 09:43:13"
         },
         {
             "name": "drupal/search_api_solr",
-            "version": "8.1.0-alpha6",
+            "version": "8.1.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/search_api_solr",
-                "reference": "1b949c59477031ce5880c13537eb73a5f3cb4096"
+                "reference": "21f541a89e05461a4215d9c117a62326e165747e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api_solr-8.x-1.0-alpha6.zip",
-                "reference": "1b949c59477031ce5880c13537eb73a5f3cb4096",
+                "url": "https://ftp.drupal.org/files/projects/search_api_solr-8.x-1.0-beta1.zip",
+                "reference": null,
                 "shasum": null
             },
             "require": {
@@ -2409,7 +2409,7 @@
             ],
             "description": "Offers an implementation of the Search API that uses an Apache Solr server for indexing content.",
             "homepage": "https://www.drupal.org/project/search_api_solr",
-            "time": "2016-08-25 11:28:46"
+            "time": "2016-10-25 21:34:54"
         },
         {
             "name": "drupal/stage_file_proxy",
