@@ -76,7 +76,7 @@ services:
   solr:
     image: blinkreaction/drupal-solr:4.x-stable
     ports:
-      - '8983/tcp'
+      - '8983:8983'
     volumes:
       - './web/modules/contrib/search_api_solr/solr-conf/4.x:/var/lib/solr/conf:ro'
 
