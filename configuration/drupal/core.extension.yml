@@ -14,6 +14,7 @@ module:
   config: 0
   config_translation: 0
   contact: 0
+  crop: 0
   datetime: 0
   datetime_range: 0
   dblog: 0
@@ -43,6 +44,7 @@ module:
   help: 0
   history: 0
   image: 0
+  image_widget_crop: 0
   inline_entity_form: 0
   language: 0
   link: 0
