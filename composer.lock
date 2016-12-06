@@ -2102,16 +2102,16 @@
         },
         {
             "name": "drupal/inline_entity_form",
-            "version": "8.1.0-alpha6",
+            "version": "8.1.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/inline_entity_form",
-                "reference": "27af4de9fd961fa6ae1369604d05fec8b06db867"
+                "reference": "8227e2879c9d4c19bf6d402cbba35d59350da56b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/inline_entity_form-8.x-1.0-alpha6.zip",
-                "reference": "27af4de9fd961fa6ae1369604d05fec8b06db867",
+                "url": "https://ftp.drupal.org/files/projects/inline_entity_form-8.x-1.0-beta1.zip",
+                "reference": null,
                 "shasum": null
             },
             "require": {
@@ -2129,7 +2129,7 @@
             ],
             "description": "Provides a widget for inline management (creation, modification, removal) of referenced entities. ",
             "homepage": "https://www.drupal.org/project/inline_entity_form",
-            "time": "2016-04-18 21:57:48"
+            "time": "2016-10-18 23:16:30"
         },
         {
             "name": "drupal/maxlength",
@@ -2173,7 +2173,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/media_entity-8.x-1.6.zip",
-                "reference": null,
+                "reference": "031b9b39703115d4bcbd0ab43a996622e8ad81b7",
                 "shasum": null
             },
             "require": {
