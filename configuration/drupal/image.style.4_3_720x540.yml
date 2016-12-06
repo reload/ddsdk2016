@@ -1,0 +1,22 @@
+uuid: 79710b77-a16d-4e32-b4d0-528f4f496f8f
+langcode: en
+status: true
+dependencies:
+  module:
+    - crop
+name: 4_3_720x540
+label: '4:3 720x540'
+effects:
+  c25fd41b-5c67-4755-af47-87b8559ae72f:
+    uuid: c25fd41b-5c67-4755-af47-87b8559ae72f
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: 4_3_responsive
+  c912dff2-02b6-4060-b9e2-8d288e42a0b6:
+    uuid: c912dff2-02b6-4060-b9e2-8d288e42a0b6
+    id: image_scale_and_crop
+    weight: 3
+    data:
+      width: 720
+      height: 540

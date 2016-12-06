@@ -7,10 +7,10 @@ dependencies:
     - field.field.media.image.field_byline
     - field.field.media.image.field_caption
     - field.field.media.image.field_image
+    - image.style.110x83
     - media_entity.bundle.image
-    - responsive_image.styles.4_3
   module:
-    - responsive_image
+    - image
 id: media.image.teaser_list
 targetEntityType: media
 bundle: image
@@ -20,10 +20,10 @@ content:
     weight: 0
     label: hidden
     settings:
-      responsive_image_style: 4_3
+      image_style: 110x83
       image_link: ''
     third_party_settings: {  }
-    type: responsive_image
+    type: image
 hidden:
   created: true
   field_byline: true

@@ -1,8 +1,9 @@
-uuid: ed04aead-b2ee-4253-bca1-faa1ced6a192
+uuid: 7e2841f5-9eab-41d2-a810-06b7c12a71ad
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.media.main_media
     - field.field.media.image.field_byline
     - field.field.media.image.field_caption
     - field.field.media.image.field_image
@@ -10,10 +11,10 @@ dependencies:
     - media_entity.bundle.image
   module:
     - image_widget_crop
-id: media.image.default
+id: media.image.main_media
 targetEntityType: media
 bundle: image
-mode: default
+mode: main_media
 content:
   field_byline:
     type: string_textfield

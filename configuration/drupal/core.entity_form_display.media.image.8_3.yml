@@ -1,34 +1,37 @@
-uuid: bf07bd2f-94c1-4667-ac3a-f8de7f317854
+uuid: 88a38d80-aaaf-4acf-9886-45720b107d4e
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.teaser
+    - core.entity_form_mode.media.8_3
     - field.field.media.image.field_byline
     - field.field.media.image.field_caption
     - field.field.media.image.field_image
+    - image.style.8_3_240x90
     - media_entity.bundle.image
-    - responsive_image.styles.16_9_responsive_teaser
   module:
-    - responsive_image
-id: media.image.teaser
+    - image_widget_crop
+id: media.image.8_3
 targetEntityType: media
 bundle: image
-mode: teaser
+mode: 8_3
 content:
   field_image:
     weight: 0
-    label: hidden
     settings:
-      responsive_image_style: 16_9_responsive_teaser
-      image_link: ''
+      show_default_crop: true
+      preview_image_style: 8_3_240x90
+      crop_preview_image_style: crop_thumbnail
+      crop_list:
+        - 8_3
+      progress_indicator: throbber
+      show_crop_area: false
     third_party_settings: {  }
-    type: responsive_image
+    type: image_widget_crop
 hidden:
   created: true
   field_byline: true
   field_caption: true
   langcode: true
   name: true
-  thumbnail: true
   uid: true

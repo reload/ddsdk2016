@@ -1,10 +1,10 @@
-uuid: 4e955daf-31ef-4e28-9e24-1c9608efcf70
+uuid: 1b1b3c09-78ce-4f53-bb8d-2a845ad13d37
 langcode: en
 status: true
 dependencies:
   module:
     - media_entity
-id: media.without_meta
-label: 'Without meta 16:9'
+id: media.article_main_media
+label: 'Article Main Media 16:9'
 targetEntityType: media
 cache: true

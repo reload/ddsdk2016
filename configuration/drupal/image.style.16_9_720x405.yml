@@ -1,0 +1,22 @@
+uuid: 9ca4498f-a36c-4801-9ec0-9e69d1da2222
+langcode: en
+status: true
+dependencies:
+  module:
+    - crop
+name: 16_9_720x405
+label: '16:9 720x405'
+effects:
+  9bcd263a-fca7-4bba-b68d-b72c7f09d620:
+    uuid: 9bcd263a-fca7-4bba-b68d-b72c7f09d620
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: 16_9_responsive
+  7cb7e559-7fc1-4ab0-bcfa-c4591afcc661:
+    uuid: 7cb7e559-7fc1-4ab0-bcfa-c4591afcc661
+    id: image_scale_and_crop
+    weight: 3
+    data:
+      width: 720
+      height: 405

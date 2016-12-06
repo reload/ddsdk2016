@@ -1,0 +1,22 @@
+uuid: 6ef71b96-6139-462c-82c6-676ebb5e0c83
+langcode: en
+status: true
+dependencies:
+  module:
+    - crop
+name: 16_9_345x194
+label: '16:9 345x194'
+effects:
+  2f6dc116-b73c-437b-a079-a690e5bd7638:
+    uuid: 2f6dc116-b73c-437b-a079-a690e5bd7638
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: 16_9_responsive
+  91ebe813-2f58-4398-badd-4cd06c1bfd31:
+    uuid: 91ebe813-2f58-4398-badd-4cd06c1bfd31
+    id: image_scale_and_crop
+    weight: 3
+    data:
+      width: 345
+      height: 194

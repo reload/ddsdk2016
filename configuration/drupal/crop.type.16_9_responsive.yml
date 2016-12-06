@@ -1,0 +1,12 @@
+uuid: 31078d8a-bc83-4b2d-b847-509d2b1f8323
+langcode: en
+status: true
+dependencies: {  }
+label: '16:9'
+id: 16_9_responsive
+description: '16:9 crop of an image that changes size depending on the browser-size.'
+aspect_ratio: '16:9'
+soft_limit_width: null
+soft_limit_height: null
+hard_limit_width: 1600
+hard_limit_height: 900

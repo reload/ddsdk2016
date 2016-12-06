@@ -25,10 +25,8 @@ dependencies:
     - field.field.node.event.field_main_media
     - field.field.node.event.field_paragraphs
     - field.field.node.event.field_programs
-    - image.style.950x713
     - node.type.event
   module:
-    - media_entity
     - user
 id: node.event.list_teaser
 targetEntityType: node
@@ -39,10 +37,10 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: 950x713
-      image_link: ''
+      view_mode: teaser_list
+      link: false
     third_party_settings: {  }
-    type: media_thumbnail
+    type: entity_reference_entity_view
 hidden:
   field_content_category: true
   field_content_tag: true

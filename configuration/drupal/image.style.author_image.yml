@@ -1,14 +1,22 @@
 uuid: 9f701542-6adb-4f0f-85bb-d09d603b3a61
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - crop
 name: author_image
 label: 'Author Image'
 effects:
-  93abc60e-cad1-4008-b80b-8eab9e2ac17a:
-    uuid: 93abc60e-cad1-4008-b80b-8eab9e2ac17a
+  d6e453ed-0f73-44dc-a74e-b9258a210bee:
+    uuid: d6e453ed-0f73-44dc-a74e-b9258a210bee
+    id: crop_crop
+    weight: -10
+    data:
+      crop_type: author_square
+  8b3e0af5-bfa9-432f-aef9-1c67d2de826c:
+    uuid: 8b3e0af5-bfa9-432f-aef9-1c67d2de826c
     id: image_scale_and_crop
-    weight: 1
+    weight: 3
     data:
       width: 100
       height: 100

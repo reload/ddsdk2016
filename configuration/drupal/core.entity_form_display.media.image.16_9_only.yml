@@ -1,8 +1,9 @@
-uuid: ed04aead-b2ee-4253-bca1-faa1ced6a192
+uuid: 7cbf2dcb-86d5-4d8e-ba41-977a0f7105f1
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.media.16_9_only
     - field.field.media.image.field_byline
     - field.field.media.image.field_caption
     - field.field.media.image.field_image
@@ -10,10 +11,10 @@ dependencies:
     - media_entity.bundle.image
   module:
     - image_widget_crop
-id: media.image.default
+id: media.image.16_9_only
 targetEntityType: media
 bundle: image
-mode: default
+mode: 16_9_only
 content:
   field_byline:
     type: string_textfield
@@ -37,7 +38,6 @@ content:
       crop_preview_image_style: crop_thumbnail
       crop_list:
         - 16_9_responsive
-        - 4_3_responsive
       progress_indicator: throbber
       show_crop_area: false
     third_party_settings: {  }
