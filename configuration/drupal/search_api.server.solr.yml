@@ -9,14 +9,7 @@ name: Solr
 description: 'Main solr setup. All environments overrides the backend-configuration via their respective settings.php.'
 backend: search_api_solr
 backend_config:
-  retrieve_data: false
-  highlight_data: false
-  excerpt: false
-  skip_schema_check: false
-  site_hash: true
-  autocorrect_spell: true
-  autocorrect_suggest_words: true
-  connector: basic_auth
+  connector: standard
   connector_config:
     scheme: http
     host: solr
@@ -28,5 +21,10 @@ backend_config:
     optimize_timeout: 10
     solr_version: ''
     http_method: AUTO
-    username: ''
-    password: ''
+  retrieve_data: false
+  highlight_data: false
+  excerpt: false
+  skip_schema_check: false
+  site_hash: true
+  autocorrect_spell: true
+  autocorrect_suggest_words: true
