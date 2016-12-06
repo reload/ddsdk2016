@@ -1,14 +1,16 @@
 uuid: eb841968-2dc4-4c3b-9ad3-a39a0fc21a4a
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - focal_point
 name: 1280x720px
 label: 1280x720px
 effects:
-  df3130ff-b0d9-41ae-a737-1054a145115b:
-    uuid: df3130ff-b0d9-41ae-a737-1054a145115b
-    id: image_scale_and_crop
-    weight: 1
+  be64d4a2-237a-4dff-a6fd-8afe64f4dd70:
+    uuid: be64d4a2-237a-4dff-a6fd-8afe64f4dd70
+    id: focal_point_scale_and_crop
+    weight: 2
     data:
       width: 1280
       height: 720

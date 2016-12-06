@@ -1,14 +1,16 @@
 uuid: b2253eeb-c269-486d-a9e7-91eda3831179
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - focal_point
 name: 960x540px
 label: 960x540px
 effects:
-  b74c14e9-463f-4188-8d37-6bb5a5304d36:
-    uuid: b74c14e9-463f-4188-8d37-6bb5a5304d36
-    id: image_scale_and_crop
-    weight: 1
+  2de1e6dd-7e41-4f90-9591-be934c7b7b11:
+    uuid: 2de1e6dd-7e41-4f90-9591-be934c7b7b11
+    id: focal_point_scale_and_crop
+    weight: 2
     data:
       width: 960
       height: 540
