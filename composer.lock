@@ -1329,16 +1329,16 @@
         },
         {
             "name": "drupal/address",
-            "version": "8.1.0-rc2",
+            "version": "8.1.0-rc3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/address.git",
-                "reference": "7f6c1fb090bc70cf14340f2d278343033a614c6b"
+                "reference": "27226463ebbd6477205e33fda36b652b00e461cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/address-8.x-1.0-rc2.zip",
-                "reference": "7f6c1fb090bc70cf14340f2d278343033a614c6b",
+                "url": "https://ftp.drupal.org/files/projects/address-8.x-1.0-rc3.zip",
+                "reference": null,
                 "shasum": null
             },
             "require": {
@@ -1359,7 +1359,7 @@
             ],
             "description": "Provides functionality for handling postal addresses.",
             "homepage": "http://drupal.org/project/address",
-            "time": "2016-10-05 14:44:42"
+            "time": "2016-10-26 15:15:28"
         },
         {
             "name": "drupal/admin_toolbar",
@@ -1372,7 +1372,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/admin_toolbar-8.x-1.18.zip",
-                "reference": null,
+                "reference": "06d0fa89dfca5adade537b24e9593b5af6350b4a",
                 "shasum": null
             },
             "require": {
