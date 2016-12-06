@@ -13,4 +13,5 @@ no_results_text: 'No results match'
 disabled_themes:
   seven: '0'
   mungo: '0'
+include: 2
 chosen_include: 2
