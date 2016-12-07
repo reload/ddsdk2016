@@ -1,14 +1,16 @@
 uuid: 577c0c2c-5267-4974-ab9f-73dad75d880d
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - focal_point
 name: 640x480
 label: 640x480
 effects:
-  0f7949bb-5b90-4bb3-9adf-c0a2e966abd4:
-    uuid: 0f7949bb-5b90-4bb3-9adf-c0a2e966abd4
-    id: image_scale_and_crop
-    weight: 1
+  df8e553e-9137-4fae-9db6-dc65239885fb:
+    uuid: df8e553e-9137-4fae-9db6-dc65239885fb
+    id: focal_point_scale_and_crop
+    weight: 2
     data:
       width: 640
       height: 480

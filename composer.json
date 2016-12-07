@@ -59,7 +59,8 @@
         "drmonty/chosen": "^1.6",
         "commerceguys/addressing": "dev-master#bc8d8cbcc151dd0aacdd8efad95a44e9ba2126b0",
         "drupal/extlink": "^8",
-        "drupal/link_attributes": "^8"
+        "drupal/link_attributes": "^8",
+        "drupal/focal_point": "8.1.x-dev#398a1b660d8b3088a688794d4f8c8adae6486daa"
     },
     "require-dev": {
         "behat/mink": "~1.7",
