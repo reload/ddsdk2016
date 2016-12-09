@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.activity.field_activity_id
+    - field.field.node.activity.field_content_topic
     - field.field.node.activity.field_main_media
     - field.field.node.activity.field_subtitle
     - node.type.activity
@@ -20,6 +21,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: number
+  field_content_topic:
+    weight: 26
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
   field_main_media:
     weight: 3
     settings:
