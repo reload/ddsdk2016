@@ -1,0 +1,12 @@
+uuid: 6e93d879-6353-49c1-bc34-30e0fc5a51f5
+langcode: en
+status: true
+dependencies: {  }
+label: '4:3'
+id: 4_3_responsive
+description: '4:3 crop of an image that changes size depending on the browser-size.'
+aspect_ratio: '4:3'
+soft_limit_width: null
+soft_limit_height: null
+hard_limit_width: 950
+hard_limit_height: 713

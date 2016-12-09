@@ -5,10 +5,12 @@ dependencies:
   config:
     - image.style.1280x720px
     - image.style.1600x900px
+    - image.style.16_9_345x194
+    - image.style.16_9_720x405
     - image.style.400x225px
     - image.style.960x540px
 id: 16_9_responsive
-label: '16:9 Responsive'
+label: '16:9 Responsive cover'
 image_style_mappings:
   -
     breakpoint_id: responsive_image.viewport_sizing
@@ -19,6 +21,8 @@ image_style_mappings:
       sizes_image_styles:
         - 1280x720px
         - 1600x900px
+        - 16_9_345x194
+        - 16_9_720x405
         - 400x225px
         - 960x540px
 breakpoint_group: responsive_image

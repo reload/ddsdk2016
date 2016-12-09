@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Link;
+use Drupal\Core\Render\Element;
 use Drupal\Core\URL;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Template\Attribute;
@@ -242,6 +243,12 @@ function mungo_preprocess_paragraph(&$variables) {
     case 'content_link':
       // Add a clean class to videos.
       _mungo_preprocess_paragraph_content_link($variables);
+      break;
+
+    case 'inspiration_deck':
+      foreach (Element::children($variables['content']['field_inspiration_deck_items']) as $key) {
+        $variables['content']['field_inspiration_deck_items'][$key]['#pre_render'][] = 'mungo_insprational_prerender';
+      }
       break;
 
     case 'situation_links':
@@ -951,4 +958,16 @@ function mungo_theme($existing, $type, $theme, $path) {
       ),
     ),
   );
+}
+
+/**
+ * Switch main medias view-mode to extended_teaser.
+ */
+function mungo_insprational_prerender($elements) {
+  if (!empty($elements['field_main_media'])) {
+    foreach (Element::children($elements['field_main_media']) as $name) {
+      $elements['field_main_media'][$name]['#view_mode'] = 'extended_teaser';
+    }
+  }
+  return $elements;
 }

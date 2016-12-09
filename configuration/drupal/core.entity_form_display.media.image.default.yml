@@ -9,7 +9,7 @@ dependencies:
     - image.style.thumbnail
     - media_entity.bundle.image
   module:
-    - image
+    - image_widget_crop
 id: media.image.default
 targetEntityType: media
 bundle: image
@@ -32,10 +32,16 @@ content:
   field_image:
     weight: 0
     settings:
-      progress_indicator: throbber
+      show_default_crop: true
       preview_image_style: thumbnail
+      crop_preview_image_style: crop_thumbnail
+      crop_list:
+        - 16_9_responsive
+        - 4_3_responsive
+      progress_indicator: throbber
+      show_crop_area: false
     third_party_settings: {  }
-    type: image_image
+    type: image_widget_crop
 hidden:
   created: true
   langcode: true

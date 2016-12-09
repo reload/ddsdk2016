@@ -1,0 +1,12 @@
+uuid: d2f24a07-2da7-4379-bf79-75390100916f
+langcode: en
+status: true
+dependencies: {  }
+label: 'Thumbnail - 1:1'
+id: author_square
+description: 'Crop of a small square thumbnail.'
+aspect_ratio: '1:1'
+soft_limit_width: null
+soft_limit_height: null
+hard_limit_width: 100
+hard_limit_height: 100

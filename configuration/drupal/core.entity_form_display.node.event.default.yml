@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.media.main_media_with_8_3
     - field.field.node.event.field_content_category
     - field.field.node.event.field_content_tag
     - field.field.node.event.field_content_target_group
@@ -258,10 +259,10 @@ content:
   field_main_media:
     weight: 1
     settings:
-      form_mode: default
-      override_labels: false
+      form_mode: main_media_with_8_3
       label_singular: ''
       label_plural: ''
+      override_labels: false
     third_party_settings: {  }
     type: inline_entity_form_simple
   field_paragraphs:
