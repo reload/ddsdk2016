@@ -960,10 +960,14 @@ function mungo_theme($existing, $type, $theme, $path) {
   );
 }
 
+/**
+ * Switch main medias view-mode to extended_teaser.
+ */
 function mungo_insprational_prerender($elements) {
-  $elements['field_main_media'];
-  foreach (Element::children($elements['field_main_media']) as $name) {
-    $elements['field_main_media'][$name]['#view_mode'] = 'extended_teaser';
+  if (!empty($elements['field_main_media'])) {
+    foreach (Element::children($elements['field_main_media']) as $name) {
+      $elements['field_main_media'][$name]['#view_mode'] = 'extended_teaser';
+    }
   }
   return $elements;
 }
