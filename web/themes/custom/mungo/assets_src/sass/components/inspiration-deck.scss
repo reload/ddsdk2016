@@ -2,6 +2,16 @@
 .inspiration-deck {
   // Reset width.
   width: 100%;
+  .is-safari & {
+    // The width of inspiration deck is 1140px (site-width) which isn't good
+    // when calculating aspect ratio. Half 570px in 8:4 has a height of 213.75px
+    // and subpixels are treated differently here in ie. Chrome and Safari.
+    // Safari rounds down where Chrome rounds up.
+    // Setting width to 1100px (by adding padding) solves this.
+    @include media-large {
+      padding:0 20px;
+    }
+  }
   *[class*="col-md"] {
     // Remove bootstrap gutter.
     padding: 0;
