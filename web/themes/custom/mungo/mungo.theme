@@ -76,7 +76,7 @@ function mungo_preprocess_field(&$variables) {
     // 6 cols.
     $variables['item_col_classes'] = [];
     if ($sizes === '66_33' && $field_name === 'field_2col_deck_col1') {
-      $variables['item_col_classes'][] = 'col-sm-6';
+      $variables['item_col_classes'][] = 'col-xs-6';
     }
     elseif ($sizes === '33_66' && $field_name === 'field_2col_deck_col2') {
       $variables['item_col_classes'][] = 'col-md-6';
