@@ -247,10 +247,10 @@ function mungo_preprocess_paragraph(&$variables) {
 
     case 'inspiration_deck':
       foreach (Element::children($variables['content']['field_inspiration_deck_items']) as $key) {
-        $variables['content']['field_inspiration_deck_items'][$key]['#pre_render'][] = 'mungo_insprational_prerender';
+        $variables['content']['field_inspiration_deck_items'][$key]['#pre_render'][] = 'mungo_inspirational_prerender';
         // We're going to affect the rendered result, so make sure our
         // pre-render becomes a part of the cache key.
-        $variables['content']['field_inspiration_deck_items'][$key]['#cache']['keys'][] = 'mungo_insprational_prerender';
+        $variables['content']['field_inspiration_deck_items'][$key]['#cache']['keys'][] = 'mungo_inspirational_prerender';
       }
       break;
 
