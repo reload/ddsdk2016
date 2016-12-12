@@ -37,3 +37,41 @@
     padding-bottom: $spacing-medium;
   }
 }
+
+
+.deck--2col {
+  // Adjust teaser height in order to allow the content-list to expand (flexbox)
+  // The content-list dosen't allow the node-teaser two-col grid to expand
+  // since it's no more rows.
+  .node-teaser {
+    // Only on desktop. on tablet the content-list is below.
+    @include media-medium {
+      min-height: 370px;
+    }
+  }
+  .node-teaser--list {
+    min-height: inherit;
+    &:hover {
+      // The content-list behaves kinda buggy on tablet and mobile.
+      border-bottom: 1px solid $pinkish-grey;
+      @include media-medium {
+        border-bottom: 0 none;
+      }
+    }
+  }
+
+  // The content-list should be on white background. Adding this is handled in
+  // preprocess. Furthermore. The content-list is not keen on being represented
+  // on a background, therefore the resets.
+  .deck__column--white-background > * {
+    background-color: #fff;
+    padding: $spacing-medium;
+    padding-bottom:0;
+
+    .field--name-field-content-list,
+    .field--name-field-content-list-title {
+      padding: 0;
+    }
+  }
+}
+
