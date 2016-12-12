@@ -66,11 +66,17 @@
   .deck__column--white-background > * {
     background-color: #fff;
     padding: $spacing-medium;
-    padding-bottom:0;
+    padding-bottom: 0;
 
     .field--name-field-content-list,
     .field--name-field-content-list-title {
-      padding: 0;
+      padding-left: 0;
+    }
+    .field--name-field-content-list {
+      padding-top: 18px;
+    }
+    .field--name-field-shortcuts-title {
+      padding: 0 0 18px 0;
     }
   }
 }
