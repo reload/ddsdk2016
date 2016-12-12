@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_form_mode.media.without_meta
+    - core.entity_form_mode.media.original
     - field.field.node.badge.field_badge_cover_image
     - field.field.node.badge.field_badge_level
     - field.field.node.badge.field_badge_progression
@@ -49,7 +49,7 @@ content:
   field_badge_cover_image:
     weight: 2
     settings:
-      form_mode: 8_3
+      form_mode: main_media_with_25_6
       label_singular: ''
       label_plural: ''
       override_labels: false
@@ -98,7 +98,7 @@ content:
   field_main_media:
     weight: 1
     settings:
-      form_mode: without_meta
+      form_mode: original
       label_singular: ''
       label_plural: ''
       override_labels: false
