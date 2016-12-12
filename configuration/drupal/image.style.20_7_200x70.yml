@@ -1,0 +1,22 @@
+uuid: 0bb14f86-4ad0-40cc-8aac-6e8307e30197
+langcode: en
+status: true
+dependencies:
+  module:
+    - crop
+name: 20_7_200x70
+label: '20:7 200x70'
+effects:
+  4c3c6028-2ca2-44c0-ae16-46295155019d:
+    uuid: 4c3c6028-2ca2-44c0-ae16-46295155019d
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: 20_7
+  3f85182b-5208-4a07-84b0-1472eabf57b0:
+    uuid: 3f85182b-5208-4a07-84b0-1472eabf57b0
+    id: image_scale_and_crop
+    weight: 2
+    data:
+      width: 200
+      height: 70
