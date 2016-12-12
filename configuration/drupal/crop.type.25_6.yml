@@ -1,0 +1,12 @@
+uuid: 066d8edf-b9d6-4f87-a3d5-c641249c9712
+langcode: en
+status: true
+dependencies: {  }
+label: '25:6'
+id: 25_6
+description: 'Section page main-image'
+aspect_ratio: '25:6'
+soft_limit_width: null
+soft_limit_height: null
+hard_limit_width: 1600
+hard_limit_height: null
