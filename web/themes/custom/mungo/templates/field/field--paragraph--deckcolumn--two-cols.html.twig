@@ -46,7 +46,7 @@ label_display == 'visually_hidden' ? 'visually-hidden',
         <div{{ attributes }}>
             {# Wrap the items in a row if they have column classes#}
             {% if item_col_classes %}
-            <div class="row row--grid">
+            <div class="row row-equal-columns row--grid ">
                 {% endif %}
                 {% for item in items %}
                     <div{{ item.attributes.addClass('field__item', item_col_classes) }}>{{ item.content }}</div>

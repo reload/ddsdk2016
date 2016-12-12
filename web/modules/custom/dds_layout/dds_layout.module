@@ -47,6 +47,7 @@ function dds_layout_preprocess_field(&$variables) {
     elseif ($field_name === 'field_2col_deck_col2') {
       $variables['attributes']['class'][] = 'deck__column';
       $variables['attributes']['class'][] = 'deck__column--right';
+      $variables['attributes']['class'][] = 'deck__column--white-background';
       $variables['attributes']['data-item-count'] = $item_count;
     }
   }

@@ -37,3 +37,13 @@
     padding-bottom: $spacing-medium;
   }
 }
+
+.deck__column--white-background > * {
+  background-color: #fff;
+  padding: $spacing-medium;
+
+  .field--name-field-content-list,
+  .field--name-field-content-list-title {
+    padding-left: 0;
+  }
+}
