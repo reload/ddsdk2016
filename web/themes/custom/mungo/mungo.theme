@@ -987,7 +987,7 @@ function mungo_inspirational_prerender($elements) {
       $elements['field_main_media'][$name]['#view_mode'] = 'extended_teaser';
       // Make sure this field is going to be rendered again if it is
       // rendered without this prerender.
-      $elements['field_main_media'][$name]['#cache']['keys'] = 'mungo_inspirational_prerender';
+      $elements['field_main_media'][$name]['#cache']['keys'][] = 'mungo_inspirational_prerender';
     }
   }
   return $elements;
