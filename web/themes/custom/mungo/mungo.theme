@@ -862,6 +862,21 @@ function mungo_theme_suggestions_alter(array &$suggestions, array $variables, $h
       }
 
       break;
+
+    case 'container':
+      // Views will always wrap results in a container element, we add a
+      // couple of suggetions to make it easier to target it.
+      if (!empty($variables['element']['#type'])) {
+        // If the child-element has a type, add it as a suggestion.
+        $suggestions[] = $hook . '__' . $variables['element']['#type'];
+        if (!empty($variables['element']['#type'] === 'view')) {
+          // If the child is a view, add the view name and display-id.
+          $suggestions[] = $hook . '__' . $variables['element']['#type'] . '__' . $variables['element']['#name'];
+          $suggestions[] = $hook . '__' . $variables['element']['#type'] . '__' . $variables['element']['#name'] . '__' . $variables['element']['#display_id'];
+        }
+      }
+
+      break;
   }
 }
 
