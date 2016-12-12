@@ -1,0 +1,33 @@
+uuid: 5329dacd-ba3c-45fc-b53e-4930ff323402
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.original
+    - field.field.media.image.field_byline
+    - field.field.media.image.field_caption
+    - field.field.media.image.field_image
+    - media_entity.bundle.image
+  module:
+    - image
+id: media.image.original
+targetEntityType: media
+bundle: image
+mode: original
+content:
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    type: image
+hidden:
+  created: true
+  field_byline: true
+  field_caption: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true
