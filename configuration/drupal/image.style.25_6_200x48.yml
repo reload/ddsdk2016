@@ -1,0 +1,22 @@
+uuid: 10a64300-1c54-4ec5-977f-c73013275a94
+langcode: en
+status: true
+dependencies:
+  module:
+    - crop
+name: 25_6_200x48
+label: '25:6 200x48'
+effects:
+  309195df-6223-444f-8cd3-46e5500379b4:
+    uuid: 309195df-6223-444f-8cd3-46e5500379b4
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: 25_6
+  df58dce6-07da-4d46-90c3-75353f2f1911:
+    uuid: df58dce6-07da-4d46-90c3-75353f2f1911
+    id: image_scale_and_crop
+    weight: 2
+    data:
+      width: 200
+      height: 48

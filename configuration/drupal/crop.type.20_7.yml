@@ -1,0 +1,12 @@
+uuid: 746b2992-766d-4556-a93a-b4dd1069c7c1
+langcode: en
+status: true
+dependencies: {  }
+label: '20:7'
+id: 20_7
+description: 'Used by the front-page hero-banner'
+aspect_ratio: '20:7'
+soft_limit_width: null
+soft_limit_height: null
+hard_limit_width: 1600
+hard_limit_height: null

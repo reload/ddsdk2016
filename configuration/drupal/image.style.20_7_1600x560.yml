@@ -1,0 +1,22 @@
+uuid: 41e4a007-4d1a-4777-abfb-1491a5238c62
+langcode: en
+status: true
+dependencies:
+  module:
+    - crop
+name: 20_7_1600x560
+label: '20:7 1600x560'
+effects:
+  65dbef33-938b-4219-87f7-0aabb6fcbd89:
+    uuid: 65dbef33-938b-4219-87f7-0aabb6fcbd89
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: 20_7
+  65120dfd-0847-454c-9eb6-3697c08c4443:
+    uuid: 65120dfd-0847-454c-9eb6-3697c08c4443
+    id: image_scale_and_crop
+    weight: 2
+    data:
+      width: 1600
+      height: 560

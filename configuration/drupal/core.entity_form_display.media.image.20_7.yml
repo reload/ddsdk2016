@@ -1,0 +1,37 @@
+uuid: 6829ebf0-e05a-4c2d-9c76-8dd500a322c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.20_7
+    - field.field.media.image.field_byline
+    - field.field.media.image.field_caption
+    - field.field.media.image.field_image
+    - image.style.20_7_200x70
+    - media_entity.bundle.image
+  module:
+    - image_widget_crop
+id: media.image.20_7
+targetEntityType: media
+bundle: image
+mode: 20_7
+content:
+  field_image:
+    weight: 0
+    settings:
+      show_default_crop: true
+      preview_image_style: 20_7_200x70
+      crop_preview_image_style: crop_thumbnail
+      crop_list:
+        - 20_7
+      progress_indicator: throbber
+      show_crop_area: false
+    third_party_settings: {  }
+    type: image_widget_crop
+hidden:
+  created: true
+  field_byline: true
+  field_caption: true
+  langcode: true
+  name: true
+  uid: true
