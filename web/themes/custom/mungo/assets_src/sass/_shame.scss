@@ -16,3 +16,10 @@
   @extend .container;
   padding: 20vh 5%;
 }
+
+/*  Content link forward form.
+    ------------------------------------------------------- */
+.forward-form {
+  @extend .container;
+  padding: 5%;
+}

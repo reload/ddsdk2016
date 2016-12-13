@@ -17,25 +17,25 @@ forward_form_display_subject: false
 forward_form_display_body: false
 forward_form_confirmation: 'Thank you for spreading the word about [site:name]. We appreciate your help.'
 forward_personal_message: 1
-forward_personal_message_filter: false
+forward_personal_message_filter: true
 forward_personal_message_tags: 'p,br,em,strong,cite,code,ul,ol,li,dl,dt,dd'
 forward_email_logo: ''
 forward_email_subject: '[forward:sender-name] has forwarded a page to you from [site:name]'
 forward_email_message: '[forward:sender-name] thought you would like to see this page from the [site:name] web site.'
 forward_bypass_access_control: 0
-forward_filter_format: ''
+forward_filter_format: full_html
 forward_flood_control_limit: 10
 forward_flood_control_error: 'You can''t send more than @number messages per hour. Please try again later.'
 _core:
   default_config_hash: LjNmrZEGeLdWqwJcnscz5MMdBFPuS_pFjmJx0AoTFAQ
-forward_email_from_address: admin@example.com
+forward_email_from_address: info@dds.dk
 forward_entity_zone: false
 forward_zone_zone: false
 forward_entity_block: false
 forward_block_block: false
 forward_entity_block_content: false
-forward_block_content_article_list: false
 forward_block_content_basic: false
+forward_block_content_content_list: false
 forward_entity_block_content_type: false
 forward_block_content_type_block_content_type: false
 forward_entity_contact_form: false
@@ -43,6 +43,15 @@ forward_contact_form_contact_form: false
 forward_entity_contact_message: false
 forward_contact_message_feedback: false
 forward_contact_message_personal: false
+forward_entity_crop: false
+forward_crop_16_9_responsive: false
+forward_crop_20_7: false
+forward_crop_25_6: false
+forward_crop_4_3_responsive: false
+forward_crop_8_3: false
+forward_crop_author_square: false
+forward_entity_crop_type: false
+forward_crop_type_crop_type: false
 forward_entity_editor: false
 forward_editor_editor: false
 forward_entity_facets_facet: false
@@ -71,8 +80,8 @@ forward_media_bundle_media_bundle: false
 forward_node_activity: false
 forward_node_article: true
 forward_node_badge: false
+forward_node_download: false
 forward_node_event: false
-forward_node_page: false
 forward_node_section_page: false
 forward_entity_node_type: false
 forward_node_type_node_type: false
@@ -88,13 +97,20 @@ forward_paragraph_content_article_reference_ext: false
 forward_paragraph_content_badge_reference: false
 forward_paragraph_content_event_reference: false
 forward_paragraph_content_link: false
+forward_paragraph_download: false
 forward_paragraph_dynamic_deck: false
 forward_paragraph_factbox: false
 forward_paragraph_gallery: false
 forward_paragraph_hero_banner: false
+forward_paragraph_image: false
+forward_paragraph_inspiration_deck: false
+forward_paragraph_key_figures: false
+forward_paragraph_latest_content_list: false
+forward_paragraph_list_deck: false
 forward_paragraph_program: false
 forward_paragraph_program_item: false
 forward_paragraph_quotation: false
+forward_paragraph_shortcuts: false
 forward_paragraph_situation_links: false
 forward_paragraph_text: false
 forward_paragraph_video: false
@@ -120,11 +136,14 @@ forward_entity_menu: false
 forward_menu_menu: false
 forward_entity_taxonomy_term: false
 forward_taxonomy_term_badge_target_group: false
+forward_taxonomy_term_content_category: false
+forward_taxonomy_term_content_tag: false
+forward_taxonomy_term_content_target_group: false
+forward_taxonomy_term_content_topic: false
 forward_taxonomy_term_event_location_area: false
 forward_taxonomy_term_event_type: false
 forward_taxonomy_term_person: false
 forward_taxonomy_term_progression_badge: false
-forward_taxonomy_term_tags: false
 forward_entity_taxonomy_vocabulary: false
 forward_taxonomy_vocabulary_taxonomy_vocabulary: false
 forward_entity_user_role: false
