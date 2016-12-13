@@ -142,6 +142,11 @@
     margin-bottom: -$spacing-small;
     @include pre-title;
   }
+  // Keyword gets to close in teaser-lists so we reset the margin added for
+  // standard teasers back to zero.
+  .node-teaser--list--meta &--keyword {
+    margin-bottom: 0;
+  }
   &--read-more {
     @include blue-arrowed-read-more;
   }
