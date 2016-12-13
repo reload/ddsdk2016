@@ -337,6 +337,9 @@ function mungo_preprocess_node(&$variables) {
   /** @var Node $node */
   $node = $variables['node'];
 
+  // Add absolute url to the node.
+  $variables['absolute_url'] = Url::fromUri('internal:' . $variables['url'], array('absolute' => TRUE))->toString();
+
   switch ($node->getType()) {
     case 'activity':
       if (!empty($node->get('field_activity_id')->value)) {
