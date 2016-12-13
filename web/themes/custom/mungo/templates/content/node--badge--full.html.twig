@@ -84,8 +84,11 @@ set classes = [
 {{ attach_library('classy/node') }}
 
 {% if content.field_badge_cover_image %}
+  {{ attach_library('mungo/object-fit') }}
   <header role="section-header" class="section-header">
-    {{ top_image }}
+    <div class="full-width-image-container narrow">
+      {{ top_image }}
+    </div>
   </header>
   {# Insert level menu (will only be availble for progression badges #}
   {% if level_menu %}
