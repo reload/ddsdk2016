@@ -143,6 +143,10 @@ function mungo_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id === 'search_block_form') {
     $form['keys']['#placeholder'] = $search_placeholder_text;
   }
+
+  if (preg_match('/^forward_form_node_\d+$/', $form_id)) {
+    $form['#attributes']['class'][] = 'forward-form';
+  }
 }
 
 /**
