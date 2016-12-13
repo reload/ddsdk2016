@@ -256,6 +256,21 @@ function mungo_preprocess_paragraph(&$variables) {
         // pre-render becomes a part of the cache key.
         $variables['content']['field_inspiration_deck_items'][$key]['#cache']['keys'][] = 'mungo_inspirational_prerender';
       }
+
+      // Set variable for the teaser-texts background and foreground color.
+      // Teaser_text_background_color contains the color of the background
+      // and we switch on it to get the foreground-color.
+      if (isset($variables['content']['field_insp_teaser_color'][0]['#markup'])) {
+        $variables['teaser_text_background_color'] = $variables['content']['field_insp_teaser_color'][0]['#markup'];
+
+        if (in_array($variables['teaser_text_background_color'], ['#ea636f', '#003366'])) {
+          $variables['teaser_text_color'] = 'white';
+        }
+        else {
+          // Default is black text.
+          $variables['teaser_text_color'] = 'black';
+        }
+      }
       break;
 
     case 'situation_links':
