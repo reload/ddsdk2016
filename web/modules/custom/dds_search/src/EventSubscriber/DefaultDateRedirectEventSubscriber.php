@@ -39,6 +39,7 @@ class DefaultDateRedirectEventSubscriber implements EventSubscriberInterface {
    * {@inheritdoc}
    */
   public static function getSubscribedEvents() {
+    $events = [];
     $events[KernelEvents::REQUEST][] = array('checkForRedirection');
     return $events;
   }
