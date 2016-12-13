@@ -103,3 +103,10 @@
     </footer>
 
 </div>{# /.layout-container #}
+{% if dds_debug %}
+<b style="position: fixed; bottom:0; right:0; border:1px solid rgba(255,0,0,.3); background:rgba(255,0,0,.5); color:#fff; padding:10px;">
+    <span class="visible-xs">X-small (Mobile)</span>
+    <span class="visible-sm">Small (Tablet)</span>
+    <span class="visible-md visible-lg">Medium (Tablet landscape and Desktop)</span>
+</b>
+{% endif %}
