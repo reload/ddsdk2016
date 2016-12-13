@@ -320,7 +320,6 @@ function _mungo_replace_title_with_svg($title) {
 
 /**
  * Implements hook_preprocess_page().
- *
  */
 function mungo_preprocess_page(&$variables) {
 
