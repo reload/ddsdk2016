@@ -419,7 +419,7 @@ function _mungo_preprocess_node_badge(Node $node, &$variables) {
   ) {
     // Pick out the progression term the node is associated with.
     $progression_reference = $node->field_badge_progression->referencedEntities();
-    if (is_array($progression_reference)) {
+    if (is_array($progression_reference) && !empty($progression_reference)) {
       /** @var Term $term */
       $term = reset($progression_reference);
 
