@@ -77,7 +77,8 @@
   .row-equal-columns {
 
     // /* New nested flex container - Safari fix */
-    .node-teaser {
+    .node-teaser:not(.node-teaser--list) {
+      // But not on lists.. Have little idea if i actually was meant there.
       width: auto !important;
       height: auto !important;
     }
