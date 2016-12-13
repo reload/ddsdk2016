@@ -29,7 +29,7 @@ function dds_top_image_theme() {
 function template_preprocess_dds_top_image(&$variables) {
   // If we have a image-uri, generate a render-array for it.
   if (!empty($variables['image_uri'])) {
-    $variables['image'] = _mungo_render_image_uri_with_responsive_style($variables['image_uri'], '16_9_responsive');
+    $variables['image'] = _mungo_render_image_uri_with_style($variables['image_uri'], '25_6_1600x384');
   }
 
 }
