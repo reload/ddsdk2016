@@ -6,7 +6,6 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\views\ViewExecutable;
 
 const DDS_SEARCH_DATE_USER_FORMAT = 'd/m/Y';
 const DDS_SEARCH_DATE_EXECUTION_FORMAT = 'm/d/Y';
@@ -84,22 +83,5 @@ function dds_search_date_reformat(array &$element, FormStateInterface $form_stat
     $date = DateTime::createFromFormat(DDS_SEARCH_DATE_USER_FORMAT, $value);
     $new = $date->format(DDS_SEARCH_DATE_EXECUTION_FORMAT);
     $form_state->setvalue($element['#name'], $new);
-  }
-}
-
-/**
- * Implements hook_views_pre_view().
- */
-function dds_search_views_pre_view(ViewExecutable $view, $display_id, array &$args) {
-  // Add today as default after filter if no other filters are given.
-  if ($view->id() === 'events' && $view->current_display === 'events_overview') {
-    // We detect filters via the url-query-string.
-    $args = \Drupal::request()->query->all();
-    if (empty($args)) {
-      $input = $view->getExposedInput();
-      // Inject a default date if we don't have one.
-      $input['event_after'] = date(DDS_SEARCH_DATE_USER_FORMAT);
-      $view->setExposedInput($input);
-    }
   }
 }
