@@ -22,6 +22,14 @@ targetEntityType: node
 bundle: article
 mode: list_teaser
 content:
+  field_content_topic:
+    type: entity_reference_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: plaintext
+      link: false
+    third_party_settings: {  }
   field_main_media:
     type: entity_reference_entity_view
     weight: 0
@@ -36,7 +44,6 @@ hidden:
   field_content_category: true
   field_content_tag: true
   field_content_target_group: true
-  field_content_topic: true
   field_paragraphs: true
   field_sidedeck: true
   field_subtitle: true

@@ -95,9 +95,18 @@ set classes = [
     </div>
   {% endif %}
   <div class="node-teaser--list--meta">
-    {% if content.field_content_topic %}
+    {{ breakpoint() }}
+    {% if content.field_content_topic or content.field_content_topic or content.field_badge_type or content.field_event_type %}
       <div class="node-teaser--keyword">
-        {{ content.field_content_topic }}
+        {% if node.bundle in ['article', 'section_page', 'activity'] %}
+          {% if content.field_content_topic %}
+            {{ content.field_content_topic }}
+          {% endif %}
+        {% elseif node.bundle == 'event' %}
+          {{ content.field_event_type }}
+        {% elseif node.bundle == 'badge' %}
+          {{ content.field_badge_type }}
+        {% endif %}
       </div>
     {% endif %}
       <h2 class="node-teaser--list--heading">

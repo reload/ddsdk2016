@@ -33,6 +33,14 @@ targetEntityType: node
 bundle: event
 mode: list_teaser
 content:
+  field_event_type:
+    type: entity_reference_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: plaintext
+      link: false
+    third_party_settings: {  }
   field_main_media:
     weight: 0
     label: hidden
@@ -59,7 +67,6 @@ hidden:
   field_event_signup_instructions: true
   field_event_start: true
   field_event_teaser: true
-  field_event_type: true
   field_paragraphs: true
   field_programs: true
   langcode: true

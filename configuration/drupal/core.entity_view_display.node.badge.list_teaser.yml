@@ -1,0 +1,52 @@
+uuid: edc06427-a25b-4fa6-aa3d-480c7ecd7801
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.list_teaser
+    - field.field.node.badge.field_badge_cover_image
+    - field.field.node.badge.field_badge_level
+    - field.field.node.badge.field_badge_progression
+    - field.field.node.badge.field_badge_summary
+    - field.field.node.badge.field_badge_target_group
+    - field.field.node.badge.field_badge_type
+    - field.field.node.badge.field_content_tag
+    - field.field.node.badge.field_content_topic
+    - field.field.node.badge.field_main_media
+    - field.field.node.badge.field_paragraphs
+    - field.field.node.badge.field_sidedeck
+    - node.type.badge
+  module:
+    - options
+    - user
+id: node.badge.list_teaser
+targetEntityType: node
+bundle: badge
+mode: list_teaser
+content:
+  field_badge_cover_image:
+    type: entity_reference_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: teaser_list
+      link: false
+    third_party_settings: {  }
+  field_badge_type:
+    type: list_default
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_badge_level: true
+  field_badge_progression: true
+  field_badge_summary: true
+  field_badge_target_group: true
+  field_content_tag: true
+  field_content_topic: true
+  field_main_media: true
+  field_paragraphs: true
+  field_sidedeck: true
+  langcode: true
+  links: true
