@@ -14,8 +14,8 @@ content:
     weight: 0
     label: hidden
     settings:
-      link: true
-      view_mode: default
+      view_mode: content_inline_16_9
+      link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
 hidden:

@@ -53,12 +53,23 @@ function _dds_badge_progression_validate($element, FormStateInterface &$form_sta
   // reference) are required. Set an error if we're missing a value.
   $badge_type = $form_state->getValue('field_badge_type');
   if ($badge_type === 'progression' || (is_array($badge_type) && isset($badge_type[0]['value']) && $badge_type[0]['value'] === 'progression')) {
-    if ($element['#name'] === 'field_badge_progression' && empty($form_state->getValue('field_badge_progression'))) {
-      $form_state->setError($element, t('Progression badges must be associated to a progression.'));
+
+    // Raise an error if we have a progression but no level.
+    if ($element['#name'] === 'field_badge_progression' && empty($form_state->getValue('field_badge_progression'))
+      // We have to check for two different empty-values depending on
+      // whether we're validated before or after the level-field.
+      && !($form_state->getValue('field_badge_level') === '_none' || empty($form_state->getValue('field_badge_level')))
+      ) {
+      $form_state->setError($element, t('If a progression-badge is not associated with a progression it can not have a level.'));
     }
 
-    if ($element['#name'] === 'field_badge_level' && empty($form_state->getValue('field_badge_level'))) {
-      $form_state->setError($element, t('Progression badges must have a level.'));
+    // Raise an error if we have a level, but no progression.
+    if ($element['#name'] === 'field_badge_level' && empty($form_state->getValue('field_badge_level'))
+      // We have to check for two different empty-values depending on
+      // whether we're validated before or after the level-field.
+      && !($form_state->getValue('field_badge_progression') === '_none' || empty($form_state->getValue('field_badge_progression')))
+      ) {
+      $form_state->setError($element, t('Progression badges associated with a progression must have a level.'));
     }
   }
 }

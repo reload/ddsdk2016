@@ -14,16 +14,17 @@ module:
   config: 0
   config_translation: 0
   contact: 0
+  crop: 0
   datetime: 0
   datetime_range: 0
   dblog: 0
   dds_activity: 0
   dds_article: 0
   dds_badge: 0
-  dds_link: 0
   dds_content_list: 0
   dds_event: 0
   dds_layout: 0
+  dds_link: 0
   dds_person: 0
   dds_search: 0
   dds_top_image: 0
@@ -43,9 +44,11 @@ module:
   help: 0
   history: 0
   image: 0
+  image_widget_crop: 0
   inline_entity_form: 0
   language: 0
   link: 0
+  link_attributes: 0
   locale: 0
   maxlength: 0
   media_entity: 0
@@ -73,6 +76,7 @@ module:
   video_embed_field: 0
   video_embed_media: 0
   views_ui: 0
+  extlink: 1
   menu_link_content: 1
   views: 10
 theme:

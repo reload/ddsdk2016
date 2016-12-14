@@ -37,9 +37,9 @@ if (isset($_ENV['PLATFORM_RELATIONSHIPS'])) {
     $endpoint = $relationships['solr'][0];
 
     // Override drupal configuration.
-    $config['search_api.server.solr']['backend_config']['host'] = $endpoint['host'];
-    $config['search_api.server.solr']['backend_config']['path'] = '/' . $endpoint['path'];
-    $config['search_api.server.solr']['backend_config']['port'] = $endpoint['port'];
+    $config['search_api.server.solr']['backend_config']['connector_config']['host'] = $endpoint['host'];
+    $config['search_api.server.solr']['backend_config']['connector_config']['path'] = '/' . $endpoint['path'];
+    $config['search_api.server.solr']['backend_config']['connector_config']['port'] = $endpoint['port'];
   }
 }
 

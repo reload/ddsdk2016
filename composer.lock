@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7c3f80b23fcccfa0c67ff82034934dc8",
-    "content-hash": "3c782fbd2c70e34fcf5538cbefebdbb7",
+    "hash": "3ff4b78f4afb4bf3c9f51a6da9e1b743",
+    "content-hash": "d2e4377995440de5e361eb231690849d",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -1329,16 +1329,16 @@
         },
         {
             "name": "drupal/address",
-            "version": "8.1.0-rc2",
+            "version": "8.1.0-rc3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/address.git",
-                "reference": "7f6c1fb090bc70cf14340f2d278343033a614c6b"
+                "reference": "27226463ebbd6477205e33fda36b652b00e461cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/address-8.x-1.0-rc2.zip",
-                "reference": "7f6c1fb090bc70cf14340f2d278343033a614c6b",
+                "url": "https://ftp.drupal.org/files/projects/address-8.x-1.0-rc3.zip",
+                "reference": "27226463ebbd6477205e33fda36b652b00e461cf",
                 "shasum": null
             },
             "require": {
@@ -1359,20 +1359,20 @@
             ],
             "description": "Provides functionality for handling postal addresses.",
             "homepage": "http://drupal.org/project/address",
-            "time": "2016-10-05 14:44:42"
+            "time": "2016-10-26 15:15:28"
         },
         {
             "name": "drupal/admin_toolbar",
-            "version": "8.1.17",
+            "version": "8.1.18",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/admin_toolbar.git",
-                "reference": "195f503ee4350c8be74b9515c21e264384a2fcaf"
+                "reference": "06d0fa89dfca5adade537b24e9593b5af6350b4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/admin_toolbar-8.x-1.17.zip",
-                "reference": "195f503ee4350c8be74b9515c21e264384a2fcaf",
+                "url": "https://ftp.drupal.org/files/projects/admin_toolbar-8.x-1.18.zip",
+                "reference": "06d0fa89dfca5adade537b24e9593b5af6350b4a",
                 "shasum": null
             },
             "require": {
@@ -1403,7 +1403,7 @@
             ],
             "description": "Provides a drop-down menu interface to the core Drupal Toolbar.",
             "homepage": "http://drupal.org/project/admin_toolbar",
-            "time": "2016-08-19 14:05:31"
+            "time": "2016-12-01 17:01:53"
         },
         {
             "name": "drupal/better_exposed_filters",
@@ -1439,19 +1439,20 @@
         },
         {
             "name": "drupal/chosen",
-            "version": "8.2.0-beta2",
+            "version": "8.2.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/chosen",
-                "reference": "1d2c226202aae3431573c63cf242b16b52c061ae"
+                "reference": "6c271b9a2c615b8922b2cfc266b5cbf190fcdd94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/chosen-8.x-2.0-beta2.zip",
-                "reference": "1d2c226202aae3431573c63cf242b16b52c061ae",
+                "url": "https://ftp.drupal.org/files/projects/chosen-8.x-2.1.zip",
+                "reference": "6c271b9a2c615b8922b2cfc266b5cbf190fcdd94",
                 "shasum": null
             },
             "require": {
+                "drmonty/chosen": "~1.6",
                 "drupal/core": "8.*"
             },
             "replace": {
@@ -1465,6 +1466,14 @@
             "extra": {
                 "branch-alias": {
                     "dev-8.x-2.x": "8.2.x-dev"
+                },
+                "patches_applied": {
+                    "2705891: Fix invisible required chosen widgets": "https://www.drupal.org/files/issues/client_side_validation-2705891-5.patch"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Drupal\\chosen\\": "src/"
                 }
             },
             "notification-url": "https://packagist.drupal-composer.org/downloads/",
@@ -1473,7 +1482,11 @@
             ],
             "description": "Makes select elements more user-friendly using <a href=\"http://harvesthq.github.com/chosen/\">Chosen</a>.",
             "homepage": "https://www.drupal.org/project/chosen",
-            "time": "2016-03-22 09:57:26"
+            "keywords": [
+                "Chosen",
+                "Drupal"
+            ],
+            "time": "2016-11-10 09:57:12"
         },
         {
             "name": "drupal/console",
@@ -1689,16 +1702,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "8.2.1",
+            "version": "8.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal-composer/drupal-core.git",
-                "reference": "a5549f2a541c0fbb0565e1576a63b917813fadba"
+                "reference": "63b3346647a7e43bcde3947a3aea02eabdf8fa56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/a5549f2a541c0fbb0565e1576a63b917813fadba",
-                "reference": "a5549f2a541c0fbb0565e1576a63b917813fadba",
+                "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/63b3346647a7e43bcde3947a3aea02eabdf8fa56",
+                "reference": "63b3346647a7e43bcde3947a3aea02eabdf8fa56",
                 "shasum": ""
             },
             "require": {
@@ -1868,7 +1881,47 @@
                 "GPL-2.0+"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "time": "2016-10-11 10:18:49"
+            "time": "2016-11-16 18:45:36"
+        },
+        {
+            "name": "drupal/crop",
+            "version": "8.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/crop.git",
+                "reference": "8506e099c9f7cd889db4e982890011df2b956bca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/crop-8.x-1.0-rc1.zip",
+                "reference": "8506e099c9f7cd889db4e982890011df2b956bca",
+                "shasum": null
+            },
+            "require": {
+                "drupal/core": "8.*",
+                "drupal/image": "8.*",
+                "drupal/user": "8.*"
+            },
+            "replace": {
+                "drupal/crop_media_entity": "self.version"
+            },
+            "suggest": {
+                "drupal/core": "Required by drupal/crop_media_entity",
+                "drupal/media_entity": "Required by drupal/crop_media_entity"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-8.x-1.x": "8.1.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.drupal-composer.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Provides storage and API for image crops.",
+            "homepage": "https://www.drupal.org/project/crop",
+            "time": "2016-05-18 15:47:02"
         },
         {
             "name": "drupal/editor_advanced_link",
@@ -1966,6 +2019,37 @@
             "time": "2016-07-21 15:50:27"
         },
         {
+            "name": "drupal/extlink",
+            "version": "8.1.0-alpha3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/extlink",
+                "reference": "62eca1c0f5c67a17676152e48ab49e86c195d78c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/extlink-8.x-1.0-alpha3.zip",
+                "reference": "62eca1c0f5c67a17676152e48ab49e86c195d78c",
+                "shasum": null
+            },
+            "require": {
+                "drupal/core": "8.*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-8.x-1.x": "8.1.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.drupal-composer.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Modify behavior and appearance of external links.",
+            "homepage": "https://www.drupal.org/project/extlink",
+            "time": "2016-09-13 01:17:04"
+        },
+        {
             "name": "drupal/facets",
             "version": "8.1.0-alpha6",
             "source": {
@@ -1994,6 +2078,9 @@
             "extra": {
                 "branch-alias": {
                     "dev-8.x-1.x": "8.1.x-dev"
+                },
+                "patches_applied": {
+                    "2833340: Sort facets by term weight": "https://www.drupal.org/files/issues/sort_facets_by_weight-2833340.patch"
                 }
             },
             "notification-url": "https://packagist.drupal-composer.org/downloads/",
@@ -2012,21 +2099,20 @@
         },
         {
             "name": "drupal/field_group",
-            "version": "8.1.0-rc4",
+            "version": "8.1.0-rc6",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/field_group",
-                "reference": "54354bfa0c7736ee2c9f6a289dba8aa03c059aaf"
+                "reference": "acd3aaef1d0c9822b81ce7fdff8a12ef3844b4e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/field_group-8.x-1.0-rc4.zip",
-                "reference": "54354bfa0c7736ee2c9f6a289dba8aa03c059aaf",
+                "url": "https://ftp.drupal.org/files/projects/field_group-8.x-1.0-rc6.zip",
+                "reference": "acd3aaef1d0c9822b81ce7fdff8a12ef3844b4e1",
                 "shasum": null
             },
             "require": {
-                "drupal/core": "8.*",
-                "drupal/field": "8.*"
+                "drupal/core": "8.*"
             },
             "replace": {
                 "drupal/field_group_migrate": "self.version"
@@ -2046,7 +2132,7 @@
             ],
             "description": "Provides the ability to group your fields on both form and display.",
             "homepage": "https://www.drupal.org/project/field_group",
-            "time": "2015-12-10 12:36:16"
+            "time": "2016-11-28 20:35:38"
         },
         {
             "name": "drupal/forward",
@@ -2088,17 +2174,65 @@
             "time": "2016-04-23 16:49:32"
         },
         {
-            "name": "drupal/inline_entity_form",
-            "version": "8.1.0-alpha6",
+            "name": "drupal/image_widget_crop",
+            "version": "8.1.3",
             "source": {
                 "type": "git",
-                "url": "https://git.drupal.org/project/inline_entity_form",
-                "reference": "27af4de9fd961fa6ae1369604d05fec8b06db867"
+                "url": "https://git.drupal.org/project/image_widget_crop.git",
+                "reference": "55bed7cda3fc398d86ce4ef176c9dec666b72ff1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/inline_entity_form-8.x-1.0-alpha6.zip",
-                "reference": "27af4de9fd961fa6ae1369604d05fec8b06db867",
+                "url": "https://ftp.drupal.org/files/projects/image_widget_crop-8.x-1.3.zip",
+                "reference": "55bed7cda3fc398d86ce4ef176c9dec666b72ff1",
+                "shasum": null
+            },
+            "require": {
+                "drupal/core": "8.*",
+                "drupal/crop": "8.*",
+                "drupal/image": "8.*"
+            },
+            "replace": {
+                "drupal/image_widget_crop_examples": "self.version"
+            },
+            "suggest": {
+                "drupal/core": "Required by drupal/image_widget_crop_examples",
+                "drupal/crop": "Required by drupal/image_widget_crop_examples",
+                "drupal/file_entity": "Required by drupal/image_widget_crop_examples",
+                "drupal/image": "Required by drupal/image_widget_crop_examples",
+                "drupal/inline_entity_form": "Required by drupal/image_widget_crop_examples",
+                "drupal/media_entity": "Required by drupal/image_widget_crop_examples",
+                "drupal/media_entity_image": "Required by drupal/image_widget_crop_examples",
+                "drupal/node": "Required by drupal/image_widget_crop_examples",
+                "drupal/responsive_image": "Required by drupal/image_widget_crop_examples",
+                "drupal/user": "Required by drupal/image_widget_crop_examples"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-8.x-1.x": "8.1.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.drupal-composer.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Provides an interface for using the features of the Crop API.",
+            "homepage": "https://www.drupal.org/project/image_widget_crop",
+            "time": "2016-08-31 13:05:29"
+        },
+        {
+            "name": "drupal/inline_entity_form",
+            "version": "8.1.0-beta1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/inline_entity_form",
+                "reference": "8227e2879c9d4c19bf6d402cbba35d59350da56b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/inline_entity_form-8.x-1.0-beta1.zip",
+                "reference": "8227e2879c9d4c19bf6d402cbba35d59350da56b",
                 "shasum": null
             },
             "require": {
@@ -2116,7 +2250,38 @@
             ],
             "description": "Provides a widget for inline management (creation, modification, removal) of referenced entities. ",
             "homepage": "https://www.drupal.org/project/inline_entity_form",
-            "time": "2016-04-18 21:57:48"
+            "time": "2016-10-18 23:16:30"
+        },
+        {
+            "name": "drupal/link_attributes",
+            "version": "8.1.0-alpha3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/link_attributes.git",
+                "reference": "ca923602beeb62ab3c565de48d9c4195df2d03ac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/link_attributes-8.x-1.0-alpha3.zip",
+                "reference": "ca923602beeb62ab3c565de48d9c4195df2d03ac",
+                "shasum": null
+            },
+            "require": {
+                "drupal/core": "8.*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-8.x-1.x": "8.1.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.drupal-composer.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Provides a widget to allow settings of link attributes for menu links.",
+            "homepage": "https://www.drupal.org/project/link_attributes",
+            "time": "2016-11-15 21:22:33"
         },
         {
             "name": "drupal/maxlength",
@@ -2151,16 +2316,16 @@
         },
         {
             "name": "drupal/media_entity",
-            "version": "8.1.5",
+            "version": "8.1.6",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/media_entity.git",
-                "reference": "bc79ca090ad30a008960fdf5bcaa699494292230"
+                "reference": "031b9b39703115d4bcbd0ab43a996622e8ad81b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/media_entity-8.x-1.5.zip",
-                "reference": "bc79ca090ad30a008960fdf5bcaa699494292230",
+                "url": "https://ftp.drupal.org/files/projects/media_entity-8.x-1.6.zip",
+                "reference": "031b9b39703115d4bcbd0ab43a996622e8ad81b7",
                 "shasum": null
             },
             "require": {
@@ -2182,7 +2347,7 @@
             "keywords": [
                 "Drupal"
             ],
-            "time": "2016-09-02 21:48:55"
+            "time": "2016-11-25 14:58:14"
         },
         {
             "name": "drupal/media_entity_image",
@@ -2307,16 +2472,16 @@
         },
         {
             "name": "drupal/search_api",
-            "version": "8.1.0-beta2",
+            "version": "8.1.0-beta3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/search_api",
-                "reference": "bb7f8865c1d7cc1d768648696d2f5ef27c2a7eae"
+                "reference": "70428afd7db89cdbcd46cd5062aca8c85ad88cd2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.0-beta2.zip",
-                "reference": "bb7f8865c1d7cc1d768648696d2f5ef27c2a7eae",
+                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.0-beta3.zip",
+                "reference": "70428afd7db89cdbcd46cd5062aca8c85ad88cd2",
                 "shasum": null
             },
             "require": {
@@ -2357,20 +2522,20 @@
             ],
             "description": "Provides a generic framework for modules offering search capabilities.",
             "homepage": "https://www.drupal.org/project/search_api",
-            "time": "2016-09-28 10:30:20"
+            "time": "2016-10-24 09:43:13"
         },
         {
             "name": "drupal/search_api_solr",
-            "version": "8.1.0-alpha6",
+            "version": "8.1.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/search_api_solr",
-                "reference": "1b949c59477031ce5880c13537eb73a5f3cb4096"
+                "reference": "21f541a89e05461a4215d9c117a62326e165747e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api_solr-8.x-1.0-alpha6.zip",
-                "reference": "1b949c59477031ce5880c13537eb73a5f3cb4096",
+                "url": "https://ftp.drupal.org/files/projects/search_api_solr-8.x-1.0-beta1.zip",
+                "reference": "21f541a89e05461a4215d9c117a62326e165747e",
                 "shasum": null
             },
             "require": {
@@ -2396,7 +2561,7 @@
             ],
             "description": "Offers an implementation of the Search API that uses an Apache Solr server for indexing content.",
             "homepage": "https://www.drupal.org/project/search_api_solr",
-            "time": "2016-08-25 11:28:46"
+            "time": "2016-10-25 21:34:54"
         },
         {
             "name": "drupal/stage_file_proxy",

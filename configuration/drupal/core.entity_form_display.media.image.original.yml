@@ -1,0 +1,32 @@
+uuid: 2cfe6ca2-4c03-4aff-a7db-4f6e39510b0b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.original
+    - field.field.media.image.field_byline
+    - field.field.media.image.field_caption
+    - field.field.media.image.field_image
+    - image.style.thumbnail
+    - media_entity.bundle.image
+  module:
+    - image
+id: media.image.original
+targetEntityType: media
+bundle: image
+mode: original
+content:
+  field_image:
+    weight: 0
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: image_image
+hidden:
+  created: true
+  field_byline: true
+  field_caption: true
+  langcode: true
+  name: true
+  uid: true

@@ -1,14 +1,22 @@
 uuid: 15d73c5d-310b-4fda-94df-18332bc818e8
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - crop
 name: 110x83
-label: 110x83
+label: '4:3 110x83'
 effects:
-  aafb3b74-e4eb-4d23-b1d7-900e9da48d0d:
-    uuid: aafb3b74-e4eb-4d23-b1d7-900e9da48d0d
+  2edb4eb3-e6ed-43ef-b12e-dd70ae592998:
+    uuid: 2edb4eb3-e6ed-43ef-b12e-dd70ae592998
+    id: crop_crop
+    weight: 2
+    data:
+      crop_type: 4_3_responsive
+  98d47de3-8606-43f2-a3cd-7298b01b7321:
+    uuid: 98d47de3-8606-43f2-a3cd-7298b01b7321
     id: image_scale_and_crop
-    weight: 1
+    weight: 3
     data:
       width: 110
       height: 83

@@ -1,0 +1,22 @@
+uuid: 4444143e-6d1e-4b17-96e1-919892a01b4e
+langcode: en
+status: true
+dependencies:
+  module:
+    - crop
+name: 8_3_240x90
+label: '8:3 240x90'
+effects:
+  e2b71df3-b722-4b9f-8c5b-2c054a573554:
+    uuid: e2b71df3-b722-4b9f-8c5b-2c054a573554
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: 8_3
+  66561f5c-cc87-47b7-b208-fba278ad85f7:
+    uuid: 66561f5c-cc87-47b7-b208-fba278ad85f7
+    id: image_scale_and_crop
+    weight: 2
+    data:
+      width: 240
+      height: 90

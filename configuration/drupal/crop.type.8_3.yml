@@ -1,0 +1,12 @@
+uuid: 838b5c67-7461-4948-a51e-3729ca02a36a
+langcode: en
+status: true
+dependencies: {  }
+label: '8:3'
+id: 8_3
+description: ''
+aspect_ratio: '8:3'
+soft_limit_width: null
+soft_limit_height: null
+hard_limit_width: 752
+hard_limit_height: null

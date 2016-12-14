@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.media.20_7
     - field.field.paragraph.hero_banner.field_background_image
     - field.field.paragraph.hero_banner.field_deck_color
     - field.field.paragraph.hero_banner.field_label
@@ -19,7 +20,7 @@ content:
   field_background_image:
     weight: 0
     settings:
-      form_mode: default
+      form_mode: 20_7
       label_singular: ''
       label_plural: ''
       override_labels: false

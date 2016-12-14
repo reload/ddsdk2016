@@ -1,0 +1,7 @@
+services:
+  mymodule_event_subscriber:
+    class: Drupal\dds_search\EventSubscriber\DefaultDateRedirectEventSubscriber
+    tags:
+      - {name: event_subscriber}
+    arguments:
+      - @current_route_match

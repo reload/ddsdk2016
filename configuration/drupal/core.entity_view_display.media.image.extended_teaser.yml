@@ -1,0 +1,34 @@
+uuid: 175ca674-5b64-4aa0-ab16-83e295ce35be
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.extended_teaser
+    - field.field.media.image.field_byline
+    - field.field.media.image.field_caption
+    - field.field.media.image.field_image
+    - image.style.4_3_720x540
+    - media_entity.bundle.image
+  module:
+    - image
+id: media.image.extended_teaser
+targetEntityType: media
+bundle: image
+mode: extended_teaser
+content:
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: 4_3_720x540
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+hidden:
+  created: true
+  field_byline: true
+  field_caption: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

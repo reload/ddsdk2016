@@ -57,7 +57,10 @@
         "drupal/forward": "^8.1",
         "drupal/chosen": "^8",
         "drmonty/chosen": "^1.6",
-        "commerceguys/addressing": "dev-master#bc8d8cbcc151dd0aacdd8efad95a44e9ba2126b0"
+        "commerceguys/addressing": "dev-master#bc8d8cbcc151dd0aacdd8efad95a44e9ba2126b0",
+        "drupal/extlink": "^8",
+        "drupal/link_attributes": "^8",
+        "drupal/image_widget_crop": "^8"
     },
     "require-dev": {
         "behat/mink": "~1.7",
@@ -114,7 +117,10 @@
                 "2675136: Support field-groups": "https://www.drupal.org/files/issues/2675136-14.patch"
             },
             "drupal/chosen": {
-                "2705891: Fix invisible required chosen widgets": "https://www.drupal.org/files/issues/chosen-hidden-validation-temp-fix-2705891.patch"
+                "2705891: Fix invisible required chosen widgets": "https://www.drupal.org/files/issues/client_side_validation-2705891-5.patch"
+            },
+            "drupal/facets": {
+                "2833340: Sort facets by term weight": "https://www.drupal.org/files/issues/sort_facets_by_weight-2833340.patch"
             }
         }
     }

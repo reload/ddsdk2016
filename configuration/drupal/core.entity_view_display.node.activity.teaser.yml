@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.activity.field_activity_id
+    - field.field.node.activity.field_content_topic
     - field.field.node.activity.field_main_media
     - field.field.node.activity.field_subtitle
     - node.type.activity
@@ -15,6 +16,14 @@ targetEntityType: node
 bundle: activity
 mode: teaser
 content:
+  field_content_topic:
+    type: entity_reference_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: plaintext
+      link: false
+    third_party_settings: {  }
   field_main_media:
     type: entity_reference_entity_view
     weight: 0

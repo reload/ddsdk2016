@@ -6,7 +6,7 @@ dependencies:
     - core.entity_view_mode.media.teaser
     - field.field.media.video.field_caption
     - field.field.media.video.field_media_video_embed_field
-    - image.style.1280x720px
+    - image.style.16_9_720x405
     - media_entity.bundle.video
   module:
     - video_embed_field
@@ -20,7 +20,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: 1280x720px
+      image_style: 16_9_720x405
       link_image_to: ''
     third_party_settings: {  }
 hidden:

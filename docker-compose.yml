@@ -38,6 +38,7 @@ services:
       - solr
     environment:
       PATH: '/var/www/vendor/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+      PHP_SENDMAIL_PATH: /usr/local/bin/mhsendmail --smtp-addr="mailhog:1025"
 
   # Mariadb database, initialized with a nighly pre-build datadir.
   db:
@@ -76,7 +77,7 @@ services:
   solr:
     image: blinkreaction/drupal-solr:4.x-stable
     ports:
-      - '8983/tcp'
+      - '8983:8983'
     volumes:
       - './web/modules/contrib/search_api_solr/solr-conf/4.x:/var/lib/solr/conf:ro'
 
@@ -88,3 +89,8 @@ services:
       - './web:/var/www/web:rw'
       - './vendor:/var/www/vendor:ro'
       - './configuration:/var/www/configuration:rw'
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025"

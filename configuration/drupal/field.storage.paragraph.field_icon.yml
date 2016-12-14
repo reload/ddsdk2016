@@ -35,6 +35,24 @@ settings:
     -
       value: youtube
       label: Youtube
+    -
+      value: kalender_blue
+      label: Calendar
+    -
+      value: kompas_blue
+      label: Compas
+    -
+      value: notepapir_blue
+      label: 'Note Paper'
+    -
+      value: telt_blue
+      label: Tent
+    -
+      value: thumbsup_blue
+      label: ThumbsUp
+    -
+      value: vandre_blue
+      label: Hike
   allowed_values_function: ''
 module: options
 locked: false

@@ -1,4 +1,16 @@
 
+// The paragraphs outer wrapper that gives it its background.
+.paragraph--type--key-figures-wrapper {
+  margin-top: $spacing-small;
+  margin-bottom: $spacing-small;
+
+  // Increased margin on larger screen-sizes.
+  @include media-medium {
+    margin-top: $spacing-medium;
+    margin-bottom: $spacing-medium;
+  }
+}
+
 // General theming of the key_figures paragraphs deck.
 .paragraph--type--key-figures {
   // Assume that all deck colors goes with white text. Otherwise introduce
@@ -14,7 +26,7 @@
     text-align: center;
     display: block;
   }
-  
+
   // The figure. Since fields are numbered in the end, they have different
   // classes. Therefore we select based on part of the class.
   div[class*="field-key-figures-figure"] {

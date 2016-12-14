@@ -44,9 +44,20 @@
 
   Drupal.behaviors.browserDetect = {
     attach: function (context, settings) {
-      var safari = navigator.userAgent.indexOf("Safari") > -1;
+      var is_chrome = navigator.userAgent.indexOf('Chrome') > -1;
+      var is_safari = navigator.userAgent.indexOf("Safari") > -1;
 
-      if (safari) {
+      // Chrome has the string "Safari" in it's user-agent string, but
+      // Safari does not have "Chrome" in it's. So, we assume we're looking
+      // at a safari-browser if the browser has been identified as safari
+      // AND not chrome.
+      if ((is_chrome) && (is_safari)) {
+        is_safari = false;
+      }
+
+      // Inject a class we can use to make some safari-specific flexbox
+      // fixes.
+      if (is_safari) {
         $('body').addClass('is-safari');
       }
     }

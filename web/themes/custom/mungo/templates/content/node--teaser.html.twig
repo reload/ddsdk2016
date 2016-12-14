@@ -88,13 +88,13 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
         {{ content.field_main_media }}
     {% else %}
         <div class="no-image fluid-media">
-            <img src="/themes/custom/mungo/assets/images/no-image.svg" />
+            <img src="/themes/custom/mungo/assets/images/no-image.png" />
         </div>
     {% endif %}
     <div class="node-teaser--content-container">
     {% if content.field_content_topic or content.field_content_topic or content.field_badge_type or content.field_event_type %}
         <div class="node-teaser--keyword">
-          {% if node.bundle in ['article', 'section_page'] %}
+          {% if node.bundle in ['article', 'section_page', 'activity'] %}
             {% if content.field_content_topic %}
               {{ content.field_content_topic }}
             {% endif %}

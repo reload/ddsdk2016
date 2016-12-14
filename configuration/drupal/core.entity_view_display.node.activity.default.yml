@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.activity.field_activity_id
+    - field.field.node.activity.field_content_topic
     - field.field.node.activity.field_main_media
     - field.field.node.activity.field_subtitle
     - node.type.activity
@@ -22,6 +23,13 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     type: number_integer
+  field_content_topic:
+    weight: 3
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
   field_main_media:
     weight: 2
     label: above

@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Link;
+use Drupal\Core\Render\Element;
 use Drupal\Core\URL;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Template\Attribute;
@@ -75,7 +76,7 @@ function mungo_preprocess_field(&$variables) {
     // 6 cols.
     $variables['item_col_classes'] = [];
     if ($sizes === '66_33' && $field_name === 'field_2col_deck_col1') {
-      $variables['item_col_classes'][] = 'col-md-6';
+      $variables['item_col_classes'][] = 'col-xs-6';
     }
     elseif ($sizes === '33_66' && $field_name === 'field_2col_deck_col2') {
       $variables['item_col_classes'][] = 'col-md-6';
@@ -141,6 +142,10 @@ function mungo_form_alter(&$form, &$form_state, $form_id) {
   // The search-popup in the menu.
   if ($form_id === 'search_block_form') {
     $form['keys']['#placeholder'] = $search_placeholder_text;
+  }
+
+  if (preg_match('/^forward_form_node_\d+$/', $form_id)) {
+    $form['#attributes']['class'][] = 'forward-form';
   }
 }
 
@@ -244,6 +249,30 @@ function mungo_preprocess_paragraph(&$variables) {
       _mungo_preprocess_paragraph_content_link($variables);
       break;
 
+    case 'inspiration_deck':
+      foreach (Element::children($variables['content']['field_inspiration_deck_items']) as $key) {
+        $variables['content']['field_inspiration_deck_items'][$key]['#pre_render'][] = 'mungo_inspirational_prerender';
+        // We're going to affect the rendered result, so make sure our
+        // pre-render becomes a part of the cache key.
+        $variables['content']['field_inspiration_deck_items'][$key]['#cache']['keys'][] = 'mungo_inspirational_prerender';
+      }
+
+      // Set variable for the teaser-texts background and foreground color.
+      // Teaser_text_background_color contains the color of the background
+      // and we switch on it to get the foreground-color.
+      if (isset($variables['content']['field_insp_teaser_color'][0]['#markup'])) {
+        $variables['teaser_text_background_color'] = $variables['content']['field_insp_teaser_color'][0]['#markup'];
+
+        if (in_array($variables['teaser_text_background_color'], ['#ea636f', '#003366'])) {
+          $variables['teaser_text_color'] = 'white';
+        }
+        else {
+          // Default is black text.
+          $variables['teaser_text_color'] = 'black';
+        }
+      }
+      break;
+
     case 'situation_links':
       // Prepare properties for paragraph type situation links.
       if ($paragraph->hasField('field_situation_main_link') && !(empty($paragraph->field_situation_main_link->getValue()))) {
@@ -322,6 +351,9 @@ function mungo_preprocess_node(&$variables) {
 
   /** @var Node $node */
   $node = $variables['node'];
+
+  // Add absolute url to the node.
+  $variables['absolute_url'] = Url::fromUri('internal:' . $variables['url'], array('absolute' => TRUE))->toString();
 
   switch ($node->getType()) {
     case 'activity':
@@ -402,7 +434,7 @@ function _mungo_preprocess_node_badge(Node $node, &$variables) {
   ) {
     // Pick out the progression term the node is associated with.
     $progression_reference = $node->field_badge_progression->referencedEntities();
-    if (is_array($progression_reference)) {
+    if (is_array($progression_reference) && !empty($progression_reference)) {
       /** @var Term $term */
       $term = reset($progression_reference);
 
@@ -710,7 +742,7 @@ function _mungo_render_image_uri_with_style($uri, string $style) : array {
 /**
  * Given an image file, produce a responsive_image render array for a style.
  */
-function _mungo_render_image_uri_with_responsive_style(string $uri, string $style) : array {
+function _mungo_render_image_uri_with_responsive_style(string $uri, string $style) {
   // Load the image from the file so that we can know its size.
   /** @var \Drupal\Core\Image\Image $image */
   $image = \Drupal::service('image.factory')->get($uri);
@@ -855,6 +887,21 @@ function mungo_theme_suggestions_alter(array &$suggestions, array $variables, $h
       }
 
       break;
+
+    case 'container':
+      // Views will always wrap results in a container element, we add a
+      // couple of suggetions to make it easier to target it.
+      if (!empty($variables['element']['#type'])) {
+        // If the child-element has a type, add it as a suggestion.
+        $suggestions[] = $hook . '__' . $variables['element']['#type'];
+        if (!empty($variables['element']['#type'] === 'view')) {
+          // If the child is a view, add the view name and display-id.
+          $suggestions[] = $hook . '__' . $variables['element']['#type'] . '__' . $variables['element']['#name'];
+          $suggestions[] = $hook . '__' . $variables['element']['#type'] . '__' . $variables['element']['#name'] . '__' . $variables['element']['#display_id'];
+        }
+      }
+
+      break;
   }
 }
 
@@ -951,4 +998,19 @@ function mungo_theme($existing, $type, $theme, $path) {
       ),
     ),
   );
+}
+
+/**
+ * Switch main medias view-mode to extended_teaser.
+ */
+function mungo_inspirational_prerender($elements) {
+  if (!empty($elements['field_main_media'])) {
+    foreach (Element::children($elements['field_main_media']) as $name) {
+      $elements['field_main_media'][$name]['#view_mode'] = 'extended_teaser';
+      // Make sure this field is going to be rendered again if it is
+      // rendered without this prerender.
+      $elements['field_main_media'][$name]['#cache']['keys'][] = 'mungo_inspirational_prerender';
+    }
+  }
+  return $elements;
 }
