@@ -72,7 +72,7 @@ gulp.task('javascript', function () {
     .pipe(gulp.dest(path.js.dest))
 });
 gulp.task('images', function () {
-  return gulp.src(path.images.src + '/*.*')
+  return gulp.src(path.images.src + '/**/*', { "base" : path.images.src })
     .pipe(gulp.dest(path.images.dest))
 });
 
