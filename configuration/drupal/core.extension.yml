@@ -15,10 +15,12 @@ module:
   config_translation: 0
   contact: 0
   crop: 0
+  ctools: 0
   datetime: 0
   datetime_range: 0
   dblog: 0
   dds_activity: 0
+  dds_admin: 0
   dds_article: 0
   dds_badge: 0
   dds_content_list: 0
@@ -59,6 +61,8 @@ module:
   page_cache: 0
   paragraphs: 0
   path: 0
+  pathauto: 0
+  redirect: 0
   reloadtina: 0
   responsive_image: 0
   search: 0
@@ -69,6 +73,7 @@ module:
   system: 0
   taxonomy: 0
   text: 0
+  token: 0
   toolbar: 0
   twig_xdebug: 0
   update: 0

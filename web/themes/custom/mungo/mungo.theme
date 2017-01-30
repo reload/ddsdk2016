@@ -385,6 +385,12 @@ function mungo_preprocess_node(&$variables) {
   }
 
   $node_url = Url::fromUri('internal:' . $variables['url'], array('absolute' => TRUE));
+
+  // Generate an uri for the forward module.
+  $entity_id = $node->id();
+  $entity_type = $node->getEntityTypeId();
+  $forward_uri = "internal:/forward/{$entity_type}/{$entity_id}";
+
   $variables['social_links'] = array(
     '#theme' => 'social_links',
     '#attributes' => array(
@@ -392,7 +398,7 @@ function mungo_preprocess_node(&$variables) {
     ),
     '#facebook_link' => Url::fromUri('https://www.facebook.com/sharer/sharer.php', array('query' => array('u' => $node_url->toString()))),
     '#twitter_link' => Url::fromUri('https://twitter.com/home', array('query' => array('status' => $node_url->toString()))),
-    '#forward_link' => Url::fromUri('internal:/forward' . $variables['url']),
+    '#forward_link' => Url::fromUri($forward_uri),
   );
 }
 

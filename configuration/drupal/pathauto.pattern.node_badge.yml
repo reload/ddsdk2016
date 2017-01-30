@@ -1,0 +1,22 @@
+uuid: e6ebdbf3-46d7-4f49-bbbc-099954560e3e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node_badge
+label: Badge
+type: 'canonical_entities:node'
+pattern: 'maerke/[node:title]'
+selection_criteria:
+  0bac02be-1518-4276-a34f-5ba1dd9d5612:
+    id: node_type
+    bundles:
+      badge: badge
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 0bac02be-1518-4276-a34f-5ba1dd9d5612
+selection_logic: and
+weight: -5
+relationships: {  }

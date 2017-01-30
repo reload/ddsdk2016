@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Hooks and functionality targeted at the administrative interface.
+ */
+
+use Drupal\Core\Language\LanguageInterface;
+
+/**
+ * Implements hook_pathauto_alias_alter().
+ */
+function dds_admin_pathauto_alias_alter(&$alias, array &$context) {
+  // Force all aliases to be saved as language neutral.
+  // All our content is currently in Danish but editors and admins may browse
+  // the site in Danish or English. Aliases will be generated either for the
+  // language of the content or a specific language. We want all users to be
+  // able to use paths and do not want to deal with per language aliases.
+  $context['language'] = LanguageInterface::LANGCODE_NOT_SPECIFIED;
+}
