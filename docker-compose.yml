@@ -87,6 +87,7 @@ services:
     image: tianon/true
     volumes:
       - './web:/var/www/web:rw'
+      - './scripts:/var/www/scripts'
       - './vendor:/var/www/vendor:ro'
       - './configuration:/var/www/configuration:rw'
 
