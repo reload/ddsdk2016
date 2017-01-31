@@ -73,3 +73,8 @@ $config_directories = array(
 
 // Set hash salt, used for transient hashes (eg. the reset-user token).
 $settings['hash_salt'] = '9e62c5b69893a3d2816dced2cf45d4b4c0467dc1b451db87e717ea7298fa9fbe';
+
+// Default platform google analytics - overwritten in individual
+// platformsh.env.<env>.settings.php files if necessary (read: prod).
+// test.dds.dk google analytics property.
+$config['google_analytics.settings']['account'] = 'UA-7162673-25';
