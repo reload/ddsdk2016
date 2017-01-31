@@ -1,3 +1,4 @@
+{{ attach_library('mungo/flexslider') }}
 {#
 /**
  * @file
@@ -44,9 +45,11 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 ]
 %}
 <div{{ attributes.addClass(classes) }}>
-  <ul>
-      {% for key, item in content.field_gallery_image if key|first != '#' %}
-        <li>{{ item }}</li>
-      {% endfor %}
-  </ul>
+  <div class="dds-gallery__slider">
+    <ul class="slides">
+        {% for key, item in content.field_gallery_image if key|first != '#' %}
+          <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+  </div>
 </div>
