@@ -7,7 +7,7 @@ dependencies:
     - field.field.media.image.field_byline
     - field.field.media.image.field_caption
     - field.field.media.image.field_image
-    - image.style.4_3_720x540
+    - image.style.16_9_720x405
     - media_entity.bundle.image
   module:
     - image
@@ -20,7 +20,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: 4_3_720x540
+      image_style: 16_9_720x405
       image_link: ''
     third_party_settings: {  }
     type: image
