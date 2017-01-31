@@ -6,7 +6,6 @@ dependencies:
     - core.entity_view_mode.media.extended_teaser
     - field.field.media.video.field_caption
     - field.field.media.video.field_media_video_embed_field
-    - image.style.4_3_720x540
     - media_entity.bundle.video
   module:
     - video_embed_field
@@ -16,12 +15,14 @@ bundle: video
 mode: extended_teaser
 content:
   field_media_video_embed_field:
-    type: video_embed_field_thumbnail
+    type: video_embed_field_video
     weight: 0
     label: hidden
     settings:
-      image_style: 4_3_720x540
-      link_image_to: ''
+      responsive: true
+      width: 854
+      height: 480
+      autoplay: false
     third_party_settings: {  }
 hidden:
   created: true
