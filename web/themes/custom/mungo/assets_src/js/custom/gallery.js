@@ -7,23 +7,19 @@
   Drupal.behaviors.inlineGallery = {
     attach: function (context, settings) {
 
-      var gallery = $('.gallery', context);
-      var activeElement = $('<div>', {'class': 'active-element'});
-      gallery.prepend(activeElement);
+      var gallery = $('.dds-gallery', context);
 
-      var items = gallery.find('li');
-
-      var setActive = function (el) {
-        items.removeAttr('class');
-        el.addClass('active');
-        activeElement.html(el.html());
-      };
-
-      items.on('click', function () {
-        setActive($(this));
+      $('.dds-gallery', context).each(function () {
+        // Find the inner list of images and have flexslider process it.
+        var slider = $('.dds-gallery__slider', $(this));
+        slider.flexslider({
+          animation: "slide",
+          // Don't show bullets for each image.
+          controlNav: false,
+          // When reaching the end, bounch back to the start instead of looping.
+          animationLoop: false
+        });
       });
-
-      setActive(items.first());
     }
   };
 })(jQuery, Drupal);
