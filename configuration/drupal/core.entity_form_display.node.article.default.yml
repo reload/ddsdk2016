@@ -10,12 +10,14 @@ dependencies:
     - field.field.node.article.field_content_target_group
     - field.field.node.article.field_content_topic
     - field.field.node.article.field_main_media
+    - field.field.node.article.field_metatags
     - field.field.node.article.field_paragraphs
     - field.field.node.article.field_sidedeck
     - field.field.node.article.field_subtitle
     - node.type.article
   module:
     - inline_entity_form
+    - metatag
     - paragraphs
     - path
 _core:
@@ -75,6 +77,11 @@ content:
       allow_existing: false
     third_party_settings: {  }
     type: inline_entity_form_complex
+  field_metatags:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
   field_paragraphs:
     type: entity_reference_paragraphs
     weight: 7

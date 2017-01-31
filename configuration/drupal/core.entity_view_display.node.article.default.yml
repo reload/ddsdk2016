@@ -10,12 +10,14 @@ dependencies:
     - field.field.node.article.field_content_target_group
     - field.field.node.article.field_content_topic
     - field.field.node.article.field_main_media
+    - field.field.node.article.field_metatags
     - field.field.node.article.field_paragraphs
     - field.field.node.article.field_sidedeck
     - field.field.node.article.field_subtitle
     - node.type.article
   module:
     - entity_reference_revisions
+    - metatag
     - user
 id: node.article.default
 targetEntityType: node
@@ -46,6 +48,12 @@ content:
       view_mode: article_main_media
       link: false
     third_party_settings: {  }
+  field_metatags:
+    weight: 7
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
   field_paragraphs:
     type: entity_reference_revisions_entity_view
     weight: 4

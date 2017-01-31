@@ -22,6 +22,7 @@ dependencies:
     - field.field.node.event.field_event_teaser
     - field.field.node.event.field_event_type
     - field.field.node.event.field_main_media
+    - field.field.node.event.field_metatags
     - field.field.node.event.field_paragraphs
     - field.field.node.event.field_programs
     - node.type.event
@@ -30,6 +31,7 @@ dependencies:
     - datetime
     - entity_reference_revisions
     - field_group
+    - metatag
     - text
     - user
 third_party_settings:
@@ -217,6 +219,12 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
+  field_metatags:
+    weight: 13
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
   field_paragraphs:
     weight: 2
     label: hidden

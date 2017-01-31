@@ -13,12 +13,14 @@ dependencies:
     - field.field.node.badge.field_content_tag
     - field.field.node.badge.field_content_topic
     - field.field.node.badge.field_main_media
+    - field.field.node.badge.field_metatags
     - field.field.node.badge.field_paragraphs
     - field.field.node.badge.field_sidedeck
     - node.type.badge
   module:
     - field_group
     - inline_entity_form
+    - metatag
     - paragraphs
     - path
 third_party_settings:
@@ -104,6 +106,11 @@ content:
       override_labels: false
     third_party_settings: {  }
     type: inline_entity_form_simple
+  field_metatags:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
   field_paragraphs:
     weight: 6
     settings:
