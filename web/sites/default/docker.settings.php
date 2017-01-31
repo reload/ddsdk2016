@@ -53,8 +53,9 @@ $settings['extension_discovery_scan_tests'] = TRUE;
 $settings['rebuild_access'] = TRUE;
 
 // Set up stage file proxy.
-$config['stage_file_proxy.settings']['origin'] = 'http://develop-sr3snxi-55isd6w54kg6s.eu.platform.sh/';
+$config['stage_file_proxy.settings']['origin'] = 'http://master-7rqtwti-55isd6w54kg6s.eu.platform.sh/';
 
 // Solr config override.
 $config['search_api.server.solr']['backend_config']['connector_config']['host'] = 'solr';
 $config['search_api.server.solr']['backend_config']['connector_config']['path'] = '/solr';
+
