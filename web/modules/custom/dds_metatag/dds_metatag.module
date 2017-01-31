@@ -63,7 +63,7 @@ function dds_metatag_tokens($type, $tokens, array $data, array $options, Bubblea
     $main_media = $data['node']->get('field_main_media')->first()->entity;
 
     // Get the uri for the thumbnail of either an image or a video.
-    if ($main_media->hasField('field_media_video_embed_field')) {
+    if (!empty($main_media) && $main_media->hasField('field_media_video_embed_field')) {
       $thumbnail_uri = dds_metatag_video_thumb_from_main_media($main_media);
 
       // Go looking for tokens to replace.

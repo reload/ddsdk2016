@@ -11,6 +11,7 @@ use Drupal\Core\URL;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Template\Attribute;
 use Drupal\dds_activity\ActivityFetcher;
+use Drupal\file\Entity\File;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\Core\Form\FormStateInterface;
@@ -685,14 +686,16 @@ function _mungo_preprocess_paragraph_content_link(&$variables) {
 
           // Get the uri for the thumbnail of either an image or a video.
           $thumbnail_uri = NULL;
-          if ($main_media->hasField('field_media_video_embed_field')) {
-            $thumbnail_uri = dds_metatag_video_thumb_from_main_media($main_media);
-          }
-          elseif ($main_media->hasField('field_image')) {
-            /** @var File $image_file */
-            $image_file = $main_media->get('field_image')->entity;
+          if(!empty($main_media)) {
+            if ($main_media->hasField('field_media_video_embed_field')) {
+              $thumbnail_uri = dds_metatag_video_thumb_from_main_media($main_media);
+            }
+            elseif ($main_media->hasField('field_image')) {
+              /** @var File $image_file */
+              $image_file = $main_media->get('field_image')->entity;
 
-            $thumbnail_uri = $image_file->getFileUri();
+              $thumbnail_uri = $image_file->getFileUri();
+            }
           }
           if ($thumbnail_uri !== NULL) {
             $thumbnail = _mungo_render_image_uri_with_style($thumbnail_uri, 'thumbnail_4_3');
