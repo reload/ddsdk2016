@@ -8,9 +8,11 @@ id: front
 label: 'Front page'
 tags:
   canonical_url: '[site:url]'
+  description: '[node:field_subtitle:value]'
   image_src: '[node:field_main_media:entity:field_image:1600x900px]'
   shortlink: '[site:url]'
   title: '[site:name]'
+  og_description: '[node:field_subtitle:value]'
   og_image: '[node:field_main_media:entity:field_image:1600x900px]'
   og_title: '[site:name]'
   og_url: '[site:url]'
