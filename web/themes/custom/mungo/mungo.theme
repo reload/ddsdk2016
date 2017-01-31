@@ -686,14 +686,7 @@ function _mungo_preprocess_paragraph_content_link(&$variables) {
           // Get the uri for the thumbnail of either an image or a video.
           $thumbnail_uri = NULL;
           if ($main_media->hasField('field_media_video_embed_field')) {
-            /** @var \Drupal\video_embed_field\ProviderManagerInterface $provider */
-            $provider_manager = \Drupal::service('video_embed_field.provider_manager');
-            $url = $main_media->field_media_video_embed_field->value;
-
-            /** @var \Drupal\video_embed_field\ProviderPluginInterface $provider */
-            $provider = $provider_manager->loadProviderFromInput($url);
-            $provider->downloadThumbnail();
-            $thumbnail_uri = $provider->getLocalThumbnailUri();
+            $thumbnail_uri = dds_metatag_video_thumb_from_main_media($main_media);
           }
           elseif ($main_media->hasField('field_image')) {
             /** @var File $image_file */

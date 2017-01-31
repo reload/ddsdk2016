@@ -1,0 +1,15 @@
+uuid: 81bb07f0-e5dc-4822-8b21-e44870ca3cc5
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ydpmSCtxLjO9xqkBxObkeYx0Bf2dkW-d8bB_6Q1Ggjs
+id: node
+label: Content
+tags:
+  description: '[node:field_subtitle:value]'
+  image_src: '[node:field_main_media:entity:field_image:1600x900px] [node:main-media-video-thumbnail]'
+  title: '[node:title] | [site:name]'
+  og_description: '[node:field_subtitle:value]'
+  og_image: '[node:field_main_media:entity:field_image:1600x900px] [node:main-media-video-thumbnail]'
+  og_video: '[node:field_main_media:entity:field_media_video_embed_field:value]'
