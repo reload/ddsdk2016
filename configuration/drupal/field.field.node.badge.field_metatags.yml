@@ -1,0 +1,23 @@
+uuid: 17880d54-84bb-4dbd-b54e-22696e05f307
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_metatags
+    - node.type.badge
+  module:
+    - metatag
+id: node.badge.field_metatags
+field_name: field_metatags
+entity_type: node
+bundle: badge
+label: Metatags
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 'a:0:{}'
+default_value_callback: ''
+settings: {  }
+field_type: metatag

@@ -8,11 +8,9 @@ id: front
 label: 'Front page'
 tags:
   canonical_url: '[site:url]'
-  description: 'Kurser, inspiration og værktøjer til spejderarbejdet i Det Danske Spejderkorps.'
-  image_src: '[site:url]themes/custom/mungo/assets/images/social-media-default.png'
+  image_src: '[node:field_main_media:entity:field_image:1600x900px]'
   shortlink: '[site:url]'
   title: '[site:name]'
-  og_description: 'Kurser, inspiration og værktøjer til spejderarbejdet i Det Danske Spejderkorps.'
-  og_image: '[site:url]themes/custom/mungo/assets/images/social-media-default.png'
+  og_image: '[node:field_main_media:entity:field_image:1600x900px]'
   og_title: '[site:name]'
   og_url: '[site:url]'

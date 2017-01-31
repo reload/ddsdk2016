@@ -82,10 +82,10 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
 %}
 {{ attach_library('classy/node') }}
 
-{% if content.field_main_media %}
+{% if content.field_main_media and not is_front%}
 {{ attach_library('mungo/object-fit') }}
 <header role="section-header" class="section-header">
-    <div class="full-width-image-container narrow">
+      <div class="full-width-image-container narrow">
         {{ content.field_main_media }}
     </div>
     <div class="image-overlay">

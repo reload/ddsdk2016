@@ -58,7 +58,7 @@ function dds_metatag_tokens($type, $tokens, array $data, array $options, Bubblea
   $replacements = [];
 
   // Handle replacements related to main media.
-  if ($type === 'node' && $data['node']->hasField('field_main_media')) {
+  if ($type === 'node' && $data['node']->hasField('field_main_media') && !empty($data['node']->get('field_main_media')->first()->entity)) {
     /** @var \Drupal\media_entity\Entity\Media $main_media */
     $main_media = $data['node']->get('field_main_media')->first()->entity;
 
@@ -138,7 +138,7 @@ function dds_metatag_video_thumb_from_main_media($media_entity): string {
   if (!$provider) {
     return FALSE;
   }
-  
+
   // If we've already downloaded the thumbnail, the following call will just
   // return the cached copy.
   $provider->downloadThumbnail();

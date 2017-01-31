@@ -23,6 +23,7 @@ dependencies:
     - field.field.node.event.field_event_teaser
     - field.field.node.event.field_event_type
     - field.field.node.event.field_main_media
+    - field.field.node.event.field_metatags
     - field.field.node.event.field_paragraphs
     - field.field.node.event.field_programs
     - node.type.event
@@ -32,6 +33,7 @@ dependencies:
     - field_group
     - inline_entity_form
     - maxlength
+    - metatag
     - paragraphs
     - path
     - text
@@ -265,6 +267,11 @@ content:
       override_labels: false
     third_party_settings: {  }
     type: inline_entity_form_simple
+  field_metatags:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
   field_paragraphs:
     weight: 3
     settings:

@@ -12,11 +12,13 @@ dependencies:
     - field.field.node.badge.field_content_tag
     - field.field.node.badge.field_content_topic
     - field.field.node.badge.field_main_media
+    - field.field.node.badge.field_metatags
     - field.field.node.badge.field_paragraphs
     - field.field.node.badge.field_sidedeck
     - node.type.badge
   module:
     - entity_reference_revisions
+    - metatag
     - options
     - user
 id: node.badge.default
@@ -59,6 +61,12 @@ content:
       view_mode: original
       link: false
     third_party_settings: {  }
+  field_metatags:
+    weight: 7
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
   field_paragraphs:
     type: entity_reference_revisions_entity_view
     weight: 5

@@ -9,11 +9,13 @@ dependencies:
     - field.field.node.section_page.field_content_target_group
     - field.field.node.section_page.field_content_topic
     - field.field.node.section_page.field_main_media
+    - field.field.node.section_page.field_metatags
     - field.field.node.section_page.field_section
     - field.field.node.section_page.field_subtitle
     - node.type.section_page
   module:
     - inline_entity_form
+    - metatag
     - paragraphs
     - path
 id: node.section_page.default
@@ -61,6 +63,11 @@ content:
       allow_existing: false
     third_party_settings: {  }
     type: inline_entity_form_complex
+  field_metatags:
+    type: metatag_firehose
+    weight: 14
+    settings: {  }
+    third_party_settings: {  }
   field_section:
     type: entity_reference_paragraphs
     weight: 9
