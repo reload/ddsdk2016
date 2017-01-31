@@ -1,0 +1,18 @@
+uuid: 9a32755e-bd76-463d-aec7-32774f4f2034
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: yBqw6UD3j0MM1yoDSVDif7nw4SNdoS2e385nw--3ysk
+id: front
+label: 'Front page'
+tags:
+  canonical_url: '[site:url]'
+  description: 'Kurser, inspiration og værktøjer til spejderarbejdet i Det Danske Spejderkorps.'
+  image_src: '[site:url]themes/custom/mungo/assets/images/social-media-default.png'
+  shortlink: '[site:url]'
+  title: '[site:name]'
+  og_description: 'Kurser, inspiration og værktøjer til spejderarbejdet i Det Danske Spejderkorps.'
+  og_image: '[site:url]themes/custom/mungo/assets/images/social-media-default.png'
+  og_title: '[site:name]'
+  og_url: '[site:url]'

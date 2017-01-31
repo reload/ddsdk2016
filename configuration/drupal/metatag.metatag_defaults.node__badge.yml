@@ -1,0 +1,9 @@
+uuid: a63523e3-d317-4d8a-ab2c-2112cfe718db
+langcode: en
+status: true
+dependencies: {  }
+id: node__badge
+label: 'Content: Badge'
+tags:
+  description: '[node:field_badge_summary:value]'
+  og_description: '[node:field_badge_summary:value]'

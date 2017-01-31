@@ -12,12 +12,8 @@ display:
         field_event_start:
           expose:
             label: Til
-          group_info:
-            description: ''
         field_event_start_1:
           expose:
             label: Fra
       title: Arrangementer
-  events_overview:
-    display_options: {  }
 label: Arrangementer
