@@ -401,6 +401,16 @@ function mungo_preprocess_node(&$variables) {
     '#twitter_link' => Url::fromUri('https://twitter.com/home', array('query' => array('status' => $node_url->toString()))),
     '#forward_link' => Url::fromUri($forward_uri),
   );
+
+  // An exception might be thrown.
+  try {
+    $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+  }
+  catch (Exception $e) {
+    // If the database is not yet available, set default values for these
+    // variables.
+    $variables['is_front'] = FALSE;
+  }
 }
 
 /**
