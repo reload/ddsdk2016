@@ -59,3 +59,6 @@ $config['stage_file_proxy.settings']['origin'] = 'http://master-7rqtwti-55isd6w5
 $config['search_api.server.solr']['backend_config']['connector_config']['host'] = 'solr';
 $config['search_api.server.solr']['backend_config']['connector_config']['path'] = '/solr';
 
+// Google analytics test.
+$config['google_analytics.settings']['account'] = 'UA-7162673-26';
+
