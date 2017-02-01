@@ -11,12 +11,20 @@ $fa-font-path: "../fonts/font-awesome";
     right: auto;
     top: auto;
   }
-  margin: 0 -5px;
+
+  @include media-small {
+    margin: 0 -5px;
+    margin-top: $spacing-small;
+  }
   margin-top: $spacing-small;
 
  li {
    display: inline-block;
-   margin: 0 5px;
+   margin: 0;
+   margin-left: 10px;
+   @include media-small {
+     margin: 0 5px;
+   }
    a {
      color: $bluish;
    }
