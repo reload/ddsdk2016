@@ -17,7 +17,9 @@
           // Don't show bullets for each image.
           controlNav: false,
           // When reaching the end, bounch back to the start instead of looping.
-          animationLoop: false
+          animationLoop: false,
+          // Don't autoplay.
+          slideshow: false
         });
       });
     }
