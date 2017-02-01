@@ -5,16 +5,26 @@
 
 (function ($, Drupal) {
   Drupal.behaviors.dropdownmenu = {
+    closeAllMenus: function (context){
+      // Close all menus.
+      $('ul.menu--main .menu-item--expanded', context).removeClass('opened');
+      // Close the search-box.
+      $('#search-field-expose').prop('checked', false).change();
+    },
+
     attach: function (context, settings) {
-      // When the user click outside an active menu we want all menues to close.
+      // When the user click outside an active menu we want all menus to close.
       // An important note here: If you click any menu-item make sure the click
       // event does not propagate, otherwise the window-handler will close it.
      $(window).click(function(e) {
-       // Close all menus.
-       $('ul.menu--main .menu-item--expanded', context).removeClass('opened');
-       // Close the search-box.
-       $('#search-field-expose').prop('checked', false).change();
+       Drupal.behaviors.dropdownmenu.closeAllMenus(context);
      });
+
+      // Disable menus on scroll.
+      $(window).scroll(function(){
+        // Close all menus.
+        Drupal.behaviors.dropdownmenu.closeAllMenus(context);
+      });
 
       // When the user clicks a top-level menu we want to toggle it's open-state
       // and close all other menus.
@@ -36,9 +46,9 @@
         e.preventDefault();
       });
 
-
       $('ul.menu--main .menu-item--expanded', context).hover(
         function() {
+          // Menu is only hoverable when the search-field is not visible.
           if ($('#block-mungo-search input#search-field-expose').prop('checked')) {
             return;
           }
@@ -47,6 +57,7 @@
           $(this).addClass('opened');
         },
         function() {
+          // Menu is only hoverable when the search-field is not visible.
           if ($('#block-mungo-search input#search-field-expose').prop('checked')) {
             return;
           }
