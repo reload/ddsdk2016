@@ -16,8 +16,8 @@
           animation: "slide",
           // Don't show bullets for each image.
           controlNav: false,
-          // When reaching the end, bounch back to the start instead of looping.
-          animationLoop: false,
+          // When reaching the end, loop (ie. show an infinite slideshow).
+          animationLoop: true,
           // Don't autoplay.
           slideshow: false
         });
