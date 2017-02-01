@@ -52,3 +52,11 @@ grouping-menu:
   dependencies:
     - core/jquery
     - core/drupal
+
+flexslider:
+  version: 1.x
+  js:
+    /libraries/flexslider/jquery.flexslider-min.js: {}
+    assets/js/gallery.js : {}
+  dependencies:
+    - core/jquery

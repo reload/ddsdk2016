@@ -28,6 +28,19 @@
                     "composer/installers": "~1.0"
                 }
             }
+        },
+        {
+            "type": "package",
+            "package": {
+                "type": "drupal-library",
+                "name": "woothemes/flexslider",
+                "version": "2.6.3",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/woothemes/FlexSlider",
+                    "reference": "2.6.3"
+                }
+            }
         }
     ],
     "require": {
@@ -64,7 +77,8 @@
         "drupal/pathauto": "^8.1",
         "drupal/redirect": "^8.1",
         "drupal/metatag": "^8.1",
-        "drupal/google_analytics": "^8.2"
+        "drupal/google_analytics": "^8.2",
+        "woothemes/flexslider": "^2.6"
     },
     "require-dev": {
         "behat/mink": "~1.7",

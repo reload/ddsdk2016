@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2893151a20c269e405493f6f0269d0da",
+    "content-hash": "99bd943bc8d1d2c65be815cabae0b2e2",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -2223,7 +2223,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/google_analytics-8.x-2.1.zip",
-                "reference": null,
+                "reference": "5a44ad5643af5510ec15c07727ce0d124ee1c1c1",
                 "shasum": null
             },
             "require": {
@@ -5790,6 +5790,16 @@
                 "templating"
             ],
             "time": "2016-10-05T18:57:41+00:00"
+        },
+        {
+            "name": "woothemes/flexslider",
+            "version": "2.6.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/woothemes/FlexSlider",
+                "reference": "2.6.3"
+            },
+            "type": "drupal-library"
         },
         {
             "name": "zendframework/zend-diactoros",
