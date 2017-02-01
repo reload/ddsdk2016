@@ -80,7 +80,7 @@ function mungo_preprocess_field(&$variables) {
       $variables['item_col_classes'][] = 'col-xs-6';
     }
     elseif ($sizes === '33_66' && $field_name === 'field_2col_deck_col2') {
-      $variables['item_col_classes'][] = 'col-md-6';
+      $variables['item_col_classes'][] = 'col-xs-6';
     }
   }
   if ($field_name == 'field_section') {
@@ -840,14 +840,27 @@ function mungo_theme_suggestions_alter(array &$suggestions, array $variables, $h
 
     case 'field':
       $field_name = $variables['element']['#field_name'];
+      $bundle = isset($variables['element']['#bundle']) ? $variables['element']['#bundle'] : NULL;
+      $object = isset($variables['element']['#object']) ? $variables['element']['#object'] : NULL;
 
       if (preg_match('#^field_\dcol_deck_col\d$#', $field_name)) {
         $suggestions[] = $hook . '__' . $variables['element']['#entity_type'] . '__deckcolumn';
       }
       // Since two columns require extra wrapping of items this new template is
       // used. This could and should be refactored but it works right now.
-      if ($field_name == 'field_2col_deck_col1') {
-        $suggestions[] = $hook . '__' . $variables['element']['#entity_type'] . '__deckcolumn__two_cols';
+      if ($bundle === "2col_deck" && $object instanceof \Drupal\Core\Entity\Entity && $object->hasField('field_2col_column_size') && isset($object->field_2col_column_size->value)) {
+        $size = _mungo_2col_size_option_to_text($object->field_2col_column_size->value);
+
+        if ($size === "66_33" && $field_name === 'field_2col_deck_col1') {
+          $suggestions[] = $hook . '__' . $variables['element']['#entity_type'] . '__deckcolumn__two_cols';
+        }
+
+        // '1/3 : 2/3'
+        if ($size === "33_66" && $field_name === 'field_2col_deck_col2') {
+          $suggestions[] = $hook . '__' . $variables['element']['#entity_type'] . '__deckcolumn__two_cols';
+        }
+
+
       }
       // Provide full view_mode for title and field_subtitle fields
       // to differentiate on when to apply dymo-text.
