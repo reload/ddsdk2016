@@ -75,8 +75,7 @@
       // without closing menus. That is, all menu-items, toggle-elements, etc.
       $("label[for='search-field-expose']" +
         ",#search-block-form" +
-        ",#search-field-expose" +
-        ",ul.menu--main .menu-item--expanded .menu *").on('click', function(e) {
+        ",#search-field-expose").on('click', function(e) {
         e.stopPropagation();
       });
     }
