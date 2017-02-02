@@ -36,9 +36,23 @@ function dds_layout_preprocess_field(&$variables) {
   // Prepare the item-count and bundle if available.
   $item_count = isset($variables['items']) && is_array($variables['items']) ? count($variables['items']) : 0;
   $bundle = isset($variables['element']['#bundle']) ? $variables['element']['#bundle'] : NULL;
+  $object = isset($variables['element']['#object']) ? $variables['element']['#object'] : NULL;
+  $size = NULL;
+
+  if ($object instanceof \Drupal\Core\Entity\Entity && $object->hasField('field_2col_column_size') && isset($object->field_2col_column_size->value)) {
+    $size = _mungo_2col_size_option_to_text($object->field_2col_column_size->value);
+  }
 
   // Handle 2col.
   if ($bundle === '2col_deck') {
+    if ($size === "33_66" && $field_name === 'field_2col_deck_col1') {
+      $variables['attributes']['class'][] = 'deck__column--white-background';
+    }
+
+    if ($size === "66_33" && $field_name === 'field_2col_deck_col2') {
+      $variables['attributes']['class'][] = 'deck__column--white-background';
+    }
+
     if ($field_name === 'field_2col_deck_col1') {
       $variables['attributes']['class'][] = 'deck__column';
       $variables['attributes']['class'][] = 'deck__column--left';
@@ -47,7 +61,6 @@ function dds_layout_preprocess_field(&$variables) {
     elseif ($field_name === 'field_2col_deck_col2') {
       $variables['attributes']['class'][] = 'deck__column';
       $variables['attributes']['class'][] = 'deck__column--right';
-      $variables['attributes']['class'][] = 'deck__column--white-background';
       $variables['attributes']['data-item-count'] = $item_count;
     }
   }
