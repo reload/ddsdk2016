@@ -1,5 +1,5 @@
 extlink_include: ''
-extlink_exclude: ''
+extlink_exclude: '^(http:\/\/|https:\/\/)((www|nyt)\.)?dds\.dk(\/)?'
 extlink_alert_text: ''
 extlink_alert: false
 extlink_target: true
