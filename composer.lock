@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9b3833a3c90d6424f6688cee410a125d",
+    "content-hash": "0982b8ab7fbd5f74f5dc2319e10adc80",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -2577,6 +2577,49 @@
             }
         },
         {
+            "name": "drupal/http2_server_push",
+            "version": "1.0.0-beta1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/http2_server_push",
+                "reference": "8.x-1.0-beta1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/http2_server_push-8.x-1.0-beta1.zip",
+                "reference": null,
+                "shasum": "17d4e0f6571458c377cdca40247836c077dc0249"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-beta1",
+                    "datestamp": "1478860739"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Wim Leers",
+                    "homepage": "https://www.drupal.org/user/99777"
+                }
+            ],
+            "description": "Pushes CSS & JS files to the client on servers using HTTP/2.",
+            "homepage": "https://www.drupal.org/project/http2_server_push",
+            "support": {
+                "source": "http://cgit.drupalcode.org/http2_server_push"
+            }
+        },
+        {
             "name": "drupal/image_widget_crop",
             "version": "1.4.0",
             "source": {
@@ -3064,17 +3107,17 @@
         },
         {
             "name": "drupal/paragraphs",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/paragraphs",
-                "reference": "8.x-1.0"
+                "reference": "8.x-1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/paragraphs-8.x-1.0.zip",
-                "reference": "8.x-1.0",
-                "shasum": "4fcbd6a50f5b725a9ba66ee105d6f8a1385ff2c8"
+                "url": "https://ftp.drupal.org/files/projects/paragraphs-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "c678e5704a98c6a0549e415412da081cfeb03a00"
             },
             "require": {
                 "drupal/core": "~8.0",
@@ -3082,6 +3125,8 @@
             },
             "require-dev": {
                 "drupal/diff": "*",
+                "drupal/field_group": "*",
+                "drupal/inline_entity_form": "*",
                 "drupal/replicate": "*",
                 "drupal/search_api": "*",
                 "drupal/search_api_db": "*"
@@ -3092,8 +3137,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0",
-                    "datestamp": "1469726249"
+                    "version": "8.x-1.1",
+                    "datestamp": "1487331784"
                 },
                 "patches_applied": {
                     "2675136: Support field-groups": "https://www.drupal.org/files/issues/2675136-14.patch"
@@ -3121,7 +3166,7 @@
                     "homepage": "https://www.drupal.org/user/227761"
                 }
             ],
-            "description": "Enables the creation of paragraphs entities. To safely uninstall, go first to Structure > Paragraphs types > Settings.",
+            "description": "Enables the creation of paragraphs entities.",
             "homepage": "https://www.drupal.org/project/paragraphs",
             "support": {
                 "source": "http://cgit.drupalcode.org/paragraphs"
@@ -3195,7 +3240,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/redirect-8.x-1.0-alpha4.zip",
-                "reference": null,
+                "reference": "8.x-1.0-alpha4",
                 "shasum": "883401f9983a00ac23bfda9830bf6b77d53209ad"
             },
             "require": {
