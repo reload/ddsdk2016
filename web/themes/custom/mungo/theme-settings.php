@@ -7,6 +7,7 @@
 
 use Drupal\Core\Form\FormState;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\file\FileInterface;
 
 /**
  * Implements hook_form_system_theme_settings_alter().
@@ -73,10 +74,29 @@ function mungo_form_system_theme_settings_alter(&$form, FormStateInterface &$for
 function mungo_badge_cover_image_validate(array $element, FormState &$form_state) {
   $validators = array('file_validate_is_image' => array());
 
+  // Receive the uploaded file and register a file usage.
   /** @var Drupal\file\Entity\File $file */
-  $file = file_save_upload('badge_cover_image', $validators, "public://", NULL, FILE_EXISTS_REPLACE);
-  if (!empty($file)) {
-    $uri = $file[0]->getFileUri();
+  $uploaded_files = file_save_upload('badge_cover_image', $validators, "public://", NULL, FILE_EXISTS_REPLACE);
+  if (!empty($uploaded_files[0]) && $uploaded_files[0] instanceof FileInterface) {
+    $file = $uploaded_files[0];
+    $uri = $file->getFileUri();
+
+    /** @var \Drupal\file\FileUsage\FileUsageInterface $file_usage */
+    $file_usage = \Drupal::service('file.usage');
+    $file_usage->add($file, 'dds_badge', 'file', $file->id());
+
+    // See if we can find the previous image and delete its file-usage.
+    $old_image_uri = theme_get_setting('badge_cover_image_path', 'mungo');
+    if (!empty($old_image_uri)) {
+      $old_file = \Drupal::entityTypeManager()
+         ->getStorage('file')
+         ->loadByProperties(['uri' => $old_image_uri]);
+      if (!empty($old_file)) {
+        $old_file = reset($old_file);
+        $file_usage->delete($old_file, 'dds_badge', 'file', $old_file->id());
+      }
+    }
+    // Finish off by accepting the path to the image.
     $form_state->setValue('badge_cover_image_path', $uri);
   }
 }
