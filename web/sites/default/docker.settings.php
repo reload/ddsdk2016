@@ -52,6 +52,9 @@ $settings['extension_discovery_scan_tests'] = TRUE;
 // Enable access to rebuild.php.
 $settings['rebuild_access'] = TRUE;
 
+// Display an indicator of breakpoint sizes.
+$settings['ddsdk_show_sizebar'] = TRUE;
+
 // Set up stage file proxy.
 $config['stage_file_proxy.settings']['origin'] = 'https://nyt:dds.dk@nyt.dds.dk/';
 

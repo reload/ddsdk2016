@@ -7,11 +7,11 @@
 
 use Drupal\Core\Link;
 use Drupal\Core\Render\Element;
+use Drupal\Core\Site\Settings;
 use Drupal\Core\URL;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Template\Attribute;
 use Drupal\dds_activity\ActivityFetcher;
-use Drupal\file\Entity\File;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\Core\Form\FormStateInterface;
@@ -1038,4 +1038,13 @@ function mungo_inspirational_prerender($elements) {
     }
   }
   return $elements;
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Preprocessing of variables for various content-types.
+ */
+function mungo_preprocess_page(&$variables) {
+  $variables['ddsdk_show_sizebar'] = Settings::get('ddsdk_show_sizebar', FALSE);
 }
