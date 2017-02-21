@@ -2,12 +2,14 @@
 .pager__items {
   // Inject some spacing between the pager and the search-results.
   margin-top: $spacing-small;
+  margin-bottom: $spacing-small;
   .pager__item {
     padding: 0;
   }
 
   @include media-small {
     margin-top: $spacing-medium;
+    margin-bottom: $spacing-medium;
   }
 }
 
