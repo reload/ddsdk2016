@@ -133,9 +133,6 @@
                 "2408549: Notify about overridden configuration": "https://www.drupal.org/files/issues/config-override-warning-2408549-29.patch",
                 "2650434: Clearing cache via UI in translated language resets config translation of field labels to default language": "patches/core-language-initialization-8.2.6-reroll-2650434.patch"
             },
-            "drupal/paragraphs": {
-                "2675136: Support field-groups": "https://www.drupal.org/files/issues/2675136-14.patch"
-            },
             "drupal/chosen": {
                 "2705891: Fix invisible required chosen widgets": "https://www.drupal.org/files/issues/client_side_validation-2705891-5.patch"
             },
