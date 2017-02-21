@@ -386,19 +386,11 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_content_topic
-processor_settings:
-  add_url:
-    plugin_id: add_url
-    settings: {  }
-  aggregated_field:
-    plugin_id: aggregated_field
-    settings: {  }
-  rendered_item:
-    plugin_id: rendered_item
-    settings: {  }
-options:
-  index_directly: true
-  cron_limit: 50
+  sticky:
+    label: 'Sticky at top of lists'
+    datasource_id: 'entity:node'
+    property_path: sticky
+    type: boolean
 datasource_settings:
   'entity:node':
     plugin_id: 'entity:node'
@@ -409,8 +401,27 @@ datasource_settings:
       languages:
         default: true
         selected: {  }
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url:
+    plugin_id: add_url
+    settings: {  }
+  aggregated_field:
+    plugin_id: aggregated_field
+    settings: {  }
+  rendered_item:
+    plugin_id: rendered_item
+    settings: {  }
 tracker_settings:
   default:
     plugin_id: default
     settings: {  }
+options:
+  index_directly: true
+  cron_limit: 50
 server: solr
