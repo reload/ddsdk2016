@@ -30,6 +30,7 @@
  *   current user is a logged-in member.
  * - is_admin: Flag for admin user status. Will be true when the current user
  *   is an administrator.
+ * - content.alternative_url: should be used for the user-facing link if available.
  *
  * @see template_preprocess_paragraph()
  *
@@ -44,8 +45,7 @@ set classes = [
   'content-link',
 ]
 %}
-
-<a href="{{ content.url }}" {{ attributes.addClass(classes) }}>
+<a href="{{ content.alternative_url ? content.alternative_url : content.url }}" {{ attributes.addClass(classes) }}>
   <div class="content-link--image">
       {{ content.thumbnail }}
   </div><div class="content-link--text">

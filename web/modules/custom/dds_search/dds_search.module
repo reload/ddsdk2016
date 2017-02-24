@@ -62,26 +62,49 @@ function dds_search_form_views_exposed_form_alter(&$form, FormStateInterface $fo
 function dds_search_form_alter(&$form, &$form_state, $form_id) {
   // Add a validate-function on the events form to.
   if ($form['#id'] === 'views-exposed-form-events-events-overview') {
-    foreach (['event_after', 'event_before'] as $element) {
-      if (empty($form[$element]['#element_validate'])) {
-        $form[$element]['#element_validate'][] = 'dds_search_date_reformat';
-      }
-      else {
-        array_unshift($form[$element]['#element_validate'], 'dds_search_date_reformat');
-      }
+    array_unshift($form['#validate'], 'dds_search_form_validate');
+  }
+}
+
+/**
+ * Validate call-back that reformats dates before a view is executed.
+ */
+function dds_search_form_validate(&$form, FormStateInterface &$form_state) {
+  foreach (['event_after', 'event_before'] as $element) {
+    if (!empty($form_state->getValue($element))) {
+      $form_state->setValue($element, _dds_search_reformat_date_dk_to_us($form_state->getValue($element)));
     }
   }
 }
 
 /**
- * Reformat a date value from DK to US.
+ * Reformats a date from d/m/Y to m/d/Y.
  */
-function dds_search_date_reformat(array &$element, FormStateInterface $form_state, array &$complete_form) {
-  $value = $form_state->getValue($element['#name']);
+function _dds_search_reformat_date_dk_to_us($value) {
+  $date = DateTime::createFromFormat(DDS_SEARCH_DATE_USER_FORMAT, $value);
+  return $date->format(DDS_SEARCH_DATE_EXECUTION_FORMAT);
+}
 
-  if (!empty($value)) {
-    $date = DateTime::createFromFormat(DDS_SEARCH_DATE_USER_FORMAT, $value);
-    $new = $date->format(DDS_SEARCH_DATE_EXECUTION_FORMAT);
-    $form_state->setvalue($element['#name'], $new);
+/**
+ * Reformats a date from m/d/Y to d/m/Y.
+ */
+function _dds_search_reformat_date_us_to_dk($value) {
+  $date = DateTime::createFromFormat(DDS_SEARCH_DATE_EXECUTION_FORMAT, $value);
+  return $date->format(DDS_SEARCH_DATE_USER_FORMAT);
+}
+
+/**
+ * Implements hook_views_pre_render().
+ *
+ * Re-format date field used in the view before rendering the pager.
+ */
+function dds_search_views_pre_render(\Drupal\views\ViewExecutable $view) {
+  // We've formatted the date from DK to US in a previous submit hook, but now
+  // as we want to render the view and eg. pagers with a "human"-readable
+  // format.
+  foreach (['event_after', 'event_before'] as $field) {
+    if (!empty($view->exposed_raw_input[$field])) {
+      $view->exposed_raw_input[$field] = _dds_search_reformat_date_us_to_dk($view->exposed_raw_input[$field]);
+    }
   }
 }

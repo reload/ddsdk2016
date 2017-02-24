@@ -17,7 +17,7 @@ forward_form_display_subject: false
 forward_form_display_body: false
 forward_form_confirmation: 'Thank you for spreading the word about [site:name]. We appreciate your help.'
 forward_personal_message: 1
-forward_personal_message_filter: true
+forward_personal_message_filter: false
 forward_personal_message_tags: 'p,br,em,strong,cite,code,ul,ol,li,dl,dt,dd'
 forward_email_logo: ''
 forward_email_subject: '[forward:sender-name] has forwarded a page to you from [site:name]'
@@ -170,3 +170,9 @@ forward_link_alias: null
 forward_thankyou_send: null
 forward_thankyou_subject: null
 forward_thankyou_text: null
+forward_entity_metatag_defaults: false
+forward_metatag_defaults_metatag_defaults: false
+forward_entity_pathauto_pattern: false
+forward_pathauto_pattern_pathauto_pattern: false
+forward_entity_redirect: false
+forward_redirect_redirect: false

@@ -52,8 +52,11 @@ $settings['extension_discovery_scan_tests'] = TRUE;
 // Enable access to rebuild.php.
 $settings['rebuild_access'] = TRUE;
 
+// Display an indicator of breakpoint sizes.
+$settings['ddsdk_show_sizebar'] = TRUE;
+
 // Set up stage file proxy.
-$config['stage_file_proxy.settings']['origin'] = 'http://master-7rqtwti-55isd6w54kg6s.eu.platform.sh/';
+$config['stage_file_proxy.settings']['origin'] = 'https://nyt:dds.dk@nyt.dds.dk/';
 
 // Solr config override.
 $config['search_api.server.solr']['backend_config']['connector_config']['host'] = 'solr';

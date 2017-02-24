@@ -7,11 +7,11 @@
 
 use Drupal\Core\Link;
 use Drupal\Core\Render\Element;
+use Drupal\Core\Site\Settings;
 use Drupal\Core\URL;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Template\Attribute;
 use Drupal\dds_activity\ActivityFetcher;
-use Drupal\file\Entity\File;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\Core\Form\FormStateInterface;
@@ -658,6 +658,7 @@ function _mungo_preprocess_paragraph_content_link(&$variables) {
 
   // Setup the variables we'll try to prepare for the template.
   $thumbnail = NULL;
+  $alternative_url = NULL;
   // Default to using link title if available, might be overriden for internal
   // links.
   $title = empty($link->get('title')) ? '' : $link->get('title')->getValue();;
@@ -711,6 +712,13 @@ function _mungo_preprocess_paragraph_content_link(&$variables) {
             $thumbnail = _mungo_render_image_uri_with_style($thumbnail_uri, 'thumbnail_4_3');
           }
         }
+
+        // Inject an alternative url for activities (we want the user to go
+        // directly to aktdb).
+        if ($node->getType() === 'activity' && !empty($node->get('field_activity_id')->value)) {
+          $activity_id = $node->get('field_activity_id')->value;
+          $alternative_url = ActivityFetcher::AKTDB_VIEW_PREFIX . '/' . $activity_id;
+        }
       }
     }
   }
@@ -722,6 +730,7 @@ function _mungo_preprocess_paragraph_content_link(&$variables) {
   $variables['content']['lead'] = $lead;
   $variables['content']['thumbnail'] = $thumbnail;
   $variables['content']['url'] = $link->getUrl()->toString();
+  $variables['content']['alternative_url'] = $alternative_url;
   $variables['content']['title'] = $title;
 }
 
@@ -1038,4 +1047,13 @@ function mungo_inspirational_prerender($elements) {
     }
   }
   return $elements;
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Preprocessing of variables for various content-types.
+ */
+function mungo_preprocess_page(&$variables) {
+  $variables['ddsdk_show_sizebar'] = Settings::get('ddsdk_show_sizebar', FALSE);
 }

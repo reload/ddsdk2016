@@ -47,7 +47,7 @@
     }
   }
 
-  @include transition(all 0.4s);
+  @include transition(transform 0.4s);
 
   // Size the icon
   .icon {

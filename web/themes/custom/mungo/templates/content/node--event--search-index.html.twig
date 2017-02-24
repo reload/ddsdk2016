@@ -118,9 +118,8 @@
               {% endif %}
               {# If event is an all day event #}
               {% if (is_all_day) %}
-                {% trans with {'context': 'events'} -%}
-                <span class="search-result__all_day">(All day event)</span>
-                {%- endtrans %}
+                <span class="search-result__all_day">{% trans with {'context': 'events'} -%}(All day event){%- endtrans %}
+                </span>
               {% endif %}
             </div>
           {% endif %}

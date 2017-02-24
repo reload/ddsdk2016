@@ -1,0 +1,99 @@
+diff --git a/core/lib/Drupal/Core/DrupalKernel.php b/core/lib/Drupal/Core/DrupalKernel.php
+index 16ebb97..5417c22 100644
+--- a/core/lib/Drupal/Core/DrupalKernel.php
++++ b/core/lib/Drupal/Core/DrupalKernel.php
+@@ -905,6 +905,9 @@ protected function initializeContainer() {
+     }
+ 
+     \Drupal::setContainer($this->container);
++    if ($request) {
++      $this->container->get('event_dispatcher')->dispatch(self::CONTAINER_INITIALIZE_FINISHED);
++    }
+ 
+     // If needs dumping flag was set, dump the container.
+     if ($this->containerNeedsDumping && !$this->cacheDrupalContainer($container_definition)) {
+diff --git a/core/lib/Drupal/Core/DrupalKernelInterface.php b/core/lib/Drupal/Core/DrupalKernelInterface.php
+index 862fbec..df55272 100644
+--- a/core/lib/Drupal/Core/DrupalKernelInterface.php
++++ b/core/lib/Drupal/Core/DrupalKernelInterface.php
+@@ -15,6 +15,16 @@
+ interface DrupalKernelInterface extends HttpKernelInterface, ContainerAwareInterface {
+ 
+   /**
++   * Name of the event fired when the service container finished initializing.
++   *
++   * This event allows you to initialize overrides such as language to the
++   * services.
++   *
++   * @var string
++   */
++  const CONTAINER_INITIALIZE_FINISHED = 'kernel.container.finish_container_initialize';
++
++  /**
+    * Boots the current kernel.
+    *
+    * @return $this
+diff --git a/core/modules/language/src/EventSubscriber/LanguageRequestSubscriber.php b/core/modules/language/src/EventSubscriber/LanguageRequestSubscriber.php
+index c805b0f..2da638b 100644
+--- a/core/modules/language/src/EventSubscriber/LanguageRequestSubscriber.php
++++ b/core/modules/language/src/EventSubscriber/LanguageRequestSubscriber.php
+@@ -2,6 +2,7 @@
+ 
+ namespace Drupal\language\EventSubscriber;
+ 
++use Drupal\Core\DrupalKernelInterface;
+ use Drupal\Core\Session\AccountInterface;
+ use Drupal\Core\StringTranslation\Translator\TranslatorInterface;
+ use Drupal\language\ConfigurableLanguageManagerInterface;
+@@ -71,17 +72,7 @@ public function __construct(ConfigurableLanguageManagerInterface $language_manag
+    */
+   public function onKernelRequestLanguage(GetResponseEvent $event) {
+     if ($event->getRequestType() == HttpKernelInterface::MASTER_REQUEST) {
+-      $request = $event->getRequest();
+-      $this->negotiator->setCurrentUser($this->currentUser);
+-      $this->negotiator->reset();
+-      if ($this->languageManager instanceof ConfigurableLanguageManagerInterface) {
+-        $this->languageManager->setNegotiator($this->negotiator);
+-        $this->languageManager->setConfigOverrideLanguage($this->languageManager->getCurrentLanguage());
+-      }
+-      // After the language manager has initialized, set the default langcode
+-      // for the string translations.
+-      $langcode = $this->languageManager->getCurrentLanguage()->getId();
+-      $this->translation->setDefaultLangcode($langcode);
++      $this->setLanguageOverrides();
+     }
+   }
+ 
+@@ -93,8 +84,32 @@ public function onKernelRequestLanguage(GetResponseEvent $event) {
+    */
+   static function getSubscribedEvents() {
+     $events[KernelEvents::REQUEST][] = array('onKernelRequestLanguage', 255);
++    $events[DrupalKernelInterface::CONTAINER_INITIALIZE_FINISHED][] = array('onContainerInitializeFinished', 255);
+ 
+     return $events;
+   }
+ 
++  /**
++   * Initializes config overrides whenever the service container is rebuilt.
++   */
++  public function onContainerInitializeFinished() {
++    $this->setLanguageOverrides();
++  }
++
++  /**
++   * Sets the language for config overrides on the language manager.
++   */
++  private function setLanguageOverrides() {
++    $this->negotiator->setCurrentUser($this->currentUser);
++    $this->negotiator->reset();
++    if ($this->languageManager instanceof ConfigurableLanguageManagerInterface) {
++      $this->languageManager->setNegotiator($this->negotiator);
++      $this->languageManager->setConfigOverrideLanguage($this->languageManager->getCurrentLanguage());
++    }
++    // After the language manager has initialized, set the default langcode
++    // for the string translations.
++    $langcode = $this->languageManager->getCurrentLanguage()->getId();
++    $this->translation->setDefaultLangcode($langcode);
++  }
++
+ }
