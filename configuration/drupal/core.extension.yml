@@ -31,6 +31,7 @@ module:
   dds_person: 0
   dds_search: 0
   dds_top_image: 0
+  dropguard: 0
   dynamic_page_cache: 0
   editor: 0
   editor_advanced_link: 0
