@@ -56,7 +56,7 @@ $settings['rebuild_access'] = TRUE;
 $settings['ddsdk_show_sizebar'] = TRUE;
 
 // Set up stage file proxy.
-$config['stage_file_proxy.settings']['origin'] = 'https://nyt:dds.dk@nyt.dds.dk/';
+$config['stage_file_proxy.settings']['origin'] = 'https://dds.dk/';
 
 // Solr config override.
 $config['search_api.server.solr']['backend_config']['connector_config']['host'] = 'solr';
