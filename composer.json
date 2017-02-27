@@ -79,7 +79,8 @@
         "drupal/metatag": "^1",
         "drupal/google_analytics": "^2",
         "woothemes/flexslider": "^2.6",
-        "drupal/http2_server_push": "^1"
+        "drupal/http2_server_push": "^1",
+        "drupal/dropguard": "^1"
     },
     "require-dev": {
         "behat/mink": "~1.7",
@@ -137,7 +138,7 @@
                 "2705891: Fix invisible required chosen widgets": "https://www.drupal.org/files/issues/client_side_validation-2705891-5.patch"
             },
             "drupal/metatag": {
-                "2563647: Adds views support to metatag": "https://www.drupal.org/files/issues/views_integration-2563647-52.patch"
+                "2563647: Adds views support to metatag": "patches/views_integration-2563647-52-modified-notice-fix.patch"
             },
             "drupal/facets": {
                 "2833340: Sort facets by term weight": "https://www.drupal.org/files/issues/sort_facets_by_weight-2833340.patch"

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0982b8ab7fbd5f74f5dc2319e10adc80",
+    "content-hash": "1be5835fb302179a8aa56ef0ebc56ca3",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -2140,6 +2140,61 @@
             "time": "2016-08-20T19:59:03+00:00"
         },
         {
+            "name": "drupal/dropguard",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/dropguard",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/dropguard-8.x-1.1.zip",
+                "reference": null,
+                "shasum": "1e1f8ab73654b2dd3b4acc520703a0aa876d0d52"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1469204939"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "manuelBS",
+                    "homepage": "https://www.drupal.org/user/302791"
+                },
+                {
+                    "name": "meramo",
+                    "homepage": "https://www.drupal.org/user/192314"
+                },
+                {
+                    "name": "weidauer",
+                    "homepage": "https://www.drupal.org/user/2679425"
+                }
+            ],
+            "description": "Provides integration with the Drop Guard service to automate Drupal updates.",
+            "homepage": "http://drupal.org/project/dropguard",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/dropguard",
+                "issues": "http://drupal.org/project/issues/dropguard"
+            }
+        },
+        {
             "name": "drupal/editor_advanced_link",
             "version": "1.3.0",
             "source": {
@@ -2587,7 +2642,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/http2_server_push-8.x-1.0-beta1.zip",
-                "reference": null,
+                "reference": "8.x-1.0-beta1",
                 "shasum": "17d4e0f6571458c377cdca40247836c077dc0249"
             },
             "require": {
@@ -3139,9 +3194,6 @@
                 "drupal": {
                     "version": "8.x-1.1",
                     "datestamp": "1487331784"
-                },
-                "patches_applied": {
-                    "2675136: Support field-groups": "https://www.drupal.org/files/issues/2675136-14.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -3156,6 +3208,10 @@
                 {
                     "name": "Frans",
                     "homepage": "https://www.drupal.org/user/514222"
+                },
+                {
+                    "name": "Primsi",
+                    "homepage": "https://www.drupal.org/user/282629"
                 },
                 {
                     "name": "jeroen.b",
