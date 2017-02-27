@@ -7,7 +7,7 @@ logo:
   use_default: 1
 favicon:
   use_default: 1
-badge_cover_image_path: 'public://maerkeunivers.jpg'
+badge_cover_image_path: 'public://maerkeunivers-cover.jpg'
 badge_cover_image: ''
 badge_page_title: Mærkeunivers
-badge_page_description: 'Her er en beskrivelse af mærke-universet.'
+badge_page_description: 'Her kan du finde alle forløbs- og færdighedsmærker i Det Danske Spejderkorps.'
