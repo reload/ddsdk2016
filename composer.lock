@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1be5835fb302179a8aa56ef0ebc56ca3",
+    "content-hash": "81e996314409dba24c23d5b258a1b86e",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -2150,7 +2150,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/dropguard-8.x-1.1.zip",
-                "reference": null,
+                "reference": "8.x-1.1",
                 "shasum": "1e1f8ab73654b2dd3b4acc520703a0aa876d0d52"
             },
             "require": {
@@ -3131,7 +3131,7 @@
                     "datestamp": "1485901983"
                 },
                 "patches_applied": {
-                    "2563647: Adds views support to metatag": "https://www.drupal.org/files/issues/views_integration-2563647-52.patch"
+                    "2563647: Adds views support to metatag": "patches/views_integration-2563647-52-modified-notice-fix.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -3158,6 +3158,63 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/metatag",
                 "issues": "http://drupal.org/project/issues/metatag"
+            }
+        },
+        {
+            "name": "drupal/monitoring",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/monitoring",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/monitoring-8.x-1.1.zip",
+                "reference": null,
+                "shasum": "17948090987e4f4c75afcff20ddf8ef4c02167a0"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "require-dev": {
+                "drupal/captcha": "*",
+                "drupal/past": "*",
+                "drupal/payment": "*",
+                "drupal/search_api": "*",
+                "drupal/search_api_db": "*",
+                "drupal/search_api_solr": "*",
+                "drupal/simplenews": "*",
+                "drupal/ultimate_cron": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1479768839"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Berdir",
+                    "homepage": "https://www.drupal.org/user/214652"
+                },
+                {
+                    "name": "miro_dietiker",
+                    "homepage": "https://www.drupal.org/user/227761"
+                }
+            ],
+            "description": "Monitoring base.",
+            "homepage": "https://www.drupal.org/project/monitoring",
+            "support": {
+                "source": "http://cgit.drupalcode.org/monitoring"
             }
         },
         {

@@ -1,0 +1,25 @@
+uuid: 589cfefc-f5f2-40e7-8443-01d439e552d8
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: node_new_activity
+label: 'New Aktiviteter nodes'
+description: 'New nodes of type Aktiviteter'
+category: Content
+plugin_id: entity_aggregator
+result_class: null
+value_label: 'Aktiviteter nodes'
+value_type: number
+caching_time: 600
+settings:
+  entity_type: node
+  conditions:
+    -
+      field: type
+      value: activity
+  time_interval_field: created
+  time_interval_value: 86400
+thresholds:
+  type: none

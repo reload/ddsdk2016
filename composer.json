@@ -80,7 +80,8 @@
         "drupal/google_analytics": "^2",
         "woothemes/flexslider": "^2.6",
         "drupal/http2_server_push": "^1",
-        "drupal/dropguard": "^1"
+        "drupal/dropguard": "^1",
+        "drupal/monitoring": "^1"
     },
     "require-dev": {
         "behat/mink": "~1.7",

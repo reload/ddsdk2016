@@ -1,0 +1,20 @@
+uuid: 67d023d5-c226-4d40-bc3e-319cba8ce0ad
+langcode: da
+status: true
+dependencies:
+  module:
+    - rest
+id: core_requirements_rest
+label: 'Module rest'
+description: 'Requirements of the rest module'
+category: Requirements
+plugin_id: core_requirements
+result_class: null
+value_label: null
+value_type: no_value
+caching_time: 3600
+settings:
+  module: rest
+  exclude_keys: {  }
+thresholds:
+  type: none

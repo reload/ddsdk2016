@@ -1,0 +1,25 @@
+uuid: 3dfac127-34ab-4d30-8cbb-d4f7b8c0a45f
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: node_new_event
+label: 'New Arrangement nodes'
+description: 'New nodes of type Arrangement'
+category: Content
+plugin_id: entity_aggregator
+result_class: null
+value_label: 'Arrangement nodes'
+value_type: number
+caching_time: 600
+settings:
+  entity_type: node
+  conditions:
+    -
+      field: type
+      value: event
+  time_interval_field: created
+  time_interval_value: 86400
+thresholds:
+  type: none

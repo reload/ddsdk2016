@@ -1,0 +1,25 @@
+uuid: 5324d19c-8756-4453-99e8-d44af920d098
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: node_new_article
+label: 'New Artikel nodes'
+description: 'New nodes of type Artikel'
+category: Content
+plugin_id: entity_aggregator
+result_class: null
+value_label: 'Artikel nodes'
+value_type: number
+caching_time: 600
+settings:
+  entity_type: node
+  conditions:
+    -
+      field: type
+      value: article
+  time_interval_field: created
+  time_interval_value: 86400
+thresholds:
+  type: none

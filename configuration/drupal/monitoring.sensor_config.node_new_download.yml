@@ -1,0 +1,25 @@
+uuid: 5d9545fa-fc50-4732-ad5d-fa30f3cd4c57
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: node_new_download
+label: 'New Download nodes'
+description: 'New nodes of type Download'
+category: Content
+plugin_id: entity_aggregator
+result_class: null
+value_label: 'Download nodes'
+value_type: number
+caching_time: 600
+settings:
+  entity_type: node
+  conditions:
+    -
+      field: type
+      value: download
+  time_interval_field: created
+  time_interval_value: 86400
+thresholds:
+  type: none

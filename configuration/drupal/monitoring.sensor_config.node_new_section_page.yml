@@ -1,0 +1,25 @@
+uuid: ba6e1d1a-5560-43c0-8ff2-ee149ade790e
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: node_new_section_page
+label: 'New Temaside nodes'
+description: 'New nodes of type Temaside'
+category: Content
+plugin_id: entity_aggregator
+result_class: null
+value_label: 'Temaside nodes'
+value_type: number
+caching_time: 600
+settings:
+  entity_type: node
+  conditions:
+    -
+      field: type
+      value: section_page
+  time_interval_field: created
+  time_interval_value: 86400
+thresholds:
+  type: none

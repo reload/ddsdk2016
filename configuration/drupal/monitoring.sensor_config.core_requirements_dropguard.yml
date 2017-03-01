@@ -1,0 +1,20 @@
+uuid: 85a3c71c-068c-42b2-b519-fc9476b18eaa
+langcode: da
+status: true
+dependencies:
+  module:
+    - dropguard
+id: core_requirements_dropguard
+label: 'Module dropguard'
+description: 'Requirements of the dropguard module'
+category: Requirements
+plugin_id: core_requirements
+result_class: null
+value_label: null
+value_type: no_value
+caching_time: 3600
+settings:
+  module: dropguard
+  exclude_keys: {  }
+thresholds:
+  type: none
