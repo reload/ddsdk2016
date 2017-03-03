@@ -68,7 +68,7 @@ function mungo_form_system_theme_settings_alter(&$form, FormStateInterface &$for
  *
  * @param array $element
  *   The form-element to be validated.
- * @param FormState $form_state
+ * @param Drupal\Core\Form\FormState $form_state
  *   Current state of the form.
  */
 function mungo_badge_cover_image_validate(array $element, FormState &$form_state) {
@@ -89,8 +89,8 @@ function mungo_badge_cover_image_validate(array $element, FormState &$form_state
     $old_image_uri = theme_get_setting('badge_cover_image_path', 'mungo');
     if (!empty($old_image_uri)) {
       $old_file = \Drupal::entityTypeManager()
-         ->getStorage('file')
-         ->loadByProperties(['uri' => $old_image_uri]);
+        ->getStorage('file')
+        ->loadByProperties(['uri' => $old_image_uri]);
       if (!empty($old_file)) {
         $old_file = reset($old_file);
         $file_usage->delete($old_file, 'dds_badge', 'file', $old_file->id());

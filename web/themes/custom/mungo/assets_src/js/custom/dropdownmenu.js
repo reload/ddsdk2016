@@ -5,7 +5,7 @@
 
 (function ($, Drupal) {
   Drupal.behaviors.dropdownmenu = {
-    closeAllMenus: function (context){
+    closeAllMenus: function (context) {
       // Close all menus.
       $('ul.menu--main .menu-item--expanded', context).removeClass('opened');
       // Close the search-box.
@@ -16,12 +16,12 @@
       // When the user click outside an active menu we want all menus to close.
       // An important note here: If you click any menu-item make sure the click
       // event does not propagate, otherwise the window-handler will close it.
-     $(window).click(function(e) {
+     $(window).click(function (e) {
        Drupal.behaviors.dropdownmenu.closeAllMenus(context);
      });
 
       // Disable menus on scroll.
-      $(window).scroll(function(){
+      $(window).scroll(function () {
         // Close all menus.
         Drupal.behaviors.dropdownmenu.closeAllMenus(context);
       });
@@ -47,7 +47,7 @@
       });
 
       $('ul.menu--main .menu-item--expanded', context).hover(
-        function() {
+        function () {
           // Menu is only hoverable when the search-field is not visible.
           if ($('#block-mungo-search input#search-field-expose').prop('checked')) {
             return;
@@ -56,7 +56,7 @@
           // to the hovered item and remove it from all of its siblings.
           $(this).addClass('opened');
         },
-        function() {
+        function () {
           // Menu is only hoverable when the search-field is not visible.
           if ($('#block-mungo-search input#search-field-expose').prop('checked')) {
             return;
@@ -84,9 +84,8 @@
 
       // Disable event-propagation on anything that we want to be clickable
       // without closing menus. That is, all menu-items, toggle-elements, etc.
-      $("label[for='search-field-expose']" +
-        ",#search-block-form" +
-        ",#search-field-expose").on('click', function(e) {
+      $("label[for='search-field-expose'],#search-block-form" +
+        ",#search-field-expose").on('click', function (e) {
         e.stopPropagation();
       });
     }
