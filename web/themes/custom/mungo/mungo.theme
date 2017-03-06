@@ -5,6 +5,7 @@
  * Main theme-file for the Mungo theme.
  */
 
+use Drupal\Core\Entity\Entity;
 use Drupal\Core\Link;
 use Drupal\Core\Render\Element;
 use Drupal\Core\Site\Settings;
@@ -97,10 +98,10 @@ function mungo_preprocess_field(&$variables) {
           $entities = $paragraph->field_4col_deck_col1->referencedEntities();
           $situation_link = reset($entities);
           if ($situation_link->getType() == 'situation_links') {
-            /** @var Attribute $attributes */
+            /** @var Drupal\Core\Template\Attribute $attributes */
             $attributes = $variables['items'][$key]['attributes'];
             $attributes->addClass('paragraph-set-negative-margin');
-            /** @var Attribute $attributes */
+            /** @var Drupal\Core\Template\Attribute $attributes */
             $prevel_attributes = $variables['items'][$prevkey]['attributes'];
             $prevel_attributes->addClass('content-set-negative-margin');
           }
@@ -158,7 +159,7 @@ function mungo_form_alter(&$form, &$form_state, $form_id) {
  * @param array $variables
  *   Variables to preprocess.
  */
-function _mungo_preprocess_field_main_media($field_name, &$variables) {
+function _mungo_preprocess_field_main_media($field_name, array &$variables) {
   if ($field_name == 'field_caption') {
     $variables['attributes']['class'][] = 'caption';
   }
@@ -175,7 +176,7 @@ function _mungo_preprocess_field_main_media($field_name, &$variables) {
  * @param array $variables
  *   Variables to preprocess.
  */
-function _mungo_preprocess_text_field($field_name, &$variables) {
+function _mungo_preprocess_text_field($field_name, array &$variables) {
   $variables['attributes']['class'][] = 'article-text';
 
   if (in_array($field_name, ['field_subtitle', 'field_event_teaser'])) {
@@ -350,7 +351,7 @@ function mungo_preprocess_node(&$variables) {
     return;
   }
 
-  /** @var Node $node */
+  /** @var Drupal\node\entity\Node $node */
   $node = $variables['node'];
 
   // Add absolute url to the node.
@@ -452,7 +453,7 @@ function _mungo_preprocess_node_badge(Node $node, &$variables) {
     // Pick out the progression term the node is associated with.
     $progression_reference = $node->field_badge_progression->referencedEntities();
     if (is_array($progression_reference) && !empty($progression_reference)) {
-      /** @var Term $term */
+      /** @var Drupal\taxonomy\Entity\Term $term */
       $term = reset($progression_reference);
 
       // Find all nodes that is in the progression.
@@ -464,11 +465,13 @@ function _mungo_preprocess_node_badge(Node $node, &$variables) {
 
       if (!empty($nids)) {
         $nodes = Node::loadMultiple(array_values($nids));
-        dds_badge_sort_nodes_by_level($nodes);
+        if ($nodes && is_array($nodes)) {
+          dds_badge_sort_nodes_by_level($nodes);
+        }
 
         $links = [];
         foreach ($nodes as $linked_node) {
-          /** @var Node $linked_node */
+          /** @var Drupal\node\Entity\Node $linked_node */
           /** @var OptionsProviderInterface $field_item */
           $field_item = $linked_node->field_badge_level->get(0);
           $option = $field_item->getPossibleOptions()[$field_item->value];
@@ -590,7 +593,7 @@ function _mungo_preprocess_node_article(Node $node, &$variables) {
 /**
  * Render variables needed for presentation of a person as a author.
  *
- * @param Term $person
+ * @param Drupal\taxonomy\Entity\Term $person
  *   A Person term.
  *
  * @return array
@@ -649,9 +652,9 @@ function _mungo_preprocess_author_presentation(Term $person) {
 function _mungo_preprocess_paragraph_content_link(&$variables) {
 
   // Prepare the variables we'll use to extract the data we need.
-  /** @var Paragraph $paragraph */
+  /** @var Drupal\paragraphs\Entity\Paragraph $paragraph */
   $paragraph = $variables['paragraph'];
-  /** @var LinkItem $link */
+  /** @var Drupal\link\Plugin\Field\FieldType\LinkItem $link */
   $link = $paragraph->get('field_content_link')->first();
   $lead = empty($paragraph->get('field_content_link_lead')->first()) ? NULL : $paragraph->get('field_content_link_lead')->first()->value;
   $show_thumbnail = (boolean) $variables['paragraph']->get('field_show_thumbnail')->first()->value;
@@ -697,7 +700,7 @@ function _mungo_preprocess_paragraph_content_link(&$variables) {
 
           // Get the uri for the thumbnail of either an image or a video.
           $thumbnail_uri = NULL;
-          if(!empty($main_media)) {
+          if (!empty($main_media)) {
             if ($main_media->hasField('field_media_video_embed_field')) {
               $thumbnail_uri = dds_metatag_video_thumb_from_main_media($main_media);
             }
@@ -857,19 +860,17 @@ function mungo_theme_suggestions_alter(array &$suggestions, array $variables, $h
       }
       // Since two columns require extra wrapping of items this new template is
       // used. This could and should be refactored but it works right now.
-      if ($bundle === "2col_deck" && $object instanceof \Drupal\Core\Entity\Entity && $object->hasField('field_2col_column_size') && isset($object->field_2col_column_size->value)) {
+      if ($bundle === "2col_deck" && $object instanceof Entity && $object->hasField('field_2col_column_size') && isset($object->field_2col_column_size->value)) {
         $size = _mungo_2col_size_option_to_text($object->field_2col_column_size->value);
 
         if ($size === "66_33" && $field_name === 'field_2col_deck_col1') {
           $suggestions[] = $hook . '__' . $variables['element']['#entity_type'] . '__deckcolumn__two_cols';
         }
 
-        // '1/3 : 2/3'
+        // '1/3 : 2/3'.
         if ($size === "33_66" && $field_name === 'field_2col_deck_col2') {
           $suggestions[] = $hook . '__' . $variables['element']['#entity_type'] . '__deckcolumn__two_cols';
         }
-
-
       }
       // Provide full view_mode for title and field_subtitle fields
       // to differentiate on when to apply dymo-text.

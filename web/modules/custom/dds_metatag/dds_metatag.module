@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Render\BubbleableMetadata;
+use Drupal\media_entity\Entity\Media;
 
 /**
  * Implements hook_token_info().
@@ -116,15 +117,15 @@ function dds_metatag_tokens($type, $tokens, array $data, array $options, Bubblea
 /**
  * Extracts a video thumbnail from a main_media field.
  *
- * @param \Drupal\media_entity\Entity\Media $media_entity
+ * @param Drupal\media_entity\Entity\Media $media_entity
  *   The Main Media fields Media entity, has to have a
  *   field_media_video_embed_field field.
  *
  * @return string
  *   The URL for the video if found.
  */
-function dds_metatag_video_thumb_from_main_media($media_entity): string {
-  if (empty($media_entity) || ! $media_entity instanceof \Drupal\media_entity\Entity\Media || !$media_entity->hasField('field_media_video_embed_field')) {
+function dds_metatag_video_thumb_from_main_media(Media $media_entity): string {
+  if (empty($media_entity) || !$media_entity instanceof Media || !$media_entity->hasField('field_media_video_embed_field')) {
     return NULL;
   }
 

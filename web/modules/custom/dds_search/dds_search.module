@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\views\ViewExecutable;
 
 const DDS_SEARCH_DATE_USER_FORMAT = 'd/m/Y';
 const DDS_SEARCH_DATE_EXECUTION_FORMAT = 'm/d/Y';
@@ -98,7 +99,7 @@ function _dds_search_reformat_date_us_to_dk($value) {
  *
  * Re-format date field used in the view before rendering the pager.
  */
-function dds_search_views_pre_render(\Drupal\views\ViewExecutable $view) {
+function dds_search_views_pre_render(ViewExecutable $view) {
   // We've formatted the date from DK to US in a previous submit hook, but now
   // as we want to render the view and eg. pagers with a "human"-readable
   // format.
