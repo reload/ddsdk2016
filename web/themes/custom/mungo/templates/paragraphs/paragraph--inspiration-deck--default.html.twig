@@ -23,7 +23,7 @@
         <div class="inner" style="background-color: {{ teaser_text_background_color }}; color: {{ teaser_text_color }}">
 
             {% if content.field_insp_teaser_link.0 %}
-            <a class="content" href="{{ content.field_insp_teaser_link.0 }}">
+            <a class="content" href="{{ content.field_insp_teaser_link.0 }}" style="color: {{ teaser_text_color }}">
                 <h2>{{ content.field_insp_teaser_heading.0 }}</h2>
                 <p>{{ content.field_insp_teaser_text.0 }}</p>
             </a>
