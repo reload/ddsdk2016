@@ -18,4 +18,3 @@ permissions:
   - 'access shortcuts'
   - 'search content'
   - 'use text format full_html'
-  - 'restful get monitoring-sensor-result'

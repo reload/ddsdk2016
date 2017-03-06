@@ -81,7 +81,8 @@
         "woothemes/flexslider": "^2.6",
         "drupal/http2_server_push": "^1",
         "drupal/dropguard": "^1",
-        "drupal/monitoring": "^1"
+        "drupal/monitoring": "^1",
+        "drupal/taxonomy_access_fix": "^2"
     },
     "require-dev": {
         "behat/mink": "~1.7",

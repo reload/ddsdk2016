@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b3c0bee9b1b599881f4f412005a6c4e5",
+    "content-hash": "bff1931909dea07648d823813a217f25",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -3629,6 +3629,49 @@
             "homepage": "https://www.drupal.org/project/stage_file_proxy",
             "support": {
                 "source": "http://cgit.drupalcode.org/stage_file_proxy"
+            }
+        },
+        {
+            "name": "drupal/taxonomy_access_fix",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/taxonomy_access_fix",
+                "reference": "8.x-2.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/taxonomy_access_fix-8.x-2.1.zip",
+                "reference": null,
+                "shasum": "8bc5416c2357c3cfe7914d35d84ff9cad1f529e7"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.1",
+                    "datestamp": "1487018283"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "rudiedirkx",
+                    "homepage": "https://www.drupal.org/user/890274"
+                }
+            ],
+            "description": "Fixes the crooked access checks for Taxonomy pages",
+            "homepage": "https://www.drupal.org/project/taxonomy_access_fix",
+            "support": {
+                "source": "http://cgit.drupalcode.org/taxonomy_access_fix"
             }
         },
         {

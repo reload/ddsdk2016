@@ -1,0 +1,14 @@
+uuid: 16c57259-5467-445e-b355-97793dbc560c
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.monitoring
+  module:
+    - user
+id: user_remove_role_action.monitoring
+label: 'Remove the Monitoring role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: monitoring
