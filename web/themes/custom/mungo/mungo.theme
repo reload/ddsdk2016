@@ -509,7 +509,7 @@ function _mungo_preprocess_event(Node $node, &$variables) {
   // If the event is an all day event.
   if (!empty($node->get('field_event_is_all_day')->value) && $node->get('field_event_is_all_day')->value) {
     // Set the format that will be used.
-    $format = 'D, m/d/Y';
+    $format = 'D, d/m/Y';
 
     // Get timestamps and format them.
     if (!empty($node->get('field_event_start')->date) && !empty($node->get('field_event_end')->date)) {
