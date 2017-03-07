@@ -512,7 +512,7 @@ function _mungo_preprocess_event(Node $node, &$variables) {
     if (!empty($node->get('field_event_start')->date) && !empty($node->get('field_event_end')->date)) {
       $start_date = $node->get('field_event_start')->date;
       $end_date = $node->get('field_event_end')->date;
-      
+
       if ($start_date instanceof DrupalDateTime && $end_date instanceof DrupalDateTime) {
         // Convert dates to format, that doesn't show time.
         $start_date_formatted = \Drupal::service('date.formatter')->format($start_date->getTimeStamp(), 'event_short_date_no_time');
