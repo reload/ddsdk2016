@@ -5,6 +5,8 @@
  * Functionality to support layouting of paragraphs.
  */
 
+use Drupal\Core\Entity\Entity;
+
 /**
  * Implements hook_preprocess_HOOK().
  *
@@ -39,7 +41,7 @@ function dds_layout_preprocess_field(&$variables) {
   $object = isset($variables['element']['#object']) ? $variables['element']['#object'] : NULL;
   $size = NULL;
 
-  if ($object instanceof \Drupal\Core\Entity\Entity && $object->hasField('field_2col_column_size') && isset($object->field_2col_column_size->value)) {
+  if ($object instanceof Entity && $object->hasField('field_2col_column_size') && isset($object->field_2col_column_size->value)) {
     $size = _mungo_2col_size_option_to_text($object->field_2col_column_size->value);
   }
 

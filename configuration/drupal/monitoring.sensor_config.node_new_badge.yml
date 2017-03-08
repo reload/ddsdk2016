@@ -1,0 +1,25 @@
+uuid: 9ef710df-7a17-46d1-8705-61c4b26c1007
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: node_new_badge
+label: 'New Mærke nodes'
+description: 'New nodes of type Mærke'
+category: Content
+plugin_id: entity_aggregator
+result_class: null
+value_label: 'Mærke nodes'
+value_type: number
+caching_time: 600
+settings:
+  entity_type: node
+  conditions:
+    -
+      field: type
+      value: badge
+  time_interval_field: created
+  time_interval_value: 86400
+thresholds:
+  type: none

@@ -1,0 +1,10 @@
+uuid: 60ac6132-0fec-4765-a5c7-ae99d101268b
+langcode: en
+status: true
+dependencies: {  }
+id: monitoring
+label: Monitoring
+weight: 4
+is_admin: null
+permissions:
+  - 'restful get monitoring-sensor-result'

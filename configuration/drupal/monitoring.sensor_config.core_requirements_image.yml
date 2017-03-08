@@ -1,0 +1,20 @@
+uuid: 400c45dd-b41b-442b-bf93-06bc63502c4b
+langcode: da
+status: true
+dependencies:
+  module:
+    - image
+id: core_requirements_image
+label: 'Module image'
+description: 'Requirements of the image module'
+category: Requirements
+plugin_id: core_requirements
+result_class: null
+value_label: null
+value_type: no_value
+caching_time: 3600
+settings:
+  module: image
+  exclude_keys: {  }
+thresholds:
+  type: none

@@ -1,0 +1,20 @@
+uuid: e4862eb0-7836-4399-a881-dea9a7dc7761
+langcode: da
+status: true
+dependencies:
+  module:
+    - address
+id: core_requirements_address
+label: 'Module address'
+description: 'Requirements of the address module'
+category: Requirements
+plugin_id: core_requirements
+result_class: null
+value_label: null
+value_type: no_value
+caching_time: 3600
+settings:
+  module: address
+  exclude_keys: {  }
+thresholds:
+  type: none

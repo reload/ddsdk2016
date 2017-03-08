@@ -119,10 +119,10 @@ function dds_badge_preprocess_views_view(&$variables) {
  *
  * The array will be sorted from lowest (basic) to highest level (expert).
  *
- * @param Node[] $nodes
+ * @param Drupal\node\Entity\Node[] $nodes
  *   Array of nodes, will be sorted by reference.
  */
-function dds_badge_sort_nodes_by_level(&$nodes) {
+function dds_badge_sort_nodes_by_level(array &$nodes) {
   if (!is_array($nodes) || count($nodes) === 0) {
     return;
   }

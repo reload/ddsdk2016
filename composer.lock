@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1be5835fb302179a8aa56ef0ebc56ca3",
+    "content-hash": "bff1931909dea07648d823813a217f25",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -2018,7 +2018,8 @@
                 "patches_applied": {
                     "2558207: Add hook to react to image_path_flush() - recommended by the Reloadtina module": "https://www.drupal.org/files/issues/add_hook_image_path_flush-2558207-4.patch",
                     "2408549: Notify about overridden configuration": "https://www.drupal.org/files/issues/config-override-warning-2408549-29.patch",
-                    "2650434: Clearing cache via UI in translated language resets config translation of field labels to default language": "patches/core-language-initialization-8.2.6-reroll-2650434.patch"
+                    "2650434: Clearing cache via UI in translated language resets config translation of field labels to default language": "patches/core-language-initialization-8.2.6-reroll-2650434.patch",
+                    "2857132: Account administration pages language negotiation ignores _format blocking REST resources": "https://www.drupal.org/files/issues/preserve-format-while-negoatiating-2857132.patch"
                 }
             },
             "autoload": {
@@ -2150,7 +2151,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/dropguard-8.x-1.1.zip",
-                "reference": null,
+                "reference": "8.x-1.1",
                 "shasum": "1e1f8ab73654b2dd3b4acc520703a0aa876d0d52"
             },
             "require": {
@@ -3131,7 +3132,7 @@
                     "datestamp": "1485901983"
                 },
                 "patches_applied": {
-                    "2563647: Adds views support to metatag": "https://www.drupal.org/files/issues/views_integration-2563647-52.patch"
+                    "2563647: Adds views support to metatag": "patches/views_integration-2563647-52-modified-notice-fix.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -3158,6 +3159,63 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/metatag",
                 "issues": "http://drupal.org/project/issues/metatag"
+            }
+        },
+        {
+            "name": "drupal/monitoring",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/monitoring",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/monitoring-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "17948090987e4f4c75afcff20ddf8ef4c02167a0"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "require-dev": {
+                "drupal/captcha": "*",
+                "drupal/past": "*",
+                "drupal/payment": "*",
+                "drupal/search_api": "*",
+                "drupal/search_api_db": "*",
+                "drupal/search_api_solr": "*",
+                "drupal/simplenews": "*",
+                "drupal/ultimate_cron": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1479768839"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Berdir",
+                    "homepage": "https://www.drupal.org/user/214652"
+                },
+                {
+                    "name": "miro_dietiker",
+                    "homepage": "https://www.drupal.org/user/227761"
+                }
+            ],
+            "description": "Monitoring base.",
+            "homepage": "https://www.drupal.org/project/monitoring",
+            "support": {
+                "source": "http://cgit.drupalcode.org/monitoring"
             }
         },
         {
@@ -3571,6 +3629,49 @@
             "homepage": "https://www.drupal.org/project/stage_file_proxy",
             "support": {
                 "source": "http://cgit.drupalcode.org/stage_file_proxy"
+            }
+        },
+        {
+            "name": "drupal/taxonomy_access_fix",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/taxonomy_access_fix",
+                "reference": "8.x-2.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/taxonomy_access_fix-8.x-2.1.zip",
+                "reference": null,
+                "shasum": "8bc5416c2357c3cfe7914d35d84ff9cad1f529e7"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.1",
+                    "datestamp": "1487018283"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "rudiedirkx",
+                    "homepage": "https://www.drupal.org/user/890274"
+                }
+            ],
+            "description": "Fixes the crooked access checks for Taxonomy pages",
+            "homepage": "https://www.drupal.org/project/taxonomy_access_fix",
+            "support": {
+                "source": "http://cgit.drupalcode.org/taxonomy_access_fix"
             }
         },
         {
@@ -7060,61 +7161,40 @@
         },
         {
             "name": "drupal/coder",
-            "version": "2.10.0",
+            "version": "8.2.11",
             "source": {
                 "type": "git",
-                "url": "https://git.drupal.org/project/coder",
-                "reference": "8.x-2.10"
+                "url": "https://github.com/klausi/coder.git",
+                "reference": "564a361274d8234d36385766f063ca89c4184479"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/coder-8.x-2.10.zip",
-                "reference": "8.x-2.10",
-                "shasum": "03547e5838163e1cded923d7a660934364b86d76"
+                "url": "https://api.github.com/repos/klausi/coder/zipball/564a361274d8234d36385766f063ca89c4184479",
+                "reference": "564a361274d8234d36385766f063ca89c4184479",
+                "shasum": ""
             },
             "require": {
-                "drupal/core": "~8.0"
+                "ext-mbstring": "*",
+                "php": ">=5.4.0",
+                "squizlabs/php_codesniffer": ">=2.8.1 <3.0",
+                "symfony/yaml": ">=2.0.0"
             },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-2.x": "2.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-2.10",
-                    "datestamp": "1481728683"
-                }
+            "require-dev": {
+                "phpunit/phpunit": ">=3.7 <6"
             },
-            "notification-url": "https://packages.drupal.org/8/downloads",
+            "type": "phpcodesniffer-standard",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0+"
             ],
-            "authors": [
-                {
-                    "name": "douggreen",
-                    "homepage": "https://www.drupal.org/user/29191"
-                },
-                {
-                    "name": "klausi",
-                    "homepage": "https://www.drupal.org/user/262198"
-                },
-                {
-                    "name": "solotandem",
-                    "homepage": "https://www.drupal.org/user/240748"
-                },
-                {
-                    "name": "stella",
-                    "homepage": "https://www.drupal.org/user/66894"
-                },
-                {
-                    "name": "sun",
-                    "homepage": "https://www.drupal.org/user/54136"
-                }
-            ],
+            "description": "Coder is a library to review Drupal code.",
             "homepage": "https://www.drupal.org/project/coder",
-            "support": {
-                "source": "http://cgit.drupalcode.org/coder"
-            }
+            "keywords": [
+                "code review",
+                "phpcs",
+                "standards"
+            ],
+            "time": "2017-03-02T08:57:31+00:00"
         },
         {
             "name": "fabpot/goutte",
@@ -8131,6 +8211,84 @@
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
             "time": "2015-06-21T13:59:46+00:00"
+        },
+        {
+            "name": "squizlabs/php_codesniffer",
+            "version": "2.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
+                "reference": "d7cf0d894e8aa4c73712ee4a331cc1eaa37cdc7d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/d7cf0d894e8aa4c73712ee4a331cc1eaa37cdc7d",
+                "reference": "d7cf0d894e8aa4c73712ee4a331cc1eaa37cdc7d",
+                "shasum": ""
+            },
+            "require": {
+                "ext-simplexml": "*",
+                "ext-tokenizer": "*",
+                "ext-xmlwriter": "*",
+                "php": ">=5.1.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "bin": [
+                "scripts/phpcs",
+                "scripts/phpcbf"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "CodeSniffer.php",
+                    "CodeSniffer/CLI.php",
+                    "CodeSniffer/Exception.php",
+                    "CodeSniffer/File.php",
+                    "CodeSniffer/Fixer.php",
+                    "CodeSniffer/Report.php",
+                    "CodeSniffer/Reporting.php",
+                    "CodeSniffer/Sniff.php",
+                    "CodeSniffer/Tokens.php",
+                    "CodeSniffer/Reports/",
+                    "CodeSniffer/Tokenizers/",
+                    "CodeSniffer/DocGenerators/",
+                    "CodeSniffer/Standards/AbstractPatternSniff.php",
+                    "CodeSniffer/Standards/AbstractScopeSniff.php",
+                    "CodeSniffer/Standards/AbstractVariableSniff.php",
+                    "CodeSniffer/Standards/IncorrectPatternException.php",
+                    "CodeSniffer/Standards/Generic/Sniffs/",
+                    "CodeSniffer/Standards/MySource/Sniffs/",
+                    "CodeSniffer/Standards/PEAR/Sniffs/",
+                    "CodeSniffer/Standards/PSR1/Sniffs/",
+                    "CodeSniffer/Standards/PSR2/Sniffs/",
+                    "CodeSniffer/Standards/Squiz/Sniffs/",
+                    "CodeSniffer/Standards/Zend/Sniffs/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Greg Sherwood",
+                    "role": "lead"
+                }
+            ],
+            "description": "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
+            "homepage": "http://www.squizlabs.com/php-codesniffer",
+            "keywords": [
+                "phpcs",
+                "standards"
+            ],
+            "time": "2017-03-01T22:17:45+00:00"
         },
         {
             "name": "symfony/browser-kit",

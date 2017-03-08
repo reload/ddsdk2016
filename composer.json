@@ -80,7 +80,9 @@
         "drupal/google_analytics": "^2",
         "woothemes/flexslider": "^2.6",
         "drupal/http2_server_push": "^1",
-        "drupal/dropguard": "^1"
+        "drupal/dropguard": "^1",
+        "drupal/monitoring": "^1",
+        "drupal/taxonomy_access_fix": "^2"
     },
     "require-dev": {
         "behat/mink": "~1.7",
@@ -90,7 +92,8 @@
         "mikey179/vfsStream": "~1.2",
         "phpunit/phpunit": "~4.8",
         "symfony/css-selector": "~2.8",
-        "drupal/coder": "^2"
+        "drupal/coder": "^8.2",
+        "squizlabs/php_codesniffer": "^2"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -132,7 +135,8 @@
             "drupal/core": {
                 "2558207: Add hook to react to image_path_flush() - recommended by the Reloadtina module": "https://www.drupal.org/files/issues/add_hook_image_path_flush-2558207-4.patch",
                 "2408549: Notify about overridden configuration": "https://www.drupal.org/files/issues/config-override-warning-2408549-29.patch",
-                "2650434: Clearing cache via UI in translated language resets config translation of field labels to default language": "patches/core-language-initialization-8.2.6-reroll-2650434.patch"
+                "2650434: Clearing cache via UI in translated language resets config translation of field labels to default language": "patches/core-language-initialization-8.2.6-reroll-2650434.patch",
+                "2857132: Account administration pages language negotiation ignores _format blocking REST resources": "https://www.drupal.org/files/issues/preserve-format-while-negoatiating-2857132.patch"
             },
             "drupal/chosen": {
                 "2705891: Fix invisible required chosen widgets": "https://www.drupal.org/files/issues/client_side_validation-2705891-5.patch"

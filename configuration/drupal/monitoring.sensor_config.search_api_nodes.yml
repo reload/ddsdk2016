@@ -1,0 +1,19 @@
+uuid: 920e54e0-4bd5-49b3-b0d4-01dd96fc59cb
+langcode: da
+status: true
+dependencies:
+  module:
+    - search_api
+id: search_api_nodes
+label: 'Search index queue size of Nodes'
+description: ''
+category: 'Search API'
+plugin_id: search_api_unindexed
+result_class: null
+value_label: 'Unindexed items'
+value_type: number
+caching_time: 900
+settings:
+  index_id: nodes
+thresholds:
+  type: none

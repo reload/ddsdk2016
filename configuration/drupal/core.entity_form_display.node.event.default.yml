@@ -277,9 +277,10 @@ content:
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
       add_mode: dropdown
       form_display_mode: default
+      default_paragraph_type: _none
     third_party_settings: {  }
     type: entity_reference_paragraphs
   field_programs:
@@ -288,9 +289,10 @@ content:
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
       add_mode: dropdown
       form_display_mode: default
+      default_paragraph_type: program
     third_party_settings: {  }
   langcode:
     type: language_select

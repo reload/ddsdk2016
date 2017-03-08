@@ -1,0 +1,21 @@
+uuid: 10211d83-9918-46d0-bd2b-385d6b7134b1
+langcode: en
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - monitoring
+    - serialization
+    - user
+_core:
+  default_config_hash: 6gGLfn9aMlp0yn1046ZPjA3Vh13MrVngyjzSuXCYVNw
+id: monitoring_sensor
+plugin_id: monitoring-sensor
+granularity: method
+configuration:
+  GET:
+    supported_formats:
+      - json
+    supported_auth:
+      - basic_auth
+      - cookie

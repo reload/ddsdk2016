@@ -1,0 +1,20 @@
+uuid: 85badf7f-a647-4a11-8b4c-f061cbfb519f
+langcode: da
+status: true
+dependencies:
+  module:
+    - twig_xdebug
+id: core_requirements_twig_xdebug
+label: 'Module twig_xdebug'
+description: 'Requirements of the twig_xdebug module'
+category: Requirements
+plugin_id: core_requirements
+result_class: null
+value_label: null
+value_type: no_value
+caching_time: 3600
+settings:
+  module: twig_xdebug
+  exclude_keys: {  }
+thresholds:
+  type: none

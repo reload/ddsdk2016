@@ -1,0 +1,20 @@
+uuid: 693a1879-4635-4352-8f03-8aa6df8e5f72
+langcode: da
+status: true
+dependencies:
+  module:
+    - google_analytics
+id: core_requirements_google_analytics
+label: 'Module google_analytics'
+description: 'Requirements of the google_analytics module'
+category: Requirements
+plugin_id: core_requirements
+result_class: null
+value_label: null
+value_type: no_value
+caching_time: 3600
+settings:
+  module: google_analytics
+  exclude_keys: {  }
+thresholds:
+  type: none

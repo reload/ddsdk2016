@@ -3,7 +3,6 @@ type: theme
 base theme: classy
 description: 'Mungo is a Mongoose with couragest and speed as its main perks.'
 package: Core
-version: 0.1
 core: 8.x
 
 libraries:
@@ -30,4 +29,3 @@ regions:
   footer_menu: 'Footer Menu'
   footer_contact: 'Footer Contact'
   footer_social: 'Footer Social'
-

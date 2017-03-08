@@ -1,0 +1,20 @@
+uuid: 4ed426fa-3401-42d0-85c0-8f9260d63320
+langcode: da
+status: true
+dependencies:
+  module:
+    - color
+id: core_requirements_color
+label: 'Module color'
+description: 'Requirements of the color module'
+category: Requirements
+plugin_id: core_requirements
+result_class: null
+value_label: null
+value_type: no_value
+caching_time: 3600
+settings:
+  module: color
+  exclude_keys: {  }
+thresholds:
+  type: none
