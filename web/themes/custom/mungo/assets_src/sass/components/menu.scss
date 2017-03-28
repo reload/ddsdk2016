@@ -149,3 +149,11 @@
     }
   }
 }
+
+// Place this on root-most element (eg body) when a modal is open.
+// Currently serves to fix the background to prevent the body behind the menu
+// from scrolling.
+.is-modal-open {
+  overflow: hidden;
+  position: fixed;
+}
