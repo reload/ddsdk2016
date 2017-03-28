@@ -5,6 +5,12 @@
 
 (function ($, Drupal) {
   Drupal.behaviors.dropdownmenu = {
+    // If set to true the named functionality won't run.
+    killSwitches: {
+      'scrollClose': false
+    },
+
+    // Close main menu and search-box.
     closeAllMenus: function (context) {
       // Close all menus.
       $('ul.menu--main .menu-item--expanded', context).removeClass('opened');
@@ -22,8 +28,10 @@
 
       // Disable menus on scroll.
       $(window).scroll(function () {
-        // Close all menus.
-        Drupal.behaviors.dropdownmenu.closeAllMenus(context);
+        // Close all menus unless the kill-switch is enabled.
+        if (!Drupal.behaviors.dropdownmenu.killSwitches.scrollClose) {
+          Drupal.behaviors.dropdownmenu.closeAllMenus(context);
+        }
       });
 
       // When the user clicks a top-level menu we want to toggle it's open-state
@@ -32,7 +40,7 @@
         // Close the search-box.
         $('#block-mungo-search input#search-field-expose').prop('checked', false).change();
 
-        // Close all other menus.
+        // Close all other main-menu items.
         $(this).siblings().removeClass('opened');
 
         // Toggle the state of the clicked menu.
@@ -46,7 +54,9 @@
         e.preventDefault();
       });
 
+      // Toggle main-menu items on hover.
       $('ul.menu--main .menu-item--expanded', context).hover(
+        // Hover-in.
         function () {
           // Menu is only hoverable when the search-field is not visible.
           if ($('#block-mungo-search input#search-field-expose').prop('checked')) {
@@ -56,6 +66,8 @@
           // to the hovered item and remove it from all of its siblings.
           $(this).addClass('opened');
         },
+
+        // Hover-out.
         function () {
           // Menu is only hoverable when the search-field is not visible.
           if ($('#block-mungo-search input#search-field-expose').prop('checked')) {
@@ -67,14 +79,37 @@
         }
       );
 
+      // React on the main menu being opened on mobile where the trigger is a
+      // checkbox based burger-icon.
+      $("#main-menu-toggle").on('change', function () {
+        if ($(this).prop('checked')) {
+          // Menu is being enabled, disable auto-close on scroll.
+          Drupal.behaviors.dropdownmenu.killSwitches.scrollClose = true;
+          $('body').addClass('is-modal-open');
+        } else {
+          $('body').removeClass('is-modal-open');
+          // Menu is being closed, renable auto-close on scroll.
+          Drupal.behaviors.dropdownmenu.killSwitches.scrollClose = true;
+        }
+      });
+
       // React on changes to the search-menu toggle.
       $('#search-field-expose').on('change', function () {
         if ($(this).prop('checked')) {
           // When toggled on:
+          // First disable the scroll-close functionallity for 100ms - we're
+          // going to put focus on a field which may trigger a scroll event.
+          Drupal.behaviors.dropdownmenu.killSwitches.scrollClose = true;
+          window.setTimeout(function () {
+            Drupal.behaviors.dropdownmenu.killSwitches.scrollClose = false;
+          }, 100);
+
           // Make the search-field active.
           $('input.form-search').focus();
+
           // Close all other menus.
           $('ul.menu--main .menu-item--expanded').removeClass('opened');
+          $("#main-menu-toggle").prop('checked', false).change();
         }
         else {
           // When toggled off, make sure the search-form is no longer active.
