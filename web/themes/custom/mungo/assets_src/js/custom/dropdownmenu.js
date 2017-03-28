@@ -97,12 +97,12 @@
       $('#search-field-expose').on('change', function () {
         if ($(this).prop('checked')) {
           // When toggled on:
-          // First disable the scroll-close functionallity for 100ms - we're
+          // First disable the scroll-close functionallity temporarily - we're
           // going to put focus on a field which may trigger a scroll event.
           Drupal.behaviors.dropdownmenu.killSwitches.scrollClose = true;
           window.setTimeout(function () {
             Drupal.behaviors.dropdownmenu.killSwitches.scrollClose = false;
-          }, 100);
+          }, 1000);
 
           // Make the search-field active.
           $('input.form-search').focus();
