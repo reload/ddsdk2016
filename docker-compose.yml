@@ -5,7 +5,7 @@ services:
   https:
     image: zazukoians/hitch
     ports:
-      - '443:443'
+      - '443'
     environment:
       HITCH_PARAMS: --backend=[web]:80 --frontend=[*]:443
     links:
@@ -15,7 +15,7 @@ services:
   web:
     image: reload/drupal-apache-fpm
     ports:
-      - '80:80'
+      - '80'
     volumes:
       # Temporary mount for the cron-configuration, we'll copy it into place
       # with correct ownership via the init-script.
@@ -30,7 +30,7 @@ services:
   fpm:
     image: reload/drupal-php7-fpm
     ports:
-      - '9000:9000'
+      - '9000'
     volumes_from:
       - webroot
     links:
@@ -42,23 +42,23 @@ services:
 
   # Mariadb database, initialized with a nighly pre-build datadir.
   db:
-    image: mariadb:10
+    image: reload/db-datadir:ddsdk2016-master-latest-fulldb
     ports:
-      - '3306:3306'
-    volumes_from:
-      - db-data
-    # Notice the following environment-variables only takes effect if db-data
-    # is a database-dump and not a datadir image.
+      - '3306'
+    # Switch to the "mariadb" image and uncomment the following if you want to
+    # import a custom databasedump
+    #  volumes:
+    #    - './docker/my-custom-db-dump.sql:/docker-entrypoint-initdb.d/100-db.sql'
+
+    # Notice the following environment-variables only takes effect if we're 
+    # using a raw mariadb image. We're just leaving the values used during
+    # the datadir build here for reference.
+    # see https://github.com/reload/docker-db-datadir-worker/blob/master/opt/datadir-preinit/docker-compose.template.yml
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: db
       MYSQL_USER: db
       MYSQL_PASSWORD: db
-
-  # Pre-build datadir, the datadir has the root/root db/db credentials burned
-  # in and uses the databasename "db"
-  db-data:
-    image: reload/db-datadir:ddsdk2016-develop-latest
 
   # Drush startet off of the common php-image.
   drush:
@@ -77,7 +77,7 @@ services:
   solr:
     image: blinkreaction/drupal-solr:4.x-stable
     ports:
-      - '8983:8983'
+      - '8983'
     volumes:
       - './web/modules/contrib/search_api_solr/solr-conf/4.x:/var/lib/solr/conf:ro'
 
