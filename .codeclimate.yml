@@ -27,3 +27,10 @@ ratings:
   - "**.php"
 exclude_paths:
   - tests/
+  - documentation/
+  - drush/
+  - patches/
+  - scripts/
+  - web/autoload.php
+  - web/sites/**settings.php
+  - web/sites/**settings.local.php
