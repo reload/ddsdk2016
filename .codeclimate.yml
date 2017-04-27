@@ -16,6 +16,8 @@ engines:
     enabled: true
   phpcodesniffer:
     enabled: true
+    config:
+      standard: Drupal,DrupalPractice
 ratings:
   paths:
   - "**.css"
@@ -27,4 +29,4 @@ ratings:
   - "**.py"
   - "**.rb"
 exclude_paths:
-- tests/
+  - tests/
