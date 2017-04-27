@@ -24,6 +24,8 @@ ratings:
   - "**.inc"
   - "**.js"
   - "**.module"
+  - "**.install"
+  - "**.theme"
   - "**.php"
 exclude_paths:
   - tests/
