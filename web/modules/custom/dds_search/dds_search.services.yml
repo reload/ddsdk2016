@@ -4,4 +4,4 @@ services:
     tags:
       - {name: event_subscriber}
     arguments:
-      - @current_route_match
+      - "@current_route_match"
