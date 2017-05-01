@@ -144,9 +144,6 @@
             "drupal/metatag": {
                 "2563647: Adds views support to metatag": "patches/views_integration-2563647-52-modified-notice-fix.patch"
             },
-            "drupal/facets": {
-                "2833340: Sort facets by term weight": "https://www.drupal.org/files/issues/sort_facets_by_weight-2833340.patch"
-            },
             "drupal/search_api_solr": {
                 "2747849: search_api_solr handles UTC dates as if they where in the local TZ": "https://www.drupal.org/files/issues/timezone-handling-2747849-6.patch"
             }
