@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8d370a92b0dc79745a78a1bbf480e7d6",
+    "content-hash": "444f577f39033cd55dfa314885ebd666",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -1347,17 +1347,17 @@
         },
         {
             "name": "drupal/address",
-            "version": "1.0.0-rc3",
+            "version": "1.0.0-rc4",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/address",
-                "reference": "8.x-1.0-rc3"
+                "reference": "8.x-1.0-rc4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/address-8.x-1.0-rc3.zip",
-                "reference": "8.x-1.0-rc3",
-                "shasum": "64d0c0e3421a98cb4ddb7dfe84ac46379e0ed4f5"
+                "url": "https://ftp.drupal.org/files/projects/address-8.x-1.0-rc4.zip",
+                "reference": null,
+                "shasum": "541b020ce839dd9c75374e213c1131d9c1f6f52d"
             },
             "require": {
                 "commerceguys/addressing": "~1.0",
@@ -1371,8 +1371,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-rc3",
-                    "datestamp": "1477581243"
+                    "version": "8.x-1.0-rc4",
+                    "datestamp": "1486737287"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
