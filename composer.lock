@@ -2708,21 +2708,21 @@
         },
         {
             "name": "drupal/image_widget_crop",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/image_widget_crop",
-                "reference": "8.x-1.4"
+                "reference": "8.x-1.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/image_widget_crop-8.x-1.4.zip",
-                "reference": "8.x-1.4",
-                "shasum": "b4758cdda9c32b22537a9aae17c025676b07c6e2"
+                "url": "https://ftp.drupal.org/files/projects/image_widget_crop-8.x-1.5.zip",
+                "reference": null,
+                "shasum": "1f0a3de727d22a675c8be2e7af49ea22592d9d19"
             },
             "require": {
                 "drupal/core": "*",
-                "drupal/crop": "1.0.0"
+                "drupal/crop": "1.x"
             },
             "require-dev": {
                 "drupal/crop": "*",
@@ -2737,8 +2737,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.4",
-                    "datestamp": "1477080239"
+                    "version": "8.x-1.5",
+                    "datestamp": "1491393484"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -2747,8 +2747,9 @@
             ],
             "authors": [
                 {
-                    "name": "Drupal Media Team",
-                    "homepage": "https://www.drupal.org/user/3260690"
+                    "name": "Alexandre Mallet",
+                    "homepage": "https://github.com/woprrr",
+                    "role": "Maintainer"
                 },
                 {
                     "name": "Drupal media CI",
@@ -2765,9 +2766,15 @@
             ],
             "description": "Provides an interface for using the features of the Crop API.",
             "homepage": "https://www.drupal.org/project/image_widget_crop",
+            "keywords": [
+                "Crop",
+                "Drupal",
+                "Drupal Media"
+            ],
             "support": {
                 "source": "https://www.drupal.org/project/image_widget_crop",
-                "issues": "https://www.drupal.org/project/issues/image_widget_crop"
+                "issues": "https://www.drupal.org/project/issues/image_widget_crop",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
             }
         },
         {
