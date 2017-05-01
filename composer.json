@@ -82,7 +82,8 @@
         "drupal/http2_server_push": "~1.0",
         "drupal/dropguard": "~1.0",
         "drupal/monitoring": "~1.0",
-        "drupal/taxonomy_access_fix": "~2.0"
+        "drupal/taxonomy_access_fix": "~2.0",
+        "drupal/entity_reference_revisions": "~1.2"
     },
     "require-dev": {
         "behat/mink": "~1.7",
