@@ -2717,7 +2717,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/image_widget_crop-8.x-1.5.zip",
-                "reference": null,
+                "reference": "8.x-1.5",
                 "shasum": "1f0a3de727d22a675c8be2e7af49ea22592d9d19"
             },
             "require": {
@@ -3201,17 +3201,17 @@
         },
         {
             "name": "drupal/monitoring",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/monitoring",
-                "reference": "8.x-1.1"
+                "reference": "8.x-1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/monitoring-8.x-1.1.zip",
-                "reference": "8.x-1.1",
-                "shasum": "17948090987e4f4c75afcff20ddf8ef4c02167a0"
+                "url": "https://ftp.drupal.org/files/projects/monitoring-8.x-1.2.zip",
+                "reference": null,
+                "shasum": "fec2921b0e5f8a971911fd42445332ac41031271"
             },
             "require": {
                 "drupal/core": "*"
@@ -3219,7 +3219,7 @@
             "require-dev": {
                 "drupal/captcha": "*",
                 "drupal/past": "*",
-                "drupal/payment": "*",
+                "drupal/redirect_404": "*",
                 "drupal/search_api": "*",
                 "drupal/search_api_db": "*",
                 "drupal/search_api_solr": "*",
@@ -3232,8 +3232,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.1",
-                    "datestamp": "1479768839"
+                    "version": "8.x-1.2",
+                    "datestamp": "1493102044"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
