@@ -2682,17 +2682,17 @@
         },
         {
             "name": "drupal/http2_server_push",
-            "version": "1.0.0-beta1",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/http2_server_push",
-                "reference": "8.x-1.0-beta1"
+                "reference": "8.x-1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/http2_server_push-8.x-1.0-beta1.zip",
-                "reference": "8.x-1.0-beta1",
-                "shasum": "17d4e0f6571458c377cdca40247836c077dc0249"
+                "url": "https://ftp.drupal.org/files/projects/http2_server_push-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "cc2df591201313f1407e55424cfe7cf35127fa47"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -2703,8 +2703,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-beta1",
-                    "datestamp": "1478860739"
+                    "version": "8.x-1.0",
+                    "datestamp": "1489057084"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
