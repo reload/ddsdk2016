@@ -73,7 +73,7 @@
         "commerceguys/addressing": "dev-master#bc8d8cbcc151dd0aacdd8efad95a44e9ba2126b0",
         "drupal/extlink": "~1.0",
         "drupal/link_attributes": "~1.0",
-        "drupal/image_widget_crop": "~1.0",
+        "drupal/image_widget_crop": "~2.0",
         "drupal/pathauto": "~1.0",
         "drupal/redirect": "~1.0",
         "drupal/metatag": "~1.0",
