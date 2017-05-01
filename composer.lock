@@ -3730,7 +3730,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/token-8.x-1.0.zip",
-                "reference": null,
+                "reference": "8.x-1.0",
                 "shasum": "d24c7f1ffddbd0fc56bc92bacae1c4ff769a4442"
             },
             "require": {
@@ -3828,17 +3828,17 @@
         },
         {
             "name": "drupal/video_embed_field",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/video_embed_field",
-                "reference": "8.x-1.4"
+                "reference": "8.x-1.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/video_embed_field-8.x-1.4.zip",
-                "reference": "8.x-1.4",
-                "shasum": "7bf93a52e2e8d639b4dbefd65f0ee2b170d73f43"
+                "url": "https://ftp.drupal.org/files/projects/video_embed_field-8.x-1.5.zip",
+                "reference": null,
+                "shasum": "f54d470ef7f863604e51e6ae98cd40ef25de5f79"
             },
             "require": {
                 "drupal/core": "*"
@@ -3855,7 +3855,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.x",
-                    "datestamp": "1484253183",
+                    "datestamp": "1493246342",
                     "package": "Field types"
                 }
             },
