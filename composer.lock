@@ -1513,7 +1513,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/chosen-8.x-2.2.zip",
-                "reference": null,
+                "reference": "8.x-2.2",
                 "shasum": "56539100b9b4fe6a6dd1b89606aa4d3a5905185d"
             },
             "require": {
@@ -2050,17 +2050,17 @@
         },
         {
             "name": "drupal/crop",
-            "version": "1.0.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/crop",
-                "reference": "8.x-1.0"
+                "reference": "8.x-1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/crop-8.x-1.0.zip",
-                "reference": "8.x-1.0",
-                "shasum": "c59b10336821f0ef99f6d2770a72c400e167d979"
+                "url": "https://ftp.drupal.org/files/projects/crop-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "0ad542254940c844f8a22c1b386131f06c665b4f"
             },
             "require": {
                 "drupal/core": "*"
@@ -2074,8 +2074,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0",
-                    "datestamp": "1468356239"
+                    "version": "8.x-1.2",
+                    "datestamp": "1491032884"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
