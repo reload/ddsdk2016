@@ -23,9 +23,3 @@ settings:
   level: 2
   depth: 1
 visibility:
-  other_facet:
-    id: other_facet
-    facets: ''
-    facet_value: ''
-    negate: false
-    context_mapping: {  }
