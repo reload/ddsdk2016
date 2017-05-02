@@ -23,6 +23,7 @@ content:
       progress_indicator: throbber
     third_party_settings: {  }
     type: image_image
+    region: content
 hidden:
   created: true
   field_byline: true

@@ -26,11 +26,13 @@ content:
       override_labels: false
     third_party_settings: {  }
     type: inline_entity_form_simple
+    region: content
   field_deck_color:
     weight: 3
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
   field_label:
     weight: 1
     settings:
@@ -38,6 +40,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
   field_links:
     weight: 2
     settings:
@@ -45,6 +48,7 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
 hidden:
   created: true
   status: true

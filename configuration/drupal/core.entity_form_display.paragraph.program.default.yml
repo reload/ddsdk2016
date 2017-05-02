@@ -24,6 +24,7 @@ content:
       form_display_mode: default
       default_paragraph_type: program_item
     third_party_settings: {  }
+    region: content
   field_program_title:
     weight: 0
     settings:
@@ -31,6 +32,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
 hidden:
   created: true
   status: true

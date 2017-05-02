@@ -21,6 +21,7 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: basic_string
+    region: content
   field_program_item_date:
     weight: 3
     label: hidden
@@ -30,12 +31,14 @@ content:
       separator: '-'
     third_party_settings: {  }
     type: daterange_default
+    region: content
   field_program_text:
     weight: 1
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
 hidden:
   created: true
   uid: true

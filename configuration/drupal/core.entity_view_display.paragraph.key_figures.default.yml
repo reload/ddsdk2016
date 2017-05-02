@@ -31,6 +31,7 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: list_key
+    region: content
   field_key_figures_desc_1:
     weight: 3
     label: hidden
@@ -38,6 +39,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_key_figures_desc_2:
     weight: 7
     label: hidden
@@ -45,6 +47,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_key_figures_desc_3:
     weight: 11
     label: hidden
@@ -52,6 +55,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_key_figures_figure_1:
     weight: 1
     label: hidden
@@ -59,6 +63,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_key_figures_figure_2:
     weight: 5
     label: hidden
@@ -66,6 +71,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_key_figures_figure_3:
     weight: 9
     label: hidden
@@ -73,6 +79,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_key_figures_label_1:
     weight: 2
     label: hidden
@@ -80,6 +87,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_key_figures_label_2:
     weight: 6
     label: hidden
@@ -87,6 +95,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_key_figures_label_3:
     weight: 10
     label: hidden
@@ -94,6 +103,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_key_figures_link_1:
     weight: 4
     label: hidden
@@ -105,6 +115,7 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
+    region: content
   field_key_figures_link_2:
     weight: 8
     label: hidden
@@ -116,6 +127,7 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
+    region: content
   field_key_figures_link_3:
     weight: 12
     label: hidden
@@ -127,6 +139,7 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
+    region: content
 hidden:
   created: true
   uid: true

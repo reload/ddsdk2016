@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.article.field_content_target_group
     - field.field.node.article.field_content_topic
     - field.field.node.article.field_main_media
+    - field.field.node.article.field_metatags
     - field.field.node.article.field_paragraphs
     - field.field.node.article.field_sidedeck
     - field.field.node.article.field_subtitle
@@ -26,6 +27,7 @@ mode: rss
 content:
   links:
     weight: 100
+    region: content
 hidden:
   field_article_type: true
   field_content_author: true
@@ -34,6 +36,7 @@ hidden:
   field_content_target_group: true
   field_content_topic: true
   field_main_media: true
+  field_metatags: true
   field_paragraphs: true
   field_sidedeck: true
   field_subtitle: true

@@ -23,6 +23,7 @@ content:
       image_style: ''
     third_party_settings: {  }
     type: image
+    region: content
 hidden:
   created: true
   field_byline: true
