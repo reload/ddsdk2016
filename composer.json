@@ -61,7 +61,6 @@
         "drupal/address": "~1.0",
         "drupal/field_group": "~1.0",
         "drupal/maxlength": "~1.0",
-        "drupal/search_api_solr": "~1.0",
         "drupal/facets": "~1.0",
         "drupal/search_api": "~1.0",
         "drupal/admin_toolbar": "~1.0",
@@ -83,7 +82,9 @@
         "drupal/dropguard": "~1.0",
         "drupal/monitoring": "~1.0",
         "drupal/taxonomy_access_fix": "~2.0",
-        "drupal/entity_reference_revisions": "~1.2"
+        "drupal/entity_reference_revisions": "~1.2",
+        "drupal/search_api_solr": "^1.0@beta",
+        "solarium/solarium": "3.8.*"
     },
     "require-dev": {
         "behat/mink": "~1.7",
