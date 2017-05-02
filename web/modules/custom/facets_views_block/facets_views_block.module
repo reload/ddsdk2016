@@ -19,11 +19,13 @@ function facets_views_block_preprocess_views_view(&$variables) {
   // Acquire view information.
   /** @var \Drupal\views\ViewExecutable $view */
   $view = $variables['view'];
-  $view_id = $view->id();
-  $view_display = $view->current_display;
+
+  // Get the id and display of the view currently being viewed.
+  $current_view_id = $view->id();
+  $current_view_display = $view->current_display;
 
   // Ensure that we found both a view id and a display id.
-  if (!$view_id || !$view_display) {
+  if (!$current_view_id || !$current_view_display) {
     return;
   }
 
@@ -32,8 +34,25 @@ function facets_views_block_preprocess_views_view(&$variables) {
   $list_builder = \Drupal::service('entity.manager')->getListBuilder('facets_facet');
   $groups = $list_builder->loadGroups();
   $group = NULL;
+
+  $facet_source_plugin_manager = \Drupal::getContainer()
+    ->get('plugin.manager.facets.facet_source');
+
+  // Find any facets that matches the current view.
   foreach ($groups['facet_source_groups'] as $facet_source_id => $data) {
-    if ($data['facet_source']['view_id'] == $view_id && $data['facet_source']['view_display'] == $view_display) {
+    /** @var \Drupal\facets\Plugin\facets\facet_source\SearchApiDisplay $facet_source */
+    $facet_source = $facet_source_plugin_manager->createInstance($facet_source_id);
+
+    // Determine the view the facet is associated with.
+    $search_api_display_definition = $facet_source->getDisplay()->getPluginDefinition();
+    if (empty($search_api_display_definition['view_id'])) {
+      continue;
+    }
+    $facet_source_view_id = $search_api_display_definition['view_id'];
+    $facet_display_view_id = $search_api_display_definition['view_display'];
+
+    // If the facet matchee we've found what we're looking for.
+    if ($facet_source_view_id === $current_view_id && $facet_display_view_id === $current_view_display) {
       $group = $data;
       break;
     }
@@ -74,7 +93,7 @@ function facets_views_block_preprocess_views_view(&$variables) {
 
   if (!empty($variables['facets'])) {
     // Reorder the facets and exposed filters on the events view page.
-    if ($view_id === 'events') {
+    if ($current_view_id === 'events') {
       _facets_views_preprocess_event_filters($variables);
     }
   }
