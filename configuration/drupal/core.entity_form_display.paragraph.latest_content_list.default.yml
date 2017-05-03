@@ -16,6 +16,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
 hidden:
   created: true
   status: true

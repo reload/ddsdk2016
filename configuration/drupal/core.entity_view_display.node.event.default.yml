@@ -121,6 +121,7 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   field_course_id:
     weight: 10
     label: above
@@ -129,18 +130,21 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     type: number_integer
+    region: content
   field_event_accommodation:
     weight: 11
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
   field_event_address:
     weight: 10
     label: above
     settings: {  }
     third_party_settings: {  }
     type: address_default
+    region: content
   field_event_area:
     weight: 9
     label: above
@@ -148,6 +152,7 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   field_event_end:
     type: datetime_default
     weight: 6
@@ -156,12 +161,14 @@ content:
       format_type: medium
       timezone_override: ''
     third_party_settings: {  }
+    region: content
   field_event_host_info:
     weight: 12
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
   field_event_location_name:
     weight: 7
     label: inline
@@ -169,6 +176,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_event_price:
     weight: 8
     label: inline
@@ -176,6 +184,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_event_signup_deadline:
     weight: 8
     label: above
@@ -184,12 +193,14 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
+    region: content
   field_event_signup_instructions:
     weight: 9
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
   field_event_start:
     weight: 5
     label: inline
@@ -198,12 +209,14 @@ content:
       format_type: medium
     third_party_settings: {  }
     type: datetime_default
+    region: content
   field_event_teaser:
     weight: 1
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
+    region: content
   field_event_type:
     weight: 10
     label: above
@@ -211,6 +224,7 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   field_main_media:
     weight: 0
     label: hidden
@@ -219,12 +233,14 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
+    region: content
   field_metatags:
     weight: 13
     label: above
     settings: {  }
     third_party_settings: {  }
     type: metatag_empty_formatter
+    region: content
   field_paragraphs:
     weight: 2
     label: hidden
@@ -233,6 +249,7 @@ content:
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
+    region: content
   field_programs:
     type: entity_reference_revisions_entity_view
     weight: 7
@@ -241,6 +258,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    region: content
 hidden:
   field_content_category: true
   field_content_tag: true

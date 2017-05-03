@@ -26,6 +26,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    region: content
   field_2col_deck_col2:
     type: entity_reference_revisions_entity_view
     weight: 1
@@ -34,6 +35,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    region: content
   field_deck_link:
     weight: 2
     label: hidden
@@ -45,6 +47,7 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
+    region: content
   field_deck_title:
     weight: 3
     label: hidden
@@ -52,6 +55,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
 hidden:
   created: true
   field_2col_column_size: true

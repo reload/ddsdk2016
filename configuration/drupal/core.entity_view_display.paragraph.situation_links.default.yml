@@ -22,12 +22,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: list_key
+    region: content
   field_situation_color:
     weight: 4
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_key
+    region: content
   field_situation_links:
     weight: 3
     label: hidden
@@ -39,6 +41,7 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
+    region: content
   field_situation_main_link:
     weight: 5
     label: hidden
@@ -50,6 +53,7 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
+    region: content
 hidden:
   created: true
   uid: true

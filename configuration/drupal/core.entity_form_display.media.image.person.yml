@@ -28,6 +28,7 @@ content:
       show_crop_area: false
     third_party_settings: {  }
     type: image_widget_crop
+    region: content
 hidden:
   created: true
   field_byline: true

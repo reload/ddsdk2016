@@ -22,11 +22,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
+    region: content
   field_program_item_date:
     weight: 0
     settings: {  }
     third_party_settings: {  }
     type: daterange_default
+    region: content
   field_program_text:
     weight: 2
     settings:
@@ -34,6 +36,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
+    region: content
 hidden:
   created: true
   status: true

@@ -23,6 +23,7 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: list_key
+    region: content
   field_insp_teaser_heading:
     weight: 1
     label: hidden
@@ -30,6 +31,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_insp_teaser_link:
     weight: 4
     label: hidden
@@ -41,6 +43,7 @@ content:
       target: '0'
     third_party_settings: {  }
     type: link
+    region: content
   field_insp_teaser_text:
     weight: 2
     label: hidden
@@ -48,6 +51,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_inspiration_deck_items:
     weight: 0
     label: hidden
@@ -56,6 +60,7 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
+    region: content
 hidden:
   created: true
   uid: true

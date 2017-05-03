@@ -46,6 +46,7 @@ content:
       form_display_mode: default
       default_paragraph_type: _none
     third_party_settings: {  }
+    region: content
   field_3col_deck_col2:
     type: entity_reference_paragraphs
     weight: 3
@@ -57,6 +58,7 @@ content:
       form_display_mode: default
       default_paragraph_type: _none
     third_party_settings: {  }
+    region: content
   field_3col_deck_col3:
     type: entity_reference_paragraphs
     weight: 4
@@ -68,11 +70,13 @@ content:
       form_display_mode: default
       default_paragraph_type: _none
     third_party_settings: {  }
+    region: content
   field_deck_color:
     weight: 6
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
   field_deck_link:
     weight: 5
     settings:
@@ -80,6 +84,7 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
   field_deck_title:
     weight: 4
     settings:
@@ -87,6 +92,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
 hidden:
   created: true
   status: true

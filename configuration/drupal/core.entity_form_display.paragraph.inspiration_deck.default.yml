@@ -39,6 +39,7 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
   field_insp_teaser_heading:
     weight: 4
     settings:
@@ -46,6 +47,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
   field_insp_teaser_link:
     weight: 6
     settings:
@@ -53,6 +55,7 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
   field_insp_teaser_text:
     weight: 5
     settings:
@@ -60,6 +63,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
   field_inspiration_deck_items:
     weight: 0
     settings:
@@ -68,6 +72,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
 hidden:
   created: true
   status: true

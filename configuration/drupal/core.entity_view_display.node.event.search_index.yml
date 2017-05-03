@@ -23,6 +23,7 @@ dependencies:
     - field.field.node.event.field_event_teaser
     - field.field.node.event.field_event_type
     - field.field.node.event.field_main_media
+    - field.field.node.event.field_metatags
     - field.field.node.event.field_paragraphs
     - field.field.node.event.field_programs
     - node.type.event
@@ -42,6 +43,7 @@ content:
       format_type: medium
       timezone_override: ''
     third_party_settings: {  }
+    region: content
   field_event_location_name:
     weight: 3
     label: hidden
@@ -49,6 +51,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_event_price:
     weight: 4
     label: hidden
@@ -56,6 +59,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_event_start:
     weight: 2
     label: hidden
@@ -64,12 +68,14 @@ content:
       format_type: medium
     third_party_settings: {  }
     type: datetime_default
+    region: content
   field_event_teaser:
     weight: 1
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
+    region: content
   field_event_type:
     weight: 5
     label: hidden
@@ -77,6 +83,7 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   field_main_media:
     weight: 0
     label: hidden
@@ -85,6 +92,7 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
+    region: content
 hidden:
   field_content_category: true
   field_content_tag: true
@@ -98,6 +106,7 @@ hidden:
   field_event_is_all_day: true
   field_event_signup_deadline: true
   field_event_signup_instructions: true
+  field_metatags: true
   field_paragraphs: true
   field_programs: true
   langcode: true

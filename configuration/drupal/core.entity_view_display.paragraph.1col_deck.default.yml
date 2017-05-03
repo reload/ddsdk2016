@@ -24,6 +24,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    region: content
   field_deck_link:
     weight: 1
     label: hidden
@@ -35,6 +36,7 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
+    region: content
   field_deck_title:
     weight: 2
     label: hidden
@@ -42,6 +44,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
 hidden:
   created: true
   field_deck_color: true

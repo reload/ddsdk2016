@@ -21,6 +21,7 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
   field_content_link_lead:
     weight: 2
     settings:
@@ -28,12 +29,14 @@ content:
       placeholder: 'Short headline - defaults to "See more"'
     third_party_settings: {  }
     type: string_textfield
+    region: content
   field_show_thumbnail:
     weight: 1
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
+    region: content
 hidden:
   created: true
   status: true

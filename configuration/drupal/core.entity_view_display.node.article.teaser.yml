@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.article.field_content_target_group
     - field.field.node.article.field_content_topic
     - field.field.node.article.field_main_media
+    - field.field.node.article.field_metatags
     - field.field.node.article.field_paragraphs
     - field.field.node.article.field_sidedeck
     - field.field.node.article.field_subtitle
@@ -32,6 +33,7 @@ content:
       view_mode: plaintext
       link: false
     third_party_settings: {  }
+    region: content
   field_main_media:
     type: entity_reference_entity_view
     weight: 0
@@ -40,12 +42,14 @@ content:
       view_mode: teaser
       link: false
     third_party_settings: {  }
+    region: content
 hidden:
   field_article_type: true
   field_content_author: true
   field_content_category: true
   field_content_tag: true
   field_content_target_group: true
+  field_metatags: true
   field_paragraphs: true
   field_sidedeck: true
   field_subtitle: true

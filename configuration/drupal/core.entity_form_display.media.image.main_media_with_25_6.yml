@@ -23,6 +23,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
   field_caption:
     type: string_textarea
     weight: 2
@@ -30,6 +31,7 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+    region: content
   field_image:
     weight: 0
     settings:
@@ -44,6 +46,7 @@ content:
       show_crop_area: false
     third_party_settings: {  }
     type: image_widget_crop
+    region: content
 hidden:
   created: true
   langcode: true

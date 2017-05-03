@@ -145,11 +145,13 @@ content:
     weight: 9
     settings: {  }
     third_party_settings: {  }
+    region: content
   field_content_category:
     weight: 11
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
   field_content_tag:
     weight: 14
     settings:
@@ -158,22 +160,26 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete_tags
+    region: content
   field_content_target_group:
     weight: 13
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
   field_content_topic:
     weight: 12
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
   field_course_id:
     weight: 17
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
   field_event_accommodation:
     weight: 14
     settings:
@@ -181,22 +187,26 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
+    region: content
   field_event_address:
     weight: 13
     settings:
       default_country: DK
     third_party_settings: {  }
     type: address_default
+    region: content
   field_event_area:
     weight: 12
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
   field_event_end:
     weight: 6
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
+    region: content
   field_event_host_info:
     weight: 10
     settings:
@@ -204,12 +214,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
+    region: content
   field_event_is_all_day:
     weight: 7
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
+    region: content
   field_event_location_name:
     weight: 11
     settings:
@@ -217,6 +229,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
   field_event_price:
     weight: 10
     settings:
@@ -224,11 +237,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
   field_event_signup_deadline:
     weight: 15
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
+    region: content
   field_event_signup_instructions:
     weight: 16
     settings:
@@ -236,11 +251,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
+    region: content
   field_event_start:
     weight: 5
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
+    region: content
   field_event_teaser:
     weight: 2
     settings:
@@ -253,11 +270,13 @@ content:
         maxlength_js_enforce: false
         maxlength_js_truncate_html: false
     type: string_textarea
+    region: content
   field_event_type:
     weight: 8
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
   field_main_media:
     weight: 1
     settings:
@@ -267,11 +286,13 @@ content:
       override_labels: false
     third_party_settings: {  }
     type: inline_entity_form_simple
+    region: content
   field_metatags:
     weight: 26
     settings: {  }
     third_party_settings: {  }
     type: metatag_firehose
+    region: content
   field_paragraphs:
     weight: 3
     settings:
@@ -283,6 +304,7 @@ content:
       default_paragraph_type: _none
     third_party_settings: {  }
     type: entity_reference_paragraphs
+    region: content
   field_programs:
     type: entity_reference_paragraphs
     weight: 16
@@ -294,28 +316,33 @@ content:
       form_display_mode: default
       default_paragraph_type: program
     third_party_settings: {  }
+    region: content
   langcode:
     type: language_select
     weight: 2
     settings: {  }
     third_party_settings: {  }
+    region: content
   path:
     type: path
     weight: 6
     settings: {  }
     third_party_settings: {  }
+    region: content
   promote:
     type: boolean_checkbox
     settings:
       display_label: true
     weight: 8
     third_party_settings: {  }
+    region: content
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
     weight: 7
     third_party_settings: {  }
+    region: content
   title:
     type: string_textfield
     weight: 0
@@ -326,6 +353,7 @@ content:
       maxlength:
         maxlength_js: null
         maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+    region: content
   uid:
     type: entity_reference_autocomplete
     weight: 10
@@ -334,4 +362,5 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
 hidden: {  }
