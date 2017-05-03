@@ -22,4 +22,4 @@ settings:
   label_display: visible
   level: 2
   depth: 1
-visibility:
+visibility: {  }
