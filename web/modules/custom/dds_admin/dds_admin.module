@@ -18,3 +18,21 @@ function dds_admin_pathauto_alias_alter(&$alias, array &$context) {
   // able to use paths and do not want to deal with per language aliases.
   $context['language'] = LanguageInterface::LANGCODE_NOT_SPECIFIED;
 }
+
+/**
+ * Implements hook_admin_editor_js_settings_alter().
+ *
+ * Switches a deprecated ckeditor configuration from false to true.
+ */
+function dds_admin_editor_js_settings_alter(array &$settings) {
+  if (!empty($settings['editor']['formats']) && is_array($settings['editor']['formats'])) {
+    foreach ($settings['editor']['formats'] as &$format_settings) {
+      if ($format_settings['editor'] === 'ckeditor') {
+        // CKeditor 4.6 deprecated pasteFromWordRemoveFontStyles and switched
+        // its default from true to false. As a fix until core comes up with a
+        // better way to solve this (see https://www.drupal.org/node/2871539 ).
+        $format_settings['editorSettings']['pasteFromWordRemoveFontStyles'] = TRUE;
+      }
+    }
+  }
+}
