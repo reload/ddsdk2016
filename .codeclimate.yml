@@ -17,7 +17,7 @@ engines:
   phpcodesniffer:
     enabled: true
     config:
-      standard: Drupal,DrupalPractice
+      standard: vendor/drupal/coder/coder_sniffer/Drupal/ruleset.xml,phpcs.xml
 ratings:
   paths:
   - "**.css"
