@@ -23,6 +23,7 @@ dependencies:
     - field.field.node.event.field_event_teaser
     - field.field.node.event.field_event_type
     - field.field.node.event.field_main_media
+    - field.field.node.event.field_metatags
     - field.field.node.event.field_paragraphs
     - field.field.node.event.field_programs
     - node.type.event
@@ -41,6 +42,7 @@ content:
       view_mode: plaintext
       link: false
     third_party_settings: {  }
+    region: content
   field_main_media:
     weight: 0
     label: hidden
@@ -49,6 +51,7 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
+    region: content
 hidden:
   field_content_category: true
   field_content_tag: true
@@ -67,6 +70,7 @@ hidden:
   field_event_signup_instructions: true
   field_event_start: true
   field_event_teaser: true
+  field_metatags: true
   field_paragraphs: true
   field_programs: true
   langcode: true

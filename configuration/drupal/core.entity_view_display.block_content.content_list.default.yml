@@ -19,6 +19,7 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
+    region: content
   field_content_list_title:
     type: string
     weight: 0
@@ -26,5 +27,6 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    region: content
 hidden:
   langcode: true

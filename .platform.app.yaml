@@ -72,7 +72,7 @@ web:
                 # Provide a longer TTL (2 weeks) for aggregated CSS and JS files.
                 '^/sites/default/files/(css|js)':
                     expires: 2w
-                    
+
 # The size of the persistent disk of the application (in MB).
 disk: 7000
 
@@ -93,8 +93,8 @@ hooks:
     deploy: |
       cd web
       drush -y cache-rebuild
-      drush -y updatedb
       drush -y config-import
+      drush -y updatedb
       drush -y entup
 
 # The configuration of scheduled execution.

@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.section_page.field_content_target_group
     - field.field.node.section_page.field_content_topic
     - field.field.node.section_page.field_main_media
+    - field.field.node.section_page.field_metatags
     - field.field.node.section_page.field_section
     - field.field.node.section_page.field_subtitle
     - node.type.section_page
@@ -27,6 +28,7 @@ content:
       view_mode: section_main_media_25_6
       link: false
     third_party_settings: {  }
+    region: content
   field_section:
     type: entity_reference_revisions_entity_view
     weight: 2
@@ -35,16 +37,19 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    region: content
   field_subtitle:
     weight: 1
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
+    region: content
 hidden:
   field_content_category: true
   field_content_tag: true
   field_content_target_group: true
   field_content_topic: true
+  field_metatags: true
   langcode: true
   links: true

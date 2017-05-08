@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.badge.field_content_tag
     - field.field.node.badge.field_content_topic
     - field.field.node.badge.field_main_media
+    - field.field.node.badge.field_metatags
     - field.field.node.badge.field_paragraphs
     - field.field.node.badge.field_sidedeck
     - node.type.badge
@@ -30,6 +31,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    region: content
   field_main_media:
     type: entity_reference_entity_view
     weight: 0
@@ -38,6 +40,7 @@ content:
       view_mode: teaser
       link: false
     third_party_settings: {  }
+    region: content
 hidden:
   field_badge_cover_image: true
   field_badge_level: true
@@ -46,6 +49,7 @@ hidden:
   field_badge_target_group: true
   field_content_tag: true
   field_content_topic: true
+  field_metatags: true
   field_paragraphs: true
   field_sidedeck: true
   langcode: true

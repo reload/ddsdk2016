@@ -20,19 +20,26 @@ content:
     weight: 0
     settings: {  }
     third_party_settings: {  }
+    region: content
   field_user_default_author:
     weight: 2
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
+  google_analytics:
+    weight: 3
+    region: content
   language:
     weight: 3
     settings: {  }
     third_party_settings: {  }
+    region: content
   timezone:
     weight: 4
     settings: {  }
     third_party_settings: {  }
+    region: content
   user_picture:
     type: image_image
     settings:
@@ -40,6 +47,7 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     weight: 1
+    region: content
 hidden:
   contact: true
   langcode: true

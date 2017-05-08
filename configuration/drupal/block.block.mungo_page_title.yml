@@ -21,12 +21,6 @@ settings:
   provider: core
   label_display: '0'
 visibility:
-  other_facet:
-    id: other_facet
-    facets: ''
-    facet_value: ''
-    negate: false
-    context_mapping: {  }
   node_type:
     id: node_type
     bundles:

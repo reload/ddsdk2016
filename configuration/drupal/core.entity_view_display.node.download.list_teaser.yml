@@ -24,6 +24,7 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: file_default
+    region: content
 hidden:
   field_content_category: true
   field_content_tag: true

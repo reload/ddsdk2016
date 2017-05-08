@@ -23,6 +23,7 @@ content:
       image_style: 16_9_720x405
       link_image_to: ''
     third_party_settings: {  }
+    region: content
 hidden:
   created: true
   field_caption: true

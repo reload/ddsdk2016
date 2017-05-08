@@ -24,6 +24,7 @@ content:
       view_mode: plaintext
       link: false
     third_party_settings: {  }
+    region: content
   field_main_media:
     weight: 0
     label: hidden
@@ -32,6 +33,7 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
+    region: content
 hidden:
   field_activity_id: true
   field_subtitle: true
