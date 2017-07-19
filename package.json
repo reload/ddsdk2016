@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "start": "npm install && gulp",
-    "build": "npm install && gulp sass:prod"
+    "build": "npm install && gulp sass"
   },
   "devDependencies": {
     "bootstrap-sass": "^3.3.7",

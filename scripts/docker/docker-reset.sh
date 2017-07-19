@@ -33,7 +33,7 @@ echoc "*** NPM installing"
 npm install
 
 echoc "*** Doing an initial gulp build"
-gulp build
+npm run build
 
 # Start up containers in the background and continue imidiately
 echoc "*** Starting new containers"
