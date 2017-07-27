@@ -68,6 +68,23 @@ function dds_search_form_alter(&$form, &$form_state, $form_id) {
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter() for the search_block_form form.
+ *
+ * Since the exposed form is a GET form, we don't want it to send the form
+ * tokens. However, you cannot make this happen in the form builder function
+ * itself, because the tokens are added to the form after the builder function
+ * is called. So, we have to do it in a form_alter.
+ *
+ * @see \Drupal\dds_search\Form\SearchBlockForm
+ * @see search_form_search_block_form_alter
+ */
+function dds_search_form_search_block_form_alter(&$form, FormStateInterface $form_state) {
+  $form['form_build_id']['#access'] = FALSE;
+  $form['form_token']['#access'] = FALSE;
+  $form['form_id']['#access'] = FALSE;
+}
+
+/**
  * Validate call-back that reformats dates before a view is executed.
  */
 function dds_search_form_validate(&$form, FormStateInterface &$form_state) {
