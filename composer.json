@@ -66,7 +66,7 @@
         "drupal/admin_toolbar": "~1.0",
         "drupal/better_exposed_filters": "~3.0",
         "drupal/twig_xdebug": "~1.0",
-        "drupal/forward": "~1.0",
+        "drupal/forward": "~2.0",
         "drupal/chosen": "~2.2.0",
         "drmonty/chosen": "~1.6",
         "commerceguys/addressing": "dev-master#bc8d8cbcc151dd0aacdd8efad95a44e9ba2126b0",
