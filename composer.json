@@ -143,16 +143,6 @@
             },
             "drupal/chosen": {
                 "2705891: Fix invisible required chosen widgets": "https://www.drupal.org/files/issues/client_side_validation-2705891-5.patch"
-            },
-            "drupal/facets": {
-                "2868601: Remove other_facet setting": "https://www.drupal.org/files/issues/pluginnotfoundexception-2868601-6.patch",
-                "Dont re-rename ids (remove after facets_update_8001 has been applied)": "patches/dont-re-replace-facets-id.patch"
-            },
-            "drupal/metatag": {
-                "2563647: Adds views support to metatag": "patches/views_integration-2563647-52-modified-notice-fix.patch"
-            },
-            "drupal/search_api_solr": {
-                "2747849: search_api_solr handles UTC dates as if they where in the local TZ": "https://www.drupal.org/files/issues/timezone-handling-2747849-6.patch"
             }
         }
     }
