@@ -67,7 +67,7 @@
         "drupal/better_exposed_filters": "~3.0",
         "drupal/twig_xdebug": "~1.0",
         "drupal/forward": "~2.0",
-        "drupal/chosen": "~2.2.0",
+        "drupal/chosen": "^2.2",
         "drmonty/chosen": "~1.6",
         "commerceguys/addressing": "dev-master#bc8d8cbcc151dd0aacdd8efad95a44e9ba2126b0",
         "drupal/extlink": "~1.0",
@@ -142,7 +142,7 @@
                 "2867834: Backwards variables in Install profile validation error message": "https://www.drupal.org/files/issues/backwards_variables_in_message-2867834-10.patch"
             },
             "drupal/chosen": {
-                "2705891: Fix invisible required chosen widgets": "https://www.drupal.org/files/issues/client_side_validation-2705891-5.patch"
+                "2705891: Fix invisible required chosen widgets": "https://www.drupal.org/files/issues/2705891-chosen-validation-temp-fix-6.patch"
             }
         }
     }
