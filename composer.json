@@ -84,7 +84,8 @@
         "drupal/taxonomy_access_fix": "~2.0",
         "drupal/entity_reference_revisions": "~1.2",
         "drupal/search_api_solr": "^1.0@beta",
-        "solarium/solarium": "3.8.*"
+        "solarium/solarium": "3.8.*",
+        "drupal/system_status": "~2.0"
     },
     "require-dev": {
         "behat/mink": "~1.7",
