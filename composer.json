@@ -66,8 +66,8 @@
         "drupal/admin_toolbar": "~1.0",
         "drupal/better_exposed_filters": "~3.0",
         "drupal/twig_xdebug": "~1.0",
-        "drupal/forward": "~1.0",
-        "drupal/chosen": "~2.2.0",
+        "drupal/forward": "~2.0",
+        "drupal/chosen": "^2.2",
         "drmonty/chosen": "~1.6",
         "commerceguys/addressing": "dev-master#bc8d8cbcc151dd0aacdd8efad95a44e9ba2126b0",
         "drupal/extlink": "~1.0",
@@ -84,7 +84,8 @@
         "drupal/taxonomy_access_fix": "~2.0",
         "drupal/entity_reference_revisions": "~1.2",
         "drupal/search_api_solr": "^1.0@beta",
-        "solarium/solarium": "3.8.*"
+        "solarium/solarium": "3.8.*",
+        "drupal/system_status": "~2.0"
     },
     "require-dev": {
         "behat/mink": "~1.7",
@@ -142,17 +143,7 @@
                 "2867834: Backwards variables in Install profile validation error message": "https://www.drupal.org/files/issues/backwards_variables_in_message-2867834-10.patch"
             },
             "drupal/chosen": {
-                "2705891: Fix invisible required chosen widgets": "https://www.drupal.org/files/issues/client_side_validation-2705891-5.patch"
-            },
-            "drupal/facets": {
-                "2868601: Remove other_facet setting": "https://www.drupal.org/files/issues/pluginnotfoundexception-2868601-6.patch",
-                "Dont re-rename ids (remove after facets_update_8001 has been applied)": "patches/dont-re-replace-facets-id.patch"
-            },
-            "drupal/metatag": {
-                "2563647: Adds views support to metatag": "patches/views_integration-2563647-52-modified-notice-fix.patch"
-            },
-            "drupal/search_api_solr": {
-                "2747849: search_api_solr handles UTC dates as if they where in the local TZ": "https://www.drupal.org/files/issues/timezone-handling-2747849-6.patch"
+                "2705891: Fix invisible required chosen widgets": "https://www.drupal.org/files/issues/2705891-chosen-validation-temp-fix-6.patch"
             }
         }
     }
