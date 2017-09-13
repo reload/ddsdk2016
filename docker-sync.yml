@@ -1,0 +1,9 @@
+version: "2"
+
+syncs:
+  ddsdk-sync-web:
+    src: './web'
+    sync_excludes: ['.gitignore', '.git/', '.idea/']
+  ddsdk-sync-configuration:
+    src: './configuration'
+    sync_excludes: ['.gitignore', '.git/', '.idea/']
