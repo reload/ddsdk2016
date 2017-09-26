@@ -5,7 +5,7 @@
 
 mysqldb:
     type: mysql:10.0
-    disk: 3072
+    disk: 2048
 
 solr:
     type: "solr:4.10"
