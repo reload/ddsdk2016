@@ -28,7 +28,7 @@ services:
 
   # Instance of the php-image configured to serve fpm-requests.
   fpm:
-    image: reload/drupal-php7-fpm
+    image: reload/drupal-php7-fpm:7.0
     ports:
       - '9000'
     volumes_from:
@@ -43,15 +43,15 @@ services:
 
   # Mariadb database, initialized with a nighly pre-build datadir.
   db:
-    image: reload/db-datadir:ddsdk2016-master-latest-fulldb
+    image: mariadb:10
     ports:
       - '3306'
-    # Switch to the "mariadb" image and uncomment the following if you want to
-    # import a custom databasedump
-    #  volumes:
-    #    - './docker/my-custom-db-dump.sql:/docker-entrypoint-initdb.d/100-db.sql'
+    volumes:
+        - './my.ini:/etc/mysql/conf.d/my.cnf'
+    volumes_from:
+      - db-data
 
-    # Notice the following environment-variables only takes effect if we're 
+    # Notice the following environment-variables only takes effect if we're
     # using a raw mariadb image. We're just leaving the values used during
     # the datadir build here for reference.
     # see https://github.com/reload/docker-db-datadir-worker/blob/master/opt/datadir-preinit/docker-compose.template.yml
@@ -61,19 +61,14 @@ services:
       MYSQL_USER: db
       MYSQL_PASSWORD: db
 
-  # Drush startet off of the common php-image.
-  drush:
-    image: reload/drupal-php7-fpm
-    entrypoint: /usr/local/bin/drush
-    command: version
-    volumes_from:
-      - webroot
-    working_dir: /var/www/web
-    links:
-      - db
-      - solr
-    environment:
-      PATH: '/var/www/vendor/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+  # Nightly built datadir.
+  db-data:
+    image: reload/db-datadir:ddsdk2016-master-latest
+    # Comment the line above and uncomment the following if you want to import
+    # a custom databasedump
+    # image: tianon/true
+    # volumes:
+    #    - './docker/my-custom-db-dump.sql:/docker-entrypoint-initdb.d/100-db.sql'
 
   solr:
     image: blinkreaction/drupal-solr:4.x-stable
@@ -87,12 +82,25 @@ services:
   webroot:
     image: tianon/true
     volumes:
-      - './web:/var/www/web:rw'
-      - './scripts:/var/www/scripts'
-      - './vendor:/var/www/vendor:ro'
-      - './configuration:/var/www/configuration:rw'
+      - './:/var/www:rw'
 
   mailhog:
     image: mailhog/mailhog
     ports:
       - "8025:8025"
+
+  npm:
+    image: node:argon
+    volumes_from:
+      - webroot
+    volumes:
+      - 'cache:/npm-cache'
+    working_dir: /var/www
+    environment:
+      PATH: '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+      npm_config_cache: '/npm-cache/node'
+    entrypoint: "/bin/sh -c 'npm run build && npm run watch'"
+
+volumes:
+  # NPM cache that survives docker-reset.sh
+  cache:
