@@ -7,7 +7,7 @@ IFS=$'\n\t'
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # The number of seconds it takes for docker-compose up to get up and running
 # often translates to how long it takes the database-container to come up.
-SLEEP_TIME=10
+SLEEP_TIME=20
 # Hostname to send a request to to warm up the cache-cleared site.
 HOST="localhost"
 WEB_CONTAINER="web"

@@ -14,7 +14,7 @@ find web/sites/default/files \! -uid 33  \! -print0 -name .gitkeep | sudo xargs 
 # Make sites/default read-only and executable
 sudo chmod 555 web/sites/default
 
-time docker-compose run --entrypoint "sh -c" --rm drush " \
+time docker-compose run --entrypoint "sh -c" --rm fpm " \
   echo 'Site reset' && \
   echo ' - Rebuilding cache' && \
   drush -y cache-rebuild && \
