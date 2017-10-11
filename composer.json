@@ -138,12 +138,14 @@
             "drupal/core": {
                 "2558207: Add hook to react to image_path_flush() - recommended by the Reloadtina module": "https://www.drupal.org/files/issues/add_hook_image_path_flush-2558207-4.patch",
                 "2408549: Notify about overridden configuration": "https://www.drupal.org/files/issues/config-override-warning-2408549-29.patch",
-                "2650434: Clearing cache via UI in translated language resets config translation of field labels to default language": "https://www.drupal.org/files/issues/clearing_cache_via_ui-2650434-128.patch",
                 "2857132: Account administration pages language negotiation ignores _format blocking REST resources": "https://www.drupal.org/files/issues/preserve-format-while-negoatiating-2857132.patch",
                 "2867834: Backwards variables in Install profile validation error message": "https://www.drupal.org/files/issues/backwards_variables_in_message-2867834-10.patch"
             },
             "drupal/chosen": {
                 "2705891: Fix invisible required chosen widgets": "https://www.drupal.org/files/issues/2705891-chosen-validation-temp-fix-6.patch"
+            },
+            "drupal/metatag": {
+                "2883718": "https://www.drupal.org/files/issues/metatag-n2883718-20.patch"
             }
         }
     }
