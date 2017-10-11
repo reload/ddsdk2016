@@ -18,12 +18,12 @@ time docker-compose run --entrypoint "sh -c" --rm fpm " \
   echo 'Site reset' && \
   echo ' - Rebuilding cache' && \
   drush -y cache-rebuild && \
-  echo ' - Import configuration' && \
-  drush -y config-import --preview=diff && \
   echo ' - Update database' && \
   drush -y updatedb && \
   echo ' - Entity update' && \
   drush -y entup && \
+  echo ' - Import configuration' && \
+  drush -y config-import --preview=diff && \
   echo ' - Cache rebuild' && \
   drush cache-rebuild && \
   echo ' - Clearing search-api' && \
