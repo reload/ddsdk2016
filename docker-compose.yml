@@ -28,7 +28,7 @@ services:
 
   # Instance of the php-image configured to serve fpm-requests.
   fpm:
-    image: reload/drupal-php7-fpm
+    image: reload/drupal-php7-fpm:7.0
     ports:
       - '9000'
     volumes_from:
@@ -87,12 +87,25 @@ services:
   webroot:
     image: tianon/true
     volumes:
-      - './web:/var/www/web:rw'
-      - './scripts:/var/www/scripts'
-      - './vendor:/var/www/vendor:ro'
-      - './configuration:/var/www/configuration:rw'
+      - './:/var/www:rw'
 
   mailhog:
     image: mailhog/mailhog
     ports:
       - "8025:8025"
+
+  npm:
+    image: node:argon
+    volumes_from:
+      - webroot
+    volumes:
+      - 'cache:/npm-cache'
+    working_dir: /var/www
+    environment:
+      PATH: '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+      npm_config_cache: '/npm-cache/node'
+    entrypoint: "/bin/sh -c 'npm run build && npm run watch'"
+
+volumes:
+  # NPM cache that survives docker-reset.sh
+  cache:

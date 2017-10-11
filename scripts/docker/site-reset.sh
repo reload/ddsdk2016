@@ -15,10 +15,17 @@ find web/sites/default/files \! -uid 33  \! -print0 -name .gitkeep | sudo xargs 
 sudo chmod 555 web/sites/default
 
 time docker-compose run --entrypoint "sh -c" --rm drush " \
+  echo 'Site reset' && \
+  echo ' - Rebuilding cache' && \
   drush -y cache-rebuild && \
+  echo ' - Import configuration' && \
   drush -y config-import --preview=diff && \
+  echo ' - Update database' && \
   drush -y updatedb && \
+  echo ' - Entity update' && \
   drush -y entup && \
+  echo ' - Cache rebuild' && \
   drush cache-rebuild && \
+  echo ' - Clearing search-api' && \
   drush search-api-clear
   "

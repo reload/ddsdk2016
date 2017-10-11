@@ -3,8 +3,8 @@
   "description": "Build assets for the Drupal theme Mungo",
   "version": "0.0.1",
   "scripts": {
-    "start": "npm install && gulp",
-    "build": "npm install && gulp sass:prod"
+    "watch": "gulp watch",
+    "build": "npm install && gulp build"
   },
   "devDependencies": {
     "bootstrap-sass": "^3.3.7",
