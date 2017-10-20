@@ -75,7 +75,7 @@ services:
     ports:
       - '8983'
     volumes:
-      - './web/modules/contrib/search_api_solr/solr-conf/4.x:/var/lib/solr/conf:ro'
+      - './web/modules/contrib/search_api_solr/solr-conf/4.x:/opt/solr/example/solr/collection1/conf:ro'
 
   # Webroot and volumned paths needs to be accessible from multiple containers so
   # we set up all paths once and for all via a single volumne-container.
