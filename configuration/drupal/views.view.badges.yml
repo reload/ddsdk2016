@@ -281,7 +281,15 @@ display:
     position: 1
     display_options:
       display_extenders:
-        metatag_display_extender: {  }
+        metatag_display_extender:
+          metatags:
+            title: '[ddsdk:badge-overview-title]'
+            description: '[ddsdk:badge-overview-description]'
+            image_src: '[ddsdk:badge-overview-topimage]'
+            og_url: '[current-page:url]'
+            og_title: '[ddsdk:badge-overview-title]'
+            og_description: '[ddsdk:badge-overview-description]'
+            og_image: '[ddsdk:badge-overview-topimage]'
       path: maerker
       display_description: ''
     cache_metadata:
