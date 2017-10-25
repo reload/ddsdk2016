@@ -12,7 +12,7 @@ effects:
     id: crop_crop
     weight: 1
     data:
-      crop_type: 20_7
+      crop_type: '20_7'
   3f85182b-5208-4a07-84b0-1472eabf57b0:
     uuid: 3f85182b-5208-4a07-84b0-1472eabf57b0
     id: image_scale_and_crop
