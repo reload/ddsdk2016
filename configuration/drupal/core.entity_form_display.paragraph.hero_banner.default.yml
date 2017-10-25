@@ -20,7 +20,7 @@ content:
   field_background_image:
     weight: 0
     settings:
-      form_mode: 20_7
+      form_mode: '20_7'
       label_singular: ''
       label_plural: ''
       override_labels: false

@@ -40,7 +40,7 @@ content:
       crop_preview_image_style: crop_thumbnail
       crop_list:
         - 16_9_responsive
-        - 25_6
+        - '25_6'
         - 4_3_responsive
       progress_indicator: throbber
       show_crop_area: false

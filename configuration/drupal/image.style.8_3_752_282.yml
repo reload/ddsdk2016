@@ -4,7 +4,7 @@ status: true
 dependencies:
   module:
     - crop
-name: 8_3_752_282
+name: '8_3_752_282'
 label: '8:3 752:282'
 effects:
   9c3f3083-b0a7-4a02-bfc7-581ccdb3d8f4:
@@ -12,7 +12,7 @@ effects:
     id: crop_crop
     weight: 1
     data:
-      crop_type: 8_3
+      crop_type: '8_3'
   5eff4d9a-1660-4644-bc67-20a12561aaa4:
     uuid: 5eff4d9a-1660-4644-bc67-20a12561aaa4
     id: image_scale_and_crop

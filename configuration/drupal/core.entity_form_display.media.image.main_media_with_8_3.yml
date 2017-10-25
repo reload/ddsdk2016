@@ -41,7 +41,7 @@ content:
       crop_list:
         - 16_9_responsive
         - 4_3_responsive
-        - 8_3
+        - '8_3'
       progress_indicator: throbber
       show_crop_area: false
     third_party_settings: {  }
