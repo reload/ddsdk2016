@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "639558496843c45b48589f36e7a9e7f2",
+    "content-hash": "b24b756b42a4cc90e87e525b8bf8f8f0",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -3327,17 +3327,17 @@
         },
         {
             "name": "drupal/monitoring",
-            "version": "1.2.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/monitoring",
-                "reference": "8.x-1.2"
+                "reference": "8.x-1.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/monitoring-8.x-1.2.zip",
-                "reference": "8.x-1.2",
-                "shasum": "fec2921b0e5f8a971911fd42445332ac41031271"
+                "url": "https://ftp.drupal.org/files/projects/monitoring-8.x-1.4.zip",
+                "reference": "8.x-1.4",
+                "shasum": "cb456d781739483029ba048510b5123bbbd9ff06"
             },
             "require": {
                 "drupal/core": "*"
@@ -3358,8 +3358,12 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.2",
-                    "datestamp": "1493102044"
+                    "version": "8.x-1.4",
+                    "datestamp": "1505140145",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
