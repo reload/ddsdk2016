@@ -42,6 +42,7 @@ content:
         - 16_9_responsive
       progress_indicator: throbber
       show_crop_area: false
+      warn_multiple_usages: true
     third_party_settings: {  }
     type: image_widget_crop
     region: content
@@ -49,4 +50,5 @@ hidden:
   created: true
   langcode: true
   name: true
+  path: true
   uid: true
