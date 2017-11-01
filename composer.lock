@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b24b756b42a4cc90e87e525b8bf8f8f0",
+    "content-hash": "e8fbe590b4daf385a9ec4bad5511f3f1",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -183,16 +183,16 @@
         },
         {
             "name": "commerceguys/addressing",
-            "version": "dev-master",
+            "version": "v1.0.0-beta3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/commerceguys/addressing.git",
-                "reference": "bc8d8cbcc151dd0aacdd8efad95a44e9ba2126b0"
+                "reference": "615464980031d353865fd0a4b5da3acb3f567129"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/commerceguys/addressing/zipball/bc8d8cbcc151dd0aacdd8efad95a44e9ba2126b0",
-                "reference": "bc8d8cbcc151dd0aacdd8efad95a44e9ba2126b0",
+                "url": "https://api.github.com/repos/commerceguys/addressing/zipball/615464980031d353865fd0a4b5da3acb3f567129",
+                "reference": "615464980031d353865fd0a4b5da3acb3f567129",
                 "shasum": ""
             },
             "require": {
@@ -242,7 +242,7 @@
                 "localization",
                 "postal"
             ],
-            "time": "2016-10-02T23:46:33+00:00"
+            "time": "2017-04-20T12:32:07+00:00"
         },
         {
             "name": "commerceguys/enum",
@@ -7469,7 +7469,7 @@
             "version": "8.2.12",
             "source": {
                 "type": "git",
-                "url": "https://github.com/klausi/coder.git",
+                "url": "https://git.drupal.org/project/coder.git",
                 "reference": "984c54a7b1e8f27ff1c32348df69712afd86b17f"
             },
             "dist": {
@@ -8661,7 +8661,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "commerceguys/addressing": 20,
         "drupal/search_api_solr": 10
     },
     "prefer-stable": true,
