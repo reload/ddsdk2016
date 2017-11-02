@@ -30,4 +30,5 @@ hidden:
   field_caption: true
   langcode: true
   name: true
+  path: true
   uid: true

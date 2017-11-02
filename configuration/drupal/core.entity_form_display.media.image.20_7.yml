@@ -26,6 +26,7 @@ content:
         - '20_7'
       progress_indicator: throbber
       show_crop_area: false
+      warn_multiple_usages: true
     third_party_settings: {  }
     type: image_widget_crop
     region: content
@@ -35,4 +36,5 @@ hidden:
   field_caption: true
   langcode: true
   name: true
+  path: true
   uid: true

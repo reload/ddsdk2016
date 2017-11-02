@@ -44,7 +44,6 @@
         }
     ],
     "require": {
-        "commerceguys/addressing": "dev-master#bc8d8cbcc151dd0aacdd8efad95a44e9ba2126b0",
         "composer/installers": "^1.0.20",
         "cweagans/composer-patches": "~1.0",
         "drmonty/chosen": "~1.6",
