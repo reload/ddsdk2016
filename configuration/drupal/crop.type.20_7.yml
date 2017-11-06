@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 label: '20:7'
-id: 20_7
+id: '20_7'
 description: 'Used by the front-page hero-banner'
 aspect_ratio: '20:7'
 soft_limit_width: null

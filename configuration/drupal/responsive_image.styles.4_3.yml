@@ -5,7 +5,7 @@ dependencies:
   config:
     - image.style.110x83
     - image.style.950x713
-id: 4_3
+id: '4_3'
 label: '4:3'
 image_style_mappings:
   -

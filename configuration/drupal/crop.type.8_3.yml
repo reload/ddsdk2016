@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 label: '8:3'
-id: 8_3
+id: '8_3'
 description: ''
 aspect_ratio: '8:3'
 soft_limit_width: null

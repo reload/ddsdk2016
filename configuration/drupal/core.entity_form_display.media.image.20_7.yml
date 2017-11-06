@@ -14,7 +14,7 @@ dependencies:
 id: media.image.20_7
 targetEntityType: media
 bundle: image
-mode: 20_7
+mode: '20_7'
 content:
   field_image:
     weight: 0
@@ -23,9 +23,10 @@ content:
       preview_image_style: 20_7_200x70
       crop_preview_image_style: crop_thumbnail
       crop_list:
-        - 20_7
+        - '20_7'
       progress_indicator: throbber
       show_crop_area: false
+      warn_multiple_usages: true
     third_party_settings: {  }
     type: image_widget_crop
     region: content
@@ -35,4 +36,5 @@ hidden:
   field_caption: true
   langcode: true
   name: true
+  path: true
   uid: true

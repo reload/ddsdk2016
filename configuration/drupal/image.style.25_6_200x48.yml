@@ -12,7 +12,7 @@ effects:
     id: crop_crop
     weight: 1
     data:
-      crop_type: 25_6
+      crop_type: '25_6'
   df58dce6-07da-4d46-90c3-75353f2f1911:
     uuid: df58dce6-07da-4d46-90c3-75353f2f1911
     id: image_scale_and_crop

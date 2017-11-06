@@ -40,10 +40,11 @@ content:
       crop_preview_image_style: crop_thumbnail
       crop_list:
         - 16_9_responsive
-        - 25_6
+        - '25_6'
         - 4_3_responsive
       progress_indicator: throbber
       show_crop_area: false
+      warn_multiple_usages: true
     third_party_settings: {  }
     type: image_widget_crop
     region: content
@@ -51,4 +52,5 @@ hidden:
   created: true
   langcode: true
   name: true
+  path: true
   uid: true

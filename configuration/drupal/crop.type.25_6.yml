@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 label: '25:6'
-id: 25_6
+id: '25_6'
 description: 'Section page main-image'
 aspect_ratio: '25:6'
 soft_limit_width: null

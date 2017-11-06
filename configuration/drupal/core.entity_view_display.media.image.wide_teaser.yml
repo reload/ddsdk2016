@@ -35,7 +35,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: 8_3_752_282
+      image_style: '8_3_752_282'
       image_link: ''
     third_party_settings: {  }
     type: image
