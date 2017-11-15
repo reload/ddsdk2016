@@ -32,6 +32,13 @@ function facets_views_block_preprocess_views_view(&$variables) {
   // Load facets grouped by facet sources.
   /** @var \Drupal\facets\FacetListBuilder $list_builder */
   $list_builder = \Drupal::service('entity.manager')->getListBuilder('facets_facet');
+  // Note that this way of loading facets piggybacks on ListBuilder which is
+  // mainly used to load entities for lists in the admin-interface. If we run
+  // in to wird behaviour, start off by checking whether that behaviour is also
+  // present in the backend, and search for issues regarding admin instead.
+  // https://www.drupal.org/project/facets/issues/2920766 is a good example, dds
+  // was seeing untranslated lables in the frontend, but the reported bug was
+  // against the same behaviour in the admininterface.
   $groups = $list_builder->loadGroups();
   $group = NULL;
 
@@ -81,11 +88,15 @@ function facets_views_block_preprocess_views_view(&$variables) {
 
     // Only render facets if there are any filters to display.
     if (!empty($build)) {
+      // Get configuration for the facet.
+      $facet_configs = \Drupal::entityTypeManager()->getStorage('facets_facet')->load($facet->getConfigTarget());
+      // Get the name from the configuration where it will be translated.
+      $name_from_config = $facet_configs->get('name');
       // Wrap facet widget in a "block"-ish wrapper.
       $variables['facets'][$facet_id] = [
         '#theme' => 'facets_views_block',
         '#id' => $facet_id,
-        '#label' => $facet->getName(),
+        '#label' => $name_from_config,
         '#facet' => $build,
       ];
     }
