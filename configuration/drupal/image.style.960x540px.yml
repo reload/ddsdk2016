@@ -20,3 +20,9 @@ effects:
     data:
       width: 960
       height: 540
+  5e9dfd5e-b529-407e-aa75-0f6c766a7739:
+    uuid: 5e9dfd5e-b529-407e-aa75-0f6c766a7739
+    id: image_convert
+    weight: 3
+    data:
+      extension: jpg
