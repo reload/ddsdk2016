@@ -65,3 +65,7 @@ $config['search_api.server.solr']['backend_config']['connector_config']['path'] 
 // Google analytics test.
 $config['google_analytics.settings']['account'] = 'UA-7162673-26';
 
+// Setup feature flags.
+// Added as a part of DDSDK-382 - should be removed together with its use in
+// html.html.twig ultimo 2017.
+// $config['feature_flags']['hotjar20171127'] = TRUE;
