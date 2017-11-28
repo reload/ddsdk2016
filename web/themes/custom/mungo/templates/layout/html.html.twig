@@ -48,7 +48,6 @@
     <meta name="msapplication-config" content="/themes/custom/mungo/assets/images/fav/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
       {# Include hotjar script if flag is enabled and the user is anonomous #}
-      {# Added as a part of DDSDK-382 can be removed ultimo 2017 #}
       {% if not logged_in and feature_flags.hotjar20171127 %}
         <script>
           (function(h,o,t,j,a,r){
