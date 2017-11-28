@@ -47,6 +47,19 @@
     <link rel="shortcut icon" href="/themes/custom/mungo/assets/images/fav/favicon.ico">
     <meta name="msapplication-config" content="/themes/custom/mungo/assets/images/fav/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
+      {# Include hotjar script if flag is enabled and the user is anonomous #}
+      {% if not logged_in and feature_flags.hotjar20171127 %}
+        <script>
+          (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:704561,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+          })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+        </script>
+      {% endif %}
   </head>
   <body{{ attributes.addClass(body_classes) }}>
     {#
