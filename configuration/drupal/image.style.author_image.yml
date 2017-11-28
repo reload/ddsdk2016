@@ -20,3 +20,9 @@ effects:
     data:
       width: 100
       height: 100
+  7959bb1a-ee49-4248-aa71-ebaf4c9dc394:
+    uuid: 7959bb1a-ee49-4248-aa71-ebaf4c9dc394
+    id: image_convert
+    weight: 3
+    data:
+      extension: jpg

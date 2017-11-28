@@ -65,3 +65,7 @@ $config['search_api.server.solr']['backend_config']['connector_config']['path'] 
 // Google analytics test.
 $config['google_analytics.settings']['account'] = 'UA-7162673-26';
 
+// Setup feature flags.
+// The following is used in html.html.twig and is not a mistake but an example
+// of how to use the flag.
+// $config['feature_flags']['hotjar20171127'] = TRUE;
