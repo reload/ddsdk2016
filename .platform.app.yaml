@@ -104,8 +104,8 @@ crons:
         spec: "*/2 * * * *"
         cmd: "cd web ; drush core-cron"
     snapshot:
-        spec: '10 8 * * *'
+        spec: '33 9 * * *'
         cmd: |
-            if [ "$PLATFORM_BRANCH" = master || "$PLATFORM_BRANCH" = develop]; then
+            if [ "$PLATFORM_BRANCH" = "master" ] || [ "$PLATFORM_BRANCH" = "develop" ]; then
                 platform snapshot:create --yes --no-wait
             fi
