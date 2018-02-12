@@ -272,10 +272,10 @@ display:
           fields: {  }
           plugin_id: search_api_fulltext
       sorts:
-        created:
-          id: created
+        search_api_relevance:
+          id: search_api_relevance
           table: search_api_index_nodes
-          field: created
+          field: search_api_relevance
           relationship: none
           group_type: group
           admin_label: ''
