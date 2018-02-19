@@ -272,6 +272,18 @@ display:
           fields: {  }
           plugin_id: search_api_fulltext
       sorts:
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_nodes
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: search_api
         created:
           id: created
           table: search_api_index_nodes
