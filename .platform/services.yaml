@@ -8,5 +8,13 @@ mysqldb:
     disk: 2048
 
 solr:
-    type: "solr:4.10"
+    type: "solr:6.6"
     disk: 2048
+    configuration:
+        cores:
+            ddsmainindex:
+                conf_dir: !archive "solr-6.x-config"
+        endpoints:
+            ddssolr:
+                core: ddsmainindex
+

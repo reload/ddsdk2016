@@ -34,6 +34,7 @@ if (isset($_ENV['PLATFORM_RELATIONSHIPS'])) {
 
   // Import solr-configuration from platform if available.
   if (!empty($relationships['solr'])) {
+    // We only have a single solr relationship, so just hardcode [0].
     $endpoint = $relationships['solr'][0];
 
     // Override drupal configuration.
