@@ -71,11 +71,16 @@ services:
     #    - './docker/my-custom-db-dump.sql:/docker-entrypoint-initdb.d/100-db.sql'
 
   solr:
-    image: blinkreaction/drupal-solr:4.x-stable
+    image: solr:6.6
     ports:
       - '8983'
     volumes:
-      - './web/modules/contrib/search_api_solr/solr-conf/4.x:/opt/solr/example/solr/collection1/conf:ro'
+      - './.platform/solr-6.x-config:/solr-conf/conf:ro'
+    entrypoint:
+      - docker-entrypoint.sh
+      - solr-precreate
+      - ddsmainindex
+      - /solr-conf
 
   # Webroot and volumned paths needs to be accessible from multiple containers so
   # we set up all paths once and for all via a single volumne-container.
