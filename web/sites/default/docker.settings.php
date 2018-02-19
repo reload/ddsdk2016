@@ -61,6 +61,8 @@ $config['stage_file_proxy.settings']['origin'] = 'https://dds.dk/';
 // Solr config override.
 $config['search_api.server.solr']['backend_config']['connector_config']['host'] = 'solr';
 $config['search_api.server.solr']['backend_config']['connector_config']['path'] = '/solr';
+$config['search_api.server.solr']['backend_config']['connector_config']['port'] = '8983';
+$config['search_api.server.solr']['backend_config']['connector_config']['core'] = 'ddsmainindex';
 
 // Google analytics test.
 $config['google_analytics.settings']['account'] = 'UA-7162673-26';
