@@ -12,23 +12,12 @@ dependencies:
     - node.type.download
   module:
     - file
-    - search_api_exclude_entity
     - user
 id: node.download.default
 targetEntityType: node
 bundle: download
 mode: default
 content:
-  field_exclude_from_search:
-    weight: 1
-    label: above
-    settings:
-      format: yes-no
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: search_api_exclude_entity_formatter
-    region: content
   field_file:
     weight: 0
     label: above
@@ -41,5 +30,6 @@ hidden:
   field_content_tag: true
   field_content_target_group: true
   field_content_topic: true
+  field_exclude_from_search: true
   langcode: true
   links: true

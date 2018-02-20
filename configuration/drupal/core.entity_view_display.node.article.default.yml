@@ -19,7 +19,6 @@ dependencies:
   module:
     - entity_reference_revisions
     - metatag
-    - search_api_exclude_entity
     - user
 id: node.article.default
 targetEntityType: node
@@ -43,16 +42,6 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
-    region: content
-  field_exclude_from_search:
-    weight: 8
-    label: above
-    settings:
-      format: yes-no
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: search_api_exclude_entity_formatter
     region: content
   field_main_media:
     type: entity_reference_entity_view
@@ -97,12 +86,13 @@ content:
     region: content
   links:
     weight: 1
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   field_article_type: true
   field_content_category: true
   field_content_tag: true
   field_content_target_group: true
+  field_exclude_from_search: true
   langcode: true
