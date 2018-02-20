@@ -1,0 +1,10 @@
+uuid: 5d6dcee4-e330-4dbf-8241-202a0c0bc3cd
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.search_index
+label: 'Search index'
+targetEntityType: paragraph
+cache: true
