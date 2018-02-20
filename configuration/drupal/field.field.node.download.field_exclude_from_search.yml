@@ -1,0 +1,23 @@
+uuid: cb08da46-f074-4043-8201-a1236e890bb8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_exclude_from_search
+    - node.type.download
+  module:
+    - search_api_exclude_entity
+id: node.download.field_exclude_from_search
+field_name: field_exclude_from_search
+entity_type: node
+bundle: download
+label: 'Exclude from search'
+description: 'Whether this field should be excluded from search.'
+required: false
+translatable: true
+default_value:
+  -
+    value: false
+default_value_callback: ''
+settings: {  }
+field_type: search_api_exclude_entity

@@ -37,6 +37,7 @@ dependencies:
     - paragraphs
     - taxonomy
     - search_api
+    - search_api_exclude_entity
     - node
 id: nodes
 name: Nodes
@@ -318,7 +319,7 @@ field_settings:
     label: 'Category » Taxonomy term » Name'
     datasource_id: 'entity:node'
     property_path: 'field_content_category:entity:name'
-    type: string
+    type: text
     dependencies:
       config:
         - field.storage.node.field_content_category
@@ -328,7 +329,7 @@ field_settings:
     label: 'Tag » Taxonomy term » Name'
     datasource_id: 'entity:node'
     property_path: 'field_content_tag:entity:name'
-    type: string
+    type: text
     dependencies:
       config:
         - field.storage.node.field_content_tag
@@ -338,7 +339,7 @@ field_settings:
     label: 'Target group » Taxonomy term » Name'
     datasource_id: 'entity:node'
     property_path: 'field_content_target_group:entity:name'
-    type: string
+    type: text
     dependencies:
       config:
         - field.storage.node.field_content_target_group
@@ -348,7 +349,7 @@ field_settings:
     label: 'Topic » Taxonomy term » Name'
     datasource_id: 'entity:node'
     property_path: 'field_content_topic:entity:name'
-    type: string
+    type: text
     dependencies:
       config:
         - field.storage.node.field_content_topic
@@ -408,15 +409,19 @@ datasource_settings:
       default: true
       selected: {  }
 processor_settings:
+  rendered_item:
+    plugin_id: rendered_item
+    settings: {  }
   add_url:
     plugin_id: add_url
     settings: {  }
   aggregated_field:
     plugin_id: aggregated_field
     settings: {  }
-  rendered_item:
-    plugin_id: rendered_item
-    settings: {  }
+  search_api_exclude_entity_processor:
+    fields:
+      node:
+        - field_exclude_from_search
 tracker_settings:
   default:
     plugin_id: default

@@ -7,10 +7,12 @@ dependencies:
     - field.field.node.download.field_content_tag
     - field.field.node.download.field_content_target_group
     - field.field.node.download.field_content_topic
+    - field.field.node.download.field_exclude_from_search
     - field.field.node.download.field_file
     - node.type.download
   module:
     - file
+    - search_api_exclude_entity
 id: node.download.default
 targetEntityType: node
 bundle: download
@@ -42,6 +44,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
+  field_exclude_from_search:
+    weight: 122
+    settings:
+      field_label: 'Yes, exclude this entity from the search indexes.'
+    third_party_settings: {  }
+    type: search_api_exclude_entity_widget
     region: content
   field_file:
     weight: 1

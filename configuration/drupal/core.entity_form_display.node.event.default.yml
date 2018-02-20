@@ -22,6 +22,7 @@ dependencies:
     - field.field.node.event.field_event_start
     - field.field.node.event.field_event_teaser
     - field.field.node.event.field_event_type
+    - field.field.node.event.field_exclude_from_search
     - field.field.node.event.field_main_media
     - field.field.node.event.field_metatags
     - field.field.node.event.field_paragraphs
@@ -36,6 +37,7 @@ dependencies:
     - metatag
     - paragraphs
     - path
+    - search_api_exclude_entity
     - text
 third_party_settings:
   field_group:
@@ -276,6 +278,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
+  field_exclude_from_search:
+    weight: 122
+    settings:
+      field_label: 'Yes, exclude this entity from the search indexes.'
+    third_party_settings: {  }
+    type: search_api_exclude_entity_widget
     region: content
   field_main_media:
     weight: 1
