@@ -1,0 +1,23 @@
+uuid: 50d128d7-5ea5-445b-a1de-bf4dff7c5cf8
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.search_index
+    - field.field.paragraph.situation_links.field_icon
+    - field.field.paragraph.situation_links.field_situation_color
+    - field.field.paragraph.situation_links.field_situation_links
+    - field.field.paragraph.situation_links.field_situation_main_link
+    - paragraphs.paragraphs_type.situation_links
+id: paragraph.situation_links.search_index
+targetEntityType: paragraph
+bundle: situation_links
+mode: search_index
+content: {  }
+hidden:
+  created: true
+  field_icon: true
+  field_situation_color: true
+  field_situation_links: true
+  field_situation_main_link: true
+  uid: true

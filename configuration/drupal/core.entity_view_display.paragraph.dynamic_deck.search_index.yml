@@ -1,0 +1,27 @@
+uuid: 233a68e1-675c-4c91-826c-f190f426d90e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.search_index
+    - field.field.paragraph.dynamic_deck.field_paragraphs
+    - paragraphs.paragraphs_type.dynamic_deck
+  module:
+    - entity_reference_revisions
+id: paragraph.dynamic_deck.search_index
+targetEntityType: paragraph
+bundle: dynamic_deck
+mode: search_index
+content:
+  field_paragraphs:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: search_index
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  uid: true

@@ -1,0 +1,25 @@
+uuid: cd6378d8-7e75-4f46-b8d6-dbff1f3b87dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.search_index
+    - field.field.paragraph.content_event_reference.field_content_reference
+    - paragraphs.paragraphs_type.content_event_reference
+id: paragraph.content_event_reference.search_index
+targetEntityType: paragraph
+bundle: content_event_reference
+mode: search_index
+content:
+  field_content_reference:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: search_index_teaser
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  created: true
+  uid: true

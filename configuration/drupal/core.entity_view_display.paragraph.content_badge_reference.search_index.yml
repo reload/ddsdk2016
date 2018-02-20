@@ -1,0 +1,25 @@
+uuid: f6ecce44-e950-465d-8e01-d7487b0ef697
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.search_index
+    - field.field.paragraph.content_badge_reference.field_content_reference
+    - paragraphs.paragraphs_type.content_badge_reference
+id: paragraph.content_badge_reference.search_index
+targetEntityType: paragraph
+bundle: content_badge_reference
+mode: search_index
+content:
+  field_content_reference:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: search_index_teaser
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  created: true
+  uid: true

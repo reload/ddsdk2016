@@ -1,0 +1,25 @@
+uuid: f47e9bf4-fa94-4a95-bf60-ddc689180569
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.search_index
+    - field.field.paragraph.text.field_formatted_text
+    - paragraphs.paragraphs_type.text
+  module:
+    - text
+id: paragraph.text.search_index
+targetEntityType: paragraph
+bundle: text
+mode: search_index
+content:
+  field_formatted_text:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  created: true
+  uid: true

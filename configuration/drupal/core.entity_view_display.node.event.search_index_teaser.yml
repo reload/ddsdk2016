@@ -1,9 +1,9 @@
-uuid: dbe02052-a995-44fc-a810-7a1445de742f
+uuid: 4799691e-6880-4fd1-b3e5-7c54bf2d8a4a
 langcode: en
-status: false
+status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.search_index
+    - core.entity_view_mode.node.search_index_teaser
     - field.field.node.event.field_content_category
     - field.field.node.event.field_content_tag
     - field.field.node.event.field_content_target_group
@@ -29,71 +29,20 @@ dependencies:
     - field.field.node.event.field_programs
     - node.type.event
   module:
-    - datetime
     - user
-id: node.event.search_index
+id: node.event.search_index_teaser
 targetEntityType: node
 bundle: event
-mode: search_index
+mode: search_index_teaser
 content:
-  field_event_end:
-    type: datetime_default
-    weight: 6
-    label: hidden
-    settings:
-      format_type: medium
-      timezone_override: ''
-    third_party_settings: {  }
-    region: content
-  field_event_location_name:
-    weight: 3
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_event_price:
-    weight: 4
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_event_start:
-    weight: 2
-    label: hidden
-    settings:
-      timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
-  field_event_teaser:
-    weight: 1
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
   field_event_type:
-    weight: 5
-    label: hidden
-    settings:
-      link: false
-    third_party_settings: {  }
     type: entity_reference_label
-    region: content
-  field_main_media:
     weight: 0
+    region: content
     label: hidden
     settings:
-      view_mode: wide_teaser
       link: false
     third_party_settings: {  }
-    type: entity_reference_entity_view
-    region: content
 hidden:
   field_content_category: true
   field_content_tag: true
@@ -103,11 +52,17 @@ hidden:
   field_event_accommodation: true
   field_event_address: true
   field_event_area: true
+  field_event_end: true
   field_event_host_info: true
   field_event_is_all_day: true
+  field_event_location_name: true
+  field_event_price: true
   field_event_signup_deadline: true
   field_event_signup_instructions: true
+  field_event_start: true
+  field_event_teaser: true
   field_exclude_from_search: true
+  field_main_media: true
   field_metatags: true
   field_paragraphs: true
   field_programs: true

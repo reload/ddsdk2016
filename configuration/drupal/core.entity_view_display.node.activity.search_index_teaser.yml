@@ -1,0 +1,40 @@
+uuid: 30599ba4-ae55-488c-bdb5-f26269cd70e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index_teaser
+    - field.field.node.activity.field_activity_id
+    - field.field.node.activity.field_content_topic
+    - field.field.node.activity.field_main_media
+    - field.field.node.activity.field_subtitle
+    - node.type.activity
+  module:
+    - user
+id: node.activity.search_index_teaser
+targetEntityType: node
+bundle: activity
+mode: search_index_teaser
+content:
+  field_activity_id:
+    weight: 0
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_content_topic:
+    weight: 1
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  field_main_media: true
+  field_subtitle: true
+  langcode: true
+  links: true

@@ -93,16 +93,17 @@ function mungo_preprocess_field(&$variables) {
       $variables['item_col_classes'][] = 'col-xs-6';
     }
   }
-  if ($field_name == 'field_section') {
+  if ($field_name === 'field_section') {
     $prevkey = NULL;
+    $herobannerfound = FALSE;
 
     foreach ($variables['items'] as $key => &$item) {
       /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
-      $paragraph = $item['content']['#paragraph'];
+      $paragraph = isset($item['content']['#paragraph']) ? $item['content']['#paragraph'] : NULL;
 
       // If the a 4col_deck paragraph is right after a herobanner. Set negative
       // margin.
-      if (isset($herobannerfound) && $herobannerfound == TRUE && $paragraph->getType() == '4col_deck') {
+      if (!empty($paragraph) && isset($herobannerfound) && $herobannerfound === TRUE && $paragraph->getType() === '4col_deck') {
         if (!empty($paragraph->field_4col_deck_col1)) {
           $entities = $paragraph->field_4col_deck_col1->referencedEntities();
           $situation_link = reset($entities);
@@ -1051,10 +1052,12 @@ function mungo_theme($existing, $type, $theme, $path) {
 function mungo_inspirational_prerender($elements) {
   if (!empty($elements['field_main_media'])) {
     foreach (Element::children($elements['field_main_media']) as $name) {
-      $elements['field_main_media'][$name]['#view_mode'] = 'extended_teaser';
-      // Make sure this field is going to be rendered again if it is
-      // rendered without this prerender.
-      $elements['field_main_media'][$name]['#cache']['keys'][] = 'mungo_inspirational_prerender';
+      if (!isset($elements['field_main_media'][$name]['#view_mode']) || $elements['field_main_media'][$name]['#view_mode'] === 'teaser') {
+        $elements['field_main_media'][$name]['#view_mode'] = 'extended_teaser';
+        // Make sure this field is going to be rendered again if it is
+        // rendered without this prerender.
+        $elements['field_main_media'][$name]['#cache']['keys'][] = 'mungo_inspirational_prerender';
+      }
     }
   }
   return $elements;

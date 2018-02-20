@@ -1,0 +1,10 @@
+uuid: 0256dfde-4724-4e34-b98f-508e0d4071b4
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.search_index_extended_teaser
+label: 'Search index extended teaser'
+targetEntityType: node
+cache: true

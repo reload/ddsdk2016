@@ -1,0 +1,25 @@
+uuid: 8cc6605f-7dc0-48e3-9cac-60a3e6d388fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.search_index
+    - field.field.paragraph.download.field_download
+    - paragraphs.paragraphs_type.download
+id: paragraph.download.search_index
+targetEntityType: paragraph
+bundle: download
+mode: search_index
+content:
+  field_download:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: search_index_teaser
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  created: true
+  uid: true

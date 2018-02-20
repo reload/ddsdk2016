@@ -1,8 +1,9 @@
-uuid: 64985afe-b083-4a77-968e-10da14e6d63c
+uuid: a68d249a-0e93-4f2d-920f-cdfa905f5404
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.search_index_teaser
     - field.field.node.download.field_content_category
     - field.field.node.download.field_content_tag
     - field.field.node.download.field_content_target_group
@@ -11,25 +12,18 @@ dependencies:
     - field.field.node.download.field_file
     - node.type.download
   module:
-    - file
     - user
-id: node.download.default
+id: node.download.search_index_teaser
 targetEntityType: node
 bundle: download
-mode: default
-content:
-  field_file:
-    weight: 0
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: file_default
-    region: content
+mode: search_index_teaser
+content: {  }
 hidden:
   field_content_category: true
   field_content_tag: true
   field_content_target_group: true
   field_content_topic: true
   field_exclude_from_search: true
+  field_file: true
   langcode: true
   links: true

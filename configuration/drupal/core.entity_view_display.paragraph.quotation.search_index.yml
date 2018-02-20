@@ -1,0 +1,23 @@
+uuid: da254b68-2c60-4be1-bffb-f97ca72f9451
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.search_index
+    - field.field.paragraph.quotation.field_quotation
+    - paragraphs.paragraphs_type.quotation
+id: paragraph.quotation.search_index
+targetEntityType: paragraph
+bundle: quotation
+mode: search_index
+content:
+  field_quotation:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden:
+  created: true
+  uid: true

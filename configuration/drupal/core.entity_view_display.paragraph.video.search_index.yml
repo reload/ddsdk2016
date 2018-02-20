@@ -1,0 +1,25 @@
+uuid: 1c3ec61d-0080-4366-a8e0-6afef70891db
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.search_index
+    - field.field.paragraph.video.field_video
+    - field.field.paragraph.video.field_video_caption
+    - paragraphs.paragraphs_type.video
+id: paragraph.video.search_index
+targetEntityType: paragraph
+bundle: video
+mode: search_index
+content:
+  field_video_caption:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden:
+  created: true
+  field_video: true
+  uid: true

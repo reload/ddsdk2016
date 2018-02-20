@@ -1,0 +1,30 @@
+uuid: bd3649c2-3a86-4d00-9007-c67329ecb69b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.search_index
+    - field.field.media.image.field_byline
+    - field.field.media.image.field_caption
+    - field.field.media.image.field_image
+    - media_entity.bundle.image
+id: media.image.search_index
+targetEntityType: media
+bundle: image
+mode: search_index
+content:
+  field_caption:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden:
+  created: true
+  field_byline: true
+  field_image: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

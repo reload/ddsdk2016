@@ -1,8 +1,9 @@
-uuid: 3d277426-0bd3-44ea-8fe2-50a167e654a8
+uuid: 520ea905-5229-4320-bbce-0264029816bd
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.search_index
     - field.field.node.article.field_article_type
     - field.field.node.article.field_content_author
     - field.field.node.article.field_content_category
@@ -20,22 +21,13 @@ dependencies:
     - entity_reference_revisions
     - metatag
     - user
-id: node.article.default
+id: node.article.search_index
 targetEntityType: node
 bundle: article
-mode: default
+mode: search_index
 content:
   field_content_author:
-    weight: 5
-    label: hidden
-    settings:
-      link: true
-      view_mode: default
-    third_party_settings: {  }
-    type: entity_reference_entity_view
-    region: content
-  field_content_topic:
-    weight: 0
+    weight: 3
     label: hidden
     settings:
       view_mode: plaintext
@@ -43,56 +35,77 @@ content:
     third_party_settings: {  }
     type: entity_reference_entity_view
     region: content
-  field_main_media:
-    type: entity_reference_entity_view
-    weight: 2
+  field_content_category:
+    type: entity_reference_label
+    weight: 1
+    region: content
     label: hidden
     settings:
-      view_mode: article_main_media
+      link: false
+    third_party_settings: {  }
+  field_content_tag:
+    type: entity_reference_label
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+  field_content_target_group:
+    type: entity_reference_label
+    weight: 4
+    region: content
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+  field_content_topic:
+    weight: 0
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_main_media:
+    type: entity_reference_entity_view
+    weight: 6
+    label: hidden
+    settings:
+      view_mode: search_index
       link: false
     third_party_settings: {  }
     region: content
   field_metatags:
-    weight: 7
-    label: above
+    weight: 9
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: metatag_empty_formatter
     region: content
   field_paragraphs:
     type: entity_reference_revisions_entity_view
-    weight: 4
+    weight: 8
     label: hidden
     settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    region: content
-  field_sidedeck:
-    type: entity_reference_revisions_entity_view
-    weight: 6
-    label: hidden
-    settings:
-      view_mode: teaser_list
+      view_mode: search_index
       link: ''
     third_party_settings: {  }
     region: content
   field_subtitle:
-    weight: 3
+    weight: 7
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   links:
-    weight: 1
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   field_article_type: true
-  field_content_category: true
-  field_content_tag: true
-  field_content_target_group: true
   field_exclude_from_search: true
+  field_sidedeck: true
   langcode: true
