@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.article.field_content_tag
     - field.field.node.article.field_content_target_group
     - field.field.node.article.field_content_topic
+    - field.field.node.article.field_exclude_from_search
     - field.field.node.article.field_main_media
     - field.field.node.article.field_metatags
     - field.field.node.article.field_paragraphs
@@ -20,6 +21,7 @@ dependencies:
     - metatag
     - paragraphs
     - path
+    - search_api_exclude_entity
 _core:
   default_config_hash: 7CvVDwPYotAZFBa36mcpMKZOfVRRp_iGuPHpHaavI6E
 id: node.article.default
@@ -71,6 +73,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
+  field_exclude_from_search:
+    weight: 122
+    settings:
+      field_label: 'Yes, exclude this entity from the search indexes.'
+    third_party_settings: {  }
+    type: search_api_exclude_entity_widget
     region: content
   field_main_media:
     weight: 1

@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.badge.field_badge_type
     - field.field.node.badge.field_content_tag
     - field.field.node.badge.field_content_topic
+    - field.field.node.badge.field_exclude_from_search
     - field.field.node.badge.field_main_media
     - field.field.node.badge.field_metatags
     - field.field.node.badge.field_paragraphs
@@ -20,6 +21,7 @@ dependencies:
     - entity_reference_revisions
     - metatag
     - options
+    - search_api_exclude_entity
     - user
 id: node.badge.default
 targetEntityType: node
@@ -56,6 +58,16 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_exclude_from_search:
+    weight: 8
+    label: above
+    settings:
+      format: yes-no
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: search_api_exclude_entity_formatter
     region: content
   field_main_media:
     type: entity_reference_entity_view

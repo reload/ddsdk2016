@@ -7,16 +7,28 @@ dependencies:
     - field.field.node.download.field_content_tag
     - field.field.node.download.field_content_target_group
     - field.field.node.download.field_content_topic
+    - field.field.node.download.field_exclude_from_search
     - field.field.node.download.field_file
     - node.type.download
   module:
     - file
+    - search_api_exclude_entity
     - user
 id: node.download.default
 targetEntityType: node
 bundle: download
 mode: default
 content:
+  field_exclude_from_search:
+    weight: 1
+    label: above
+    settings:
+      format: yes-no
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: search_api_exclude_entity_formatter
+    region: content
   field_file:
     weight: 0
     label: above

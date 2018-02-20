@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.section_page.field_content_tag
     - field.field.node.section_page.field_content_target_group
     - field.field.node.section_page.field_content_topic
+    - field.field.node.section_page.field_exclude_from_search
     - field.field.node.section_page.field_main_media
     - field.field.node.section_page.field_metatags
     - field.field.node.section_page.field_section
@@ -18,6 +19,7 @@ dependencies:
     - metatag
     - paragraphs
     - path
+    - search_api_exclude_entity
 id: node.section_page.default
 targetEntityType: node
 bundle: section_page
@@ -55,6 +57,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
+  field_exclude_from_search:
+    weight: 122
+    settings:
+      field_label: 'Yes, exclude this entity from the search indexes.'
+    third_party_settings: {  }
+    type: search_api_exclude_entity_widget
     region: content
   field_main_media:
     weight: 7
