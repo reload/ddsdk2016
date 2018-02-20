@@ -1,0 +1,62 @@
+uuid: 5f8b05f5-976c-46c4-9010-3b719c7e11b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index_extended_teaser
+    - field.field.node.article.field_article_type
+    - field.field.node.article.field_content_author
+    - field.field.node.article.field_content_category
+    - field.field.node.article.field_content_tag
+    - field.field.node.article.field_content_target_group
+    - field.field.node.article.field_content_topic
+    - field.field.node.article.field_exclude_from_search
+    - field.field.node.article.field_main_media
+    - field.field.node.article.field_metatags
+    - field.field.node.article.field_paragraphs
+    - field.field.node.article.field_sidedeck
+    - field.field.node.article.field_subtitle
+    - node.type.article
+  module:
+    - user
+id: node.article.search_index_extended_teaser
+targetEntityType: node
+bundle: article
+mode: search_index_extended_teaser
+content:
+  field_content_topic:
+    weight: 2
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_main_media:
+    type: entity_reference_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: search_index
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_subtitle:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden:
+  field_article_type: true
+  field_content_author: true
+  field_content_category: true
+  field_content_tag: true
+  field_content_target_group: true
+  field_exclude_from_search: true
+  field_metatags: true
+  field_paragraphs: true
+  field_sidedeck: true
+  langcode: true
+  links: true

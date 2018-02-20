@@ -1,0 +1,25 @@
+uuid: 7c57269d-17ef-4795-8350-38db9f7469de
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.search_index
+    - field.field.paragraph.gallery.field_gallery_image
+    - paragraphs.paragraphs_type.gallery
+id: paragraph.gallery.search_index
+targetEntityType: paragraph
+bundle: gallery
+mode: search_index
+content:
+  field_gallery_image:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: search_index
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  created: true
+  uid: true

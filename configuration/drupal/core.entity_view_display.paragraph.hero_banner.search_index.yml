@@ -1,0 +1,30 @@
+uuid: 4eabcd00-7fde-496f-8635-5271df48f366
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.search_index
+    - field.field.paragraph.hero_banner.field_background_image
+    - field.field.paragraph.hero_banner.field_deck_color
+    - field.field.paragraph.hero_banner.field_label
+    - field.field.paragraph.hero_banner.field_links
+    - paragraphs.paragraphs_type.hero_banner
+id: paragraph.hero_banner.search_index
+targetEntityType: paragraph
+bundle: hero_banner
+mode: search_index
+content:
+  field_label:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  created: true
+  field_background_image: true
+  field_deck_color: true
+  field_links: true
+  uid: true

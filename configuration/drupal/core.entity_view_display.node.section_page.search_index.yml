@@ -25,7 +25,7 @@ mode: search_index
 content:
   field_content_category:
     type: entity_reference_entity_view
-    weight: 3
+    weight: 5
     region: content
     label: hidden
     settings:
@@ -43,7 +43,7 @@ content:
     third_party_settings: {  }
   field_content_target_group:
     type: entity_reference_entity_view
-    weight: 5
+    weight: 3
     region: content
     label: hidden
     settings:
@@ -52,7 +52,7 @@ content:
     third_party_settings: {  }
   field_content_topic:
     type: entity_reference_entity_view
-    weight: 7
+    weight: 2
     region: content
     label: hidden
     settings:
@@ -70,14 +70,14 @@ content:
     region: content
   field_metatags:
     type: metatag_empty_formatter
-    weight: 6
+    weight: 7
     region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
   field_section:
     type: entity_reference_revisions_entity_view
-    weight: 0
+    weight: 6
     label: hidden
     settings:
       view_mode: search_index
@@ -85,7 +85,7 @@ content:
     third_party_settings: {  }
     region: content
   field_subtitle:
-    weight: 2
+    weight: 0
     label: hidden
     settings: {  }
     third_party_settings: {  }

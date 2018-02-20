@@ -1,0 +1,40 @@
+uuid: de3ad570-fb85-4d84-ab38-0226f58f478a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.search_index
+    - field.field.paragraph.list_deck.field_deck_color
+    - field.field.paragraph.list_deck.field_deck_link
+    - field.field.paragraph.list_deck.field_deck_title
+    - field.field.paragraph.list_deck.field_list_paragraph
+    - paragraphs.paragraphs_type.list_deck
+  module:
+    - entity_reference_revisions
+id: paragraph.list_deck.search_index
+targetEntityType: paragraph
+bundle: list_deck
+mode: search_index
+content:
+  field_deck_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_list_paragraph:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: search_index
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  field_deck_color: true
+  field_deck_link: true
+  uid: true

@@ -1,0 +1,29 @@
+uuid: a68d249a-0e93-4f2d-920f-cdfa905f5404
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index_teaser
+    - field.field.node.download.field_content_category
+    - field.field.node.download.field_content_tag
+    - field.field.node.download.field_content_target_group
+    - field.field.node.download.field_content_topic
+    - field.field.node.download.field_exclude_from_search
+    - field.field.node.download.field_file
+    - node.type.download
+  module:
+    - user
+id: node.download.search_index_teaser
+targetEntityType: node
+bundle: download
+mode: search_index_teaser
+content: {  }
+hidden:
+  field_content_category: true
+  field_content_tag: true
+  field_content_target_group: true
+  field_content_topic: true
+  field_exclude_from_search: true
+  field_file: true
+  langcode: true
+  links: true
