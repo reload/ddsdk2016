@@ -31,15 +31,17 @@ dependencies:
     - field.storage.node.field_content_tag
     - field.storage.node.field_content_target_group
     - field.storage.node.field_content_topic
+    - field.storage.node.field_sidedeck
+    - field.storage.paragraph.field_download
     - search_api.server.solr
     - core.entity_view_mode.node.search_index
   module:
     - media_entity
     - paragraphs
     - taxonomy
+    - node
     - search_api
     - search_api_exclude_entity
-    - node
 id: nodes
 name: Nodes
 description: ''
@@ -408,6 +410,18 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: sticky
     type: boolean
+  field_download_title:
+    label: 'Sidedeck » Paragraph » Download » Content » Title'
+    datasource_id: 'entity:node'
+    property_path: 'field_sidedeck:entity:field_download:entity:title'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_sidedeck
+        - field.storage.paragraph.field_download
+      module:
+        - paragraphs
+        - node
 datasource_settings:
   'entity:node':
     plugin_id: 'entity:node'
@@ -464,9 +478,53 @@ processor_settings:
       - field_content_tag_name
       - field_content_target_group_name
       - field_content_topic_name
+      - field_download_title
     weights:
       preprocess_index: -20
       preprocess_query: -20
+  html_filter:
+    all_fields: true
+    fields:
+      - rendered_item
+      - type
+      - title
+      - field_subtitle
+      - field_event_location_name
+      - field_event_price
+      - field_event_teaser
+      - main_media_image_field_caption
+      - main_media_image_field_byline
+      - field_factbox_text
+      - field_presentation_name
+      - paragraph_images_field_byline
+      - paragraph_images_field_caption
+      - field_quotation
+      - field_video_caption
+      - event_address_locality
+      - event_address_country_code
+      - event_type_name
+      - postal_code
+      - title_full_text
+      - field_formatted_text
+      - field_article_type
+      - field_content_category_name
+      - field_content_tag_name
+      - field_content_target_group_name
+      - field_content_topic_name
+      - field_download_title
+    title: true
+    alt: true
+    tags:
+      h1: 5
+      h2: 3
+      h3: 2
+      strong: 2
+      b: 2
+      em: 1
+      u: 1
+    weights:
+      preprocess_index: -15
+      preprocess_query: -15
   search_api_exclude_entity_processor:
     fields:
       node:
@@ -475,6 +533,7 @@ tracker_settings:
   default:
     plugin_id: default
     settings: {  }
+    indexing_order: fifo
 options:
   index_directly: true
   cron_limit: 50
