@@ -1,6 +1,6 @@
 uuid: dbe02052-a995-44fc-a810-7a1445de742f
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - core.entity_view_mode.node.search_index
