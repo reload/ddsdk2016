@@ -449,39 +449,6 @@ processor_settings:
     plugin_id: aggregated_field
     settings: {  }
   entity_status: {  }
-  ignorecase:
-    all_fields: true
-    fields:
-      - rendered_item
-      - type
-      - title
-      - field_subtitle
-      - field_event_location_name
-      - field_event_price
-      - field_event_teaser
-      - main_media_image_field_caption
-      - main_media_image_field_byline
-      - field_factbox_text
-      - field_presentation_name
-      - paragraph_images_field_byline
-      - paragraph_images_field_caption
-      - field_quotation
-      - field_video_caption
-      - event_address_locality
-      - event_address_country_code
-      - event_type_name
-      - postal_code
-      - title_full_text
-      - field_formatted_text
-      - field_article_type
-      - field_content_category_name
-      - field_content_tag_name
-      - field_content_target_group_name
-      - field_content_topic_name
-      - field_download_title
-    weights:
-      preprocess_index: -20
-      preprocess_query: -20
   html_filter:
     all_fields: true
     fields:
@@ -520,8 +487,6 @@ processor_settings:
       h3: 2
       strong: 2
       b: 2
-      em: 1
-      u: 1
     weights:
       preprocess_index: -15
       preprocess_query: -15
@@ -529,6 +494,20 @@ processor_settings:
     fields:
       node:
         - field_exclude_from_search
+  type_boost:
+    boosts:
+      'entity:node':
+        datasource_boost: !!float 1
+        bundle_boosts:
+          activity: !!float 0
+          article: !!float 0
+          badge: !!float 0
+          download: !!float 0
+          event: !!float 0
+          redirect_page: !!float 2
+          section_page: !!float 0
+    weights:
+      preprocess_index: 0
 tracker_settings:
   default:
     plugin_id: default
