@@ -1,0 +1,54 @@
+uuid: 74fd37f1-aa67-43b4-9a68-2bfdda294924
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index_extended_teaser
+    - field.field.node.redirect_page.field_content_category
+    - field.field.node.redirect_page.field_content_tag
+    - field.field.node.redirect_page.field_content_target_group
+    - field.field.node.redirect_page.field_content_topic
+    - field.field.node.redirect_page.field_exclude_from_search
+    - field.field.node.redirect_page.field_main_media
+    - field.field.node.redirect_page.field_redirect_destination
+    - field.field.node.redirect_page.field_subtitle
+    - node.type.redirect_page
+  module:
+    - user
+id: node.redirect_page.search_index_extended_teaser
+targetEntityType: node
+bundle: redirect_page
+mode: search_index_extended_teaser
+content:
+  field_content_topic:
+    weight: 2
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_main_media:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: search_index
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_subtitle:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden:
+  field_content_category: true
+  field_content_tag: true
+  field_content_target_group: true
+  field_exclude_from_search: true
+  field_redirect_destination: true
+  langcode: true
+  links: true

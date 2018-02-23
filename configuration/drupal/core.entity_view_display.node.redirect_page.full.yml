@@ -1,0 +1,50 @@
+uuid: 14b5bce9-a363-4163-8346-b8067de04dd1
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.redirect_page.field_content_category
+    - field.field.node.redirect_page.field_content_tag
+    - field.field.node.redirect_page.field_content_target_group
+    - field.field.node.redirect_page.field_content_topic
+    - field.field.node.redirect_page.field_exclude_from_search
+    - field.field.node.redirect_page.field_main_media
+    - field.field.node.redirect_page.field_redirect_destination
+    - field.field.node.redirect_page.field_subtitle
+    - node.type.redirect_page
+  module:
+    - field_redirection
+    - user
+id: node.redirect_page.full
+targetEntityType: node
+bundle: redirect_page
+mode: full
+content:
+  field_redirect_destination:
+    weight: 0
+    label: hidden
+    settings:
+      code: '301'
+      404_if_empty: false
+      page_restrictions: 0
+      pages: ''
+    third_party_settings: {  }
+    type: field_redirection_formatter
+    region: content
+  field_subtitle:
+    type: basic_string
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_content_category: true
+  field_content_tag: true
+  field_content_target_group: true
+  field_content_topic: true
+  field_exclude_from_search: true
+  field_main_media: true
+  langcode: true
+  links: true

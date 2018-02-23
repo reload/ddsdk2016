@@ -1,0 +1,25 @@
+uuid: b6f08556-f5b5-4b6a-831f-3a1ccdbc7b38
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.content_redirect_page_reference_.field_content_reference
+    - paragraphs.paragraphs_type.content_redirect_page_reference_
+id: paragraph.content_redirect_page_reference_.default
+targetEntityType: paragraph
+bundle: content_redirect_page_reference_
+mode: default
+content:
+  field_content_reference:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

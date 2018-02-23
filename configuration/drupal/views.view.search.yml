@@ -75,6 +75,7 @@ display:
               badge: teaser
               download: teaser
               event: teaser
+              redirect_page: teaser
               section_page: teaser
       fields:
         nid:
