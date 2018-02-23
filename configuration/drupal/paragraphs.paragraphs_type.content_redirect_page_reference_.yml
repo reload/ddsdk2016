@@ -1,0 +1,9 @@
+uuid: 2ef2577b-992e-411b-813d-1f8b9a466cf0
+langcode: en
+status: true
+dependencies: {  }
+id: content_redirect_page_reference_
+label: 'Content: Redirect page reference (Extended)'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

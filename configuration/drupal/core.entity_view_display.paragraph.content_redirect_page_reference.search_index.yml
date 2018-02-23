@@ -1,0 +1,23 @@
+uuid: 2e143aa2-b40b-4b78-a143-4d18dcaa76d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.search_index
+    - field.field.paragraph.content_redirect_page_reference.field_content_reference
+    - paragraphs.paragraphs_type.content_redirect_page_reference
+id: paragraph.content_redirect_page_reference.search_index
+targetEntityType: paragraph
+bundle: content_redirect_page_reference
+mode: search_index
+content:
+  field_content_reference:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: search_index_teaser
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden: {  }
