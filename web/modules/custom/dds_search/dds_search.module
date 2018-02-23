@@ -5,6 +5,7 @@
  * Functionality for searches.
  */
 
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\ViewExecutable;
 
@@ -123,6 +124,26 @@ function dds_search_views_pre_render(ViewExecutable $view) {
   foreach (['event_after', 'event_before'] as $field) {
     if (!empty($view->exposed_raw_input[$field])) {
       $view->exposed_raw_input[$field] = _dds_search_reformat_date_us_to_dk($view->exposed_raw_input[$field]);
+    }
+  }
+}
+
+/**
+ * Make it possible to switch view-mode via the url.
+ *
+ * @param string $view_mode
+ *   The view-mode we want to alter.
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ *   The entity being viewed.
+ * @param array $context
+ *   Context.
+ */
+function dds_search_entity_view_mode_alter(&$view_mode, EntityInterface $entity, array $context) {
+  // Only allow authenticated users for now.
+  if (\Drupal::currentUser()->isAuthenticated()) {
+    $force_view_mode = \Drupal::request()->query->get('force_view_mode');
+    if (!empty($force_view_mode)) {
+      $view_mode = $force_view_mode;
     }
   }
 }
