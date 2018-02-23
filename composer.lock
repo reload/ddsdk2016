@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "dd9669d728c51212b9d8b5c350c56142",
+    "content-hash": "31222173d9031e2bc27449981611c9ea",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -2655,6 +2655,56 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/field_group"
             }
+        },
+        {
+            "name": "drupal/field_redirection",
+            "version": "dev-2.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/field_redirection",
+                "reference": "e1c30f24f9b7a21a6e968c61b774399c25b4b9f7"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.x-dev",
+                    "datestamp": "1504721939",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "DamienMcKenna",
+                    "homepage": "https://www.drupal.org/user/108450"
+                },
+                {
+                    "name": "ultimike",
+                    "homepage": "https://www.drupal.org/user/51132"
+                }
+            ],
+            "description": "Provides a field formatter to redirect the page to a URL. Requires Link module.",
+            "homepage": "https://www.drupal.org/project/field_redirection",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/field_redirection",
+                "issues": "http://drupal.org/project/issues/field_redirection"
+            },
+            "time": "2017-09-06 18:16:12"
         },
         {
             "name": "drupal/forward",
@@ -8716,7 +8766,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "drupal/search_api_solr": 10
+        "drupal/search_api_solr": 10,
+        "drupal/field_redirection": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

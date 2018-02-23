@@ -1,0 +1,29 @@
+uuid: 077180e2-ece5-4d51-9d40-4b14dcbcb57d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content_target_group
+    - node.type.redirect_page
+    - taxonomy.vocabulary.content_target_group
+id: node.redirect_page.field_content_target_group
+field_name: field_content_target_group
+entity_type: node
+bundle: redirect_page
+label: 'Target group'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      content_target_group: content_target_group
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

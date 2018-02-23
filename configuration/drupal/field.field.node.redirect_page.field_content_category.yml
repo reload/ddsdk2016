@@ -1,0 +1,29 @@
+uuid: d49382e2-10c7-41dc-b726-d8b91df8ca84
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content_category
+    - node.type.redirect_page
+    - taxonomy.vocabulary.content_category
+id: node.redirect_page.field_content_category
+field_name: field_content_category
+entity_type: node
+bundle: redirect_page
+label: Category
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      content_category: content_category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

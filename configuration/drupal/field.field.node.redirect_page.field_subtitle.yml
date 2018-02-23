@@ -1,0 +1,19 @@
+uuid: 79b144d0-f77d-430b-a99e-ecf0181c85e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subtitle
+    - node.type.redirect_page
+id: node.redirect_page.field_subtitle
+field_name: field_subtitle
+entity_type: node
+bundle: redirect_page
+label: Subtitle
+description: 'Short description, may be visible in teasers, but mainly used for searching.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

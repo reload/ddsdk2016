@@ -9,6 +9,7 @@ dependencies:
     - node.type.article
     - node.type.badge
     - node.type.event
+    - node.type.redirect_page
 id: block_content.content_list.field_content_list
 field_name: field_content_list
 entity_type: block_content
@@ -27,6 +28,7 @@ settings:
       article: article
       badge: badge
       event: event
+      redirect_page: redirect_page
     sort:
       field: _none
     auto_create: false

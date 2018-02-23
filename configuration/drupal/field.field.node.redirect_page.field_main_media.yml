@@ -1,0 +1,28 @@
+uuid: b34bacf7-e9c3-46b5-b9b2-466fdafb926e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_main_media
+    - media_entity.bundle.image
+    - node.type.redirect_page
+id: node.redirect_page.field_main_media
+field_name: field_main_media
+entity_type: node
+bundle: redirect_page
+label: 'Main Media'
+description: 'Main image for the redirect, only visible in teasers and search-results.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
