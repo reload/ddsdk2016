@@ -42,6 +42,7 @@ module:
   facets_views_block: 0
   field: 0
   field_group: 0
+  field_redirection: 0
   field_ui: 0
   file: 0
   filter: 0

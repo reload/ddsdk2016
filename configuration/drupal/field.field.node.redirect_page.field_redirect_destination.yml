@@ -1,0 +1,23 @@
+uuid: 909c7b0a-31d6-49ad-8140-2a501e66b839
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_redirect_destination
+    - node.type.redirect_page
+  module:
+    - link
+id: node.redirect_page.field_redirect_destination
+field_name: field_redirect_destination
+entity_type: node
+bundle: redirect_page
+label: 'Redirect destination'
+description: 'Where the user should be redirected to'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

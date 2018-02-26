@@ -1,0 +1,10 @@
+uuid: 1a564c6a-fe45-4bb6-9606-823da5340669
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.search_index
+label: 'Search index'
+targetEntityType: block_content
+cache: true

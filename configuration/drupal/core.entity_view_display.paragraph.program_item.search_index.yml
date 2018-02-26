@@ -1,0 +1,45 @@
+uuid: 29943f53-4bcb-4d2c-bf5c-4069310233be
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.search_index
+    - field.field.paragraph.program_item.field_program_description
+    - field.field.paragraph.program_item.field_program_item_date
+    - field.field.paragraph.program_item.field_program_text
+    - paragraphs.paragraphs_type.program_item
+  module:
+    - datetime_range
+    - text
+id: paragraph.program_item.search_index
+targetEntityType: paragraph
+bundle: program_item
+mode: search_index
+content:
+  field_program_description:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_program_item_date:
+    weight: 3
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: default_time
+      separator: '-'
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
+  field_program_text:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  created: true
+  uid: true

@@ -1,0 +1,25 @@
+uuid: a3d0354d-3dae-4079-b238-7cb3c226bd04
+langcode: en
+status: false
+dependencies:
+  module:
+    - node
+id: node_new_redirect_page
+label: 'New Redirect page nodes'
+description: 'New nodes of type Redirect page'
+category: Content
+plugin_id: entity_aggregator
+result_class: null
+value_label: 'Redirect page nodes'
+value_type: number
+caching_time: 600
+settings:
+  entity_type: node
+  conditions:
+    -
+      field: type
+      value: redirect_page
+  time_interval_field: created
+  time_interval_value: 86400
+thresholds:
+  type: none

@@ -1,0 +1,79 @@
+uuid: f5ce9e9b-a9f1-4eb8-a266-0e755e508bcf
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index
+    - field.field.node.redirect_page.field_content_category
+    - field.field.node.redirect_page.field_content_tag
+    - field.field.node.redirect_page.field_content_target_group
+    - field.field.node.redirect_page.field_content_topic
+    - field.field.node.redirect_page.field_exclude_from_search
+    - field.field.node.redirect_page.field_main_media
+    - field.field.node.redirect_page.field_redirect_destination
+    - field.field.node.redirect_page.field_subtitle
+    - node.type.redirect_page
+  module:
+    - user
+id: node.redirect_page.search_index
+targetEntityType: node
+bundle: redirect_page
+mode: search_index
+content:
+  field_content_category:
+    type: entity_reference_label
+    weight: 5
+    region: content
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+  field_content_tag:
+    weight: 4
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_content_target_group:
+    type: entity_reference_label
+    weight: 6
+    region: content
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+  field_content_topic:
+    weight: 3
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_main_media:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: search_index
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_subtitle:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_exclude_from_search: true
+  field_redirect_destination: true
+  langcode: true

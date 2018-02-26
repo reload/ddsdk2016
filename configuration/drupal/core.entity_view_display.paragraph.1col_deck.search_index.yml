@@ -1,0 +1,40 @@
+uuid: 623aa82c-1044-40f5-a312-9656a764bdd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.search_index
+    - field.field.paragraph.1col_deck.field_1col_deck_col1
+    - field.field.paragraph.1col_deck.field_deck_color
+    - field.field.paragraph.1col_deck.field_deck_link
+    - field.field.paragraph.1col_deck.field_deck_title
+    - paragraphs.paragraphs_type.1col_deck
+  module:
+    - entity_reference_revisions
+id: paragraph.1col_deck.search_index
+targetEntityType: paragraph
+bundle: 1col_deck
+mode: search_index
+content:
+  field_1col_deck_col1:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: search_index
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_deck_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  created: true
+  field_deck_color: true
+  field_deck_link: true
+  uid: true

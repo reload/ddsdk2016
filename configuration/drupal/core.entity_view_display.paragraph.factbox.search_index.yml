@@ -1,0 +1,25 @@
+uuid: 580d07e1-d04c-4161-972a-7c0c96238360
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.search_index
+    - field.field.paragraph.factbox.field_factbox_text
+    - paragraphs.paragraphs_type.factbox
+  module:
+    - text
+id: paragraph.factbox.search_index
+targetEntityType: paragraph
+bundle: factbox
+mode: search_index
+content:
+  field_factbox_text:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  created: true
+  uid: true

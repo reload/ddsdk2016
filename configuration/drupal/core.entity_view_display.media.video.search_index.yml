@@ -1,0 +1,28 @@
+uuid: 70e52682-5dc7-4e55-b523-f6fb8a3440ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.search_index
+    - field.field.media.video.field_caption
+    - field.field.media.video.field_media_video_embed_field
+    - media_entity.bundle.video
+id: media.video.search_index
+targetEntityType: media
+bundle: video
+mode: search_index
+content:
+  field_caption:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden:
+  created: true
+  field_media_video_embed_field: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

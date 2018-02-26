@@ -1,0 +1,29 @@
+uuid: 1449aa1a-88d7-4193-b088-11acbf6bc2d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content_topic
+    - node.type.redirect_page
+    - taxonomy.vocabulary.content_topic
+id: node.redirect_page.field_content_topic
+field_name: field_content_topic
+entity_type: node
+bundle: redirect_page
+label: Topic
+description: 'Associates the content with a topic'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      content_topic: content_topic
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

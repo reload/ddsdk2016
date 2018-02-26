@@ -1,0 +1,22 @@
+uuid: 5e1dae80-1a88-4b99-a5e6-d1502ba4de85
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.content_redirect_page_reference.field_content_reference
+    - paragraphs.paragraphs_type.content_redirect_page_reference
+id: paragraph.content_redirect_page_reference.default
+targetEntityType: paragraph
+bundle: content_redirect_page_reference
+mode: default
+content:
+  field_content_reference:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden: {  }

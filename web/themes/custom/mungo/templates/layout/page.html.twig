@@ -56,7 +56,10 @@
 
     {#{} page.breadcrumb }}#}
 
-    {#{{ page.highlighted }}#}
+    {# Only show highlight (that contains messages) if the user is logged in #}
+    {%  if logged_in %}
+        {{ page.highlighted }}
+    {% endif %}
 
     {#{{ page.help }}#}
 

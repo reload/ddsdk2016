@@ -1,0 +1,41 @@
+uuid: 37179e6a-0020-4704-91bc-bf589ea6352a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.search_index
+    - field.field.paragraph.key_figures.field_key_figures_deck_color
+    - field.field.paragraph.key_figures.field_key_figures_desc_1
+    - field.field.paragraph.key_figures.field_key_figures_desc_2
+    - field.field.paragraph.key_figures.field_key_figures_desc_3
+    - field.field.paragraph.key_figures.field_key_figures_figure_1
+    - field.field.paragraph.key_figures.field_key_figures_figure_2
+    - field.field.paragraph.key_figures.field_key_figures_figure_3
+    - field.field.paragraph.key_figures.field_key_figures_label_1
+    - field.field.paragraph.key_figures.field_key_figures_label_2
+    - field.field.paragraph.key_figures.field_key_figures_label_3
+    - field.field.paragraph.key_figures.field_key_figures_link_1
+    - field.field.paragraph.key_figures.field_key_figures_link_2
+    - field.field.paragraph.key_figures.field_key_figures_link_3
+    - paragraphs.paragraphs_type.key_figures
+id: paragraph.key_figures.search_index
+targetEntityType: paragraph
+bundle: key_figures
+mode: search_index
+content: {  }
+hidden:
+  created: true
+  field_key_figures_deck_color: true
+  field_key_figures_desc_1: true
+  field_key_figures_desc_2: true
+  field_key_figures_desc_3: true
+  field_key_figures_figure_1: true
+  field_key_figures_figure_2: true
+  field_key_figures_figure_3: true
+  field_key_figures_label_1: true
+  field_key_figures_label_2: true
+  field_key_figures_label_3: true
+  field_key_figures_link_1: true
+  field_key_figures_link_2: true
+  field_key_figures_link_3: true
+  uid: true

@@ -1,0 +1,60 @@
+uuid: 46a01132-12b4-41b7-bca1-a73480e941c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.search_index
+    - field.field.paragraph.3col_deck.field_3col_deck_col1
+    - field.field.paragraph.3col_deck.field_3col_deck_col2
+    - field.field.paragraph.3col_deck.field_3col_deck_col3
+    - field.field.paragraph.3col_deck.field_deck_color
+    - field.field.paragraph.3col_deck.field_deck_link
+    - field.field.paragraph.3col_deck.field_deck_title
+    - paragraphs.paragraphs_type.3col_deck
+  module:
+    - entity_reference_revisions
+id: paragraph.3col_deck.search_index
+targetEntityType: paragraph
+bundle: 3col_deck
+mode: search_index
+content:
+  field_3col_deck_col1:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: search_index
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_3col_deck_col2:
+    type: entity_reference_revisions_entity_view
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: search_index
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_3col_deck_col3:
+    type: entity_reference_revisions_entity_view
+    weight: 3
+    label: hidden
+    settings:
+      view_mode: search_index
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_deck_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  created: true
+  field_deck_color: true
+  field_deck_link: true
+  uid: true

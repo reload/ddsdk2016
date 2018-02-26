@@ -1,0 +1,17 @@
+uuid: 4ec6ef9f-ca10-495b-a9bb-0f7be4619b43
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.search_index
+    - field.field.paragraph.latest_content_list.field_list_item_count
+    - paragraphs.paragraphs_type.latest_content_list
+id: paragraph.latest_content_list.search_index
+targetEntityType: paragraph
+bundle: latest_content_list
+mode: search_index
+content: {  }
+hidden:
+  created: true
+  field_list_item_count: true
+  uid: true

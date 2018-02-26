@@ -1,0 +1,28 @@
+uuid: 87e13249-0065-4653-8694-8f08e83933a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content_reference
+    - node.type.redirect_page
+    - paragraphs.paragraphs_type.content_redirect_page_reference_
+id: paragraph.content_redirect_page_reference_.field_content_reference
+field_name: field_content_reference
+entity_type: paragraph
+bundle: content_redirect_page_reference_
+label: 'Content Reference'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      redirect_page: redirect_page
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

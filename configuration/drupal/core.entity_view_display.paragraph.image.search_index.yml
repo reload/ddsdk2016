@@ -1,0 +1,25 @@
+uuid: c57f7acd-de70-401b-ac40-1a67665e0bfb
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.search_index
+    - field.field.paragraph.image.field_media_image
+    - paragraphs.paragraphs_type.image
+id: paragraph.image.search_index
+targetEntityType: paragraph
+bundle: image
+mode: search_index
+content:
+  field_media_image:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: search_index
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  created: true
+  uid: true

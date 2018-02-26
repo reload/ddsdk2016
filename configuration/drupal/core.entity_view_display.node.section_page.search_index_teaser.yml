@@ -1,0 +1,41 @@
+uuid: df0636a0-5b30-4c1b-a0f3-7546fe0a5964
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index_teaser
+    - field.field.node.section_page.field_content_category
+    - field.field.node.section_page.field_content_tag
+    - field.field.node.section_page.field_content_target_group
+    - field.field.node.section_page.field_content_topic
+    - field.field.node.section_page.field_exclude_from_search
+    - field.field.node.section_page.field_main_media
+    - field.field.node.section_page.field_metatags
+    - field.field.node.section_page.field_section
+    - field.field.node.section_page.field_subtitle
+    - node.type.section_page
+  module:
+    - user
+id: node.section_page.search_index_teaser
+targetEntityType: node
+bundle: section_page
+mode: search_index_teaser
+content:
+  field_subtitle:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden:
+  field_content_category: true
+  field_content_tag: true
+  field_content_target_group: true
+  field_content_topic: true
+  field_exclude_from_search: true
+  field_main_media: true
+  field_metatags: true
+  field_section: true
+  langcode: true
+  links: true
