@@ -1,0 +1,19 @@
+uuid: c6031f16-ca79-4451-a56b-a70f46264410
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_markup
+    - paragraphs.paragraphs_type.markup
+id: paragraph.markup.field_markup
+field_name: field_markup
+entity_type: paragraph
+bundle: markup
+label: Markup
+description: 'Raw markup, eg. a iframe.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

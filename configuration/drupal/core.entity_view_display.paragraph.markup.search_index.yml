@@ -1,0 +1,15 @@
+uuid: 01ca984e-c912-48c9-8aab-9d693fda6cc8
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.search_index
+    - field.field.paragraph.markup.field_markup
+    - paragraphs.paragraphs_type.markup
+id: paragraph.markup.search_index
+targetEntityType: paragraph
+bundle: markup
+mode: search_index
+content: {  }
+hidden:
+  field_markup: true
