@@ -1,0 +1,20 @@
+uuid: 84643f7a-2b2c-4227-8d0c-bb973a16ad15
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.markup.field_markup
+    - paragraphs.paragraphs_type.markup
+id: paragraph.markup.default
+targetEntityType: paragraph
+bundle: markup
+mode: default
+content:
+  field_markup:
+    type: basic_string
+    weight: 0
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

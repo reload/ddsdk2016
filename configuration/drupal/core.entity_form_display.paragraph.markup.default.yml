@@ -1,0 +1,24 @@
+uuid: a94d6115-44ad-468a-afe5-bc2cdb22506e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.markup.field_markup
+    - paragraphs.paragraphs_type.markup
+id: paragraph.markup.default
+targetEntityType: paragraph
+bundle: markup
+mode: default
+content:
+  field_markup:
+    weight: 0
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

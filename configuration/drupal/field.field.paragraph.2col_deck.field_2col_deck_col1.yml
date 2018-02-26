@@ -13,6 +13,7 @@ dependencies:
     - paragraphs.paragraphs_type.content_redirect_page_reference
     - paragraphs.paragraphs_type.latest_content_list
     - paragraphs.paragraphs_type.list_deck
+    - paragraphs.paragraphs_type.markup
     - paragraphs.paragraphs_type.shortcuts
     - paragraphs.paragraphs_type.text
     - paragraphs.paragraphs_type.video
@@ -41,95 +42,102 @@ settings:
       content_badge_reference: content_badge_reference
       content_event_reference: content_event_reference
       content_redirect_page_reference: content_redirect_page_reference
+      markup: markup
       shortcuts: shortcuts
       latest_content_list: latest_content_list
       list_deck: list_deck
     target_bundles_drag_drop:
       text:
         enabled: true
-        weight: -59
+        weight: -63
       video:
         enabled: true
-        weight: -58
+        weight: -62
       block:
         enabled: true
-        weight: -57
+        weight: -61
       content_article_reference:
         enabled: true
-        weight: -56
+        weight: -60
       content_activity_reference:
         enabled: true
-        weight: -55
+        weight: -59
       content_badge_reference:
         enabled: true
-        weight: -54
+        weight: -58
       content_event_reference:
         enabled: true
-        weight: -53
+        weight: -57
       content_redirect_page_reference:
         enabled: true
-        weight: -52
+        weight: -56
+      markup:
+        enabled: true
+        weight: -55
       shortcuts:
         enabled: true
-        weight: -51
+        weight: -54
       latest_content_list:
         enabled: true
-        weight: -50
+        weight: -53
       list_deck:
         enabled: true
-        weight: -49
+        weight: -52
       1col_deck:
-        weight: -48
+        weight: -51
         enabled: false
       2col_deck:
-        weight: -47
+        weight: -50
         enabled: false
       3col_deck:
-        weight: -46
+        weight: -49
         enabled: false
       4col_deck:
-        weight: -45
+        weight: -48
         enabled: false
       content_link:
-        weight: -44
+        weight: -47
         enabled: false
       dynamic_deck:
-        weight: -43
+        weight: -46
         enabled: false
       factbox:
-        weight: -42
+        weight: -45
         enabled: false
       gallery:
-        weight: -41
+        weight: -44
         enabled: false
       hero_banner:
-        weight: -40
+        weight: -43
         enabled: false
       program:
-        weight: -39
+        weight: -42
         enabled: false
       program_item:
-        weight: -38
+        weight: -41
         enabled: false
       quotation:
-        weight: -37
+        weight: -40
         enabled: false
       content_article_reference_ext:
-        weight: -36
+        weight: -39
         enabled: false
       download:
-        weight: -35
+        weight: -38
         enabled: false
       image:
-        weight: -34
+        weight: -37
         enabled: false
       inspiration_deck:
-        weight: -33
+        weight: -36
         enabled: false
       key_figures:
-        weight: -32
+        weight: -35
         enabled: false
       situation_links:
-        weight: -31
+        weight: -34
+        enabled: false
+      content_redirect_page_reference_:
+        weight: -33
         enabled: false
 field_type: entity_reference_revisions
