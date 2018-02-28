@@ -13,7 +13,7 @@ content:
   field_markup:
     weight: 0
     settings:
-      rows: 20
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
