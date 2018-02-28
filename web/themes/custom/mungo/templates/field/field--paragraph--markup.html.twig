@@ -1,0 +1,11 @@
+{#
+ Go trough each item, find the raw field value and print it
+ Things to notice.
+ - The field is currently configured with a cardinallity of 1 so the loop is
+   for future-proofing.
+ - This is a markup field, so we intentionally circumvent all the hard work made
+   to avoid printing raw markup.
+#}
+{% for item in items %}
+    {{ item.content['#context'].value|raw }}
+{% endfor %}

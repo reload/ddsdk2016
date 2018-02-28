@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.field_paragraphs
     - node.type.event
     - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.markup
     - paragraphs.paragraphs_type.text
     - paragraphs.paragraphs_type.video
   module:
@@ -23,69 +24,104 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
+    negate: 0
     target_bundles:
       text: text
       image: image
       video: video
+      markup: markup
     target_bundles_drag_drop:
       2col_deck:
-        weight: -41
+        weight: -63
         enabled: false
       content_link:
-        weight: -40
+        weight: -62
         enabled: false
       dynamic_deck:
-        weight: -39
+        weight: -61
         enabled: false
       factbox:
-        weight: -38
+        weight: -60
         enabled: false
       gallery:
-        weight: -37
+        weight: -59
         enabled: false
       quotation:
-        weight: -36
+        weight: -58
         enabled: false
       text:
         enabled: true
-        weight: -35
+        weight: -57
       image:
         enabled: true
-        weight: -34
+        weight: -56
       video:
         enabled: true
-        weight: -33
+        weight: -55
+      markup:
+        enabled: true
+        weight: -54
       1col_deck:
-        weight: -32
+        weight: -53
         enabled: false
       3col_deck:
-        weight: -31
+        weight: -52
         enabled: false
       4col_deck:
-        weight: -30
+        weight: -51
         enabled: false
       block:
-        weight: -29
+        weight: -50
         enabled: false
       content_activity_reference:
-        weight: -28
+        weight: -49
         enabled: false
       content_article_reference:
-        weight: -27
+        weight: -48
         enabled: false
       content_event_reference:
-        weight: -26
+        weight: -47
         enabled: false
       hero_banner:
-        weight: -25
+        weight: -46
         enabled: false
       program:
-        weight: -24
+        weight: -45
         enabled: false
       program_item:
-        weight: -23
+        weight: -44
         enabled: false
       situation_links:
-        weight: -22
+        weight: -43
+        enabled: false
+      content_article_reference_ext:
+        weight: -42
+        enabled: false
+      content_badge_reference:
+        weight: -41
+        enabled: false
+      content_redirect_page_reference:
+        weight: -40
+        enabled: false
+      content_redirect_page_reference_:
+        weight: -39
+        enabled: false
+      download:
+        weight: -38
+        enabled: false
+      inspiration_deck:
+        weight: -37
+        enabled: false
+      key_figures:
+        weight: -36
+        enabled: false
+      latest_content_list:
+        weight: -35
+        enabled: false
+      list_deck:
+        weight: -34
+        enabled: false
+      shortcuts:
+        weight: -33
         enabled: false
 field_type: entity_reference_revisions

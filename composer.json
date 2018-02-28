@@ -146,6 +146,7 @@
             "drupal/chosen": {
                 "2705891: Fix invisible required chosen widgets": "https://www.drupal.org/files/issues/2705891-chosen-validation-temp-fix-6.patch"
             }
-        }
+        },
+        "composer-exit-on-patch-failure": true
     }
 }
