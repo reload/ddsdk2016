@@ -63,7 +63,7 @@ services:
 
   # Nightly built datadir.
   db-data:
-    image: reload/db-datadir:ddsdk2016-master-latest
+    image: reload/db-datadir:ddsdk-master-latest
     # Comment the line above and uncomment the following if you want to import
     # a custom databasedump
     # image: tianon/true
