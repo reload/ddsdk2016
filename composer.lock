@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "dfb6da3d3a1bad1773e0938607a506d9",
@@ -2704,7 +2704,7 @@
                 "source": "http://cgit.drupalcode.org/field_redirection",
                 "issues": "http://drupal.org/project/issues/field_redirection"
             },
-            "time": "2017-09-06 18:16:12"
+            "time": "2017-09-06T18:16:12+00:00"
         },
         {
             "name": "drupal/forward",
