@@ -53,7 +53,7 @@
         "drupal/better_exposed_filters": "~3.0",
         "drupal/chosen": "^2.2",
         "drupal/console": "~1.0",
-        "drupal/core": "^8.4.6",
+        "drupal/core": "^8.4.7",
         "drupal/dropguard": "~1.0",
         "drupal/editor_advanced_link": "~1.0",
         "drupal/entity": "^1.0",
