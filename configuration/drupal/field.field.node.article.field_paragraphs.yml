@@ -11,6 +11,7 @@ dependencies:
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.markup
     - paragraphs.paragraphs_type.quotation
+    - paragraphs.paragraphs_type.read_more
     - paragraphs.paragraphs_type.text
     - paragraphs.paragraphs_type.video
   module:
@@ -38,6 +39,7 @@ settings:
       quotation: quotation
       markup: markup
       gallery: gallery
+      read_more: read_more
     target_bundles_drag_drop:
       text:
         enabled: true
@@ -132,4 +134,7 @@ settings:
       shortcuts:
         weight: -33
         enabled: false
+      read_more:
+        enabled: true
+        weight: 33
 field_type: entity_reference_revisions

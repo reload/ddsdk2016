@@ -33,6 +33,7 @@ dependencies:
     - field.storage.node.field_content_topic
     - field.storage.node.field_sidedeck
     - field.storage.paragraph.field_download
+    - field.storage.node.field_2018_badge
     - search_api.server.solr
     - core.entity_view_mode.node.search_index
   module:
@@ -422,6 +423,14 @@ field_settings:
       module:
         - paragraphs
         - node
+  field_2018_badge_1:
+    label: 'Nyt mærke (2018)'
+    datasource_id: 'entity:node'
+    property_path: field_2018_badge
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_2018_badge
 datasource_settings:
   'entity:node':
     plugin_id: 'entity:node'
@@ -439,16 +448,6 @@ datasource_settings:
       default: true
       selected: {  }
 processor_settings:
-  rendered_item:
-    plugin_id: rendered_item
-    settings: {  }
-  add_url:
-    plugin_id: add_url
-    settings: {  }
-  aggregated_field:
-    plugin_id: aggregated_field
-    settings: {  }
-  entity_status: {  }
   html_filter:
     all_fields: true
     fields:
@@ -490,10 +489,12 @@ processor_settings:
     weights:
       preprocess_index: -15
       preprocess_query: -15
-  search_api_exclude_entity_processor:
-    fields:
-      node:
-        - field_exclude_from_search
+  rendered_item:
+    plugin_id: rendered_item
+    settings: {  }
+  aggregated_field:
+    plugin_id: aggregated_field
+    settings: {  }
   type_boost:
     boosts:
       'entity:node':
@@ -508,6 +509,14 @@ processor_settings:
           section_page: !!float 0
     weights:
       preprocess_index: 0
+  add_url:
+    plugin_id: add_url
+    settings: {  }
+  entity_status: {  }
+  search_api_exclude_entity_processor:
+    fields:
+      node:
+        - field_exclude_from_search
 tracker_settings:
   default:
     plugin_id: default

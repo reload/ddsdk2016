@@ -1,0 +1,71 @@
+<?php
+
+/**
+ * @file
+ * Update functionality for DDS update.
+ */
+
+use Drupal\locale\SourceString;
+use Drupal\node\Entity\Node;
+
+/**
+ * Helper to manually add a single translation string.
+ *
+ * @param string $source_string
+ *   Source string.
+ * @param string $langcode
+ *   The langcode.
+ * @param string $translated_string
+ *   Translated string.
+ */
+function dds_update_add_translation($source_string, $langcode, $translated_string) {
+  // Find existing source string.
+  $storage = \Drupal::service('locale.storage');
+  $string = $storage->findString(['source' => $source_string]);
+  if (is_null($string)) {
+    $string = new SourceString();
+    $string->setString($source_string);
+    $string->setStorage($storage);
+    $string->save();
+  }
+  // Create translation. If one already exists, it will be replaced.
+  $translation = $storage->createTranslation([
+    'lid' => $string->lid,
+    'language' => $langcode,
+    'translation' => $translated_string,
+  ]);
+  $translation->save();
+}
+
+/**
+ * Helper function for translations.
+ */
+function _dds_update_8101() {
+  dds_update_add_translation('Read more', 'da', 'Læs mere');
+  dds_update_add_translation('Read less', 'da', 'Læs mindre');
+
+  $nids = \Drupal::entityQuery('node')
+    ->condition('type', 'badge')
+    ->execute();
+
+  $nodes = Node::loadMultiple($nids);
+
+  foreach ($nodes as $node) {
+    $node->set('field_2018_badge', FALSE);
+    $node->save();
+  }
+}
+
+/**
+ * Implements hook_install().
+ */
+function dds_update_install() {
+  _dds_update_8101();
+}
+
+/**
+ * Implements hook_update_N().
+ */
+function dds_update_update_8102() {
+  _dds_update_8101();
+}

@@ -1,0 +1,9 @@
+uuid: 5fa838ff-5036-4999-af36-1a733c6d3e87
+langcode: en
+status: true
+dependencies: {  }
+id: read_more
+label: 'Read more'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }
