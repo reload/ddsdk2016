@@ -4,6 +4,11 @@ footer {
   }
 }
 
+.region-footer-contact {
+  position: relative;
+  z-index: 3;
+}
+
 .footer__fb {
   margin-bottom: $spacing-large;
 
