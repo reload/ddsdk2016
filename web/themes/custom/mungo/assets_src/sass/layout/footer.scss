@@ -9,8 +9,29 @@ footer {
   z-index: 3;
 }
 
-#block-facebookpagesinfooter {
-  margin-bottom:$spacing-large;
+.footer__fb {
+  margin-bottom: $spacing-large;
+
+  > h3 {
+    margin-bottom: 0;
+  }
+
+  .footer__fb-link {
+    display: block;
+    float: left;
+    padding-right: $spacing-medium;
+    padding-top: $spacing-medium;
+    max-width: 45%;
+    min-width: 260px;
+
+    text-decoration: none;
+    box-sizing: border-box;
+
+    > img {
+      width: 100%;
+      height: auto;
+    }
+  }
 }
 
 .footer_top {

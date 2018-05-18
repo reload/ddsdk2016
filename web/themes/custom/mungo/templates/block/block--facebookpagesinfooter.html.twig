@@ -26,22 +26,20 @@
  */
 #}
 {%
-set classes = [
-'block',
-'block-' ~ configuration.provider|clean_class,
-'block-' ~ plugin_id|clean_class,
-'col-xs-12',
+  set classes = [
+  'footer__fb',
+  'block',
+  'block-' ~ configuration.provider|clean_class,
+  'block-' ~ plugin_id|clean_class,
+  'col-xs-12',
 ]
 %}
-<div{{ attributes.addClass(classes) }}>
-    {{ title_prefix }}
-    {% if label %}
-        <h2{{ title_attributes.addClass('capitalized-menu-item') }}>{{ label }}</h2>
-    {% endif %}
-    {{ title_suffix }}
-    {% block content %}
-        <div class="row">
-        {{ content }}
-        </div>
-    {% endblock %}
+<div {{ attributes.addClass(classes) }}>
+  <h3>{{ 'Follow us on Facebook'|trans }}</h3>
+  <a href="https://www.facebook.com/spejder/" target="_blank" class="footer__fb-link">
+    <img alt="{{ 'Follow Spejder on Facebook'|trans }}" src="/themes/custom/mungo/assets/images/facebook_dds340x70.png" />
+  </a>
+  <a href="https://www.facebook.com/groups/6581285931/" target="_blank" class="footer__fb-link">
+    <img alt="{{ 'Follow DDS on Facebook'|trans }}" src="/themes/custom/mungo/assets/images/facebook_ddsgruppe340x70.png" />
+  </a>
 </div>
