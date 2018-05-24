@@ -8,6 +8,8 @@ services:
       - '443'
     environment:
       HITCH_PARAMS: --backend=[web]:80 --frontend=[*]:443
+      VIRTUAL_PROTO: https
+      VIRTUAL_HOST: ddsdk.docker
     links:
       - web
 
@@ -25,7 +27,6 @@ services:
       - webroot
     links:
       - fpm
-
   # Instance of the php-image configured to serve fpm-requests.
   fpm:
     image: reload/drupal-php7-fpm:7.0
@@ -63,7 +64,7 @@ services:
 
   # Nightly built datadir.
   db-data:
-    image: reload/db-datadir:ddsdk-master-latest
+    image: reload/db-datadir:ddsdk2016-master-latest
     # Comment the line above and uncomment the following if you want to import
     # a custom databasedump
     # image: tianon/true
