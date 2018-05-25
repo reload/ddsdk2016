@@ -2,7 +2,7 @@ minified: 1
 headline_text: 'Vi bruger cookies og lokal lagring bl.a. for at huske dine indstillinger og gøre din oplevelse bedre. Ved at bruge sitet accepterer du dette.'
 accept_button_text: OK
 read_more_button_text: 'Læs mere'
-theme: dark-bottom
+theme: light-bottom
 path: /
 domain: ''
 expiry: '365'
