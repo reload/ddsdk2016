@@ -47,7 +47,6 @@ function _dds_update_8101() {
 }
 
 /**
-<<<<<<< HEAD
  * Helper function for translations and badges.
  */
 function _dds_update_8102() {
@@ -87,4 +86,3 @@ function dds_update_update_8101() {
 function dds_update_update_8102() {
   _dds_update_8102();
 }
-
