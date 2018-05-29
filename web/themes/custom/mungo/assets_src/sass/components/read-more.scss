@@ -1,0 +1,85 @@
+.read-more__controller {
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  position: absolute;
+  left: -999999px;
+
+  &:checked {
+    ~ .read-more__button {
+      .read-more__close-text {
+        display: inline;
+      }
+
+      .read-more__open-text {
+        display: none;
+      }
+
+      &::after {
+        content: $icon__arrow-up;
+      }
+    }
+
+    ~ .read-more__content {
+      // Transistions only work with max-height, so
+      // we'll need to set a crazy value to signal
+      // it being "open".
+      max-height: 999999px;
+    }
+  }
+}
+
+.read-more__button {
+  // We'll need to use important here, as
+  // theres some very deep nested, general styling
+  // on labels.. for some reason.
+  padding: 10px 20px !important;
+  line-height: inherit !important;
+  margin: 0 !important;
+  display: block !important;
+
+  color: #fff;
+  background-color: $bluish;
+  border: 1px solid $pinkish-grey;
+  cursor: pointer;
+
+  &::before {
+    display: none !important;
+  }
+
+  &::after {
+    @include icon($icon__arrow-down);
+
+    float: right;
+    padding-left: 10px;
+  }
+}
+
+.read-more__content {
+  overflow: hidden;
+  height: auto;
+  max-height: 0;
+  transition: max-height 0.2s ease-in;
+}
+
+.read-more__content-inner {
+  border: 1px solid $pinkish-grey;
+  border-top-width: 0;
+  padding: 10px 20px;
+}
+
+.read-more__close-text {
+  display: none;
+}
+
+
+@media print {
+  .read-more__button {
+    display: none !important;
+  }
+
+  .read-more__content-inner {
+    border-top-width: 1px;
+  }
+}
+

@@ -47,10 +47,30 @@ function _dds_update_8101() {
 }
 
 /**
+ * Helper function for translations and badges.
+ */
+function _dds_update_8102() {
+  dds_update_add_translation('Read more', 'da', 'Læs mere');
+  dds_update_add_translation('Read less', 'da', 'Læs mindre');
+
+  $nids = \Drupal::entityQuery('node')
+    ->condition('type', 'badge')
+    ->execute();
+
+  $nodes = Node::loadMultiple($nids);
+
+  foreach ($nodes as $node) {
+    $node->set('field_2018_badge', FALSE);
+    $node->save();
+  }
+}
+
+/**
  * Implements hook_install().
  */
 function dds_update_install() {
   _dds_update_8101();
+  _dds_update_8102();
 }
 
 /**
@@ -58,4 +78,11 @@ function dds_update_install() {
  */
 function dds_update_update_8101() {
   _dds_update_8101();
+}
+
+/**
+ * Translations and config for new badges.
+ */
+function dds_update_update_8102() {
+  _dds_update_8102();
 }

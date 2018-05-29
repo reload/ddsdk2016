@@ -156,6 +156,43 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
+          group: 1
+        field_2018_badge_value:
+          id: field_2018_badge_value
+          table: node__field_2018_badge
+          field: field_2018_badge_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '!='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: boolean
         field_badge_type_value:
           id: field_badge_type_value
           table: node__field_badge_type
@@ -164,7 +201,9 @@ display:
           group_type: group
           admin_label: ''
           operator: or
-          value: {  }
+          value:
+            progression: progression
+            skill: skill
           group: 1
           exposed: true
           expose:
@@ -181,7 +220,9 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
-            reduce: false
+              editor: '0'
+              monitoring: '0'
+            reduce: true
           is_grouped: false
           group_info:
             label: ''
@@ -264,6 +305,10 @@ display:
       arguments: {  }
       display_extenders: {  }
       use_ajax: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
@@ -292,6 +337,342 @@ display:
             og_image: '[ddsdk:badge-overview-topimage]'
       path: maerker
       display_description: ''
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            badge: badge
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          group: 1
+        field_2018_badge_value:
+          id: field_2018_badge_value
+          table: node__field_2018_badge
+          field: field_2018_badge_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '0'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: boolean
+        field_badge_type_value:
+          id: field_badge_type_value
+          table: node__field_badge_type
+          field: field_badge_type_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            progression: progression
+            skill: skill
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_badge_type_value_op
+            label: ''
+            description: ''
+            use_operator: false
+            operator: field_badge_type_value_op
+            identifier: type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              editor: '0'
+              monitoring: '0'
+            reduce: true
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          plugin_id: list_field
+        field_badge_target_group_target_id:
+          id: field_badge_target_group_target_id
+          table: node__field_badge_target_group
+          field: field_badge_target_group_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_badge_target_group_target_id_op
+            label: ''
+            description: ''
+            use_operator: false
+            operator: field_badge_target_group_target_id_op
+            identifier: maalgruppe
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: badge_target_group
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+      defaults:
+        filters: false
+        filter_groups: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  overview_2018:
+    display_plugin: page
+    id: overview_2018
+    display_title: 'Overview (2018 update)'
+    position: 1
+    display_options:
+      display_extenders:
+        metatag_display_extender:
+          metatags:
+            title: '[ddsdk:badge-overview-title]'
+            description: '[ddsdk:badge-overview-description]'
+            image_src: '[ddsdk:badge-overview-topimage]'
+            og_url: '[current-page:url]'
+            og_title: '[ddsdk:badge-overview-title]'
+            og_description: '[ddsdk:badge-overview-description]'
+            og_image: '[ddsdk:badge-overview-topimage]'
+      path: maerker-2018
+      display_description: ''
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            badge: badge
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          group: 1
+        field_2018_badge_value:
+          id: field_2018_badge_value
+          table: node__field_2018_badge
+          field: field_2018_badge_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: boolean
+        field_badge_type_value:
+          id: field_badge_type_value
+          table: node__field_badge_type
+          field: field_badge_type_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            skill: skill
+            focus: focus
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_badge_type_value_op
+            label: ''
+            description: ''
+            use_operator: false
+            operator: field_badge_type_value_op
+            identifier: type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              editor: '0'
+              monitoring: '0'
+            reduce: true
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          plugin_id: list_field
+        field_badge_target_group_target_id:
+          id: field_badge_target_group_target_id
+          table: node__field_badge_target_group
+          field: field_badge_target_group_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_badge_target_group_target_id_op
+            label: ''
+            description: ''
+            use_operator: false
+            operator: field_badge_target_group_target_id_op
+            identifier: maalgruppe
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: badge_target_group
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+      defaults:
+        filters: false
+        filter_groups: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:

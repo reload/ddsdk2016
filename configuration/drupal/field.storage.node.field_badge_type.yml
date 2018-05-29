@@ -13,10 +13,13 @@ settings:
   allowed_values:
     -
       value: progression
-      label: Progression
+      label: Forløbsmærke
     -
       value: skill
-      label: Skill
+      label: Færdighedsmærke
+    -
+      value: focus
+      label: Fokusmærke
   allowed_values_function: ''
 module: options
 locked: false
