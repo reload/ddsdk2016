@@ -83,6 +83,6 @@ function dds_update_update_8101() {
 /**
  * Translations and config for new badges.
  */
-function dds_update_update_8102() {
+function dds_update_update_8103() {
   _dds_update_8102();
 }
