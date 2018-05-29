@@ -38,6 +38,7 @@ permissions:
   - 'delete own download content'
   - 'delete own event content'
   - 'delete own section_page content'
+  - 'display eu cookie compliance popup'
   - 'edit any activity content'
   - 'edit any article content'
   - 'edit any badge content'

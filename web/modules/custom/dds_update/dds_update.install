@@ -41,6 +41,15 @@ function dds_update_add_translation($source_string, $langcode, $translated_strin
  * Helper function for translations.
  */
 function _dds_update_8101() {
+  dds_update_add_translation('Follow us on Facebook', 'da', 'Følg med på Facebook');
+  dds_update_add_translation('Follow Spejder on Facebook', 'da', 'Følg Spejder på Facebook');
+  dds_update_add_translation('Follow DDS on Facebook', 'da', 'Følg DDS på Facebook');
+}
+
+/**
+ * Helper function for translations and badges.
+ */
+function _dds_update_8102() {
   dds_update_add_translation('Read more', 'da', 'Læs mere');
   dds_update_add_translation('Read less', 'da', 'Læs mindre');
 
@@ -61,11 +70,19 @@ function _dds_update_8101() {
  */
 function dds_update_install() {
   _dds_update_8101();
+  _dds_update_8102();
 }
 
 /**
- * Implements hook_update_N().
+ * Translations for FB footer.
+ */
+function dds_update_update_8101() {
+  _dds_update_8101();
+}
+
+/**
+ * Translations and config for new badges.
  */
 function dds_update_update_8102() {
-  _dds_update_8101();
+  _dds_update_8102();
 }

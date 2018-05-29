@@ -7,4 +7,5 @@ label: Monitoring
 weight: 4
 is_admin: null
 permissions:
+  - 'display eu cookie compliance popup'
   - 'restful get monitoring-sensor-result'
