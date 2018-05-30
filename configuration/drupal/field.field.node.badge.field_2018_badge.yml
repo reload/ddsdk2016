@@ -1,0 +1,23 @@
+uuid: bc24af63-57cf-412a-b9a9-dce4d4143956
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_2018_badge
+    - node.type.badge
+id: node.badge.field_2018_badge
+field_name: field_2018_badge
+entity_type: node
+bundle: badge
+label: 'Nyt mærke (2018)'
+description: 'Er dette mærke en del af de nye, opdaterede mærker?'
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.field_sidedeck
     - node.type.badge
     - paragraphs.paragraphs_type.block
+    - paragraphs.paragraphs_type.download
   module:
     - entity_reference_revisions
 id: node.badge.field_sidedeck
@@ -21,8 +22,10 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
+    negate: 0
     target_bundles:
       block: block
+      download: download
     target_bundles_drag_drop:
       1col_deck:
         weight: 17
@@ -71,5 +74,50 @@ settings:
         enabled: false
       video:
         weight: 32
+        enabled: false
+      content_activity_reference:
+        weight: 37
+        enabled: false
+      content_article_reference:
+        weight: 38
+        enabled: false
+      content_article_reference_ext:
+        weight: 39
+        enabled: false
+      content_badge_reference:
+        weight: 40
+        enabled: false
+      content_event_reference:
+        weight: 41
+        enabled: false
+      content_redirect_page_reference:
+        weight: 43
+        enabled: false
+      content_redirect_page_reference_:
+        weight: 44
+        enabled: false
+      download:
+        enabled: true
+        weight: 45
+      image:
+        weight: 50
+        enabled: false
+      inspiration_deck:
+        weight: 51
+        enabled: false
+      key_figures:
+        weight: 52
+        enabled: false
+      latest_content_list:
+        weight: 53
+        enabled: false
+      list_deck:
+        weight: 54
+        enabled: false
+      markup:
+        weight: 55
+        enabled: false
+      shortcuts:
+        weight: 59
         enabled: false
 field_type: entity_reference_revisions

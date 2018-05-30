@@ -1,0 +1,24 @@
+uuid: 94116351-8723-46d9-97af-4d7ed486e76b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.read_more.field_1col_deck_col1
+    - paragraphs.paragraphs_type.read_more
+  module:
+    - entity_reference_revisions
+id: paragraph.read_more.default
+targetEntityType: paragraph
+bundle: read_more
+mode: default
+content:
+  field_1col_deck_col1:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden: {  }

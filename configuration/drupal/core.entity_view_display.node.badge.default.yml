@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.badge.field_2018_badge
     - field.field.node.badge.field_badge_cover_image
     - field.field.node.badge.field_badge_level
     - field.field.node.badge.field_badge_progression
@@ -27,6 +28,16 @@ targetEntityType: node
 bundle: badge
 mode: default
 content:
+  field_2018_badge:
+    weight: 8
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_badge_cover_image:
     type: entity_reference_entity_view
     weight: 0

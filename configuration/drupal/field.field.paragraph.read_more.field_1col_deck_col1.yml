@@ -1,0 +1,132 @@
+uuid: 3b080709-fe51-4780-ae93-4fd64f483d99
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_1col_deck_col1
+    - paragraphs.paragraphs_type.content_link
+    - paragraphs.paragraphs_type.gallery
+    - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.read_more
+    - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.video
+  module:
+    - entity_reference_revisions
+id: paragraph.read_more.field_1col_deck_col1
+field_name: field_1col_deck_col1
+entity_type: paragraph
+bundle: read_more
+label: Column
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      content_link: content_link
+      gallery: gallery
+      image: image
+      text: text
+      video: video
+    target_bundles_drag_drop:
+      read_more:
+        weight: 33
+        enabled: false
+      1col_deck:
+        weight: 34
+        enabled: false
+      2col_deck:
+        weight: 35
+        enabled: false
+      3col_deck:
+        weight: 36
+        enabled: false
+      4col_deck:
+        weight: 37
+        enabled: false
+      block:
+        weight: 38
+        enabled: false
+      content_activity_reference:
+        weight: 39
+        enabled: false
+      content_article_reference:
+        weight: 40
+        enabled: false
+      content_article_reference_ext:
+        weight: 41
+        enabled: false
+      content_badge_reference:
+        weight: 42
+        enabled: false
+      content_event_reference:
+        weight: 43
+        enabled: false
+      content_link:
+        enabled: true
+        weight: 44
+      content_redirect_page_reference:
+        weight: 45
+        enabled: false
+      content_redirect_page_reference_:
+        weight: 46
+        enabled: false
+      download:
+        weight: 47
+        enabled: false
+      dynamic_deck:
+        weight: 48
+        enabled: false
+      factbox:
+        weight: 49
+        enabled: false
+      gallery:
+        enabled: true
+        weight: 50
+      hero_banner:
+        weight: 51
+        enabled: false
+      image:
+        enabled: true
+        weight: 52
+      inspiration_deck:
+        weight: 53
+        enabled: false
+      key_figures:
+        weight: 54
+        enabled: false
+      latest_content_list:
+        weight: 55
+        enabled: false
+      list_deck:
+        weight: 56
+        enabled: false
+      markup:
+        weight: 57
+        enabled: false
+      program:
+        weight: 58
+        enabled: false
+      program_item:
+        weight: 59
+        enabled: false
+      quotation:
+        weight: 60
+        enabled: false
+      shortcuts:
+        weight: 61
+        enabled: false
+      situation_links:
+        weight: 62
+        enabled: false
+      text:
+        enabled: true
+        weight: 63
+      video:
+        enabled: true
+        weight: 64
+field_type: entity_reference_revisions
