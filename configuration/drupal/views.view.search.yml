@@ -7,7 +7,7 @@ dependencies:
   module:
     - search_api
 id: search
-label: Search
+label: Søg
 module: views
 description: ''
 tag: dds_content_list
@@ -35,7 +35,7 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Search
+          submit_button: Søg
           reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
@@ -299,6 +299,9 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -339,6 +342,9 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
           is_grouped: false
           group_info:
             label: ''
