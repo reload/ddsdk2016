@@ -62,9 +62,9 @@ services:
       MYSQL_USER: db
       MYSQL_PASSWORD: db
 
-  # Nightly built datadir.
+  # Nightly fetched dump.
   db-data:
-    image: reload/db-datadir:ddsdk-latest
+    image: eu.gcr.io/reloaddk-data/db-data:ddsdk-latest
     # Comment the line above and uncomment the following if you want to import
     # a custom databasedump
     # image: tianon/true
