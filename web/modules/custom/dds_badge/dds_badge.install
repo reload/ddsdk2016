@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the dds_badge module.
+ */
+
+use Drupal\redirect\Entity\Redirect;
+
+/**
+ * Implements hook_update_N().
+ *
+ * Add a redirect from /maerker-2018 to /maerker.
+ */
+function dds_badge_update_8101(&$sandbox) {
+  Redirect::create([
+      'redirect_source' => 'maerker-2018',
+      'redirect_redirect' => 'internal:/maerker',
+      'language' => 'und',
+      'status_code' => '301',
+    ])->save();
+}
