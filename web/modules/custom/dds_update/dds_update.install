@@ -49,7 +49,7 @@ function _dds_update_8101() {
 /**
  * Helper function for translations and badges.
  */
-function _dds_update_8102() {
+function _dds_update_8103() {
   dds_update_add_translation('Read more', 'da', 'Læs mere');
   dds_update_add_translation('Read less', 'da', 'Læs mindre');
 
@@ -80,7 +80,7 @@ function _dds_update_8104() {
  */
 function dds_update_install() {
   _dds_update_8101();
-  _dds_update_8102();
+  _dds_update_8103();
   _dds_update_8104();
 }
 
@@ -95,7 +95,7 @@ function dds_update_update_8101() {
  * Translations and config for new badges.
  */
 function dds_update_update_8103() {
-  _dds_update_8102();
+  _dds_update_8103();
 }
 
 /**
