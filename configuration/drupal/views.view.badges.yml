@@ -298,7 +298,18 @@ display:
           expose:
             label: ''
       title: Badges
-      header: {  }
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: 'Badges description'
+          empty: false
+          tokenize: false
+          content: 'Badges description'
+          plugin_id: text_custom
       footer: {  }
       empty: {  }
       relationships: {  }
@@ -328,11 +339,11 @@ display:
       display_extenders:
         metatag_display_extender:
           metatags:
-            title: '[ddsdk:badge-overview-title]'
+            title: '[current-page:title]'
             description: '[ddsdk:badge-overview-description]'
             image_src: '[ddsdk:badge-overview-topimage]'
             og_url: '[current-page:url]'
-            og_title: '[ddsdk:badge-overview-title]'
+            og_title: '[current-page:title]'
             og_description: '[ddsdk:badge-overview-description]'
             og_image: '[ddsdk:badge-overview-topimage]'
       path: maerker-gamle
@@ -487,10 +498,25 @@ display:
       defaults:
         filters: false
         filter_groups: false
+        title: false
+        header: false
       filter_groups:
         operator: AND
         groups:
           1: AND
+      title: 'Badges (2006)'
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: 'Badges description'
+          empty: false
+          tokenize: false
+          content: 'Badges description (2006)'
+          plugin_id: text_custom
     cache_metadata:
       max-age: -1
       contexts:
@@ -510,11 +536,11 @@ display:
       display_extenders:
         metatag_display_extender:
           metatags:
-            title: '[ddsdk:badge-overview-title]'
+            title: '[current-page:title]'
             description: '[ddsdk:badge-overview-description]'
             image_src: '[ddsdk:badge-overview-topimage]'
             og_url: '[current-page:url]'
-            og_title: '[ddsdk:badge-overview-title]'
+            og_title: '[current-page:title]'
             og_description: '[ddsdk:badge-overview-description]'
             og_image: '[ddsdk:badge-overview-topimage]'
       path: maerker
@@ -669,6 +695,7 @@ display:
       defaults:
         filters: false
         filter_groups: false
+        title: true
       filter_groups:
         operator: AND
         groups:

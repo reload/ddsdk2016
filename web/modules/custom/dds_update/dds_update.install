@@ -66,11 +66,22 @@ function _dds_update_8102() {
 }
 
 /**
+ * Helper function for translations.
+ */
+function _dds_update_8104() {
+  dds_update_add_translation('Badges', 'da', 'Mærkeunivers');
+  dds_update_add_translation('Badges (2006)', 'da', 'Gamle mærker (2006)');
+  dds_update_add_translation('Badges description', 'da', 'Her kan du finde alle forløbs- og fokusmærker i Det Danske Spejderkorps');
+  dds_update_add_translation('Badges description (2006)', 'da', 'Her finder du beskrivelser af de gamle mærker (2006-2018) i Det Danske Spejderkorps');
+}
+
+/**
  * Implements hook_install().
  */
 function dds_update_install() {
   _dds_update_8101();
   _dds_update_8102();
+  _dds_update_8104();
 }
 
 /**
@@ -85,4 +96,11 @@ function dds_update_update_8101() {
  */
 function dds_update_update_8103() {
   _dds_update_8102();
+}
+
+/**
+ * Translations for titles on badges pages.
+ */
+function dds_update_update_8104() {
+  _dds_update_8104();
 }
