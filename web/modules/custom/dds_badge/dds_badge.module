@@ -105,11 +105,14 @@ function dds_badge_preprocess_views_view(&$variables) {
   $variables['exposed']['type']['#options']['All'] = new TranslatableMarkup('Any type', [], ['context' => 'Badge overview filter']);
   $variables['exposed']['maalgruppe']['#options']['All'] = new TranslatableMarkup('Any', [], ['context' => 'Badge overview filter']);
 
-  // Add top-image with title/description configured in the theme.
+  $title = new TranslatableMarkup($variables['view']->getTitle());
+  $description = new TranslatableMarkup((string)$variables['header']['area_text_custom']['#markup']);
+
+  // Title top-image with title/description configured in the theme.
   $variables['top_image'] = [
     '#theme' => 'dds_top_image',
-    '#title' => theme_get_setting('badge_page_title', 'mungo'),
-    '#subtitle' => theme_get_setting('badge_page_description', 'mungo'),
+    '#title' => $title->render(),
+    '#subtitle' => $description->render(),
     '#image_uri' => theme_get_setting('badge_cover_image_path', 'mungo'),
   ];
 }

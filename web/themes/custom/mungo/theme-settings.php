@@ -33,6 +33,9 @@ function mungo_form_system_theme_settings_alter(&$form, FormStateInterface &$for
     '#type' => 'textfield',
     '#title' => t('Path to the cover-image (use upload-field below)'),
     '#default_value' => theme_get_setting('badge_cover_image_path', 'mungo'),
+    '#description' => t(
+      'The title and description used to be configurable here as well. Now the title of the view and custom header on the view is used instead.'
+    ),
   );
   $form['badge_page_settings']['badge_cover_image']['badge_cover_image'] = array(
     '#type' => 'file',
@@ -42,24 +45,6 @@ function mungo_form_system_theme_settings_alter(&$form, FormStateInterface &$for
       "If you don't have direct file access to the server, use this field to upload your image."
     ),
     '#element_validate' => array('mungo_badge_cover_image_validate'),
-  );
-
-  $form['badge_page_settings']['badge_page_title'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Title of the badge page'),
-    '#default_value' => theme_get_setting('badge_page_title', 'mungo'),
-  );
-
-  $form['badge_page_settings']['badge_page_title'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Title of the badge page'),
-    '#default_value' => theme_get_setting('badge_page_title', 'mungo'),
-  );
-
-  $form['badge_page_settings']['badge_page_description'] = array(
-    '#type' => 'textarea',
-    '#title' => t('Description for the badge page'),
-    '#default_value' => theme_get_setting('badge_page_description', 'mungo'),
   );
 }
 

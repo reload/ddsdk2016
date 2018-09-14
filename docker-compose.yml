@@ -1,4 +1,4 @@
-version: "2"
+version: "2.1"
 
 services:
   # https proxy, hands connection down to the web-server.
@@ -48,9 +48,12 @@ services:
     ports:
       - '3306'
     volumes:
-        - './my.ini:/etc/mysql/conf.d/my.cnf'
+      - './my.ini:/etc/mysql/conf.d/my.cnf'
+      - './docker/init/ZZZ-finished-init.sh:/docker-entrypoint-initdb.d/ZZZ-finished-init.sh'
     volumes_from:
       - db-data
+    healthcheck:
+      test: ["CMD", "sh", "-c", "[ -e /tmp/docker-finished-init ]"]
 
     # Notice the following environment-variables only takes effect if we're
     # using a raw mariadb image. We're just leaving the values used during

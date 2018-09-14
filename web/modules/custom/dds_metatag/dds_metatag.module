@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Render\BubbleableMetadata;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\media_entity\Entity\Media;
 
 /**
@@ -84,9 +85,7 @@ function dds_metatag_tokens($type, $tokens, array $data, array $options, Bubblea
   // Replace our root tokens (tokens not dependent on content).
   if ($type === 'ddsdk') {
     // Pull settings from the theme.
-    $description = theme_get_setting('badge_page_description', 'mungo');
     $badge_cover_image_uri = theme_get_setting('badge_cover_image_path', 'mungo');
-    $title = theme_get_setting('badge_page_title', 'mungo');
 
     foreach ($tokens as $name => $original) {
       switch ($name) {
@@ -97,14 +96,12 @@ function dds_metatag_tokens($type, $tokens, array $data, array $options, Bubblea
           break;
 
         case 'badge-overview-description':
+          // Build the view to get access to the header field(s).
+          $data['view']->build();
+          $area_text_custom = $data['view']->header['area_text_custom']->render();
+          $description = (new TranslatableMarkup((string)$area_text_custom['#markup']))->render();
           if (!empty($description)) {
             $replacements[$original] = $description;
-          }
-          break;
-
-        case 'badge-overview-title':
-          if (!empty($title)) {
-            $replacements[$original] = $title;
           }
           break;
       }
