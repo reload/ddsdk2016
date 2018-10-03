@@ -45,7 +45,7 @@ set classes = [
   'content-link',
 ]
 %}
-<a href="{{ content.alternative_url ? content.alternative_url : content.url }}" {{ attributes.addClass(classes) }}>
+<a{% if content.target %} target="{{ content.target }}"{% endif %} href="{{ content.alternative_url ? content.alternative_url : content.url }}" {{ attributes.addClass(classes) }}>
   <div class="content-link--image">
       {{ content.thumbnail }}
   </div><div class="content-link--text">
