@@ -673,6 +673,8 @@ function _mungo_preprocess_paragraph_content_link(&$variables) {
   // Setup the variables we'll try to prepare for the template.
   $thumbnail = NULL;
   $alternative_url = NULL;
+  $target = NULL;
+
   // Default to using link title if available, might be overriden for internal
   // links.
   $title = empty($link->get('title')) ? '' : $link->get('title')->getValue();;
@@ -694,6 +696,10 @@ function _mungo_preprocess_paragraph_content_link(&$variables) {
       if (empty($node)) {
         return;
       }
+
+      // Add cache tag to make sure node cache gets invalidated when linked
+      // content gets updated.
+      $variables['#cache']['tags'] = $node->getCacheTags();
 
       if (empty($link_title)) {
         $title = $node->getTitle();
@@ -733,6 +739,15 @@ function _mungo_preprocess_paragraph_content_link(&$variables) {
           $activity_id = $node->get('field_activity_id')->value;
           $alternative_url = ActivityFetcher::AKTDB_VIEW_PREFIX . '/' . $activity_id;
         }
+
+        // If the node type is download we want to link to the download file
+        // instead of the node itself.
+        if ($node->getType() === 'download') {
+          $download = [];
+          _mungo_preprocess_node_download($node, $download);
+          $alternative_url = $download['file_url'];
+          $target = '_blank';
+        }
       }
     }
   }
@@ -745,6 +760,7 @@ function _mungo_preprocess_paragraph_content_link(&$variables) {
   $variables['content']['thumbnail'] = $thumbnail;
   $variables['content']['url'] = $link->getUrl()->toString();
   $variables['content']['alternative_url'] = $alternative_url;
+  $variables['content']['target'] = $target;
   $variables['content']['title'] = $title;
 }
 
