@@ -24,6 +24,7 @@ settings:
             - Bold
             - Italic
             - Underline
+            - Strike
             - '-'
         -
           name: Lists
@@ -53,10 +54,10 @@ settings:
             - Maximize
             - SpecialChar
   plugins:
-    stylescombo:
-      styles: ''
     language:
       language_list: un
+    stylescombo:
+      styles: ''
 image_upload:
   status: true
   scheme: public
