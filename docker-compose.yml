@@ -67,7 +67,7 @@ services:
 
   # Nightly fetched dump.
   db-data:
-    image: eu.gcr.io/reloaddk-data/db-data:ddsdk-latest
+    image: eu.gcr.io/reloaddk-data/db-datadir:ddsdk-latest
     # Comment the line above and uncomment the following if you want to import
     # a custom databasedump
     # image: tianon/true
