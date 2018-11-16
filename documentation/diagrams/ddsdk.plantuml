@@ -1,0 +1,34 @@
+@startuml
+package "Platform.sh" {
+    database "Mysql" as mysql {
+      [Main database] as database
+    }
+    database "Solr" as solr {
+      [Node index] as index
+    }
+
+    database "Aktivitetsdatabase" as aktdb {
+      [Activities]
+    }
+
+    frame "Php app" {
+        [Drupal] as drupal
+        [Cron] as cron
+    }
+
+    [Loadbalancer] as lb
+    [Platform API] as platform
+}
+
+actor User as user
+
+cron --> platform : Daily snapshot for backups\nEvery night at 0:15
+cron --> platform : Forced redeploy to trigger cert renewal
+cron -> drupal: drush core-cron\nEvery second minute
+user <--> lb
+
+lb -- drupal : User webrequests
+drupal <--> mysql
+drupal <--> solr : Site searches
+drupal <--> aktdb : Import of activites for \nActivity content types
+@enduml
