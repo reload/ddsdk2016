@@ -64,3 +64,5 @@ $(LAST_PULL_FILE):
 	rm -f .last-pull-*
 	docker-compose pull
 	touch $(LAST_PULL_FILE)
+
+.PHONY: default help reset up stop logs status docs _reset-container-state _ensure-php _docker-pull
