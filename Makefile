@@ -40,8 +40,6 @@ $(diagrams): documentation/diagrams/%.png : documentation/diagrams/%.plantuml
 	rm -f $@
 	cat $< | docker run --rm -i think/plantuml -tpng > $@
 
-
-
 # =============================================================================
 # HELPERS
 # =============================================================================
@@ -54,11 +52,15 @@ _reset-container-state: _docker-pull
 _ensure-php:
 	docker-compose up -d --no-deps fpm
 
-# Depend on the daily pull-file
+# We'd like to only pull for images once a day.
+# To achive this we only pull if we can't find a ".last-pull-<date>" file that
+# contains todays date in its name. If we can't find the file we do the pull and
+# and touch the file. This way we only do a daily pull.
+LAST_PULL_FILE:=.last-pull-$(shell date +%Y%m%d)
 _docker-pull: $(LAST_PULL_FILE)
 $(LAST_PULL_FILE):
+    # We could not find the daily file, clear out any old files, do the pull
+    # and generate the file.
 	rm -f .last-pull-*
-	touch $(LAST_PULL_FILE)
 	docker-compose pull
-# Define a pull-file with a datestamp that we can depend on.
-LAST_PULL_FILE:=.last-pull-$(shell date +%Y%m%d)
+	touch $(LAST_PULL_FILE)
