@@ -28,9 +28,19 @@ status: ## Show status of the environment
 	docker-compose ps
 	docker-compose top
 
-docs: ## Generate assets for the documentation, should be run after any changes to plantuml files.
-	rm -f documentation/diagrams/*.png
-	find documentation/diagrams/*.plantuml -type f -exec basename -s .plantuml {} \; | xargs -I % bash -c "echo 'documentation/diagrams/%.plantuml -> documentation/diagrams/%.png' ;cat documentation/diagrams/%.plantuml | docker run --rm -i think/plantuml -tpng > documentation/diagrams/%.png"
+# Use the current list of plantuml files to define a list of required pngs.
+diagrams = $(patsubst %.plantuml,%.png,$(wildcard documentation/diagrams/*.plantuml))
+
+# The default docs target depends on all png-files
+docs: $(diagrams) ## Build plantuml-diagrams for the documentation
+
+# Static pattern that maps between diagram pngs and plantuml-files.
+$(diagrams): documentation/diagrams/%.png : documentation/diagrams/%.plantuml
+	@echo '$< -> $@'
+	rm -f $@
+	cat $< | docker run --rm -i think/plantuml -tpng > $@
+
+
 
 # =============================================================================
 # HELPERS
