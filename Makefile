@@ -11,11 +11,9 @@ help: ## Display a list of the public targets
 # Find lines that starts with a word-character, contains a colon and then a
 # doublehash (underscores are not word-characters, so this excludes private
 # targets), then strip the hash and print.
-# Note: if a target has a dependency, you need to define it
-	@grep -E -h "^\w.*:.*##" $(MAKEFILE_LIST) | sed -e 's/##//'
+	@grep -E -h "^\w.*:.*##" $(MAKEFILE_LIST) | sed -e 's/\(.*\):.*##\(.*\)/\1	\2/'
 
-reset: ## Stop all containers, reset their state and start up again.
-reset: _reset-container-state
+reset: _reset-container-state ## Stop all containers, reset their state and start up again.
 
 up:  ## Take the whole environment up without altering the existing state of the containers.
 	docker-compose up -d --remove-orphans
