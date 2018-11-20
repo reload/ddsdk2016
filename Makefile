@@ -4,8 +4,7 @@
 # =============================================================================
 # MAIN COMMAND TARGETS
 # =============================================================================
-
-default: help
+.DEFAULT_GOAL := help
 
 help: ## Display a list of the public targets
 # Find lines that starts with a word-character, contains a colon and then a
@@ -66,3 +65,4 @@ $(LAST_PULL_FILE):
 	touch $(LAST_PULL_FILE)
 
 .PHONY: default help reset up stop logs status docs _reset-container-state _ensure-php _docker-pull
+
