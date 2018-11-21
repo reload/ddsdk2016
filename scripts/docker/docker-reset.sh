@@ -4,20 +4,13 @@
 
 set -euo pipefail
 IFS=$'\n\t'
+
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-# The number of seconds it takes for docker-compose up to get up and running
-# often translates to how long it takes the database-container to come up.
-SLEEP_TIME=20
+source "${SCRIPT_DIR}/_docker-common.sh"
+
 # Hostname to send a request to to warm up the cache-cleared site.
 HOST="localhost"
 WEB_CONTAINER="web"
-
-# Echo green
-echoc () {
-    GREEN=$(tput setaf 2)
-    RESET=$(tput sgr 0)
-	echo -e "${GREEN}$1${RESET}"
-}
 
 # Determine if we have a docker-sync config file and docker-sync in path.
 DOCKER_SYNC=
@@ -45,7 +38,7 @@ docker-compose kill && docker-compose rm -v -f
 # TODO: The following asset and package-related steps should be performed in a
 #       build-script placed in a standard location eg scripts/build
 
-# Start up containers in the background and continue imidiately
+# Start up containers in the background and continue immediately
 echoc "*** Starting new containers"
 COMPOSER_OVERRIDE=
 [ -f "docker-compose.override.yml" ] && COMPOSER_OVERRIDE="-f docker-compose.override.yml"
@@ -56,23 +49,12 @@ else
 fi
 eval $cmd
 
-# Sleep while containers are starting up then perform a reset
-echoc "*** Waiting ${SLEEP_TIME} seconds for the containers to come up and database to be imported"
-sleep $SLEEP_TIME
-
-# Rebuild assets
-echoc "*** Composer installing"
-time docker-compose exec fpm sh -c "cd /var/www && composer install "
-
 # Perform the drupal-specific reset
 echoc "*** Resetting Drupal"
 "${SCRIPT_DIR}/site-reset.sh"
 
-echoc "*** Requesting ${HOST} in ${WEB_CONTAINER} to warm cache"
+echoc "*** Warming cache by doing an initial request"
 docker-compose exec ${WEB_CONTAINER} curl --silent --output /dev/null -H "Host: ${HOST}" localhost
 
-# Done, bring the background docker-compose logs back into foreground
-echoc "*** Done, watching logs"
-docker-compose logs -f
 
 

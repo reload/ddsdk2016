@@ -67,8 +67,12 @@ services:
 
   # Nightly fetched dump.
   db-data:
-    image: eu.gcr.io/reloaddk-data/db-data:ddsdk-latest
-    # Comment the line above and uncomment the following if you want to import
+    image: eu.gcr.io/reloaddk-data/db-datadir:ddsdk-latest
+    # Fake healthy state - we use docker-compose.yml as we're pretty sure it
+    # exists.
+    volumes:
+      - './docker-compose.yml:/tmp/docker-finished-init:ro'
+    # Comment the lines above and uncomment the following if you want to import
     # a custom databasedump
     # image: tianon/true
     # volumes:

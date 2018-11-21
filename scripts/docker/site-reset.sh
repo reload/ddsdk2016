@@ -13,19 +13,24 @@ find web/sites/default/files \! -uid 33  \! -print0 -name .gitkeep | sudo xargs 
 
 # Make sites/default read-only and executable
 sudo chmod 555 web/sites/default
-
-time docker-compose run --entrypoint "sh -c" --rm fpm " \
+time docker-compose exec fpm sh -c  "\
+  echo ' * Waiting php container to be ready' \
+  && wait-for-it -t 60 localhost:9000 \
+  && echo ' * Waiting for the database to be available' \
+  && wait-for-it -t 60 db:3306 \
+  && echo 'composer installing' \
+  && cd /var/www && composer install && cd /var/www/web \
   echo 'Site reset' && \
-  echo ' - Rebuilding cache' && \
+  echo ' * Rebuilding cache' && \
   drush -y cache-rebuild && \
-  echo ' - Update database' && \
+  echo ' * Update database' && \
   drush -y updatedb && \
-  echo ' - Entity update' && \
+  echo ' * Entity update' && \
   drush -y entup && \
-  echo ' - Import configuration' && \
+  echo ' * Import configuration' && \
   drush -y config-import --preview=diff && \
-  echo ' - Cache rebuild' && \
+  echo ' * Cache rebuild' && \
   drush cache-rebuild && \
-  echo ' - Clearing search-api' && \
+  echo ' * Clearing search-api' && \
   drush search-api-clear
   "
