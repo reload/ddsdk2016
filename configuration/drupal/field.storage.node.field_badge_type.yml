@@ -20,6 +20,9 @@ settings:
     -
       value: focus
       label: Fokusmærke
+    -
+      value: other
+      label: 'Øvrige mærker'
   allowed_values_function: ''
 module: options
 locked: false
