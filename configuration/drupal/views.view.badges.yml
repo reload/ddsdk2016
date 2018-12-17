@@ -614,6 +614,7 @@ display:
           value:
             skill: skill
             focus: focus
+            other: other
           group: 1
           exposed: true
           expose:
