@@ -54,6 +54,7 @@
         "drupal/chosen": "^2.2",
         "drupal/console": "^1.8",
         "drupal/core": "^8.6",
+        "drupal/crop": "^1.5.0",
         "drupal/dropguard": "~1.0",
         "drupal/editor_advanced_link": "~1.0",
         "drupal/entity": "^1.0",

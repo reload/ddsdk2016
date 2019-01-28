@@ -39,7 +39,7 @@ packages:
     drupal/console-extend-plugin: 0.9.2
     drupal/cookieconsent: 1.4.0
     drupal/core: 8.6.7
-    drupal/crop: 1.2.0
+    drupal/crop: 1.5.0
     drupal/ctools: 3.0.0
     drupal/dropguard: 1.2.0
     drupal/editor_advanced_link: 1.4.0
