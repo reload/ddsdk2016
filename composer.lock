@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1d4426fd66a192f1e346e19ffee76651",
+    "content-hash": "0ce394c10a28b1a3abd9e168182232b2",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -2206,7 +2206,8 @@
                 },
                 "patches_applied": {
                     "2558207: Add hook to react to image_path_flush() - recommended by the Reloadtina module": "https://www.drupal.org/files/issues/add_hook_image_path_flush-2558207-4.patch",
-                    "2408549: Notify about overridden configuration": "https://www.drupal.org/files/issues/2408549-106.patch"
+                    "2408549: Notify about overridden configuration": "https://www.drupal.org/files/issues/2408549-106.patch",
+                    "2857132: Account administration pages language negotiation ignores _format blocking REST resources": "https://www.drupal.org/files/issues/2019-01-28/preserve-format-while-negoatiating-2857132-10-work-in-progress.patch"
                 }
             },
             "autoload": {
@@ -4841,6 +4842,46 @@
                 }
             ],
             "time": "2015-04-20T18:58:01+00:00"
+        },
+        {
+            "name": "joachim-n/composer-manifest",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/joachim-n/composer-manifest.git",
+                "reference": "6642013606498d3acc161c64cb27c7647659cf29"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/joachim-n/composer-manifest/zipball/6642013606498d3acc161c64cb27c7647659cf29",
+                "reference": "6642013606498d3acc161c64cb27c7647659cf29",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0",
+                "symfony/yaml": "^3.4 || ^4.2"
+            },
+            "require-dev": {
+                "composer/composer": "~1.0",
+                "symfony/var-dumper": "^4.2"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "ComposerManifest\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "ComposerManifest\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Joachim Noreiko",
+                    "email": "joachim@107701.no-reply.drupal.org"
+                }
+            ],
+            "time": "2019-01-21T13:56:32+00:00"
         },
         {
             "name": "masterminds/html5",
