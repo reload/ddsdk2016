@@ -6,13 +6,19 @@ set -euo pipefail
 IFS=$'\n\t'
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# Conditional include of .env.
+if [[ -f "${SCRIPT_DIR}/../../.env" ]]; then
+  source "${SCRIPT_DIR}/../../.env"
+fi
+
 # Enable docker-sync if:
 # - NO_DOCKER_SYNC is not set
 # - We can find the executable in path
 # - It is executable
 # - we can find a docker-sync.yml
 DOCKER_SYNC=
-if [[ $(type -P "docker-sync") && -f "${SCRIPT_DIR}/../../docker-sync.yml" ]]; then
+if [[ -z "${NO_DOCKER_SYNC:-}" && $(type -P "docker-sync") && -f "${SCRIPT_DIR}/../../docker-sync.yml" ]]; then
     DOCKER_SYNC=1
 fi
 

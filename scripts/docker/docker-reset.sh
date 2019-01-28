@@ -12,12 +12,6 @@ source "${SCRIPT_DIR}/_docker-common.sh"
 HOST="localhost"
 WEB_CONTAINER="web"
 
-# Determine if we have a docker-sync config file and docker-sync in path.
-DOCKER_SYNC=
-if [[ $(type -P "docker-sync") && -f "${SCRIPT_DIR}/../../docker-sync.yml" ]]; then
-    DOCKER_SYNC=1
-fi
-
 # Start off at the root of the project.
 cd $SCRIPT_DIR/../../
 

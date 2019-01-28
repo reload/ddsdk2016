@@ -41,3 +41,11 @@ The following are the basic steps that should bring your site up.
 * Run `docker-compose exec fpm drush -y search-api-clear` clear the search index to bring it and the site in sync
 * Access your dockerhost on port 80 (eg. http://local.docker or localhost)
 
+### Customizations
+You can disable docker-sync by adding 
+```
+NO_DOCKER_SYNC=1
+```
+To .env in the root of the project. Use this to eg. test the setup for linux-
+uses when you've made a change that introduces changes that could get masked
+by docker-sync.
