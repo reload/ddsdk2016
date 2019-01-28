@@ -26,7 +26,7 @@ packages:
     doctrine/lexer: v1.0.1
     drmonty/chosen: 1.6.1
     drupal-composer/drupal-scaffold: 2.3.0
-    drupal/address: 1.2.0
+    drupal/address: 1.4.0
     drupal/admin_toolbar: 1.20.0
     drupal/better_exposed_filters: 3.0.0-alpha3
     drupal/chosen: 2.4.0
