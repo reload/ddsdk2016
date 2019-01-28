@@ -31,7 +31,7 @@ packages:
     drupal/better_exposed_filters: 3.0.0-alpha5
     drupal/chosen: 2.6.0
     drupal/chosen_lib: 2.6.0
-    drupal/coder: 8.2.12
+    drupal/coder: 8.3.1
     drupal/console: 1.0.0
     drupal/console-core: 1.0.0
     drupal/console-dotenv: 0.3.0
@@ -115,7 +115,7 @@ packages:
     sebastian/recursion-context: 1.0.5
     sebastian/version: 1.0.6
     solarium/solarium: 3.8.1
-    squizlabs/php_codesniffer: 2.9.1
+    squizlabs/php_codesniffer: 3.4.0
     stack/builder: v1.0.5
     stecman/symfony-console-completion: 0.7.0
     symfony-cmf/routing: 1.4.1
