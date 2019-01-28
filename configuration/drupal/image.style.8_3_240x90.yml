@@ -20,6 +20,7 @@ effects:
     data:
       width: 240
       height: 90
+      anchor: center-center
   72586924-707e-46ff-92d3-4aac70a3d9f4:
     uuid: 72586924-707e-46ff-92d3-4aac70a3d9f4
     id: image_convert

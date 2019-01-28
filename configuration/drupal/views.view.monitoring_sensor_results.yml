@@ -474,7 +474,7 @@ display:
         - url.query_args
         - user.permissions
       cacheable: false
-      max-age: 0
+      max-age: -1
       tags: {  }
   detail_page_log:
     display_plugin: embed
@@ -698,7 +698,7 @@ display:
         - url.query_args
         - user.permissions
       cacheable: false
-      max-age: 0
+      max-age: -1
       tags: {  }
   page_1:
     display_plugin: page
@@ -724,5 +724,5 @@ display:
         - url.query_args
         - user.permissions
       cacheable: false
-      max-age: 0
+      max-age: -1
       tags: {  }
