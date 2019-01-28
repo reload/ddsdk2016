@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4f28d51e941a11ad83b2ece503beef4e",
+    "content-hash": "17b748c920247bf2518026d20f8b3d73",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -1878,17 +1878,17 @@
         },
         {
             "name": "drupal/cookieconsent",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/cookieconsent",
-                "reference": "8.x-1.3"
+                "reference": "8.x-1.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/cookieconsent-8.x-1.3.zip",
-                "reference": "8.x-1.3",
-                "shasum": "5da986b85cdc2a78b600632897e6404d82336109"
+                "url": "https://ftp.drupal.org/files/projects/cookieconsent-8.x-1.4.zip",
+                "reference": "8.x-1.4",
+                "shasum": "4b4d551d80fe133ab5df3d75f1e34f85c58dbed2"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -1899,8 +1899,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.3",
-                    "datestamp": "1509629889",
+                    "version": "8.x-1.4",
+                    "datestamp": "1530539621",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
