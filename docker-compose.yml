@@ -1,4 +1,4 @@
-version: "2.1"
+version: "3.7"
 
 services:
   # https proxy, hands connection down to the web-server.
@@ -23,8 +23,7 @@ services:
       # with correct ownership via the init-script.
       - './docker/cron/drupal-cron:/root/tmp.drupal-cron:ro'
       - './docker/cron/setup-cron.sh:/etc/my_init.d/setup-cron.sh'
-    volumes_from:
-      - webroot
+      - './:/var/www:rw'
     links:
       - fpm
   # Instance of the php-image configured to serve fpm-requests.
@@ -32,8 +31,8 @@ services:
     image: reload/drupal-php7-fpm:7.0
     ports:
       - '9000'
-    volumes_from:
-      - webroot
+    volumes:
+      - './:/var/www:rw'
     links:
       - db
       - solr
@@ -50,12 +49,17 @@ services:
     volumes:
       - './my.ini:/etc/mysql/conf.d/my.cnf'
       - './docker/init/ZZZ-finished-init.sh:/docker-entrypoint-initdb.d/ZZZ-finished-init.sh'
-    volumes_from:
+      # Fake healthy state as we're using datadirs.
+      - './docker-compose.yml:/tmp/docker-finished-init:ro'
+      - 'db-datadir:/var/lib/mysql'
+    depends_on:
       - db-data
+    # Comment the lines depends_on and add the following to volumes if you want
+    # to import a custom databasedump
+    #    - './docker/my-custom-db-dump.sql:/docker-entrypoint-initdb.d/100-db.sql'
     healthcheck:
       test: ["CMD", "sh", "-c", "[ -e /tmp/docker-finished-init ]"]
 
-    # Notice the following environment-variables only takes effect if we're
     # using a raw mariadb image. We're just leaving the values used during
     # the datadir build here for reference.
     # see https://github.com/reload/docker-db-datadir-worker/blob/master/opt/datadir-preinit/docker-compose.template.yml
@@ -68,15 +72,11 @@ services:
   # Nightly fetched dump.
   db-data:
     image: eu.gcr.io/reloaddk-data/db-datadir:ddsdk-latest
-    # Fake healthy state - we use docker-compose.yml as we're pretty sure it
-    # exists.
     volumes:
-      - './docker-compose.yml:/tmp/docker-finished-init:ro'
-    # Comment the lines above and uncomment the following if you want to import
-    # a custom databasedump
-    # image: tianon/true
-    # volumes:
-    #    - './docker/my-custom-db-dump.sql:/docker-entrypoint-initdb.d/100-db.sql'
+      # Will be empty at reset, this will cause docker to copy the contents of
+      # /var/lib/mysql into the db-datadir container. As the "db" service depends
+      # on db-data, it will wait until this has completed, and the mount db-datadir
+      - 'db-datadir:/var/lib/mysql'
 
   solr:
     image: solr:6.6
@@ -90,13 +90,6 @@ services:
       - ddsmainindex
       - /solr-conf
 
-  # Webroot and volumned paths needs to be accessible from multiple containers so
-  # we set up all paths once and for all via a single volumne-container.
-  webroot:
-    image: tianon/true
-    volumes:
-      - './:/var/www:rw'
-
   mailhog:
     image: mailhog/mailhog
     ports:
@@ -104,9 +97,8 @@ services:
 
   npm:
     image: node:argon
-    volumes_from:
-      - webroot
     volumes:
+      - './:/var/www:rw'
       - 'cache:/npm-cache'
     working_dir: /var/www
     environment:
@@ -117,3 +109,4 @@ services:
 volumes:
   # NPM cache that survives docker-reset.sh
   cache:
+  db-datadir:
