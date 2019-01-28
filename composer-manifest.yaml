@@ -28,7 +28,7 @@ packages:
     drupal-composer/drupal-scaffold: 2.3.0
     drupal/address: 1.4.0
     drupal/admin_toolbar: 1.25.0
-    drupal/better_exposed_filters: 3.0.0-alpha3
+    drupal/better_exposed_filters: 3.0.0-alpha5
     drupal/chosen: 2.4.0
     drupal/chosen_lib: 2.4.0
     drupal/coder: 8.2.12

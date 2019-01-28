@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cf44f978903d12e1b97f826e1a50ef3b",
+    "content-hash": "0ce394c10a28b1a3abd9e168182232b2",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -1402,17 +1402,17 @@
         },
         {
             "name": "drupal/better_exposed_filters",
-            "version": "3.0.0-alpha3",
+            "version": "3.0.0-alpha5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/better_exposed_filters",
-                "reference": "8.x-3.0-alpha3"
+                "reference": "8.x-3.0-alpha5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/better_exposed_filters-8.x-3.0-alpha3.zip",
-                "reference": "8.x-3.0-alpha3",
-                "shasum": "0268a42ea5a4ab170c8f4aefecd26b6f3c7448d2"
+                "url": "https://ftp.drupal.org/files/projects/better_exposed_filters-8.x-3.0-alpha5.zip",
+                "reference": "8.x-3.0-alpha5",
+                "shasum": "8dbcff4b3bcd24f753d5d1ba6a523442a3690a76"
             },
             "require": {
                 "drupal/core": "*"
@@ -1423,8 +1423,8 @@
                     "dev-3.x": "3.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-3.0-alpha3",
-                    "datestamp": "1501274342",
+                    "version": "8.x-3.0-alpha5",
+                    "datestamp": "1540513084",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
@@ -1433,12 +1433,28 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
+                    "name": "chr.fritsch",
+                    "homepage": "https://www.drupal.org/user/2103716"
+                },
+                {
+                    "name": "jkopel",
+                    "homepage": "https://www.drupal.org/user/66207"
+                },
+                {
                     "name": "mikeker",
                     "homepage": "https://www.drupal.org/user/192273"
+                },
+                {
+                    "name": "mortona2k",
+                    "homepage": "https://www.drupal.org/user/1029484"
+                },
+                {
+                    "name": "rlhawk",
+                    "homepage": "https://www.drupal.org/user/352283"
                 }
             ],
             "description": "Provides advanced options (such as links, checkboxes, or jQueryUI widgets) for exposed Views elements.",
