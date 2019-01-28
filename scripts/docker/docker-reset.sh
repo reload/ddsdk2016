@@ -25,6 +25,10 @@ if [[ $DOCKER_SYNC ]]; then
     docker-sync sync
 fi
 
+if [[ $DORY ]]; then
+    dory up
+fi
+
 # Clear all running containers.
 echoc "*** Removing existing containers"
 docker-compose kill && docker-compose rm -v -f
