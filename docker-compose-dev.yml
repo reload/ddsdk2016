@@ -1,9 +1,17 @@
 # this is our development docker-compose building on top of the production docker-compose, just mounting
 # the sync image - not redefining anything else
 
-version: "2.1"
+version: "3.7"
 services:
-  webroot:
+  web:
+    volumes:
+      - 'ddsdk-sync-root:/var/www'
+
+  fpm:
+    volumes:
+      - 'ddsdk-sync-root:/var/www'
+
+  npm:
     volumes:
       - 'ddsdk-sync-root:/var/www'
 

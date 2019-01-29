@@ -12,12 +12,6 @@ source "${SCRIPT_DIR}/_docker-common.sh"
 HOST="localhost"
 WEB_CONTAINER="web"
 
-# Determine if we have a docker-sync config file and docker-sync in path.
-DOCKER_SYNC=
-if [[ $(type -P "docker-sync") && -f "${SCRIPT_DIR}/../../docker-sync.yml" ]]; then
-    DOCKER_SYNC=1
-fi
-
 # Start off at the root of the project.
 cd $SCRIPT_DIR/../../
 
@@ -31,9 +25,15 @@ if [[ $DOCKER_SYNC ]]; then
     docker-sync sync
 fi
 
+if [[ $DORY ]]; then
+    dory up
+fi
+
 # Clear all running containers.
 echoc "*** Removing existing containers"
-docker-compose kill && docker-compose rm -v -f
+# The last docker-compose down -v removes various named volumes (datadir and
+# npm-cache)
+docker-compose kill && docker-compose rm -v -f && docker-compose down -v
 
 # TODO: The following asset and package-related steps should be performed in a
 #       build-script placed in a standard location eg scripts/build

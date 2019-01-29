@@ -32,3 +32,6 @@ docker-compose.override.yml
 node_modules
 .docker-sync
 .last-pull-*
+
+# Ignore local environment-variable overrides
+.env
