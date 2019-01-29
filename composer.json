@@ -82,7 +82,7 @@
         "drupal/system_status": "^2.0",
         "drupal/taxonomy_access_fix": "^2.0",
         "drupal/twig_xdebug": "~1.0",
-        "drupal/video_embed_field": "~1.0",
+        "drupal/video_embed_field": "^1.0",
         "drush/drush": "~8.0",
         "woothemes/flexslider": "~2.6",
         "drupal/search_api_exclude_entity": "^1.0",
