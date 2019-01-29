@@ -2722,7 +2722,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/field_redirection",
-                "reference": "e1c30f24f9b7a21a6e968c61b774399c25b4b9f7"
+                "reference": "99ba8ba79774cce799eaed11e7514bdc94c062f7"
             },
             "require": {
                 "drupal/core": "*"
@@ -2751,6 +2751,14 @@
                     "homepage": "https://www.drupal.org/user/108450"
                 },
                 {
+                    "name": "larowlan",
+                    "homepage": "https://www.drupal.org/user/395439"
+                },
+                {
+                    "name": "pasan.gamage",
+                    "homepage": "https://www.drupal.org/user/3527697"
+                },
+                {
                     "name": "ultimike",
                     "homepage": "https://www.drupal.org/user/51132"
                 }
@@ -2764,7 +2772,7 @@
                 "source": "http://cgit.drupalcode.org/field_redirection",
                 "issues": "http://drupal.org/project/issues/field_redirection"
             },
-            "time": "2017-09-06T18:16:12+00:00"
+            "time": "2019-01-24T08:41:56+00:00"
         },
         {
             "name": "drupal/forward",
