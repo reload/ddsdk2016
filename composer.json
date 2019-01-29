@@ -88,7 +88,8 @@
         "drupal/search_api_exclude_entity": "^1.0",
         "drupal/field_redirection": "2.x-dev",
         "drupal/cookieconsent": "^1.4",
-        "joachim-n/composer-manifest": "^1.0"
+        "joachim-n/composer-manifest": "^1.0",
+        "drupal/token": "^1.0"
     },
     "require-dev": {
         "behat/mink": "~1.7",

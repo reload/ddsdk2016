@@ -70,7 +70,7 @@ packages:
     drupal/stage_file_proxy: 1.0.0-alpha3
     drupal/system_status: 2.8.0
     drupal/taxonomy_access_fix: 2.6.0
-    drupal/token: 1.0.0
+    drupal/token: 1.5.0
     drupal/twig_xdebug: 1.0.0
     drupal/video_embed_field: 1.5.0
     drush/drush: 8.1.15
