@@ -73,7 +73,7 @@
         "drupal/metatag": "^1.2",
         "drupal/monitoring": "^1.4",
         "drupal/paragraphs": "^1.1",
-        "drupal/pathauto": "~1.0",
+        "drupal/pathauto": "^1.0",
         "drupal/redirect": "~1.0",
         "drupal/reloadtina": "~1.0",
         "drupal/search_api": "^1.3",
