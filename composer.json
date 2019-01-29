@@ -60,7 +60,7 @@
         "drupal/entity": "^1.0",
         "drupal/extlink": "^1.0",
         "drupal/facets": "^1.0",
-        "drupal/field_group": "~1.0",
+        "drupal/field_group": "^1.0",
         "drupal/forward": "~2.0",
         "drupal/google_analytics": "^2.1",
         "drupal/http2_server_push": "~1.0",

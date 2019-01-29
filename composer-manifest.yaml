@@ -47,7 +47,7 @@ packages:
     drupal/entity_reference_revisions: 1.6.0
     drupal/extlink: 1.1.0
     drupal/facets: 1.2.0
-    drupal/field_group: 1.0.0-rc6
+    drupal/field_group: 1.0.0
     drupal/field_redirection: dev-2.x
     drupal/forward: 2.0.0
     drupal/google_analytics: 2.2.0
