@@ -50,7 +50,7 @@ packages:
     drupal/field_group: 1.0.0
     drupal/field_redirection: dev-2.x
     drupal/forward: 2.1.0
-    drupal/google_analytics: 2.2.0
+    drupal/google_analytics: 2.3.0
     drupal/http2_server_push: 1.0.0
     drupal/image_widget_crop: 2.0.0
     drupal/inline_entity_form: 1.0.0-beta1
