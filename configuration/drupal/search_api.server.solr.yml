@@ -15,7 +15,7 @@ backend_config:
     host: solr
     port: '8983'
     path: /solr
-    core: ''
+    core: ddsmainindex
     timeout: 5
     index_timeout: 5
     optimize_timeout: 10
@@ -24,9 +24,8 @@ backend_config:
     commit_within: 1000
   retrieve_data: false
   highlight_data: false
-  excerpt: false
   skip_schema_check: false
   site_hash: true
-  suggest_suffix: true
-  suggest_corrections: true
-  suggest_words: false
+  domain: generic
+  finalize_timeout: 30
+  server_prefix: ''
