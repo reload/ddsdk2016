@@ -62,7 +62,7 @@ packages:
     drupal/monitoring: 1.7.0
     drupal/paragraphs: 1.5.0
     drupal/pathauto: 1.3.0
-    drupal/redirect: 1.0.0-beta1
+    drupal/redirect: 1.3.0
     drupal/reloadtina: 1.0.0-alpha1
     drupal/search_api: 1.11.0
     drupal/search_api_exclude_entity: 1.0.0-beta2
