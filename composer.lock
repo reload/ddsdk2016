@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0e2eb9a40b55aa3e3658d17f9764f82b",
+    "content-hash": "0cd42c31f2292d6ce3ff279808b38eac",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -4073,17 +4073,17 @@
         },
         {
             "name": "drupal/system_status",
-            "version": "2.5.0",
+            "version": "2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/system_status",
-                "reference": "8.x-2.5"
+                "reference": "8.x-2.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/system_status-8.x-2.5.zip",
-                "reference": "8.x-2.5",
-                "shasum": "61d4aa93403bad4b13faa24f1fca8f4a6319fa0b"
+                "url": "https://ftp.drupal.org/files/projects/system_status-8.x-2.8.zip",
+                "reference": "8.x-2.8",
+                "shasum": "0694e411c3e414654375ad32a3b150770b26e249"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -4094,8 +4094,8 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.5",
-                    "datestamp": "1501683544",
+                    "version": "8.x-2.8",
+                    "datestamp": "1542299580",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4104,7 +4104,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
