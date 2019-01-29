@@ -54,7 +54,7 @@ packages:
     drupal/http2_server_push: 1.0.0
     drupal/image_widget_crop: 2.2.0
     drupal/inline_entity_form: 1.0.0-rc1
-    drupal/link_attributes: 1.1.0
+    drupal/link_attributes: 1.5.0
     drupal/maxlength: 1.0.0-beta1
     drupal/media_entity: 1.6.0
     drupal/media_entity_image: 1.2.0
