@@ -44,8 +44,8 @@ packages:
     drupal/dropguard: 1.2.0
     drupal/editor_advanced_link: 1.4.0
     drupal/entity: 1.0.0-rc1
-    drupal/entity_reference_revisions: 1.3.0
-    drupal/extlink: 1.0.0
+    drupal/entity_reference_revisions: 1.6.0
+    drupal/extlink: 1.1.0
     drupal/facets: 1.0.0-alpha11
     drupal/field_group: 1.0.0-rc6
     drupal/field_redirection: dev-2.x
