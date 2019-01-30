@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "47c77e03ed9cbdfa3b96a9dba51af336",
+    "content-hash": "18dbf0baedeadd0bd1ce600f430b93d8",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -1225,9 +1225,6 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
-                },
-                "patches_applied": {
-                    "2705891: Fix invisible required chosen widgets": "https://www.drupal.org/files/issues/2705891-chosen-validation-temp-fix-6.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
