@@ -84,6 +84,8 @@ services:
       - '8983'
     volumes:
       - './.platform/solr-6.x-config:/solr-conf/conf:ro'
+    environment:
+      VIRTUAL_HOST: solr.ddsdk.docker
     entrypoint:
       - docker-entrypoint.sh
       - solr-precreate
