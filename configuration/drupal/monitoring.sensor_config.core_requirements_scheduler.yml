@@ -1,0 +1,20 @@
+uuid: a02638a2-738a-4002-915f-919d2e437bae
+langcode: da
+status: true
+dependencies:
+  module:
+    - scheduler
+id: core_requirements_scheduler
+label: 'Module scheduler'
+description: 'Requirements of the scheduler module'
+category: Requirements
+plugin_id: core_requirements
+result_class: null
+value_label: null
+value_type: no_value
+caching_time: 3600
+settings:
+  module: scheduler
+  exclude_keys: {  }
+thresholds:
+  type: none
