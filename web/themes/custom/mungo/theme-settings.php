@@ -44,6 +44,34 @@ function mungo_form_system_theme_settings_alter(&$form, FormStateInterface &$for
     ),
     '#element_validate' => array('mungo_badge_cover_image_validate'),
   );
+
+  // Settings for the jobposting-overview-page.
+  $form['jobposting_page_settings'] = array(
+    '#type' => 'details',
+    '#title' => t('Jobposting page settings'),
+    '#open' => TRUE,
+  );
+  $form['jobposting_page_settings']['jobposting_cover_image'] = array(
+    '#type' => 'container',
+  );
+  $form['jobposting_page_settings']['jobposting_cover_image']['jobposting_cover_image_path'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Path to the cover-image (use upload-field below)'),
+    '#default_value' => theme_get_setting('jobposting_cover_image_path', 'mungo'),
+    '#description' => t(
+      'The title and description used to be configurable here as well. Now the title of the view and custom header on the view is used instead.'
+    ),
+  );
+  $form['jobposting_page_settings']['jobposting_cover_image']['jobposting_cover_image'] = array(
+    '#type' => 'file',
+    '#title' => t('Upload image image'),
+    '#maxlength' => 40,
+    '#description' => t(
+      "If you don't have direct file access to the server, use this field to upload your image."
+    ),
+    '#element_validate' => array('mungo_jobposting_cover_image_validate'),
+  );
+
 }
 
 /**
@@ -60,6 +88,23 @@ function mungo_badge_cover_image_validate(array $element, FormState &$form_state
     'badge_cover_image',
     'dds_badge',
     'badge_cover_image_path'
+  );
+}
+
+/**
+ * Finalizes upload of the image to use on the jobpostings page.
+ *
+ * @param array $element
+ *   The form-element to be validated.
+ * @param Drupal\Core\Form\FormState $form_state
+ *   Current state of the form.
+ */
+function mungo_jobposting_cover_image_validate(array $element, FormState &$form_state) {
+  mungo_handle_uploaded_file(
+    $form_state,
+    'jobposting_cover_image',
+    'dds_jobposting',
+    'jobposting_cover_image_path'
   );
 }
 
