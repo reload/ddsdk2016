@@ -76,15 +76,6 @@ function _dds_update_8104() {
 }
 
 /**
- * Implements hook_install().
- */
-function dds_update_install() {
-  _dds_update_8101();
-  _dds_update_8103();
-  _dds_update_8104();
-}
-
-/**
  * Translations for FB footer.
  */
 function dds_update_update_8101() {
