@@ -176,3 +176,12 @@ forward_entity_pathauto_pattern: false
 forward_pathauto_pattern_pathauto_pattern: false
 forward_entity_redirect: false
 forward_redirect_redirect: false
+forward_entity_monitoring_sensor_result: false
+forward_monitoring_sensor_result_monitoring_sensor_result: false
+forward_node_redirect_page: false
+forward_paragraph_content_redirect_page_reference: false
+forward_paragraph_content_redirect_page_reference_: false
+forward_paragraph_markup: false
+forward_paragraph_read_more: false
+forward_max_recipients: 1
+forward_max_recipients_error: 'You can only send the content to a single recipient.'
