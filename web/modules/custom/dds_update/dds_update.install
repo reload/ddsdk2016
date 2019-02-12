@@ -104,3 +104,14 @@ function dds_update_update_8103() {
 function dds_update_update_8104() {
   _dds_update_8104();
 }
+
+/**
+ * Add translations for jobpostings.
+ */
+function dds_update_update_8105() {
+  dds_update_add_translation('Jobpostings', 'da', 'Ledige stillinger');
+  dds_update_add_translation('Paid jobs', 'da', 'Betalte stillinger');
+  dds_update_add_translation('Volunteer jobs', 'da', 'Frivillig stillinger');
+  dds_update_add_translation('There are currently no vacancies available.', 'da', 'Der er pt. ingen ledige stillinger.');
+  dds_update_add_translation('Jobs in the Danish Guide and Scout Association', 'da', 'Ledige stillinger i Det Danske Spejderkorps');
+}

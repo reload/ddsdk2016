@@ -27,6 +27,7 @@ module:
   dds_badge: 0
   dds_content_list: 0
   dds_event: 0
+  dds_jobposting: 0
   dds_layout: 0
   dds_link: 0
   dds_metatag: 0
