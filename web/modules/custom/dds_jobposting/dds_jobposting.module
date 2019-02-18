@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Module that lists jobs.
+ */
+
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+
+/**
+ * Implements hook_theme().
+ */
+function dds_jobposting_theme($existing, $type, $theme, $path) {
+
+  return [
+    'dds_jobposting' => [
+      'variables' => [
+        'top_image' => [],
+        'paid_jobs' => [],
+        'volunteer_jobs' => [],
+      ]
+    ],
+  ];
+}

@@ -1,0 +1,9 @@
+dds_jobposting.dds_jobposting:
+  path: '/job'
+  defaults:
+    _controller: '\Drupal\dds_jobposting\Controller\JobPostingController::content'
+    _title: 'Jobs'
+    paidJobsTid: 685
+    volunteerJobsTid: 684
+  requirements:
+    _permission: 'access content'

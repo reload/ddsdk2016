@@ -27,6 +27,7 @@ module:
   dds_badge: 0
   dds_content_list: 0
   dds_event: 0
+  dds_jobposting: 0
   dds_layout: 0
   dds_link: 0
   dds_metatag: 0
@@ -78,6 +79,7 @@ module:
   reloadtina: 0
   responsive_image: 0
   rest: 0
+  scheduler: 0
   search_api: 0
   search_api_exclude_entity: 0
   search_api_solr: 0

@@ -9,3 +9,5 @@ favicon:
   use_default: 1
 badge_cover_image_path: 'public://maerkeunivers-cover.jpg'
 badge_cover_image: ''
+jobposting_cover_image_path: 'public://maerkeunivers-cover.jpg'
+jobposting_cover_image: ''
