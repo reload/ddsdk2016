@@ -23,7 +23,7 @@ forward_email_logo: ''
 forward_email_subject: '[forward:sender-name] has forwarded a page to you from [site:name]'
 forward_email_message: '[forward:sender-name] thought you would like to see this page from the [site:name] web site.'
 forward_bypass_access_control: 0
-forward_filter_format: full_html
+forward_filter_format: ''
 forward_flood_control_limit: 10
 forward_flood_control_error: 'You can''t send more than @number messages per hour. Please try again later.'
 _core:
@@ -79,10 +79,10 @@ forward_entity_media_bundle: false
 forward_media_bundle_media_bundle: false
 forward_node_activity: false
 forward_node_article: true
-forward_node_badge: 0
+forward_node_badge: false
 forward_node_download: false
-forward_node_event: 0
-forward_node_section_page: 0
+forward_node_event: false
+forward_node_section_page: false
 forward_entity_node_type: false
 forward_node_type_node_type: false
 forward_entity_paragraph: false
