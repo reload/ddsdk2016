@@ -33,7 +33,7 @@ fi
 echoc "*** Removing existing containers"
 # The last docker-compose down -v removes various named volumes (datadir and
 # npm-cache)
-docker-compose kill && docker-compose rm -v -f && docker-compose down -v
+docker-compose kill && docker-compose rm -v -f && docker-compose down --remove-orphans -v
 
 # TODO: The following asset and package-related steps should be performed in a
 #       build-script placed in a standard location eg scripts/build

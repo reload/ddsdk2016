@@ -1,31 +1,29 @@
 version: "3.7"
 
 services:
-  # https proxy, hands connection down to the web-server.
-  https:
-    image: zazukoians/hitch
-    ports:
-      - '443'
-    environment:
-      HITCH_PARAMS: --backend=[web]:80 --frontend=[*]:443
-      VIRTUAL_PROTO: https
-      VIRTUAL_HOST: ddsdk.docker
-    links:
-      - web
-
   # Pure web-server, hands php-requests off to fpm.
   web:
     image: reload/drupal-apache-fpm
     ports:
       - '80'
+      - '443'
     volumes:
       # Temporary mount for the cron-configuration, we'll copy it into place
       # with correct ownership via the init-script.
       - './docker/cron/drupal-cron:/root/tmp.drupal-cron:ro'
       - './docker/cron/setup-cron.sh:/etc/my_init.d/setup-cron.sh'
       - './:/var/www:rw'
-    links:
-      - fpm
+      # Add Development root CA and our certificate store.
+      - '${HOME}/Library/Application Support/mkcert:/mkcert/mac:ro'
+      - '${HOME}/.local/share/mkcert:/mkcert/linux:ro'
+      - '${HOME}/.local/share/dev_certificates:/cert:rw'
+    environment:
+      VIRTUAL_HOST: ddsdk.docker
+      # Ensure dory/nginx-proxy goes via port 80.
+      VIRTUAL_PORT: '80'
+      # Ensure dory don't redirect from http to https.
+      HTTPS_METHOD: noredirect
+      MKCERT_DOMAINS: "ddsdk.docker mail.ddsdk.docker solr.ddsdk.docker"
   # Instance of the php-image configured to serve fpm-requests.
   fpm:
     image: reload/drupal-php7-fpm:7.0
@@ -33,9 +31,6 @@ services:
       - '9000'
     volumes:
       - './:/var/www:rw'
-    links:
-      - db
-      - solr
     working_dir: /var/www/web
     environment:
       PATH: '/var/www/vendor/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
@@ -96,6 +91,8 @@ services:
     image: mailhog/mailhog
     ports:
       - "8025:8025"
+    environment:
+      VIRTUAL_HOST: mail.ddsdk.docker
 
   npm:
     image: node:argon
