@@ -91,7 +91,8 @@
         "drupal/twig_xdebug": "^1.0.0",
         "drupal/video_embed_field": "^1.5.0",
         "drush/drush": "^8.1.15",
-        "woothemes/flexslider": "^2.6.3"
+        "woothemes/flexslider": "^2.6.3",
+        "drupal/monolog": "^1.0.0"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3",
@@ -138,6 +139,9 @@
                 "2558207: Add hook to react to image_path_flush() - recommended by the Reloadtina module": "https://www.drupal.org/files/issues/add_hook_image_path_flush-2558207-4.patch",
                 "2408549: Notify about overridden configuration": "https://www.drupal.org/files/issues/2408549-106.patch",
                 "2857132: Account administration pages language negotiation ignores _format blocking REST resources": "https://www.drupal.org/files/issues/2019-01-28/preserve-format-while-negoatiating-2857132-10-work-in-progress.patch"
+            },
+            "drupal/monolog": {
+                "formatting": "https://www.drupal.org/files/issues/2018-12-11/3019715-2.patch"
             }
         },
         "patchLevel": {

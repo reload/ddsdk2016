@@ -1,0 +1,17 @@
+  parameters:
+    monolog.channel_handlers:
+      default: ['stderr', 'file']
+      formatter: 'json'
+    monolog.processors: ['message_placeholder', 'current_user', 'request_uri', 'ip', 'referer']
+
+  services:
+    monolog.handler.stderr:
+      class: Monolog\Handler\StreamHandler
+      arguments: ['php://stderr']
+
+    monolog.handler.file:
+      class: Monolog\Handler\RotatingFileHandler
+      arguments: ['/tmp/drupal.log', 2]
+
+    monolog.formatter.json:
+      class: Monolog\Formatter\JsonFormatter
