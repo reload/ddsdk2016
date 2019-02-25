@@ -22,15 +22,15 @@ time docker-compose exec fpm sh -c  "\
   && cd /var/www && composer install && cd /var/www/web \
   echo 'Site reset' && \
   echo ' * Rebuilding cache' && \
-  drush -y cache-rebuild && \
+  setuser www-data drush -y cache-rebuild && \
   echo ' * Update database' && \
-  drush -y updatedb && \
+  setuser www-data drush -y updatedb && \
   echo ' * Entity update' && \
-  drush -y entup && \
+  setuser www-data drush -y entup && \
   echo ' * Import configuration' && \
-  drush -y config-import --preview=diff && \
+  setuser www-data drush -y config-import --preview=diff && \
   echo ' * Cache rebuild' && \
-  drush cache-rebuild && \
+  setuser www-data drush cache-rebuild && \
   echo ' * Clearing search-api' && \
-  drush search-api-clear
+  setuser www-data drush search-api-clear
   "
