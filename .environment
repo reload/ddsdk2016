@@ -1,0 +1,2 @@
+# Add custom binaries to path.
+export PATH=/app/bin:$PATH

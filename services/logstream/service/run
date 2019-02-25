@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Perform a single run of filebeat.
+/app/services/logstream/service/filebeat/dist/filebeat \
+  --path.config=/tmp/filebeat/config \
+  --path.logs=/tmp/filebeat/log \
+  --path.data=/tmp/filebeat/data \
+  run --once

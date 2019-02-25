@@ -92,7 +92,15 @@ hooks:
       npm install
       gulp build
       curl -sS https://platform.sh/cli/installer | php
-
+      # Setup filebeat
+      mkdir /app/bin
+      curl -L  -o /app/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+      chmod +x /app/bin/jq
+      mkdir /app/services/logstream/service/filebeat/dist
+      curl -L -o /tmp/filebeat.tar.gz https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.6.1-linux-x86_64.tar.gz
+      mkdir -p /tmp/filebeat/dist
+      tar xzvf /tmp/filebeat.tar.gz --strip-components=1 -C /app/services/logstream/service/filebeat/dist
+      chmod +x /app/services/logstream/service/run
 
     # We run deploy hook after your application has been deployed and started.
     deploy: |
@@ -100,12 +108,28 @@ hooks:
       drush -y cache-rebuild
       drush -y updatedb --entity-updates
       drush -y config-import
+      mkdir -p /tmp/filebeat/config
+      rm -f /tmp/filebeat/.is_configured
+      # Get the ingest token from config if it exists and prepare a filebeat config.
+      HUMIO_INGEST_TOKEN=$( echo "$PLATFORM_VARIABLES" | base64 --decode | /app/bin/jq -r "(.HUMIO_INGEST_TOKEN)")
+      if [ ! -z "${HUMIO_INGEST_TOKEN}" ]; then
+        cat /app/services/logstream/service/filebeat/config/filebeat-template.yml | envsubst > /tmp/filebeat/config/filebeat.yml
+        # Signal that filebeat should be available.
+        touch /tmp/filebeat/.is_configured
+      fi
 
 # The configuration of scheduled execution.
 crons:
     drupal:
         spec: "*/2 * * * *"
         cmd: "cd web ; drush core-cron"
+    logs:
+        # Export logs as often as possible. Platform.sh currently translates
+        # this to every 5 minutes.
+        spec: "* * * * *"
+        # If filebeat is configured, check if its already running, and if not
+        # launch a new instance that will do a a pass and exit.
+        cmd: "test -f /tmp/filebeat/.is_configured && ( (ps aux |grep -E 'dist/filebeat\\s' > /dev/null) || /app/services/logstream/service/run )"
     snapshot:
         spec: '15 0 * * *'
         cmd: |

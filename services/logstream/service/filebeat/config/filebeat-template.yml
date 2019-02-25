@@ -1,0 +1,49 @@
+# Filebeat configuration for shipping logs to Humio.
+#
+# This configuration uses the following non-standard parses that you must
+# make available in the Humio repository associated with the ingest token:
+# - platform-phpaccesslog
+#   /(?<time>\S+)\s+(?<method>\S+)\s+(?<responsecode>(\d)+)\s+(?<responsetime-ms>(\d|\.)+) ms\s+(?<responsesize-kb>(\d)+) kB\s+(?<memoryusage-percent>(\d|\.)+)%\s+(?<url>\S+)/| parseTimestamp(format="yyyy-MM-dd'T'HH:mm:ssX", field=time)
+# - monolog-json
+#   parseJson() | @timestamp:=format("%s %s",field=[datetime.date, datetime.timezone]) | parseTimestamp("yyyy-MM-dd HH:mm:ss[.SSSSSS] v", field=@timestamp)
+
+filebeat.inputs:
+- paths:
+    - /var/log/app.log
+  encoding: utf-8
+  fields:
+    "type": "syslog"
+  close_eof: true
+- paths:
+    - /var/log/access.log
+  encoding: utf-8
+  fields:
+    source: nginx
+    "type": "accesslog"
+  close_eof: true
+- paths:
+    - /var/log/php.access.log
+  encoding: utf-8
+  fields:
+    "type": "platform-phpaccesslog"
+  close_eof: true
+- paths:
+    - /tmp/drupal*.log
+  encoding: utf-8
+  fields:
+    "type": "monolog-json"
+  close_eof: true
+
+queue.mem:
+  events: 8000
+  flush.min_events: 1000
+  flush.timeout: 1s
+
+output:
+  elasticsearch:
+    hosts: ["https://cloud.humio.com:443/api/v1/ingest/elastic-bulk"]
+    username: anything
+    password: $HUMIO_INGEST_TOKEN
+    compression_level: 5
+    bulk_max_size: 200
+    worker: 1
