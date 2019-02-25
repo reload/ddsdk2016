@@ -13,8 +13,6 @@ services:
       - './docker/cron/drupal-cron:/root/tmp.drupal-cron:ro'
       - './docker/cron/setup-cron.sh:/etc/my_init.d/setup-cron.sh'
       - './:/var/www:rw'
-    links:
-      - fpm
       # Add Development root CA and our certificate store.
       - '${HOME}/Library/Application Support/mkcert:/mkcert/mac:ro'
       - '${HOME}/.local/share/mkcert:/mkcert/linux:ro'
@@ -33,9 +31,6 @@ services:
       - '9000'
     volumes:
       - './:/var/www:rw'
-    links:
-      - db
-      - solr
     working_dir: /var/www/web
     environment:
       PATH: '/var/www/vendor/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
