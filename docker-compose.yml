@@ -14,8 +14,7 @@ services:
       - './docker/cron/setup-cron.sh:/etc/my_init.d/setup-cron.sh'
       - './:/var/www:rw'
       # Add Development root CA and our certificate store.
-      - '${HOME}/Library/Application Support/mkcert:/mkcert/mac:ro'
-      - '${HOME}/.local/share/mkcert:/mkcert/linux:ro'
+      - '${HOME}/.local/share/mkcert:/mkcert:ro'
       - '${HOME}/.local/share/dev_certificates:/cert:rw'
     environment:
       VIRTUAL_HOST: ddsdk.docker
