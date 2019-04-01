@@ -77,7 +77,7 @@ web:
                     expires: 2w
 
 # The size of the persistent disk of the application (in MB).
-disk: 11264
+disk: 11136
 
 # The mounts that will be performed when the package is deployed.
 mounts:
