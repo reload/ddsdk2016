@@ -5,7 +5,7 @@
 name: 'drupal'
 
 # The runtime the application uses.
-type: "php:7.0"
+type: "php:7.2"
 
 # Configuration of the build of this application.
 build:

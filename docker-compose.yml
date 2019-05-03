@@ -25,7 +25,7 @@ services:
       MKCERT_DOMAINS: "ddsdk.docker mail.ddsdk.docker solr.ddsdk.docker"
   # Instance of the php-image configured to serve fpm-requests.
   fpm:
-    image: reload/drupal-php7-fpm:7.0
+    image: reload/drupal-php7-fpm:7.2
     ports:
       - '9000'
     volumes:
