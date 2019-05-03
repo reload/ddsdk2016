@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Progression badge'
 vid: progression_badge
 description: 'A progression containing 3 badges of individual levels'
-hierarchy: 0
 weight: 0

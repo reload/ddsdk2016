@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Content tag'
 vid: content_tag
 description: 'Tags used for internal search and filtering'
-hierarchy: 0
 weight: 0

@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Content target group'
 vid: content_target_group
 description: 'Target group for content (anything but badges)'
-hierarchy: 0
 weight: 0

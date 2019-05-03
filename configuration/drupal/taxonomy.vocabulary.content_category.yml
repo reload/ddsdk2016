@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Content category'
 vid: content_category
 description: 'Category for most content on the site.'
-hierarchy: 0
 weight: 0

@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Badge target group'
 vid: badge_target_group
 description: ''
-hierarchy: 0
 weight: 0

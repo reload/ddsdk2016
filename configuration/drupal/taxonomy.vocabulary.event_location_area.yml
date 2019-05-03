@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Event location area'
 vid: event_location_area
 description: 'The geographical area an event takes place'
-hierarchy: 0
 weight: 0
