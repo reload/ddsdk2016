@@ -25,8 +25,6 @@ time docker-compose exec fpm sh -c  "\
   drush -y cache-rebuild && \
   echo ' * Update database' && \
   drush -y updatedb && \
-  echo ' * Entity update' && \
-  drush -y entup && \
   echo ' * Import configuration' && \
   drush -y config-import --preview=diff && \
   echo ' * Cache rebuild' && \
