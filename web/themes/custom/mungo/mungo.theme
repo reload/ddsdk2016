@@ -6,7 +6,7 @@
  */
 
 use Drupal\Core\Datetime\DrupalDateTime;
-use Drupal\Core\Entity\Entity;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Link;
 use Drupal\Core\Render\Element;
 use Drupal\Core\Site\Settings;
@@ -15,7 +15,7 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Template\Attribute;
 use Drupal\dds_activity\ActivityFetcher;
 use Drupal\node\Entity\Node;
-use Drupal\taxonomy\Entity\Term;
+use Drupal\taxonomy\TermInterface;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
@@ -604,16 +604,14 @@ function _mungo_preprocess_node_article(Node $node, &$variables) {
 /**
  * Render variables needed for presentation of a person as a author.
  *
- * @param Drupal\taxonomy\Entity\Term $person
+ * @param Drupal\taxonomy\TermInterafce $person
  *   A Person term.
  *
  * @return array
  *   The variables that could be extracted.
  */
-function _mungo_preprocess_author_presentation(Term $person) {
-  if (!($person instanceof Term)
-    || $person->getVocabularyId() !== 'person'
-  ) {
+function _mungo_preprocess_author_presentation(TermInterface $person) {
+  if ($person->bundle() !== 'person') {
     // Bail out if we don't have the expected author.
     \Drupal::logger('mungo')->error('Expected person term');
     return [];
@@ -887,7 +885,7 @@ function mungo_theme_suggestions_alter(array &$suggestions, array $variables, $h
       }
       // Since two columns require extra wrapping of items this new template is
       // used. This could and should be refactored but it works right now.
-      if ($bundle === "2col_deck" && $object instanceof Entity && $object->hasField('field_2col_column_size') && isset($object->field_2col_column_size->value)) {
+      if ($bundle === "2col_deck" && $object instanceof EntityInterface && $object->hasField('field_2col_column_size') && isset($object->field_2col_column_size->value)) {
         $size = _mungo_2col_size_option_to_text($object->field_2col_column_size->value);
 
         if ($size === "66_33" && $field_name === 'field_2col_deck_col1') {
