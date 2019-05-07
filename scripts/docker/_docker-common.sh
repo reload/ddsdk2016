@@ -31,6 +31,6 @@ fi
 # Echo green
 echoc () {
     GREEN=$(tput setaf 2)
-    RESET=$(tput sgr 0)
+    RESET=$(tput sgr0)
 	echo -e "${GREEN}$1${RESET}"
 }
