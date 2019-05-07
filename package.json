@@ -3,8 +3,8 @@
   "description": "Build assets for the Drupal theme Mungo",
   "version": "0.0.1",
   "scripts": {
-    "watch": "gulp watch",
-    "build": "npm install && gulp build"
+    "watch": "npm config set bin-links true && ./node_modules/.bin/gulp watch",
+    "build": "npm config set bin-links true && npm install && ./node_modules/.bin/gulp build"
   },
   "devDependencies": {
     "bootstrap-sass": "^3.3.7",
