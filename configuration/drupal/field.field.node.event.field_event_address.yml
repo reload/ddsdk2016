@@ -15,22 +15,25 @@ label: 'Event address'
 description: ''
 required: false
 translatable: false
-default_value: {  }
+default_value:
+  -
+    country_code: DK
+    langcode: en
+    given_name: ''
+    family_name: ''
+    organization: ''
+    address_line1: ''
+    address_line2: ''
+    postal_code: ''
+    locality: ''
+    additional_name: null
+    sorting_code: null
+    dependent_locality: null
+    administrative_area: null
 default_value_callback: ''
 settings:
   available_countries: {  }
-  fields:
-    administrativeArea: administrativeArea
-    locality: locality
-    dependentLocality: dependentLocality
-    postalCode: postalCode
-    sortingCode: sortingCode
-    addressLine1: addressLine1
-    addressLine2: addressLine2
-    organization: organization
-    givenName: givenName
-    additionalName: additionalName
-    familyName: familyName
   langcode_override: ''
   field_overrides: {  }
+  fields: {  }
 field_type: address
