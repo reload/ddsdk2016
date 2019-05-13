@@ -8,7 +8,7 @@
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
-use Drupal\node\Entity\Node;
+use Drupal\node\Entity\NodeInterface;
 
 define('DDS_BADGE_TYPE_PROGRESSION', 'progression');
 define('DDS_BADGE_TYPE_SKILL', 'skill');
@@ -81,7 +81,7 @@ function _dds_badge_progression_validate($element, FormStateInterface &$form_sta
  * if the type of badge is not progression.
  */
 function dds_badge_entity_presave(EntityInterface $entity) {
-  if ($entity instanceof Node && $entity->getType() === 'badge') {
+  if ($entity instanceof NodeInterface && $entity->bundle() === 'badge') {
     $badge_type = $entity->get('field_badge_type')->value;
     if ($badge_type !== 'progression') {
       if (!empty($entity->get('field_badge_progression')->referencedEntities())) {
@@ -122,7 +122,7 @@ function dds_badge_preprocess_views_view(&$variables) {
  *
  * The array will be sorted from lowest (basic) to highest level (expert).
  *
- * @param Drupal\node\Entity\Node[] $nodes
+ * @param Drupal\node\Entity\NodeInterface[] $nodes
  *   Array of nodes, will be sorted by reference.
  */
 function dds_badge_sort_nodes_by_level(array &$nodes) {

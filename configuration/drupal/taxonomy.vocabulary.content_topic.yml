@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Content topic'
 vid: content_topic
 description: 'Topic for all content-types'
-hierarchy: 0
 weight: 0

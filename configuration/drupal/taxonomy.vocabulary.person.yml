@@ -5,5 +5,4 @@ dependencies: {  }
 name: Person
 vid: person
 description: 'A person that can be presented, eg. as an author of an article.'
-hierarchy: 0
 weight: 0
