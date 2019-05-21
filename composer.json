@@ -90,7 +90,7 @@
         "drupal/token": "^1.5.0",
         "drupal/twig_xdebug": "^1.0.0",
         "drupal/video_embed_field": "^1.5.0",
-        "drush/drush": "^8.1.15",
+        "drush/drush": "^9",
         "woothemes/flexslider": "^2.6.3"
     },
     "require-dev": {
