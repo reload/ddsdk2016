@@ -12,7 +12,7 @@ services:
       # with correct ownership via the init-script.
       - './docker/cron/drupal-cron:/root/tmp.drupal-cron:ro'
       - './docker/cron/setup-cron.sh:/etc/my_init.d/setup-cron.sh'
-      - './:/var/www:rw'
+      - 'webroot:/var/www/'
       # Add Development root CA and our certificate store.
       - '${HOME}/.local/share/mkcert:/mkcert:ro'
       - '${HOME}/.local/share/dev_certificates:/cert:rw'
@@ -29,7 +29,7 @@ services:
     ports:
       - '9000'
     volumes:
-      - './:/var/www:rw'
+      - 'webroot:/var/www/'
     working_dir: /var/www/web
     environment:
       PATH: '/var/www/vendor/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
@@ -96,7 +96,7 @@ services:
   npm:
     image: node:argon
     volumes:
-      - './:/var/www:rw'
+      - 'webroot:/var/www/'
       - 'cache:/npm-cache'
     working_dir: /var/www
     environment:
@@ -108,3 +108,9 @@ volumes:
   # NPM cache that survives docker-reset.sh
   cache:
   db-datadir:
+  webroot:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=host.docker.internal,rw,nolock,hard,nointr,nfsvers=3
+      device: ":${PWD}"

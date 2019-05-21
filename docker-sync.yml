@@ -1,8 +1,0 @@
-version: "2"
-
-syncs:
-  ddsdk-sync-root:
-    src: './'
-    notify_terminal: true
-    sync_excludes: ['Gemfile.lock', 'Gemfile', '.sass-cache', 'sass-cache','bower.json', 'bower_components', 'node_modules', '.gitignore', '.git/', '*.coffee', '.idea', 'web/sites/default/files']
-    watch_excludes: ['.*/.git', '.*/node_modules', '.*/bower_components', '.*/sass-cache', '.*/.sass-cache', '.*/.sass-cache', '.coffee', '.gitignore', '.idea']
