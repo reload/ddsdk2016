@@ -7,16 +7,17 @@
 
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Link;
 use Drupal\Core\Render\Element;
 use Drupal\Core\Site\Settings;
-use Drupal\Core\URL;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Template\Attribute;
+use Drupal\Core\URL;
 use Drupal\dds_activity\ActivityFetcher;
+use Drupal\file\FileInterface;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\TermInterface;
-use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -428,6 +429,13 @@ function mungo_preprocess_node(&$variables) {
  * Prepare variables for download node type.
  */
 function _mungo_preprocess_node_download(Node $node, &$variables) {
+  if ($node->get('field_file')->isEmpty()) {
+    return;
+  }
+
+  if (!$node->get('field_file')->first()->entity instanceof FileInterface) {
+    return;
+  }
 
   // File url.
   $file = $node->get('field_file')->first()->entity;
