@@ -60,8 +60,18 @@ dom_id ? 'js-view-dom-id-' ~ dom_id,
     {% if exposed %}
       <div class="view-filters col-sm-4">
         <div class="view-filters__inner">
-          <div class="filters-exposed">
-            {{ exposed }}
+          <div class="filters-exposed js-filters-exposed {% if has_active_facets %}is-open{% endif %}">
+            <a href="#" class="filters-exposed__toggle js-filters-exposed-toggle-foldout">
+              <span class="filters-exposed__toggle-open">
+                {{ 'Hide filters'|trans }}
+              </span>
+              <span class="filters-exposed__toggle-closed">
+                {{ 'Show filters'|trans }}
+              </span>
+            </a>
+            <div class="filters-exposed__inner">
+              {{ exposed }}
+            </div>
           </div>
         </div>
       </div>

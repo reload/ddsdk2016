@@ -822,11 +822,19 @@ function mungo_preprocess_views_view(&$variables) {
   /** @var \Drupal\views\ViewExecutable $view */
   $view = $variables['view'];
 
-  // Views assumes that the default core block-layout will render its titel
-  // but we've disabled it to have more control over when the title is
-  // rendered, so we have to render the views title manually.
+
   if ($view->current_display === 'events_overview') {
+    // Views assumes that the default core block-layout will render its title
+    // but we've disabled it to have more control over when the title is
+    // rendered, so we have to render the views title manually.
     $variables['title'] = $view->getTitle();
+
+    // If we have active, non-default filters, we can tell frotend to not
+    // hide the filters by dropdown.
+    if (!empty($variables['exposed']['f[0]']) ||
+        !empty($variables['exposed']['event_before']['#value'])) {
+      $variables['has_active_facets'] = TRUE;
+    }
   }
 }
 
