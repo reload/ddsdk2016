@@ -24,7 +24,7 @@
 }
 
 // Slim-boxes minimizes their internal and external spacing.
-.box.box--slim {
+.box--slim {
   padding-left: 0;
   padding-right: 0;
 
@@ -35,9 +35,10 @@
 
   @include media-medium {
     border: none;
+    border-right: 2px solid $medium-pink;
     padding: 0;
+    padding-right: 20px;
   }
-
 }
 
 .box--meta-info {
@@ -47,5 +48,11 @@
 
   .field {
     margin-bottom: 10px;
+  }
+}
+
+.box--main-content-sidebar {
+  .field__label {
+    width: 100%;
   }
 }
