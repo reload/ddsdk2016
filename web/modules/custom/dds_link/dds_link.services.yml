@@ -1,0 +1,5 @@
+services:
+  dds_link.redirectdownloadnodetype:
+    class: Drupal\dds_link\EventSubscriber\DownloadRedirectSubscriber
+    tags:
+      - { name: event_subscriber }
