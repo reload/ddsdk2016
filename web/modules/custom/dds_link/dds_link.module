@@ -51,3 +51,30 @@ function _dds_link_validate($element, FormStateInterface &$form_state, $form) {
     $form_state->setError($element, t('External links must have a link text.'));
   }
 }
+
+/**
+ * Implements hook_form__BASE_FORM_ID_alter() for node_form().
+ */
+function dds_link_form_node_form_alter(&$form, FormStateInterface $form_state) {
+  $entity = $form_state->getFormObject()->getEntity();
+
+  if ('download' !== $entity->bundle()) {
+    return;
+  };
+
+  $form['actions']['submit']['#submit'][] = '_dds_link_node_edit_form_redirect';
+}
+
+/**
+ * Node edit redirects to edit on submit.
+ *
+ * @param array $form
+ *   Form array.
+ * @param Drupal\Core\Form\FormStateInterface $form_state
+ *   Form state.
+ */
+function _dds_link_node_edit_form_redirect(&$form, FormStateInterface $form_state) {
+  $entity = $form_state->getFormObject()->getEntity();
+
+  $form_state->setRedirectUrl($entity->toUrl('edit-form'));
+}
