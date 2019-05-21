@@ -8,6 +8,7 @@
 namespace Drupal\dds_link\EventSubscriber;
 
 use Drupal\Core\Url;
+use Drupal\file\FileInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -43,6 +44,14 @@ class DownloadRedirectSubscriber implements EventSubscriberInterface {
 
     // Only redirect a certain content type.
     if ($request->attributes->get('node')->getType() !== 'download') {
+      return;
+    }
+
+    if ($request->attributes->get('node')->get('field_file')->isEmpty()) {
+      return;
+    }
+
+    if (!$request->attributes->get('node')->get('field_file')->first()->entity instanceof FileInterface) {
       return;
     }
 
