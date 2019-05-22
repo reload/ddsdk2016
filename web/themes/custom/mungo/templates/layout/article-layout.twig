@@ -108,8 +108,8 @@
         <div{{ content_attributes.addClass(['node__content', 'col-md-9', 'print-full-width']) }}>
             {% block main_content %}{% endblock %}
         </div>
-        <div class="col-md-12">
-          {% block content_footer %}{% endblock %}
+        <div class="col-md-12 hidden-xs hidden-sm">
+          {% block content_below_sidebar %}{% endblock %}
         </div>
       </div>
     </article>
@@ -135,6 +135,10 @@
             </ul>
           </div>
         {% endblock %}
+    </aside>
+
+    <aside class="col-md-12 hidden-md hidden-lg">
+      {{ block('content_below_sidebar') }}
     </aside>
   </section>
 </div>
