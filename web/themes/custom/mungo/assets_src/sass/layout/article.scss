@@ -162,9 +162,10 @@
   }
 }
 
-.four-cols-deck .node-teaser--heading {
+.node-teaser--heading {
   @include list-heading-medium;
 }
+
 .three-cols-deck .node-teaser--heading {
   @include list-heading-large;
 }
