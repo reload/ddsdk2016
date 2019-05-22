@@ -448,6 +448,24 @@ function _mungo_preprocess_node_download(Node $node, &$variables) {
   // Create forward url for mail.
   $variables['mail_url'] = '/forward/node/' . $node->get('nid')->value;
 
+  // Add destination parameter. The return value of `getPath()` is not defined
+  // and `getAliasByPath()` can throw an \InvalidArgumentException. We wrap it
+  // all on in a try/catch block so we can proceed if an error occurs while
+  // doing alias lookup.
+  try {
+    $current_path = \Drupal::service('path.current')->getPath();
+    $current_alias = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+
+    if (is_string($current_alias)) {
+      $variables['mail_url'] .= '?destination=' . $current_alias;
+    }
+  }
+  catch (\Exception $e) {
+    // Noop. If destination parameter lookup failed just proceed without adding
+    // one.
+    watchdog_exception('mungo', $e);
+  }
+
   // Get the inline svg icon.
   $variables['svg_icon'] = _mungo_replace_title_with_svg('download');
 }
