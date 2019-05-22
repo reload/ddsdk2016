@@ -26,7 +26,8 @@
   // Layout.
   display: inline-block;
   position: relative;
-  padding: 15px 0 15px $shortcut-link-padding-left;
+  // + 20px to leave space for the :before icon.
+  padding: 15px 0 15px $shortcut-link-padding-left + 20px;
   width: 100%;
 
   // Typography.
@@ -40,11 +41,11 @@
 
   // Add icon to left.
   &:before {
-    position: relative;
-    content: " \2192";
+    position: absolute;
+    content: "\2192";
+    top: auto;
+    left: $shortcut-link-padding-left;
     color: $bluish-light;
-    left: -$shortcut-link-padding-left;
-    margin-left: 5px;
   }
 }
 
