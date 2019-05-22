@@ -13,16 +13,55 @@
 }
 
 .filters-exposed {
-  margin-bottom: 20px;
-
   input[type='submit'] {
     width: 99%;
     margin: 0 0 20px;
+  }
+
+  &.is-open {
+    .filters-exposed__toggle-closed {
+      display: none;
+    }
+
+    .filters-exposed__toggle-open,
+    .filters-exposed__inner {
+      display: block;
+    }
+  }
+}
+
+.filters-exposed__toggle {
+  @include list-heading-large;
+
+  display: block;
+
+  color: $bluish;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.filters-exposed__toggle-open {
+  display: none;
+  padding-bottom: 20px;
+}
+
+.filters-exposed__inner {
+  display: none;
+}
+
+// On tablet/desktop, we dont need a filter foldout.
+@include media-small {
+  .filters-exposed__toggle {
+    display: none;
+  }
+
+  .filters-exposed__inner {
+    display: block;
   }
 }
 
 .view-filters__inner {
   background-color: white;
   padding: 30px;
+  margin-bottom: 20px;
 }
-

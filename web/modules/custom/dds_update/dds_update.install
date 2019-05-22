@@ -106,3 +106,11 @@ function dds_update_update_8105() {
   dds_update_add_translation('There are currently no vacancies available.', 'da', 'Der er pt. ingen ledige stillinger.');
   dds_update_add_translation('Jobs in the Danish Guide and Scout Association', 'da', 'Ledige stillinger i Det Danske Spejderkorps');
 }
+
+/**
+ * Add translations for exposed filters popout.
+ */
+function dds_update_update_8106() {
+  dds_update_add_translation('Hide filters', 'da', 'Skjul filtre');
+  dds_update_add_translation('Show filters', 'da', 'Vis filtre');
+}
