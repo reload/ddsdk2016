@@ -106,6 +106,10 @@ crons:
     drupal:
         spec: "*/2 * * * *"
         cmd: "cd web ; drush core-cron"
+    # Periodic rebuild until large cache tables has been fixed otherwise.
+    cache-rebuild:
+        spec: "* */6 * * *"
+        cmd: "cd web ; drush cache:rebuild"
     snapshot:
         spec: '15 0 * * *'
         cmd: |
