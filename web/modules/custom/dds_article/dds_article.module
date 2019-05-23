@@ -41,3 +41,14 @@ function dds_article_node_article_edit_form_validate(&$form, FormStateInterface 
     $form_state->setError($form['field_content_author'], t('Content author is required!'));
   }
 }
+
+/**
+ * Implements hook_forward_token().
+ */
+function dds_article_forward_token(FormStateInterface $form_state) {
+  return [
+    'dds_article' => [
+      'type' => 'dds_article:type',
+    ],
+  ];
+}
