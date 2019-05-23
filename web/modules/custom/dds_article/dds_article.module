@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Mail\MailFormatHelper;
 
 define('DDS_ARTICLE_ARTICLE_TYPE_SIMPLE', 'simple');
 define('DDS_ARTICLE_ARTICLE_TYPE_LONGREAD', 'long_read');
@@ -51,4 +52,18 @@ function dds_article_forward_token(FormStateInterface $form_state) {
       'type' => 'dds_article:type',
     ],
   ];
+}
+
+/**
+ * Implements hook_forward_mail_pre_render_alter().
+ */
+function dds_article_forward_mail_pre_render_alter(array &$render_array, FormStateInterface &$form_state) {
+  if (empty($render_array['#message']) ||
+    empty($render_array['#message']['#plain_text'])) {
+    return;
+  }
+
+  // Convert message to real plain text (i.e. newlines are converted tp `<br>`
+  // and we need to get rid of those).
+  $render_array['#message']['#plain_text'] = MailFormatHelper::htmlToText($render_array['#message']['#plain_text']);
 }
