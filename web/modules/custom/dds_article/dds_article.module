@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Mail\MailFormatHelper;
 
 define('DDS_ARTICLE_ARTICLE_TYPE_SIMPLE', 'simple');
 define('DDS_ARTICLE_ARTICLE_TYPE_LONGREAD', 'long_read');
@@ -40,4 +41,29 @@ function dds_article_node_article_edit_form_validate(&$form, FormStateInterface 
   if (!isset($field_article_type[0]['value']) || ($field_article_type[0]['value'] !== DDS_ARTICLE_ARTICLE_TYPE_SIMPLE && empty($field_content_author))) {
     $form_state->setError($form['field_content_author'], t('Content author is required!'));
   }
+}
+
+/**
+ * Implements hook_forward_token().
+ */
+function dds_article_forward_token(FormStateInterface $form_state) {
+  return [
+    'dds_article' => [
+      'type' => 'dds_article:type',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_forward_mail_pre_render_alter().
+ */
+function dds_article_forward_mail_pre_render_alter(array &$render_array, FormStateInterface &$form_state) {
+  if (empty($render_array['#message']) ||
+    empty($render_array['#message']['#plain_text'])) {
+    return;
+  }
+
+  // Convert message to real plain text (i.e. newlines are converted tp `<br>`
+  // and we need to get rid of those).
+  $render_array['#message']['#plain_text'] = MailFormatHelper::htmlToText($render_array['#message']['#plain_text']);
 }

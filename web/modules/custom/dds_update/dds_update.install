@@ -114,3 +114,11 @@ function dds_update_update_8106() {
   dds_update_add_translation('Hide filters', 'da', 'Skjul filtre');
   dds_update_add_translation('Show filters', 'da', 'Vis filtre');
 }
+
+/**
+ * Add translations for forward mail.
+ */
+function dds_update_update_8107() {
+  dds_update_add_translation('article', 'da', 'artikel');
+  dds_update_add_translation('file', 'da', 'fil');
+}
