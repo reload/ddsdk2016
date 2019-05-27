@@ -37,6 +37,7 @@ dependencies:
     - metatag
     - paragraphs
     - path
+    - scheduler
     - search_api_exclude_entity
     - text
 third_party_settings:
@@ -192,8 +193,7 @@ content:
     region: content
   field_event_address:
     weight: 13
-    settings:
-      default_country: DK
+    settings: {  }
     third_party_settings: {  }
     type: address_default
     region: content
@@ -293,6 +293,8 @@ content:
       label_singular: ''
       label_plural: ''
       override_labels: false
+      collapsible: false
+      collapsed: false
     third_party_settings: {  }
     type: inline_entity_form_simple
     region: content
@@ -323,7 +325,7 @@ content:
       edit_mode: closed
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: program
+      default_paragraph_type: _none
     third_party_settings: {  }
     region: content
   langcode:
@@ -354,9 +356,9 @@ content:
     third_party_settings: {  }
   scheduler_settings:
     weight: 20
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   status:
     type: boolean_checkbox
     settings:
@@ -399,7 +401,7 @@ content:
     third_party_settings: {  }
   url_redirects:
     weight: 50
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden: {  }
