@@ -32,6 +32,12 @@ function dds_admin_editor_js_settings_alter(array &$settings) {
         // its default from true to false. As a fix until core comes up with a
         // better way to solve this (see https://www.drupal.org/node/2871539 ).
         $format_settings['editorSettings']['pasteFromWordRemoveFontStyles'] = TRUE;
+
+        // Tweak autogrow settings, meaning how high the input box is, based
+        // on how much content is inside.
+        $format_settings['editorSettings']['autoGrow_onStartup'] = FALSE;
+        $format_settings['editorSettings']['autoGrow_minHeight'] = 250;
+        $format_settings['editorSettings']['autoGrow_maxHeight'] = 400;
       }
     }
   }
