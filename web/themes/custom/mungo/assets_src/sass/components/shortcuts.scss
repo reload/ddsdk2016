@@ -4,6 +4,18 @@
   // Remove list style.
   list-style: none;
   width: 100%;
+
+  @include media-small {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 10px;
+  }
+
+  @include media-large {
+    display: inline-block;
+  }
 }
 
 .shortcuts__link-item {
@@ -14,11 +26,33 @@
 
   // Typography.
   &:hover {
-
     // The hover state should be activated on hover on the wrapper too.
     .shortcuts__link {
       color: $bluish-light;
     }
+  }
+
+  @include media-small {
+    margin-left: -5px;
+    width: calc(50% - 10px);
+
+    // Overide border behaviour on tablet.
+    border-top: none;
+    border-bottom: 1px solid $pinkish-grey;
+
+    &:nth-child(1),
+    &:nth-child(2) {
+      border-top: 1px solid $pinkish-grey;
+    }
+  }
+
+  // On Desktop we go 100% again.
+  @include media-medium {
+    width: 100%;
+
+    // Reset.
+    border-top: 1px solid $pinkish-grey;
+    border-bottom: none;
   }
 }
 
