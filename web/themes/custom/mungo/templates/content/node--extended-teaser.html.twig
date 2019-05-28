@@ -99,7 +99,9 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
             <h2 class="node-extended-teaser--heading">
                 {{ label }}
             </h2>
-            <div class="node-extended-teaser--subtitle">{{ content.field_subtitle }}</div>
+            <div class="node-extended-teaser--subtitle">
+              {{ content.field_subtitle|default(content.field_event_teaser) }}
+            </div>
 
             <div class="node-extended-teaser--read-more">{{ 'Read more'|trans }}</div>
         </div>

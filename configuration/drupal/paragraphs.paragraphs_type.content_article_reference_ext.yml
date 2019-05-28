@@ -3,4 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: content_article_reference_ext
-label: 'Content: Article reference (Extended)'
+label: 'Content: Article + Event + Section reference (Extended)'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }
