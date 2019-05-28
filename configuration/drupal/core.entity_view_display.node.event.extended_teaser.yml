@@ -1,0 +1,85 @@
+uuid: 9d386093-6283-4bbc-9a29-e49e2d1f77b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.extended_teaser
+    - field.field.node.event.field_content_category
+    - field.field.node.event.field_content_tag
+    - field.field.node.event.field_content_target_group
+    - field.field.node.event.field_content_topic
+    - field.field.node.event.field_course_id
+    - field.field.node.event.field_event_accommodation
+    - field.field.node.event.field_event_address
+    - field.field.node.event.field_event_area
+    - field.field.node.event.field_event_end
+    - field.field.node.event.field_event_host_info
+    - field.field.node.event.field_event_is_all_day
+    - field.field.node.event.field_event_location_name
+    - field.field.node.event.field_event_price
+    - field.field.node.event.field_event_signup_deadline
+    - field.field.node.event.field_event_signup_instructions
+    - field.field.node.event.field_event_start
+    - field.field.node.event.field_event_teaser
+    - field.field.node.event.field_event_type
+    - field.field.node.event.field_exclude_from_search
+    - field.field.node.event.field_main_media
+    - field.field.node.event.field_metatags
+    - field.field.node.event.field_paragraphs
+    - field.field.node.event.field_programs
+    - node.type.event
+  module:
+    - user
+id: node.event.extended_teaser
+targetEntityType: node
+bundle: event
+mode: extended_teaser
+content:
+  field_content_topic:
+    type: entity_reference_entity_view
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      view_mode: plaintext
+      link: false
+    third_party_settings: {  }
+  field_event_teaser:
+    type: basic_string
+    weight: 6
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_main_media:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: extended_teaser
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  field_content_category: true
+  field_content_tag: true
+  field_content_target_group: true
+  field_course_id: true
+  field_event_accommodation: true
+  field_event_address: true
+  field_event_area: true
+  field_event_end: true
+  field_event_host_info: true
+  field_event_is_all_day: true
+  field_event_location_name: true
+  field_event_price: true
+  field_event_signup_deadline: true
+  field_event_signup_instructions: true
+  field_event_start: true
+  field_event_type: true
+  field_exclude_from_search: true
+  field_metatags: true
+  field_paragraphs: true
+  field_programs: true
+  langcode: true
+  links: true

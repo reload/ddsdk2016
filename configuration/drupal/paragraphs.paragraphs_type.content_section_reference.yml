@@ -1,0 +1,9 @@
+uuid: 940c4a70-1217-4157-9acf-8c9a2a8c313c
+langcode: en
+status: true
+dependencies: {  }
+id: content_section_reference
+label: 'Content: Section reference'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }
