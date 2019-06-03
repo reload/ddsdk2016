@@ -102,10 +102,13 @@
   {{ content.group_signup_info }}
   </div>
   {% endif %}
-  <div class="box box--grey no-inline box--meta-info">
-    <h2 class="box__heading">{% trans %}Location{% endtrans %}</h2>
-  {{ content.group_location_info }}
-  </div>
+
+  {% if content.group_location_info is not empty %}
+    <div class="box box--grey no-inline box--meta-info">
+      <h2 class="box__heading">{% trans %}Location{% endtrans %}</h2>
+    {{ content.group_location_info }}
+    </div>
+  {% endif %}
 {% endblock %}
 {% block main_content_sidebar %}
   <div class="box box--slim box--meta-info box--main-content-sidebar">

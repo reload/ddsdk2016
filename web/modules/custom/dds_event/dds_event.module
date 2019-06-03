@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ * Functionality for DDS event.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+// Implements HOOK_form_alter for making custom validators.
+function dds_event_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (in_array($form_id, ['node_event_form', 'node_event_edit_form'])) {
+    $form['#validate'][] = 'dds_event_form_node_event_validate';
+  }
+}
+
+// Custom validator for the event node form.
+// To make it easier for the editor, the address field has preset a country
+// but if you just press save on an event, the field just says "Denmark"
+// We're gonna check if theres any other fields set, and if not we'll unset
+// the value.
+function dds_event_form_node_event_validate($form, FormStateInterface &$form_state) {
+  // $address_readonly is as the name implied only a read array - we wont
+  // use it to send data back to the form_state, meaning we can check-modify it.
+  $address_readonly = $form_state->getValue('field_event_address')->first();
+
+  // Lets make sure we even have an 'address' array.
+  if (empty($address_readonly['address'])) {
+    return;
+  }
+
+  // country_code and langcode are set as default and we want to ignore these.
+  unset($address_readonly[0]['address']['country_code']);
+  unset($address_readonly[0]['address']['langcode']);
+
+  // Now we have an array only containing non-default values.
+  // Now we'll use array_filter to check if the rest of the items in the array
+  // are empty. If they are, it means we basically have an empty address,
+  // so we'll set the field value to an empty array.
+  if (!array_filter($address_readonly[0]['address'])) {
+    $form_state->setValue('field_event_address', []);
+  }
+
+}
