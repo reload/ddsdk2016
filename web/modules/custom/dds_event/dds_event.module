@@ -22,10 +22,10 @@ function dds_event_form_alter(&$form, FormStateInterface $form_state, $form_id) 
 function dds_event_form_node_event_validate($form, FormStateInterface &$form_state) {
   // $address_readonly is as the name implied only a read array - we wont
   // use it to send data back to the form_state, meaning we can check-modify it.
-  $address_readonly = $form_state->getValue('field_event_address')->first();
+  $address_readonly = $form_state->getValue('field_event_address');
 
   // Lets make sure we even have an 'address' array.
-  if (empty($address_readonly['address'])) {
+  if (empty($address_readonly[0]['address'])) {
     return;
   }
 
