@@ -91,7 +91,9 @@
         "drupal/twig_xdebug": "^1.0.0",
         "drupal/video_embed_field": "^1.5.0",
         "drush/drush": "^9",
-        "woothemes/flexslider": "^2.6.3"
+        "woothemes/flexslider": "^2.6.3",
+        "drupal/redis": "^1.1",
+        "predis/predis": "^1.1"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3",
