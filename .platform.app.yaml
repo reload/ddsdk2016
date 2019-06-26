@@ -104,7 +104,7 @@ hooks:
 # The configuration of scheduled execution.
 crons:
     drupal:
-        spec: "*/2 * * * *"
+        spec: "*/5 * * * *"
         cmd: |
             cd web
             drush core:cron --uri=$(platform route:get --primary --property=url)
