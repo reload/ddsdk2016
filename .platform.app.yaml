@@ -105,7 +105,9 @@ hooks:
 crons:
     drupal:
         spec: "*/2 * * * *"
-        cmd: "cd web ; drush core-cron"
+        cmd: |
+            cd web
+            drush core:cron --uri=$(platform route:get --primary --property=url)
     # Periodic rebuild until large cache tables has been fixed otherwise.
     cache-rebuild:
         spec: "* */6 * * *"
