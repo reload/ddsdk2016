@@ -106,7 +106,7 @@ crons:
     drupal:
         spec: "*/5 * * * *"
         cmd: |
-            cd web
+            cd "$PLATFORM_DOCUMENT_ROOT"
             drush core:cron --uri=$(platform route:get --primary --property=url)
     # Periodic rebuild until large cache tables has been fixed otherwise.
     cache-rebuild:
