@@ -73,6 +73,11 @@ services:
       # on db-data, it will wait until this has completed, and the mount db-datadir
       - 'db-datadir:/var/lib/mysql'
 
+  redis:
+    image: redis:5.0
+    ports:
+      - '6379'
+
   solr:
     image: solr:6.6
     ports:
