@@ -13,7 +13,7 @@ use Drupal\Core\Render\Element;
 use Drupal\Core\Site\Settings;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Template\Attribute;
-use Drupal\Core\URL;
+use Drupal\Core\Url;
 use Drupal\dds_activity\ActivityFetcher;
 use Drupal\file\FileInterface;
 use Drupal\node\Entity\Node;
@@ -104,7 +104,7 @@ function mungo_preprocess_field(&$variables) {
 
       // If the a 4col_deck paragraph is right after a herobanner. Set negative
       // margin.
-      if (!empty($paragraph) && isset($herobannerfound) && $herobannerfound === TRUE && $paragraph->getType() === '4col_deck') {
+      if (!empty($paragraph) && $herobannerfound === TRUE && $paragraph->getType() === '4col_deck') {
         if (!empty($paragraph->field_4col_deck_col1)) {
           $entities = $paragraph->field_4col_deck_col1->referencedEntities();
           $situation_link = reset($entities);

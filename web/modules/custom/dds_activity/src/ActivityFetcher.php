@@ -36,9 +36,8 @@ class ActivityFetcher {
    */
   public function loadActivity($activity_id) {
     if ($activity_id > 0) {
-      $client = \Drupal::httpClient();
       try {
-        $response = $client->request(
+        $response = $this->client->request(
           'GET',
           self::AKTDB_WS_ENDPOINT . '/activities/' . $activity_id
         );

@@ -1,0 +1,7 @@
+{
+    "autoload": {
+        "files": [
+            "web/themes/custom/mungo/theme-settings.php"
+        ]
+    }
+}

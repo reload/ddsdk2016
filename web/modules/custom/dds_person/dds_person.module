@@ -40,7 +40,7 @@ function dds_person_form_alter(&$form, &$form_state, $form_id) {
  * @param int $uid
  *   UID of the user to load the default person for, defaults to current user.
  *
- * @return null|Term
+ * @return \Drupal\taxonomy\TermInterface|null
  *   Returns NULL if the user has not specified a person term, or if the term
  *   could not be found. If found the term is returned.
  */

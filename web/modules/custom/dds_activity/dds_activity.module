@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Entity\EntityStorageException;
+use Drupal\Core\File\FileSystemInterface;
 use Drupal\media_entity\Entity\Media;
 use Drupal\node\Entity\Node;
 
@@ -41,7 +42,7 @@ function dds_activity_node_presave(Node $node) {
   // Then fetch the image and attach it to the node.
   // First off, prepare the directory where we're going to put the image.
   $file_destination_dir = 'public://aktivws/' . $activity_id;
-  if (!file_prepare_directory($file_destination_dir, FILE_CREATE_DIRECTORY)) {
+  if (!\Drupal::service('file_system')->prepareDirectory($file_destination_dir, FileSystemInterface::CREATE_DIRECTORY)) {
     $logger->error('Could not prepare destination directory @dir', ['@dir' => $file_destination_dir]);
     return;
   }
