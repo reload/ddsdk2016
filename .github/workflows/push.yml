@@ -1,0 +1,13 @@
+on: push
+name: Composer validate
+jobs:
+  composer_validate:
+    name: Composer validate
+    if: '!github.event.deleted'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Composer validate
+      uses: MilesChou/composer-action@master
+      with:
+        args: validate --no-check-all --no-check-publish
