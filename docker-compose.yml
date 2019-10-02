@@ -95,7 +95,7 @@ services:
   mailhog:
     image: mailhog/mailhog
     ports:
-      - "8025:8025"
+      - "8025"
     environment:
       VIRTUAL_HOST: mail.ddsdk.docker
 

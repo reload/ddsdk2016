@@ -2,12 +2,13 @@
 
 namespace Drupal\dds_search\EventSubscriber;
 
+use Drupal\Core\PageCache\ResponsePolicy\KillSwitch;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Url;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpKernel\KernelEvents;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpKernel\Event\GetResponseEvent;
+use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
  * Adds a default date argument to a view and redirects the user.
@@ -17,10 +18,18 @@ class DefaultDateRedirectEventSubscriber implements EventSubscriberInterface {
   protected $routeMatch;
 
   /**
+   * Drupals page_cache_kill_switch service.
+   *
+   * @var \Drupal\Core\PageCache\ResponsePolicy\KillSwitch
+   */
+  protected $killSwitch;
+
+  /**
    * DefaultDateRedirectEventSubscriber constructor.
    */
-  public function __construct(RouteMatchInterface $route_match) {
+  public function __construct(RouteMatchInterface $route_match, KillSwitch $kill_switch) {
     $this->routeMatch = $route_match;
+    $this->killSwitch = $kill_switch;
   }
 
   /**
@@ -34,7 +43,7 @@ class DefaultDateRedirectEventSubscriber implements EventSubscriberInterface {
       $event->setResponse(new RedirectResponse($url->toString()));
       // Make sure Drupals page-cache does not cache the redirect for anonymous
       // users.
-      \Drupal::service('page_cache_kill_switch')->trigger();
+      $this->killSwitch->trigger();
     }
   }
 

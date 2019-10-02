@@ -1,0 +1,11 @@
+version: 2.1
+
+orbs:
+  drupal-check: reload/drupal-check@1.1
+
+workflows:
+  version: 2
+
+  test:
+    jobs:
+      - drupal-check/drupal-check

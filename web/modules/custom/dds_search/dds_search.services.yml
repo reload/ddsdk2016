@@ -3,5 +3,4 @@ services:
     class: Drupal\dds_search\EventSubscriber\DefaultDateRedirectEventSubscriber
     tags:
       - {name: event_subscriber}
-    arguments:
-      - "@current_route_match"
+    arguments: ['@current_route_match', '@page_cache_kill_switch']
