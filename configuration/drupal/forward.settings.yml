@@ -23,7 +23,6 @@ forward_email_logo: ''
 forward_email_subject: '[forward:sender-name] has forwarded a [dds_article:type] to you from [site:name]'
 forward_email_message: '[forward:sender-name] thought you would like to see this [dds_article:type] from the [site:name] web site.'
 forward_bypass_access_control: 0
-forward_filter_format: ''
 forward_flood_control_limit: 10
 forward_flood_control_error: 'You can''t send more than @number messages per hour. Please try again later.'
 _core:
@@ -184,4 +183,7 @@ forward_paragraph_content_redirect_page_reference_: false
 forward_paragraph_markup: false
 forward_paragraph_read_more: false
 forward_max_recipients: 1
-forward_max_recipients_error: 'You can only send the content to a single recipient.'
+forward_form_allow_plain_text: false
+forward_filter_format_html: ''
+forward_filter_format_plain_text: ''
+forward_email_footer: ''
