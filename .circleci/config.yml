@@ -6,6 +6,6 @@ orbs:
 workflows:
   version: 2
 
-  test:
+  'Drupal Check':
     jobs:
       - drupal-check/drupal-check
