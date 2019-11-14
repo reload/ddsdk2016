@@ -63,7 +63,7 @@
         "drupal/entity_reference_revisions": "^1.6.0",
         "drupal/extlink": "^1.1.0",
         "drupal/facets": "^1.2.0",
-        "drupal/field_group": "^1.0.0",
+        "drupal/field_group": "^3.0.0",
         "drupal/field_redirection": "2.x-dev",
         "drupal/forward": "^2.1.0",
         "drupal/google_analytics": "^2.3.0",

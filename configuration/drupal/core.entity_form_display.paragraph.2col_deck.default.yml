@@ -30,6 +30,7 @@ third_party_settings:
         required_fields: true
         classes: ''
         id: ''
+      region: content
 id: paragraph.2col_deck.default
 targetEntityType: paragraph
 bundle: 2col_deck

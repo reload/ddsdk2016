@@ -56,6 +56,7 @@ third_party_settings:
         attributes: ''
         classes: ''
         id: ''
+      region: content
     group_signup_info:
       children:
         - field_event_signup_deadline
@@ -74,6 +75,7 @@ third_party_settings:
         attributes: ''
         classes: ''
         id: ''
+      region: content
     group_location_info:
       children:
         - field_event_area
@@ -92,6 +94,7 @@ third_party_settings:
         attributes: ''
         classes: ''
         id: ''
+      region: content
     group_event_extra_info:
       children:
         - field_event_type
@@ -110,6 +113,7 @@ third_party_settings:
         attributes: ''
         classes: ''
         id: ''
+      region: content
 id: node.event.default
 targetEntityType: node
 bundle: event

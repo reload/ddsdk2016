@@ -56,6 +56,7 @@ third_party_settings:
         classes: ''
         id: ''
         required_fields: true
+      region: content
     group_description:
       children:
         - title
@@ -71,6 +72,7 @@ third_party_settings:
         required_fields: true
         id: ''
         classes: ''
+      region: content
     group_main_info:
       children:
         - group_event_time
@@ -84,6 +86,7 @@ third_party_settings:
         classes: ''
         id: ''
         required_fields: true
+      region: content
     group_event_signup_info:
       children:
         - field_event_signup_deadline
@@ -98,6 +101,7 @@ third_party_settings:
         classes: ''
         id: ''
         required_fields: true
+      region: content
     group_event_extra_info:
       children:
         - field_event_type
@@ -111,6 +115,7 @@ third_party_settings:
         classes: ''
         id: ''
         required_fields: true
+      region: content
     group_event_location_info:
       children:
         - field_event_location_name
@@ -126,6 +131,7 @@ third_party_settings:
         classes: ''
         id: ''
         required_fields: true
+      region: content
     group_program:
       children:
         - field_programs
@@ -138,6 +144,7 @@ third_party_settings:
         classes: ''
         id: ''
         required_fields: true
+      region: content
 id: node.event.default
 targetEntityType: node
 bundle: event

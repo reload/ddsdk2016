@@ -25,6 +25,7 @@ dependencies:
     - metatag
     - paragraphs
     - path
+    - scheduler
     - search_api_exclude_entity
 third_party_settings:
   field_group:
@@ -41,6 +42,7 @@ third_party_settings:
         classes: ''
         id: ''
         required_fields: true
+      region: content
 id: node.badge.default
 targetEntityType: node
 bundle: badge
@@ -169,6 +171,17 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  publish_on:
+    type: datetime_timestamp_no_default
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  scheduler_settings:
+    weight: 20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   status:
     type: boolean_checkbox
     settings:
@@ -193,6 +206,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     region: content
+  unpublish_on:
+    type: datetime_timestamp_no_default
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   url_redirects:
     weight: 50
     settings: {  }
