@@ -2,4 +2,5 @@ name: DDS Metatag
 type: module
 description: Functionality related to metatags and meta-data on pages
 core: 8.x
+core_version_requirement: ^8 || ^9
 package: DDS

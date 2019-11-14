@@ -3,3 +3,4 @@ description: 'Functionality to laying out paragraphs'
 type: module
 package: DDS
 core: 8.x
+core_version_requirement: ^8 || ^9
