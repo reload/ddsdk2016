@@ -6,25 +6,28 @@
     "watch": "npm config set bin-links true && ./node_modules/.bin/gulp watch",
     "build": "npm config set bin-links true && npm install && ./node_modules/.bin/gulp build"
   },
+  "browserslist": [
+    "last 4 versions"
+  ],
   "devDependencies": {
-    "bootstrap-sass": "^3.3.7",
+    "bootstrap-sass": "^3.4.1",
     "font-awesome": "^4.7.0",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-clean": "^0.3.2",
-    "gulp-jshint": "^2.0.0",
-    "gulp-notify": "^2.2.0",
-    "gulp-sass": "^2.2.0",
-    "gulp-sourcemaps": "^1.6.0",
-    "jshint": "^2.9.1",
-    "jshint-stylish": "^2.1.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-jshint": "^2.1.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp4-run-sequence": "^1.0.0",
+    "jshint": "^2.10.3",
+    "jshint-stylish": "^2.2.1",
     "node-bourbon": "^4.2.8",
-    "node-sass": "^3.4.2",
+    "node-sass": "^4.13.0",
     "object-fit": "^0.4.3",
-    "run-sequence": "^1.2.2",
     "sass-burger": "^1.3.1"
   },
   "dependencies": {
-    "object-fit-images": "^2.5.9"
+    "object-fit-images": "^3.2.4"
   }
 }
