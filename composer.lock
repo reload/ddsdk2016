@@ -2210,7 +2210,7 @@
                 "Toolbar"
             ],
             "support": {
-                "source": "http://cgit.drupalcode.org/admin_toolbar",
+                "source": "https://git.drupalcode.org/project/admin_toolbar",
                 "issues": "https://www.drupal.org/project/issues/admin_toolbar"
             }
         },
@@ -2491,7 +2491,7 @@
                 "Drupal"
             ],
             "support": {
-                "source": "http://cgit.drupalcode.org/cookieconsent",
+                "source": "https://git.drupalcode.org/project/cookieconsent",
                 "issues": "http://drupal.org/project/issues/cookieconsent"
             }
         },
@@ -2797,7 +2797,7 @@
             "description": "Provides storage and API for image crops.",
             "homepage": "https://www.drupal.org/project/crop",
             "support": {
-                "source": "http://cgit.drupalcode.org/crop",
+                "source": "https://git.drupalcode.org/project/crop",
                 "issues": "https://www.drupal.org/project/issues/crop"
             }
         },
@@ -2890,7 +2890,7 @@
             "description": "Provides a number of utility and helper APIs for Drupal developers and site builders.",
             "homepage": "https://www.drupal.org/project/ctools",
             "support": {
-                "source": "http://cgit.drupalcode.org/ctools",
+                "source": "https://git.drupalcode.org/project/ctools",
                 "issues": "https://www.drupal.org/project/issues/ctools"
             }
         },
@@ -2945,7 +2945,7 @@
                 "Drupal"
             ],
             "support": {
-                "source": "http://cgit.drupalcode.org/dropguard",
+                "source": "https://git.drupalcode.org/project/dropguard",
                 "issues": "http://drupal.org/project/issues/dropguard"
             }
         },
@@ -2989,7 +2989,7 @@
             "description": "Add title, target etc. attributes to Text Editor's link dialog if the text format allows them.",
             "homepage": "https://www.drupal.org/project/editor_advanced_link",
             "support": {
-                "source": "http://cgit.drupalcode.org/editor_advanced_link"
+                "source": "https://git.drupalcode.org/project/editor_advanced_link"
             }
         },
         {
@@ -3169,7 +3169,7 @@
             "description": "Modify behavior and appearance of external links.",
             "homepage": "https://www.drupal.org/project/extlink",
             "support": {
-                "source": "http://cgit.drupalcode.org/extlink"
+                "source": "https://git.drupalcode.org/project/extlink"
             }
         },
         {
@@ -3348,7 +3348,7 @@
                 "Drupal"
             ],
             "support": {
-                "source": "http://cgit.drupalcode.org/field_redirection",
+                "source": "https://git.drupalcode.org/project/field_redirection",
                 "issues": "http://drupal.org/project/issues/field_redirection"
             },
             "time": "2019-01-24T08:41:56+00:00"
@@ -3416,7 +3416,7 @@
             "description": "Forward pages and other site elements to a friend.",
             "homepage": "http://drupal.org/project/forward",
             "support": {
-                "source": "http://cgit.drupalcode.org/forward",
+                "source": "https://git.drupalcode.org/project/forward",
                 "issues": "http://drupal.org/project/forward",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
             }
@@ -3517,7 +3517,7 @@
             "description": "Pushes CSS & JS files to the client on servers using HTTP/2.",
             "homepage": "https://www.drupal.org/project/http2_server_push",
             "support": {
-                "source": "http://cgit.drupalcode.org/http2_server_push"
+                "source": "https://git.drupalcode.org/project/http2_server_push"
             }
         },
         {
@@ -3921,7 +3921,7 @@
             "description": "Media entity API.",
             "homepage": "https://www.drupal.org/project/media_entity",
             "support": {
-                "source": "http://cgit.drupalcode.org/media_entity"
+                "source": "https://git.drupalcode.org/project/media_entity"
             }
         },
         {
@@ -4061,7 +4061,7 @@
                 "seo"
             ],
             "support": {
-                "source": "http://cgit.drupalcode.org/metatag",
+                "source": "https://git.drupalcode.org/project/metatag",
                 "issues": "http://drupal.org/project/issues/metatag"
             }
         },
@@ -4123,7 +4123,7 @@
             "description": "Monitoring base.",
             "homepage": "https://www.drupal.org/project/monitoring",
             "support": {
-                "source": "http://cgit.drupalcode.org/monitoring"
+                "source": "https://git.drupalcode.org/project/monitoring"
             }
         },
         {
@@ -4433,7 +4433,7 @@
             "description": "Provides retina version of image styles.",
             "homepage": "https://www.drupal.org/project/reloadtina",
             "support": {
-                "source": "http://cgit.drupalcode.org/reloadtina"
+                "source": "https://git.drupalcode.org/project/reloadtina"
             }
         },
         {
@@ -4506,7 +4506,7 @@
             "description": "Automatically publish and unpublish content at specified dates and times.",
             "homepage": "https://drupal.org/project/scheduler",
             "support": {
-                "source": "http://cgit.drupalcode.org/scheduler",
+                "source": "https://git.drupalcode.org/project/scheduler",
                 "issues": "https://www.drupal.org/project/issues/scheduler"
             }
         },
@@ -4847,7 +4847,7 @@
             "description": "Provides an overview of all the available updates for your Drupal website using an external service.",
             "homepage": "https://www.drupal.org/project/system_status",
             "support": {
-                "source": "http://cgit.drupalcode.org/system_status"
+                "source": "https://git.drupalcode.org/project/system_status"
             }
         },
         {
@@ -4898,7 +4898,7 @@
             "description": "Fixes the crooked access checks for Taxonomy pages.",
             "homepage": "https://www.drupal.org/project/taxonomy_access_fix",
             "support": {
-                "source": "http://cgit.drupalcode.org/taxonomy_access_fix"
+                "source": "https://git.drupalcode.org/project/taxonomy_access_fix"
             }
         },
         {
@@ -4965,7 +4965,7 @@
             "description": "Provides a user interface for the Token API and some missing core tokens.",
             "homepage": "https://www.drupal.org/project/token",
             "support": {
-                "source": "http://cgit.drupalcode.org/token"
+                "source": "https://git.drupalcode.org/project/token"
             }
         },
         {
