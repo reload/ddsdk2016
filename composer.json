@@ -49,7 +49,7 @@
         "drmonty/chosen": "^1.6.1",
         "drupal-composer/drupal-scaffold": "^2.5.4",
         "drupal/address": "^1.4.0",
-        "drupal/admin_toolbar": "^1.25.0",
+        "drupal/admin_toolbar": "^2.0.0",
         "drupal/better_exposed_filters": "^3.0.0-alpha5",
         "drupal/chosen": "^2.6.0",
         "drupal/chosen_lib": "^2.6.0",
