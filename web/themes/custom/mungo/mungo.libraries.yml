@@ -19,7 +19,7 @@ object-fit:
   version: 0.1
   footer: true
   js:
-    assets/js/ofi.browser.js : {}
+    assets/js/ofi.js : {}
     assets/js/object-fit.js : {}
 program:
   version: 0.1
