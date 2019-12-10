@@ -19,11 +19,11 @@ define('DDS_BADGE_LEVEL_INTERMEDIATE', 'intermediate');
 define('DDS_BADGE_LEVEL_EXPERT', 'expert');
 
 /**
- * Implements hook_field_group_pre_render().
+ * Implements hook_field_group_form_process().
  *
  * Hide the progression field-group if the badge-type is not a progression.
  */
-function dds_badge_field_group_pre_render(&$element, &$group, &$rendering_object) {
+function dds_badge_field_group_form_process(array &$element, &$group, &$complete_form) {
   if ($group->group_name === 'group_progression') {
     $element['#states'] = [
       'invisible' => [

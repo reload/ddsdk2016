@@ -29,6 +29,7 @@ third_party_settings:
         classes: ''
         id: ''
         required_fields: true
+      region: content
 id: paragraph.inspiration_deck.default
 targetEntityType: paragraph
 bundle: inspiration_deck

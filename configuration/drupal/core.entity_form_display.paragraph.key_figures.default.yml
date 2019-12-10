@@ -38,6 +38,7 @@ third_party_settings:
         classes: ''
         id: ''
         required_fields: true
+      region: content
     group_key_figures_cols:
       children:
         - group_key_figures_left
@@ -52,6 +53,7 @@ third_party_settings:
         direction: horizontal
         id: ''
         classes: ''
+      region: content
     group_key_figures_middle:
       children:
         - field_key_figures_figure_2
@@ -68,6 +70,7 @@ third_party_settings:
         classes: ''
         id: ''
         required_fields: true
+      region: content
     group_key_figures_right:
       children:
         - field_key_figures_figure_3
@@ -84,6 +87,7 @@ third_party_settings:
         classes: ''
         id: ''
         required_fields: true
+      region: content
 id: paragraph.key_figures.default
 targetEntityType: paragraph
 bundle: key_figures

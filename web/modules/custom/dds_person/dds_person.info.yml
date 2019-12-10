@@ -3,3 +3,4 @@ description: Provides functionallity that ties a Person to content and makes it 
 type: module
 package: DDS
 core: 8.x
+core_version_requirement: ^8 || ^9

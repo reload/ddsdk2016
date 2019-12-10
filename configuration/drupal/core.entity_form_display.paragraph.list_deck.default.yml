@@ -29,6 +29,7 @@ third_party_settings:
         required_fields: true
         id: ''
         classes: ''
+      region: content
 id: paragraph.list_deck.default
 targetEntityType: paragraph
 bundle: list_deck

@@ -100,7 +100,7 @@ services:
       VIRTUAL_HOST: mail.ddsdk.docker
 
   npm:
-    image: node:argon
+    image: node:9-slim
     volumes:
       - 'webroot:/var/www/'
       - 'cache:/npm-cache'
