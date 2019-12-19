@@ -36,6 +36,13 @@ relationships:
 web:
     # Specific parameters for different URL prefixes.
     locations:
+        # Start off with script-paths we're going to deny.
+        # Don't attempt to handle these as rules in "/" as any denied file will be passed to the fallback (index.php)
+        # which will then just include it.
+        "/core/install.php":
+            allow: false
+        "/install.php":
+            allow: false
         "/":
             # The folder to serve static assets for this location from.
             # (Relative to the application root.)
