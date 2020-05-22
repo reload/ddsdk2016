@@ -12,6 +12,7 @@ dependencies:
     - node.type.download
   module:
     - file
+    - scheduler
     - search_api_exclude_entity
 id: node.download.default
 targetEntityType: node
@@ -30,6 +31,7 @@ content:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     third_party_settings: {  }
     type: entity_reference_autocomplete_tags
     region: content
@@ -59,6 +61,12 @@ content:
     third_party_settings: {  }
     type: file_generic
     region: content
+  publish_on:
+    type: datetime_timestamp_no_default
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
@@ -74,6 +82,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     region: content
+  unpublish_on:
+    type: datetime_timestamp_no_default
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   url_redirects:
     weight: 50
     settings: {  }

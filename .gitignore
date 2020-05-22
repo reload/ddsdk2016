@@ -35,3 +35,5 @@ node_modules
 
 # Ignore local environment-variable overrides
 .env
+/.editorconfig
+/.gitattributes

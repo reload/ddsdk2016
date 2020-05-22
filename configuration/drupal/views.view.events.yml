@@ -8,13 +8,12 @@ dependencies:
     - search_api
     - user
 id: events
-label: Events
+label: Arrangementer
 module: views
 description: 'Lists events via search-api'
 tag: ''
 base_table: search_api_index_nodes
 base_field: search_api_id
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -37,9 +36,9 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Apply
+          submit_button: Søg
           reset_button: true
-          reset_button_label: Reset
+          reset_button_label: Nulstil
           exposed_sorts_label: 'Sort by'
           expose_sort_order: false
           sort_asc_label: Asc
@@ -172,7 +171,7 @@ display:
           exposed: true
           expose:
             operator_id: search_api_fulltext_op
-            label: 'Fulltext search'
+            label: Fritekstsøgning
             description: ''
             use_operator: false
             operator: search_api_fulltext_op
@@ -184,6 +183,8 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -225,6 +226,8 @@ display:
             remember_roles:
               authenticated: authenticated
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -262,6 +265,8 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -292,7 +297,7 @@ display:
           exposed: true
           expose:
             operator_id: field_event_start_op
-            label: Before
+            label: Til
             description: ''
             use_operator: false
             operator: field_event_start_op
@@ -307,6 +312,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: Start
@@ -340,7 +347,7 @@ display:
           exposed: true
           expose:
             operator_id: field_event_start_1_op
-            label: After
+            label: Fra
             description: ''
             use_operator: false
             operator: field_event_start_1_op
@@ -355,6 +362,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -393,7 +402,7 @@ display:
           expose:
             label: ''
           plugin_id: search_api
-      title: Events
+      title: Arrangementer
       header: {  }
       footer: {  }
       empty:
