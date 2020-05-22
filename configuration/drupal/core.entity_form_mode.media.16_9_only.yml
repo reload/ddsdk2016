@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - media_entity
+    - media
 id: media.16_9_only
 label: '16:9'
 targetEntityType: media

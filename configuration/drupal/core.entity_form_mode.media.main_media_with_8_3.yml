@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - media_entity
+    - media
 id: media.main_media_with_8_3
 label: 'Main media with 8:3'
 targetEntityType: media

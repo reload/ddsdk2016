@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - media_entity
+    - media
 id: media.content_inline_16_9
 label: 'Content inline 16:9'
 targetEntityType: media

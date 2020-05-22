@@ -8,7 +8,7 @@ dependencies:
     - field.field.media.image.field_caption
     - field.field.media.image.field_image
     - image.style.thumbnail
-    - media_entity.bundle.image
+    - media.type.image
   module:
     - image_widget_crop
 id: media.image.16_9_only
@@ -46,6 +46,13 @@ content:
     third_party_settings: {  }
     type: image_widget_crop
     region: content
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 100
+    region: content
+    third_party_settings: {  }
 hidden:
   created: true
   langcode: true

@@ -8,7 +8,7 @@ dependencies:
     - field.field.media.image.field_caption
     - field.field.media.image.field_image
     - image.style.8_3_752_282
-    - media_entity.bundle.image
+    - media.type.image
   module:
     - image
 id: media.image.wide_teaser

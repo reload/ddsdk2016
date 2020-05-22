@@ -8,7 +8,7 @@ dependencies:
     - field.field.media.image.field_caption
     - field.field.media.image.field_image
     - image.style.16_9_720x405
-    - media_entity.bundle.image
+    - media.type.image
   module:
     - image
 id: media.image.content_inline_16_9
