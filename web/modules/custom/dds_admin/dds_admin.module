@@ -5,6 +5,7 @@
  * Hooks and functionality targeted at the administrative interface.
  */
 
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Language\LanguageInterface;
 
 /**
@@ -41,4 +42,48 @@ function dds_admin_editor_js_settings_alter(array &$settings) {
       }
     }
   }
+}
+
+/**
+ * Implements hook_entity_delete().
+ *
+ * Unregister file usage for deleted entities.
+ *
+ * This should be cores responsibility, but there are some issues:
+ *
+ * @see https://www.drupal.org/project/drupal/issues/1239558
+ * @see https://www.drupal.org/project/drupal/issues/2885434
+ */
+function dds_admin_entity_delete(EntityInterface $entity) {
+  $entity_type = $entity->getEntityTypeId();
+  $entity_id = $entity->id();
+
+  // Lookup the files which the entity has registered it uses.
+  $fids = \Drupal::database()
+    ->select('file_usage', 'fu')
+    ->fields('fu', ['fid'])
+    ->condition('module', 'file')
+    ->condition('type', $entity_type)
+    ->condition('id', $entity_id)
+    ->execute()
+    ->fetchCol();
+
+  // Bail out if no files are used.
+  if (empty($fids)) {
+    return;
+  }
+
+  /** @var \Drupal\file\FileUsage\FileUsageInterface $file_usage */
+  $file_usage = \Drupal::service('file.usage');
+
+  // Remove the entity's usage of the files (the magic 0 means remove all
+  // usages).
+  foreach ($fids as $fid) {
+    $file = \Drupal::entityTypeManager()->getStorage('file')->load($fid);
+    $file_usage->delete($file, 'file', $entity_type, $entity_id, 0);
+  }
+
+  // Invalidate the file_list cache to get the updated usage reflected
+  // immediately in `admin/content/files`.
+  \Drupal::service('cache_tags.invalidator')->invalidateTags(['file_list']);
 }
