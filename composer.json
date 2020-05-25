@@ -57,7 +57,6 @@
         "drupal/core-recommended": "^8.8",
         "drupal/crop": "^1.5.0",
         "drupal/ctools": "^3.0.0",
-        "drupal/dropguard": "^1.2.0",
         "drupal/editor_advanced_link": "^1.4.0",
         "drupal/entity": "^1.0.0-rc1",
         "drupal/entity_reference_revisions": "^1.6.0",
