@@ -37,7 +37,6 @@ The following are the basic steps that should bring your site up.
 * Run `docker-compose exec fpm drush cr`
 * Run `docker-compose exec fpm drush -y updb -y` to run update-hooks
 * Run `docker-compose exec fpm drush -y cim` to import configuration
-* Run `docker-compose exec fpm drush -y entup` update entities
 * Run `docker-compose exec fpm drush -y search-api-clear` clear the search index to bring it and the site in sync
 * Access your dockerhost on port 80 (eg. http://local.docker or localhost)
 
