@@ -8,7 +8,7 @@ dependencies:
     - field.field.media.image.field_caption
     - field.field.media.image.field_image
     - image.style.110x83
-    - media_entity.bundle.image
+    - media.type.image
   module:
     - image
 id: media.image.teaser_list

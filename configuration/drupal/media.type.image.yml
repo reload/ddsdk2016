@@ -1,16 +1,14 @@
 uuid: e2c2c143-f1a4-4027-996d-973c4a608dea
 langcode: en
 status: true
-dependencies:
-  module:
-    - media_entity_image
+dependencies: {  }
 id: image
 label: Image
 description: ''
-type: image
+source: image
 queue_thumbnail_downloads: false
 new_revision: false
-type_configuration:
+source_configuration:
   source_field: field_image
   gather_exif: false
 field_map: {  }

@@ -7,7 +7,7 @@ dependencies:
     - field.field.media.video.field_caption
     - field.field.media.video.field_media_video_embed_field
     - image.style.16_9_720x405
-    - media_entity.bundle.video
+    - media.type.video
   module:
     - video_embed_field
 id: media.video.extended_teaser

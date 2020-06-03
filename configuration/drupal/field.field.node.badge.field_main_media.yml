@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_main_media
-    - media_entity.bundle.image
+    - media.type.image
     - node.type.badge
 id: node.badge.field_main_media
 field_name: field_main_media

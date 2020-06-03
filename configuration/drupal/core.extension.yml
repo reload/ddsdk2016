@@ -1,6 +1,7 @@
 module:
   address: 0
   admin_toolbar: 0
+  admin_toolbar_search: 0
   admin_toolbar_tools: 0
   automated_cron: 0
   basic_auth: 0
@@ -35,7 +36,6 @@ module:
   dds_search: 0
   dds_top_image: 0
   dds_update: 0
-  dropguard: 0
   dynamic_page_cache: 0
   editor: 0
   editor_advanced_link: 0
@@ -61,8 +61,7 @@ module:
   link_attributes: 0
   locale: 0
   maxlength: 0
-  media_entity: 0
-  media_entity_image: 0
+  media: 0
   menu_ui: 0
   metatag: 0
   metatag_facebook: 0
@@ -74,6 +73,7 @@ module:
   options: 0
   page_cache: 0
   path: 0
+  path_alias: 0
   pathauto: 0
   redirect: 0
   redis: 0

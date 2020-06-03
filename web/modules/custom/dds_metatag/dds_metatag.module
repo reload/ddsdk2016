@@ -7,7 +7,7 @@
 
 use Drupal\Core\Render\BubbleableMetadata;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
-use Drupal\media_entity\Entity\Media;
+use Drupal\media\Entity\Media;
 
 /**
  * Implements hook_token_info().
@@ -61,7 +61,7 @@ function dds_metatag_tokens($type, $tokens, array $data, array $options, Bubblea
 
   // Handle replacements related to main media.
   if ($type === 'node' && $data['node']->hasField('field_main_media') && !empty($data['node']->get('field_main_media')->first()->entity)) {
-    /** @var \Drupal\media_entity\Entity\Media $main_media */
+    /** @var \Drupal\media\Entity\Media $main_media */
     $main_media = $data['node']->get('field_main_media')->first()->entity;
 
     // Get the uri for the thumbnail of either an image or a video.
@@ -71,7 +71,7 @@ function dds_metatag_tokens($type, $tokens, array $data, array $options, Bubblea
       // Go looking for tokens to replace.
       foreach ($tokens as $name => $original) {
         switch ($name) {
-          // Simple key values on the media_entity.
+          // Simple key values on the media.
           case 'main-media-video-thumbnail':
             if (!empty($thumbnail_uri)) {
               $replacements[$original] = file_create_url($thumbnail_uri);
@@ -114,20 +114,20 @@ function dds_metatag_tokens($type, $tokens, array $data, array $options, Bubblea
 /**
  * Extracts a video thumbnail from a main_media field.
  *
- * @param Drupal\media_entity\Entity\Media $media_entity
+ * @param Drupal\media\Entity\Media $media
  *   The Main Media fields Media entity, has to have a
  *   field_media_video_embed_field field.
  *
  * @return string
  *   The URL for the video if found.
  */
-function dds_metatag_video_thumb_from_main_media(Media $media_entity): string {
-  if (empty($media_entity) || !$media_entity instanceof Media || !$media_entity->hasField('field_media_video_embed_field')) {
+function dds_metatag_video_thumb_from_main_media(Media $media): string {
+  if (empty($media) || !$media instanceof Media || !$media->hasField('field_media_video_embed_field')) {
     return NULL;
   }
 
   // Get the URL of the video.
-  $url = $media_entity->field_media_video_embed_field->value;
+  $url = $media->field_media_video_embed_field->value;
 
   // Then use a provider to fetch the thumbnail for the video.
   $provider_manager = \Drupal::service('video_embed_field.provider_manager');

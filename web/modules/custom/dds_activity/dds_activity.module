@@ -7,7 +7,7 @@
 
 use Drupal\Core\Entity\EntityStorageException;
 use Drupal\Core\File\FileSystemInterface;
-use Drupal\media_entity\Entity\Media;
+use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
 
 /**
@@ -68,7 +68,7 @@ function dds_activity_node_presave(Node $node) {
   $image_media = Media::create([
     'bundle' => 'image',
     'uid' => '1',
-    'status' => Media::PUBLISHED,
+    'status' => TRUE,
     'field_image' => [
       'target_id' => $file->id(),
       'alt' => $activity_fetcher->getTitle(),

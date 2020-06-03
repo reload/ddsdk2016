@@ -20,9 +20,7 @@ $settings['hash_salt'] = 'hardcodedsaltshouldneverbeusedoutsidedocker';
 $settings['update_free_access'] = FALSE;
 $settings['container_yamls'][] = __DIR__ . '/docker.services.yml';
 
-$config_directories = array(
-  CONFIG_SYNC_DIRECTORY => __DIR__ . '/../../../configuration/drupal',
-);
+$settings['config_sync_directory'] = __DIR__ . '/../../../configuration/drupal';
 
 $settings['install_profile'] = 'standard';
 

@@ -120,7 +120,7 @@ if (isset($_ENV['PLATFORM_APP_DIR'])) {
     $settings['file_private_path'] = $_ENV['PLATFORM_APP_DIR'] . '/private';
   }
   if (!isset($config['system.file']['path']['temporary'])) {
-    $config['system.file']['path']['temporary'] = $_ENV['PLATFORM_APP_DIR'] . '/tmp';
+    $settings['file_temp_path'] = $_ENV['PLATFORM_APP_DIR'] . '/tmp';
   }
 }
 
@@ -138,9 +138,7 @@ if (isset($_ENV['PLATFORM_ROUTES']) && !isset($settings['trusted_host_patterns']
 }
 
 // Set config directory.
-$config_directories = array(
-  CONFIG_SYNC_DIRECTORY => '/app/configuration/drupal',
-);
+$settings['config_sync_directory'] = '/app/configuration/drupal';
 
 // Set hash salt, used for transient hashes (eg. the reset-user token).
 $settings['hash_salt'] = '9e62c5b69893a3d2816dced2cf45d4b4c0467dc1b451db87e717ea7298fa9fbe';

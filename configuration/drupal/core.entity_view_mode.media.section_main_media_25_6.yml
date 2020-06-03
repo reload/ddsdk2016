@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - media_entity
+    - media
 id: media.section_main_media_25_6
 label: 'Section main media 25:6'
 targetEntityType: media

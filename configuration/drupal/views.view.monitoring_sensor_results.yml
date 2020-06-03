@@ -14,7 +14,6 @@ description: ''
 tag: ''
 base_table: monitoring_sensor_result
 base_field: record_id
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -41,13 +40,13 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Apply
+          submit_button: Udfør
           reset_button: false
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
+          reset_button_label: Gendan
+          exposed_sorts_label: 'Sortér efter'
           expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
+          sort_asc_label: Stigende
+          sort_desc_label: Faldende
       pager:
         type: full
         options:
@@ -57,15 +56,15 @@ display:
           total_pages: null
           expose:
             items_per_page: false
-            items_per_page_label: 'Items per page'
+            items_per_page_label: 'Antal elementer'
             items_per_page_options: '5, 10, 25, 50'
             items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
+            items_per_page_options_all_label: '- Alle -'
             offset: false
-            offset_label: Offset
+            offset_label: Forskydning
           tags:
-            previous: '‹ previous'
-            next: 'next ›'
+            previous: '‹ forrige'
+            next: 'næste ›'
             first: '« first'
             last: 'last »'
           quantity: 9
@@ -234,7 +233,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Status message'
+          label: Statusmeddelelse
           exclude: false
           alter:
             alter_text: false
@@ -334,7 +333,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Timestamp
+          label: Tidsstempel
           exclude: false
           alter:
             alter_text: false
@@ -437,7 +436,7 @@ display:
           exception:
             value: all
             title_enable: false
-            title: All
+            title: Alle
           title_enable: false
           title: ''
           default_argument_type: fixed
@@ -492,7 +491,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Timestamp
+          label: Tidsstempel
           exclude: false
           alter:
             alter_text: false
@@ -595,7 +594,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Status message'
+          label: Statusmeddelelse
           exclude: false
           alter:
             alter_text: false
@@ -703,7 +702,7 @@ display:
   page_1:
     display_plugin: page
     id: page_1
-    display_title: Page
+    display_title: Side
     position: 1
     display_options:
       rendering_language: '***LANGUAGE_entity_default***'

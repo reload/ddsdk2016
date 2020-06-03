@@ -25,7 +25,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      code: '301'
+      code: 301
       404_if_empty: false
       page_restrictions: 0
       pages: ''

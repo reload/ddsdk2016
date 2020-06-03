@@ -736,7 +736,7 @@ function _mungo_preprocess_paragraph_content_link(&$variables) {
       if (preg_match('#^entity:node/(?P<nid>\d+)$#', $uri_value, $matches)) {
         $node = Node::load($matches['nid']);
         if ($node->hasField('field_main_media')) {
-          /** @var \Drupal\media_entity\Entity\Media $main_media */
+          /** @var \Drupal\media\Entity\Media $main_media */
           $main_media = $node->get('field_main_media')->first()->entity;
 
           // Get the uri for the thumbnail of either an image or a video.
