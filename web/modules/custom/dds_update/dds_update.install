@@ -5,6 +5,7 @@
  * Update functionality for DDS update.
  */
 
+use Drupal\file\Entity\File;
 use Drupal\locale\SourceString;
 use Drupal\node\Entity\Node;
 
@@ -121,4 +122,43 @@ function dds_update_update_8106() {
 function dds_update_update_8107() {
   dds_update_add_translation('article', 'da', 'artikel');
   dds_update_add_translation('file', 'da', 'fil');
+}
+
+/**
+ * Mark unused files as temporary.
+ *
+ * We only now switch `make_unused_managed_files_temporary` to true. Files are
+ * marked temporary only when usage count hits zero (FileUsageBase::delete()).
+ *
+ * So we need to process all files and mark those temporary that has already
+ * reached a usage count of zero.
+ *
+ * @see \Drupal\file\FileUsage\FileUsageBase::delete()
+ */
+function dds_update_update_8108() {
+  $db = \Drupal::database();
+
+  $query = $db->select('file_managed', 'fm')->fields('fm', ['fid']);
+  $query->leftJoin('file_usage', 'fu', 'fm.fid = fu.fid');
+  $query->condition('fm.status', FILE_STATUS_PERMANENT);
+  $query->isNull('fu.fid');
+  $fids = $query->execute()->fetchCol();
+
+  $usage_service = \Drupal::service('file.usage');
+
+  $files = File::loadMultiple($fids);
+
+  $i = 0;
+
+  foreach ($files as $file) {
+    $usage = $usage_service->listUsage($file);
+
+    if (empty($usage)) {
+      $file->setTemporary();
+      $file->save();
+      $i++;
+    }
+  }
+
+  \Drupal::logger('dds_update')->notice("Changed {$i} unused files to temporary files.");
 }

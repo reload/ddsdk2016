@@ -57,7 +57,6 @@
         "drupal/core-recommended": "^8.8",
         "drupal/crop": "^1.5.0",
         "drupal/ctools": "^3.0.0",
-        "drupal/dropguard": "^1.2.0",
         "drupal/editor_advanced_link": "^1.4.0",
         "drupal/entity": "^1.0.0-rc1",
         "drupal/entity_reference_revisions": "^1.6.0",
@@ -91,6 +90,7 @@
         "drupal/token": "^1.5.0",
         "drupal/twig_xdebug": "^1.0.0",
         "drupal/video_embed_field": "^2.2.0",
+        "drupal/views_bulk_operations": "^3.6",
         "drush/drush": "^9",
         "predis/predis": "^1.1",
         "rubenrua/symfony-clean-tags-composer-plugin": "^1.0",
@@ -145,6 +145,7 @@
         },
         "patches": {
             "drupal/core": {
+                "2949017: There is no way to delete or update file entities of other users incl. user/1": "https://www.drupal.org/files/issues/2019-12-12/2949017-59.patch",
                 "2558207: Add hook to react to image_path_flush() - recommended by the Reloadtina module": "https://www.drupal.org/files/issues/add_hook_image_path_flush-2558207-4.patch",
                 "2408549: Notify about overridden configuration": "https://www.drupal.org/files/issues/2408549-106.patch",
                 "2857132: Account administration pages language negotiation ignores _format blocking REST resources": "https://www.drupal.org/files/issues/2019-01-28/preserve-format-while-negoatiating-2857132-10-work-in-progress.patch"
