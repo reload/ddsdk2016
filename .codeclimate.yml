@@ -1,36 +1,40 @@
 ---
-engines:
-  csslint:
-    enabled: true
-  duplication:
-    enabled: true
+version: "2"
+checks:
+  argument-count:
     config:
-      languages:
-      - ruby
-      - javascript
-      - python
-      - php
+      threshold: 6
+plugins:
+  eslint:
+    enabled: true
   fixme:
     enabled: true
-  phpmd:
-    enabled: true
+    config:
+      strings:
+        # Standard configuration.
+        - TODO
+        - FIXME
+        - HACK
+        - BUG
+        # Doxygen variants.
+        - '@todo'
+        - '@fixme'
   phpcodesniffer:
     enabled: true
     config:
       standard: Drupal,DrupalPractice
-ratings:
-  paths:
-  - "**.css"
-  - "**.inc"
-  - "**.js"
-  - "**.module"
-  - "**.php"
-exclude_paths:
-  - tests/
-  - documentation/
-  - drush/
-  - patches/
-  - scripts/
+  scss-lint:
+    enabled: true
+exclude_patterns:
   - web/autoload.php
-  - web/sites/**settings.php
-  - web/sites/**settings.local.php
+  - web/index.php
+  - web/sites
+  - scripts/composer/ScriptHandler.php
+  - configuration
+  # These aren't in the repo, but added for the sanity of someone
+  # running CodeClimate locally.
+  - build/
+  - web/core
+  - "**/node_modules/"
+  - vendor/
+  - "**/contrib/"
