@@ -6,10 +6,12 @@
 set -euo pipefail
 IFS=$'\n\t'
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+FILES=("web/sites/default/files" "private")
 
 # Chmod to 777 if the file is not owned by www-data
 cd "${SCRIPT_DIR}/../../"
-find web/sites/default/files \! -uid 33  \! -print0 -name .gitkeep | sudo xargs -0 chmod 777
+mkdir -p "${FILES[@]}"
+find "${FILES[@]}" \! -uid 33  \! -print0 -name .gitkeep | sudo xargs -0 chmod 777
 
 # Make sites/default read-only and executable
 sudo chmod 555 web/sites/default

@@ -1,0 +1,29 @@
+uuid: 7d063593-752b-4e01-95b6-b1839b6f4321
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_badge_target_group
+    - node.type.activity
+    - taxonomy.vocabulary.badge_target_group
+id: node.activity.field_badge_target_group
+field_name: field_badge_target_group
+entity_type: node
+bundle: activity
+label: 'Badge target group'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      badge_target_group: badge_target_group
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

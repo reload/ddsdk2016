@@ -5,9 +5,17 @@ dependencies:
   config:
     - core.entity_view_mode.node.search_index_teaser
     - field.field.node.activity.field_activity_id
+    - field.field.node.activity.field_activity_type
+    - field.field.node.activity.field_badge_target_group
     - field.field.node.activity.field_content_topic
+    - field.field.node.activity.field_duration
+    - field.field.node.activity.field_gallery_image
+    - field.field.node.activity.field_instructions
     - field.field.node.activity.field_main_media
+    - field.field.node.activity.field_materials
+    - field.field.node.activity.field_questions
     - field.field.node.activity.field_subtitle
+    - field.field.node.activity.field_youtube
     - node.type.activity
   module:
     - user
@@ -34,7 +42,15 @@ content:
     type: entity_reference_label
     region: content
 hidden:
+  field_activity_type: true
+  field_badge_target_group: true
+  field_duration: true
+  field_gallery_image: true
+  field_instructions: true
   field_main_media: true
+  field_materials: true
+  field_questions: true
   field_subtitle: true
+  field_youtube: true
   langcode: true
   links: true

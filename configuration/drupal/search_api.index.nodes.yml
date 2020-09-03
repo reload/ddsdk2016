@@ -3,46 +3,50 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_subtitle
-    - field.storage.node.field_course_id
-    - field.storage.node.field_event_end
     - field.storage.node.field_event_is_all_day
-    - field.storage.node.field_event_location_name
-    - field.storage.node.field_event_price
-    - field.storage.node.field_event_signup_deadline
-    - field.storage.node.field_event_start
-    - field.storage.node.field_event_teaser
-    - field.storage.node.field_main_media
-    - field.storage.media.field_caption
-    - field.storage.media.field_byline
-    - field.storage.node.field_paragraphs
-    - field.storage.paragraph.field_factbox_text
-    - field.storage.node.field_content_author
-    - field.storage.taxonomy_term.field_presentation_name
-    - field.storage.paragraph.field_gallery_image
-    - field.storage.paragraph.field_quotation
-    - field.storage.paragraph.field_video_caption
-    - field.storage.node.field_event_address
-    - field.storage.node.field_event_type
-    - field.storage.paragraph.field_formatted_text
     - field.storage.node.field_event_area
     - field.storage.node.field_article_type
+    - field.storage.node.field_content_author
+    - field.storage.taxonomy_term.field_presentation_name
+    - field.storage.node.field_badge_target_group
     - field.storage.node.field_content_category
-    - field.storage.node.field_content_tag
-    - field.storage.node.field_content_target_group
-    - field.storage.node.field_content_topic
+    - field.storage.node.field_course_id
+    - field.storage.node.field_duration
+    - field.storage.node.field_event_end
+    - field.storage.node.field_event_address
+    - field.storage.node.field_event_location_name
+    - field.storage.node.field_event_type
+    - field.storage.node.field_main_media
+    - field.storage.media.field_byline
+    - field.storage.media.field_caption
+    - field.storage.node.field_2018_badge
+    - field.storage.node.field_paragraphs
+    - field.storage.paragraph.field_video_caption
+    - field.storage.paragraph.field_gallery_image
+    - field.storage.paragraph.field_quotation
+    - field.storage.paragraph.field_factbox_text
+    - field.storage.paragraph.field_formatted_text
+    - field.storage.node.field_event_price
     - field.storage.node.field_sidedeck
     - field.storage.paragraph.field_download
-    - field.storage.node.field_2018_badge
+    - field.storage.node.field_event_signup_deadline
+    - field.storage.node.field_event_start
+    - field.storage.node.field_subtitle
+    - field.storage.node.field_content_tag
+    - field.storage.node.field_content_target_group
+    - field.storage.node.field_event_teaser
+    - field.storage.node.field_content_topic
+    - field.storage.node.field_activity_type
     - search_api.server.solr
     - core.entity_view_mode.node.search_index
   module:
+    - node
+    - taxonomy
     - media
     - paragraphs
-    - taxonomy
-    - node
     - search_api
     - search_api_exclude_entity
+    - search_api_solr
 id: nodes
 name: Nodes
 description: ''
@@ -53,11 +57,17 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: changed
     type: date
+    dependencies:
+      module:
+        - node
   created:
     label: 'Authored on'
     datasource_id: 'entity:node'
     property_path: created
     type: date
+    dependencies:
+      module:
+        - node
   event_address_country_code:
     label: 'Event address » The two-letter country code.'
     datasource_id: 'entity:node'
@@ -84,6 +94,7 @@ field_settings:
         - field.storage.node.field_event_type
       module:
         - taxonomy
+        - taxonomy
   field_2018_badge_1:
     label: 'Nyt mærke (2018)'
     datasource_id: 'entity:node'
@@ -92,6 +103,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_2018_badge
+  field_activity_type:
+    label: Type
+    datasource_id: 'entity:node'
+    property_path: field_activity_type
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_activity_type
   field_article_type:
     label: 'Article Type'
     datasource_id: 'entity:node'
@@ -100,6 +119,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_article_type
+  field_badge_target_group:
+    label: 'Badge target group'
+    datasource_id: 'entity:node'
+    property_path: field_badge_target_group
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_badge_target_group
   field_content_category:
     label: Category
     datasource_id: 'entity:node'
@@ -117,6 +144,7 @@ field_settings:
       config:
         - field.storage.node.field_content_category
       module:
+        - taxonomy
         - taxonomy
   field_content_tag:
     label: Tag
@@ -136,6 +164,7 @@ field_settings:
         - field.storage.node.field_content_tag
       module:
         - taxonomy
+        - taxonomy
   field_content_target_group:
     label: 'Target group'
     datasource_id: 'entity:node'
@@ -154,6 +183,7 @@ field_settings:
         - field.storage.node.field_content_target_group
       module:
         - taxonomy
+        - taxonomy
   field_content_topic:
     label: Topic
     datasource_id: 'entity:node'
@@ -171,6 +201,7 @@ field_settings:
       config:
         - field.storage.node.field_content_topic
       module:
+        - taxonomy
         - taxonomy
   field_course_id:
     label: 'Course id'
@@ -192,6 +223,15 @@ field_settings:
       module:
         - paragraphs
         - node
+        - node
+  field_duration:
+    label: Duration
+    datasource_id: 'entity:node'
+    property_path: field_duration
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_duration
   field_event_area:
     label: Area
     datasource_id: 'entity:node'
@@ -339,7 +379,7 @@ field_settings:
         - field.storage.node.field_main_media
         - field.storage.media.field_byline
       module:
-        - media_entity
+        - media
   main_media_image_field_caption:
     label: 'Main Media » Media » Image caption'
     datasource_id: 'entity:node'
@@ -350,12 +390,15 @@ field_settings:
         - field.storage.node.field_main_media
         - field.storage.media.field_caption
       module:
-        - media_entity
+        - media
   nid:
     label: ID
     datasource_id: 'entity:node'
     property_path: nid
     type: integer
+    dependencies:
+      module:
+        - node
   paragraph_images_field_byline:
     label: 'Paragraphs » Paragraph » Images » Media » Image byline'
     datasource_id: 'entity:node'
@@ -368,7 +411,7 @@ field_settings:
         - field.storage.media.field_byline
       module:
         - paragraphs
-        - media_entity
+        - media
   paragraph_images_field_caption:
     label: 'Paragraphs » Paragraph » Images » Media » Image caption'
     datasource_id: 'entity:node'
@@ -381,7 +424,7 @@ field_settings:
         - field.storage.media.field_caption
       module:
         - paragraphs
-        - media_entity
+        - media
   postal_code:
     label: 'Event address » The postal code.'
     datasource_id: 'entity:node'
@@ -410,27 +453,42 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: status
     type: boolean
+    dependencies:
+      module:
+        - node
   sticky:
     label: 'Sticky at top of lists'
     datasource_id: 'entity:node'
     property_path: sticky
     type: boolean
+    dependencies:
+      module:
+        - node
   title:
     label: Title
     datasource_id: 'entity:node'
     property_path: title
     type: string
+    dependencies:
+      module:
+        - node
   title_full_text:
     label: 'Title (fulltext)'
     datasource_id: 'entity:node'
     property_path: title
     type: text
     boost: !!float 3
+    dependencies:
+      module:
+        - node
   type:
     label: 'Content type'
     datasource_id: 'entity:node'
     property_path: type
     type: string
+    dependencies:
+      module:
+        - node
 datasource_settings:
   'entity:node':
     plugin_id: 'entity:node'
@@ -503,6 +561,7 @@ processor_settings:
     fields:
       node:
         - field_exclude_from_search
+  solr_date_range: {  }
   type_boost:
     boosts:
       'entity:node':

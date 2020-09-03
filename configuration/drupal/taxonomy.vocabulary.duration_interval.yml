@@ -1,0 +1,8 @@
+uuid: 1cf6f67a-9148-43bd-931d-5347ef719780
+langcode: en
+status: true
+dependencies: {  }
+name: 'Duration Interval'
+vid: duration_interval
+description: ''
+weight: 0

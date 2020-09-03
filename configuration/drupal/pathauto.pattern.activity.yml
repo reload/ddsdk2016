@@ -1,0 +1,22 @@
+uuid: 8a98b9ca-960a-4c8f-a524-7d072f80a082
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: activity
+label: Activity
+type: 'canonical_entities:node'
+pattern: 'aktiviteter/[node:title]'
+selection_criteria:
+  a7b38f7d-ab2a-4601-899c-57836bf1db02:
+    id: node_type
+    bundles:
+      activity: activity
+    negate: false
+    context_mapping:
+      node: node
+    uuid: a7b38f7d-ab2a-4601-899c-57836bf1db02
+selection_logic: and
+weight: -5
+relationships: {  }

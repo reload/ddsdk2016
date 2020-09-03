@@ -11,4 +11,19 @@
   html body .layout-container {
     padding-top: 0;
   }
+
+  .node__content {
+    .dds-gallery__print {
+      visibility: visible;
+
+      img {
+        margin: $spacing-small 0;
+      }
+    }
+    .dds-gallery {
+      visibility: hidden;
+      height: 0;
+    }
+
+  }
 }

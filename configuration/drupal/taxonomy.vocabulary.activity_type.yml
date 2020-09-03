@@ -1,0 +1,8 @@
+uuid: 961b299c-f043-4010-a71e-7509524e6fc6
+langcode: en
+status: true
+dependencies: {  }
+name: 'Activity type'
+vid: activity_type
+description: ''
+weight: 0

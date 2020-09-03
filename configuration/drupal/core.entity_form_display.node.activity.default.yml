@@ -5,13 +5,23 @@ dependencies:
   config:
     - core.entity_form_mode.media.main_media
     - field.field.node.activity.field_activity_id
+    - field.field.node.activity.field_activity_type
+    - field.field.node.activity.field_badge_target_group
     - field.field.node.activity.field_content_topic
+    - field.field.node.activity.field_duration
+    - field.field.node.activity.field_gallery_image
+    - field.field.node.activity.field_instructions
     - field.field.node.activity.field_main_media
+    - field.field.node.activity.field_materials
+    - field.field.node.activity.field_questions
     - field.field.node.activity.field_subtitle
+    - field.field.node.activity.field_youtube
     - node.type.activity
   module:
     - inline_entity_form
     - scheduler
+    - text
+    - video_embed_field
 id: node.activity.default
 targetEntityType: node
 bundle: activity
@@ -24,11 +34,54 @@ content:
     third_party_settings: {  }
     type: number
     region: content
+  field_activity_type:
+    weight: 128
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_badge_target_group:
+    weight: 126
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_content_topic:
     weight: 26
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
+  field_duration:
+    weight: 127
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_gallery_image:
+    weight: 130
+    settings:
+      match_operator: CONTAINS
+      form_mode: default
+      revision: false
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+      allow_new: true
+      allow_existing: false
+      allow_duplicate: false
+    third_party_settings: {  }
+    type: inline_entity_form_complex
+    region: content
+  field_instructions:
+    weight: 122
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
     region: content
   field_main_media:
     weight: 3
@@ -40,8 +93,28 @@ content:
       match_operator: CONTAINS
       override_labels: false
       allow_existing: false
+      revision: false
+      collapsible: false
+      collapsed: false
+      allow_duplicate: false
     third_party_settings: {  }
     type: inline_entity_form_complex
+    region: content
+  field_materials:
+    weight: 123
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_questions:
+    weight: 124
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
     region: content
   field_subtitle:
     weight: 2
@@ -50,6 +123,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
+    region: content
+  field_youtube:
+    weight: 129
+    settings: {  }
+    third_party_settings: {  }
+    type: video_embed_field_textfield
     region: content
   publish_on:
     type: datetime_timestamp_no_default
@@ -80,9 +159,9 @@ content:
     third_party_settings: {  }
   url_redirects:
     weight: 50
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   created: true
   langcode: true
