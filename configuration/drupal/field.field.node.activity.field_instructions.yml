@@ -1,0 +1,21 @@
+uuid: 976d8259-d5e8-432c-b4b0-97edc7dc8d20
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_instructions
+    - node.type.activity
+  module:
+    - text
+id: node.activity.field_instructions
+field_name: field_instructions
+entity_type: node
+bundle: activity
+label: Instructions
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

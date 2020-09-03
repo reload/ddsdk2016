@@ -1,28 +1,29 @@
-uuid: 29d85947-e0bc-4e18-aa26-9b12adef08c2
+uuid: 9896421c-3f4d-42b5-8f9e-d72f3cee9d61
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_content_topic
+    - field.storage.node.field_duration
     - node.type.activity
-    - taxonomy.vocabulary.content_topic
-id: node.activity.field_content_topic
-field_name: field_content_topic
+    - taxonomy.vocabulary.duration_interval
+id: node.activity.field_duration
+field_name: field_duration
 entity_type: node
 bundle: activity
-label: Topic
-description: 'Associates the content with a topic'
+label: Duration
+description: ''
 required: true
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      content_topic: content_topic
+      duration_interval: duration_interval
     sort:
-      field: _none
+      field: name
+      direction: asc
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference
