@@ -41,6 +41,9 @@ function mungo_preprocess_field(&$variables) {
       'field_event_teaser',
       'field_subtitle',
       'field_formatted_text',
+      'field_instructions',
+      'field_materials',
+      'field_questions',
     ]
   )) {
     _mungo_preprocess_text_field($field_name, $variables);
@@ -369,13 +372,6 @@ function mungo_preprocess_node(&$variables) {
   $variables['absolute_url'] = Url::fromUri('internal:' . $variables['url'], array('absolute' => TRUE))->toString();
 
   switch ($node->getType()) {
-    case 'activity':
-      if (!empty($node->get('field_activity_id')->value)) {
-        $activity_id = $node->get('field_activity_id')->value;
-        $variables['alternative_url'] = ActivityFetcher::AKTDB_VIEW_PREFIX . '/' . $activity_id;
-      }
-      break;
-
     case 'article':
       _mungo_preprocess_node_article($node, $variables);
       break;
@@ -757,13 +753,6 @@ function _mungo_preprocess_paragraph_content_link(&$variables) {
           }
         }
 
-        // Inject an alternative url for activities (we want the user to go
-        // directly to aktdb).
-        if ($node->getType() === 'activity' && !empty($node->get('field_activity_id')->value)) {
-          $activity_id = $node->get('field_activity_id')->value;
-          $alternative_url = ActivityFetcher::AKTDB_VIEW_PREFIX . '/' . $activity_id;
-        }
-
         // If the node type is download we want to link to the download file
         // instead of the node itself.
         if ($node->getType() === 'download') {
@@ -849,7 +838,12 @@ function mungo_preprocess_views_view(&$variables) {
   $view = $variables['view'];
 
 
-  if ($view->current_display === 'events_overview') {
+  // TODO: Move this list of displays to a centralized place.
+  // Same goes for the exposed filter definition in :facets_views_block_preprocess_views_view().
+  if (in_array($view->current_display, [
+      'events_overview',
+      'activities_overview',
+  ])) {
     // Views assumes that the default core block-layout will render its title
     // but we've disabled it to have more control over when the title is
     // rendered, so we have to render the views title manually.

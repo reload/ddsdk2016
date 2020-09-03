@@ -1,8 +1,9 @@
-uuid: 9888d88c-db20-43b2-9366-b4e769d2851d
+uuid: 8d96ef2f-d96f-4d7c-bfd1-36a3aba4c88c
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.full
     - field.field.node.activity.field_activity_id
     - field.field.node.activity.field_activity_type
     - field.field.node.activity.field_badge_target_group
@@ -25,11 +26,11 @@ third_party_settings:
   field_group:
     group_extra_info:
       children:
-        - field_badge_target_group
         - field_activity_type
+        - field_badge_target_group
         - field_duration
       parent_name: ''
-      weight: 6
+      weight: 4
       format_type: html_element
       region: content
       format_settings:
@@ -43,10 +44,10 @@ third_party_settings:
         effect: none
         speed: fast
       label: 'Extra info'
-id: node.activity.default
+id: node.activity.full
 targetEntityType: node
 bundle: activity
-mode: default
+mode: full
 content:
   field_activity_id:
     weight: 0
@@ -58,7 +59,7 @@ content:
     type: number_integer
     region: content
   field_activity_type:
-    weight: 11
+    weight: 10
     label: above
     settings:
       link: false
@@ -66,7 +67,7 @@ content:
     type: entity_reference_label
     region: content
   field_badge_target_group:
-    weight: 10
+    weight: 11
     label: above
     settings:
       link: false
@@ -94,13 +95,13 @@ content:
     weight: 12
     label: hidden
     settings:
-      view_mode: original
+      view_mode: article_main_media
       link: false
     third_party_settings: {  }
     region: content
   field_instructions:
-    weight: 4
-    label: hidden
+    weight: 5
+    label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
@@ -115,15 +116,15 @@ content:
     type: entity_reference_entity_view
     region: content
   field_materials:
-    weight: 5
-    label: hidden
+    weight: 6
+    label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_questions:
     weight: 7
-    label: hidden
+    label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default

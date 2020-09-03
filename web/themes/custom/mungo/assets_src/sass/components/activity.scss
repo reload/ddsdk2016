@@ -1,0 +1,17 @@
+.page-node-type-activity {
+  background-color: white;
+}
+
+@media screen {
+  .node__content {
+    .dds-gallery__print {
+      visibility: hidden;
+    }
+  }
+}
+
+.view-activities {
+  .search_result__label {
+    display: block;
+  }
+}
