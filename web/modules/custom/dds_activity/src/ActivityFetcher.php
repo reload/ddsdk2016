@@ -25,6 +25,7 @@ class ActivityFetcher {
     $this->client = $client;
   }
 
+
   /**
    * Loads an activity by its id.
    *
@@ -33,6 +34,7 @@ class ActivityFetcher {
    *
    * @return bool
    *   Id of the activity.
+   * @throws \GuzzleHttp\Exception\GuzzleException
    */
   public function loadActivity($activity_id) {
     if ($activity_id > 0) {
@@ -42,6 +44,7 @@ class ActivityFetcher {
           self::AKTDB_WS_ENDPOINT . '/activities/' . $activity_id
         );
         $status = $response->getStatusCode();
+
 
         if ($status === 200) {
           try {
@@ -115,14 +118,7 @@ class ActivityFetcher {
    *   The filename or NULL if the image could not be found.
    */
   public function getImageFilename() {
-    $image_data = $this->get('image_1');
-
-    if (!empty($image_data) && is_object($image_data) && isset($image_data->src)) {
-      return $image_data->src;
-    }
-    else {
-      return NULL;
-    }
+    return $this->getMediaSource('image_1');
   }
 
   /**
@@ -133,6 +129,102 @@ class ActivityFetcher {
    */
   public function getDescription() {
     return $this->get('body');
+  }
+
+  /**
+   * @return string|null
+   */
+  public function getInstructions() {
+    return $this->get('instructions');
+  }
+
+  /**
+   * @return string|null
+   */
+  public function getMaterials() {
+    return $this->get('materials');
+  }
+
+  /**
+   * @return array|null
+   */
+  public function getAges() {
+    return $this->getMultipleIds('age');
+  }
+
+  /**
+   * @return array|null
+   */
+  public function getTypes() {
+    return $this->getMultipleIds('type');
+  }
+
+  /**
+   * @return array|null
+   */
+  public function getDuration() {
+    $durations = $this->getMultipleIds('duration');
+
+    return $durations && isset($durations[0]) ? $durations[0] : NULL;
+  }
+
+  /**
+   * @return string|null
+   */
+  public function getQuestions() {
+    $questions = array();
+    for ($i = 1; $i <= 5; $i++) {
+      if ($question = $this->get('question_' . $i)) {
+        $questions[] = $question;
+      }
+    }
+
+    return !empty($questions) ? implode(PHP_EOL, $questions) : NULL;
+  }
+
+  /**
+   * @return array|null
+   */
+  public function getSecondaryImageUrls() {
+    $images = array();
+    for ($i = 2; $i <= 6; $i++) {
+      if ($filename = $this->getMediaSource('image_' . $i)) {
+        $images[] = self::AKTDB_IMAGE_STORAGE_PREFIX . '/' . $filename;
+      }
+    }
+
+    return !empty($images) ? $images : NULL;
+  }
+
+  public function getYoutube() {
+    return $this->getMediaSource('youtube');
+  }
+  /**
+   * @return array|null
+   */
+  protected function getMultipleIds($field) {
+    $raw_data = $this->get($field);
+    if ($raw_data) {
+      $data = (array) $raw_data;
+      return count($data) ? array_keys($data) : NULL;
+    }
+
+    return NULL;
+  }
+
+  /**
+   * @param string $field
+   * @return string|null
+   */
+  protected function getMediaSource($field) {
+    $data = $this->get($field);
+
+    if (!empty($data) && is_object($data) && isset($data->src)) {
+      return $data->src;
+    }
+    else {
+      return NULL;
+    }
   }
 
 }

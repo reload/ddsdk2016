@@ -1,0 +1,6 @@
+services:
+  dds_activity.commands:
+    class: Drupal\dds_activity\Commands\MigrationCommands
+    tags:
+      - { name: drush.command }
+    arguments: ['@entity_type.manager', '@logger.factory']
