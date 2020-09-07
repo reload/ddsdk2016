@@ -172,7 +172,7 @@ class ActivityFetcher {
    * @return string|null
    */
   public function getQuestions() {
-    $questions = array();
+    $questions = [];
     for ($i = 1; $i <= 5; $i++) {
       if ($question = $this->get('question_' . $i)) {
         $questions[] = $question;
@@ -186,7 +186,7 @@ class ActivityFetcher {
    * @return array|null
    */
   public function getSecondaryImageUrls() {
-    $images = array();
+    $images = [];
     for ($i = 2; $i <= 6; $i++) {
       if ($filename = $this->getMediaSource('image_' . $i)) {
         $images[] = self::AKTDB_IMAGE_STORAGE_PREFIX . '/' . $filename;

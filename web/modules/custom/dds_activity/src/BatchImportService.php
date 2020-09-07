@@ -4,9 +4,8 @@ namespace Drupal\dds_activity;
 
 use Drupal;
 use Drupal\Core\Entity\EntityStorageException;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\File\FileSystemInterface;
-use Drupal\Core\Logger\LoggerChannelFactoryInterface;
+use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
@@ -17,6 +16,14 @@ use Drupal\taxonomy\Entity\Term;
 class BatchImportService {
 
   /**
+   * @var MessengerInterface
+   */
+  private $messenger;
+
+  public function __construct(MessengerInterface $messenger) {
+    $this->messenger = $messenger;
+  }
+  /**
    * Batch process callback.
    *
    * @param ActivityData $activity
@@ -25,7 +32,7 @@ class BatchImportService {
    *   Context for operations.
    * @throws Drupal\Core\Entity\EntityStorageException
    */
-  public static function importActivity(ActivityData $activity, $something, &$context): void {
+  public function importActivity(ActivityData $activity, &$context): void {
 
     $query = Drupal::service('entity.query')
       ->get('node')
@@ -76,15 +83,14 @@ class BatchImportService {
    *   Array of operations.
    */
   public function importActivityFinished($success, $results, array $operations): void {
-    $messenger = \Drupal::messenger();
     if ($success) {
-      $messenger->addMessage(t('@count results processed.', ['@count' => $results]));
+      $this->messenger->addMessage(t('@count results processed.', ['@count' => $results]));
     }
     else {
       // An error occurred.
       // $operations contains the operations that remained unprocessed.
       $error_operation = reset($operations);
-      $messenger->addMessage(
+      $this->messenger->addMessage(
         t('An error occurred while processing @operation with arguments : @args',
           [
             '@operation' => $error_operation[0],
