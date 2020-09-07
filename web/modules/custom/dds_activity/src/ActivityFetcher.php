@@ -53,13 +53,13 @@ class ActivityFetcher {
             return TRUE;
           }
           catch (\RuntimeException $e) {
-            watchdog_exception('dds_activity', $e);
+//            watchdog_exception('dds_activity', $e);
           }
         }
 
       }
       catch (RequestException $e) {
-        watchdog_exception('dds_activity', $e);
+//        watchdog_exception('dds_activity', $e);
       }
     }
     return FALSE;

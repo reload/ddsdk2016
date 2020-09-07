@@ -5,8 +5,8 @@ namespace Drupal\dds_activity\Commands;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\dds_activity\ActivityFetcher;
+use Drupal\dds_activity\ActivityData;
 use Drush\Commands\DrushCommands;
-use GuzzleHttp\Exception\ClientException;
 
 /**
  * A Drush commandfile.
@@ -68,20 +68,8 @@ class MigrationCommands extends DrushCommands {
     for ($id = 0; $id <= 10; $id++) {
       $activity_loaded = $activity_fetcher->loadActivity($id);
       if ($activity_loaded) {
-        $activity = new \stdClass();
-        $activity->title = $activity_fetcher->getTitle();
-        $activity->ages = $activity_fetcher->getAges();
-        $activity->description = $activity_fetcher->getDescription();
-        $activity->duration = $activity_fetcher->getDuration();
-        $activity->mainImage = $activity_fetcher->getImageUrl();
-        $activity->secondaryImages = $activity_fetcher->getSecondaryImageUrls();
-        $activity->instructions = $activity_fetcher->getInstructions();
-        $activity->materials = $activity_fetcher->getMaterials();
-        $activity->types = $activity_fetcher->getTypes();
-        $activity->youTube = $activity_fetcher->getYoutube();
-        $activity->questions = $activity_fetcher->getQuestions();
-
-        $this->output()->writeln("Preparing batch: " . $batchId);
+        $activity = ActivityData::constructFromActivityFetcher($activity_fetcher, $id);
+        $this->output()->writeln('Preparing batch: ' . $batchId);
         $operations[] = [
           '\Drupal\dds_activity\BatchImportService::importActivity',
           [
