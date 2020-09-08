@@ -3,8 +3,13 @@
 namespace Drupal\dds_activity;
 
 use Drupal;
+use Drupal\Core\Entity\EntityStorageException;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\File\FileSystemInterface;
+use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
+use Drupal\Core\Session\AccountSwitcherInterface;
 
 class ActivityHydrater {
 
@@ -71,6 +76,10 @@ class ActivityHydrater {
    * @var ActivityData
    */
   private $activity;
+  /**
+   * @var \Psr\Log\LoggerInterface
+   */
+  private $logger;
 
   /**
    * ActivityHydrater constructor.
@@ -78,15 +87,17 @@ class ActivityHydrater {
    */
   public function __construct(ActivityData $activityData) {
     $this->activity = $activityData;
+    $this->logger = Drupal::logger('dds_activity');
   }
 
   /**
    * @param Node $node
    * @return Node
-   * @throws Drupal\Core\Entity\EntityStorageException
+   * @throws EntityStorageException
    */
   public function hydrateNode(Node $node): Node {
     $node->set('title', $this->activity->title);
+    $node->set('field_activity_id', $this->activity->id);
     $node->set('field_subtitle', $this->activity->description);
     $node->set('field_instructions', $this->activity->instructions);
     $node->set('field_materials', $this->activity->materials);
@@ -108,6 +119,8 @@ class ActivityHydrater {
       'activity_type',
       self::getDestinationTypeTermNames($this->activity->types)
     ));
+
+    $this->populateImage($node, 'field_main_media', $this->activity->mainImageUrl);
 
     return $node;
   }
@@ -185,4 +198,76 @@ class ActivityHydrater {
   protected static function getDestinationTermName(int $id, array $map): ?string {
     return $map[$id] ?? NULL;
   }
+
+
+  /**
+   * @param Node $node
+   * @param string $field_name
+   * @param string $image_url
+   * @throws EntityStorageException
+   */
+  protected function populateImage(Node &$node, string $field_name, string $image_url): void {
+    // Then fetch the image and attach it to the node.
+    // First off, prepare the directory where we're going to put the image.
+    $file_destination_dir = 'public://aktivws/' . $this->activity->id;
+    $filename = basename($image_url);
+    if (!Drupal::service('file_system')->prepareDirectory($file_destination_dir, FileSystemInterface::CREATE_DIRECTORY)) {
+      $this->logger->error('Could not prepare destination directory @dir', ['@dir' => $file_destination_dir]);
+      return;
+    }
+
+    // The prepare the destination path and download the file.
+    $file_destination = $file_destination_dir . '/' . $filename;
+
+    /** @var Drupal\file\FileInterface $file */
+    $file = system_retrieve_file($image_url, $file_destination, TRUE, FileSystemInterface::EXISTS_REPLACE);
+    if ($file === FALSE) {
+      $this->logger->error(
+        'Could download activity image from @url to @destination',
+        [
+          '@url' => $image_url,
+          '@destination' => $file_destination,
+        ]
+      );
+      return;
+    }
+    // TODO: we don't do anything to handle file_usage - out of the box we
+    // currently register two usages - probably core and media.
+    $image_media = Media::create([
+      'bundle' => 'image',
+      'uid' => '1',
+      'status' => TRUE,
+      'field_image' => [
+        'target_id' => $file->id(),
+        'alt' => $this->activity->title,
+      ],
+    ]);
+
+    try {
+      $image_media->save();
+    }
+    catch (EntityStorageException $e) {
+      watchdog_exception('dds_activity', $e);
+      return;
+    }
+
+    // If the activity already have an image, overwrite the reference and then
+    // delete the media.
+    if (!empty($node->{$field_name}->target_id)) {
+      // Get the current id.
+      $media_to_be_deleted = $node->{$field_name}->target_id;
+      // Overwrite the current reference.
+      $node->{$field_name}->target_id = $image_media->id();
+      // Then delete the old media if we can load it.
+      $old_media = Media::load($media_to_be_deleted);
+      if (!empty($old_media)) {
+        $old_media->delete();
+      }
+    }
+    else {
+      // The activity does not have an image - add it.
+      $node->{$field_name}->appendItem(['target_id' => $image_media->id()]);
+    }
+  }
+
 }

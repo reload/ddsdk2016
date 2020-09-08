@@ -5,6 +5,7 @@ namespace Drupal\dds_activity\Commands;
 use Drupal;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
+use Drupal\Core\Session\AccountSwitcherInterface;
 use Drupal\dds_activity\ActivityFetcher;
 use Drupal\dds_activity\ActivityData;
 use Drush\Commands\DrushCommands;
@@ -21,7 +22,6 @@ class MigrationCommands extends DrushCommands {
    * @var EntityTypeManagerInterface
    */
   private $entityTypeManager;
-
   /**
    * Logger service.
    *
@@ -36,6 +36,10 @@ class MigrationCommands extends DrushCommands {
    * @var BatchImportService
    */
   private $batchImporter;
+  /**
+   * @var AccountSwitcherInterface
+   */
+  private $accountSwitcher;
 
   /**
    * Constructs a new UpdateVideosStatsController object.
@@ -44,9 +48,11 @@ class MigrationCommands extends DrushCommands {
    *   Entity type service.
    * @param LoggerChannelFactoryInterface $loggerChannelFactory
    *   Logger service.
+   * @param AccountSwitcherInterface $account_switcher
    */
-  public function __construct(EntityTypeManagerInterface $entityTypeManager, LoggerChannelFactoryInterface $loggerChannelFactory) {
+  public function __construct(EntityTypeManagerInterface $entityTypeManager, AccountSwitcherInterface $account_switcher,  LoggerChannelFactoryInterface $loggerChannelFactory) {
     $this->entityTypeManager = $entityTypeManager;
+    $this->accountSwitcher = $account_switcher;
     $this->loggerChannelFactory = $loggerChannelFactory;
     $this->activityFetcher = Drupal::service('dds_activity.activity_fetcher');
     $this->batchImporter = Drupal::service('dds_activity.batch_importer');
@@ -64,13 +70,15 @@ class MigrationCommands extends DrushCommands {
    */
   public function activityImport() {
     $this->loggerChannelFactory->get('dds_activity')->info('Import activities batch operations start');
+    $root_user = $this->entityTypeManager->getStorage('user')->load(1);
+    $this->accountSwitcher->switchTo($root_user);
 
     $operations = [];
     $numOperations = 0;
     $batchId = 1;
 
     // TODO: Set proper max id. eg.: 1100.
-    for ($id = 0; $id <= 200; $id++) {
+    for ($id = 0; $id <= 10; $id++) {
       $activity_loaded = $this->activityFetcher->loadActivity($id);
       if ($activity_loaded) {
         $activity = ActivityData::constructFromActivityFetcher($this->activityFetcher, $id);
@@ -96,6 +104,7 @@ class MigrationCommands extends DrushCommands {
 
     $this->logger()->notice("Batch operations end.");
     $this->loggerChannelFactory->get('dds_activity')->info('Update batch operations end.');
+    $this->accountSwitcher->switchBack();
   }
 
 }
