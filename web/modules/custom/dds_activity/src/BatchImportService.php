@@ -39,33 +39,13 @@ class BatchImportService {
       ->condition('field_activity_id', $activity->id);
     $query_result = $query->execute();
 
+    // TODO: Remove debugging clause id === 8.
     if (!empty($query_result) && $activity->id === 8) {
       $nid = array_values($query_result)[0];
       $node = Node::load($nid);
-      $node->set('title', $activity->title);
-      $node->set('field_subtitle', $activity->description);
-      $node->set('field_badge_target_group', array_unique(array_map(function (int $ageId) {
-        return ActivityData::getDestinationAge($ageId) ?? FALSE;
-      }, $activity->ages)));
-      $duration_term_name = ActivityData::getDestinationDurationTermName($activity->duration);
-
-      $term_query = Drupal::entityQuery('taxonomy_term')
-        ->condition('vid', 'duration_interval')
-        ->condition('name', $duration_term_name);
-      $term_query_result = $term_query->execute();
-      if (empty($term_query_result)) {
-        $duration_term = Term::create([
-          'vid' => 'duration_interval',
-          'name' => $duration_term_name,
-        ]);
-        $duration_term->save();
-        $node->set('field_duration', $duration_term->id());
-      }
-      else {
-        $node->set('field_duration', $term_query_result);
-      }
-
-      $node->save();
+      (new ActivityHydrater($activity))
+        ->hydrateNode($node)
+        ->save();
 
     }
     $context['results']++;

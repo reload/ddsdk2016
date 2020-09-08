@@ -160,9 +160,10 @@ class ActivityFetcher {
   }
 
   /**
-   * @return array|null
+   * @return int|null
+   *   Duration id.
    */
-  public function getDuration() {
+  public function getDuration(): ?int {
     $durations = $this->getMultipleIds('duration');
 
     return $durations && isset($durations[0]) ? $durations[0] : NULL;
@@ -170,12 +171,13 @@ class ActivityFetcher {
 
   /**
    * @return string|null
+   *   A string with questions inserted in paragraphs.
    */
   public function getQuestions() {
     $questions = [];
     for ($i = 1; $i <= 5; $i++) {
       if ($question = $this->get('question_' . $i)) {
-        $questions[] = $question;
+        $questions[] = "<p>$question</p>";
       }
     }
 
