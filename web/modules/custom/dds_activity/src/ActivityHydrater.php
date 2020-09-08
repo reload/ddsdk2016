@@ -126,6 +126,7 @@ class ActivityHydrater {
         ->condition('name', $term_name);
       $term_query_result = $term_query->execute();
 
+      // Create term if it does not exist yet and return id.
       if (empty($term_query_result)) {
         $term = Term::create([
           'vid' => $vid,
@@ -134,6 +135,7 @@ class ActivityHydrater {
         $term->save();
         return $term->id();
       }
+      // Return id of matched term.
       else {
         return current($term_query_result);
       }
