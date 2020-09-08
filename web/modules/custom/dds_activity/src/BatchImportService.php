@@ -39,8 +39,7 @@ class BatchImportService {
       ->condition('field_activity_id', $activity->id);
     $query_result = $query->execute();
 
-    // TODO: Remove debugging clause id === 8.
-    if (!empty($query_result) && $activity->id === 8) {
+    if (!empty($query_result)) {
       $nid = array_values($query_result)[0];
       $node = Node::load($nid);
       (new ActivityHydrater($activity))

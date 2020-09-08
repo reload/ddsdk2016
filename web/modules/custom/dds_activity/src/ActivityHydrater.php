@@ -91,6 +91,7 @@ class ActivityHydrater {
     $node->set('field_instructions', $this->activity->instructions);
     $node->set('field_materials', $this->activity->materials);
     $node->set('field_questions', $this->activity->questions);
+    $node->set('field_youtube_url', $this->activity->youTube);
 
     // We don't use getTermIds for this field because the terms already exist
     // and we just need to map old ids to new.
