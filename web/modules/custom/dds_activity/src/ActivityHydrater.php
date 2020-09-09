@@ -102,7 +102,7 @@ class ActivityHydrater {
     $node->set('field_instructions', $this->activity->instructions);
     $node->set('field_materials', $this->activity->materials);
     $node->set('field_questions', $this->activity->questions);
-    $node->set('field_youtube_url', $this->activity->youTube);
+    $node->set('field_youtube', $this->activity->youTube);
 
     // We don't use getTermIds for this field because the terms already exist
     // and we just need to map old ids to new.
@@ -120,7 +120,23 @@ class ActivityHydrater {
       self::getDestinationTypeTermNames($this->activity->types)
     ));
 
-    $this->populateImage($node, 'field_main_media', $this->activity->mainImageUrl);
+    if ($this->activity->mainImageUrl) {
+      $this->populateImage($node, 'field_main_media', $this->activity->mainImageUrl);
+    }
+
+    if (!empty($this->activity->secondaryImages)) {
+      // Delete old media.
+      array_map(function($image_id){
+        $this->deleteImageMedia($image_id);
+      }, $node->get('field_gallery_image'));
+
+      // Clean slate with image references. Create new media and create references.
+      $node->set('field_gallery_image', []);
+      array_map(function($image_url){
+        $this->populateImage($node, 'field_gallery_image', $image_url);
+      }, $this->activity->secondaryImages);
+
+    }
 
     return $node;
   }
@@ -199,7 +215,6 @@ class ActivityHydrater {
     return $map[$id] ?? NULL;
   }
 
-
   /**
    * @param Node $node
    * @param string $field_name
@@ -223,7 +238,7 @@ class ActivityHydrater {
     $file = system_retrieve_file($image_url, $file_destination, TRUE, FileSystemInterface::EXISTS_REPLACE);
     if ($file === FALSE) {
       $this->logger->error(
-        'Could download activity image from @url to @destination',
+        'Could not download activity image from @url to @destination',
         [
           '@url' => $image_url,
           '@destination' => $file_destination,
@@ -251,22 +266,29 @@ class ActivityHydrater {
       return;
     }
 
-    // If the activity already have an image, overwrite the reference and then
+    // If the activity already have an image, delete the reference and then
     // delete the media.
     if (!empty($node->{$field_name}->target_id)) {
       // Get the current id.
       $media_to_be_deleted = $node->{$field_name}->target_id;
-      // Overwrite the current reference.
-      $node->{$field_name}->target_id = $image_media->id();
+      // Delete the current reference.
+      $node->{$field_name}->removeItem($media_to_be_deleted);
       // Then delete the old media if we can load it.
-      $old_media = Media::load($media_to_be_deleted);
-      if (!empty($old_media)) {
-        $old_media->delete();
-      }
+      $this->deleteImageMedia($media_to_be_deleted);
     }
-    else {
-      // The activity does not have an image - add it.
-      $node->{$field_name}->appendItem(['target_id' => $image_media->id()]);
+
+    // Add new image.
+    $node->{$field_name}->appendItem(['target_id' => $image_media->id()]);
+  }
+
+  /**
+   * @param $media_to_be_deleted
+   * @throws EntityStorageException
+   */
+  protected function deleteImageMedia($media_to_be_deleted): void {
+    $old_media = Media::load($media_to_be_deleted);
+    if (!empty($old_media)) {
+      $old_media->delete();
     }
   }
 

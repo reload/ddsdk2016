@@ -1,0 +1,21 @@
+uuid: edd0bc80-2bbd-4045-ab6c-b505f3f7d70a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_questions
+    - node.type.activity
+  module:
+    - text
+id: node.activity.field_questions
+field_name: field_questions
+entity_type: node
+bundle: activity
+label: Questions
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

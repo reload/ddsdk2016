@@ -1,0 +1,25 @@
+uuid: b12f95c9-09c0-4769-926a-dde5f8924179
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_youtube
+    - node.type.activity
+  module:
+    - video_embed_field
+id: node.activity.field_youtube
+field_name: field_youtube
+entity_type: node
+bundle: activity
+label: Youtube
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_providers:
+    youtube: youtube
+    vimeo: '0'
+    youtube_playlist: '0'
+field_type: video_embed_field
