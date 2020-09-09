@@ -16,6 +16,11 @@ use Drupal\dds_activity\BatchImportService;
  */
 class MigrationCommands extends DrushCommands {
 
+  // The import command tries to import from a given range of ids.
+  // Max and min values are defined here.
+  const MIN_ACTIVITY_ID = 1;
+  const MAX_ACTIVITY_ID = 1200;
+
   /**
    * Entity type service.
    *
@@ -77,8 +82,7 @@ class MigrationCommands extends DrushCommands {
     $numOperations = 0;
     $batchId = 1;
 
-    // TODO: Set proper max id. eg.: 1200.
-    for ($id = 0; $id <= 1200; $id++) {
+    for ($id = self::MIN_ACTIVITY_ID; $id <= self::MAX_ACTIVITY_ID; $id++) {
       $activity_loaded = $this->activityFetcher->loadActivity($id);
       if ($activity_loaded) {
         $activity = ActivityData::constructFromActivityFetcher($this->activityFetcher, $id);

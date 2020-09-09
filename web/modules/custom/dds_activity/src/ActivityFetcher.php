@@ -181,7 +181,7 @@ class ActivityFetcher {
       }
     }
 
-    return !empty($questions) ? implode(PHP_EOL, $questions) : NULL;
+    return !empty($questions) ? implode('', $questions) : NULL;
   }
 
   /**

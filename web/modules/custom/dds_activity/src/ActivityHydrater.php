@@ -129,23 +129,31 @@ class ActivityHydrater {
       self::getDestinationTypeTermNames($this->activity->types)
     ));
 
+    // Main image.
     if ($this->activity->mainImageUrl) {
+      // Clean slate with image references.
+      if ($node->field_main_media->target_id) {
+        $this->deleteImageMedia($node->field_main_media->target_id);
+        $node->get('field_main_media')->setValue(NULL);
+      }
+      // Create new media and create reference to it.
       $this->populateImage($node, 'field_main_media', $this->activity->mainImageUrl);
     }
 
-//    if (!empty($this->activity->secondaryImages)) {
-//      // Delete old media.
-//      array_map(function($image_id){
-//        $this->deleteImageMedia($image_id);
-//      }, $node->get('field_gallery_image'));
-//
-//      // Clean slate with image references. Create new media and create references.
-//      $node->set('field_gallery_image', []);
-//      array_map(function($image_url){
-//        $this->populateImage($node, 'field_gallery_image', $image_url);
-//      }, $this->activity->secondaryImages);
-//
-//    }
+    // Sub images.
+    if (!empty($this->activity->secondaryImages)) {
+      // Delete old media.
+      array_map(function($value) {
+        $this->deleteImageMedia($value['target_id']);
+      }, $node->get('field_gallery_image')->getValue() ?? []);
+
+      // Clean slate with image references.
+      $node->get('field_gallery_image')->setValue(NULL);
+      // Create new media and create references to them.
+      array_map(function($image_url) use ($node) {
+        $this->populateImage($node, 'field_gallery_image', $image_url);
+      }, $this->activity->secondaryImages);
+    }
 
     return $node;
   }
@@ -228,7 +236,6 @@ class ActivityHydrater {
    * @param Node $node
    * @param string $field_name
    * @param string $image_url
-   * @throws EntityStorageException
    */
   protected function populateImage(Node &$node, string $field_name, string $image_url): void {
     // Then fetch the image and attach it to the node.
@@ -275,33 +282,17 @@ class ActivityHydrater {
       return;
     }
 
-    // If the activity already have an image, overwrite the reference and then
-    // delete the media.
-    if (!empty($node->{$field_name}->target_id)) {
-      // Get the current id.
-      $media_to_be_deleted = $node->{$field_name}->target_id;
-      // Overwrite the current reference.
-      $node->{$field_name}->target_id = $image_media->id();
-      // Then delete the old media if we can load it.
-      $old_media = Media::load($media_to_be_deleted);
-      if (!empty($old_media)) {
-        $old_media->delete();
-      }
-    }
-    else {
-      // The activity does not have an image - add it.
-      $node->{$field_name}->appendItem(['target_id' => $image_media->id()]);
-    }
+    $node->{$field_name}->appendItem(['target_id' => $image_media->id()]);
   }
 
   /**
-   * @param $media_to_be_deleted
+   * @param int $id
    * @throws EntityStorageException
    */
-  protected function deleteImageMedia($media_to_be_deleted): void {
-    $old_media = Media::load($media_to_be_deleted);
-    if (!empty($old_media)) {
-      $old_media->delete();
+  protected function deleteImageMedia(int $id): void {
+    $media = Media::load($id);
+    if (!empty($media)) {
+      $media->delete();
     }
   }
 
