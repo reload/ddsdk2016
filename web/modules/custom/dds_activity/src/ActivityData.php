@@ -4,7 +4,7 @@
 namespace Drupal\dds_activity;
 
 
-class ActivityData
+final class ActivityData
 {
   public $id;
   /**

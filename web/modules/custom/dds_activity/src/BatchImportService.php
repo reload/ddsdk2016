@@ -3,10 +3,7 @@
 namespace Drupal\dds_activity;
 
 use Drupal;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Messenger\MessengerInterface;
-use Drupal\Core\Session\AccountSwitcherInterface;
-use Drupal\Core\Session\UserSession;
 use Drupal\node\Entity\Node;
 
 /**
@@ -45,7 +42,7 @@ class BatchImportService {
       $node = Node::create(['type' => 'activity']);
     }
 
-    (new ActivityHydrater($activity))
+    (new ActivityHydrater($activity, $this->messenger))
       ->hydrateNode($node)
       ->save();
 

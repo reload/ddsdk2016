@@ -77,7 +77,7 @@ class MigrationCommands extends DrushCommands {
     $numOperations = 0;
     $batchId = 1;
 
-    // TODO: Set proper max id. eg.: 1100.
+    // TODO: Set proper max id. eg.: 1200.
     for ($id = 0; $id <= 1200; $id++) {
       $activity_loaded = $this->activityFetcher->loadActivity($id);
       if ($activity_loaded) {

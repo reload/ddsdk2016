@@ -4,14 +4,17 @@ namespace Drupal\dds_activity;
 
 use Drupal;
 use Drupal\Core\Entity\EntityStorageException;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\File\FileSystemInterface;
+use Drupal\Core\Messenger\MessengerInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
+use Drupal\Core\StringTranslation\TranslationInterface;
 use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
-use Drupal\Core\Session\AccountSwitcherInterface;
 
 class ActivityHydrater {
+
+  use StringTranslationTrait;
 
   /**
    * Mapping of age target group.
@@ -80,14 +83,20 @@ class ActivityHydrater {
    * @var \Psr\Log\LoggerInterface
    */
   private $logger;
+  /**
+   * @var MessengerInterface
+   */
+  private $messenger;
 
   /**
    * ActivityHydrater constructor.
    * @param ActivityData $activityData
+   * @param MessengerInterface $messenger
+   * @param TranslationInterface $string_translation
    */
-  public function __construct(ActivityData $activityData) {
+  public function __construct(ActivityData $activityData, MessengerInterface $messenger) {
     $this->activity = $activityData;
-    $this->logger = Drupal::logger('dds_activity');
+    $this->messenger = $messenger;
   }
 
   /**
@@ -124,19 +133,19 @@ class ActivityHydrater {
       $this->populateImage($node, 'field_main_media', $this->activity->mainImageUrl);
     }
 
-    if (!empty($this->activity->secondaryImages)) {
-      // Delete old media.
-      array_map(function($image_id){
-        $this->deleteImageMedia($image_id);
-      }, $node->get('field_gallery_image'));
-
-      // Clean slate with image references. Create new media and create references.
-      $node->set('field_gallery_image', []);
-      array_map(function($image_url){
-        $this->populateImage($node, 'field_gallery_image', $image_url);
-      }, $this->activity->secondaryImages);
-
-    }
+//    if (!empty($this->activity->secondaryImages)) {
+//      // Delete old media.
+//      array_map(function($image_id){
+//        $this->deleteImageMedia($image_id);
+//      }, $node->get('field_gallery_image'));
+//
+//      // Clean slate with image references. Create new media and create references.
+//      $node->set('field_gallery_image', []);
+//      array_map(function($image_url){
+//        $this->populateImage($node, 'field_gallery_image', $image_url);
+//      }, $this->activity->secondaryImages);
+//
+//    }
 
     return $node;
   }
@@ -227,7 +236,7 @@ class ActivityHydrater {
     $file_destination_dir = 'public://aktivws/' . $this->activity->id;
     $filename = basename($image_url);
     if (!Drupal::service('file_system')->prepareDirectory($file_destination_dir, FileSystemInterface::CREATE_DIRECTORY)) {
-      $this->logger->error('Could not prepare destination directory @dir', ['@dir' => $file_destination_dir]);
+      $this->messenger->addError($this->t('Could not prepare destination directory @dir', ['@dir' => $file_destination_dir]));
       return;
     }
 
@@ -237,13 +246,13 @@ class ActivityHydrater {
     /** @var Drupal\file\FileInterface $file */
     $file = system_retrieve_file($image_url, $file_destination, TRUE, FileSystemInterface::EXISTS_REPLACE);
     if ($file === FALSE) {
-      $this->logger->error(
+      $this->messenger->addError($this->t(
         'Could not download activity image from @url to @destination',
         [
           '@url' => $image_url,
           '@destination' => $file_destination,
         ]
-      );
+      ));
       return;
     }
     // TODO: we don't do anything to handle file_usage - out of the box we
@@ -266,19 +275,23 @@ class ActivityHydrater {
       return;
     }
 
-    // If the activity already have an image, delete the reference and then
+    // If the activity already have an image, overwrite the reference and then
     // delete the media.
     if (!empty($node->{$field_name}->target_id)) {
       // Get the current id.
       $media_to_be_deleted = $node->{$field_name}->target_id;
-      // Delete the current reference.
-      $node->{$field_name}->removeItem($media_to_be_deleted);
+      // Overwrite the current reference.
+      $node->{$field_name}->target_id = $image_media->id();
       // Then delete the old media if we can load it.
-      $this->deleteImageMedia($media_to_be_deleted);
+      $old_media = Media::load($media_to_be_deleted);
+      if (!empty($old_media)) {
+        $old_media->delete();
+      }
     }
-
-    // Add new image.
-    $node->{$field_name}->appendItem(['target_id' => $image_media->id()]);
+    else {
+      // The activity does not have an image - add it.
+      $node->{$field_name}->appendItem(['target_id' => $image_media->id()]);
+    }
   }
 
   /**
