@@ -27,16 +27,16 @@ mode: default
 content:
   field_activity_id:
     weight: 0
-    label: above
+    label: hidden
     settings:
       thousand_separator: ''
-      prefix_suffix: true
+      prefix_suffix: false
     third_party_settings: {  }
     type: number_integer
     region: content
   field_activity_type:
     weight: 10
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
@@ -44,7 +44,7 @@ content:
     region: content
   field_badge_target_group:
     weight: 8
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
@@ -52,7 +52,7 @@ content:
     region: content
   field_content_topic:
     weight: 3
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
@@ -60,7 +60,7 @@ content:
     region: content
   field_duration:
     weight: 9
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
@@ -69,52 +69,52 @@ content:
   field_gallery_image:
     type: entity_reference_entity_view
     weight: 12
-    label: above
+    label: hidden
     settings:
-      view_mode: default
+      view_mode: content_inline_16_9
       link: false
     third_party_settings: {  }
     region: content
   field_instructions:
     weight: 4
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_main_media:
     weight: 2
-    label: above
+    label: hidden
     settings:
-      view_mode: default
+      view_mode: article_main_media
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
     region: content
   field_materials:
     weight: 5
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_questions:
     weight: 6
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_subtitle:
     weight: 1
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_youtube:
     weight: 11
-    label: above
+    label: hidden
     settings:
       responsive: true
       width: 854
