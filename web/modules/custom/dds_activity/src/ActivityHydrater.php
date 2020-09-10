@@ -50,7 +50,7 @@ class ActivityHydrater {
     6 => 'Kommunikation',
     7 => 'Vandaktiviteter',
     8 => 'Natur og friluftsliv',
-    9 => 'Madlavning => Something',
+    9 => 'Madlavning',
     10 => 'Leg',
     11 => 'Drama og Musik',
     12 => 'Klima og Miljø',
@@ -92,7 +92,6 @@ class ActivityHydrater {
    * ActivityHydrater constructor.
    * @param ActivityData $activityData
    * @param MessengerInterface $messenger
-   * @param TranslationInterface $string_translation
    */
   public function __construct(ActivityData $activityData, MessengerInterface $messenger) {
     $this->activity = $activityData;
@@ -108,9 +107,11 @@ class ActivityHydrater {
     $node->set('title', $this->activity->title);
     $node->set('field_activity_id', $this->activity->id);
     $node->set('field_subtitle', $this->activity->description);
-    $node->set('field_instructions', $this->activity->instructions);
-    $node->set('field_materials', $this->activity->materials);
-    $node->set('field_questions', $this->activity->questions);
+
+    $node->set('field_instructions', ['value' => $this->activity->instructions, 'format' => 'full_html']);
+    $node->set('field_materials', ['value' => $this->activity->materials, 'format' => 'full_html']);
+    $node->set('field_questions', ['value' => $this->activity->questions, 'format' => 'full_html']);
+
     $node->set('field_youtube', $this->activity->youTube);
 
     // We don't use getTermIds for this field because the terms already exist
