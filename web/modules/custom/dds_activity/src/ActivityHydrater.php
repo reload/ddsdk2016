@@ -2,12 +2,12 @@
 
 namespace Drupal\dds_activity;
 
+use DOMDocument;
 use Drupal;
 use Drupal\Core\Entity\EntityStorageException;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
-use Drupal\Core\StringTranslation\TranslationInterface;
 use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
@@ -108,9 +108,18 @@ class ActivityHydrater {
     $node->set('field_activity_id', $this->activity->id);
     $node->set('field_subtitle', $this->activity->description);
 
-    $node->set('field_instructions', ['value' => $this->activity->instructions, 'format' => 'full_html']);
-    $node->set('field_materials', ['value' => $this->activity->materials, 'format' => 'full_html']);
-    $node->set('field_questions', ['value' => $this->activity->questions, 'format' => 'full_html']);
+    $node->set(
+      'field_instructions',
+      ['value' => self::formatText($this->activity->instructions), 'format' => 'full_html']
+    );
+    $node->set(
+      'field_materials',
+      ['value' => self::formatText($this->activity->materials), 'format' => 'full_html']
+    );
+    $node->set(
+      'field_questions',
+      ['value' => self::formatText($this->activity->questions), 'format' => 'full_html']
+    );
 
     $node->set('field_youtube', $this->activity->youTube);
 
@@ -295,6 +304,26 @@ class ActivityHydrater {
     if (!empty($media)) {
       $media->delete();
     }
+  }
+
+  protected static function formatText($text) {
+    $dom = new DOMDocument();
+    $dom->loadHTML('<?xml encoding="UTF-8" ?>' . $text);
+
+    $elements = $dom->getElementsByTagName("div");
+    for ($i = $elements->length - 1; $i >= 0; $i--) {
+      $node_old = $elements->item($i);
+      $node_new = $dom->createElement("p", $node_old->nodeValue);
+      $node_old->parentNode->replaceChild($node_new, $node_old);
+    }
+
+    $body = $dom->saveHTML($dom->getElementsByTagName( 'body' )->item(0));
+
+    return preg_replace(
+      ['/^<body>(.*)<\/body>$/s', '/<p>[^<A-Za-z]+<\/p>\\n/', '/^\\n(.*)/'],
+      ['$1', '', '$1'],
+      $body
+    );
   }
 
 }
