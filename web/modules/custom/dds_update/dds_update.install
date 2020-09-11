@@ -162,3 +162,36 @@ function dds_update_update_8108() {
 
   \Drupal::logger('dds_update')->notice("Changed {$i} unused files to temporary files.");
 }
+
+
+/**
+ * Add translations for activity/ies and delete redirect.
+ */
+function dds_update_update_8109() {
+  // Translate some activity strings.
+  translate_tool_add('Target group', 'da', 'Målgruppe', 'activity');
+  translate_tool_add('Type', 'da', 'Type', 'activity');
+  translate_tool_add('Duration', 'da', 'Varighed', 'activity');
+
+  translate_tool_delete('Search for activities ...', 'activity search');
+  translate_tool_add('Search for activities ...', 'da', 'Søg efter aktiviteter', 'activity search');
+  translate_tool_add('Search for events ...', 'da', 'Søg efter arrangementer', 'event search');
+
+  // Delete the /aktiviteter redirect.
+  $result = \Drupal::entityQuery("redirect")
+    ->condition('redirect_source__path', 'aktiviteter')
+    ->execute();
+
+  $storage_handler = \Drupal::entityTypeManager()->getStorage("redirect");
+  $entities = $storage_handler->loadMultiple($result);
+
+  if (count($entities) === 1) {
+    try {
+      $storage_handler->delete($entities);
+      \Drupal::messenger()->addMessage('/aktiviteter redirect was deleted');
+    }
+    catch (\Exception $e) {
+      \Drupal::messenger()->addError('Could not delete the /aktiviteter redirect');
+    }
+  }
+}
