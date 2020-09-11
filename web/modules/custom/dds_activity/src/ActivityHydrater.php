@@ -317,7 +317,7 @@ class ActivityHydrater {
       $node_old->parentNode->replaceChild($node_new, $node_old);
     }
 
-    $body = $dom->saveHTML($dom->getElementsByTagName( 'body' )->item(0));
+    $body = $dom->saveHTML($dom->getElementsByTagName('body')->item(0));
 
     return preg_replace(
       ['/^<body>(.*)<\/body>$/s', '/<p>[^<A-Za-z]+<\/p>\\n/', '/^\\n(.*)/'],
