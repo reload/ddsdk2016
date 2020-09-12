@@ -101,7 +101,7 @@ content:
     region: content
   field_instructions:
     weight: 5
-    label: hidden
+    label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
@@ -117,14 +117,14 @@ content:
     region: content
   field_materials:
     weight: 6
-    label: hidden
+    label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_questions:
     weight: 7
-    label: hidden
+    label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
