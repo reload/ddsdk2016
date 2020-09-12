@@ -41,6 +41,9 @@ function mungo_preprocess_field(&$variables) {
       'field_event_teaser',
       'field_subtitle',
       'field_formatted_text',
+      'field_instructions',
+      'field_materials',
+      'field_questions',
     ]
   )) {
     _mungo_preprocess_text_field($field_name, $variables);
