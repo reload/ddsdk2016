@@ -43,7 +43,7 @@ class ActivityHydrater {
    */
   const TYPE_MAP = [
     1 => 'Pioner og tovværk',
-    2 => 'Orientering => Something',
+    2 => 'Orientering',
     3 => 'Klar dig selv',
     4 => 'Samarbejdsøvelser',
     5 => 'Sundhed',
@@ -317,7 +317,7 @@ class ActivityHydrater {
       $node_old->parentNode->replaceChild($node_new, $node_old);
     }
 
-    $body = $dom->saveHTML($dom->getElementsByTagName('body')->item(0));
+    $body = $dom->saveHTML($dom->getElementsByTagName('body'  )->item(0));
 
     return preg_replace(
       ['/^<body>(.*)<\/body>$/s', '/<p>[^<A-Za-z]+<\/p>\\n/', '/^\\n(.*)/'],
