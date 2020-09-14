@@ -306,7 +306,15 @@ class ActivityHydrater {
     }
   }
 
-  protected static function formatText($text) {
+  /**
+   * @param $text
+   * @return string
+   */
+  protected static function formatText($text): string {
+    if (empty($text)) {
+      return '';
+    }
+
     $dom = new DOMDocument();
     $dom->loadHTML('<?xml encoding="UTF-8" ?>' . $text);
 
