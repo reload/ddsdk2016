@@ -372,13 +372,6 @@ function mungo_preprocess_node(&$variables) {
   $variables['absolute_url'] = Url::fromUri('internal:' . $variables['url'], array('absolute' => TRUE))->toString();
 
   switch ($node->getType()) {
-    case 'activity':
-      if (!empty($node->get('field_activity_id')->value)) {
-        $activity_id = $node->get('field_activity_id')->value;
-        $variables['alternative_url'] = ActivityFetcher::AKTDB_VIEW_PREFIX . '/' . $activity_id;
-      }
-      break;
-
     case 'article':
       _mungo_preprocess_node_article($node, $variables);
       break;
@@ -758,13 +751,6 @@ function _mungo_preprocess_paragraph_content_link(&$variables) {
           if ($thumbnail_uri !== NULL) {
             $thumbnail = _mungo_render_image_uri_with_style($thumbnail_uri, 'thumbnail_4_3');
           }
-        }
-
-        // Inject an alternative url for activities (we want the user to go
-        // directly to aktdb).
-        if ($node->getType() === 'activity' && !empty($node->get('field_activity_id')->value)) {
-          $activity_id = $node->get('field_activity_id')->value;
-          $alternative_url = ActivityFetcher::AKTDB_VIEW_PREFIX . '/' . $activity_id;
         }
 
         // If the node type is download we want to link to the download file
