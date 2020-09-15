@@ -19,7 +19,7 @@ class MigrationCommands extends DrushCommands {
   // The import command tries to import from a given range of ids.
   // Max and min values are defined here.
   const MIN_ACTIVITY_ID = 1;
-  const MAX_ACTIVITY_ID = 1200;
+  const MAX_ACTIVITY_ID = 10;
 
   /**
    * Entity type service.
@@ -47,20 +47,28 @@ class MigrationCommands extends DrushCommands {
   private $accountSwitcher;
 
   /**
-   * Constructs a new UpdateVideosStatsController object.
+   * Constructs a new Migration Commands Object.
    *
    * @param EntityTypeManagerInterface $entityTypeManager
    *   Entity type service.
+   * @param AccountSwitcherInterface $account_switcher
    * @param LoggerChannelFactoryInterface $loggerChannelFactory
    *   Logger service.
-   * @param AccountSwitcherInterface $account_switcher
+   * @param ActivityFetcher $activity_fetcher
+   * @param BatchImportService $batch_import_service
    */
-  public function __construct(EntityTypeManagerInterface $entityTypeManager, AccountSwitcherInterface $account_switcher,  LoggerChannelFactoryInterface $loggerChannelFactory) {
+  public function __construct(
+    EntityTypeManagerInterface $entityTypeManager,
+    AccountSwitcherInterface $account_switcher,
+    LoggerChannelFactoryInterface $loggerChannelFactory,
+    ActivityFetcher $activity_fetcher,
+    BatchImportService $batch_import_service
+  ) {
     $this->entityTypeManager = $entityTypeManager;
     $this->accountSwitcher = $account_switcher;
     $this->loggerChannelFactory = $loggerChannelFactory;
-    $this->activityFetcher = Drupal::service('dds_activity.activity_fetcher');
-    $this->batchImporter = Drupal::service('dds_activity.batch_importer');
+    $this->activityFetcher = $activity_fetcher;
+    $this->batchImporter = $batch_import_service;
 
     parent::__construct();
   }

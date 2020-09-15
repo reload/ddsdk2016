@@ -3,6 +3,9 @@
 namespace Drupal\dds_activity;
 
 use Drupal;
+use Drupal\Core\DependencyInjection\DependencySerializationTrait;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\File\FileSystem;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\node\Entity\Node;
 
@@ -10,14 +13,31 @@ use Drupal\node\Entity\Node;
  * Class BatchService.
  */
 class BatchImportService {
+  use DependencySerializationTrait;
 
   /**
    * @var MessengerInterface
    */
   private $messenger;
+  /**
+   * @var EntityTypeManagerInterface
+   */
+  private $entityTypeManager;
+  /**
+   * @var FileSystem
+   */
+  private $fileSystem;
 
-  public function __construct(MessengerInterface $messenger) {
+  /**
+   * BatchImportService constructor.
+   * @param MessengerInterface $messenger
+   * @param EntityTypeManagerInterface $entity_type_manager
+   * @param FileSystem $file_system
+   */
+  public function __construct(MessengerInterface $messenger, EntityTypeManagerInterface $entity_type_manager, FileSystem $file_system) {
     $this->messenger = $messenger;
+    $this->entityTypeManager = $entity_type_manager;
+    $this->fileSystem = $file_system;
   }
   /**
    * Batch process callback.
@@ -29,9 +49,12 @@ class BatchImportService {
    * @throws Drupal\Core\Entity\EntityStorageException
    */
   public function importActivity(ActivityData $activity, &$context): void {
-    $query = Drupal::service('entity.query')
-      ->get('node')
+    $query = $this->entityTypeManager->getStorage('node')
+      ->getQuery()
       ->condition('field_activity_id', $activity->id);
+//    $query = Drupal::service('entity.query')
+//      ->get('node')
+//      ->condition('field_activity_id', $activity->id);
     $query_result = $query->execute();
 
     if (!empty($query_result)) {
@@ -42,7 +65,7 @@ class BatchImportService {
       $node = Node::create(['type' => 'activity']);
     }
 
-    (new ActivityHydrater($activity, $this->messenger))
+    (new ActivityHydrater($activity, $this->messenger, $this->entityTypeManager, $this->fileSystem))
       ->hydrateNode($node)
       ->save();
 

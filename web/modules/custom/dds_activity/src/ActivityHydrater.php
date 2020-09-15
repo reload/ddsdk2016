@@ -5,6 +5,8 @@ namespace Drupal\dds_activity;
 use DOMDocument;
 use Drupal;
 use Drupal\Core\Entity\EntityStorageException;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\File\FileSystem;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
@@ -87,15 +89,27 @@ class ActivityHydrater {
    * @var MessengerInterface
    */
   private $messenger;
+  /**
+   * @var EntityTypeManagerInterface
+   */
+  private $entityTypeManager;
+  /**
+   * @var FileSystem
+   */
+  private $fileSystem;
 
   /**
    * ActivityHydrater constructor.
    * @param ActivityData $activityData
    * @param MessengerInterface $messenger
+   * @param EntityTypeManagerInterface $entity_type_manager
+   * @param FileSystem $file_system
    */
-  public function __construct(ActivityData $activityData, MessengerInterface $messenger) {
+  public function __construct(ActivityData $activityData, MessengerInterface $messenger, EntityTypeManagerInterface $entity_type_manager, FileSystem $file_system) {
     $this->activity = $activityData;
     $this->messenger = $messenger;
+    $this->entityTypeManager = $entity_type_manager;
+    $this->fileSystem = $file_system;
   }
 
   /**
@@ -177,7 +191,11 @@ class ActivityHydrater {
    */
   protected function getTermIds(string $vid, array $term_names): array {
     return array_map(function ($term_name) use ($vid) {
-      $term_query = Drupal::entityQuery('taxonomy_term')
+//      $term_query = Drupal::entityQuery('taxonomy_term')
+//        ->condition('vid', $vid)
+//        ->condition('name', $term_name);
+      $term_query = $this->entityTypeManager->getStorage('taxonomy_term')
+        ->getQuery()
         ->condition('vid', $vid)
         ->condition('name', $term_name);
       $term_query_result = $term_query->execute();
@@ -252,7 +270,7 @@ class ActivityHydrater {
     // First off, prepare the directory where we're going to put the image.
     $file_destination_dir = 'public://aktivws/' . $this->activity->id;
     $filename = basename($image_url);
-    if (!Drupal::service('file_system')->prepareDirectory($file_destination_dir, FileSystemInterface::CREATE_DIRECTORY)) {
+    if (!$this->fileSystem->prepareDirectory($file_destination_dir, FileSystemInterface::CREATE_DIRECTORY)) {
       $this->messenger->addError($this->t('Could not prepare destination directory @dir', ['@dir' => $file_destination_dir]));
       return;
     }
