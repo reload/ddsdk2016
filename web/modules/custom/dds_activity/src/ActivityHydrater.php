@@ -3,16 +3,20 @@
 namespace Drupal\dds_activity;
 
 use DOMDocument;
-use Drupal;
+use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
+use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Core\Entity\EntityStorageException;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\File\FileSystem;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
+use Drupal\Core\TypedData\Exception\ReadOnlyException;
+use Drupal\file\FileInterface;
 use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
+use Psr\Log\LoggerInterface;
 
 class ActivityHydrater {
 
@@ -82,7 +86,7 @@ class ActivityHydrater {
    */
   private $activity;
   /**
-   * @var \Psr\Log\LoggerInterface
+   * @var LoggerInterface
    */
   private $logger;
   /**
@@ -116,6 +120,9 @@ class ActivityHydrater {
    * @param Node $node
    * @return Node
    * @throws EntityStorageException
+   * @throws InvalidPluginDefinitionException
+   * @throws PluginNotFoundException
+   * @throws ReadOnlyException
    */
   public function hydrateNode(Node $node): Node {
     $node->set('title', $this->activity->title);
@@ -187,13 +194,12 @@ class ActivityHydrater {
    * @param string $vid
    * @param array $term_names
    * @return array
-   * @throws Drupal\Core\Entity\EntityStorageException
+   * @throws EntityStorageException
+   * @throws InvalidPluginDefinitionException
+   * @throws PluginNotFoundException
    */
   protected function getTermIds(string $vid, array $term_names): array {
     return array_map(function ($term_name) use ($vid) {
-//      $term_query = Drupal::entityQuery('taxonomy_term')
-//        ->condition('vid', $vid)
-//        ->condition('name', $term_name);
       $term_query = $this->entityTypeManager->getStorage('taxonomy_term')
         ->getQuery()
         ->condition('vid', $vid)
@@ -278,7 +284,7 @@ class ActivityHydrater {
     // The prepare the destination path and download the file.
     $file_destination = $file_destination_dir . '/' . $filename;
 
-    /** @var Drupal\file\FileInterface $file */
+    /** @var FileInterface $file */
     $file = system_retrieve_file($image_url, $file_destination, TRUE, FileSystemInterface::EXISTS_REPLACE);
     if ($file === FALSE) {
       $this->messenger->addError($this->t(

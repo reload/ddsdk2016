@@ -3,6 +3,7 @@
 namespace Drupal\dds_activity;
 
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
 
 /**
@@ -18,7 +19,7 @@ class ActivityFetcher {
   /**
    * ActivityFetcher constructor.
    *
-   * @param \GuzzleHttp\ClientInterface $client
+   * @param ClientInterface $client
    *   Initialized http client.
    */
   public function __construct(ClientInterface $client) {
@@ -34,7 +35,7 @@ class ActivityFetcher {
    *
    * @return bool
    *   Id of the activity.
-   * @throws \GuzzleHttp\Exception\GuzzleException
+   * @throws GuzzleException
    */
   public function loadActivity($activity_id) {
     if ($activity_id > 0) {

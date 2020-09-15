@@ -2,7 +2,8 @@
 
 namespace Drupal\dds_activity\Commands;
 
-use Drupal;
+use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
+use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Session\AccountSwitcherInterface;
@@ -10,6 +11,7 @@ use Drupal\dds_activity\ActivityFetcher;
 use Drupal\dds_activity\ActivityData;
 use Drush\Commands\DrushCommands;
 use Drupal\dds_activity\BatchImportService;
+use GuzzleHttp\Exception\GuzzleException;
 
 /**
  * A Drush command file.
@@ -19,7 +21,7 @@ class MigrationCommands extends DrushCommands {
   // The import command tries to import from a given range of ids.
   // Max and min values are defined here.
   const MIN_ACTIVITY_ID = 1;
-  const MAX_ACTIVITY_ID = 10;
+  const MAX_ACTIVITY_ID = 1200;
 
   /**
    * Entity type service.
@@ -80,6 +82,9 @@ class MigrationCommands extends DrushCommands {
    * @aliases activity-import
    *
    * @usage activity:import
+   * @throws InvalidPluginDefinitionException
+   * @throws PluginNotFoundException
+   * @throws GuzzleException
    */
   public function activityImport() {
     $this->loggerChannelFactory->get('dds_activity')->info('Import activities batch operations start');

@@ -3,7 +3,12 @@ services:
     class: Drupal\dds_activity\Commands\MigrationCommands
     tags:
       - { name: drush.command }
-    arguments: ['@entity_type.manager', '@account_switcher', '@logger.factory', '@dds_activity.activity_fetcher', '@dds_activity.batch_importer']
+    arguments:
+      - '@entity_type.manager'
+      - '@account_switcher'
+      - '@logger.factory'
+      - '@dds_activity.activity_fetcher'
+      - '@dds_activity.batch_importer'
 
   dds_activity.batch_importer:
     class: Drupal\dds_activity\BatchImportService
