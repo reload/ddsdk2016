@@ -309,7 +309,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: '<p class="search__empty">Beklager, vi kunne ikke finde arrangementer der opfyldte kriterierne.</p>'
+          content: '<p class="search__empty">Beklager, vi kunne ikke finde aktiviteter der opfyldte kriterierne.</p>'
           plugin_id: text_custom
       relationships: {  }
       arguments: {  }

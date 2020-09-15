@@ -52,7 +52,5 @@ processor_configs:
       build: 15
     settings: {  }
 empty_behavior:
-  behavior: text
-  text_format: plain_text
-  text: 'Noget er galt med facet'
+  behavior: none
 show_title: false
