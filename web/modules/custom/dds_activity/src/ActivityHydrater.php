@@ -127,10 +127,7 @@ class ActivityHydrater {
   public function hydrateNode(Node $node): Node {
     $node->set('title', $this->activity->title);
     $node->set('field_activity_id', $this->activity->id);
-    $node->set(
-      'field_subtitle',
-      ['value' => self::formatText($this->activity->description), 'format' => 'full_html']
-    );
+    $node->set('field_subtitle', strip_tags($this->activity->description));
 
     $node->set(
       'field_instructions',
