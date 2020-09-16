@@ -96,11 +96,11 @@
         "drush/drush": "^9",
         "predis/predis": "^1.1",
         "rubenrua/symfony-clean-tags-composer-plugin": "^1.0",
-        "woothemes/flexslider": "^2.6.3"
+        "woothemes/flexslider": "^2.6.3",
+        "ext-dom": "*"
     },
     "require-dev": {
         "drupal/core-dev": "^8.8",
-        "mglaman/phpstan-drupal": "^0.12.5",
         "squizlabs/php_codesniffer": "^3"
     },
     "conflict": {
