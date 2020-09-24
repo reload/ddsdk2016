@@ -9,7 +9,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source "${SCRIPT_DIR}/_docker-common.sh"
 
 # Hostname to send a request to to warm up the cache-cleared site.
-HOST="localhost"
+HOST="ddsdk.docker"
 WEB_CONTAINER="web"
 
 # Start off at the root of the project.
@@ -53,7 +53,6 @@ eval $cmd
 echoc "*** Resetting Drupal"
 "${SCRIPT_DIR}/site-reset.sh"
 
-echoc "*** Warming cache by doing an initial request"
 docker-compose exec ${WEB_CONTAINER} curl --silent --output /dev/null -H "Host: ${HOST}" localhost
 
 

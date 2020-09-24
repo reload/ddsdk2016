@@ -34,3 +34,5 @@ time docker-compose exec fpm sh -c  "\
   echo ' * Clearing search-api' && \
   drush search-api-clear
   "
+
+printf "\nYou may now visit the site at http://ddsdk.docker (if you are running dory)."
