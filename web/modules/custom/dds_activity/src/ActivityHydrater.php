@@ -22,6 +22,9 @@ class ActivityHydrater {
 
   use StringTranslationTrait;
 
+  // The content topic term id for 'Aktiviteter';
+  const CONTENT_TOPIC_ACTIVITY = 82;
+
   /**
    * Mapping of age target group.
    * [(previous id) => (Badge target group id)]
@@ -143,6 +146,8 @@ class ActivityHydrater {
     );
 
     $node->set('field_youtube', $this->activity->youTube);
+
+    $node->set('field_content_topic', self::CONTENT_TOPIC_ACTIVITY);
 
     // We don't use getTermIds for this field because the terms already exist
     // and we just need to map old ids to new.

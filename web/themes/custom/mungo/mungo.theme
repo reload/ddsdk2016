@@ -851,8 +851,8 @@ function mungo_preprocess_views_view(&$variables) {
 
     // If we have active, non-default filters, we can tell frotend to not
     // hide the filters by dropdown.
-    if (!empty($variables['exposed']['f[0]']) ||
-        !empty($variables['exposed']['event_before']['#value'])) {
+    $request_params = \Drupal::request()->query->all();
+    if (!empty($request_params['f']) || isset($request_params['event_before'])) {
       $variables['has_active_facets'] = TRUE;
     }
   }
