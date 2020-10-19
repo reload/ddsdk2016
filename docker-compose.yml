@@ -1,35 +1,41 @@
-version: "3.7"
+version: '3'
 
 services:
   # Pure web-server, hands php-requests off to fpm.
   web:
-    image: reload/drupal-apache-fpm
+    image: reload/drupal-apache-fpm:latest
     ports:
       - '80'
       - '443'
+    depends_on:
+      - fpm
     volumes:
+      - 'projectroot:/var/www/'
+      - '${HOME}/.local/share/mkcert:/mkcert:ro'
+      - '${HOME}/.local/share/dev_certificates:/cert:rw'
       # Temporary mount for the cron-configuration, we'll copy it into place
       # with correct ownership via the init-script.
       - './docker/cron/drupal-cron:/root/tmp.drupal-cron:ro'
       - './docker/cron/setup-cron.sh:/etc/my_init.d/setup-cron.sh'
-      - 'webroot:/var/www/'
-      # Add Development root CA and our certificate store.
-      - '${HOME}/.local/share/mkcert:/mkcert:ro'
-      - '${HOME}/.local/share/dev_certificates:/cert:rw'
     environment:
+      VIRTUAL_PROTO: http
       VIRTUAL_HOST: ddsdk.docker
       # Ensure dory/nginx-proxy goes via port 80.
       VIRTUAL_PORT: '80'
       # Ensure dory don't redirect from http to https.
       HTTPS_METHOD: noredirect
       MKCERT_DOMAINS: "ddsdk.docker mail.ddsdk.docker solr.ddsdk.docker"
+
   # Instance of the php-image configured to serve fpm-requests.
   fpm:
     image: reload/drupal-php7-fpm:7.2
     ports:
       - '9000'
     volumes:
-      - 'webroot:/var/www/'
+      - 'projectroot:/var/www/'
+    depends_on:
+      - db
+      - redis
     working_dir: /var/www/web
     environment:
       PATH: '/var/www/vendor/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
@@ -47,6 +53,7 @@ services:
       # Fake healthy state as we're using datadirs.
       - './docker-compose.yml:/tmp/docker-finished-init:ro'
       - 'db-datadir:/var/lib/mysql'
+
     depends_on:
       - db-data
     # Comment the lines depends_on and add the following to volumes if you want
@@ -95,14 +102,14 @@ services:
   mailhog:
     image: mailhog/mailhog
     ports:
-      - "8025"
+      - '8025'
     environment:
       VIRTUAL_HOST: mail.ddsdk.docker
 
   npm:
     image: node:9-slim
     volumes:
-      - 'webroot:/var/www/'
+      - 'projectroot:/var/www/'
       - 'cache:/npm-cache'
     working_dir: /var/www
     environment:
@@ -114,9 +121,9 @@ volumes:
   # NPM cache that survives docker-reset.sh
   cache:
   db-datadir:
-  webroot:
+  projectroot:
     driver: local
     driver_opts:
-      type: nfs
-      o: addr=host.docker.internal,rw,nolock,hard,nointr,nfsvers=3
-      device: ":${PWD}"
+      type: none
+      device: ${PWD}
+      o: bind
