@@ -7,7 +7,7 @@ dependencies:
 id: activity
 label: Activity
 type: 'canonical_entities:node'
-pattern: 'aktiviteter/[node:title]'
+pattern: 'aktivitet/[node:title]'
 selection_criteria:
   a7b38f7d-ab2a-4601-899c-57836bf1db02:
     id: node_type
