@@ -337,7 +337,7 @@ display:
             og_url: '[current-page:url]'
             og_title: Arrangementer
             og_description: 'Kommende arrangementer i Det Danske Spejderkorps'
-      path: nyeaktiviteter
+      path: aktiviteter
       display_description: ''
       cache:
         type: none
