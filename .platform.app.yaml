@@ -18,9 +18,7 @@ build:
 # The build-time dependencies of the app.
 dependencies:
     php:
-        "drush/drush": "^8.0"
-        "drupal/console": "@stable"
-        "composer/composer": "^1.0"
+        "composer/composer": "^2.0"
     nodejs:
         "gulp-cli": "latest"
 
