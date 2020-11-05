@@ -180,5 +180,29 @@ function dds_update_update_8109() {
   translate_tool_delete('Search for activities ...', 'activity search');
   translate_tool_add('Search for activities ...', 'da', 'Søg efter aktiviteter', 'activity search');
   translate_tool_add('Search for events ...', 'da', 'Søg efter arrangementer', 'event search');
+}
 
+/**
+ * Delete the /aktiviteter redirect.
+ *
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+ */
+function dds_update_update_8110() {
+  $result = \Drupal::entityQuery("redirect")
+    ->condition('redirect_source__path', 'aktiviteter')
+    ->execute();
+
+  $storage_handler = \Drupal::entityTypeManager()->getStorage("redirect");
+  $entities = $storage_handler->loadMultiple($result);
+
+  if (count($entities) === 1) {
+    try {
+      $storage_handler->delete($entities);
+      \Drupal::messenger()->addMessage('/aktiviteter redirect was deleted');
+    }
+    catch (\Exception $e) {
+      \Drupal::messenger()->addError('Could not delete the /aktiviteter redirect');
+    }
+  }
 }

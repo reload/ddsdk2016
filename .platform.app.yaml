@@ -20,6 +20,7 @@ dependencies:
     php:
         "drush/drush": "^8.0"
         "drupal/console": "@stable"
+        "composer/composer": "^1.0"
     nodejs:
         "gulp-cli": "latest"
 
@@ -58,7 +59,7 @@ web:
             # location to the application.
             # (Can be true, false or a URI path string.)
             passthru: "/index.php"
-            
+
             # Deny access to static files in this location.
             allow: false
 
