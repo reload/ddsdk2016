@@ -44,9 +44,10 @@
         }
     ],
     "require": {
-        "composer/installers": "^1.7",
-        "cweagans/composer-patches": "^1.6.5",
-        "drmonty/chosen": "^1.6.1",
+        "ext-dom": "*",
+        "composer/installers": "^1.9",
+        "cweagans/composer-patches": "^1.7",
+        "drmonty/chosen": "^1.6",
         "drupal/address": "^1.4.0",
         "drupal/admin_toolbar": "^2.0.0",
         "drupal/better_exposed_filters": "^3.0.0-alpha5",
@@ -95,9 +96,7 @@
         "drupal/views_bulk_operations": "^3.6",
         "drush/drush": "^9",
         "predis/predis": "^1.1",
-        "rubenrua/symfony-clean-tags-composer-plugin": "^1.0",
-        "woothemes/flexslider": "^2.6.3",
-        "ext-dom": "*"
+        "woothemes/flexslider": "^2.6.3"
     },
     "require-dev": {
         "drupal/core-dev": "^8.8",
