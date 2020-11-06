@@ -113,9 +113,9 @@ hooks:
     # We run deploy hook after your application has been deployed and started.
     deploy: |
       cd web
-      $PLATFORM_APP_DIR/vendor/bin/drush -y cache-rebuild
-      $PLATFORM_APP_DIR/vendor/bin/drush -y updatedb
-      $PLATFORM_APP_DIR/vendor/bin/drush -y config-import
+      drush -y cache-rebuild
+      drush -y updatedb
+      drush -y config-import
 
 # The configuration of scheduled execution.
 crons:
@@ -123,7 +123,7 @@ crons:
         spec: "*/5 * * * *"
         cmd: |
             cd "$PLATFORM_DOCUMENT_ROOT"
-            $PLATFORM_APP_DIR/vendor/bin/drush core:cron --uri=$(platform route:get --primary --property=url)
+            drush core:cron --uri=$(platform route:get --primary --property=url)
     snapshot:
         spec: '15 0 * * *'
         cmd: |
