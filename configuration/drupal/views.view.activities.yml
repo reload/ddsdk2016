@@ -296,7 +296,7 @@ display:
           expose:
             label: ''
           plugin_id: search_api
-      title: Aktiviteter
+      title: Aktivitetsdatabasen
       header: {  }
       footer: {  }
       empty:
