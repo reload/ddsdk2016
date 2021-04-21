@@ -55,7 +55,7 @@
         "drupal/chosen_lib": "^2.6.0",
         "drupal/cookieconsent": "^1.4.0",
         "drupal/core-composer-scaffold": "^8.9.1",
-        "drupal/core-recommended": "^8.9.6",
+        "drupal/core-recommended": "^8.9.14",
         "drupal/crop": "^1.5.0",
         "drupal/ctools": "^3.0.0",
         "drupal/editor_advanced_link": "^1.4.0",

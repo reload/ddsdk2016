@@ -41,6 +41,7 @@ services:
       PATH: '/var/www/vendor/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
       PHP_SENDMAIL_PATH: /usr/local/bin/mhsendmail --smtp-addr="mailhog:1025"
       DRUSH_OPTIONS_URI: https://ddsdk.docker
+      COMPOSER_MEMORY_LIMIT: "-1"
 
   # Mariadb database, initialized with a nighly pre-build datadir.
   db:
