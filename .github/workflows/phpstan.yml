@@ -1,0 +1,22 @@
+on: pull_request
+
+name: PHPStan
+jobs:
+  phpstan:
+    name: analyse
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup PHP, with composer and extensions
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.3
+          extensions: gd, intl
+          coverage: none
+          tools: composer:v2
+      - name: Install composer dependencies
+        run: |
+          composer install --no-interaction --no-progress
+      - name: PHPStan analyse
+        run: |
+          vendor/bin/phpstan analyse --memory-limit=-1
