@@ -5,6 +5,7 @@
  * Custom settings for the mungo theme.
  */
 
+use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Form\FormState;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\file\FileInterface;
@@ -135,7 +136,7 @@ function mungo_handle_uploaded_file(
     ['file_validate_is_image' => []],
     "public://",
     NULL,
-    FILE_EXISTS_REPLACE
+    FileSystemInterface::EXISTS_REPLACE
   );
 
 
