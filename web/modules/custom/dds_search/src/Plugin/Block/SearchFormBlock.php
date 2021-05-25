@@ -18,7 +18,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   category = @Translation("DDS Search")
  * )
  */
-class SearchFormBlock extends BlockBase implements ContainerFactoryPluginInterface {
+final class SearchFormBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
    * Drupals form_builder service.
