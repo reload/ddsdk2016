@@ -9,8 +9,8 @@
 <div class="container">
   <div class="grouping-menu clearfix">
     {% for child in children %}
-      {% if child in selected %}
-        {% set item = attribute(element, child) %}
+      {% set item = attribute(element, child) %}
+      {% if 'bef-link--selected' in item['#attributes']['class'] %}
         <div class="grouping-menu__active_title">{{ item }}</div>
       {% endif %}
     {% endfor %}
@@ -19,8 +19,13 @@
       {% if children %}
         <ul class="menu menu--grouping-menu">
           {% for child in children %}
-            {% set classes = child in selected ? 'menu-item--active-trail' %}
             {% set item = attribute(element, child) %}
+            {% set classes = '' %}
+
+            {% if 'bef-link--selected' in item['#attributes']['class'] %}
+              {% set classes = 'menu-item--active-trail' %}
+            {% endif %}
+
             <li class="{{ classes }}">
               {{ item }}
             </li>
