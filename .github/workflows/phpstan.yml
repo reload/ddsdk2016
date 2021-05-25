@@ -17,6 +17,8 @@ jobs:
       - name: Install composer dependencies
         run: |
           composer install --no-interaction --no-progress
+          # Add vendor/bin to PATH for subsequent steps, see https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions#adding-a-system-path
+          composer config bin-dir --absolute >> "${GITHUB_PATH}"
       - name: PHPStan analyse
         run: |
-          vendor/bin/phpstan analyse --memory-limit=-1
+          phpstan
