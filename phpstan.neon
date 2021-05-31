@@ -1,5 +1,5 @@
 parameters:
-  customRulesetUsed: true
+  level: 1
   paths:
    - web/modules/custom
    - web/themes/custom
