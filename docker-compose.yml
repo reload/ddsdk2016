@@ -42,6 +42,9 @@ services:
       PHP_SENDMAIL_PATH: /usr/local/bin/mhsendmail --smtp-addr="mailhog:1025"
       DRUSH_OPTIONS_URI: https://ddsdk.docker
       COMPOSER_MEMORY_LIMIT: "-1"
+      XDEBUG_MODE: "debug,develop"
+      XDEBUG_CONFIG: "client_host=host.docker.internal"
+      discover_client_host: "0"
 
   # Mariadb database, initialized with a nighly pre-build datadir.
   db:
