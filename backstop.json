@@ -1,32 +1,120 @@
 {
   "viewports": [
     {
-      "label": "Mobile / iPhone 6/7/8 Plus (414x736)",
+      "label": "'x-small (mobile)' (414x736)",
       "width": 414,
       "height": 736
     },
     {
-      "label": "Tablet / iPad (768x1024)",
+      "label": "'small (tablet)' (768x1024)",
       "width": 768,
       "height": 1024
     },
     {
-      "label": "Tablet Landscape (1024x768)",
+      "label": "'medium (tablet landscape)' (1024x768)",
       "width": 1024,
-      "height": 768
-    },
-    {
-      "label": "Desktop (1920x1050)",
-      "width": 1920,
       "height": 768
     }
   ],
   "scenarios": [
     {
-      "label": "Forside",
+      "label": "/",
       "url": "%site-url%/",
       "referenceUrl": "https://www.dds.dk",
-      "delay": 1500
+      "delay": 1500,
+      "removeSelectors": [
+        ".cc_banner-wrapper"
+      ]
+    },
+    {
+      "label": "/aktiviteter",
+      "url": "%site-url%/aktiviteter",
+      "referenceUrl": "https://dds.dk/aktiviteter",
+      "delay": 1500,
+      "removeSelectors": [
+        ".cc_banner-wrapper"
+      ]
+    },
+    {
+      "label": "/maerker",
+      "url": "%site-url%/maerker",
+      "referenceUrl": "https://dds.dk/maerker",
+      "delay": 1500,
+      "removeSelectors": [
+        ".cc_banner-wrapper"
+      ]
+    },
+    {
+      "label": "/arrangementer?event_after=20/05/2021",
+      "url": "%site-url%/arrangementer?event_after=20/05/2021",
+      "referenceUrl": "https://dds.dk/arrangementer?event_after=20/05/2021",
+      "delay": 1500,
+      "removeSelectors": [
+        ".cc_banner-wrapper"
+      ]
+    },
+    {
+      "label": "/trop-temaside",
+      "url": "%site-url%/trop-temaside",
+      "referenceUrl": "https://dds.dk/trop-temaside",
+      "delay": 1500,
+      "removeSelectors": [
+        ".cc_banner-wrapper"
+      ]
+    },
+    {
+      "label": "/artikel/guide-sadan-pakker-du-rygsaekken",
+      "url": "%site-url%/artikel/guide-sadan-pakker-du-rygsaekken",
+      "referenceUrl": "https://dds.dk/artikel/guide-sadan-pakker-du-rygsaekken",
+      "delay": 1500,
+      "removeSelectors": [
+        ".cc_banner-wrapper"
+      ]
+    },
+    {
+      "label": "/artikel/fem-flotte-naturperler-til-en-weekendtur",
+      "url": "%site-url%/artikel/fem-flotte-naturperler-til-en-weekendtur",
+      "referenceUrl": "https://dds.dk/artikel/fem-flotte-naturperler-til-en-weekendtur",
+      "delay": 1500,
+      "removeSelectors": [
+        ".cc_banner-wrapper"
+      ]
+    },
+    {
+      "label": "/maerke/bygherre",
+      "url": "%site-url%/maerke/bygherre",
+      "referenceUrl": "https://www.dds.dk/maerke/bygherre",
+      "delay": 1500,
+      "removeSelectors": [
+        ".cc_banner-wrapper"
+      ]
+    },
+    {
+      "label": "/arrangement/so21-solandslejr",
+      "url": "%site-url%/arrangement/so21-solandslejr",
+      "referenceUrl": "https://dds.dk/arrangement/so21-solandslejr",
+      "delay": 1500,
+      "removeSelectors": [
+        ".cc_banner-wrapper"
+      ]
+    },
+    {
+      "label": "/aktivitet/1-dags-kollektiv",
+      "url": "%site-url%/aktivitet/1-dags-kollektiv",
+      "referenceUrl": "https://dds.dk/aktivitet/1-dags-kollektiv",
+      "delay": 1500,
+      "removeSelectors": [
+        ".cc_banner-wrapper"
+      ]
+    },
+    {
+      "label": "/synlighed",
+      "url": "%site-url%/synlighed",
+      "referenceUrl": "https://dds.dk/synlighed",
+      "delay": 1500,
+      "removeSelectors": [
+        ".cc_banner-wrapper"
+      ]
     }
   ],
   "paths": {

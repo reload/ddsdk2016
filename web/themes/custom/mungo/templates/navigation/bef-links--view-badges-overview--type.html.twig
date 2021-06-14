@@ -11,13 +11,19 @@
 <div class="container">
   <div{{ attributes.addClass(classes) }}>
     {% for child in children %}
-      {% set classes = ['large-button-menu--button'] %}
-      {% set item = attribute(element, child)|merge({'#attributes': {'class': classes}}) %}
-      {% if child in selected %}
-        {% set classes = classes|merge(['large-button-menu--button__active']) %}
-        {% set item = item|merge({'#attributes': {'class': classes}}) %}
-      {% endif %}
-      {{ item }}
+      {# Gets more child-data than just the title. #}
+      {% set item = attribute(element, child) %}
+
+      <div class="
+        large-button-menu--button
+        {% if 'bef-link--selected' in item['#attributes']['class'] %}
+          large-button-menu--button__active
+        {% endif %}
+      ">
+
+      {{ attribute(element, child) }}
+
+      </div>
     {% endfor %}
   </div>
 </div>
