@@ -107,7 +107,7 @@ $settings['bootstrap_container_definition'] = [
 
 // Solr config override.
 $config['search_api.server.solr']['backend_config']['connector_config']['host'] = 'solr';
-$config['search_api.server.solr']['backend_config']['connector_config']['path'] = '/solr';
+$config['search_api.server.solr']['backend_config']['connector_config']['path'] = '';
 $config['search_api.server.solr']['backend_config']['connector_config']['port'] = '8983';
 $config['search_api.server.solr']['backend_config']['connector_config']['core'] = 'ddsmainindex';
 

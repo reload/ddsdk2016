@@ -2,51 +2,59 @@ uuid: 20c9c73a-0e71-411c-91fc-5369661b4692
 langcode: en
 status: true
 dependencies:
-  config:
-    - field.storage.node.field_event_is_all_day
-    - field.storage.node.field_event_area
-    - field.storage.node.field_article_type
-    - field.storage.node.field_content_author
-    - field.storage.taxonomy_term.field_presentation_name
-    - field.storage.node.field_badge_target_group
-    - field.storage.node.field_content_category
-    - field.storage.node.field_course_id
-    - field.storage.node.field_duration
-    - field.storage.node.field_event_end
-    - field.storage.node.field_event_address
-    - field.storage.node.field_event_location_name
-    - field.storage.node.field_event_type
-    - field.storage.node.field_main_media
-    - field.storage.media.field_byline
-    - field.storage.media.field_caption
-    - field.storage.node.field_2018_badge
-    - field.storage.node.field_paragraphs
-    - field.storage.paragraph.field_video_caption
-    - field.storage.paragraph.field_gallery_image
-    - field.storage.paragraph.field_quotation
-    - field.storage.paragraph.field_factbox_text
-    - field.storage.paragraph.field_formatted_text
-    - field.storage.node.field_event_price
-    - field.storage.node.field_sidedeck
-    - field.storage.paragraph.field_download
-    - field.storage.node.field_event_signup_deadline
-    - field.storage.node.field_event_start
-    - field.storage.node.field_subtitle
-    - field.storage.node.field_content_tag
-    - field.storage.node.field_content_target_group
-    - field.storage.node.field_event_teaser
-    - field.storage.node.field_content_topic
-    - field.storage.node.field_activity_type
-    - search_api.server.solr
-    - core.entity_view_mode.node.search_index
   module:
+    - search_api_solr
     - node
     - taxonomy
-    - media
     - paragraphs
+    - media
     - search_api
     - search_api_exclude_entity
-    - search_api_solr
+  config:
+    - field.storage.node.field_event_address
+    - field.storage.node.field_event_type
+    - field.storage.node.field_2018_badge
+    - field.storage.node.field_activity_type
+    - field.storage.node.field_article_type
+    - field.storage.node.field_badge_target_group
+    - field.storage.node.field_content_category
+    - field.storage.node.field_content_tag
+    - field.storage.node.field_content_target_group
+    - field.storage.node.field_content_topic
+    - field.storage.node.field_course_id
+    - field.storage.node.field_sidedeck
+    - field.storage.paragraph.field_download
+    - field.storage.node.field_duration
+    - field.storage.node.field_event_area
+    - field.storage.node.field_event_end
+    - field.storage.node.field_event_is_all_day
+    - field.storage.node.field_event_location_name
+    - field.storage.node.field_event_price
+    - field.storage.node.field_event_signup_deadline
+    - field.storage.node.field_event_start
+    - field.storage.node.field_event_teaser
+    - field.storage.node.field_paragraphs
+    - field.storage.paragraph.field_factbox_text
+    - field.storage.paragraph.field_formatted_text
+    - field.storage.node.field_content_author
+    - field.storage.taxonomy_term.field_presentation_name
+    - field.storage.paragraph.field_quotation
+    - field.storage.node.field_subtitle
+    - field.storage.paragraph.field_video_caption
+    - field.storage.media.field_byline
+    - field.storage.node.field_main_media
+    - field.storage.media.field_caption
+    - field.storage.paragraph.field_gallery_image
+    - search_api.server.solr
+    - core.entity_view_mode.node.search_index
+third_party_settings:
+  search_api_solr:
+    multilingual:
+      limit_to_content_language: false
+      include_language_independent: true
+    term_modifiers:
+      slop: 10000000
+      fuzzy: 2
 id: nodes
 name: Nodes
 description: ''
@@ -93,7 +101,6 @@ field_settings:
       config:
         - field.storage.node.field_event_type
       module:
-        - taxonomy
         - taxonomy
   field_2018_badge_1:
     label: 'Nyt mærke (2018)'
@@ -145,7 +152,6 @@ field_settings:
         - field.storage.node.field_content_category
       module:
         - taxonomy
-        - taxonomy
   field_content_tag:
     label: Tag
     datasource_id: 'entity:node'
@@ -163,7 +169,6 @@ field_settings:
       config:
         - field.storage.node.field_content_tag
       module:
-        - taxonomy
         - taxonomy
   field_content_target_group:
     label: 'Target group'
@@ -183,7 +188,6 @@ field_settings:
         - field.storage.node.field_content_target_group
       module:
         - taxonomy
-        - taxonomy
   field_content_topic:
     label: Topic
     datasource_id: 'entity:node'
@@ -201,7 +205,6 @@ field_settings:
       config:
         - field.storage.node.field_content_topic
       module:
-        - taxonomy
         - taxonomy
   field_course_id:
     label: 'Course id'
@@ -221,9 +224,8 @@ field_settings:
         - field.storage.node.field_sidedeck
         - field.storage.paragraph.field_download
       module:
+        - node
         - paragraphs
-        - node
-        - node
   field_duration:
     label: Duration
     datasource_id: 'entity:node'
@@ -376,8 +378,8 @@ field_settings:
     type: text
     dependencies:
       config:
-        - field.storage.node.field_main_media
         - field.storage.media.field_byline
+        - field.storage.node.field_main_media
       module:
         - media
   main_media_image_field_caption:
@@ -387,8 +389,8 @@ field_settings:
     type: text
     dependencies:
       config:
-        - field.storage.node.field_main_media
         - field.storage.media.field_caption
+        - field.storage.node.field_main_media
       module:
         - media
   nid:
@@ -406,12 +408,12 @@ field_settings:
     type: string
     dependencies:
       config:
+        - field.storage.media.field_byline
         - field.storage.node.field_paragraphs
         - field.storage.paragraph.field_gallery_image
-        - field.storage.media.field_byline
       module:
-        - paragraphs
         - media
+        - paragraphs
   paragraph_images_field_caption:
     label: 'Paragraphs » Paragraph » Images » Media » Image caption'
     datasource_id: 'entity:node'
@@ -419,12 +421,12 @@ field_settings:
     type: text
     dependencies:
       config:
+        - field.storage.media.field_caption
         - field.storage.node.field_paragraphs
         - field.storage.paragraph.field_gallery_image
-        - field.storage.media.field_caption
       module:
-        - paragraphs
         - media
+        - paragraphs
   postal_code:
     label: 'Event address » The postal code.'
     datasource_id: 'entity:node'
@@ -506,6 +508,9 @@ datasource_settings:
       default: true
       selected: {  }
 processor_settings:
+  rendered_item:
+    plugin_id: rendered_item
+    settings: {  }
   add_url:
     plugin_id: add_url
     settings: {  }
@@ -513,6 +518,21 @@ processor_settings:
     plugin_id: aggregated_field
     settings: {  }
   entity_status: {  }
+  type_boost:
+    boosts:
+      'entity:node':
+        datasource_boost: !!float 1
+        bundle_boosts:
+          activity: !!float 0
+          article: !!float 0
+          badge: !!float 0
+          download: !!float 0
+          event: !!float 0
+          redirect_page: !!float 2
+          section_page: !!float 0
+    weights:
+      preprocess_index: 0
+  language_with_fallback: {  }
   html_filter:
     all_fields: true
     fields:
@@ -554,28 +574,11 @@ processor_settings:
     weights:
       preprocess_index: -15
       preprocess_query: -15
-  rendered_item:
-    plugin_id: rendered_item
-    settings: {  }
   search_api_exclude_entity_processor:
     fields:
       node:
         - field_exclude_from_search
   solr_date_range: {  }
-  type_boost:
-    boosts:
-      'entity:node':
-        datasource_boost: !!float 1
-        bundle_boosts:
-          activity: !!float 0
-          article: !!float 0
-          badge: !!float 0
-          download: !!float 0
-          event: !!float 0
-          redirect_page: !!float 2
-          section_page: !!float 0
-    weights:
-      preprocess_index: 0
 tracker_settings:
   default:
     plugin_id: default
