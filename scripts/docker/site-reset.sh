@@ -32,7 +32,9 @@ time docker-compose exec fpm sh -c  "\
   echo ' * Cache rebuild' && \
   drush cache-rebuild && \
   echo ' * Clearing search-api' && \
-  drush search-api-clear
+  drush search-api-clear &&
+  echo ' * preparing admin login' && \
+  drush uli
   "
 
 printf "\nYou may now visit the site at http://ddsdk.docker (if you are running dory)."
