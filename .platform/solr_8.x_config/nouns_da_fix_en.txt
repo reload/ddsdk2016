@@ -14655,7 +14655,7 @@ tempel
 tempera
 tempi
 tempo
-tempora
+tempora 
 tempus
 ten
 tenakel
