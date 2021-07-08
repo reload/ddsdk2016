@@ -22,10 +22,14 @@ backend_config:
     solr_version: ''
     http_method: AUTO
     commit_within: 1000
+    skip_schema_check: false
   retrieve_data: false
   highlight_data: false
-  skip_schema_check: false
   site_hash: true
   domain: generic
   finalize_timeout: 30
   server_prefix: ''
+  optimize: false
+  environment: default
+  index_single_documents_fallback_count: 10
+  fallback_multiple: true

@@ -2,7 +2,7 @@
 A Drupal 8 project hosted on platform.sh
 
 * Confluence space: [DDS](https://reload.atlassian.net/wiki/spaces/DDS)
-* Technical [Documentation](documentation/index.md)
+* Technical [Documentation](documentation/README.md)
 
 # Development
 

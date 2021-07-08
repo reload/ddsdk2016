@@ -10,14 +10,13 @@ mysqldb:
 rediscache:
     type: redis:5.0
 
-solr:
-    type: "solr:6.6"
+solr8:
+    type: "solr:8.6"
     disk: 2048
     configuration:
         cores:
             ddsmainindex:
-                conf_dir: !archive "solr-6.x-config"
+                conf_dir: !archive "solr_8.x_config"
         endpoints:
             ddssolr:
                 core: ddsmainindex
-

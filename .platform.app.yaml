@@ -28,7 +28,7 @@ dependencies:
 # side is in the form `<service name>:<endpoint name>`.
 relationships:
     database: "mysqldb:mysql"
-    solr: "solr:ddssolr"
+    solr: "solr8:ddssolr"
     redis: "rediscache:redis"
 
 # The configuration of app when it is exposed to the web.

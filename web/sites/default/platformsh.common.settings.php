@@ -46,7 +46,7 @@ if (isset($_ENV['PLATFORM_RELATIONSHIPS'])) {
     $core = substr($solr['path'], 5) ?: 'collection1';
     $config['search_api.server.' . $solr_server_name]['backend_config']['connector_config']['core'] = $core;
     // The path is always 'solr'.
-    $config['search_api.server.' . $solr_server_name]['backend_config']['connector_config']['path'] = '/solr';
+    $config['search_api.server.' . $solr_server_name]['backend_config']['connector_config']['path'] = '/';
     // Gets the host and port from the values returned from the relationship.
     $config['search_api.server.' . $solr_server_name]['backend_config']['connector_config']['host'] = $solr['host'];
     $config['search_api.server.' . $solr_server_name]['backend_config']['connector_config']['port'] = $solr['port'];

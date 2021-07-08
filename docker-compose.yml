@@ -90,11 +90,11 @@ services:
       - '6379'
 
   solr:
-    image: solr:6.6
+    image: solr:8.6
     ports:
       - '8983'
     volumes:
-      - './.platform/solr-6.x-config:/solr-conf/conf:ro'
+      - './.platform/solr_8.x_config:/solr-conf/conf:ro'
     environment:
       VIRTUAL_HOST: solr.ddsdk.docker
     entrypoint:
