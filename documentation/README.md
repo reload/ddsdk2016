@@ -13,7 +13,8 @@ dds.dk uses a Solr searching.
 
 The integration is handled by a combination of the [search_api](https://www.drupal.org/project/search_api)
 and [search_api_solr](https://www.drupal.org/project/search_api_solr) modules.
-The former handles.
+The former acts as the interface between Drupal and general search-features, and
+ and the latter the integration with Solr itself.
 
 search_api_solr requires a custom configuration of Solr to function. This
 configuration consists of
