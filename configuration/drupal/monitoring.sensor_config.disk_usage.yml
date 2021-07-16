@@ -17,5 +17,5 @@ settings:
   directory: 'public://'
 thresholds:
   type: exceeds
-  warning: 80
+  warning: 90
   critical: 95
