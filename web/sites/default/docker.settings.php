@@ -25,7 +25,13 @@ $settings['config_sync_directory'] = __DIR__ . '/../../../configuration/drupal';
 $settings['install_profile'] = 'standard';
 
 // Allow *.docker and *.ngrok.io domains
-$settings['trusted_host_patterns'] = ['^.*\.docker$', '.*\.ngrok\.io$', 'localhost', '(.*\.)?dds\.dk'];
+$settings['trusted_host_patterns'] = [
+  '^.*\.docker$',
+  '^.*\.local$',
+  '.*\.ngrok\.io$',
+  'localhost',
+  '(.*\.)?dds\.dk',
+];
 
 // Assertions.
 assert_options(ASSERT_ACTIVE, TRUE);

@@ -24,7 +24,7 @@ services:
       VIRTUAL_PORT: '80'
       # Ensure dory don't redirect from http to https.
       HTTPS_METHOD: noredirect
-      MKCERT_DOMAINS: "ddsdk.docker mail.ddsdk.docker solr.ddsdk.docker"
+      MKCERT_DOMAINS: "ddsdk.docker ddsdk.local"
 
   # Instance of the php-image configured to serve fpm-requests.
   fpm:
