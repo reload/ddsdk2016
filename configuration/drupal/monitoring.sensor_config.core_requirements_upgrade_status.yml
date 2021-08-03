@@ -1,0 +1,20 @@
+uuid: 876e2c8d-d4dd-4bd8-a46a-b8ef51be11ee
+langcode: da
+status: true
+dependencies:
+  module:
+    - upgrade_status
+id: core_requirements_upgrade_status
+label: 'Module upgrade_status'
+description: 'Requirements of the upgrade_status module'
+category: Requirements
+plugin_id: core_requirements
+result_class: null
+value_label: null
+value_type: no_value
+caching_time: 3600
+settings:
+  module: upgrade_status
+  exclude_keys: {  }
+thresholds:
+  type: none

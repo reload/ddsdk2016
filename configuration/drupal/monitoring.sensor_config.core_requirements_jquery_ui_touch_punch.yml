@@ -1,0 +1,20 @@
+uuid: 0963c781-8870-48bf-ab0d-e98e592af4ae
+langcode: da
+status: true
+dependencies:
+  module:
+    - jquery_ui_touch_punch
+id: core_requirements_jquery_ui_touch_punch
+label: 'Module jquery_ui_touch_punch'
+description: 'Requirements of the jquery_ui_touch_punch module'
+category: Requirements
+plugin_id: core_requirements
+result_class: null
+value_label: null
+value_type: no_value
+caching_time: 3600
+settings:
+  module: jquery_ui_touch_punch
+  exclude_keys: {  }
+thresholds:
+  type: none
