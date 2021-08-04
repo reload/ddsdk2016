@@ -47,18 +47,7 @@ exposed-filters:
   dependencies:
     - core/jquery
     - core/drupal
-    - mungo/jquery.ui.datepicker
-
-jquery.ui.datepicker:
-  version: jquery_ui_version
-  license: jquery_ui_license
-  js:
-    /core/assets/vendor/jquery.ui/ui/widgets/datepicker-min.js: { minified: true }
-  css:
-    component:
-      /core/assets/vendor/jquery.ui/themes/base/datepicker.css: {}
-  dependencies:
-    - core/jquery.ui
+    - jquery_ui_datepicker/datepicker
 
 grouping-menu:
   version: 0.1

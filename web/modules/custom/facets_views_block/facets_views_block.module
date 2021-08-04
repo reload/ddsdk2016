@@ -31,7 +31,7 @@ function facets_views_block_preprocess_views_view(&$variables) {
 
   // Load facets grouped by facet sources.
   /** @var \Drupal\facets\FacetListBuilder $list_builder */
-  $list_builder = \Drupal::service('entity.manager')->getListBuilder('facets_facet');
+  $list_builder = \Drupal::service('entity_type.manager')->getListBuilder('facets_facet');
   // Note that this way of loading facets piggybacks on ListBuilder which is
   // mainly used to load entities for lists in the admin-interface. If we run
   // in to wird behaviour, start off by checking whether that behaviour is also

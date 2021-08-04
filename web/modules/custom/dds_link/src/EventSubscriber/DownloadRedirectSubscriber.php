@@ -12,7 +12,7 @@ use Drupal\file\FileInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
 class DownloadRedirectSubscriber implements EventSubscriberInterface {
@@ -31,9 +31,9 @@ class DownloadRedirectSubscriber implements EventSubscriberInterface {
   /**
    * Redirect requests for download node types to field_file URL.
    *
-   * @param GetResponseEvent $event
+   * @param RequestEvent $event
    */
-  public function redirectDownloadNodeType(GetResponseEvent $event) {
+  public function redirectDownloadNodeType(RequestEvent $event) {
     $request = $event->getRequest();
 
     // This is necessary because this also gets called on node sub-tabs such as

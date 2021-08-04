@@ -4,6 +4,8 @@
  * Platform.sh settings shared between environments.
  */
 
+use \Drupal\Core\Installer\InstallerKernel;
+
 // Configure the database.
 if (isset($_ENV['PLATFORM_RELATIONSHIPS'])) {
   $relationships = json_decode(base64_decode($_ENV['PLATFORM_RELATIONSHIPS']), TRUE);
@@ -59,7 +61,7 @@ if (isset($_ENV['PLATFORM_RELATIONSHIPS'])) {
 // Redis configuration.
 if (!empty($_ENV['PLATFORM_RELATIONSHIPS'])) {
   $relationships = json_decode(base64_decode($_ENV['PLATFORM_RELATIONSHIPS']), TRUE);
-  if (!empty($relationships['redis'][0]) && !drupal_installation_attempted() && extension_loaded('redis')) {
+  if (!empty($relationships['redis'][0]) && !InstallerKernel::installationAttempted() && extension_loaded('redis')) {
     $redis = $relationships['redis'][0];
     // Set Redis as the default backend for any cache bin not otherwise
     // specified.
