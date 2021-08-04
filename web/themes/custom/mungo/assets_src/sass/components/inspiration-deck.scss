@@ -73,9 +73,11 @@
     .main-media * {
       display: block;
       height: 100%;
+      width: 100%;
       img {
         transition: all 0.3s;
         @include filter(brightness(70%));
+        font-family: 'object-fit: cover;';
         object-fit: cover;
         height: 100%;
       }
