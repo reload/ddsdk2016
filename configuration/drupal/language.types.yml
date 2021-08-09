@@ -15,13 +15,12 @@ negotiation:
   language_interface:
     enabled:
       language-selected: -20
-      language-url: -19
     method_weights:
-      language-user-admin: -15
+      language-selected: -20
       language-url: -19
       language-session: -18
       language-user: -17
       language-browser: -16
-      language-selected: -20
+      language-user-admin: -15
 _core:
   default_config_hash: dqouFqVseNJNvEjsoYKxbinFOITuCxYhi4y2OTNQP_8

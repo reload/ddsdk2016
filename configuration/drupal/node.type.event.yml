@@ -1,5 +1,5 @@
 uuid: c5b2ff90-4dab-42e2-83e0-f1bd60c1d373
-langcode: en
+langcode: da
 status: true
 dependencies:
   module:
@@ -20,9 +20,11 @@ third_party_settings:
     unpublish_enable: true
     unpublish_required: false
     unpublish_revision: false
-name: Event
+    publish_past_date_created: false
+    show_message_after_update: true
+name: Arrangement
 type: event
-description: 'Basic event, courses and other entities that can be displayed in a calendar.'
+description: ''
 help: ''
 new_revision: false
 preview_mode: 0

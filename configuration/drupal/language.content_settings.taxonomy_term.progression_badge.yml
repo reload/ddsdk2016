@@ -7,5 +7,5 @@ dependencies:
 id: taxonomy_term.progression_badge
 target_entity_type_id: taxonomy_term
 target_bundle: progression_badge
-default_langcode: site_default
+default_langcode: da
 language_alterable: false
