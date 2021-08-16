@@ -61,6 +61,9 @@ display:
         operations:
           label: Handlinger
       title: Media
+      empty:
+        area_text_custom:
+          content: 'Der er intet indhold at vise.'
     display_title: Standard
   media_page_list:
     display_title: Media

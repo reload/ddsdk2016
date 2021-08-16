@@ -2,7 +2,7 @@ uuid: 961b299c-f043-4010-a71e-7509524e6fc6
 langcode: da
 status: true
 dependencies: {  }
-name: 'Aktivitetstype'
+name: Aktivitetstype
 vid: activity_type
 description: ''
 weight: 0

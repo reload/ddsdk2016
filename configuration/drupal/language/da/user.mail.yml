@@ -1,4 +1,18 @@
 cancel_confirm:
+  body: |-
+    [user:display-name],
+
+    A request to cancel your account has been made at [site:name].
+
+    You may now cancel your account on [site:url-brief] by clicking this link or copying and pasting it into your browser:
+
+    [user:cancel-url]
+
+    NOTE: The cancellation of your account is not reversible.
+
+    This link expires in one day and nothing will happen if it is not used.
+
+    --  [site:name] team
   subject: 'Anmodning om opsigelse af konto for [user:display-name] på [site:name]'
 password_reset:
   body: |-
@@ -49,6 +63,13 @@ register_no_approval_required:
     --  Holdet bag [site:name]
   subject: 'Kontoinformationer for [user:display-name] på [site:name] (blokeret)'
 register_pending_approval:
+  body: |-
+    [user:display-name],
+
+    Thank you for registering at [site:name]. Your application for an account is currently pending approval. Once it has been approved, you will receive another email containing information about how to log in, set your password, and other details.
+
+
+    --  [site:name] team
   subject: 'Kontoinformation for [user:display-name] på [site:name] (afventer godkendelse af administrator)'
 register_pending_approval_admin:
   body: |-

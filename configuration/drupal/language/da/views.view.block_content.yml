@@ -39,6 +39,9 @@ display:
           expose:
             label: Bloktype
       title: 'Brugerdefineret blokbibliotek'
+      empty:
+        area_text_custom:
+          content: 'Der er ingen brugerdefinerede blokke. '
   page_1:
     display_title: Side
     display_options:
