@@ -4,6 +4,8 @@ display:
   default:
     display_options:
       empty:
+        area_text_custom:
+          content: 'Der er ikke blevet oprettet forsideindhold endnu.'
         title:
           title: 'Velkommen til [site:name]'
       exposed_form:
