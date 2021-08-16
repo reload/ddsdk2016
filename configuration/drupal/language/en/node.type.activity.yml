@@ -1,0 +1,3 @@
+name: Activity
+type: activity
+description: 'A reference to an activity from the activity-database (aktiviteter.dds.dk)'

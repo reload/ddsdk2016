@@ -3,12 +3,11 @@ session:
 url:
   source: path_prefix
   prefixes:
-    en: ''
-    da: da
-    '': null
-  domains:
-    en: ''
     da: ''
+    en: en
+  domains:
+    da: ''
+    en: ''
 selected_langcode: da
 _core:
   default_config_hash: uEePITI9tV6WqzmsTb7MfPCi5yPWXSxAN1xeLcYFQbM

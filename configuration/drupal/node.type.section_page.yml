@@ -1,5 +1,5 @@
 uuid: da955dee-6678-4597-b45d-59c4257bfc14
-langcode: en
+langcode: da
 status: true
 dependencies:
   module:
@@ -21,9 +21,11 @@ third_party_settings:
     unpublish_enable: true
     unpublish_required: false
     unpublish_revision: false
-name: 'Section page'
+    publish_past_date_created: false
+    show_message_after_update: true
+name: Temaside
 type: section_page
-description: 'A page solely defined by paragraph elements. Usually used as frontpage and section frontpages pages.'
+description: 'En sektionside, defineret med paragraph elementer.'
 help: ''
 new_revision: true
 preview_mode: 1

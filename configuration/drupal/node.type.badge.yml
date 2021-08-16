@@ -1,5 +1,5 @@
 uuid: fea0689d-878e-4511-ad1b-4c35eba28d91
-langcode: en
+langcode: da
 status: true
 dependencies:
   module:
@@ -20,7 +20,9 @@ third_party_settings:
     unpublish_enable: true
     unpublish_required: false
     unpublish_revision: false
-name: Badge
+    publish_past_date_created: false
+    show_message_after_update: true
+name: Mærke
 type: badge
 description: ''
 help: ''

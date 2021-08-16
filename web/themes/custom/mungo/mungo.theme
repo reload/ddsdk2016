@@ -18,6 +18,7 @@ use Drupal\dds_activity\ActivityFetcher;
 use Drupal\file\FileInterface;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\TermInterface;
+use Drupal\dds_layout\Form\MungoInspirationPrerender;
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -267,7 +268,11 @@ function mungo_preprocess_paragraph(&$variables) {
 
     case 'inspiration_deck':
       foreach (Element::children($variables['content']['field_inspiration_deck_items']) as $key) {
-        $variables['content']['field_inspiration_deck_items'][$key]['#pre_render'][] = 'mungo_inspirational_prerender';
+        $variables['content']['field_inspiration_deck_items'][$key]['#pre_render'][] = [
+          MungoInspirationPrerender::class,
+          'deckPrerender',
+        ];
+
         // We're going to affect the rendered result, so make sure our
         // pre-render becomes a part of the cache key.
         $variables['content']['field_inspiration_deck_items'][$key]['#cache']['keys'][] = 'mungo_inspirational_prerender';
@@ -450,7 +455,7 @@ function _mungo_preprocess_node_download(Node $node, &$variables) {
   // doing alias lookup.
   try {
     $current_path = \Drupal::service('path.current')->getPath();
-    $current_alias = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+    $current_alias = \Drupal::service('path.alias.manager')->getAliasByPath($current_path);
 
     if (is_string($current_alias)) {
       $variables['mail_url'] .= '?destination=' . $current_alias;
@@ -1086,23 +1091,6 @@ function mungo_theme($existing, $type, $theme, $path) {
       ),
     ),
   );
-}
-
-/**
- * Switch main medias view-mode to extended_teaser.
- */
-function mungo_inspirational_prerender($elements) {
-  if (!empty($elements['field_main_media'])) {
-    foreach (Element::children($elements['field_main_media']) as $name) {
-      if (!isset($elements['field_main_media'][$name]['#view_mode']) || $elements['field_main_media'][$name]['#view_mode'] === 'teaser') {
-        $elements['field_main_media'][$name]['#view_mode'] = 'extended_teaser';
-        // Make sure this field is going to be rendered again if it is
-        // rendered without this prerender.
-        $elements['field_main_media'][$name]['#cache']['keys'][] = 'mungo_inspirational_prerender';
-      }
-    }
-  }
-  return $elements;
 }
 
 /**

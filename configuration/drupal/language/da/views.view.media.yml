@@ -61,7 +61,7 @@ display:
         operations:
           label: Handlinger
       title: Media
-    display_title: Master
+    display_title: Standard
   media_page_list:
     display_title: Media
     display_options:

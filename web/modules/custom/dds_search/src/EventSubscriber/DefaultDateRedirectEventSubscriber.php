@@ -7,7 +7,7 @@ use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Url;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
@@ -35,7 +35,7 @@ class DefaultDateRedirectEventSubscriber implements EventSubscriberInterface {
   /**
    * Redirect the user to add a default date if necessary.
    */
-  public function checkForRedirection(GetResponseEvent $event) {
+  public function checkForRedirection(RequestEvent $event) {
     // If we are on the correct view page, check for arguments, if we have
     // none inject a default date and redirect the user.
     if ($this->routeMatch->getRouteName() === 'view.events.events_overview' && empty($event->getRequest()->query->all())) {

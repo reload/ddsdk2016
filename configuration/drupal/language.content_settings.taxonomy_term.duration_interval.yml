@@ -7,5 +7,5 @@ dependencies:
 id: taxonomy_term.duration_interval
 target_entity_type_id: taxonomy_term
 target_bundle: duration_interval
-default_langcode: site_default
+default_langcode: da
 language_alterable: false

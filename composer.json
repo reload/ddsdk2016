@@ -41,6 +41,18 @@
                     "reference": "2.6.3"
                 }
             }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "furf/jquery-ui-touch-punch",
+                "version": "dev-master",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/furf/jquery-ui-touch-punch/archive/refs/heads/master.zip",
+                    "type": "zip"
+                }
+            }
         }
     ],
     "require": {
@@ -54,8 +66,9 @@
         "drupal/chosen": "^2.6.0",
         "drupal/chosen_lib": "^2.6.0",
         "drupal/cookieconsent": "^1.6",
-        "drupal/core-composer-scaffold": "^8.9.1",
-        "drupal/core-recommended": "^8.9.14",
+        "drupal/core-composer-scaffold": "^9",
+        "drupal/core-project-message": "^9",
+        "drupal/core-recommended": "^9",
         "drupal/crop": "^2.1",
         "drupal/ctools": "^3.0.0",
         "drupal/editor_advanced_link": "^1.4.0",
@@ -63,13 +76,14 @@
         "drupal/entity_reference_revisions": "^1.9",
         "drupal/extlink": "^1.1.0",
         "drupal/facets": "^1.8.0",
-        "drupal/field_group": "^3.0.0",
+        "drupal/field_group": "^3",
         "drupal/field_redirection": "2.x-dev",
         "drupal/forward": "^4.0",
         "drupal/google_analytics": "^3.1",
         "drupal/http2_server_push": "^1.0.0",
         "drupal/image_widget_crop": "^2.2.0",
         "drupal/inline_entity_form": "^1.0@RC",
+        "drupal/jquery_ui_accordion": "^1.1",
         "drupal/link_attributes": "^1.11",
         "drupal/maxlength": "^1.0.0-beta2",
         "drupal/metatag": "^1.16",
@@ -93,12 +107,14 @@
         "drupal/video_embed_field": "^2.2.0",
         "drupal/views_bulk_operations": "^3.13",
         "drush/drush": "^10",
+        "furf/jquery-ui-touch-punch": "dev-master",
         "predis/predis": "^1.1",
         "woothemes/flexslider": "^2.6.3"
     },
     "require-dev": {
-        "drupal/core-dev": "^8.8",
+        "drupal/core-dev": "^9",
         "mglaman/phpstan-drupal": "^0.12.10",
+        "phpspec/prophecy-phpunit": "^2",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan-deprecation-rules": "^0.12.6",
         "squizlabs/php_codesniffer": "^3"
@@ -150,7 +166,6 @@
             "drupal/core": {
                 "2949017: There is no way to delete or update file entities of other users incl. user/1": "https://www.drupal.org/files/issues/2019-12-12/2949017-59.patch",
                 "2558207: Add hook to react to image_path_flush() - recommended by the Reloadtina module": "https://www.drupal.org/files/issues/add_hook_image_path_flush-2558207-4.patch",
-                "2408549: Notify about overridden configuration": "https://www.drupal.org/files/issues/2020-09-17/2408549-139.patch",
                 "2857132: Account administration pages language negotiation ignores _format blocking REST resources": "https://www.drupal.org/files/issues/2019-01-28/preserve-format-while-negoatiating-2857132-10-work-in-progress.patch"
             }
         },

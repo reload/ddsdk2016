@@ -7,5 +7,5 @@ dependencies:
 id: node.badge
 target_entity_type_id: node
 target_bundle: badge
-default_langcode: site_default
+default_langcode: da
 language_alterable: false

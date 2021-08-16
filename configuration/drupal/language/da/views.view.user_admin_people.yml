@@ -63,7 +63,7 @@ display:
         area_text_custom:
           content: 'Ingen personer til rådighed.'
       use_more_text: mere
-    display_title: Master
+    display_title: Standard
   page_1:
     display_title: Side
     display_options:
