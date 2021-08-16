@@ -455,7 +455,7 @@ function _mungo_preprocess_node_download(Node $node, &$variables) {
   // doing alias lookup.
   try {
     $current_path = \Drupal::service('path.current')->getPath();
-    $current_alias = \Drupal::service('path.alias.manager')->getAliasByPath($current_path);
+    $current_alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
 
     if (is_string($current_alias)) {
       $variables['mail_url'] .= '?destination=' . $current_alias;
