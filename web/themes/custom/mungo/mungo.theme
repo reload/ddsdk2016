@@ -26,6 +26,7 @@ use Drupal\dds_layout\Form\MungoInspirationPrerender;
 function mungo_preprocess_html(&$variables) {
   // Make featureflags available.
   $variables['feature_flags'] = \Drupal::config('feature_flags')->get();
+  $variables['enable_linkedin_script'] = \Drupal::config('ddsdk')->get('enable_linkedin_script');
 }
 
 /**
