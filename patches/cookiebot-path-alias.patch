@@ -1,0 +1,62 @@
+diff --git a/cookiebot.module b/cookiebot.module
+index c33ddc4..6b743e3 100644
+--- a/cookiebot.module
++++ b/cookiebot.module
+@@ -65,7 +65,7 @@ function cookiebot_page_attachments_alter(array &$page) {
+   if (!empty($config->get('exclude_paths'))) {
+     // Check both the URL path and the URL alias against the list to exclude.
+     $path = \Drupal::service('path.current')->getPath();
+-    $url_alias_path = \Drupal::service('path.alias_manager')->getAliasByPath($path);
++    $url_alias_path = \Drupal::service('path_alias.manager')->getAliasByPath($path);
+     $path_match = \Drupal::service('path.matcher')->matchPath($path, $config->get('exclude_paths'));
+     $path_match_url_alias = \Drupal::service('path.matcher')->matchPath($url_alias_path, $config->get('exclude_paths'));
+     $path_match = $path_match || $path_match_url_alias;
+@@ -132,7 +132,7 @@ function cookiebot_node_view_alter(array &$build) {
+ 
+   $declaration_node_path = $config->get('cookiebot_show_declaration_node_path');
+   $current_nid = \Drupal::routeMatch()->getRawParameter('node');
+-  $current_alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/' . $current_nid);
++  $current_alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $current_nid);
+ 
+   // Print full cookies declaration from Cookiebot.
+   if ($current_alias === $declaration_node_path) {
+diff --git a/src/Form/CookiebotForm.php b/src/Form/CookiebotForm.php
+index 83effc3..2175242 100644
+--- a/src/Form/CookiebotForm.php
++++ b/src/Form/CookiebotForm.php
+@@ -8,7 +8,7 @@ use Drupal\Core\Entity\EntityTypeManager;
+ use Drupal\Core\Form\ConfigFormBase;
+ use Drupal\Core\Form\FormStateInterface;
+ use Symfony\Component\DependencyInjection\ContainerInterface;
+-use Drupal\Core\Path\AliasManager;
++use Drupal\path_alias\AliasManager;
+ 
+ /**
+  * Cookiebot settings form.
+@@ -25,7 +25,7 @@ class CookiebotForm extends ConfigFormBase {
+   /**
+    * Alias manager.
+    *
+-   * @var \Drupal\Core\Path\AliasManager
++   * @var \Drupal\path_alias\AliasManager
+    */
+   protected $aliasManager;
+ 
+@@ -43,7 +43,7 @@ class CookiebotForm extends ConfigFormBase {
+    *   The factory for configuration objects.
+    * @param \Drupal\Core\Entity\EntityTypeManager $entity_manager
+    *   The entity type manager.
+-   * @param \Drupal\Core\Path\AliasManager $alias_manager
++   * @param \Drupal\path_alias\AliasManager $alias_manager
+    *   The alias manager.
+    * @param \Drupal\Core\Cache\CacheTagsInvalidatorInterface $cache_tags_invalidator
+    *   The cache tag invalidator service.
+@@ -63,7 +63,7 @@ class CookiebotForm extends ConfigFormBase {
+     return new static(
+       $container->get('config.factory'),
+       $container->get('entity_type.manager'),
+-      $container->get('path.alias_manager'),
++      $container->get('path_alias.manager'),
+       $container->get('cache_tags.invalidator')
+     );
+   }
