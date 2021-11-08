@@ -65,6 +65,7 @@
         "drupal/better_exposed_filters": "5.0-beta1",
         "drupal/chosen": "^2.6.0",
         "drupal/chosen_lib": "^2.6.0",
+        "drupal/cookiebot": "1.0-alpha7",
         "drupal/cookieconsent": "^1.6",
         "drupal/core-composer-scaffold": "^9",
         "drupal/core-project-message": "^9",
