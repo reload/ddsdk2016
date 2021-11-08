@@ -17,7 +17,6 @@ module:
   config_translation: 0
   contact: 0
   cookiebot: 0
-  cookieconsent: 0
   crop: 0
   ctools: 0
   datetime: 0
