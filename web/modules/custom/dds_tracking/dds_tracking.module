@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * Implements hook_page_attachments_alter().
+ *
+ * Make tracking scripts Cookiebot compliant.
+ */
+function dds_tracking_page_attachments_alter(array &$attachments) {
+  if (!isset($attachments['#attached']['html_head']) || !is_array($attachments['#attached']['html_head'])) {
+    return;
+  }
+
+  foreach ($attachments['#attached']['html_head'] as &$head) {
+    if (!isset($head[1]) || !is_string($head[1])) {
+      continue;
+    }
+
+    switch ($head[1]) {
+      case 'google_analytics_tracking_file':
+      case 'google_analytics_tracking_script':
+        $head[0]['#attributes']['type'] = 'text/plain';
+        $head[0]['#attributes']['data-cookieconsent'] = 'statistics';
+        break;
+    }
+  }
+}
