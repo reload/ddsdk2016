@@ -1,0 +1,10 @@
+.cookieconsent-optout {
+  &__all, &__video, &-marketing {
+    display: flex;
+    border: 2px dashed #337ab7;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+  }
+}
