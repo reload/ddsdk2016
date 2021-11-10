@@ -1,7 +1,11 @@
 .cookieconsent-optout {
   &__all, &__video, &-marketing {
     display: flex;
+    position: absolute;
+    height: -webkit-fill-available;
     border: 2px dashed #337ab7;
+    background-color: transparent;
+    color: #337ab7;
     width: 100%;
     justify-content: center;
     align-items: center;
