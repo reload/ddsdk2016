@@ -65,7 +65,7 @@
         "drupal/better_exposed_filters": "5.0-beta1",
         "drupal/chosen": "^2.6.0",
         "drupal/chosen_lib": "^2.6.0",
-        "drupal/cookiebot": "1.0-alpha7",
+        "drupal/cookiebot": "1.0.0-alpha8",
         "drupal/cookieconsent": "^1.6",
         "drupal/core-composer-scaffold": "^9",
         "drupal/core-project-message": "^9",
@@ -171,7 +171,7 @@
                 "2857132: Account administration pages language negotiation ignores _format blocking REST resources": "https://www.drupal.org/files/issues/2019-01-28/preserve-format-while-negoatiating-2857132-10-work-in-progress.patch"
             },
             "drupal/cookiebot": {
-                "cookiebot path alias": "./patches/cookiebot-path-alias.patch"
+                "D9 compliance": "https://www.drupal.org/files/issues/2021-06-11/3172479_11.patch"
             }
         },
         "patchLevel": {

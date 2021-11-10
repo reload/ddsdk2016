@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "38748d8380acd2b1808ed2f66b031273",
+    "content-hash": "d4e9d1bf9665a2a4965a022277c518aa",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -1966,17 +1966,17 @@
         },
         {
             "name": "drupal/cookiebot",
-            "version": "1.0.0-alpha7",
+            "version": "1.0.0-alpha8",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/cookiebot.git",
-                "reference": "8.x-1.0-alpha7"
+                "reference": "8.x-1.0-alpha8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/cookiebot-8.x-1.0-alpha7.zip",
-                "reference": "8.x-1.0-alpha7",
-                "shasum": "02611ae65ad0ad52a26ff5982093a98d5946a2de"
+                "url": "https://ftp.drupal.org/files/projects/cookiebot-8.x-1.0-alpha8.zip",
+                "reference": "8.x-1.0-alpha8",
+                "shasum": "eeb250d5872ea9c3dd034b3133c49f1cc2b92ae4"
             },
             "require": {
                 "drupal/core": "^8 || ^9"
@@ -1984,8 +1984,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-alpha7",
-                    "datestamp": "1574980949",
+                    "version": "8.x-1.0-alpha8",
+                    "datestamp": "1607606236",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
