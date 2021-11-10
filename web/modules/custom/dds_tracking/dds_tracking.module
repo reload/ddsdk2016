@@ -24,3 +24,107 @@ function dds_tracking_page_attachments_alter(array &$attachments) {
     }
   }
 }
+
+/**
+ * Implements hook_preprocess_field().
+ */
+function dds_tracking_preprocess_field(&$variables) {
+  $field_name = $variables['element']['#field_name'];
+  if ($field_name != 'field_markup') {
+    return;
+  }
+
+  // For markup fields we need to check if any of the tags scripts or iframes,
+  // and if so, if the reference one of our known providers. In that case, we
+  // need to set their cookie consent level.
+  $providers = array_keys(dds_tracking_providers());
+
+  $value = &$variables['items'][0]['content']['#context']['value'];
+
+  $dom = new DOMDocument();
+  $dom->loadHTML($value);
+
+  // First find all iframes. If they link to one of our providers,
+  // we need to show the cookie consent box first.
+  $iframes = $dom->getElementsByTagName('iframe');
+  for ($i = 0; $i < $iframes->length; $i++) {
+    $item = $iframes->item($i);
+    $src = $item->getAttribute('src');
+    foreach ($providers as $provider) {
+      if (preg_match("/{$provider}/", $src)) {
+        $cookie_consent_category = dds_tracking_providers($provider);
+        $cookie_consent_category_trans = t($cookie_consent_category);
+        $item->setAttribute('data-cookieconsent', $cookie_consent_category);
+        $item->setAttribute('data-src', $src);
+        $item->removeAttribute('src');
+
+        $iframe_template = $dom->createDocumentFragment();
+        $iframe_template->appendXML(<<<EOF
+          <div class="cookieconsent-optout__all cookieconsent-optout__video cookieconsent-optout-{$cookie_consent_category}">
+            <div class="cookieconsent-optout__accept-text">
+              <a href="javascript:Cookiebot.renew();">Acceptér venligst {$cookie_consent_category_trans}-cookies for at se indhold fra {$provider}.</a>
+            </div>
+          </div>
+EOF);
+
+        $item->parentNode->insertBefore($iframe_template, $item->nextSibling);
+        break;
+      }
+    }
+  }
+
+  // Next find all scripts. If they link to one of our providers,
+  // we also need to show the cookie consent box first.
+  // This works slightly different from iframes.
+  $scripts = $dom->getElementsByTagName('script');
+  for ($i = 0; $i < $scripts->length; $i++) {
+    $item = $scripts->item($i);
+    $src = $item->getAttribute('src');
+    foreach ($providers as $provider) {
+      if (preg_match("/{$provider}/", $src)) {
+        $cookie_consent_category = dds_tracking_providers($provider);
+        $cookie_consent_category_trans = t($cookie_consent_category);
+        $item->setAttribute('data-cookieconsent', $cookie_consent_category);
+        $item->setAttribute('type', 'text/plain');
+
+        $script_template = $dom->createDocumentFragment();
+        $script_template->appendXML(<<<EOF
+          <div class="cookieconsent-optout__all cookieconsent-optout__video cookieconsent-optout-{$cookie_consent_category}">
+            <div class="cookieconsent-optout__accept-text">
+              <a href="javascript:Cookiebot.renew();">Acceptér venligst {$cookie_consent_category_trans}-cookies for at se indhold fra {$provider}.</a>
+            </div>
+          </div>
+EOF);
+
+        $item->parentNode->insertBefore($script_template, $item->nextSibling);
+        break;
+      }
+    }
+  }
+
+  $value = $dom->saveHTML();
+}
+
+/**
+ * List cookie consent levels for providers.
+ *
+ * @param null|string $provider
+ *  Lookup provider in array.
+ *
+ * @return string|string[]
+ *   Return the cookie consent level for a provider or
+ *   alternatively the whole array.
+ */
+function dds_tracking_providers($provider = NULL) {
+  $providers = [
+    'youtube' => 'marketing',
+    'facebook' => 'marketing',
+    'issuu' => 'marketing'
+  ];
+
+  if ($provider) {
+    return $providers[$provider];
+  }
+
+  return $providers;
+}
