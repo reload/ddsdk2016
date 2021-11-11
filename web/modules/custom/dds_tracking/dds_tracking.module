@@ -1,5 +1,18 @@
 <?php
 
+use Drupal\Core\Render\Renderer;
+use Drupal\Core\Render\RendererInterface;
+
+function dds_tracking_theme() {
+  return array(
+    'dds_tracking_info_box' => array(
+      'variables' => array(
+        'provider' => NULL,
+      ),
+      'template' => 'dds_tracking_info_box',
+    ),
+  );
+}
 /**
  * Implements hook_page_attachments_alter().
  *
@@ -27,6 +40,11 @@ function dds_tracking_page_attachments_alter(array &$attachments) {
 
 /**
  * Implements hook_preprocess_field().
+ *
+ * Iterate every markup field, and check if it contains a script or iframe tag.
+ * If so, we check if this the tag references a known cookie provider, and
+ * lock the content down if it is. Meaning we display a cookie info box and set
+ * the script to text/plain and the iframes src to data-src.
  */
 function dds_tracking_preprocess_field(&$variables) {
   $field_name = $variables['element']['#field_name'];
@@ -34,70 +52,52 @@ function dds_tracking_preprocess_field(&$variables) {
     return;
   }
 
-  // For markup fields we need to check if any of the tags scripts or iframes,
-  // and if so, if the reference one of our known providers. In that case, we
-  // need to set their cookie consent level.
-  $providers = array_keys(dds_tracking_providers());
+  // The cookie providers that we can handle.
+  $providers = dds_tracking_providers();
 
-  $value = &$variables['items'][0]['content']['#context']['value'];
+  // The actual rendered html of the markup field.
+  $value = isset($variables['items'][0]['content']['#context']['value'])
+    ? $variables['items'][0]['content']['#context']['value']
+    : NULL;
 
-  $dom = new DOMDocument();
-  $dom->loadHTML($value);
-
-  // First find all iframes. If they link to one of our providers,
-  // we need to show the cookie consent box first.
-  $iframes = $dom->getElementsByTagName('iframe');
-  for ($i = 0; $i < $iframes->length; $i++) {
-    $item = $iframes->item($i);
-    $src = $item->getAttribute('src');
-    foreach ($providers as $provider) {
-      if (preg_match("/{$provider}/", $src)) {
-        $cookie_consent_category = dds_tracking_providers($provider);
-        $cookie_consent_category_trans = t($cookie_consent_category);
-        $item->setAttribute('data-cookieconsent', $cookie_consent_category);
-        $item->setAttribute('data-src', $src);
-        $item->removeAttribute('src');
-
-        $iframe_template = $dom->createDocumentFragment();
-        $iframe_template->appendXML(<<<EOF
-          <div class="cookieconsent-optout__all cookieconsent-optout__video cookieconsent-optout-{$cookie_consent_category}">
-            <div class="cookieconsent-optout__accept-text">
-              <a href="javascript:Cookiebot.renew();">Acceptér venligst {$cookie_consent_category_trans}-cookies for at se indhold fra {$provider}.</a>
-            </div>
-          </div>
-EOF);
-
-        $item->parentNode->insertBefore($iframe_template, $item->nextSibling);
-        break;
-      }
-    }
+  if (empty($value)) {
+    return;
   }
 
-  // Next find all scripts. If they link to one of our providers,
-  // we also need to show the cookie consent box first.
-  // This works slightly different from iframes.
-  $scripts = $dom->getElementsByTagName('script');
-  for ($i = 0; $i < $scripts->length; $i++) {
-    $item = $scripts->item($i);
+  // Find all script and iframe tags.
+  $dom = new DOMDocument();
+  $dom->loadHTML($value);
+  $selector = new DOMXPath($dom);
+  $elements = $selector->query('//iframe | //script');
+
+  for ($i = 0; $i < $elements->length; $i++) {
+    $item = $elements->item($i);
     $src = $item->getAttribute('src');
-    foreach ($providers as $provider) {
-      if (preg_match("/{$provider}/", $src)) {
-        $cookie_consent_category = dds_tracking_providers($provider);
-        $cookie_consent_category_trans = t($cookie_consent_category);
-        $item->setAttribute('data-cookieconsent', $cookie_consent_category);
-        $item->setAttribute('type', 'text/plain');
+    foreach ($providers as $provider_id => $provider) {
+      // Check if the src of the tag contains the provider id.
+      if (preg_match("/{$provider_id}/", $src)) {
+        // Hide the content behind cookiebot.
+        if ($item->nodeName == 'iframe') {
+          $item->setAttribute('data-cookieconsent', $provider['type']);
+          $item->setAttribute('data-src', $src);
+          $item->removeAttribute('src');
+        } else {
+          $item->setAttribute('data-cookieconsent', $provider['type']);
+          $item->setAttribute('type', 'text/plain');
+        }
 
-        $script_template = $dom->createDocumentFragment();
-        $script_template->appendXML(<<<EOF
-          <div class="cookieconsent-optout__all cookieconsent-optout__video cookieconsent-optout-{$cookie_consent_category}">
-            <div class="cookieconsent-optout__accept-text">
-              <a href="javascript:Cookiebot.renew();">Acceptér venligst {$cookie_consent_category_trans}-cookies for at se indhold fra {$provider}.</a>
-            </div>
-          </div>
-EOF);
+        $info_box = [
+          '#theme' => 'dds_tracking_info_box',
+          '#provider' => $provider,
+        ];
 
-        $item->parentNode->insertBefore($script_template, $item->nextSibling);
-        break;
+        $rendered_info_box = \Drupal::service('renderer')->renderRoot($info_box)->__toString();
+
+        $template = $dom->createDocumentFragment();
+        $template->appendXML($rendered_info_box);
+
+        // Insert the cookie info box right after the script or iframe tag.
+        $item->parentNode->insertBefore($template, $item->nextSibling);
       }
     }
   }
@@ -117,9 +117,21 @@ EOF);
  */
 function dds_tracking_providers($provider = NULL) {
   $providers = [
-    'youtube' => 'marketing',
-    'facebook' => 'marketing',
-    'issuu' => 'marketing'
+    'youtube' => [
+      'type' => 'marketing',
+      'type_name' => t('marketing'),
+      'name' => t('YouTube'),
+    ],
+    'facebook' => [
+      'type' => 'marketing',
+      'type_name' => t('marketing'),
+      'name' => t('Facebook'),
+    ],
+    'issuu' => [
+      'type' => 'marketing',
+      'type_name' => t('marketing'),
+      'name' => t('Issuu'),
+    ],
   ];
 
   if ($provider) {
