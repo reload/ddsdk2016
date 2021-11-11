@@ -1,5 +1,18 @@
 <?php
 
+use Drupal\Core\Render\Renderer;
+use Drupal\Core\Render\RendererInterface;
+
+function dds_tracking_theme() {
+  return array(
+    'dds_tracking_info_box' => array(
+      'variables' => array(
+        'provider' => NULL,
+      ),
+      'template' => 'dds_tracking_info_box',
+    ),
+  );
+}
 /**
  * Implements hook_page_attachments_alter().
  *
@@ -23,4 +36,107 @@ function dds_tracking_page_attachments_alter(array &$attachments) {
         break;
     }
   }
+}
+
+/**
+ * Implements hook_preprocess_field().
+ *
+ * Iterate every markup field, and check if it contains a script or iframe tag.
+ * If so, we check if this the tag references a known cookie provider, and
+ * lock the content down if it is. Meaning we display a cookie info box and set
+ * the script to text/plain and the iframes src to data-src.
+ */
+function dds_tracking_preprocess_field(&$variables) {
+  $field_name = $variables['element']['#field_name'];
+  if ($field_name != 'field_markup') {
+    return;
+  }
+
+  // The cookie providers that we can handle.
+  $providers = dds_tracking_providers();
+
+  // The actual rendered html of the markup field.
+  $value = isset($variables['items'][0]['content']['#context']['value'])
+    ? $variables['items'][0]['content']['#context']['value']
+    : NULL;
+
+  if (empty($value)) {
+    return;
+  }
+
+  // Find all script and iframe tags.
+  $dom = new DOMDocument();
+  $dom->loadHTML($value);
+  $selector = new DOMXPath($dom);
+  $elements = $selector->query('//iframe | //script');
+
+  for ($i = 0; $i < $elements->length; $i++) {
+    $item = $elements->item($i);
+    $src = $item->getAttribute('src');
+    foreach ($providers as $provider_id => $provider) {
+      // Check if the src of the tag contains the provider id.
+      if (preg_match("/{$provider_id}/", $src)) {
+        // Hide the content behind cookiebot.
+        if ($item->nodeName == 'iframe') {
+          $item->setAttribute('data-cookieconsent', $provider['type']);
+          $item->setAttribute('data-src', $src);
+          $item->removeAttribute('src');
+        } else {
+          $item->setAttribute('data-cookieconsent', $provider['type']);
+          $item->setAttribute('type', 'text/plain');
+        }
+
+        $info_box = [
+          '#theme' => 'dds_tracking_info_box',
+          '#provider' => $provider,
+        ];
+
+        $rendered_info_box = \Drupal::service('renderer')->renderRoot($info_box)->__toString();
+
+        $template = $dom->createDocumentFragment();
+        $template->appendXML($rendered_info_box);
+
+        // Insert the cookie info box right after the script or iframe tag.
+        $item->parentNode->insertBefore($template, $item->nextSibling);
+      }
+    }
+  }
+
+  $value = $dom->saveHTML();
+}
+
+/**
+ * List cookie consent levels for providers.
+ *
+ * @param null|string $provider
+ *  Lookup provider in array.
+ *
+ * @return string|string[]
+ *   Return the cookie consent level for a provider or
+ *   alternatively the whole array.
+ */
+function dds_tracking_providers($provider = NULL) {
+  $providers = [
+    'youtube' => [
+      'type' => 'marketing',
+      'type_name' => t('marketing'),
+      'name' => t('YouTube'),
+    ],
+    'facebook' => [
+      'type' => 'marketing',
+      'type_name' => t('marketing'),
+      'name' => t('Facebook'),
+    ],
+    'issuu' => [
+      'type' => 'marketing',
+      'type_name' => t('marketing'),
+      'name' => t('Issuu'),
+    ],
+  ];
+
+  if ($provider) {
+    return $providers[$provider];
+  }
+
+  return $providers;
 }
