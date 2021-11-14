@@ -102,7 +102,7 @@ function dds_tracking_preprocess_field(&$variables) {
     }
   }
 
-  $value = $dom->saveHTML();
+  $variables['items'][0]['content']['#context']['value'] = $dom->saveHTML();
 }
 
 /**
