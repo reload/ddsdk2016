@@ -12,3 +12,15 @@
     font-weight: 700;
   }
 }
+
+
+// There is a general hack for checkboxes found in forms.scss.
+// I don't want to mess with it, so instead I introduce an overwrite
+// specifically for the cookiebot dialog.
+#CybotCookiebotDialog input[type="checkbox"]:not(:checked),
+#CybotCookiebotDialog input[type="checkbox"]:checked {
+  position: inherit;
+  left: 0;
+}
+
+
