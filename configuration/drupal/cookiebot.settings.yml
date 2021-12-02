@@ -1,8 +1,8 @@
 cookiebot_cbid: 947a3db6-53aa-4ed5-8531-416c10ee0416
-cookiebot_block_cookies: 0
-cookiebot_iab_enabled: 0
-cookiebot_show_declaration: 1
-cookiebot_show_declaration_node_path: /privatlivspolitik
+cookiebot_block_cookies: false
+cookiebot_iab_enabled: false
+cookiebot_show_declaration: true
+cookiebot_show_declaration_node_path: /cookiepolitik
 exclude_paths: ''
-exclude_admin_theme: 1
-exclude_uid_1: 0
+exclude_admin_theme: true
+exclude_uid_1: false
