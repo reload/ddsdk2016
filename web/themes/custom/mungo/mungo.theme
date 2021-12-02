@@ -131,6 +131,27 @@ function mungo_preprocess_field(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Lookup cookie settings for providers.
+ */
+function mungo_preprocess_video_embed_iframe(&$variables) {
+  $cookie_consent_categories = [
+    'youtube' => 'marketing',
+  ];
+
+  $url = $variables['url'];
+
+  if (preg_match('/youtube/', $url)) {
+    $provider = 'youtube';
+  }
+
+  if (!empty($provider)) {
+    $variables['cookie_consent_category'] = $cookie_consent_categories[$provider];
+  }
+}
+
+/**
  * Implements hook_form_FORM_ID_alter().
  */
 function mungo_form_search_block_form_alter(&$form, FormStateInterface $form_state) {

@@ -1,0 +1,26 @@
+.cookieconsent-optout {
+  &__all, &__video, &-marketing {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    border: 2px dashed #337ab7;
+    background-color: transparent;
+    color: #337ab7;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+  }
+}
+
+
+// There is a general hack for checkboxes found in forms.scss.
+// I don't want to mess with it, so instead I introduce an overwrite
+// specifically for the cookiebot dialog.
+#CybotCookiebotDialog input[type="checkbox"]:not(:checked),
+#CybotCookiebotDialog input[type="checkbox"]:checked {
+  position: inherit;
+  left: 0;
+}
+
+

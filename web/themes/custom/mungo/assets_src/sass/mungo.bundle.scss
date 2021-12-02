@@ -76,6 +76,7 @@
 @import "components/activity";
 @import "components/shortcuts";
 @import "components/cookie-consent";
+@import "components/markup";
 
 /**
  * SMACSS Theme.
@@ -88,5 +89,7 @@
  */
 @import "drupal/forms";
 @import "drupal/views";
+@import "drupal/video_embed_field";
+@import "drupal/cookieconsent";
 
 @import "shame";
