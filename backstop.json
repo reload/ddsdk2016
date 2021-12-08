@@ -23,7 +23,7 @@
       "referenceUrl": "https://www.dds.dk",
       "delay": 2000,
       "removeSelectors": [
-        ".cc_banner-wrapper"
+        "#CybotCookiebotDialog"
       ]
     },
     {
@@ -32,7 +32,7 @@
       "referenceUrl": "https://dds.dk/aktiviteter",
       "delay": 2000,
       "removeSelectors": [
-        ".cc_banner-wrapper"
+        "#CybotCookiebotDialog"
       ]
     },
     {
@@ -41,7 +41,7 @@
       "referenceUrl": "https://dds.dk/maerker",
       "delay": 2000,
       "removeSelectors": [
-        ".cc_banner-wrapper"
+        "#CybotCookiebotDialog"
       ]
     },
     {
@@ -50,7 +50,7 @@
       "referenceUrl": "https://dds.dk/arrangementer?event_after=20/05/2021",
       "delay": 2000,
       "removeSelectors": [
-        ".cc_banner-wrapper"
+        "#CybotCookiebotDialog"
       ]
     },
     {
@@ -59,7 +59,7 @@
       "referenceUrl": "https://dds.dk/trop-temaside",
       "delay": 2000,
       "removeSelectors": [
-        ".cc_banner-wrapper"
+        "#CybotCookiebotDialog"
       ]
     },
     {
@@ -68,7 +68,7 @@
       "referenceUrl": "https://dds.dk/artikel/guide-sadan-pakker-du-rygsaekken",
       "delay": 2000,
       "removeSelectors": [
-        ".cc_banner-wrapper"
+        "#CybotCookiebotDialog"
       ]
     },
     {
@@ -77,7 +77,7 @@
       "referenceUrl": "https://dds.dk/artikel/fem-flotte-naturperler-til-en-weekendtur",
       "delay": 2000,
       "removeSelectors": [
-        ".cc_banner-wrapper"
+        "#CybotCookiebotDialog"
       ]
     },
     {
@@ -86,7 +86,7 @@
       "referenceUrl": "https://www.dds.dk/maerke/bygherre",
       "delay": 2000,
       "removeSelectors": [
-        ".cc_banner-wrapper"
+        "#CybotCookiebotDialog"
       ]
     },
     {
@@ -95,7 +95,7 @@
       "referenceUrl": "https://dds.dk/arrangement/so21-solandslejr",
       "delay": 2000,
       "removeSelectors": [
-        ".cc_banner-wrapper"
+        "#CybotCookiebotDialog"
       ]
     },
     {
@@ -104,7 +104,7 @@
       "referenceUrl": "https://dds.dk/aktivitet/1-dags-kollektiv",
       "delay": 2000,
       "removeSelectors": [
-        ".cc_banner-wrapper"
+        "#CybotCookiebotDialog"
       ]
     },
     {
@@ -113,7 +113,7 @@
       "referenceUrl": "https://dds.dk/synlighed",
       "delay": 2000,
       "removeSelectors": [
-        ".cc_banner-wrapper"
+        "#CybotCookiebotDialog"
       ]
     }
   ],
