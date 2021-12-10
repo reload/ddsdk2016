@@ -1,3 +1,7 @@
+// As long as we run Bourbun 4 we can hhide the Bourbon 5 warnings.
+// But this should be removed with a future update.
+$output-bourbon-deprecation-warnings: false !default;
+
 @import "bourbon";
 @import "bootstrap.custom";
 @import "colors";

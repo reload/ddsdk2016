@@ -6,11 +6,13 @@
 var gulp = require('gulp');
 var autoprefixer = require('gulp-autoprefixer');
 var clean = require('gulp-clean');
-var sass = require('gulp-sass');
+var sass = require('gulp-sass')(require('node-sass'));
 var jshint  = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 var sourcemaps = require('gulp-sourcemaps');
 var notify = require('gulp-notify');
+// If you upgrade Bourbon to v5, remember to remove
+// "output-bourbon-deprecation-warnings" from mungo.bundle.scss
 var bourbon =  require('node-bourbon');
 var runSequence = require('gulp4-run-sequence');
 

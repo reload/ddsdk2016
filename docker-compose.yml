@@ -111,15 +111,16 @@ services:
       VIRTUAL_HOST: mail.ddsdk.docker
 
   npm:
-    image: node:9-slim
+    image: node:15
     volumes:
-      - 'projectroot:/var/www/'
       - 'cache:/npm-cache'
+      - '${PWD}:/var/www'
     working_dir: /var/www
+    tty: true
     environment:
       PATH: '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
       npm_config_cache: '/npm-cache/node'
-    entrypoint: "/bin/sh -c 'npm run build && npm run watch'"
+    command: sh -c "npm run build && npm run watch"
 
 volumes:
   # NPM cache that survives docker-reset.sh
