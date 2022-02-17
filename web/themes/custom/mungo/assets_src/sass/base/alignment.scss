@@ -1,12 +1,14 @@
 .right-aligned {
   // For some odd reason all menus are left aligned.
-  &, ul.menu {
+  &,
+  ul.menu {
     text-align: right;
   }
 }
 
 .aligned--center {
-  &, ul.menu {
+  &,
+  ul.menu {
     text-align: center;
   }
 }

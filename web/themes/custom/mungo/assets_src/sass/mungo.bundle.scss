@@ -2,12 +2,11 @@
 // But this should be removed with a future update.
 $output-bourbon-deprecation-warnings: false !default;
 
-@import "bourbon";
-@import "bootstrap.custom";
-@import "colors";
-@import "variables";
+@import "tools/bootstrap.custom";
+@import "tools/colors";
+@import "tools/variables";
 @import "burger";
-
+@import "bourbon";
 @import "polyfill.object-fit";
 
 /**
@@ -96,4 +95,4 @@ $output-bourbon-deprecation-warnings: false !default;
 @import "drupal/video_embed_field";
 @import "drupal/cookieconsent";
 
-@import "shame";
+@import "tools/shame";

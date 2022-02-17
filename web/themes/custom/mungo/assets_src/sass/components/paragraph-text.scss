@@ -1,8 +1,8 @@
 // The text-paragraph contains "Full HTML" formatted text.
 
 .paragraph--type--text {
-
-  ul, ol {
+  ul,
+  ol {
     // Generally on the site, lists have been reset to margin 0.
     margin: 1em 0;
 

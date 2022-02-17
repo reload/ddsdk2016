@@ -12,9 +12,9 @@
   width: 100%;
   // Because of flexbox. IE somehow dosen't know that the parent container was
   // 100% of it's parent but maybe 100% of window. :S
- & > * {
-   width: 100%;
- }
+  > * {
+    width: 100%;
+  }
 }
 
 .field--name-field-content-list-title {
@@ -26,7 +26,6 @@
 
 .field--name-field-sidedeck {
   .field--name-field-block {
-
     // Clear content list, so it will never float
     // up besides other content.
     clear: left;

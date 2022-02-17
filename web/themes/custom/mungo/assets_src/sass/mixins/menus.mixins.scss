@@ -51,7 +51,7 @@
 }
 
 /* Primary menu representation on mobile devices */
-@mixin main-menu-entries--mobile  {
+@mixin main-menu-entries--mobile {
   font-weight: 600;
   font-size: 16px;
   &:after {
@@ -61,21 +61,22 @@
     right: $spacing-small;
     top: -18px;
     font-size: 60px;
-    content: '›';
+    content: "›";
   }
   &.opened:after {
     transform: rotate(90deg);
   }
 }
+
 /* Primary menu overrides for tablet and desktop */
 @mixin main-menu-entries {
   a {
-    color: #000
+    color: #000;
   }
   font-size: 13px;
   text-transform: uppercase;
   &:after {
-    content: '';
+    content: "";
   }
 }
 
@@ -93,10 +94,9 @@
   }
 }
 
-
 // Add a downwards-pointing arrow to a dropdown menu.
 // Should be invoked with the argument "up" for the active-state.
-@mixin menu_chevron ($direction: 'down') {
+@mixin menu_chevron($direction: "down") {
   @extend .glyphicon;
   @extend .glyphicon-chevron-down;
   @include transform(rotate(0deg));
@@ -107,8 +107,7 @@
   line-height: 13px * 2 + $spacing-small; // font-size * 2 + padding
 
   // When active, rotate the icon to point upwards.
-  @if $direction == 'up' {
+  @if $direction == "up" {
     @include transform(rotate(180deg));
   }
 }
-

@@ -5,7 +5,9 @@
 
   // Make sure the topmost heading does not add extra spacing - we have all
   // the internal padding we need already.
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     &:first-child {
       margin: 0;
     }
@@ -34,7 +36,7 @@
   border-bottom: 1px solid $pale-grey;
 
   @include media-medium {
-    border: none;
+    border: 0;
     border-right: 2px solid $medium-pink;
     padding: 0;
     padding-right: 20px;

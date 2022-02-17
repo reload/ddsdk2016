@@ -44,8 +44,8 @@ footer {
     position: relative;
     &:after {
       @include media-small {
-        content: '';
-        background: url('../images/footer_tree_dummy_ikon.svg');
+        content: "";
+        background: url("../images/footer_tree_dummy_ikon.svg");
         background-repeat: no-repeat;
         background-position: 0 5px;
         height: 261px;

@@ -1,11 +1,10 @@
- /**
+/**
   * Contains theming of styling of sidedeck specific elements.
   */
 
- /* Shortcut specific behaviours in sidedeck.
+/* Shortcut specific behaviours in sidedeck.
     ------------------------------------------------------- */
 .article__sidebar {
-
   .paragraph--type--shortcuts {
     background-color: $white-two;
 
@@ -25,7 +24,7 @@
   .node-teaser--download {
     // Providing an inner wrapper in order to apply padding before making
     // columns.
-    & > .inner {
+    > .inner {
       @include clearfix;
       background-color: $white-two;
       padding: 20px;
@@ -33,7 +32,7 @@
     // Padding for mobile.
     padding: 0 0 30px 0;
     // Tablet padding reset.
-    @include media-small{
+    @include media-small {
       padding: 0 15px;
       margin-bottom: 30px;
     }

@@ -18,5 +18,5 @@
   @include squared-blue-button();
 }
 .pager__item.is-active a {
-  @include squared-blue-button('active');
+  @include squared-blue-button("active");
 }

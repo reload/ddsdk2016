@@ -1,7 +1,6 @@
 $fa-font-path: "../fonts/font-awesome";
 @import "font-awesome";
 
-
 .share--icons {
   position: absolute;
   right: 0;
@@ -18,19 +17,18 @@ $fa-font-path: "../fonts/font-awesome";
   }
   margin-top: $spacing-small;
 
- li {
-   display: inline-block;
-   margin: 0;
-   margin-left: 10px;
-   @include media-small {
-     margin: 0 5px;
-   }
-   a {
-     color: $bluish;
-   }
-   i {
-     font-size: $icon-font-size;
-   }
- }
-
+  li {
+    display: inline-block;
+    margin: 0;
+    margin-left: 10px;
+    @include media-small {
+      margin: 0 5px;
+    }
+    a {
+      color: $bluish;
+    }
+    i {
+      font-size: $icon-font-size;
+    }
+  }
 }

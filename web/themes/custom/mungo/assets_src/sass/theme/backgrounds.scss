@@ -1,23 +1,24 @@
 .marine-background {
   background-color: $marine-blue;
-  &, a {
+  &,
+  a {
     color: #fff;
   }
 }
 .marine-lighter-background {
   background-color: $marine-lighter-blue;
-  &, a {
+  &,
+  a {
     color: #fff;
   }
 }
 
-
 .white-background {
   background-color: #fff;
-  &, a {
+  &,
+  a {
     color: #000;
   }
-
 }
 
 .paragraphs--deck-color--grey {

@@ -44,7 +44,6 @@
   }
 }
 
-
 .deck--2col {
   // Adjust teaser height in order to allow the content-list to expand (flexbox)
   // The content-list dosen't allow the node-teaser two-col grid to expand
@@ -61,7 +60,7 @@
       // The content-list behaves kinda buggy on tablet and mobile.
       border-bottom: 1px solid $pinkish-grey;
       @include media-medium {
-        border-bottom: 0 none;
+        border-bottom: 0;
       }
     }
   }
@@ -86,4 +85,3 @@
     }
   }
 }
-

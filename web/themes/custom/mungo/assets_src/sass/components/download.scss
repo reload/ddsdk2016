@@ -5,17 +5,16 @@
 /*  Node download list-teaser.
     ------------------------------------------------------- */
 .node-teaser--heading--download {
-  // Should probably be node--teaser--download--heading to follow BEM
-  // but it's not.
   font-size: 18px;
   line-height: 1em;
+  margin: 0 0 10px;
 }
 .node-teaser--download {
   padding: 15px 0;
   background-color: white;
 
   // Remove border.
-  border: none;
+  border: 0;
 
   // Dimensions.
   width: 100%;
@@ -23,7 +22,7 @@
 
   // Remove hover effetcs.
   &:hover {
-    border: none;
+    border: 0;
     box-shadow: none;
   }
 
@@ -43,7 +42,6 @@
   }
 
   &--icon {
-
     text-align: center;
     width: 100%;
 
@@ -65,8 +63,4 @@
   .node-teaser--content-container {
     width: 100%;
   }
-}
-
-.node-teaser--heading--download {
-  margin: 0 0 10px;
 }

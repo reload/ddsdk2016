@@ -14,8 +14,8 @@
 .col-divider {
   margin-top: 40px;
   margin-bottom: 20px;
-  height:1px;
-  width:100%;
+  height: 1px;
+  width: 100%;
   border-bottom: 1px solid $pinkish-grey;
 }
 
@@ -50,7 +50,7 @@
 
 // Address spacing in between cols when row is wrapped on multiple lines.
 .row--grid {
-  $spacing : 15px;
+  $spacing: 15px;
   $halfspacing: $spacing/2;
   margin-top: -$halfspacing;
   margin-bottom: -$halfspacing;
@@ -58,7 +58,7 @@
     margin-top: -$spacing;
     margin-bottom: -$spacing;
   }
-  & > * {
+  > * {
     /* New nested flex container - Safari fix */
     display: flex;
     flex-wrap: wrap;
@@ -75,7 +75,6 @@
 .is-safari {
   // Ensure all elements on the same row has the same size.
   .row-equal-columns {
-
     // /* New nested flex container - Safari fix */
     .node-teaser:not(.node-teaser--list) {
       // But not on lists.. Have little idea if i actually was meant there.

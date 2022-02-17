@@ -10,6 +10,12 @@ rules:
   declaration-empty-line-before: null
   property-no-vendor-prefix: null
   value-no-vendor-prefix: null
+  no-empty-source: null
+  selector-max-id: null
+  shorthand-property-no-redundant-values: null
+  color-hex-length: null
+  selector-pseudo-element-colon-notation: single
+  scss/at-extend-no-missing-placeholder: null
   scss/at-mixin-pattern: "^[a-z_][a-z0-9_-]*$"
   scss/dollar-variable-pattern: "^[a-z_][a-z0-9_-]*$"
   scss/percent-placeholder-pattern: "^[a-z_][a-z0-9_-]*$"

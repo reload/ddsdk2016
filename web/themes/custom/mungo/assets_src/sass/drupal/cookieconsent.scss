@@ -1,5 +1,7 @@
 .cookieconsent-optout {
-  &__all, &__video, &-marketing {
+  &__all,
+  &__video,
+  &-marketing {
     display: flex;
     position: absolute;
     height: 100%;
@@ -13,7 +15,6 @@
   }
 }
 
-
 // There is a general hack for checkboxes found in forms.scss.
 // I don't want to mess with it, so instead I introduce an overwrite
 // specifically for the cookiebot dialog.
@@ -22,5 +23,3 @@
   position: inherit;
   left: 0;
 }
-
-

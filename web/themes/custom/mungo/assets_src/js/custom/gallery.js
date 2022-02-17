@@ -5,13 +5,14 @@
 
 (function ($, Drupal) {
   Drupal.behaviors.inlineGallery = {
+    // eslint-disable-next-line no-unused-vars
     attach: function (context, settings) {
+      // eslint-disable-next-line no-unused-vars
+      var gallery = $(".dds-gallery", context);
 
-      var gallery = $('.dds-gallery', context);
-
-      $('.dds-gallery', context).each(function () {
+      $(".dds-gallery", context).each(function () {
         // Find the inner list of images and have flexslider process it.
-        var slider = $('.dds-gallery__slider', $(this));
+        var slider = $(".dds-gallery__slider", $(this));
         slider.flexslider({
           animation: "slide",
           // Don't show bullets for each image.
@@ -19,9 +20,9 @@
           // When reaching the end, loop (ie. show an infinite slideshow).
           animationLoop: true,
           // Don't autoplay.
-          slideshow: false
+          slideshow: false,
         });
       });
-    }
+    },
   };
 })(jQuery, Drupal);

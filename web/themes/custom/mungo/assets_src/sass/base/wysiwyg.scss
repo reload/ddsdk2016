@@ -1,9 +1,10 @@
 // General styling of wysiwyg fields.
-.field--name-field-formatted-text, .field--name-field-factbox-text  {
-
+.field--name-field-formatted-text,
+.field--name-field-factbox-text {
   // Padding/margin has been reset in reset.scss - so apply a basic spacing
   // to make lists stand out.
-  ul, ol {
+  ul,
+  ol {
     padding-left: 2em;
   }
   h1 {
@@ -21,5 +22,4 @@
   h4 {
     @include list-heading-small;
   }
-
 }

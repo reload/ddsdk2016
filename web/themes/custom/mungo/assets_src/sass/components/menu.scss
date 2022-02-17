@@ -1,7 +1,5 @@
-
 // The site main menu. All representations.
 .block.menu--main {
-
   display: block;
 
   a {
@@ -46,7 +44,7 @@
     }
 
     // Only target first level here.
-    & > li {
+    > li {
       @include main-menu-entries--mobile;
       @include media-small {
         @include main-menu-entries;
@@ -58,9 +56,9 @@
       @include media-small {
         background: transparent;
         padding: 0;
-        border: 0 none;
+        border: 0;
         &.opened > a,
-        & > a:hover{
+        > a:hover {
           background-color: $white-two;
         }
       }
@@ -90,7 +88,6 @@
     position: relative;
     ul {
       display: none;
-
     }
     &.opened ul {
       display: block;
@@ -118,7 +115,8 @@
 
 // Must be set directly on UL or OL.
 .menu--clean {
-  &, li {
+  &,
+  li {
     margin: 0;
     list-style: none;
     padding: 0;

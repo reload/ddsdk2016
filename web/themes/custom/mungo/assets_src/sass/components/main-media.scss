@@ -16,8 +16,8 @@
 }
 
 .media {
-
-  .byline, .caption {
+  .byline,
+  .caption {
     // Prevent the caption to the left of the byline to get to close if it
     // wraps.
 
@@ -27,10 +27,9 @@
     @include image-text;
   }
   .byline {
-
     .byline--label {
       &:after {
-        content: ':';
+        content: ":";
       }
     }
     color: $warm-grey;
