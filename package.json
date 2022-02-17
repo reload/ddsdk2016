@@ -10,6 +10,7 @@
     "last 4 versions"
   ],
   "devDependencies": {
+    "@reloaddk/daft": "^1.2.0",
     "bootstrap-sass": "^3.4.1",
     "font-awesome": "^4.7.0",
     "gulp": "^4.0.2",
