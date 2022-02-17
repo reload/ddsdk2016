@@ -67,9 +67,9 @@
         "drupal/chosen_lib": "^2.6.0",
         "drupal/cookiebot": "1.0.0-alpha8",
         "drupal/cookieconsent": "^1.6",
-        "drupal/core-composer-scaffold": "^9",
-        "drupal/core-project-message": "^9",
-        "drupal/core-recommended": "^9",
+        "drupal/core-composer-scaffold": "~9.2.13",
+        "drupal/core-project-message": "~9.2.13",
+        "drupal/core-recommended": "~9.2.13",
         "drupal/crop": "^2.1",
         "drupal/ctools": "^3.0.0",
         "drupal/editor_advanced_link": "^1.4.0",
@@ -114,7 +114,7 @@
         "woothemes/flexslider": "^2.6.3"
     },
     "require-dev": {
-        "drupal/core-dev": "^9",
+        "drupal/core-dev": "~9.2.13",
         "mglaman/phpstan-drupal": "^0.12.10",
         "phpspec/prophecy-phpunit": "^2",
         "phpstan/extension-installer": "^1.1",
