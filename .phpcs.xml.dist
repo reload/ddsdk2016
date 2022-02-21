@@ -4,9 +4,9 @@
   <file>web/modules/custom</file>
   <file>web/themes/custom</file>
   <!-- Ignore generated assets -->
-  <exclude-pattern>web/themes/custom/toybox/dist</exclude-pattern>
-  <exclude-pattern>web/themes/custom/toybox/node_modules</exclude-pattern>
-  <!-- <exclude-pattern>web/themes/custom/refreshing/src_assets/fonts</exclude-pattern> -->
+  <exclude-pattern>web/themes/custom/mungo/assets</exclude-pattern>
+  <exclude-pattern>node_modules</exclude-pattern>
+  <exclude-pattern>web/themes/custom/mungo/assets_src/js/contrib/*</exclude-pattern>
   <rule ref="Drupal">
     <!-- Skip warnings about info file keys that's added by drupal.org. -->
     <exclude name="Drupal.InfoFiles.AutoAddedKeys"/>
