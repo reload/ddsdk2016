@@ -2,9 +2,22 @@
   "name": "Mungo",
   "description": "Build assets for the Drupal theme Mungo",
   "version": "0.0.1",
+  "config": {
+    "themepath": "web/themes/custom/mungo"
+  },
   "scripts": {
     "watch": "npm config set bin-links true && ./node_modules/.bin/gulp watch",
-    "build": "npm config set bin-links true && npm install && ./node_modules/.bin/gulp build"
+    "build": "npm config set bin-links true && npm install && ./node_modules/.bin/gulp build",
+    "js:eslint": "eslint $npm_package_config_themepath/assets_src/js/**/*.{js,ts}",
+    "js:prettier": "prettier $npm_package_config_themepath/assets_src/js/**/*.{js,ts}",
+    "js:lint": "concurrently 'npm:js:eslint' 'npm:js:prettier -- --check' --raw",
+    "js:format": "concurrently 'npm:js:eslint -- --fix' 'npm:js:prettier -- --write' --max-processes 1 --raw",
+    "css:stylelint": "stylelint $npm_package_config_themepath/assets_src/sass/**/*",
+    "css:prettier": "prettier $npm_package_config_themepath/assets_src/sass/**/*",
+    "css:lint": "concurrently 'npm:css:stylelint' 'npm:css:prettier -- --check' --raw",
+    "css:format": "concurrently 'npm:css:stylelint -- --fix' 'npm:css:prettier -- --write' --max-processes 1 --raw",
+    "lint": "concurrently 'npm:js:lint' 'npm:css:lint'",
+    "format": "concurrently 'npm:js:format' 'npm:css:format'"
   },
   "browserslist": [
     "last 4 versions"
