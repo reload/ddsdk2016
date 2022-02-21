@@ -1,3 +1,9 @@
+# We introduced PHPStan 6 years after the project started.
+# Rather than having to fix a million issues, we'll ignore the existing
+# ones and just deal with any future ones.
+# This is done by setting the current errors as an acceptable baseline.
+includes:
+	- phpstan-baseline.neon
 parameters:
   level: 5
   paths:
