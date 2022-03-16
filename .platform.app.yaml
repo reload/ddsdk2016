@@ -104,7 +104,7 @@ hooks:
       export NVM_DIR="$HOME/.nvm"
       [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
       nvm current
-      nvm install 15
+      nvm install 16
       npm install
       gulp build
       curl -sS https://platform.sh/cli/installer | php

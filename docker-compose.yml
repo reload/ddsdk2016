@@ -111,7 +111,7 @@ services:
       VIRTUAL_HOST: mail.ddsdk.docker
 
   npm:
-    image: node:15
+    image: node:16
     volumes:
       - 'cache:/npm-cache'
       - '${PWD}:/var/www'
