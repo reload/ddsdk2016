@@ -19,7 +19,7 @@
 
   // An optional thumbnail of the content.
   .content-link--image {
-    float:left;
+    float: left;
     margin-right: $spacing-small;
     @include media-small {
       margin-right: $spacing-medium;
@@ -29,7 +29,7 @@
   // Lead text and label for the link.
   .content-link--text--lead {
     @include content-link-label;
-    margin-bottom: $spacing-small
+    margin-bottom: $spacing-small;
   }
 
   .content-link--text--title {

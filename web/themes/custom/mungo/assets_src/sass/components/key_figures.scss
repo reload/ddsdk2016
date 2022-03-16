@@ -1,4 +1,3 @@
-
 // The paragraphs outer wrapper that gives it its background.
 .paragraph--type--key-figures-wrapper {
   margin-top: $spacing-small;
@@ -15,7 +14,8 @@
 .paragraph--type--key-figures {
   // Assume that all deck colors goes with white text. Otherwise introduce
   // class to switch between black and white text.
-  &, a {
+  &,
+  a {
     color: #fff;
     text-decoration: none;
   }

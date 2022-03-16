@@ -16,7 +16,7 @@
   border-bottom: 0 solid green;
 
   // Set the border color.
-  &.situation-links-color{
+  &.situation-links-color {
     &-red {
       border-color: $medium-pink;
     }
@@ -53,7 +53,7 @@
   .icon {
     float: left;
     @include media-medium {
-      float:none;
+      float: none;
     }
     padding: $spacing-small 0;
     svg {
@@ -67,9 +67,8 @@
     min-height: 350px;
   }
 
-
   // Vertically align middle.
-  & > a {
+  > a {
     display: flex;
     align-items: center;
     justify-content: left;
@@ -90,7 +89,7 @@
     @include media-medium {
       color: #000;
       &:after {
-        content: '';
+        content: "";
       }
     }
   }
@@ -107,7 +106,6 @@
         &:hover {
           color: $light-navy;
           text-decoration: underline;
-
         }
       }
     }
@@ -120,14 +118,10 @@
     @include media-medium {
       display: block;
       position: absolute;
-      top:300px;
+      top: 300px;
       left: 0;
       right: 0;
       @include blue-arrowed-read-more;
     }
-
   }
 }
-
-
-

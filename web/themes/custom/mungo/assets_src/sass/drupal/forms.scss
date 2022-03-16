@@ -1,16 +1,13 @@
 /*  Forms.
     ------------------------------------------------------- */
-input[type='text'],
-input[type='email'],
-input[type='password'],
-input[type='date'],
-input[type='time'] {
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="time"] {
   display: block;
-  width: 100%;
-  height: 38px;
   padding: $spacing-input;
   margin-bottom: 10px;
-  font-size: $form-font-size;
   line-height: 1.42857143;
   color: $bluish;
   vertical-align: middle;
@@ -23,9 +20,9 @@ input[type='time'] {
   width: 99%;
 }
 
-input[type='submit'] {
+input[type="submit"] {
   @include appearance(none);
-  border: none;
+  border: 0;
   text-shadow: none;
   background-color: $bluish;
   font-size: $form-font-size;
@@ -44,7 +41,7 @@ input[type='submit'] {
 }
 
 input[type="checkbox"] + label:before {
-  content: '';
+  content: "";
 }
 
 input[type="checkbox"]:not(:checked),
@@ -67,7 +64,8 @@ input[type="checkbox"]:checked + label:before {
   position: absolute;
   left: 0;
   top: 0;
-  width: 18px; height: 18px;
+  width: 18px;
+  height: 18px;
   border: 1px solid $bluish;
   background: white;
   border-radius: 3px;

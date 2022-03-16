@@ -15,7 +15,7 @@
         display: none;
       }
 
-      &::after {
+      &:after {
         content: $icon__arrow-up;
       }
     }
@@ -43,11 +43,11 @@
   border: 1px solid $pinkish-grey;
   cursor: pointer;
 
-  &::before {
+  &:before {
     display: none !important;
   }
 
-  &::after {
+  &:after {
     @include icon($icon__arrow-down);
 
     float: right;
@@ -72,7 +72,6 @@
   display: none;
 }
 
-
 @media print {
   .read-more__button {
     display: none !important;
@@ -82,4 +81,3 @@
     border-top-width: 1px;
   }
 }
-

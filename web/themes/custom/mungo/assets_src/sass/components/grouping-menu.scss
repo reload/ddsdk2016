@@ -4,13 +4,43 @@
 
 // Default setup of the entire menu.
 .grouping-menu {
+  @include capitalized-menu-item;
+  color: $bluish;
+
   // On mobile we push it down a bit and seperate it from the next element.
   margin: $spacing-medium 0;
 
   // On desktop we want the menu to be positioned close to the cover-image
   // and the next element.
   @include media-medium {
-    margin:0;
+    margin: 0;
+  }
+
+  // Hide the main menu until the title is clicked.
+  .grouping-menu__menu {
+    display: none;
+
+    // But allow it to show on desktop.
+    @include media-medium {
+      display: block;
+    }
+  }
+
+  ul.menu--grouping-menu {
+    li {
+      a {
+        // Double-enforce color to override cores styling.
+        color: $bluish;
+
+        &.is-active {
+          // Double-enforce color to override cores styling.
+          color: $bluish;
+        }
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
   }
 }
 
@@ -50,20 +80,7 @@ ul.menu.menu--grouping-menu {
   &:before {
     @include menu_chevron;
     .is-active & {
-      @include menu_chevron('up');
-    }
-  }
-}
-
-// Styling of the mobile passive-state.
-.grouping-menu {
-  // Hide the main menu until the title is clicked.
-  .grouping-menu__menu {
-    display: none;
-
-    // But allow it to show on desktop.
-    @include media-medium {
-      display: block;
+      @include menu_chevron("up");
     }
   }
 }
@@ -115,28 +132,5 @@ ul.menu.menu--grouping-menu {
   @include media-medium {
     display: inline-block;
     border-bottom: 4px solid $bluish;
-  }
-}
-
-// Styling of fonts.
-.grouping-menu {
-  @include capitalized-menu-item;
-  color: $bluish;
-
-  ul.menu--grouping-menu {
-    li {
-      a {
-        // Double-enforce color to override cores styling.
-        color: $bluish;
-
-        &.is-active {
-          // Double-enforce color to override cores styling.
-          color: $bluish;
-        }
-        &:hover {
-          text-decoration: none;
-        }
-      }
-    }
   }
 }

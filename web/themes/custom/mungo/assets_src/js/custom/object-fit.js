@@ -5,7 +5,9 @@
  * Polyfill from https://github.com/bfred-it/object-fit-images/.
  */
 
+// eslint-disable-next-line no-unused-vars
 (function ($, Drupal) {
-  var images = $('.full-width-image-container img');
+  var images = $(".full-width-image-container img");
+  // eslint-disable-next-line no-undef
   objectFitImages(images);
 })(jQuery, Drupal);

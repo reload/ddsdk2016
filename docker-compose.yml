@@ -28,7 +28,7 @@ services:
 
   # Instance of the php-image configured to serve fpm-requests.
   fpm:
-    image: reload/drupal-php7-fpm:7.3
+    image: reload/drupal-php7-fpm:7.4
     ports:
       - '9000'
     volumes:
@@ -111,7 +111,7 @@ services:
       VIRTUAL_HOST: mail.ddsdk.docker
 
   npm:
-    image: node:15
+    image: node:16
     volumes:
       - 'cache:/npm-cache'
       - '${PWD}:/var/www'

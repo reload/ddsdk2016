@@ -4,7 +4,8 @@
  */
 
 try {
+  // eslint-disable-next-line no-undef
   Typekit.load();
-}
-catch (e) {
+} catch (e) {
+  console.log(e);
 }

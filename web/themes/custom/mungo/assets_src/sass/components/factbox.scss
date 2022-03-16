@@ -38,7 +38,9 @@
   // Make sure the first heading of a factbox does not have any margin as the
   // factbox itself has more than enough padding internally.
   .factbox__body {
-    h1, h2, h3 {
+    h1,
+    h2,
+    h3 {
       &:first-child {
         margin-top: 0;
       }

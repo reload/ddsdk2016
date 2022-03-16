@@ -2,17 +2,16 @@
  * Theming of badge related view modes.
  */
 
- /*  Node badge - view mode full.
+/*  Node badge - view mode full.
     ------------------------------------------------------- */
 .node--type-badge {
-
   &.node--view-mode-full {
     padding: 50px 0;
   }
 
   // Remove border from main media.
   .main-media {
-    border: none;
+    border: 0;
   }
 
   // Style all field labels this way.
@@ -22,11 +21,9 @@
 
   // Style target group items. Add commas if there a more than one item.
   .field--name-field-badge-target-group {
-
     margin: 5px 0 20px;
 
     .field__item {
-
       @include article-text;
       display: inline-block;
       margin-top: 5px;
@@ -37,16 +34,14 @@
       }
 
       &:last-child {
-
         &:after {
-          content: none;
+          content: "";
         }
       }
 
       &:first-child {
-
         &:before {
-          content: none;
+          content: "";
         }
       }
     }
@@ -57,7 +52,7 @@
   @include list-heading-xlarge;
 }
 
-.field--name-field-badge-type  {
+.field--name-field-badge-type {
   @include pre-title;
 }
 
@@ -73,7 +68,6 @@
 }
 
 .node--type-badge__aside {
-
   &__inner {
     // Insert aside styling here.
   }
@@ -82,4 +76,3 @@
 .article-wrapper {
   background-color: white;
 }
-

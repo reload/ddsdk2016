@@ -1,19 +1,10 @@
-/* Handle the fixed top menu position and size */
-header.header-fixed {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index :2;
-  background-color: #fff;
-}
-
 // Magical values to push content down. This must adjusted if the fixed menu
 // changes.
 body .layout-container {
   padding-top: 71px;
 }
 
-@include media-small  {
+@include media-small {
   body .layout-container {
     padding-top: 131px;
   }
@@ -25,17 +16,18 @@ body .layout-container {
   }
 }
 
-/**
- * Header specifics.
- */
-
 header.header-fixed {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 2;
+  background-color: #fff;
 
   .menu--top-menu {
     ul {
       margin-right: 0;
     }
-    li{
+    li {
       display: inline-block;
       margin-left: $spacing-medium;
     }
@@ -61,16 +53,25 @@ header.header-fixed {
       padding-top: 8px;
     }
   }
+
   /* Display a line after menu */
   &:after {
     display: block;
-    content: '';
+    content: "";
     height: 1px;
     width: 100%;
     // If you're debugging why the line is overlapping content below it
     // you probably need to adjust the values in the body .layout-container
     // selector in this file.
-    @include background-image(linear-gradient(to left, transparent 0%, $warm-grey 25%, $warm-grey 75%, transparent 100%));
+    @include background-image(
+      linear-gradient(
+        to left,
+        transparent 0%,
+        $warm-grey 25%,
+        $warm-grey 75%,
+        transparent 100%
+      )
+    );
   }
 
   .region-primary-menu {
@@ -99,7 +100,6 @@ header.header-fixed {
    */
 
   .block-search {
-
     @include media-medium {
       display: inline-block;
       float: right;
@@ -129,7 +129,7 @@ header.header-fixed {
       }
 
       &:after {
-        content: '';
+        content: "";
       }
     }
     form {
@@ -178,7 +178,6 @@ header.header-fixed {
       }
       @include media-small {
         top: 100px;
-
       }
       @include media-medium {
         padding: $spacing-large;
@@ -197,7 +196,7 @@ header.header-fixed {
 }
 
 nav.menu--main {
-  @include media-medium{
+  @include media-medium {
     display: inline-block;
   }
 }

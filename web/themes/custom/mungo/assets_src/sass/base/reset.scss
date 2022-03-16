@@ -6,7 +6,8 @@
 // instead of having to reset margins/paddings in each situation we reset
 // pr default, and then re-apply the spacing we need on a case-by-case
 // basis.
-ul,ol {
+ul,
+ol {
   margin: 0;
   padding: 0;
 }

@@ -32,7 +32,6 @@
 }
 
 .program-item {
-
   overflow: hidden;
 
   &--header {
@@ -82,7 +81,7 @@
 }
 
 .slidedown {
-  @include transform(translate(0px,-20px) scale(1,0.95));
+  @include transform(translate(0, -20px) scale(1, 0.95));
   opacity: 0;
   max-height: 0;
   transition: 0.4s;
@@ -90,7 +89,9 @@
 
   &.js-active {
     max-height: 3000px;
-    @include transform(translateX(0px) translateY(0px) translateZ(0px) scaleX(1) scaleY(1) scaleZ(1));
+    @include transform(
+      translateX(0) translateY(0) translateZ(0) scaleX(1) scaleY(1) scaleZ(1)
+    );
     display: block;
     opacity: 1;
   }

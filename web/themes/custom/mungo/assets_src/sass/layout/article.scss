@@ -1,7 +1,6 @@
 /*  General layout and styling for articles.
     ------------------------------------------------------- */
 .page-node-type-article {
-
   background-color: white;
 
   // Author, share-links etc
@@ -14,7 +13,7 @@
     align-items: center;
 
     @include media-medium {
-      border: none;
+      border: 0;
       display: block;
     }
   }
@@ -38,7 +37,6 @@
   }
 }
 
-
 /*  Default and extended teaser.
     ------------------------------------------------------- */
 
@@ -59,7 +57,8 @@
   }
 
   // Reset this.
-  .byline, .caption {
+  .byline,
+  .caption {
     display: none;
   }
   a:hover {
@@ -67,7 +66,6 @@
   }
   // Node teaser view. This doesn't include the main image.
   .node-extended-teaser {
-
     // Since all is a link. reset color.
     color: #000;
 
@@ -119,13 +117,17 @@
       @include filter(brightness(80%));
     }
 
+    .node-teaser--read-more {
+      @include blue-arrowed-read-more-hover;
+    }
   }
+
   background-color: #fff;
   display: block;
 
   .main-media {
     margin: 0;
-    border: 0 none;
+    border: 0;
   }
   // Indent content that is not image.
   &--content-container {
@@ -133,10 +135,6 @@
     padding: $spacing-medium;
   }
 
-  // Fields.
-  &--heading {
-    // Defined later on.
-  }
   &--keyword {
     // Set margins negative for all teasers
     margin-bottom: -$spacing-small;
@@ -149,11 +147,6 @@
   }
   &--read-more {
     @include blue-arrowed-read-more;
-  }
-  &:hover {
-    .node-teaser--read-more {
-      @include blue-arrowed-read-more-hover;
-    }
   }
 
   // When no image.
@@ -178,7 +171,7 @@
   border-top: 1px solid $pinkish-grey;
 
   // Override default teaser bottom.
-  border-bottom: none;
+  border-bottom: 0;
   padding: 20px 0;
   width: calc(100% - 10px);
 
@@ -197,7 +190,7 @@
 
   // Override hover state on teaser.
   &:hover {
-    border-bottom: none;
+    border-bottom: 0;
     box-shadow: none;
     border-left: 5px solid $bluish;
   }
@@ -232,13 +225,13 @@
     // in full width.
     .no-image & {
       width: 100%;
-      padding-left: 0px;
+      padding-left: 0;
     }
   }
 
   @include media-small {
     // Overide border behaviour on tablet.
-    border-top: none;
+    border-top: 0;
     border-bottom: 1px solid $pinkish-grey;
 
     &:nth-child(1),
@@ -253,7 +246,7 @@
 
     // Reset.
     border-top: 1px solid $pinkish-grey;
-    border-bottom: none;
+    border-top: 0;
   }
 }
 

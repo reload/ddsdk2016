@@ -10,7 +10,8 @@
 
 // Styling of caption and bylines.
 .media {
-  .byline, .caption {
+  .byline,
+  .caption {
     // Prevent the caption to the left of the byline to get to close if it
     // wraps.
 
@@ -20,10 +21,9 @@
     @include image-text;
   }
   .byline {
-
     .byline--label {
       &:after {
-        content: ':';
+        content: ":";
       }
     }
     color: $warm-grey;
@@ -44,7 +44,8 @@
   width: auto;
   img {
     object-fit: cover;
-    font-family: 'object-fit: cover;';
+    // stylelint-disable-next-line font-family-no-missing-generic-family-keyword
+    font-family: "object-fit: cover;";
     background-color: #000;
 
     // Herobanner.
@@ -74,5 +75,4 @@
       }
     }
   }
-
 }

@@ -8,22 +8,19 @@
   }
 }
 
-// Inline the individual links.
-.large-button-menu--button {
-  display: inline-block;
-  text-align: center;
-}
-
 // Styling of a active button - we may have multiple.
 // The active class can be set on the wrapper as well as the link itself.
 .large-button-menu--button {
+  display: inline-block;
+  text-align: center;
+
   a {
     @include cta-button-blue;
   }
 
   &__active {
     a {
-      @include cta-button-blue('active');
+      @include cta-button-blue("active");
     }
   }
 }

@@ -50,10 +50,17 @@
   // Font-size was originally, in ze styleguide 11px, but since body is 13, it
   // makes no sence.
   font-size: 14px;
-  @include media-small  {  /* inherit */     }
-  @include media-medium {  /* inherit */     }
-  @include media-large  {  /* inherit */     }
+  @include media-small {
+    /* inherit */
+  }
+  @include media-medium {
+    /* inherit */
+  }
+  @include media-large {
+    /* inherit */
+  }
 }
+
 /* Liste Rubrik - medium */
 @mixin list-heading-medium {
   font-family: $std-font;
@@ -64,10 +71,17 @@
   // Font-size was originally, in ze styleguide 12px, but since body is 13, it
   // makes no sence.
   font-size: 14px;
-  @include media-small  {  font-size: 18px;  }
-  @include media-medium {  /* inherit */     }
-  @include media-large  {  /* inherit */     }
+  @include media-small {
+    font-size: 18px;
+  }
+  @include media-medium {
+    /* inherit */
+  }
+  @include media-large {
+    /* inherit */
+  }
 }
+
 /* Liste Rubrik - large */
 @mixin list-heading-large {
   font-family: $std-font;
@@ -76,10 +90,17 @@
   letter-spacing: 0.3px;
 
   font-size: 18px;
-  @include media-small  {  font-size: 20px;  }
-  @include media-medium {  font-size: 21px;  }
-  @include media-large  {  /* inherit */     }
+  @include media-small {
+    font-size: 20px;
+  }
+  @include media-medium {
+    font-size: 21px;
+  }
+  @include media-large {
+    /* inherit */
+  }
 }
+
 /* Liste Rubrik - extra large */
 @mixin list-heading-xlarge {
   font-family: $std-font;
@@ -89,9 +110,15 @@
   line-height: 1.17;
 
   font-size: 22px;
-  @include media-small  {  font-size: 24px;  }
-  @include media-medium {  font-size: 32px;  }
-  @include media-large  {  font-size: 46px;  }
+  @include media-small {
+    font-size: 24px;
+  }
+  @include media-medium {
+    font-size: 32px;
+  }
+  @include media-large {
+    font-size: 46px;
+  }
 }
 
 /* Alternativ Rubrik - small */
@@ -102,8 +129,8 @@
   @include media-small {
     font-size: 24px;
   }
-
 }
+
 /* Alternativ Rubrik - medium */
 @mixin feature-heading-medium {
   letter-spacing: 0.5px;
@@ -115,8 +142,8 @@
     font-size: 36px;
     line-height: 46px;
   }
-
 }
+
 /* Alternativ Rubrik - large */
 @mixin feature-heading-large {
   font-family: $feature-font;
@@ -203,7 +230,6 @@
   }
 }
 
-
 @mixin article-text {
   font-size: 15px;
   line-height: 2;
@@ -248,11 +274,12 @@
 }
 
 /* These are only used on inspiration-deck */
+
 /* High candidates for refactor */
 @mixin inspiration_header {
   font-size: 14px;
   @include media-small {
-    font-size:20px;
+    font-size: 20px;
   }
   @include media-large {
     font-size: 24px;
@@ -262,7 +289,7 @@
 @mixin inspiration_teaser_header {
   @include inspiration_header;
   margin-bottom: 3px;
-  font-size:17px;
+  font-size: 17px;
   @include media-small {
     margin-bottom: 6px;
   }
@@ -285,7 +312,8 @@
 // Add icon via unicode chars eg @include icon('\f054')
 @mixin icon($char) {
   // Font awesome is available.
-  font-family: 'FontAwesome';
+  // stylelint-disable-next-line font-family-no-missing-generic-family-keyword
+  font-family: "FontAwesome";
   speak: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
