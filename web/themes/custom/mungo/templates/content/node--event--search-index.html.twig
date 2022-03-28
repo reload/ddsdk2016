@@ -81,6 +81,9 @@
     <div class="search-result__content">
       <div class="search-result__header">
         <div class="search-result__event__type">
+          {% if has_spejderdk_target_group %}
+            <span>Spejder.dk</span>
+          {% endif %}
           {{ content.field_event_type }}
         </div>
         <div class="search-result__title">

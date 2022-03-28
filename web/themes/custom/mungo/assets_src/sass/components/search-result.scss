@@ -30,6 +30,8 @@
 
 .search-result__event__type {
   line-height: 1.65;
+  display: flex;
+  gap: $spacing-small;
 }
 
 .search-result__title {
