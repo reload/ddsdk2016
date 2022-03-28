@@ -18,6 +18,7 @@ use Drupal\dds_activity\ActivityFetcher;
 use Drupal\file\FileInterface;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\TermInterface;
+use Drupal\taxonomy\Entity\Term;
 use Drupal\dds_layout\Form\MungoInspirationPrerender;
 
 /**
@@ -445,6 +446,17 @@ function mungo_preprocess_node(&$variables) {
     // If the database is not yet available, set default values for these
     // variables.
     $variables['is_front'] = FALSE;
+  }
+
+  foreach ($node->get('field_content_target_group')->getValue() as $item) {
+    /** @var Drupal\taxonomy\TermInterface $target_group */
+    $target_group = Term::load($item['target_id']);
+    if (strtolower($target_group->getName()) != 'spejder.dk') {
+      continue;
+    }
+
+    $node_has_spejderdk_target_group = strtolower($target_group->getName()) == 'spejder.dk';
+    $variables['has_spejderdk_target_group'] = $node_has_spejderdk_target_group;
   }
 }
 

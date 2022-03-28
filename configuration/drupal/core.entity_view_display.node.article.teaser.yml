@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.article.field_content_tag
     - field.field.node.article.field_content_target_group
     - field.field.node.article.field_content_topic
+    - field.field.node.article.field_exclude_from_search
     - field.field.node.article.field_main_media
     - field.field.node.article.field_metatags
     - field.field.node.article.field_paragraphs
@@ -25,6 +26,15 @@ targetEntityType: node
 bundle: article
 mode: teaser
 content:
+  field_content_target_group:
+    type: entity_reference_entity_view
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      view_mode: plaintext
+      link: false
+    third_party_settings: {  }
   field_content_topic:
     type: entity_reference_entity_view
     weight: 1

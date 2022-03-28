@@ -95,8 +95,13 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
     {% if content.field_content_topic or content.field_content_topic or content.field_badge_type or content.field_event_type %}
         <div class="node-teaser--keyword">
           {% if node.bundle in ['article', 'section_page', 'activity', 'redirect_page'] %}
-            {% if content.field_content_topic %}
-              {{ content.field_content_topic }}
+            {% if content.field_content_topic or has_spejderdk_target_group %}
+              <ul class="node-teaser--keyword-list">
+                {% if has_spejderdk_target_group %}
+                  <li>Spejder.dk</li>
+                {% endif %}
+                <li>{{ content.field_content_topic }}</li>
+              </ul>
             {% endif %}
           {% elseif node.bundle == 'event' %}
             {{ content.field_event_type }}
