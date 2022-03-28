@@ -139,6 +139,12 @@
     // Set margins negative for all teasers
     margin-bottom: -$spacing-small;
     @include pre-title;
+
+    &-list {
+      display: flex;
+      gap: $spacing-small;
+      list-style-type: none;
+    }
   }
   // Keyword gets to close in teaser-lists so we reset the margin added for
   // standard teasers back to zero.
