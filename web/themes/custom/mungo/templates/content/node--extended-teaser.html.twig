@@ -92,8 +92,13 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
     <a{{ attributes.addClass(classes) }} href="{{ url }}">
         <div class="node-extended-teaser--content-container">
             <div class="node-extended-teaser--keyword">
-              {% if content.field_content_topic %}
-                {{ content.field_content_topic }}
+              {% if content.field_content_topic or has_spejderdk_target_group %}
+                <ul class="node-teaser--keyword-list">
+                  {% if has_spejderdk_target_group %}
+                    <li>Spejder.dk</li>
+                  {% endif %}
+                  <li>{{ content.field_content_topic }}</li>
+                </ul>
               {% endif %}
             </div>
             <h2 class="node-extended-teaser--heading">
