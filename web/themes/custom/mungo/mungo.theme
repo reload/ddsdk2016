@@ -449,8 +449,9 @@ function mungo_preprocess_node(&$variables) {
   }
 
   foreach ($node->get('field_content_target_group')->getValue() as $item) {
-    // The term id that the editors can add to content to indicate that the content is from spejder.dk.
-    // We're checking on the id because the name could change.
+    // The term id that the editors can add to content to indicate that the
+    // content is from spejder.dk. We're checking on the id because the name
+    // could change.
     $spejder_dk_tid = 826;
 
     /** @var Drupal\taxonomy\TermInterface $target_group */
@@ -462,6 +463,7 @@ function mungo_preprocess_node(&$variables) {
 
     $node_has_spejderdk_target_group = intval($target_group->id()) == $spejder_dk_tid;
     $variables['has_spejderdk_target_group'] = $node_has_spejderdk_target_group;
+    $variables['spejderdk_target_group_term_name'] = $target_group->getName();
   }
 }
 
