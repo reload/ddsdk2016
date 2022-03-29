@@ -8,7 +8,7 @@ dependencies:
   module:
     - search_api
 id: topic_taxonomy_term_name
-name: Topic
+name: Emne
 url_alias: topic
 weight: 0
 min_count: 1
@@ -21,10 +21,11 @@ widget:
     show_numbers: true
     soft_limit: 10
     soft_limit_settings:
-      show_less_label: 'Show less'
-      show_more_label: 'Show more'
+      show_less_label: 'Vis færre'
+      show_more_label: 'Vis flere'
 query_operator: or
 use_hierarchy: false
+keep_hierarchy_parents_active: false
 expand_hierarchy: false
 enable_parent_when_child_gets_disabled: true
 hard_limit: 0
