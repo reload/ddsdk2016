@@ -82,7 +82,8 @@
       <div class="search-result__header">
         <div class="search-result__event__type">
           {% if has_spejderdk_target_group %}
-            <span>{{ spejderdk_target_group_term_name }}</span>
+            <span>{{ spejderdk_target_group_term_name }} </span>
+            {% if content.field_event_type %} &#8209; {% endif %}
           {% endif %}
           {{ content.field_event_type }}
         </div>
