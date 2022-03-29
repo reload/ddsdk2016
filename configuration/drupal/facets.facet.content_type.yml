@@ -8,7 +8,7 @@ dependencies:
   module:
     - search_api
 id: content_type
-name: 'Content type'
+name: Indholdstype
 url_alias: content_type
 weight: 0
 min_count: 1
@@ -22,6 +22,7 @@ widget:
     soft_limit: 0
 query_operator: or
 use_hierarchy: false
+keep_hierarchy_parents_active: false
 expand_hierarchy: false
 enable_parent_when_child_gets_disabled: true
 hard_limit: 0
@@ -54,3 +55,4 @@ processor_configs:
     settings: {  }
 empty_behavior:
   behavior: none
+show_title: null
