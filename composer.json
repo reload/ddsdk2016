@@ -67,9 +67,9 @@
         "drupal/chosen_lib": "^2.6.0",
         "drupal/cookiebot": "1.0.0-alpha8",
         "drupal/cookieconsent": "^1.6",
-        "drupal/core-composer-scaffold": "~9.2.13",
-        "drupal/core-project-message": "~9.2.13",
-        "drupal/core-recommended": "~9.2.13",
+        "drupal/core-composer-scaffold": "~9.2.18",
+        "drupal/core-project-message": "~9.2.18",
+        "drupal/core-recommended": "~9.2.18",
         "drupal/crop": "^2.1",
         "drupal/ctools": "^3.0.0",
         "drupal/editor_advanced_link": "^1.4.0",
@@ -115,7 +115,7 @@
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
         "drupal/coder": "^8.3",
-        "drupal/core-dev": "~9.2.13",
+        "drupal/core-dev": "~9.2.18",
         "mglaman/phpstan-drupal": "^1",
         "phpspec/prophecy-phpunit": "^2",
         "phpstan/extension-installer": "^1.1",
@@ -128,7 +128,15 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/installers": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "cweagans/composer-patches": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true,
+            "phpstan/extension-installer": true
+        }
     },
     "scripts": {
         "phpcs": "vendor/bin/phpcs --standard=vendor/drupal/coder/coder_sniffer/Drupal/ruleset.xml,phpcs.xml",
