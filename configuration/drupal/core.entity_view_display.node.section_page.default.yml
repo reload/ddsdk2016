@@ -12,9 +12,11 @@ dependencies:
     - field.field.node.section_page.field_metatags
     - field.field.node.section_page.field_section
     - field.field.node.section_page.field_subtitle
+    - field.field.node.section_page.field_universe
     - node.type.section_page
   module:
     - entity_reference_revisions
+    - options
     - user
 id: node.section_page.default
 targetEntityType: node
@@ -46,6 +48,13 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
+  field_universe:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
 hidden:
   field_content_category: true
   field_content_tag: true
@@ -55,3 +64,4 @@ hidden:
   field_metatags: true
   langcode: true
   links: true
+  search_api_excerpt: true

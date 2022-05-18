@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.section_page.field_metatags
     - field.field.node.section_page.field_section
     - field.field.node.section_page.field_subtitle
+    - field.field.node.section_page.field_universe
     - node.type.section_page
   module:
     - user
@@ -37,5 +38,7 @@ hidden:
   field_main_media: true
   field_metatags: true
   field_section: true
+  field_universe: true
   langcode: true
   links: true
+  search_api_excerpt: true
