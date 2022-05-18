@@ -1,0 +1,73 @@
+<?php
+
+/**
+ * @file
+ * Hooks and functionality for the Track universe.
+ */
+
+use Drupal\node\Entity\Node;
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Prepare the html for the track universe context.
+ */
+function dds_track_preprocess_html(&$variables) {
+  if (empty(\Drupal::routeMatch()->getParameter('node')) || \Drupal::service('router.admin_context')->isAdminRoute()) {
+    return;
+  }
+
+  /** @var \Drupal\node\Entity\Node $node */
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if (!$node->hasField('field_universe')) {
+    return;
+  }
+
+  $track_universe_options = _dds_track_get_universe_options();
+  if (!in_array($node->get('field_universe')->getString(), $track_universe_options)) {
+    return;
+  }
+
+  $variables['attributes']['class'][] = 'page-type-universe';
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Attach a html class to the node, if it's in a track-universe context.
+ * This allows us to target nodes in teasers etc.
+ */
+function dds_track_preprocess_node(&$variables) {
+  if (empty($variables['node']) || !$variables['node'] instanceof Node) {
+    return;
+  }
+
+  // Bail out if view mode is not a teaser.
+  if ($variables['view_mode'] === 'full' || $variables['view_mode'] === 'preview') {
+    return;
+  }
+
+  $node = $variables['node'];
+  if (!$node->hasField('field_universe')) {
+    return;
+  }
+
+  if (!empty($node->get('field_universe')->getString())) {
+    $variables['attributes']['class'][] = $node->get('field_universe')->getString();
+  }
+}
+
+/**
+ * Helper function to get the possible values for the track universe.
+ *
+ * @return string[]
+ *   Return an array of the possible options for the Track universe.
+ */
+function _dds_track_get_universe_options(): array {
+  return [
+    'track-skills',
+    'track-patrol',
+    'track-events',
+    'track-adventure',
+  ];
+}
