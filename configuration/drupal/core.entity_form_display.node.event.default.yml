@@ -27,6 +27,7 @@ dependencies:
     - field.field.node.event.field_metatags
     - field.field.node.event.field_paragraphs
     - field.field.node.event.field_programs
+    - field.field.node.event.field_universe
     - node.type.event
   module:
     - address
@@ -47,104 +48,104 @@ third_party_settings:
         - field_event_start
         - field_event_end
         - field_event_is_all_day
-      label: Time
-      region: content
       parent_name: group_main_info
       weight: 9
+      label: Time
       format_type: fieldset
       format_settings:
+        description: ''
         classes: ''
         id: ''
-        description: ''
         required_fields: true
+      region: content
     group_description:
       children:
         - title
+        - field_universe
         - field_main_media
         - field_event_teaser
         - field_paragraphs
-      label: 'Event presentation'
-      region: content
       parent_name: ''
       weight: 0
+      label: 'Event presentation'
       format_type: fieldset
       format_settings:
-        label: 'Event presentation'
-        classes: ''
-        id: ''
         required_fields: true
+        id: ''
+        classes: ''
+      region: content
     group_main_info:
       children:
         - group_event_time
         - field_event_price
-      label: 'Main info'
-      region: content
       parent_name: ''
       weight: 1
+      label: 'Main info'
       format_type: fieldset
       format_settings:
+        description: ''
         classes: ''
         id: ''
-        description: ''
         required_fields: true
+      region: content
     group_event_signup_info:
       children:
         - field_event_signup_deadline
         - field_event_signup_instructions
         - field_course_id
-      label: 'Signup info'
-      region: content
       parent_name: ''
       weight: 3
+      label: 'Signup info'
       format_type: fieldset
       format_settings:
+        description: ''
         classes: ''
         id: ''
-        description: ''
         required_fields: true
+      region: content
     group_event_extra_info:
       children:
         - field_event_type
         - field_event_host_info
-      label: 'Extra info'
-      region: content
       parent_name: ''
       weight: 4
+      label: 'Extra info'
       format_type: fieldset
       format_settings:
+        description: ''
         classes: ''
         id: ''
-        description: ''
         required_fields: true
+      region: content
     group_event_location_info:
       children:
         - field_event_location_name
         - field_event_area
         - field_event_address
         - field_event_accommodation
-      label: 'Location info'
-      region: content
       parent_name: ''
       weight: 5
+      label: 'Location info'
       format_type: fieldset
       format_settings:
+        description: ''
         classes: ''
         id: ''
-        description: ''
         required_fields: true
+      region: content
     group_program:
       children:
         - field_programs
-      label: Program
-      region: content
       parent_name: ''
       weight: 15
+      label: Program
       format_type: fieldset
       format_settings:
+        description: ''
         classes: ''
         id: ''
-        description: ''
         required_fields: true
+      region: content
 id: node.event.default
 targetEntityType: node
 bundle: event
@@ -153,125 +154,123 @@ content:
   created:
     type: datetime_timestamp
     weight: 9
-    region: content
     settings: {  }
     third_party_settings: {  }
+    region: content
   field_content_category:
-    type: options_select
     weight: 11
-    region: content
     settings: {  }
     third_party_settings: {  }
-  field_content_tag:
-    type: entity_reference_autocomplete_tags
-    weight: 14
+    type: options_select
     region: content
+  field_content_tag:
+    weight: 14
     settings:
       match_operator: CONTAINS
-      match_limit: 10
       size: 60
       placeholder: ''
+      match_limit: 10
     third_party_settings: {  }
+    type: entity_reference_autocomplete_tags
+    region: content
   field_content_target_group:
-    type: options_select
     weight: 13
-    region: content
     settings: {  }
     third_party_settings: {  }
+    type: options_select
+    region: content
   field_content_topic:
-    type: options_select
     weight: 12
-    region: content
     settings: {  }
     third_party_settings: {  }
+    type: options_select
+    region: content
   field_course_id:
-    type: number
     weight: 17
-    region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
+    type: number
+    region: content
   field_event_accommodation:
-    type: text_textarea
     weight: 14
-    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-  field_event_address:
-    type: address_default
-    weight: 13
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_event_area:
-    type: options_select
-    weight: 12
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_event_end:
-    type: datetime_default
-    weight: 6
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_event_host_info:
     type: text_textarea
-    weight: 10
     region: content
+  field_event_address:
+    weight: 13
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_event_area:
+    weight: 12
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_event_end:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_event_host_info:
+    weight: 10
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-  field_event_is_all_day:
-    type: boolean_checkbox
-    weight: 7
+    type: text_textarea
     region: content
+  field_event_is_all_day:
+    weight: 7
     settings:
       display_label: true
     third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   field_event_location_name:
-    type: string_textfield
     weight: 11
-    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_event_price:
     type: string_textfield
-    weight: 10
     region: content
+  field_event_price:
+    weight: 10
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_event_signup_deadline:
-    type: datetime_default
-    weight: 15
+    type: string_textfield
     region: content
+  field_event_signup_deadline:
+    weight: 15
     settings: {  }
     third_party_settings: {  }
-  field_event_signup_instructions:
-    type: text_textarea
-    weight: 16
+    type: datetime_default
     region: content
+  field_event_signup_instructions:
+    weight: 16
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-  field_event_start:
-    type: datetime_default
-    weight: 5
+    type: text_textarea
     region: content
+  field_event_start:
+    weight: 5
     settings: {  }
     third_party_settings: {  }
-  field_event_teaser:
-    type: string_textarea
-    weight: 2
+    type: datetime_default
     region: content
+  field_event_teaser:
+    weight: 3
     settings:
       rows: 5
       placeholder: ''
@@ -281,41 +280,43 @@ content:
         maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
         maxlength_js_enforce: false
         maxlength_js_truncate_html: false
-  field_event_type:
-    type: options_select
-    weight: 8
+    type: string_textarea
     region: content
+  field_event_type:
+    weight: 8
     settings: {  }
     third_party_settings: {  }
-  field_exclude_from_search:
-    type: search_api_exclude_entity_widget
-    weight: 122
+    type: options_select
     region: content
+  field_exclude_from_search:
+    weight: 122
     settings:
       field_label: 'Yes, exclude this entity from the search indexes.'
     third_party_settings: {  }
-  field_main_media:
-    type: inline_entity_form_simple
-    weight: 1
+    type: search_api_exclude_entity_widget
     region: content
+  field_main_media:
+    weight: 2
     settings:
       form_mode: main_media_with_8_3
-      override_labels: false
       label_singular: ''
       label_plural: ''
+      override_labels: false
       collapsible: false
       collapsed: false
+      revision: false
     third_party_settings: {  }
+    type: inline_entity_form_simple
+    region: content
   field_metatags:
-    type: metatag_firehose
     weight: 26
-    region: content
-    settings: {  }
+    settings:
+      sidebar: true
     third_party_settings: {  }
-  field_paragraphs:
-    type: entity_reference_paragraphs
-    weight: 3
+    type: metatag_firehose
     region: content
+  field_paragraphs:
+    weight: 4
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -324,10 +325,11 @@ content:
       form_display_mode: default
       default_paragraph_type: _none
     third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
   field_programs:
     type: entity_reference_paragraphs
     weight: 16
-    region: content
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -336,26 +338,33 @@ content:
       form_display_mode: default
       default_paragraph_type: _none
     third_party_settings: {  }
+    region: content
+  field_universe:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
   langcode:
     type: language_select
     weight: 2
-    region: content
     settings:
       include_locked: true
     third_party_settings: {  }
+    region: content
   path:
     type: path
     weight: 6
-    region: content
     settings: {  }
     third_party_settings: {  }
+    region: content
   promote:
     type: boolean_checkbox
-    weight: 8
-    region: content
     settings:
       display_label: true
+    weight: 8
     third_party_settings: {  }
+    region: content
   publish_on:
     type: datetime_timestamp_no_default
     weight: 30
@@ -369,22 +378,21 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 121
-    region: content
     settings:
       display_label: true
+    weight: 121
     third_party_settings: {  }
+    region: content
   sticky:
     type: boolean_checkbox
-    weight: 7
-    region: content
     settings:
       display_label: true
+    weight: 7
     third_party_settings: {  }
+    region: content
   title:
     type: string_textfield
     weight: 0
-    region: content
     settings:
       size: 60
       placeholder: ''
@@ -392,16 +400,17 @@ content:
       maxlength:
         maxlength_js: null
         maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+    region: content
   uid:
     type: entity_reference_autocomplete
     weight: 10
-    region: content
     settings:
       match_operator: CONTAINS
-      match_limit: 10
       size: 60
       placeholder: ''
+      match_limit: 10
     third_party_settings: {  }
+    region: content
   unpublish_on:
     type: datetime_timestamp_no_default
     weight: 30

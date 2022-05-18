@@ -22,10 +22,12 @@ dependencies:
     - field.field.node.event.field_event_start
     - field.field.node.event.field_event_teaser
     - field.field.node.event.field_event_type
+    - field.field.node.event.field_exclude_from_search
     - field.field.node.event.field_main_media
     - field.field.node.event.field_metatags
     - field.field.node.event.field_paragraphs
     - field.field.node.event.field_programs
+    - field.field.node.event.field_universe
     - node.type.event
   module:
     - user
@@ -70,8 +72,11 @@ hidden:
   field_event_signup_instructions: true
   field_event_start: true
   field_event_teaser: true
+  field_exclude_from_search: true
   field_metatags: true
   field_paragraphs: true
   field_programs: true
+  field_universe: true
   langcode: true
   links: true
+  search_api_excerpt: true
