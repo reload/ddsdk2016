@@ -27,6 +27,7 @@ dependencies:
     - field.field.node.event.field_metatags
     - field.field.node.event.field_paragraphs
     - field.field.node.event.field_programs
+    - field.field.node.event.field_universe
     - node.type.event
   module:
     - address
@@ -337,6 +338,12 @@ content:
       form_display_mode: default
       default_paragraph_type: _none
     third_party_settings: {  }
+    region: content
+  field_universe:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
     region: content
   langcode:
     type: language_select

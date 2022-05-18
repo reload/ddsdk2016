@@ -27,6 +27,7 @@ dependencies:
     - field.field.node.event.field_metatags
     - field.field.node.event.field_paragraphs
     - field.field.node.event.field_programs
+    - field.field.node.event.field_universe
     - node.type.event
   module:
     - user
@@ -66,6 +67,7 @@ hidden:
   field_metatags: true
   field_paragraphs: true
   field_programs: true
+  field_universe: true
   langcode: true
   links: true
   search_api_excerpt: true
