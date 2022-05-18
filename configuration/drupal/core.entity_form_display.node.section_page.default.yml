@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.section_page.field_metatags
     - field.field.node.section_page.field_section
     - field.field.node.section_page.field_subtitle
+    - field.field.node.section_page.field_universe
     - node.type.section_page
   module:
     - inline_entity_form
@@ -110,6 +111,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
+    region: content
+  field_universe:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
     region: content
   langcode:
     type: language_select
