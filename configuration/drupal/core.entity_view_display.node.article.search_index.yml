@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.article.field_paragraphs
     - field.field.node.article.field_sidedeck
     - field.field.node.article.field_subtitle
+    - field.field.node.article.field_universe
     - node.type.article
   module:
     - entity_reference_revisions
@@ -108,4 +109,6 @@ hidden:
   field_article_type: true
   field_exclude_from_search: true
   field_sidedeck: true
+  field_universe: true
   langcode: true
+  search_api_excerpt: true
