@@ -1,0 +1,23 @@
+uuid: 464b18f3-efc1-4632-8ba1-0a1fbee678ed
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_universe
+    - node.type.event
+  module:
+    - options
+id: node.event.field_universe
+field_name: field_universe
+entity_type: node
+bundle: event
+label: Univers
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: dds
+default_value_callback: ''
+settings: {  }
+field_type: list_string

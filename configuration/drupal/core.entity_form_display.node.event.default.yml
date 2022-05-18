@@ -27,6 +27,7 @@ dependencies:
     - field.field.node.event.field_metatags
     - field.field.node.event.field_paragraphs
     - field.field.node.event.field_programs
+    - field.field.node.event.field_universe
     - node.type.event
   module:
     - address
@@ -60,6 +61,7 @@ third_party_settings:
     group_description:
       children:
         - title
+        - field_universe
         - field_main_media
         - field_event_teaser
         - field_paragraphs
@@ -68,7 +70,6 @@ third_party_settings:
       label: 'Event presentation'
       format_type: fieldset
       format_settings:
-        label: 'Event presentation'
         required_fields: true
         id: ''
         classes: ''
@@ -269,7 +270,7 @@ content:
     type: datetime_default
     region: content
   field_event_teaser:
-    weight: 2
+    weight: 3
     settings:
       rows: 5
       placeholder: ''
@@ -295,7 +296,7 @@ content:
     type: search_api_exclude_entity_widget
     region: content
   field_main_media:
-    weight: 1
+    weight: 2
     settings:
       form_mode: main_media_with_8_3
       label_singular: ''
@@ -303,17 +304,19 @@ content:
       override_labels: false
       collapsible: false
       collapsed: false
+      revision: false
     third_party_settings: {  }
     type: inline_entity_form_simple
     region: content
   field_metatags:
     weight: 26
-    settings: {  }
+    settings:
+      sidebar: true
     third_party_settings: {  }
     type: metatag_firehose
     region: content
   field_paragraphs:
-    weight: 3
+    weight: 4
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -335,6 +338,12 @@ content:
       form_display_mode: default
       default_paragraph_type: _none
     third_party_settings: {  }
+    region: content
+  field_universe:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
     region: content
   langcode:
     type: language_select
