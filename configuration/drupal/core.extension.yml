@@ -34,6 +34,7 @@ module:
   dds_person: 0
   dds_search: 0
   dds_top_image: 0
+  dds_track: 0
   dds_tracking: 0
   dds_update: 0
   dynamic_page_cache: 0
