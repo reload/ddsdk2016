@@ -422,7 +422,9 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-      tags: {  }
+        - 'user.node_grants:view'
+      tags:
+        - 'config:search_api.index.nodes'
   content_search:
     display_plugin: page
     id: content_search
@@ -431,6 +433,10 @@ display:
     display_options:
       display_extenders: {  }
       path: soeg
+      cache:
+        type: none
+      defaults:
+        cache: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -438,4 +444,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-      tags: {  }
+        - 'user.node_grants:view'
+      tags:
+        - 'config:search_api.index.nodes'

@@ -1,28 +1,28 @@
-uuid: e696a161-9dea-4e9c-8a87-1f9a0001e2e1
-langcode: en
+uuid: 9f0018be-73e4-4423-a38b-d08095ab1e31
+langcode: da
 status: true
 dependencies:
   config:
     - search_api.index.nodes
-    - views.view.activities
+    - views.view.search
   module:
     - search_api
-id: activity_type
-name: Aktivitetstype
-url_alias: activity_type
+id: target_group_taxonomy_term_name
+name: Målgruppe
+url_alias: target_group
 weight: 0
 min_count: 1
 show_only_one_result: false
-field_identifier: field_activity_type
-facet_source_id: 'search_api:views_page__activities__activities_overview'
+field_identifier: field_content_target_group
+facet_source_id: 'search_api:views_page__search__content_search'
 widget:
   type: checkbox
   config:
-    show_numbers: false
-    soft_limit: 0
+    show_numbers: true
+    soft_limit: 10
     soft_limit_settings:
-      show_less_label: 'Show less'
-      show_more_label: 'Show more'
+      show_less_label: 'Vis færre'
+      show_more_label: 'Vis flere'
     show_reset_link: false
     reset_text: 'Show all'
     hide_reset_when_no_selection: false
@@ -35,22 +35,28 @@ hard_limit: 0
 exclude: false
 only_visible_when_facet_source_is_visible: true
 processor_configs:
-  term_weight_widget_order:
-    processor_id: term_weight_widget_order
+  active_widget_order:
+    processor_id: active_widget_order
     weights:
-      sort: 60
+      sort: 20
+    settings:
+      sort: ASC
+  display_value_widget_order:
+    processor_id: display_value_widget_order
+    weights:
+      sort: 40
     settings:
       sort: ASC
   translate_entity:
     processor_id: translate_entity
     weights:
-      build: 5
+      build: -7
     settings: {  }
   url_processor_handler:
     processor_id: url_processor_handler
     weights:
       pre_query: 50
-      build: 15
+      build: -8
     settings: {  }
 empty_behavior:
   behavior: none
