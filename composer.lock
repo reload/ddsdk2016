@@ -1870,16 +1870,16 @@
                     "homepage": "https://www.drupal.org/user/502018"
                 },
                 {
-                    "name": "arshadcn",
-                    "homepage": "https://www.drupal.org/user/571032"
-                },
-                {
                     "name": "kalman.hosszu",
                     "homepage": "https://www.drupal.org/user/267481"
                 },
                 {
                     "name": "nagy.balint",
                     "homepage": "https://www.drupal.org/user/1763952"
+                },
+                {
+                    "name": "shadcn",
+                    "homepage": "https://www.drupal.org/user/571032"
                 },
                 {
                     "name": "supercabbageuk",
@@ -1947,16 +1947,16 @@
                     "homepage": "https://www.drupal.org/user/502018"
                 },
                 {
-                    "name": "arshadcn",
-                    "homepage": "https://www.drupal.org/user/571032"
-                },
-                {
                     "name": "kalman.hosszu",
                     "homepage": "https://www.drupal.org/user/267481"
                 },
                 {
                     "name": "nagy.balint",
                     "homepage": "https://www.drupal.org/user/1763952"
+                },
+                {
+                    "name": "shadcn",
+                    "homepage": "https://www.drupal.org/user/571032"
                 },
                 {
                     "name": "supercabbageuk",
@@ -2016,6 +2016,10 @@
                     "name": "Daniël Smidt",
                     "homepage": "https://www.drupal.org/u/dmsmidt",
                     "role": "Maintainer"
+                },
+                {
+                    "name": "a.milkovsky",
+                    "homepage": "https://www.drupal.org/user/1761220"
                 },
                 {
                     "name": "dmsmidt",
@@ -3486,6 +3490,10 @@
                     "homepage": "https://www.drupal.org/user/61114"
                 },
                 {
+                    "name": "bnjmnm",
+                    "homepage": "https://www.drupal.org/user/2369194"
+                },
+                {
                     "name": "jjeff",
                     "homepage": "https://www.drupal.org/user/17190"
                 },
@@ -3842,10 +3850,6 @@
                 {
                     "name": "mariuss",
                     "homepage": "https://www.drupal.org/user/28539"
-                },
-                {
-                    "name": "pmichelazzo",
-                    "homepage": "https://www.drupal.org/user/182237"
                 },
                 {
                     "name": "srdtwc",
@@ -15362,5 +15366,5 @@
         "ext-dom": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }

@@ -135,10 +135,24 @@
     padding: $spacing-medium;
   }
 
+  $_keyword-gap: $spacing-small;
   &--keyword {
     // Set margins negative for all teasers
     margin-bottom: -$spacing-small;
     @include pre-title;
+
+    &-list {
+      display: flex;
+      gap: $_keyword-gap;
+      list-style-type: none;
+    }
+  }
+
+  &--keyword-multiple {
+    li:not(:first-child):before {
+      content: "\2011"; // This is a non-breaking hyphen.
+      margin-right: $_keyword-gap; // Use the same margin as we have gap in our list.
+    }
   }
   // Keyword gets to close in teaser-lists so we reset the margin added for
   // standard teasers back to zero.

@@ -18,6 +18,7 @@ use Drupal\dds_activity\ActivityFetcher;
 use Drupal\file\FileInterface;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\TermInterface;
+use Drupal\taxonomy\Entity\Term;
 use Drupal\dds_layout\Form\MungoInspirationPrerender;
 
 /**
@@ -446,6 +447,40 @@ function mungo_preprocess_node(&$variables) {
     // variables.
     $variables['is_front'] = FALSE;
   }
+
+  _mungo_preprocess_super_titles($node, $variables);
+}
+
+/**
+ * Prepare variables for super titles (small tags above header) for node.
+ */
+function _mungo_preprocess_super_titles(Node $node, &$variables) {
+  if (!$node->hasField('field_content_target_group')
+    || !$node->hasField('field_content_topic')) {
+    return;
+  }
+
+  $target_groups = $node->get('field_content_target_group')->getValue();
+  foreach ($target_groups as $item) {
+    // The term id that the editors can add to content to indicate that the
+    // content is related to track. We're checking on the id because the name
+    // could change.
+    $track_tid = 826;
+
+    /** @var Drupal\taxonomy\TermInterface $target_group */
+    $target_group = Term::load($item['target_id']);
+
+    if (intval($target_group->id()) != $track_tid) {
+      continue;
+    }
+
+    $node_has_track_target_group = intval($target_group->id()) == $track_tid;
+    $variables['has_track_target_group'] = $node_has_track_target_group;
+    $variables['super_titles'][] = $target_group->getName();
+  }
+
+  $topic = Term::load($node->get('field_content_topic')->getString())->getName();
+  $variables['super_titles'][] = $topic;
 }
 
 /**

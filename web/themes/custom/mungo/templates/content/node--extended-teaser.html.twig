@@ -91,11 +91,15 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
 
     <a{{ attributes.addClass(classes) }} href="{{ url }}">
         <div class="node-extended-teaser--content-container">
-            <div class="node-extended-teaser--keyword">
-              {% if content.field_content_topic %}
-                {{ content.field_content_topic }}
-              {% endif %}
-            </div>
+          <div class="node-extended-teaser--keyword">
+            {% if super_titles %}
+              <ul class="node-teaser--keyword-list {% if has_track_target_group %}node-teaser--keyword-multiple{% endif %}">
+                {% for title in super_titles %}
+                  <li>{{ title }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
             <h2 class="node-extended-teaser--heading">
                 {{ label }}
             </h2>
