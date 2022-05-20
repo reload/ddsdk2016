@@ -463,19 +463,19 @@ function _mungo_preprocess_super_titles(Node $node, &$variables) {
   $target_groups = $node->get('field_content_target_group')->getValue();
   foreach ($target_groups as $item) {
     // The term id that the editors can add to content to indicate that the
-    // content is from spejder.dk. We're checking on the id because the name
+    // content is related to track. We're checking on the id because the name
     // could change.
-    $spejder_dk_tid = 826;
+    $track_tid = 826;
 
     /** @var Drupal\taxonomy\TermInterface $target_group */
     $target_group = Term::load($item['target_id']);
 
-    if (intval($target_group->id()) != $spejder_dk_tid) {
+    if (intval($target_group->id()) != $track_tid) {
       continue;
     }
 
-    $node_has_spejderdk_target_group = intval($target_group->id()) == $spejder_dk_tid;
-    $variables['has_spejderdk_target_group'] = $node_has_spejderdk_target_group;
+    $node_has_track_target_group = intval($target_group->id()) == $track_tid;
+    $variables['has_track_target_group'] = $node_has_track_target_group;
     $variables['super_titles'][] = $target_group->getName();
   }
 
