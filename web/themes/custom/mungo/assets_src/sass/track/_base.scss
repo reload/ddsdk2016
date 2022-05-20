@@ -1,0 +1,12 @@
+// Loop through our track map and attach rules that is general for all of our tracks.
+@each $track, $color in $track-colors {
+  .universe-track-#{$track} {
+    /*  */
+  }
+}
+
+.page-type-universe {
+  background-color: $track-light-green;
+  background-image: url("#{$track-images}/noise.svg");
+  background-size: 40%;
+}

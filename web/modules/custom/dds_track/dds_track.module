@@ -28,7 +28,11 @@ function dds_track_preprocess_html(&$variables) {
     return;
   }
 
+  // Attach a general class we can use to style things like the header.
   $variables['attributes']['class'][] = 'page-type-universe';
+  // Attach a specific track class that let us know at a high level what track
+  // the node is.
+  $variables['attributes']['class'][] = 'universe-' . $node->get('field_universe')->getString();
 }
 
 /**
@@ -38,23 +42,7 @@ function dds_track_preprocess_html(&$variables) {
  * This allows us to target nodes in teasers etc.
  */
 function dds_track_preprocess_node(&$variables) {
-  if (empty($variables['node']) || !$variables['node'] instanceof Node) {
-    return;
-  }
-
-  // Bail out if view mode is not a teaser.
-  if ($variables['view_mode'] === 'full' || $variables['view_mode'] === 'preview') {
-    return;
-  }
-
-  $node = $variables['node'];
-  if (!$node->hasField('field_universe')) {
-    return;
-  }
-
-  if (!empty($node->get('field_universe')->getString())) {
-    $variables['attributes']['class'][] = $node->get('field_universe')->getString();
-  }
+  _dds_track_prepare_node_teaser($variables);
 }
 
 /**
@@ -70,4 +58,27 @@ function _dds_track_get_universe_options(): array {
     'track-events',
     'track-adventure',
   ];
+}
+
+/**
+ * Helper function to prepare track nodes in teasers.
+ */
+function _dds_track_prepare_node_teaser(&$variables) {
+  if (empty($variables['node']) || !$variables['node'] instanceof Node) {
+    return $variables;
+  }
+
+  // Bail out if view mode is not a teaser.
+  if ($variables['view_mode'] === 'full' || $variables['view_mode'] === 'preview') {
+    return $variables;
+  }
+
+  $node = $variables['node'];
+  if (!$node->hasField('field_universe')) {
+    return $variables;
+  }
+
+  if (!empty($node->get('field_universe')->getString())) {
+    $variables['attributes']['class'][] = $node->get('field_universe')->getString();
+  }
 }
