@@ -13,20 +13,12 @@ use Drupal\node\Entity\Node;
  * Prepare the html for the track universe context.
  */
 function dds_track_preprocess_html(&$variables) {
-  if (empty(\Drupal::routeMatch()->getParameter('node')) || \Drupal::service('router.admin_context')->isAdminRoute()) {
+  if (!_dds_track_is_track_universe() || \Drupal::service('router.admin_context')->isAdminRoute()) {
     return;
   }
 
   /** @var \Drupal\node\Entity\Node $node */
   $node = \Drupal::routeMatch()->getParameter('node');
-  if (!$node->hasField('field_universe')) {
-    return;
-  }
-
-  $track_universe_options = _dds_track_get_universe_options();
-  if (!in_array($node->get('field_universe')->getString(), $track_universe_options)) {
-    return;
-  }
 
   // Attach a general class we can use to style things like the header.
   $variables['attributes']['class'][] = 'page-type-universe';
@@ -43,6 +35,31 @@ function dds_track_preprocess_html(&$variables) {
  */
 function dds_track_preprocess_node(&$variables) {
   _dds_track_prepare_node_teaser($variables);
+}
+
+/**
+ * Helper function to check if the current node is in a track-context.
+ *
+ * @return bool
+ *   Whether the current node is a track-universe or not.
+ */
+function _dds_track_is_track_universe(): bool {
+  if (empty(\Drupal::routeMatch()->getParameter('node'))) {
+    return FALSE;
+  }
+
+  /** @var \Drupal\node\Entity\Node $node */
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if (!$node->hasField('field_universe')) {
+    return FALSE;
+  }
+
+  $track_universe_options = _dds_track_get_universe_options();
+  if (!in_array($node->get('field_universe')->getString(), $track_universe_options)) {
+    return FALSE;
+  }
+
+  return TRUE;
 }
 
 /**
