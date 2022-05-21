@@ -50,7 +50,7 @@ content:
     region: content
   field_universe:
     weight: 3
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_default
