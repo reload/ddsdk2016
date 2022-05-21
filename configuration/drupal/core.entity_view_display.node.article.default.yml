@@ -88,7 +88,7 @@ content:
     region: content
   field_universe:
     weight: 8
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_default
