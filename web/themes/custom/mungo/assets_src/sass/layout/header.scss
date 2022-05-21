@@ -25,11 +25,19 @@ header.header-fixed {
 
   .menu--top-menu {
     ul {
-      margin-right: 0;
+      display: flex;
+      justify-content: space-between;
     }
     li {
       display: inline-block;
-      margin-left: $spacing-medium;
+    }
+
+    @include media-medium {
+      ul {
+        justify-content: flex-end;
+        gap: $spacing-medium;
+        padding-right: $spacing-medium;
+      }
     }
   }
 
