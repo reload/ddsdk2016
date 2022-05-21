@@ -103,7 +103,7 @@
         "drupal/system_status": "^2.8.0",
         "drupal/token": "^1.9",
         "drupal/translate_tool": "^1.0",
-        "drupal/twig_tweak": "^2.6",
+        "drupal/twig_tweak": "^3.1",
         "drupal/twig_xdebug": "^1.0.0",
         "drupal/video_embed_field": "^2.2.0",
         "drupal/views_bulk_operations": "^3.13",
