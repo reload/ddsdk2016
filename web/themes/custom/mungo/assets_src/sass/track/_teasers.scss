@@ -1,0 +1,42 @@
+@each $track-name, $track-color in $track-colors {
+  .node-teaser.track-#{$track-name} {
+    // Do not show the border-bottom that is normally shown.
+    border-bottom-color: transparent;
+
+    &:hover {
+      // When a node-teaser is hovered, show the track-color as border.
+      border-bottom-color: $track-color;
+
+      .read-more-circle {
+        // When we hover the node-teaser, change the fill color for the svg circle-icon.
+        &--bg {
+          fill: $track-green;
+        }
+      }
+    }
+
+    .node-teaser--keyword-list {
+      background-color: $track-green;
+      color: #fff;
+      width: max-content;
+      padding: 0.5em;
+    }
+
+    .node-teaser--heading {
+      color: $track-blue;
+    }
+
+    .node-teaser--read-more {
+      font-size: 0;
+
+      .read-more-circle {
+        display: block;
+        margin-left: auto;
+
+        &--bg {
+          transition: fill ease-in-out 150ms;
+        }
+      }
+    }
+  }
+}

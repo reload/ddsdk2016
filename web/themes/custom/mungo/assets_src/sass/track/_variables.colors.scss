@@ -1,9 +1,10 @@
 $track-blue: #332670;
+$track-green: #00b687;
 $track-light-green: #70f0bd;
 
 $track-colors: (
   "skills": #cd9ad9,
-  "patrol": #00b687,
+  "patrol": $track-green,
   "events": #f0dc2f,
   "adventure": $bluish,
 );
