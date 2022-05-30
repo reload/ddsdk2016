@@ -112,6 +112,7 @@ function _dds_track_prepare_node_teaser(&$variables) {
   }
 
   if (!empty($node->get('field_universe')->getString())) {
+    $variables['attributes']['class'][] = 'track-teaser';
     $variables['attributes']['class'][] = $node->get('field_universe')->getString();
   }
 }
