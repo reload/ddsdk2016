@@ -1,0 +1,33 @@
+.page-type-universe {
+  .track-star-wrapper {
+    position: relative;
+
+    .byline {
+      float: left;
+    }
+
+    svg {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: $track-star-width-small;
+      height: $track-star-height-small;
+
+      @include media-large {
+        width: $track-star-width-large;
+        height: $track-star-height-large;
+      }
+    }
+
+    &.no-byline {
+      svg {
+        bottom: -30px;
+      }
+    }
+  }
+
+  .node--type-article .article-text a {
+    color: $track-green;
+    text-decoration: underline;
+  }
+}
