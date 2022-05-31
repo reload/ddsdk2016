@@ -29,6 +29,7 @@
     border-bottom-color: transparent;
     display: block;
     overflow: hidden;
+    position: relative;
 
     &:hover {
       // When a node-teaser is hovered, show the track-color as border.
@@ -39,6 +40,15 @@
         &--bg {
           fill: $track-green;
         }
+      }
+
+      .track-star--bg {
+        fill: $track-blue;
+      }
+
+      .track-star--text *,
+      .track-star--heart {
+        fill: map-get($track-colors, "events");
       }
     }
 
@@ -65,5 +75,47 @@
         }
       }
     }
+
+    .track-star {
+      width: $track-star-width-small;
+      height: $track-star-height-small;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 1;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      &--bg {
+        fill: $track-light-green;
+        animation: rotateToLeft $track-star-animation-settings;
+        transform-origin: center;
+      }
+
+      &--text {
+        animation: rotateToRight $track-star-animation-settings;
+        transform-origin: center;
+      }
+
+      @include media-large {
+        width: $track-star-width-large;
+        height: $track-star-height-large;
+      }
+    }
+  }
+}
+
+@keyframes rotateToLeft {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes rotateToRight {
+  100% {
+    transform: rotate(360deg);
   }
 }
