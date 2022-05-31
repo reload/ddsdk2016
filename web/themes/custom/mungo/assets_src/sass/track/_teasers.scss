@@ -52,12 +52,7 @@
       }
     }
 
-    .node-teaser--keyword-list {
-      background-color: $track-green;
-      color: #fff;
-      width: max-content;
-      padding: 0.5em;
-    }
+    @include topic-track($targetSelector: node-teaser--keyword-list);
 
     .node-teaser--heading {
       color: $track-blue;

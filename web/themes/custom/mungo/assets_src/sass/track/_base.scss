@@ -3,3 +3,8 @@
   background-image: url("#{$track-images}/noise.svg");
   background-size: 40%;
 }
+
+.page-type-universe {
+  @include header-with-bg($targetSelector: page-title);
+  @include topic-track($targetSelector: node--keyword);
+}

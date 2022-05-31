@@ -1,0 +1,34 @@
+@mixin header-with-bg($targetSelector) {
+  .#{$targetSelector} {
+    font-family: $font-anton;
+    text-transform: uppercase;
+    color: $track-light-green;
+    position: relative;
+
+    // If the target is page-title, this is in a article context. Push the title further away from the tag
+    // (node-keyword).
+    @if ($targetSelector == "page-title") {
+      margin-top: 35px;
+
+      @include media-small {
+        margin-top: 50px;
+      }
+    }
+
+    > * {
+      color: $track-light-green;
+      padding: 0 0.2em;
+      background-color: $track-blue;
+      box-decoration-break: clone;
+    }
+  }
+}
+
+@mixin topic-track($targetSelector) {
+  .#{$targetSelector} {
+    width: max-content;
+    background-color: $track-green;
+    color: #fff;
+    padding: 0.5em;
+  }
+}
