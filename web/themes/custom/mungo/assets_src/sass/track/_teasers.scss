@@ -86,13 +86,17 @@
 
       &--bg {
         fill: $track-light-green;
-        animation: rotateToLeft $track-star-animation-settings;
-        transform-origin: center;
+        @media (prefers-reduced-motion: no-preference) {
+          animation: rotateToLeft $track-star-animation-settings;
+          transform-origin: center;
+        }
       }
 
       &--text {
-        animation: rotateToRight $track-star-animation-settings;
-        transform-origin: center;
+        @media (prefers-reduced-motion: no-preference) {
+          animation: rotateToRight $track-star-animation-settings;
+          transform-origin: center;
+        }
       }
 
       @include media-large {
