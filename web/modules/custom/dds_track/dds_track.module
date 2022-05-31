@@ -35,6 +35,7 @@ function dds_track_preprocess_html(&$variables) {
  */
 function dds_track_preprocess_node(&$variables) {
   _dds_track_prepare_node_teaser($variables);
+  _dds_track_prepare_node_full($variables);
 }
 
 /**
@@ -79,6 +80,19 @@ function _dds_track_is_track_universe(): bool {
 }
 
 /**
+ * Helper function to get the selected track-universe.
+ *
+ * @param \Drupal\node\Entity\Node $node
+ *   The drupal node.
+ *
+ * @return string
+ *   The name of the selected track-universe.
+ */
+function _dds_track_get_track_universe(Node $node): string {
+  return $node->get('field_universe')->getString();
+}
+
+/**
  * Helper function to get the possible values for the track universe.
  *
  * @return string[]
@@ -115,4 +129,21 @@ function _dds_track_prepare_node_teaser(&$variables) {
     $variables['attributes']['class'][] = 'track-teaser';
     $variables['attributes']['class'][] = $node->get('field_universe')->getString();
   }
+}
+
+/**
+ * Helper function to prepare track nodes in full view mode.
+ */
+function _dds_track_prepare_node_full(&$variables) {
+  if ($variables['view_mode'] !== 'full') {
+    return $variables;
+  }
+
+  if (!_dds_track_is_track_universe()) {
+    return $variables;
+  }
+
+  $variables['is_track_page'] = _dds_track_is_track_universe();
+  $variables['track_universe'] = _dds_track_get_track_universe($variables['node']);
+
 }

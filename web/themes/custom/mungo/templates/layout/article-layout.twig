@@ -70,6 +70,8 @@
  *   in different view modes.
  */
 #}
+{% set field_byline = content.field_main_media[0]['#media'].hasField('field_byline') ?
+  content.field_main_media[0]['#media'].get('field_byline').getString() %}
 {%
   set classes = [
     'node',
@@ -98,7 +100,14 @@
         {% endif %}
         {{ title_suffix }}
         {% block title_suffix %}{% endblock %}
+      {% if is_track_page %}
+      <div class="track-star-wrapper {% if field_byline is empty %}no-byline{% endif %}">
+        {% endif %}
         {{ content.field_main_media }}
+        {% if is_track_page %}
+        {% include "@mungo/misc/star-" ~ track_universe ~ ".html.twig" %}
+      </div>
+      {% endif %}
         {% block main_media_suffix %}{% endblock %}
       <div class="row">
         <div class="col-md-3 print-full-width">
