@@ -1,0 +1,15 @@
+.page-type-universe {
+  .factbox {
+    background-color: $track-light-green;
+    border: 0;
+
+    // Make everything our blue track color inside a factbox.
+    * {
+      color: $track-blue;
+    }
+
+    a {
+      text-decoration: underline;
+    }
+  }
+}
