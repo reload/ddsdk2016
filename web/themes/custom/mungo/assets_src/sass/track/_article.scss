@@ -30,4 +30,24 @@
     color: $track-green;
     text-decoration: underline;
   }
+
+  .paragraph--type--quotation {
+    font-family: $font-anton;
+    color: $track-blue;
+
+    .quotation--quote--pre {
+      margin-bottom: -20px;
+      z-index: -1;
+
+      .inner {
+        color: $track-light-green;
+      }
+    }
+
+    @include media-large {
+      width: 100%;
+      margin: auto;
+      float: none;
+    }
+  }
 }
