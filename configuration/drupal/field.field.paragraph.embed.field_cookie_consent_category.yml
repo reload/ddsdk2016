@@ -1,0 +1,23 @@
+uuid: f312ace5-ed86-412b-9482-4550407e1ce5
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cookie_consent_category
+    - paragraphs.paragraphs_type.embed
+  module:
+    - options
+id: paragraph.embed.field_cookie_consent_category
+field_name: field_cookie_consent_category
+entity_type: paragraph
+bundle: embed
+label: 'Cookie consent kategori'
+description: 'Vælg den kategori af cookies, som brugeren skal have godkendt før indholdet kan vises. Standard er "Marketing"'
+required: true
+translatable: false
+default_value:
+  -
+    value: marketing
+default_value_callback: ''
+settings: {  }
+field_type: list_string
