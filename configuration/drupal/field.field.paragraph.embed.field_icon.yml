@@ -1,0 +1,21 @@
+uuid: 88e3965b-5e70-411d-b25e-21bf48f29f70
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon
+    - paragraphs.paragraphs_type.embed
+  module:
+    - options
+id: paragraph.embed.field_icon
+field_name: field_icon
+entity_type: paragraph
+bundle: embed
+label: Icon
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
