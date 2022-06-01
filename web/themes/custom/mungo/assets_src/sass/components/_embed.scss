@@ -1,0 +1,42 @@
+.paragraph--type--embed {
+  clear: both; // Align it properly if next to floating items such as our factbox.
+  background-color: $bluish;
+  padding: $spacing-medium;
+  color: #fff;
+
+  .embed-title--wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .spejder-icon-wrapper {
+    svg {
+      width: 48px;
+      height: 48px;
+    }
+
+    svg,
+    svg * {
+      // We have set a dark background-color for the parent, so we can safely set the fill for the icons.
+      fill: #fff;
+    }
+  }
+
+  .embed-title {
+    font-size: $font-size-h3;
+  }
+
+  .embed-code--wrapper {
+    // Since we have a background-color set on the parent, we set a background-color for the embed code because
+    // some embeds, like facebook, have a transparent/no background on the actual embed itself.
+    background-color: #fff;
+
+    .embed-code > * {
+      // I know, this is ugly, but we will get some embeds that ships with their own
+      // styling. We want to override that and make sure the actual embed code is 100% of our parent container.
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+  }
+}
