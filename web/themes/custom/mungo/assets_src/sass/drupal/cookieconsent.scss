@@ -1,17 +1,31 @@
+@mixin cookiebot-styling {
+  display: flex;
+  text-align: center;
+  border: 2px dashed #337ab7;
+  background-color: transparent;
+  color: #337ab7;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  padding: 3rem; // This value is the same as the one in the cookiebot contrib module.
+}
+
 .cookieconsent-optout {
   &__all,
   &__video,
   &-marketing {
-    display: flex;
-    position: absolute;
-    height: 100%;
-    border: 2px dashed #337ab7;
-    background-color: transparent;
-    color: #337ab7;
+    @include cookiebot-styling;
+  }
+}
+
+[class*="cookieconsent-optout-"] {
+  @include cookiebot-styling;
+
+  a {
     width: 100%;
-    justify-content: center;
-    align-items: center;
-    font-weight: 700;
+    display: block;
   }
 }
 
