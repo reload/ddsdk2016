@@ -1,0 +1,21 @@
+.page-type-universe {
+  .inspiration-deck {
+    @include header-with-bg(node-teaser--heading);
+
+    // Hide the teaser keyword.
+    .node-teaser--keyword {
+      display: none;
+    }
+  }
+
+  $_desktop-border-width: 5px;
+  // Add a border to the columns that will mimic a gap between the cols and rows.
+  // The border-color need to match the background-color that a track page has.
+  .inspiration-deck [class*="col-md"] .inner {
+    border: $_desktop-border-width * 0.5 solid $track-page-background-color;
+
+    @include media-large {
+      border: $_desktop-border-width solid $track-page-background-color;
+    }
+  }
+}
