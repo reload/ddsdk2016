@@ -21,6 +21,7 @@ time docker-compose exec fpm sh -c  "\
   && echo ' * Waiting for the database to be available' \
   && wait-for-it -t 60 db:3306 \
   && echo 'composer installing' \
+  && git config --global --add safe.directory '*' \
   && cd /var/www && composer install && cd /var/www/web \
   echo 'Site reset' && \
   echo ' * Rebuilding cache' && \
