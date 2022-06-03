@@ -7,4 +7,22 @@
 .page-type-universe {
   @include header-with-bg($targetSelector: page-title);
   @include topic-track($targetSelector: node--keyword);
+
+  .block-local-tasks-block {
+    background-color: $track-blue;
+
+    .is-active {
+      background-color: $track-light-green;
+      color: $track-blue;
+    }
+
+    a {
+      color: $track-light-green;
+
+      &:hover {
+        background-color: $track-green;
+        color: $track-blue;
+      }
+    }
+  }
 }
