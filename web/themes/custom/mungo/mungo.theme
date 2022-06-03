@@ -492,7 +492,7 @@ function _mungo_preprocess_super_titles(Node $node, &$variables) {
     // The term id that the editors can add to content to indicate that the
     // content is related to track. We're checking on the id because the name
     // could change.
-    $track_tid = 826;
+    $track_tid = _dds_track_get_track_term_id();
 
     /** @var Drupal\taxonomy\TermInterface $target_group */
     $target_group = Term::load($item['target_id']);
@@ -1147,7 +1147,7 @@ function _mungo_preprocess_deck_paragraph($type, &$variables) {
   }
   elseif ($type === '3col_deck') {
     foreach ($variables['cols'] as $key => &$col) {
-      if (_dds_track_is_track_universe()) {
+      if (_dds_track_page_is_track_universe()) {
         if ($key === 'field_3col_deck_col1') {
           // Only set the col-xs-12 on the first column.
           $col['#attributes']['class'][] = 'col-xs-12 col-sm-4';
@@ -1166,7 +1166,7 @@ function _mungo_preprocess_deck_paragraph($type, &$variables) {
   }
   elseif ($type === '4col_deck') {
     foreach ($variables['cols'] as &$col) {
-      if (_dds_track_is_track_universe()) {
+      if (_dds_track_page_is_track_universe()) {
         // In track-universe, place all columns in a 2 col/2 row grid.
         $col['#attributes']['class'][] = 'col-xs-6 col-md-3';
 
