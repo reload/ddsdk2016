@@ -19,12 +19,11 @@ services:
       - './docker/cron/setup-cron.sh:/etc/my_init.d/setup-cron.sh'
     environment:
       VIRTUAL_PROTO: http
-      VIRTUAL_HOST: ddsdk.docker
+      VIRTUAL_HOST: "ddsdk.${DEV_TLD:-docker}"
       # Ensure dory/nginx-proxy goes via port 80.
       VIRTUAL_PORT: '80'
       # Ensure dory don't redirect from http to https.
       HTTPS_METHOD: noredirect
-      MKCERT_DOMAINS: "ddsdk.docker ddsdk.local"
 
   # Instance of the php-image configured to serve fpm-requests.
   fpm:
@@ -36,11 +35,11 @@ services:
     depends_on:
       - db
       - redis
-    working_dir: /var/www/web
+    working_dir: /var/www
     environment:
       PATH: '/var/www/vendor/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
       PHP_SENDMAIL_PATH: /usr/local/bin/mhsendmail --smtp-addr="mailhog:1025"
-      DRUSH_OPTIONS_URI: https://ddsdk.docker
+      DRUSH_OPTIONS_URI: "https://ddsdk.${DEV_TLD:-docker}"
       COMPOSER_MEMORY_LIMIT: "-1"
       XDEBUG_MODE: "debug,develop"
       XDEBUG_CONFIG: "client_host=host.docker.internal"
@@ -96,7 +95,7 @@ services:
     volumes:
       - './.platform/solr_8.x_config:/solr-conf/conf:ro'
     environment:
-      VIRTUAL_HOST: solr.ddsdk.docker
+      VIRTUAL_HOST: "ddsdk-solr.${DEV_TLD:-docker}"
     entrypoint:
       - docker-entrypoint.sh
       - solr-precreate
@@ -108,7 +107,7 @@ services:
     ports:
       - '8025'
     environment:
-      VIRTUAL_HOST: mail.ddsdk.docker
+      VIRTUAL_HOST: "ddsdk-mail.${DEV_TLD:-docker}"
 
   npm:
     image: node:16
