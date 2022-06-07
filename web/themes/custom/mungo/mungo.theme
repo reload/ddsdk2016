@@ -371,7 +371,7 @@ function mungo_preprocess_menu(&$variables) {
  * Get file content based on part of title.
  */
 function _mungo_replace_title_with_svg($title) {
-  $file_path = drupal_get_path('theme', 'mungo') . '/assets/images/Ikoner_DDS_DK_ikon_' . $title . '.svg';
+  $file_path = \Drupal::service('extension.list.theme')->getPath('mungo') . '/assets/images/Ikoner_DDS_DK_ikon_' . $title . '.svg';
   if (!file_exists($file_path)) {
     return FALSE;
   }
@@ -498,7 +498,7 @@ function _mungo_preprocess_node_download(Node $node, &$variables) {
   // File url.
   $file = $node->get('field_file')->first()->entity;
   $file_uri = $file->getFileUri();
-  $variables['file_url'] = Url::fromUri(file_create_url($file_uri));
+  $variables['file_url'] = \Drupal::service('file_url_generator')->generate($file_uri);
 
   // Create wrapper to avoid reflow and/or double images.
   $variables['layout_attributes'] = new Attribute();
@@ -552,6 +552,7 @@ function _mungo_preprocess_node_badge(Node $node, &$variables) {
 
       // Find all nodes that is in the progression.
       $query = \Drupal::entityQuery('node')
+        ->accesscheck(FALSE)
         ->condition('status', 1)
         ->condition('type', 'badge')
         ->condition('field_badge_progression.entity.tid', $term->tid->value);

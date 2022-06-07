@@ -55,6 +55,7 @@ function _dds_update_8103() {
   dds_update_add_translation('Read less', 'da', 'Læs mindre');
 
   $nids = \Drupal::entityQuery('node')
+    ->accesscheck(FALSE)
     ->condition('type', 'badge')
     ->execute();
 

@@ -74,7 +74,7 @@ function dds_metatag_tokens($type, $tokens, array $data, array $options, Bubblea
           // Simple key values on the media.
           case 'main-media-video-thumbnail':
             if (!empty($thumbnail_uri)) {
-              $replacements[$original] = file_create_url($thumbnail_uri);
+              $replacements[$original] = \Drupal::service('file_url_generator')->generateAbsoluteString($thumbnail_uri);
             }
             break;
         }
@@ -91,7 +91,7 @@ function dds_metatag_tokens($type, $tokens, array $data, array $options, Bubblea
       switch ($name) {
         case 'badge-overview-topimage':
           if (!empty($badge_cover_image_uri)) {
-            $replacements[$original] = file_create_url($badge_cover_image_uri);
+            $replacements[$original] = \Drupal::service('file_url_generator')->generateAbsoluteString($badge_cover_image_uri);
           }
           break;
 
