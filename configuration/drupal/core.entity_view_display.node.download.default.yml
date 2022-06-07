@@ -19,11 +19,11 @@ bundle: download
 mode: default
 content:
   field_file:
-    weight: 0
+    type: file_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: file_default
+    weight: 0
     region: content
 hidden:
   field_content_category: true

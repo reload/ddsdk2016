@@ -36,21 +36,21 @@ mode: list_teaser
 content:
   field_event_type:
     type: entity_reference_entity_view
-    weight: 1
     label: hidden
     settings:
       view_mode: plaintext
       link: false
     third_party_settings: {  }
+    weight: 1
     region: content
   field_main_media:
-    weight: 0
+    type: entity_reference_entity_view
     label: hidden
     settings:
       view_mode: teaser_list
       link: false
     third_party_settings: {  }
-    type: entity_reference_entity_view
+    weight: 0
     region: content
 hidden:
   field_content_category: true

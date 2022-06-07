@@ -31,7 +31,6 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       text: text
       video: video
@@ -44,40 +43,8 @@ settings:
       content_section_reference: content_section_reference
       markup: markup
       situation_links: situation_links
+    negate: 0
     target_bundles_drag_drop:
-      text:
-        enabled: true
-        weight: -67
-      video:
-        enabled: true
-        weight: -66
-      block:
-        enabled: true
-        weight: -65
-      content_article_reference:
-        enabled: true
-        weight: -64
-      content_activity_reference:
-        enabled: true
-        weight: -63
-      content_badge_reference:
-        enabled: true
-        weight: -62
-      content_event_reference:
-        enabled: true
-        weight: -61
-      content_redirect_page_reference:
-        enabled: true
-        weight: -60
-      content_section_reference:
-        enabled: true
-        weight: -59
-      markup:
-        enabled: true
-        weight: -58
-      situation_links:
-        enabled: true
-        weight: -57
       1col_deck:
         weight: -56
         enabled: false
@@ -90,8 +57,38 @@ settings:
       4col_deck:
         weight: -53
         enabled: false
+      block:
+        weight: -65
+        enabled: true
+      content_activity_reference:
+        weight: -63
+        enabled: true
+      content_article_reference:
+        weight: -64
+        enabled: true
+      content_article_reference_ext:
+        weight: -44
+        enabled: false
+      content_badge_reference:
+        weight: -62
+        enabled: true
+      content_event_reference:
+        weight: -61
+        enabled: true
       content_link:
         weight: -52
+        enabled: false
+      content_redirect_page_reference:
+        weight: -60
+        enabled: true
+      content_redirect_page_reference_:
+        weight: -36
+        enabled: false
+      content_section_reference:
+        weight: -59
+        enabled: true
+      download:
+        weight: -43
         enabled: false
       dynamic_deck:
         weight: -51
@@ -104,21 +101,6 @@ settings:
         enabled: false
       hero_banner:
         weight: -48
-        enabled: false
-      program:
-        weight: -47
-        enabled: false
-      program_item:
-        weight: -46
-        enabled: false
-      quotation:
-        weight: -45
-        enabled: false
-      content_article_reference_ext:
-        weight: -44
-        enabled: false
-      download:
-        weight: -43
         enabled: false
       image:
         weight: -42
@@ -135,13 +117,31 @@ settings:
       list_deck:
         weight: -38
         enabled: false
-      shortcuts:
-        weight: -37
+      markup:
+        weight: -58
+        enabled: true
+      program:
+        weight: -47
         enabled: false
-      content_redirect_page_reference_:
-        weight: -36
+      program_item:
+        weight: -46
+        enabled: false
+      quotation:
+        weight: -45
         enabled: false
       read_more:
         weight: -35
         enabled: false
+      shortcuts:
+        weight: -37
+        enabled: false
+      situation_links:
+        weight: -57
+        enabled: true
+      text:
+        weight: -67
+        enabled: true
+      video:
+        weight: -66
+        enabled: true
 field_type: entity_reference_revisions

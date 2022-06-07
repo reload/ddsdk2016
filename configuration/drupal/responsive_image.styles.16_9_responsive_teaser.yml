@@ -10,8 +10,6 @@ id: 16_9_responsive_teaser
 label: '16:9 responsive teaser'
 image_style_mappings:
   -
-    breakpoint_id: responsive_image.viewport_sizing
-    multiplier: 1x
     image_mapping_type: sizes
     image_mapping:
       sizes: '(min-width: 992px) 400px, (min-width: 768px) 345px, 720px'
@@ -19,5 +17,7 @@ image_style_mappings:
         - 16_9_345x194
         - 16_9_720x405
         - 400x225px
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
 breakpoint_group: responsive_image
 fallback_image_style: 400x225px

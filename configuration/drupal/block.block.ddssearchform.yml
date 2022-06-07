@@ -15,6 +15,6 @@ plugin: dds_search_form_block
 settings:
   id: dds_search_form_block
   label: Search
-  provider: dds_search
   label_display: visible
+  provider: dds_search
 visibility: {  }

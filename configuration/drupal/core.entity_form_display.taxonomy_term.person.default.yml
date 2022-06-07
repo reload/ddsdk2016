@@ -18,46 +18,46 @@ content:
   description:
     type: text_textarea
     weight: 3
-    settings:
-      placeholder: ''
-      rows: 5
-    third_party_settings: {  }
     region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_person_image:
+    type: inline_entity_form_complex
     weight: 1
+    region: content
     settings:
       form_mode: person
+      override_labels: false
       label_singular: ''
       label_plural: ''
       allow_new: true
-      match_operator: CONTAINS
-      override_labels: false
       allow_existing: false
+      match_operator: CONTAINS
     third_party_settings: {  }
-    type: inline_entity_form_complex
-    region: content
   field_presentation_name:
+    type: string_textfield
     weight: 2
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   langcode:
     type: language_select
     weight: 2
+    region: content
     settings:
       include_locked: true
     third_party_settings: {  }
-    region: content
   name:
     type: string_textfield
     weight: 0
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    region: content
 hidden:
   path: true

@@ -18,8 +18,8 @@ plugin: 'block_content:a73d8b88-2e4a-4595-a628-2a0f84e6f3ee'
 settings:
   id: 'block_content:a73d8b88-2e4a-4595-a628-2a0f84e6f3ee'
   label: 'Facebook pages in footer'
-  provider: block_content
   label_display: '0'
+  provider: block_content
   status: true
   info: ''
   view_mode: full

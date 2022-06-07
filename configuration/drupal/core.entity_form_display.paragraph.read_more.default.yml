@@ -13,7 +13,9 @@ bundle: read_more
 mode: default
 content:
   field_1col_deck_col1:
+    type: entity_reference_paragraphs
     weight: 0
+    region: content
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -22,8 +24,6 @@ content:
       form_display_mode: default
       default_paragraph_type: ''
     third_party_settings: {  }
-    type: entity_reference_paragraphs
-    region: content
 hidden:
   created: true
   status: true

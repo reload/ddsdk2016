@@ -13,12 +13,12 @@ bundle: content_link
 mode: default
 content:
   field_content_link_lead:
-    weight: 0
+    type: string
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 0
     region: content
 hidden:
   created: true

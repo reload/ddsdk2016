@@ -11,12 +11,12 @@ pattern: 'artikel/[node:title]'
 selection_criteria:
   3dffcb23-f229-43ea-96b9-55f0a2dee940:
     id: node_type
-    bundles:
-      article: article
     negate: false
+    uuid: 3dffcb23-f229-43ea-96b9-55f0a2dee940
     context_mapping:
       node: node
-    uuid: 3dffcb23-f229-43ea-96b9-55f0a2dee940
+    bundles:
+      article: article
 selection_logic: and
 weight: -5
 relationships: {  }

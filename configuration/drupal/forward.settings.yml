@@ -1,4 +1,26 @@
+_core:
+  default_config_hash: LjNmrZEGeLdWqwJcnscz5MMdBFPuS_pFjmJx0AoTFAQ
 langcode: en
+forward_max_recipients: 1
+forward_form_instructions: 'Thank you for your interest in spreading the word about <em>[forward:entity-title]</em> on [site:name].'
+forward_form_allow_plain_text: false
+forward_form_display_page: false
+forward_form_display_subject: false
+forward_form_display_body: false
+forward_personal_message: 1
+forward_personal_message_filter: false
+forward_personal_message_tags: 'p,br,em,strong,cite,code,ul,ol,li,dl,dt,dd'
+forward_form_confirmation: 'Thank you for spreading the word about [site:name]. We appreciate your help.'
+forward_email_logo: ''
+forward_email_from_address: info@dds.dk
+forward_email_subject: '[forward:sender-name] has forwarded a [dds_article:type] to you from [site:name]'
+forward_email_message: '[forward:sender-name] thought you would like to see this [dds_article:type] from the [site:name] web site.'
+forward_email_footer: ''
+forward_bypass_access_control: 0
+forward_filter_format_html: ''
+forward_filter_format_plain_text: ''
+forward_flood_control_limit: 10
+forward_flood_control_error: 'You can''t send more than @number messages per hour. Please try again later.'
 forward_entity_node: true
 forward_view_full: true
 forward_view_teaser: false
@@ -11,23 +33,6 @@ forward_link_icon: ''
 forward_link_style: 0
 forward_link_noindex: true
 forward_link_nofollow: false
-forward_form_instructions: 'Thank you for your interest in spreading the word about <em>[forward:entity-title]</em> on [site:name].'
-forward_form_display_page: false
-forward_form_display_subject: false
-forward_form_display_body: false
-forward_form_confirmation: 'Thank you for spreading the word about [site:name]. We appreciate your help.'
-forward_personal_message: 1
-forward_personal_message_filter: false
-forward_personal_message_tags: 'p,br,em,strong,cite,code,ul,ol,li,dl,dt,dd'
-forward_email_logo: ''
-forward_email_subject: '[forward:sender-name] has forwarded a [dds_article:type] to you from [site:name]'
-forward_email_message: '[forward:sender-name] thought you would like to see this [dds_article:type] from the [site:name] web site.'
-forward_bypass_access_control: 0
-forward_flood_control_limit: 10
-forward_flood_control_error: 'You can''t send more than @number messages per hour. Please try again later.'
-_core:
-  default_config_hash: LjNmrZEGeLdWqwJcnscz5MMdBFPuS_pFjmJx0AoTFAQ
-forward_email_from_address: info@dds.dk
 forward_entity_zone: false
 forward_zone_zone: false
 forward_entity_block: false
@@ -182,8 +187,3 @@ forward_paragraph_content_redirect_page_reference: false
 forward_paragraph_content_redirect_page_reference_: false
 forward_paragraph_markup: false
 forward_paragraph_read_more: false
-forward_max_recipients: 1
-forward_form_allow_plain_text: false
-forward_filter_format_html: ''
-forward_filter_format_plain_text: ''
-forward_email_footer: ''

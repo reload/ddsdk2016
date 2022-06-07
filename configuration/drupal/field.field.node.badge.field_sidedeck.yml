@@ -22,10 +22,10 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       block: block
       download: download
+    negate: 0
     target_bundles_drag_drop:
       1col_deck:
         weight: 17
@@ -40,41 +40,8 @@ settings:
         weight: 20
         enabled: false
       block:
-        enabled: true
         weight: 21
-      content_link:
-        weight: 22
-        enabled: false
-      dynamic_deck:
-        weight: 23
-        enabled: false
-      factbox:
-        weight: 24
-        enabled: false
-      gallery:
-        weight: 25
-        enabled: false
-      hero_banner:
-        weight: 26
-        enabled: false
-      program:
-        weight: 27
-        enabled: false
-      program_item:
-        weight: 28
-        enabled: false
-      quotation:
-        weight: 29
-        enabled: false
-      situation_links:
-        weight: 30
-        enabled: false
-      text:
-        weight: 31
-        enabled: false
-      video:
-        weight: 32
-        enabled: false
+        enabled: true
       content_activity_reference:
         weight: 37
         enabled: false
@@ -90,6 +57,9 @@ settings:
       content_event_reference:
         weight: 41
         enabled: false
+      content_link:
+        weight: 22
+        enabled: false
       content_redirect_page_reference:
         weight: 43
         enabled: false
@@ -97,8 +67,20 @@ settings:
         weight: 44
         enabled: false
       download:
-        enabled: true
         weight: 45
+        enabled: true
+      dynamic_deck:
+        weight: 23
+        enabled: false
+      factbox:
+        weight: 24
+        enabled: false
+      gallery:
+        weight: 25
+        enabled: false
+      hero_banner:
+        weight: 26
+        enabled: false
       image:
         weight: 50
         enabled: false
@@ -117,7 +99,25 @@ settings:
       markup:
         weight: 55
         enabled: false
+      program:
+        weight: 27
+        enabled: false
+      program_item:
+        weight: 28
+        enabled: false
+      quotation:
+        weight: 29
+        enabled: false
       shortcuts:
         weight: 59
+        enabled: false
+      situation_links:
+        weight: 30
+        enabled: false
+      text:
+        weight: 31
+        enabled: false
+      video:
+        weight: 32
         enabled: false
 field_type: entity_reference_revisions

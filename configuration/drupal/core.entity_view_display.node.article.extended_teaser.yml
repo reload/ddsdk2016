@@ -25,28 +25,28 @@ mode: extended_teaser
 content:
   field_content_topic:
     type: entity_reference_entity_view
-    weight: 2
     label: hidden
     settings:
       view_mode: plaintext
       link: false
     third_party_settings: {  }
+    weight: 2
     region: content
   field_main_media:
     type: entity_reference_entity_view
-    weight: 0
     label: hidden
     settings:
       view_mode: extended_teaser
       link: false
     third_party_settings: {  }
+    weight: 0
     region: content
   field_subtitle:
-    weight: 1
+    type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    weight: 1
     region: content
 hidden:
   field_article_type: true

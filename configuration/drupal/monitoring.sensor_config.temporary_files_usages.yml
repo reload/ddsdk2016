@@ -14,7 +14,6 @@ value_label: 'used temporary files'
 value_type: number
 caching_time: 3600
 settings:
-  table: file_managed
   conditions:
     -
       field: status
@@ -22,6 +21,7 @@ settings:
       operator: '='
   verbose_fields:
     - fid
+  table: file_managed
 thresholds:
   type: exceeds
   warning: 0

@@ -14,12 +14,12 @@ value_label: 'Download nodes'
 value_type: number
 caching_time: 600
 settings:
-  entity_type: node
+  time_interval_field: created
+  time_interval_value: 86400
   conditions:
     -
       field: type
       value: download
-  time_interval_field: created
-  time_interval_value: 86400
+  entity_type: node
 thresholds:
   type: none

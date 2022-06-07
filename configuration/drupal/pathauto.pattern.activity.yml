@@ -11,12 +11,12 @@ pattern: 'aktivitet/[node:title]'
 selection_criteria:
   a7b38f7d-ab2a-4601-899c-57836bf1db02:
     id: node_type
-    bundles:
-      activity: activity
     negate: false
+    uuid: a7b38f7d-ab2a-4601-899c-57836bf1db02
     context_mapping:
       node: node
-    uuid: a7b38f7d-ab2a-4601-899c-57836bf1db02
+    bundles:
+      activity: activity
 selection_logic: and
 weight: -5
 relationships: {  }

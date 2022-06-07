@@ -16,13 +16,13 @@ value_label: Users
 value_type: number
 caching_time: 3600
 settings:
-  entity_type: user
-  time_interval_value: 86400
   time_interval_field: created
+  time_interval_value: 86400
   verbose_fields:
     - id
     - label
     - created
+  entity_type: user
 thresholds:
   type: exceeds
   warning: 10

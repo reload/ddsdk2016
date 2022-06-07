@@ -12,21 +12,21 @@ bundle: content_list
 mode: default
 content:
   field_content_list:
-    weight: 1
+    type: entity_reference_entity_view
     label: hidden
     settings:
       view_mode: list_teaser
       link: false
     third_party_settings: {  }
-    type: entity_reference_entity_view
+    weight: 1
     region: content
   field_content_list_title:
     type: string
-    weight: 0
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 0
     region: content
 hidden:
   langcode: true

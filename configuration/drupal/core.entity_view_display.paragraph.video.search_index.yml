@@ -13,11 +13,11 @@ bundle: video
 mode: search_index
 content:
   field_video_caption:
-    weight: 0
+    type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    weight: 0
     region: content
 hidden:
   created: true

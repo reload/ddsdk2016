@@ -9,6 +9,12 @@ name: Solr
 description: 'Main solr setup. All environments overrides the backend-configuration via their respective settings.php.'
 backend: search_api_solr
 backend_config:
+  retrieve_data: false
+  highlight_data: false
+  site_hash: true
+  server_prefix: ''
+  domain: generic
+  environment: default
   connector: standard
   connector_config:
     scheme: http
@@ -19,17 +25,11 @@ backend_config:
     timeout: 5
     index_timeout: 5
     optimize_timeout: 10
+    skip_schema_check: false
     solr_version: ''
     http_method: AUTO
     commit_within: 1000
-    skip_schema_check: false
-  retrieve_data: false
-  highlight_data: false
-  site_hash: true
-  domain: generic
-  finalize_timeout: 30
-  server_prefix: ''
   optimize: false
-  environment: default
-  index_single_documents_fallback_count: 10
   fallback_multiple: true
+  index_single_documents_fallback_count: 10
+  finalize_timeout: 30

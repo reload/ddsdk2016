@@ -1,4 +1,4 @@
-sensor_call_logging: on_request
-cron_run_sensors: false
 _core:
   default_config_hash: bItCApU1DNagyYGB2DSOHYu7n6y0MKrvDSftqYXmYX4
+sensor_call_logging: on_request
+cron_run_sensors: false

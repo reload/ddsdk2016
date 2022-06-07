@@ -24,45 +24,18 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       text: text
       image: image
       video: video
       markup: markup
+    negate: 0
     target_bundles_drag_drop:
-      2col_deck:
-        weight: -63
-        enabled: false
-      content_link:
-        weight: -62
-        enabled: false
-      dynamic_deck:
-        weight: -61
-        enabled: false
-      factbox:
-        weight: -60
-        enabled: false
-      gallery:
-        weight: -59
-        enabled: false
-      quotation:
-        weight: -58
-        enabled: false
-      text:
-        enabled: true
-        weight: -57
-      image:
-        enabled: true
-        weight: -56
-      video:
-        enabled: true
-        weight: -55
-      markup:
-        enabled: true
-        weight: -54
       1col_deck:
         weight: -53
+        enabled: false
+      2col_deck:
+        weight: -63
         enabled: false
       3col_deck:
         weight: -52
@@ -79,26 +52,17 @@ settings:
       content_article_reference:
         weight: -48
         enabled: false
-      content_event_reference:
-        weight: -47
-        enabled: false
-      hero_banner:
-        weight: -46
-        enabled: false
-      program:
-        weight: -45
-        enabled: false
-      program_item:
-        weight: -44
-        enabled: false
-      situation_links:
-        weight: -43
-        enabled: false
       content_article_reference_ext:
         weight: -42
         enabled: false
       content_badge_reference:
         weight: -41
+        enabled: false
+      content_event_reference:
+        weight: -47
+        enabled: false
+      content_link:
+        weight: -62
         enabled: false
       content_redirect_page_reference:
         weight: -40
@@ -109,6 +73,21 @@ settings:
       download:
         weight: -38
         enabled: false
+      dynamic_deck:
+        weight: -61
+        enabled: false
+      factbox:
+        weight: -60
+        enabled: false
+      gallery:
+        weight: -59
+        enabled: false
+      hero_banner:
+        weight: -46
+        enabled: false
+      image:
+        weight: -56
+        enabled: true
       inspiration_deck:
         weight: -37
         enabled: false
@@ -121,7 +100,28 @@ settings:
       list_deck:
         weight: -34
         enabled: false
+      markup:
+        weight: -54
+        enabled: true
+      program:
+        weight: -45
+        enabled: false
+      program_item:
+        weight: -44
+        enabled: false
+      quotation:
+        weight: -58
+        enabled: false
       shortcuts:
         weight: -33
         enabled: false
+      situation_links:
+        weight: -43
+        enabled: false
+      text:
+        weight: -57
+        enabled: true
+      video:
+        weight: -55
+        enabled: true
 field_type: entity_reference_revisions

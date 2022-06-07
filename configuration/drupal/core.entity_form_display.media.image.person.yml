@@ -17,25 +17,25 @@ bundle: image
 mode: person
 content:
   field_image:
+    type: image_widget_crop
     weight: 0
+    region: content
     settings:
-      show_default_crop: true
+      progress_indicator: throbber
       preview_image_style: thumbnail
       crop_preview_image_style: crop_thumbnail
       crop_list:
         - author_square
-      progress_indicator: throbber
-      show_crop_area: false
       warn_multiple_usages: true
+      show_crop_area: false
+      show_default_crop: true
     third_party_settings: {  }
-    type: image_widget_crop
-    region: content
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 100
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
 hidden:
   created: true

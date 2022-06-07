@@ -33,16 +33,16 @@ third_party_settings:
       children:
         - field_badge_progression
         - field_badge_level
+      label: Progression
+      region: content
       parent_name: ''
       weight: 6
-      label: Progression
       format_type: fieldset
       format_settings:
-        description: ''
         classes: ''
         id: ''
+        description: ''
         required_fields: true
-      region: content
 id: node.badge.default
 targetEntityType: node
 bundle: badge
@@ -51,99 +51,101 @@ content:
   created:
     type: datetime_timestamp
     weight: 9
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   field_2018_badge:
+    type: boolean_checkbox
     weight: 0
+    region: content
     settings:
       display_label: true
     third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
   field_badge_cover_image:
+    type: inline_entity_form_simple
     weight: 3
+    region: content
     settings:
       form_mode: main_media_with_25_6
+      override_labels: false
       label_singular: ''
       label_plural: ''
-      override_labels: false
     third_party_settings: {  }
-    type: inline_entity_form_simple
-    region: content
   field_badge_level:
+    type: options_select
     weight: 5
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_badge_progression:
+    type: options_select
     weight: 4
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_badge_summary:
+    type: string_textarea
     weight: 5
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textarea
-    region: content
   field_badge_target_group:
+    type: options_select
     weight: 13
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_badge_type:
+    type: options_select
     weight: 4
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_content_tag:
+    type: entity_reference_autocomplete_tags
     weight: 14
+    region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
     third_party_settings: {  }
-    type: entity_reference_autocomplete_tags
-    region: content
   field_content_topic:
+    type: options_select
     weight: 12
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_exclude_from_search:
+    type: search_api_exclude_entity_widget
     weight: 17
+    region: content
     settings:
       field_label: 'Yes, exclude this entity from the search indexes.'
     third_party_settings: {  }
-    type: search_api_exclude_entity_widget
-    region: content
   field_main_media:
+    type: inline_entity_form_simple
     weight: 2
+    region: content
     settings:
       form_mode: original
+      override_labels: false
       label_singular: ''
       label_plural: ''
-      override_labels: false
     third_party_settings: {  }
-    type: inline_entity_form_simple
-    region: content
   field_metatags:
+    type: metatag_firehose
     weight: 15
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: metatag_firehose
-    region: content
   field_paragraphs:
+    type: entity_reference_paragraphs
     weight: 7
+    region: content
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -152,10 +154,10 @@ content:
       form_display_mode: default
       default_paragraph_type: _none
     third_party_settings: {  }
-    type: entity_reference_paragraphs
-    region: content
   field_sidedeck:
+    type: entity_reference_paragraphs
     weight: 11
+    region: content
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -164,14 +166,12 @@ content:
       form_display_mode: default
       default_paragraph_type: block
     third_party_settings: {  }
-    type: entity_reference_paragraphs
-    region: content
   path:
     type: path
     weight: 10
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   publish_on:
     type: datetime_timestamp_no_default
     weight: 30
@@ -180,34 +180,34 @@ content:
     third_party_settings: {  }
   scheduler_settings:
     weight: 20
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   status:
     type: boolean_checkbox
+    weight: 16
+    region: content
     settings:
       display_label: true
-    weight: 16
     third_party_settings: {  }
-    region: content
   title:
     type: string_textfield
     weight: 1
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    region: content
   uid:
     type: entity_reference_autocomplete
     weight: 8
+    region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
     third_party_settings: {  }
-    region: content
   unpublish_on:
     type: datetime_timestamp_no_default
     weight: 30
@@ -216,9 +216,9 @@ content:
     third_party_settings: {  }
   url_redirects:
     weight: 50
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   langcode: true
   promote: true

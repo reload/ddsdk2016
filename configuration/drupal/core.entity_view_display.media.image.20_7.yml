@@ -17,13 +17,13 @@ bundle: image
 mode: '20_7'
 content:
   field_image:
-    weight: 0
+    type: image
     label: hidden
     settings:
-      image_style: 20_7_1600x560
       image_link: ''
+      image_style: 20_7_1600x560
     third_party_settings: {  }
-    type: image
+    weight: 0
     region: content
 hidden:
   created: true

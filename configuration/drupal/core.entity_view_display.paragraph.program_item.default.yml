@@ -16,28 +16,28 @@ bundle: program_item
 mode: default
 content:
   field_program_description:
-    weight: 2
+    type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    weight: 2
     region: content
   field_program_item_date:
-    weight: 3
+    type: daterange_default
     label: hidden
     settings:
       timezone_override: ''
       format_type: default_time
       separator: '-'
     third_party_settings: {  }
-    type: daterange_default
+    weight: 3
     region: content
   field_program_text:
-    weight: 1
+    type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 1
     region: content
 hidden:
   created: true

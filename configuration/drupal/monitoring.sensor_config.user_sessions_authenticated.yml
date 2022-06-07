@@ -14,10 +14,8 @@ value_label: 'Active sessions'
 value_type: number
 caching_time: null
 settings:
-  table: sessions
-  time_interval_value: 86400
   time_interval_field: timestamp
-  history_status: true
+  time_interval_value: 86400
   conditions:
     -
       field: uid
@@ -27,5 +25,7 @@ settings:
     - uid
     - hostname
     - timestamp
+  table: sessions
+  history_status: true
 thresholds:
   type: none

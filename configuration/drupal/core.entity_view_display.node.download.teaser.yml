@@ -20,10 +20,10 @@ mode: teaser
 content:
   field_file:
     type: file_default
-    weight: 0
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 0
     region: content
 hidden:
   field_content_category: true

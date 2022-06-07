@@ -14,22 +14,22 @@ bundle: video
 mode: default
 content:
   field_caption:
-    weight: 1
+    type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    weight: 1
     region: content
   field_media_video_embed_field:
     type: video_embed_field_video
-    weight: 0
     label: hidden
     settings:
+      autoplay: false
       responsive: true
       width: 854
       height: 480
-      autoplay: false
     third_party_settings: {  }
+    weight: 0
     region: content
 hidden:
   created: true
