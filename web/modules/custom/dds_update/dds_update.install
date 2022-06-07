@@ -164,7 +164,6 @@ function dds_update_update_8108() {
   \Drupal::logger('dds_update')->notice("Changed {$i} unused files to temporary files.");
 }
 
-
 /**
  * Add translations for activity/ies and delete redirect.
  */

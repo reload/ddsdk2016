@@ -37,8 +37,8 @@ function dds_layout_preprocess_field(&$variables) {
   $field_name = $variables['field_name'];
   // Prepare the item-count and bundle if available.
   $item_count = isset($variables['items']) && is_array($variables['items']) ? count($variables['items']) : 0;
-  $bundle = isset($variables['element']['#bundle']) ? $variables['element']['#bundle'] : NULL;
-  $object = isset($variables['element']['#object']) ? $variables['element']['#object'] : NULL;
+  $bundle = $variables['element']['#bundle'] ?? NULL;
+  $object = $variables['element']['#object'] ?? NULL;
   $size = NULL;
 
   if ($object instanceof EntityInterface && $object->hasField('field_2col_column_size') && isset($object->field_2col_column_size->value)) {
@@ -86,7 +86,7 @@ function dds_layout_form_alter(&$form, $form_state, $form_id) {
 
     // Put the sidedeck field in the sidebar.
     if (isset($form['field_sidedeck'])) {
-      $form['sidedeck_group'] = array(
+      $form['sidedeck_group'] = [
         '#type' => 'details',
         '#title' => t('Sidedeck'),
         '#description' => t(
@@ -96,7 +96,7 @@ function dds_layout_form_alter(&$form, $form_state, $form_id) {
         '#open' => FALSE,
         // Push it all the way to the bottom.
         '#weight' => -999,
-      );
+      ];
 
       $form['field_sidedeck']['#group'] = 'sidedeck_group';
     }
@@ -114,14 +114,14 @@ function dds_layout_form_alter(&$form, $form_state, $form_id) {
     if (!empty(array_intersect($content_meta_keys, array_keys($form)))) {
 
       // Create content meta advanced group.
-      $form['advanced_content_meta'] = array(
+      $form['advanced_content_meta'] = [
         '#type' => 'details',
         '#title' => t('Content meta'),
         '#group' => 'advanced',
         '#open' => TRUE,
         // Push it all the way to the top.
         '#weight' => -1000,
-      );
+      ];
 
       // Then put each of the fields in the newly created group.
       foreach ($content_meta_keys as $key) {

@@ -13,40 +13,40 @@ use Drupal\media\Entity\Media;
  * Implements hook_token_info().
  */
 function dds_metatag_token_info() {
-  $info = array();
+  $info = [];
 
   // Declare tokens we need for various metatags.
-  $info['tokens'] = array(
-    'node' => array(
-      'main-media-video-thumbnail' => array(
+  $info['tokens'] = [
+    'node' => [
+      'main-media-video-thumbnail' => [
         'name' => t('Video thumbnail'),
         'description' => t('Thumbnail for video'),
-      ),
-    ),
-    'ddsdk' => array(
-      'badge-overview-topimage' => array(
+      ],
+    ],
+    'ddsdk' => [
+      'badge-overview-topimage' => [
         'name' => t('Top image'),
         'description' => t('URL for the badge overview topimage'),
-      ),
-      'badge-overview-title' => array(
+      ],
+      'badge-overview-title' => [
         'name' => t('Title'),
         'description' => t('Badge overview title'),
-      ),
-      'badge-overview-description' => array(
+      ],
+      'badge-overview-description' => [
         'name' => t('Description'),
         'description' => t('Badge overview description'),
-      ),
-    ),
-  );
+      ],
+    ],
+  ];
 
   // Declare a root type for tokens that are not directly related to any
   // content.
-  $info['types'] = array(
-    'ddsdk' => array(
+  $info['types'] = [
+    'ddsdk' => [
       'name' => t('dds.dk tokens'),
       'description' => t('Tokens specific for the dds.dk site'),
-    ),
-  );
+    ],
+  ];
 
   return $info;
 }
@@ -99,7 +99,8 @@ function dds_metatag_tokens($type, $tokens, array $data, array $options, Bubblea
           // Build the view to get access to the header field(s).
           $data['view']->build();
           $area_text_custom = $data['view']->header['area_text_custom']->render();
-          $description = (new TranslatableMarkup((string)$area_text_custom['#markup']))->render();
+          // phpcs:ignore Drupal.Semantics.FunctionT.NotLiteralString
+          $description = (new TranslatableMarkup((string) $area_text_custom['#markup']))->render();
           if (!empty($description)) {
             $replacements[$original] = $description;
           }

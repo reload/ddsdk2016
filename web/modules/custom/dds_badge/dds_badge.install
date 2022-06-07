@@ -14,9 +14,9 @@ use Drupal\redirect\Entity\Redirect;
  */
 function dds_badge_update_8101(&$sandbox) {
   Redirect::create([
-      'redirect_source' => 'maerker-2018',
-      'redirect_redirect' => 'internal:/maerker',
-      'language' => 'und',
-      'status_code' => '301',
-    ])->save();
+    'redirect_source' => 'maerker-2018',
+    'redirect_redirect' => 'internal:/maerker',
+    'language' => 'und',
+    'status_code' => '301',
+  ])->save();
 }

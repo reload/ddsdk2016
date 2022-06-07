@@ -19,7 +19,7 @@ class DdsEventAddressFormatSubscriber implements EventSubscriberInterface {
     // here but we're running in to some wird problem with cmi.
     // Should be able to revert back after this version hits all
     // environments and all developers.
-    $events['address.address_format'][] = array('onGetDefinition', 0);
+    $events['address.address_format'][] = ['onGetDefinition', 0];
     return $events;
   }
 

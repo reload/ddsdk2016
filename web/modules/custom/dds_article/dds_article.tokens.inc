@@ -6,8 +6,6 @@
  */
 
 use Drupal\Core\Render\BubbleableMetadata;
-use Drupal\Core\Render\Markup;
-use Drupal\Component\Utility\Xss;
 
 /**
  * Implements hook_token_info().

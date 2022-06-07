@@ -2,11 +2,9 @@
 
 namespace Drupal\dds_search\Plugin\Block;
 
-use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormBuilder;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
-use Drupal\Core\Session\AccountInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -53,4 +51,5 @@ final class SearchFormBlock extends BlockBase implements ContainerFactoryPluginI
   public function build() {
     return $this->formBuilder->getForm('Drupal\dds_search\Form\SearchBlockForm');
   }
+
 }

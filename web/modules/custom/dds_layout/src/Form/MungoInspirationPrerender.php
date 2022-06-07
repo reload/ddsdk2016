@@ -21,7 +21,6 @@ class MungoInspirationPrerender implements TrustedCallbackInterface {
    * Removes any languages that the user is not allowed to create content for.
    */
   public static function deckPrerender($build) {
-    if (true) {}
     if (!empty($build['field_main_media'])) {
       foreach (Element::children($build['field_main_media']) as $name) {
         if (!isset($build['field_main_media'][$name]['#view_mode']) || $build['field_main_media'][$name]['#view_mode'] === 'teaser') {

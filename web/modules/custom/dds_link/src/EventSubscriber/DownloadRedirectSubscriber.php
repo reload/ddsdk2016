@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\dds_link\EventSubscriber\DownloadRedirectSubscriber.
- */
-
 namespace Drupal\dds_link\EventSubscriber;
 
 use Drupal\Core\File\FileUrlGeneratorInterface;
@@ -15,6 +10,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
+/**
+ * Download redirect subscriber.
+ */
 class DownloadRedirectSubscriber implements EventSubscriberInterface {
 
   /**
@@ -41,14 +39,15 @@ class DownloadRedirectSubscriber implements EventSubscriberInterface {
     return([
       KernelEvents::REQUEST => [
         ['redirectDownloadNodeType'],
-      ]
+      ],
     ]);
   }
 
   /**
    * Redirect requests for download node types to field_file URL.
    *
-   * @param RequestEvent $event
+   * @param \Symfony\Component\HttpKernel\Event\RequestEvent $event
+   *   The event.
    */
   public function redirectDownloadNodeType(RequestEvent $event) {
     $request = $event->getRequest();
