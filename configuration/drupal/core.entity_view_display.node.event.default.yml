@@ -26,7 +26,6 @@ dependencies:
     - field.field.node.event.field_metatags
     - field.field.node.event.field_paragraphs
     - field.field.node.event.field_programs
-    - field.field.node.event.field_universe
     - node.type.event
   module:
     - address
@@ -34,7 +33,6 @@ dependencies:
     - entity_reference_revisions
     - field_group
     - metatag
-    - options
     - text
     - user
 third_party_settings:
@@ -265,13 +263,6 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 7
-    region: content
-  field_universe:
-    weight: 13
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
     region: content
 hidden:
   field_content_category: true
