@@ -15,7 +15,6 @@ dependencies:
     - field.field.node.article.field_paragraphs
     - field.field.node.article.field_sidedeck
     - field.field.node.article.field_subtitle
-    - field.field.node.article.field_universe
     - node.type.article
   module:
     - inline_entity_form
@@ -139,12 +138,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
-    region: content
-  field_universe:
-    weight: 1
-    settings: {  }
-    third_party_settings: {  }
-    type: options_buttons
     region: content
   path:
     type: path
