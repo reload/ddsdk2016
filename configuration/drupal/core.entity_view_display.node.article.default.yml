@@ -15,12 +15,10 @@ dependencies:
     - field.field.node.article.field_paragraphs
     - field.field.node.article.field_sidedeck
     - field.field.node.article.field_subtitle
-    - field.field.node.article.field_universe
     - node.type.article
   module:
     - entity_reference_revisions
     - metatag
-    - options
     - user
 id: node.article.default
 targetEntityType: node
@@ -85,13 +83,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: basic_string
-    region: content
-  field_universe:
-    weight: 8
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
     region: content
   links:
     weight: 1
