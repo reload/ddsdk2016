@@ -5,8 +5,10 @@
  * Hooks and functionality for the Track universe.
  */
 
-use Drupal\node\Entity\Node;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\NodeInterface;
 use Drupal\taxonomy\Entity\Term;
+use Drupal\taxonomy\TermInterface;
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -14,18 +16,26 @@ use Drupal\taxonomy\Entity\Term;
  * Prepare the html for the track universe context.
  */
 function dds_track_preprocess_html(&$variables) {
-  if (!_dds_track_page_is_track_universe() || \Drupal::service('router.admin_context')->isAdminRoute()) {
+  if (\Drupal::service('router.admin_context')->isAdminRoute()) {
     return;
   }
 
-  /** @var \Drupal\node\Entity\Node $node */
+  if (!\Drupal::routeMatch()->getParameter('node') instanceof NodeInterface) {
+    return;
+  }
+
+  /** @var \Drupal\node\NodeInterface $node */
   $node = \Drupal::routeMatch()->getParameter('node');
+
+  if (!_dds_track_is_track_universe($node)) {
+    return;
+  }
 
   // Attach a general class we can use to style things like the header.
   $variables['attributes']['class'][] = 'page-type-universe';
   // Attach a specific track class that let us know at a high level what track
   // the node is.
-  $variables['attributes']['class'][] = 'universe-' . _dds_track_get_track_universe($node);
+  $variables['attributes']['class'][] = 'universe-' . 'track-' . _dds_track_get_track_universe($node);
 }
 
 /**
@@ -47,7 +57,14 @@ function dds_track_preprocess_block(&$variables) {
     return;
   }
 
-  if (!_dds_track_page_is_track_universe()) {
+  if (!\Drupal::routeMatch()->getParameter('node')) {
+    return;
+  }
+
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  if (!_dds_track_is_track_universe($node)) {
     return;
   }
 
@@ -56,61 +73,57 @@ function dds_track_preprocess_block(&$variables) {
 }
 
 /**
- * Helper function to check if the current node is in a track-context.
+ * Implements hook_form_alter().
  *
- * @return bool
- *   Whether the current node is a track-universe or not.
+ * We want to disable the option that is the track term.
+ * We only want the editors to be able to select children of our track term.
  */
-function _dds_track_page_is_track_universe(): bool {
-  if (empty(\Drupal::routeMatch()->getParameter('node'))) {
-    return FALSE;
+function dds_track_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Only altering "backend" forms.
+  if (!\Drupal::service('router.admin_context')->isAdminRoute()) {
+    return;
   }
 
-  /** @var \Drupal\node\Entity\Node $node */
-  $node = \Drupal::routeMatch()->getParameter('node');
-  if (!$node->hasField('field_content_topic') &&
-    !$node->hasField('field_content_target_group')) {
-    return FALSE;
+  // Bail out if the form doesn't have the field we're interested in.
+  if (!array_key_exists('field_content_category', $form)) {
+    return;
   }
 
-  return _dds_track_has_required_tags($node);
+  /** @var \Drupal\Core\Extension\ModuleHandlerInterface $moduleHandler */
+  $moduleHandler = \Drupal::service('module_handler');
+  if ($moduleHandler->moduleExists('form_options_attributes')) {
+    $track_tid = _dds_track_get_track_term_id();
+    // The reason we can add #options_attributes is because of the contrib
+    // drupal/form_options_attributes module.
+    $form['field_content_category']['widget']['#options_attributes'] = [
+      $track_tid => ['disabled' => 'disabled'],
+    ];
+  }
 }
 
 /**
  * Helper function to get the selected track-universe.
  *
- * @param \Drupal\node\Entity\Node $node
+ * @param \Drupal\node\NodeInterface $node
  *   The drupal node.
  *
  * @return string
  *   The name of the selected track-universe.
  */
-function _dds_track_get_track_universe(Node $node): string {
-  $target_group_field = $node->get('field_content_topic')->getString();
-  $target_group_term = Term::load($target_group_field);
-  return _dds_track_get_universe_options()[$target_group_term->id()];
-}
+function _dds_track_get_track_universe(NodeInterface $node): string {
+  $category_field = $node->get('field_content_category')->getString();
 
-/**
- * Helper function to get the possible values for the track universe.
- *
- * @return string[]
- *   Return an array of the possible options for the Track universe.
- */
-function _dds_track_get_universe_options(): array {
-  return [
-    834 => 'track-skills',
-    187 => 'track-patrol',
-    82 => 'track-events',
-    71 => 'track-adventure',
-  ];
+  /** @var \Drupal\taxonomy\TermInterface $category_term */
+  $category_term = Term::load($category_field);
+
+  return strtolower($category_term->getName());
 }
 
 /**
  * Helper function to prepare track nodes in teasers.
  */
 function _dds_track_prepare_node_teaser(&$variables) {
-  if (empty($variables['node']) || !$variables['node'] instanceof Node) {
+  if (empty($variables['node']) || !$variables['node'] instanceof NodeInterface) {
     return $variables;
   }
 
@@ -120,43 +133,17 @@ function _dds_track_prepare_node_teaser(&$variables) {
   }
 
   $node = $variables['node'];
-  if (!$node->hasField('field_content_topic')) {
+  if (!$node->hasField('field_content_category')) {
     return $variables;
   }
 
-  if (_dds_track_has_required_tags($node)) {
+  if (_dds_track_is_track_universe($node)) {
     $variables['attributes']['class'][] = 'track-teaser';
-    $variables['attributes']['class'][] = _dds_track_get_track_universe($node);
-  }
-}
-
-/**
- * Helper function to check if node meets track-context requirements.
- *
- * @param \Drupal\node\Entity\Node $node
- *   The node to check for.
- *
- * @return bool
- *   Returns true if the node has both the target_group and topic tag.
- *   Returns false otherwise.
- */
-function _dds_track_has_required_tags(Node $node): bool {
-  $field_content_target_group_terms = $node->get('field_content_target_group')->getValue();
-  $has_target_group = FALSE;
-  foreach ($field_content_target_group_terms as $target_group_term) {
-    if (intval($target_group_term['target_id']) != _dds_track_get_track_term_id()) {
-      continue;
-    }
-
-    $has_target_group = intval($target_group_term['target_id']) == _dds_track_get_track_term_id();
+    $variables['attributes']['class'][] = 'track-' . _dds_track_get_track_universe($node);
   }
 
-  $content_topic = $node->get('field_content_topic')->getString();
-  $has_track_topic = array_key_exists(intval($content_topic), _dds_track_get_universe_options());
-
-  return $has_track_topic && $has_target_group;
+  return $variables;
 }
-
 
 /**
  * Helper function to prepare track nodes in full view mode.
@@ -166,12 +153,41 @@ function _dds_track_prepare_node_full(&$variables) {
     return $variables;
   }
 
-  if (!_dds_track_page_is_track_universe()) {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+
+  if (!_dds_track_is_track_universe($node)) {
     return $variables;
   }
 
-  $variables['is_track_page'] = _dds_track_page_is_track_universe();
-  $variables['track_universe'] = _dds_track_get_track_universe($variables['node']);
+  $variables['is_track_page'] = _dds_track_is_track_universe($node);
+  $variables['track_universe'] = _dds_track_get_track_universe($node);
+
+  return $variables;
+}
+
+/**
+ * Helper function to check if the current node is in a track-context.
+ *
+ * @return bool
+ *   Whether the current node is a track-universe or not.
+ */
+function _dds_track_is_track_universe(NodeInterface $node): bool {
+  if (!$node->hasField('field_content_category')) {
+    return FALSE;
+  }
+
+  $content_category_tid = $node->get('field_content_category')->getString();
+  $content_category_parent_tid = Term::load($content_category_tid);
+  if (!$content_category_parent_tid instanceof TermInterface) {
+    return FALSE;
+  }
+
+  $content_category_parent_tid = $content_category_parent_tid->get('parent')->getString();
+
+  // We know that the node is in a track context, if the parent term is our
+  // "Track" tid.
+  return $content_category_parent_tid == _dds_track_get_track_term_id();
 }
 
 /**
@@ -184,5 +200,5 @@ function _dds_track_prepare_node_full(&$variables) {
  *   The id of the "Track" term.
  */
 function _dds_track_get_track_term_id(): int {
-  return 826;
+  return 834;
 }

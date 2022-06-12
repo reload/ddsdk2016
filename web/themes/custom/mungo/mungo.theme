@@ -1110,6 +1110,9 @@ function _mungo_2col_size_option_to_text(int $value) {
 function _mungo_preprocess_deck_paragraph($type, &$variables) {
   $variables['cols_attributes'] = new Attribute();
 
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = \Drupal::routeMatch()->getParameter('node');
+
   // Detect each column field and move it into a seperat cols.<name>
   // variable.
   // The name is expected to look like this: field_4col_deck_col_4 for the
@@ -1148,7 +1151,7 @@ function _mungo_preprocess_deck_paragraph($type, &$variables) {
   }
   elseif ($type === '3col_deck') {
     foreach ($variables['cols'] as $key => &$col) {
-      if (_dds_track_page_is_track_universe()) {
+      if (_dds_track_is_track_universe($node)) {
         if ($key === 'field_3col_deck_col1') {
           // Only set the col-xs-12 on the first column.
           $col['#attributes']['class'][] = 'col-xs-12 col-sm-4';
@@ -1167,7 +1170,7 @@ function _mungo_preprocess_deck_paragraph($type, &$variables) {
   }
   elseif ($type === '4col_deck') {
     foreach ($variables['cols'] as &$col) {
-      if (_dds_track_page_is_track_universe()) {
+      if (_dds_track_is_track_universe($node)) {
         // In track-universe, place all columns in a 2 col/2 row grid.
         $col['#attributes']['class'][] = 'col-xs-6 col-md-3';
 
