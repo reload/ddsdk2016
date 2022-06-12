@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3ed312cf60b724f1d53029bdb555deba",
+    "content-hash": "03e8458e8d1b36fedc0b3f14675e8a47",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -3079,6 +3079,53 @@
         {
             "name": "drupal/form_options_attributes",
             "version": "2.0.0-beta1",
+<<<<<<< HEAD
+=======
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/form_options_attributes.git",
+                "reference": "2.0.0-beta1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/form_options_attributes-2.0.0-beta1.zip",
+                "reference": "2.0.0-beta1",
+                "shasum": "2f26e280074b667862b582dbe5b1def0928a5b69"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0-beta1",
+                    "datestamp": "1591034866",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "zengenuity",
+                    "homepage": "https://www.drupal.org/user/326925"
+                }
+            ],
+            "description": "Allows form options for select, checkboxes, and radio elements to have individual attributes.",
+            "homepage": "https://www.drupal.org/project/form_options_attributes",
+            "support": {
+                "source": "https://git.drupalcode.org/project/form_options_attributes"
+            }
+        },
+        {
+            "name": "drupal/forward",
+            "version": "4.0.0",
+>>>>>>> 1402b5f (require and enable drupal/form_options_attributes)
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/form_options_attributes.git",
