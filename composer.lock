@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "92aef0cf80d3cfe1a3c5df3f13caeb83",
+    "content-hash": "5a7794da34c40e195bcb5b06b5fb63c2",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -3701,8 +3701,8 @@
                     "version": "1.0.0",
                     "datestamp": "1591893292",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Project has not opted into security advisory coverage!"
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -4378,7 +4378,7 @@
             "extra": {
                 "drupal": {
                     "version": "8.x-1.4",
-                    "datestamp": "1637145565",
+                    "datestamp": "1654699160",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -8286,7 +8286,7 @@
                 }
             ],
             "abandoned": "symfony/error-handler",
-            "time": "2021-09-24T13:30:14+00:00"
+            "time": "2021-05-26T17:39:37+00:00"
         },
         {
             "name": "symfony/dependency-injection",
