@@ -105,7 +105,7 @@
         {% endif %}
         {{ content.field_main_media }}
         {% if is_track_page %}
-        {% include "@mungo/misc/star-" ~ track_universe ~ ".html.twig" %}
+        {% include ["@mungo/misc/star-" ~ track_universe ~ ".html.twig", "@mungo/misc/star-track.html.twig"] %}
       </div>
       {% endif %}
         {% block main_media_suffix %}{% endblock %}
