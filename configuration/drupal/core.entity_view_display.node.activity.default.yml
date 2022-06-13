@@ -83,12 +83,12 @@ content:
     type: entity_reference_label
     region: content
   field_content_topic:
-    type: entity_reference_label
+    weight: 3
     label: hidden
     settings:
       link: true
     third_party_settings: {  }
-    weight: 3
+    type: entity_reference_label
     region: content
   field_duration:
     type: entity_reference_label
