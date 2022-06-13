@@ -46,7 +46,7 @@
 
     .track-star--text *,
     .track-star--heart {
-      fill: map-get($track-colors, "events");
+      fill: map-get($track-colors, "arrangementer");
     }
   }
 
@@ -82,17 +82,11 @@
 
     &--bg {
       fill: $track-light-green;
-      @media (prefers-reduced-motion: no-preference) {
-        animation: rotateToLeft $track-star-animation-settings;
-        transform-origin: center;
-      }
+      @include rotate-to-left;
     }
 
     &--text {
-      @media (prefers-reduced-motion: no-preference) {
-        animation: rotateToRight $track-star-animation-settings;
-        transform-origin: center;
-      }
+      @include rotate-to-right;
     }
 
     @include media-large {
@@ -108,18 +102,6 @@
       // When a node-teaser is hovered, show the track-color as border.
       border-bottom-color: $track-color;
     }
-  }
-}
-
-@keyframes rotateToLeft {
-  100% {
-    transform: rotate(-360deg);
-  }
-}
-
-@keyframes rotateToRight {
-  100% {
-    transform: rotate(360deg);
   }
 }
 

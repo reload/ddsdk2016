@@ -32,3 +32,17 @@
     padding: 0.5em;
   }
 }
+
+@mixin rotate-to-left {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: rotateToLeft $track-star-animation-settings;
+    transform-origin: center;
+  }
+}
+
+@mixin rotate-to-right {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: rotateToRight $track-star-animation-settings;
+    transform-origin: center;
+  }
+}

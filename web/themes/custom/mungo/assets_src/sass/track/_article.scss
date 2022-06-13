@@ -19,6 +19,14 @@
       }
     }
 
+    .track-star--bg {
+      @include rotate-to-left;
+    }
+
+    .track-star--text {
+      @include rotate-to-right;
+    }
+
     &.no-byline {
       svg {
         bottom: -30px;
