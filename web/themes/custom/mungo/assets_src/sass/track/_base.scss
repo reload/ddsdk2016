@@ -1,4 +1,4 @@
-.page-type-universe:not(.page-node-type-article, .page-node-type-event) {
+.page-type-universe:not(.page-node-type-article, .page-node-type-event, .page-node-type-activity) {
   background-color: $track-light-green;
   background-image: url("#{$track-images}/noise.svg");
   background-size: 40%;
@@ -11,11 +11,6 @@
   .block-local-tasks-block {
     background-color: $track-blue;
 
-    .is-active {
-      background-color: $track-light-green;
-      color: $track-blue;
-    }
-
     a {
       color: $track-light-green;
 
@@ -23,6 +18,11 @@
         background-color: $track-green;
         color: $track-blue;
       }
+    }
+
+    .is-active a {
+      background-color: $track-light-green;
+      color: $track-blue;
     }
   }
 }

@@ -25,10 +25,14 @@
 }
 
 @mixin topic-track($targetSelector) {
+  .#{$targetSelector},
+  .#{$targetSelector} a {
+    color: #fff;
+  }
+
   .#{$targetSelector} {
     width: max-content;
     background-color: $track-green;
-    color: #fff;
     padding: 0.5em;
   }
 }
