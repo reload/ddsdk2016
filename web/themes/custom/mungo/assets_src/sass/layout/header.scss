@@ -52,6 +52,8 @@ header.header-fixed {
   .region-top-menu {
     // Hide the top menu on mobile. Show from tablet and up.
     display: none;
+    font-size: $std-font-size;
+
     @include media-small {
       display: block;
     }

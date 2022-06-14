@@ -114,5 +114,9 @@
     }
 
     @include header-with-bg(node-teaser--heading);
+
+    a h2.node-teaser--heading {
+      font-size: initial;
+    }
   }
 }
