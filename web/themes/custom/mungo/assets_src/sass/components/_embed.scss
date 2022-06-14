@@ -1,8 +1,12 @@
 .paragraph--type--embed {
   clear: both; // Align it properly if next to floating items such as our factbox.
   background-color: $bluish;
-  padding: $spacing-medium;
+  padding: $spacing-small;
   color: #fff;
+
+  @include media-medium {
+    padding: $spacing-medium;
+  }
 
   .embed-title--wrapper {
     display: flex;
@@ -37,6 +41,7 @@
       // styling. We want to override that and make sure the actual embed code is 100% of our parent container.
       width: 100% !important;
       max-width: 100% !important;
+      min-width: 100% !important;
     }
   }
 }
