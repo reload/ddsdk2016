@@ -19,6 +19,8 @@ use Drupal\node\Entity\Node;
 use Drupal\taxonomy\TermInterface;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\dds_layout\Form\MungoInspirationPrerender;
+use Drupal\node\NodeInterface;
+use Drupal\paragraphs\Entity\Paragraph;
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -1127,6 +1129,20 @@ function _mungo_preprocess_deck_paragraph($type, &$variables) {
     foreach ($variables['cols'] as &$col) {
       $col['#attributes']['class'][] = 'col-xs-12';
     }
+
+    if (_dds_track_is_track_universe($node)) {
+      $paragraphs = $variables['paragraph']->get('field_1col_deck_col1')->getValue();
+      foreach ($paragraphs as $paragraph) {
+        /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
+        $paragraph = Paragraph::load($paragraph['target_id']);
+        if ($paragraph->getType() == 'events') {
+          // Add some classes to all of our events paragraphs inside a
+          // 1 col deck paragraph.
+          $variables['attributes']['class'][] = 'has-event-teaser';
+          $variables['attributes']['class'][] = 'track-arrangementer-bg';
+        }
+      }
+    }
   }
   elseif ($type === '2col_deck') {
     // The 2col deck column-sizes are not distributed evenly, so we have to
@@ -1150,17 +1166,19 @@ function _mungo_preprocess_deck_paragraph($type, &$variables) {
   }
   elseif ($type === '3col_deck') {
     foreach ($variables['cols'] as $key => &$col) {
-      if (_dds_track_is_track_universe($node)) {
-        if ($key === 'field_3col_deck_col1') {
-          // Only set the col-xs-12 on the first column.
-          $col['#attributes']['class'][] = 'col-xs-12 col-sm-4';
+      if ($node instanceof NodeInterface) {
+        if (_dds_track_is_track_universe($node)) {
+          if ($key === 'field_3col_deck_col1') {
+            // Only set the col-xs-12 on the first column.
+            $col['#attributes']['class'][] = 'col-xs-12 col-sm-4';
+          }
+          else {
+            // Set the col-xs-6 for the two other columns.
+            $col['#attributes']['class'][] = 'col-xs-6 col-sm-4';
+          }
+          // Continue through to set classes for the  regular dds universe.
+          continue;
         }
-        else {
-          // Set the col-xs-6 for the two other columns.
-          $col['#attributes']['class'][] = 'col-xs-6 col-sm-4';
-        }
-        // Continue through to set classes for the  regular dds universe.
-        continue;
       }
       $col['#attributes']['class'][] = 'col-sm-4';
       $col['#attributes']['class'][] = 'col-xs-12';
@@ -1169,12 +1187,14 @@ function _mungo_preprocess_deck_paragraph($type, &$variables) {
   }
   elseif ($type === '4col_deck') {
     foreach ($variables['cols'] as &$col) {
-      if (_dds_track_is_track_universe($node)) {
-        // In track-universe, place all columns in a 2 col/2 row grid.
-        $col['#attributes']['class'][] = 'col-xs-6 col-md-3';
+      if ($node instanceof NodeInterface) {
+        if (_dds_track_is_track_universe($node)) {
+          // In track-universe, place all columns in a 2 col/2 row grid.
+          $col['#attributes']['class'][] = 'col-xs-6 col-md-3';
 
-        // Continue through to set classes for the  regular dds universe.
-        continue;
+          // Continue through to set classes for the  regular dds universe.
+          continue;
+        }
       }
       $col['#attributes']['class'][] = 'col-md-3';
       $col['#attributes']['class'][] = 'col-sm-6';

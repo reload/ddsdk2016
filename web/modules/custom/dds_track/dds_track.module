@@ -9,6 +9,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\NodeInterface;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\TermInterface;
+use Drupal\views\Views;
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -47,6 +48,27 @@ function dds_track_preprocess_html(&$variables) {
 function dds_track_preprocess_node(&$variables) {
   _dds_track_prepare_node_teaser($variables);
   _dds_track_prepare_node_full($variables);
+  _dds_track_prepare_event_teaser_block($variables);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function dds_track_preprocess_paragraph__events(&$variables) {
+  /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
+  $paragraph = $variables['paragraph'];
+  if (!$paragraph->hasField('field_category')) {
+    return;
+  }
+
+  $term_reference_tid = $paragraph->get('field_category')->getString();
+  $category = Term::load($term_reference_tid)->getName();
+
+  /** @var \Drupal\views\ViewExecutable $events_view */
+  $events_view = Views::getView('events');
+  if (is_object($events_view)) {
+    $variables['events_view_block'] = $events_view->buildRenderable('events_block', ['field_content_category_name' => strtolower($category)]);
+  }
 }
 
 /**
@@ -162,6 +184,43 @@ function _dds_track_prepare_node_full(&$variables) {
 
   $variables['is_track_page'] = _dds_track_is_track_universe($node);
   $variables['track_universe'] = _dds_track_get_track_universe($node);
+
+  return $variables;
+}
+
+/**
+ * Helper function to prepare track nodes in event_teaser_block view mode.
+ */
+function _dds_track_prepare_event_teaser_block(&$variables) {
+  if ($variables['view_mode'] !== 'event_teaser_block') {
+    return $variables;
+  }
+
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+
+  if (!$node->hasField('field_event_start') || !$node->hasField('field_event_end')) {
+    return $variables;
+  }
+
+  $event_start = $node->get('field_event_start');
+  $event_end = $node->get('field_event_end');
+
+  if (empty($event_start->date) ||
+    empty($event_end->date) ||
+    !method_exists($event_start->date, 'format') ||
+    !method_exists($event_end->date, 'format')) {
+    return $variables;
+  }
+
+  $variables['event_time'] = [
+    'start_day' => $event_start->date->format('j'),
+    'start_month' => $event_start->date->format('M'),
+    'start_time' => $event_start->date->format('H:i'),
+    'end_day' => $event_end->date->format('j'),
+    'end_month' => $event_end->date->format('M'),
+    'end_time' => $event_end->date->format('H:i'),
+  ];
 
   return $variables;
 }

@@ -1,4 +1,3 @@
-{% extends "@mungo/layout/search-result.twig" %}
 {#
 /**
  * @file
@@ -16,7 +15,7 @@
  *   Calling other methods, such as node.delete(), will result in an exception.
  *   See \Drupal\node\Entity\Node for a full list of public properties and
  *   methods for the node object.
- * - label: The title of the node.
+ * - label: (optional) The title of the node.
  * - content: All node items. Use {{ content }} to print them all,
  *   or print a subset such as {{ content.field_example }}. Use
  *   {{ content|without('field_example') }} to temporarily suppress the printing
@@ -24,8 +23,8 @@
  * - author_picture: The node author user entity, rendered using the "compact"
  *   view mode.
  * - metadata: Metadata for this node.
- * - date: Themed creation date field.
- * - author_name: Themed author name field.
+ * - date: (optional) Themed creation date field.
+ * - author_name: (optional) Themed author name field.
  * - url: Direct URL of the current node.
  * - display_submitted: Whether submission information should be displayed.
  * - attributes: HTML attributes for the containing element.
@@ -71,88 +70,42 @@
  *   in different view modes.
  */
 #}
-{% block title %}
-{% endblock %}
-{% block content %}
+{% set classes = [
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isPromoted() ? 'node--promoted',
+  node.isSticky() ? 'node--sticky',
+  not node.isPublished() ? 'node--unpublished',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  'event-card--wrapper'
+] %}
+<article{{ attributes.addClass(classes) }}>
   <a href="{{ url }}">
-    <div class="search-result__image">
-      {% if attributes.hasClass('track-teaser') %}
-        <figure class="track-star">
-          {% include "@mungo/misc/star-track.html.twig" %}
-        </figure>
-      {% endif %}
-      {{ content.field_main_media }}
-    </div>
-    <div class="search-result__content">
-      <div class="search-result__header">
-        <div class="search-result__event__type">
-          {% if has_track_target_group %}
-            <span>{{ spejderdk_target_group_term_name }} </span>
-            {% if content.field_event_type %} &#8209; {% endif %}
-          {% endif %}
-          {{ content.field_event_type }}
-        </div>
-        <div class="search-result__title">
+
+    <div class="event-card">
+      <div class="event-card--date">
+        <p>{{ event_time.start_day }}.</p>
+        <p>{{ event_time.start_month }}</p>
+      </div>
+
+      <div class="event-card--meta">
+        {{ title_prefix }}
+        {% if label and not page %}
           <h2{{ title_attributes }}>
             {{ label }}
           </h2>
-        </div>
-        <div class="search-result__teaser">
-          {{ content.field_event_teaser }}
-        </div>
-      </div>
-      <div class="search-result__meta-data">
-        <div class="row">
-          {% if start_date is not empty %}
-            <div class="search-result__meta-data__item search-result__event__date_range col-sm-6">
-              <span class="search_result__label">
-                {% trans with {'context': 'events'} -%}Date{%- endtrans %}:</span>
-              {# If the date is on the same day #}
-              {% if (start_date|date('Ymd') == end_date|date('Ymd')) %}
+        {% endif %}
+        {{ title_suffix }}
+        <div class="event-card--meta-dates">
+          <p><strong>{{ 'Date'|trans }}</strong> {{ event_time.start_day }}. {{ event_time.start_month }} &#8209;
+            {{ event_time.end_day }} . {{ event_time.end_month }}
+          </p>
+          <p><strong>{{ 'Time'|trans }}</strong> {{ event_time.start_time }} &#8209; {{ event_time.end_time }}</p>
 
-                {% if (is_all_day) %}
-                  {{ start_date|format_date('event_date_long') }}
-                {% else %}
-                  {# Display time if it is not an all-day event #}
-                  {{ start_date|format_date('event_date_long_time') }} - {{ end_date|format_date('default_time') }}
-                {% endif %}
-
-
-              {# If the date is within the same month #}
-              {% elseif (start_date|date('Ym') == end_date|date('Ym')) %}
-                {{ start_date|format_date('event_date_only') }}-{{ end_date|format_date('event_date_long_year') }}
-              {# Default #}
-              {% else %}
-                {{ start_date|format_date('event_date_long_year') }} - {{ end_date|format_date('event_date_long_year') }}
-              {% endif %}
-              {# If event is an all day event #}
-              {% if (is_all_day) %}
-                <span class="search-result__all_day">{% trans with {'context': 'events'} -%}(All day event){%- endtrans %}
-                </span>
-              {% endif %}
-            </div>
-          {% endif %}
-          {% if node.field_event_location_name.value %}
-            <div class="search-result__meta-data__item search-result__event__location col-sm-6">
-              <span class="search_result__label">
-                {% trans with {'context': 'events'} -%}Location{%- endtrans %}:</span>
-              {{ content.field_event_location_name }}
-            </div>
-          {% endif %}
-        </div>
-        <div class="row">
-          {% if node.field_event_price.value %}
-            <div class="search-result__meta-data__item search-result__event__price col-sm-6">
-              <span class="search_result__label">
-                {% trans with {'context': 'events'} -%}Price{%- endtrans %}:
-              </span>
-              <span>
-                {{ content.field_event_price }}
-              <span>
-            </div>
-          {% endif %}
+          <span class="pseudo-track-link">Se arrangement</span>
         </div>
       </div>
     </div>
+
   </a>
-{% endblock %}
+</article>

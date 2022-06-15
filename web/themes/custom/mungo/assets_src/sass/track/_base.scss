@@ -38,3 +38,10 @@
     transform: rotate(360deg);
   }
 }
+
+// Create some utility classes for setting background-color with a color in our track-theme.
+@each $track, $color in $track-colors {
+  .track-#{$track}-bg {
+    background-color: $color;
+  }
+}

@@ -1,0 +1,117 @@
+$_pseudo-shadow-offset: 10px;
+$_gap: $spacing-large;
+.paragraph--type--events {
+  background-color: map-get($track-colors, "arrangementer");
+  color: #fff;
+
+  a {
+    color: #fff;
+  }
+
+  .view-content {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: $_gap;
+
+    > * {
+      flex: 1 1 calc(33.33% - #{$_gap});
+
+      @include max-media-xsmall {
+        &:last-child {
+          padding-bottom: $spacing-medium;
+        }
+      }
+    }
+  }
+
+  // If no results, style the warning message of no results.
+  .search__empty {
+    font-size: 26px;
+    color: $track-blue;
+  }
+
+  .event-card--wrapper {
+    height: 100%;
+    width: calc(100% - #{$_pseudo-shadow-offset});
+    position: relative;
+    z-index: 1;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: $_pseudo-shadow-offset;
+      left: $_pseudo-shadow-offset;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      background-color: map-get($track-colors, "skills");
+    }
+  }
+
+  .event-card {
+    display: flex;
+    gap: $spacing-medium;
+    padding: 1rem;
+    background-color: #fff;
+    color: $track-blue;
+    height: 100%;
+    min-height: 170px;
+
+    &--date,
+    &--meta {
+      p,
+      h2 {
+        margin: 0;
+      }
+    }
+
+    &--date {
+      font-size: 26px;
+      font-family: $font-anton;
+    }
+
+    &--meta {
+      display: flex;
+      flex-direction: column;
+
+      h2 {
+        font-size: 22px;
+
+        @include media-small {
+          font-size: 24px;
+        }
+      }
+
+      &-dates {
+        margin-top: auto;
+      }
+
+      .pseudo-track-link {
+        display: block;
+        margin-top: $spacing-small;
+        text-decoration: underline;
+        color: $track-green;
+        font-weight: 700;
+      }
+    }
+  }
+
+  @include media-small {
+    .view-content {
+      flex-direction: row;
+    }
+  }
+}
+
+// A little adjustment when the event paragraph is in a track-page.
+.page-type-universe {
+  .has-event-teaser {
+    padding-bottom: $spacing-xlarge;
+
+    .deck-box-head--heading {
+      font-family: $font-anton;
+      color: $track-blue;
+    }
+  }
+}
