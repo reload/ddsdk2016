@@ -104,7 +104,7 @@ function facets_views_block_preprocess_views_view(&$variables) {
 
   if (!empty($variables['facets'])) {
     // Reorder the facets and exposed filters on the on various view pages.
-    // TODO: Move this list of displays to a centralized place.
+    // @todo Move this list of displays to a centralized place.
     // Same goes for the exposed filter functionality in: mungo_preprocess_views_view().
     $filter_callbacks = [
       'events' => '_facets_views_preprocess_event_filters',
@@ -178,42 +178,42 @@ function _facets_views_preprocess_event_filters(&$variables) {
   $variables['exposed']['event_before']['#attributes']['placeholder'] = t('exclude results before this date ...');
 }
 
-  /**
-   * Arrange Facets order and combine them with exposed filters.
-   *
-   * Order the exposed form in the "correct" order.
-   * We add the facets to the exposed form, by rendering them and
-   * adding them as markup in the form.
-   *
-   * @param array $variables
-   */
-  function _facets_views_preprocess_activity_filters(&$variables) {
-    // Initialize weight.
-    $weight = -1;
+/**
+ * Arrange Facets order and combine them with exposed filters.
+ *
+ * Order the exposed form in the "correct" order.
+ * We add the facets to the exposed form, by rendering them and
+ * adding them as markup in the form.
+ *
+ * @param array $variables
+ *   Variables.
+ */
+function _facets_views_preprocess_activity_filters(array &$variables) {
+  // Initialize weight.
+  $weight = -1;
 
-    // 1. search_text(exposed form).
-    $variables['exposed']['search_text']['#weight'] = $weight++;
-    $variables['exposed']['search_text']['#attributes']['placeholder'] = t('Search for activities ...', [], ['context' => 'activity search']);
+  // 1. search_text(exposed form).
+  $variables['exposed']['search_text']['#weight'] = $weight++;
+  $variables['exposed']['search_text']['#attributes']['placeholder'] = t('Search for activities ...', [], ['context' => 'activity search']);
 
-    // 2. facets_event_type(facet).
-    $variables['exposed']['facets_duration'] = [
-      '#type' => 'markup',
-      '#markup' => \Drupal::service('renderer')->render($variables['facets']['duration']),
-      '#weight' => $weight++,
-    ];
+  // 2. facets_event_type(facet).
+  $variables['exposed']['facets_duration'] = [
+    '#type' => 'markup',
+    '#markup' => \Drupal::service('renderer')->render($variables['facets']['duration']),
+    '#weight' => $weight++,
+  ];
 
-    // 3. facets_activity_type(facet).
-    $variables['exposed']['facets_activity_type'] = [
-      '#type' => 'markup',
-      '#markup' => \Drupal::service('renderer')->render($variables['facets']['activity_type']),
-      '#weight' => $weight++,
-    ];
+  // 3. facets_activity_type(facet).
+  $variables['exposed']['facets_activity_type'] = [
+    '#type' => 'markup',
+    '#markup' => \Drupal::service('renderer')->render($variables['facets']['activity_type']),
+    '#weight' => $weight++,
+  ];
 
-    // 4. facets_target_group(facet).
-    $variables['exposed']['facets_target_group'] = [
-      '#type' => 'markup',
-      '#markup' => \Drupal::service('renderer')->render($variables['facets']['badge_target_group']),
-      '#weight' => $weight++,
-    ];
-  }
-
+  // 4. facets_target_group(facet).
+  $variables['exposed']['facets_target_group'] = [
+    '#type' => 'markup',
+    '#markup' => \Drupal::service('renderer')->render($variables['facets']['badge_target_group']),
+    '#weight' => $weight++,
+  ];
+}

@@ -24,9 +24,6 @@ settings:
     target_bundles:
       latest_content_list: latest_content_list
     target_bundles_drag_drop:
-      latest_content_list:
-        enabled: true
-        weight: 25
       1col_deck:
         weight: 26
         enabled: false
@@ -72,6 +69,9 @@ settings:
       image:
         weight: 40
         enabled: false
+      latest_content_list:
+        weight: 25
+        enabled: true
       list_deck:
         weight: 41
         enabled: false

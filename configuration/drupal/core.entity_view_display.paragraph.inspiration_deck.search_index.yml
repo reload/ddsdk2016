@@ -18,15 +18,15 @@ bundle: inspiration_deck
 mode: search_index
 content:
   field_insp_teaser_heading:
-    weight: 2
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 2
     region: content
   field_insp_teaser_link:
-    weight: 0
+    type: link_separate
     label: hidden
     settings:
       trim_length: 80
@@ -35,24 +35,24 @@ content:
       rel: '0'
       target: '0'
     third_party_settings: {  }
-    type: link_separate
+    weight: 0
     region: content
   field_insp_teaser_text:
-    weight: 3
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 3
     region: content
   field_inspiration_deck_items:
-    weight: 1
+    type: entity_reference_entity_view
     label: hidden
     settings:
       view_mode: search_index_teaser
       link: false
     third_party_settings: {  }
-    type: entity_reference_entity_view
+    weight: 1
     region: content
 hidden:
   created: true

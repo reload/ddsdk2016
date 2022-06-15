@@ -50,11 +50,11 @@ function dds_search_form_views_exposed_form_alter(&$form, FormStateInterface $fo
   // Iterate through facet query parameters.
   foreach ($facet_query as $key => $value) {
     // Add hidden form field for facet parameter.
-    $form['f[' . $key . ']'] = array(
+    $form['f[' . $key . ']'] = [
       '#type' => 'hidden',
       '#value' => $value,
       '#weight' => -1,
-    );
+    ];
   }
 }
 

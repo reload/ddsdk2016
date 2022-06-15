@@ -18,7 +18,7 @@ define('DDS_ARTICLE_ARTICLE_TYPE_DEFAULT', 'default');
 function dds_article_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 
   // Bail if the form is not related edit or creating an article.
-  if (!in_array($form_id, array('node_article_edit_form', 'node_article_form'))) {
+  if (!in_array($form_id, ['node_article_edit_form', 'node_article_form'])) {
     return;
   }
 

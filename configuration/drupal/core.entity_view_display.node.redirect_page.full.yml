@@ -22,7 +22,7 @@ bundle: redirect_page
 mode: full
 content:
   field_redirect_destination:
-    weight: 0
+    type: field_redirection_formatter
     label: hidden
     settings:
       code: 301
@@ -30,15 +30,15 @@ content:
       page_restrictions: 0
       pages: ''
     third_party_settings: {  }
-    type: field_redirection_formatter
+    weight: 0
     region: content
   field_subtitle:
     type: basic_string
-    weight: 1
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   field_content_category: true
   field_content_tag: true

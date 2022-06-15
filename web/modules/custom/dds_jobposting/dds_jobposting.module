@@ -5,8 +5,6 @@
  * Module that lists jobs.
  */
 
-use Drupal\Core\StringTranslation\TranslatableMarkup;
-
 /**
  * Implements hook_theme().
  */
@@ -18,7 +16,7 @@ function dds_jobposting_theme($existing, $type, $theme, $path) {
         'top_image' => [],
         'paid_jobs' => [],
         'volunteer_jobs' => [],
-      ]
+      ],
     ],
   ];
 }

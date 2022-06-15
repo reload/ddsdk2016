@@ -14,7 +14,8 @@ value_label: Events
 value_type: number
 caching_time: 900
 settings:
-  table: watchdog
+  time_interval_field: timestamp
+  time_interval_value: 86400
   conditions:
     -
       field: severity
@@ -24,8 +25,7 @@ settings:
     - message
     - variables
     - timestamp
-  time_interval_field: timestamp
-  time_interval_value: 86400
+  table: watchdog
   history_status: true
 thresholds:
   type: exceeds

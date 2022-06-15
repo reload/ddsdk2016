@@ -37,4 +37,4 @@ time docker-compose exec fpm sh -c  "\
   drush uli
   "
 
-printf "\nYou may now visit the site at http://ddsdk.docker (if you are running dory)."
+printf "\nYou may now visit the site at http://ddsdk.${DEV_TLD:-docker}\n"

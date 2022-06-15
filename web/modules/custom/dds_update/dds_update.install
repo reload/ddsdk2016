@@ -55,6 +55,7 @@ function _dds_update_8103() {
   dds_update_add_translation('Read less', 'da', 'Læs mindre');
 
   $nids = \Drupal::entityQuery('node')
+    ->accesscheck(FALSE)
     ->condition('type', 'badge')
     ->execute();
 
@@ -162,7 +163,6 @@ function dds_update_update_8108() {
 
   \Drupal::logger('dds_update')->notice("Changed {$i} unused files to temporary files.");
 }
-
 
 /**
  * Add translations for activity/ies and delete redirect.

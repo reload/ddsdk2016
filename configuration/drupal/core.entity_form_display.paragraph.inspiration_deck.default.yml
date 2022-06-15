@@ -20,61 +20,61 @@ third_party_settings:
         - field_insp_teaser_heading
         - field_insp_teaser_text
         - field_insp_teaser_link
+      label: 'Teaser item'
+      region: content
       parent_name: ''
       weight: 7
-      label: 'Teaser item'
       format_type: fieldset
       format_settings:
-        description: ''
         classes: ''
         id: ''
+        description: ''
         required_fields: true
-      region: content
 id: paragraph.inspiration_deck.default
 targetEntityType: paragraph
 bundle: inspiration_deck
 mode: default
 content:
   field_insp_teaser_color:
+    type: options_select
     weight: 3
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_insp_teaser_heading:
+    type: string_textfield
     weight: 4
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_insp_teaser_link:
+    type: link_default
     weight: 6
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: content
   field_insp_teaser_text:
+    type: string_textfield
     weight: 5
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_inspiration_deck_items:
+    type: entity_reference_autocomplete
     weight: 0
+    region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
     third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
 hidden:
   created: true
   status: true

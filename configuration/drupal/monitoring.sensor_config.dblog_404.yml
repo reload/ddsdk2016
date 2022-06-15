@@ -16,7 +16,8 @@ value_label: 'Watchdog events'
 value_type: number
 caching_time: 3600
 settings:
-  table: watchdog
+  time_interval_field: timestamp
+  time_interval_value: 86400
   conditions:
     -
       field: type
@@ -24,8 +25,7 @@ settings:
   verbose_fields:
     - location
     - timestamp
-  time_interval_field: timestamp
-  time_interval_value: 86400
+  table: watchdog
   history_status: true
 thresholds:
   type: exceeds

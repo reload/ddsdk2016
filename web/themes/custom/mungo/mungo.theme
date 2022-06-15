@@ -14,7 +14,6 @@ use Drupal\Core\Site\Settings;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Template\Attribute;
 use Drupal\Core\Url;
-use Drupal\dds_activity\ActivityFetcher;
 use Drupal\file\FileInterface;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\TermInterface;
@@ -106,7 +105,7 @@ function mungo_preprocess_field(&$variables) {
 
     foreach ($variables['items'] as $key => &$item) {
       /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
-      $paragraph = isset($item['content']['#paragraph']) ? $item['content']['#paragraph'] : NULL;
+      $paragraph = $item['content']['#paragraph'] ?? NULL;
 
       // If the a 4col_deck paragraph is right after a herobanner. Set negative
       // margin.
@@ -160,11 +159,11 @@ function mungo_form_search_block_form_alter(&$form, FormStateInterface $form_sta
   $form['#action'] = '/soeg';
   unset($form['keys']);
 
-  $form['actions']['search_submit'] = array(
+  $form['actions']['search_submit'] = [
     '#type' => 'html_tag',
     '#tag' => 'button',
     '#value' => '<span class="glyphicon glyphicon-search"></span>',
-  );
+  ];
 }
 
 /**
@@ -371,7 +370,7 @@ function mungo_preprocess_menu(&$variables) {
  * Get file content based on part of title.
  */
 function _mungo_replace_title_with_svg($title) {
-  $file_path = drupal_get_path('theme', 'mungo') . '/assets/images/Ikoner_DDS_DK_ikon_' . $title . '.svg';
+  $file_path = \Drupal::service('extension.list.theme')->getPath('mungo') . '/assets/images/Ikoner_DDS_DK_ikon_' . $title . '.svg';
   if (!file_exists($file_path)) {
     return FALSE;
   }
@@ -397,7 +396,7 @@ function mungo_preprocess_node(&$variables) {
   $node = $variables['node'];
 
   // Add absolute url to the node.
-  $variables['absolute_url'] = Url::fromUri('internal:' . $variables['url'], array('absolute' => TRUE))->toString();
+  $variables['absolute_url'] = Url::fromUri('internal:' . $variables['url'], ['absolute' => TRUE])->toString();
 
   switch ($node->getType()) {
     case 'article':
@@ -421,22 +420,22 @@ function mungo_preprocess_node(&$variables) {
       break;
   }
 
-  $node_url = Url::fromUri('internal:' . $variables['url'], array('absolute' => TRUE));
+  $node_url = Url::fromUri('internal:' . $variables['url'], ['absolute' => TRUE]);
 
   // Generate an uri for the forward module.
   $entity_id = $node->id();
   $entity_type = $node->getEntityTypeId();
   $forward_uri = "internal:/forward/{$entity_type}/{$entity_id}";
 
-  $variables['social_links'] = array(
+  $variables['social_links'] = [
     '#theme' => 'social_links',
-    '#attributes' => array(
-      'class' => array('share--icons'),
-    ),
-    '#facebook_link' => Url::fromUri('https://www.facebook.com/sharer/sharer.php', array('query' => array('u' => $node_url->toString()))),
-    '#twitter_link' => Url::fromUri('https://twitter.com/home', array('query' => array('status' => $node_url->toString()))),
+    '#attributes' => [
+      'class' => ['share--icons'],
+    ],
+    '#facebook_link' => Url::fromUri('https://www.facebook.com/sharer/sharer.php', ['query' => ['u' => $node_url->toString()]]),
+    '#twitter_link' => Url::fromUri('https://twitter.com/home', ['query' => ['status' => $node_url->toString()]]),
     '#forward_link' => Url::fromUri($forward_uri),
-  );
+  ];
 
   // An exception might be thrown.
   try {
@@ -498,7 +497,7 @@ function _mungo_preprocess_node_download(Node $node, &$variables) {
   // File url.
   $file = $node->get('field_file')->first()->entity;
   $file_uri = $file->getFileUri();
-  $variables['file_url'] = Url::fromUri(file_create_url($file_uri));
+  $variables['file_url'] = \Drupal::service('file_url_generator')->generate($file_uri);
 
   // Create wrapper to avoid reflow and/or double images.
   $variables['layout_attributes'] = new Attribute();
@@ -552,6 +551,7 @@ function _mungo_preprocess_node_badge(Node $node, &$variables) {
 
       // Find all nodes that is in the progression.
       $query = \Drupal::entityQuery('node')
+        ->accesscheck(FALSE)
         ->condition('status', 1)
         ->condition('type', 'badge')
         ->condition('field_badge_progression.entity.tid', $term->tid->value);
@@ -650,19 +650,19 @@ function _mungo_preprocess_section_page(Node $node, &$variables) {
 
   // Transform the tree making sure it is sorted and only contains entries
   // we're allowed to see.
-  $manipulators = array(
+  $manipulators = [
     // Only show links that are accessible for the current user.
-    array('callable' => 'menu.default_tree_manipulators:checkAccess'),
+    ['callable' => 'menu.default_tree_manipulators:checkAccess'],
     // Use the default sorting of menu links.
-    array('callable' => 'menu.default_tree_manipulators:generateIndexAndSort'),
-  );
+    ['callable' => 'menu.default_tree_manipulators:generateIndexAndSort'],
+  ];
   $tree = $menu_tree->transform($tree, $manipulators);
 
   // Render the tree and put it into a variable for output.
   $menu = $menu_tree->build($tree);
-  $variables['grouping_menu'] = array(
+  $variables['grouping_menu'] = [
     '#markup' => \Drupal::service('renderer')->render($menu),
-  );
+  ];
 }
 
 /**
@@ -707,10 +707,10 @@ function _mungo_preprocess_author_presentation(TermInterface $person) {
     $person_image = $person->field_person_image->entity->field_image->entity;
 
     // Style the author image.
-    $image_style_vars = array(
+    $image_style_vars = [
       'style_name' => 'author_image',
       'uri' => $person_image->getFileUri(),
-    );
+    ];
 
     // The image.factory service will check if our image is valid.
     /** @var \Drupal\Core\Image\Image $image */
@@ -759,7 +759,7 @@ function _mungo_preprocess_paragraph_content_link(&$variables) {
 
   // Default to using link title if available, might be overriden for internal
   // links.
-  $title = empty($link->get('title')) ? '' : $link->get('title')->getValue();;
+  $title = empty($link->get('title')) ? '' : $link->get('title')->getValue();
 
   // Handle internal links.
   if (!$link->isExternal()) {
@@ -899,12 +899,11 @@ function mungo_preprocess_views_view(&$variables) {
   /** @var \Drupal\views\ViewExecutable $view */
   $view = $variables['view'];
 
-
-  // TODO: Move this list of displays to a centralized place.
+  // @todo Move this list of displays to a centralized place.
   // Same goes for the exposed filter definition in :facets_views_block_preprocess_views_view().
   if (in_array($view->current_display, [
-      'events_overview',
-      'activities_overview',
+    'events_overview',
+    'activities_overview',
   ])) {
     // Views assumes that the default core block-layout will render its title
     // but we've disabled it to have more control over when the title is
@@ -967,8 +966,8 @@ function mungo_theme_suggestions_alter(array &$suggestions, array $variables, $h
 
     case 'field':
       $field_name = $variables['element']['#field_name'];
-      $bundle = isset($variables['element']['#bundle']) ? $variables['element']['#bundle'] : NULL;
-      $object = isset($variables['element']['#object']) ? $variables['element']['#object'] : NULL;
+      $bundle = $variables['element']['#bundle'] ?? NULL;
+      $object = $variables['element']['#object'] ?? NULL;
 
       if (preg_match('#^field_\dcol_deck_col\d$#', $field_name)) {
         $suggestions[] = $hook . '__' . $variables['element']['#entity_type'] . '__deckcolumn';
@@ -990,7 +989,7 @@ function mungo_theme_suggestions_alter(array &$suggestions, array $variables, $h
       // Provide full view_mode for title and field_subtitle fields
       // to differentiate on when to apply dymo-text.
       // Could be applied to even more fields, but not necessary for now.
-      $target_fields = array('title', 'field_subtitle');
+      $target_fields = ['title', 'field_subtitle'];
       if (in_array($variables['element']['#field_name'], $target_fields) && $variables['element']['#view_mode'] == 'full') {
         $entity_type = $variables['element']['#entity_type'];
         $bundle = $variables['element']['#bundle'];
@@ -1139,15 +1138,15 @@ function _mungo_preprocess_deck_paragraph($type, &$variables) {
  * Implements hook_theme().
  */
 function mungo_theme($existing, $type, $theme, $path) {
-  return array(
-    'social_links' => array(
-      'variables' => array(
+  return [
+    'social_links' => [
+      'variables' => [
         'facebook_link' => NULL,
         'twitter_link' => NULL,
         'forward_link' => NULL,
-      ),
-    ),
-  );
+      ],
+    ],
+  ];
 }
 
 /**

@@ -7,11 +7,11 @@ minimum_width: 200
 jquery_selector: 'select:visible'
 search_contains: false
 disable_search: false
-placeholder_text_multiple: 'Choose some option'
-placeholder_text_single: 'Choose an option'
-no_results_text: 'No results match'
 disabled_themes:
   seven: '0'
   mungo: '0'
-include: 2
 chosen_include: 2
+placeholder_text_multiple: 'Choose some option'
+placeholder_text_single: 'Choose an option'
+no_results_text: 'No results match'
+include: 2

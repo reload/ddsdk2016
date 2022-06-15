@@ -1,18 +1,24 @@
 <?php
 
-use Drupal\Core\Render\Renderer;
-use Drupal\Core\Render\RendererInterface;
+/**
+ * @file
+ * Mostly cookiebot related stuff.
+ */
 
+/**
+ * Implements hook_theme().
+ */
 function dds_tracking_theme() {
-  return array(
-    'dds_tracking_info_box' => array(
-      'variables' => array(
+  return [
+    'dds_tracking_info_box' => [
+      'variables' => [
         'provider' => NULL,
-      ),
+      ],
       'template' => 'dds_tracking_info_box',
-    ),
-  );
+    ],
+  ];
 }
+
 /**
  * Implements hook_page_attachments_alter().
  *
@@ -56,9 +62,7 @@ function dds_tracking_preprocess_field(&$variables) {
   $providers = dds_tracking_providers();
 
   // The actual rendered html of the markup field.
-  $value = isset($variables['items'][0]['content']['#context']['value'])
-    ? $variables['items'][0]['content']['#context']['value']
-    : NULL;
+  $value = $variables['items'][0]['content']['#context']['value'] ?? NULL;
 
   if (empty($value)) {
     return;
@@ -81,7 +85,8 @@ function dds_tracking_preprocess_field(&$variables) {
           $item->setAttribute('data-cookieconsent', $provider['type']);
           $item->setAttribute('data-src', $src);
           $item->removeAttribute('src');
-        } else {
+        }
+        else {
           $item->setAttribute('data-cookieconsent', $provider['type']);
           $item->setAttribute('type', 'text/plain');
         }
@@ -109,7 +114,7 @@ function dds_tracking_preprocess_field(&$variables) {
  * List cookie consent levels for providers.
  *
  * @param null|string $provider
- *  Lookup provider in array.
+ *   Lookup provider in array.
  *
  * @return string|string[]
  *   Return the cookie consent level for a provider or

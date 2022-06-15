@@ -10,13 +10,13 @@ type: 'canonical_entities:node'
 pattern: 'aktivitet/[node:title]'
 selection_criteria:
   a7b38f7d-ab2a-4601-899c-57836bf1db02:
-    id: node_type
-    bundles:
-      activity: activity
+    id: 'entity_bundle:node'
     negate: false
+    uuid: a7b38f7d-ab2a-4601-899c-57836bf1db02
     context_mapping:
       node: node
-    uuid: a7b38f7d-ab2a-4601-899c-57836bf1db02
+    bundles:
+      activity: activity
 selection_logic: and
 weight: -5
 relationships: {  }

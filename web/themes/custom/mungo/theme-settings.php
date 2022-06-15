@@ -20,58 +20,58 @@ function mungo_form_system_theme_settings_alter(&$form, FormStateInterface &$for
   }
 
   // Settings for the badge-overview-page.
-  $form['badge_page_settings'] = array(
+  $form['badge_page_settings'] = [
     '#type' => 'details',
     '#title' => t('Badge page settings'),
     '#open' => TRUE,
-  );
-  $form['badge_page_settings']['badge_cover_image'] = array(
+  ];
+  $form['badge_page_settings']['badge_cover_image'] = [
     '#type' => 'container',
-  );
-  $form['badge_page_settings']['badge_cover_image']['badge_cover_image_path'] = array(
+  ];
+  $form['badge_page_settings']['badge_cover_image']['badge_cover_image_path'] = [
     '#type' => 'textfield',
     '#title' => t('Path to the cover-image (use upload-field below)'),
     '#default_value' => theme_get_setting('badge_cover_image_path', 'mungo'),
     '#description' => t(
       'The title and description used to be configurable here as well. Now the title of the view and custom header on the view is used instead.'
     ),
-  );
-  $form['badge_page_settings']['badge_cover_image']['badge_cover_image'] = array(
+  ];
+  $form['badge_page_settings']['badge_cover_image']['badge_cover_image'] = [
     '#type' => 'file',
     '#title' => t('Upload image image'),
     '#maxlength' => 40,
     '#description' => t(
       "If you don't have direct file access to the server, use this field to upload your image."
     ),
-    '#element_validate' => array('mungo_badge_cover_image_validate'),
-  );
+    '#element_validate' => ['mungo_badge_cover_image_validate'],
+  ];
 
   // Settings for the jobposting-overview-page.
-  $form['jobposting_page_settings'] = array(
+  $form['jobposting_page_settings'] = [
     '#type' => 'details',
     '#title' => t('Jobposting page settings'),
     '#open' => TRUE,
-  );
-  $form['jobposting_page_settings']['jobposting_cover_image'] = array(
+  ];
+  $form['jobposting_page_settings']['jobposting_cover_image'] = [
     '#type' => 'container',
-  );
-  $form['jobposting_page_settings']['jobposting_cover_image']['jobposting_cover_image_path'] = array(
+  ];
+  $form['jobposting_page_settings']['jobposting_cover_image']['jobposting_cover_image_path'] = [
     '#type' => 'textfield',
     '#title' => t('Path to the cover-image (use upload-field below)'),
     '#default_value' => theme_get_setting('jobposting_cover_image_path', 'mungo'),
     '#description' => t(
       'The title and description used to be configurable here as well. Now the title of the view and custom header on the view is used instead.'
     ),
-  );
-  $form['jobposting_page_settings']['jobposting_cover_image']['jobposting_cover_image'] = array(
+  ];
+  $form['jobposting_page_settings']['jobposting_cover_image']['jobposting_cover_image'] = [
     '#type' => 'file',
     '#title' => t('Upload image image'),
     '#maxlength' => 40,
     '#description' => t(
       "If you don't have direct file access to the server, use this field to upload your image."
     ),
-    '#element_validate' => array('mungo_jobposting_cover_image_validate'),
-  );
+    '#element_validate' => ['mungo_jobposting_cover_image_validate'],
+  ];
 
 }
 
@@ -115,7 +115,7 @@ function mungo_jobposting_cover_image_validate(array $element, FormState &$form_
  * @param \Drupal\Core\Form\FormState $form_state
  *   Current state of the form.
  * @param string $formFieldName
- *   Field in the settings form to process
+ *   Field in the settings form to process.
  * @param string $file_usage_module
  *   The module that will be registered as user of the file.
  * @param string $themeSettingName
@@ -128,7 +128,7 @@ function mungo_handle_uploaded_file(
   FormState $form_state,
   string $formFieldName,
   string $file_usage_module,
-  string $themeSettingName ) {
+  string $themeSettingName) {
   // Receive the uploaded file and register a file usage.
   /** @var Drupal\file\Entity\File $file */
   $uploaded_files = file_save_upload(
@@ -138,7 +138,6 @@ function mungo_handle_uploaded_file(
     NULL,
     FileSystemInterface::EXISTS_REPLACE
   );
-
 
   // Handle th uploaded file if available.
   if (!empty($uploaded_files[0]) && $uploaded_files[0] instanceof FileInterface) {

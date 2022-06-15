@@ -17,25 +17,25 @@ bundle: image
 mode: '8_3'
 content:
   field_image:
+    type: image_widget_crop
     weight: 0
+    region: content
     settings:
-      show_default_crop: true
+      progress_indicator: throbber
       preview_image_style: 8_3_240x90
       crop_preview_image_style: crop_thumbnail
       crop_list:
         - '8_3'
-      progress_indicator: throbber
-      show_crop_area: false
       warn_multiple_usages: true
+      show_crop_area: false
+      show_default_crop: true
     third_party_settings: {  }
-    type: image_widget_crop
-    region: content
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 100
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
 hidden:
   created: true

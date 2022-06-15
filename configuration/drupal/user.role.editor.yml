@@ -1,9 +1,23 @@
 uuid: bdc91a10-1966-4529-b196-ff9f3a61b4d7
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - node.type.activity
+    - node.type.article
+    - node.type.badge
+    - node.type.download
+    - node.type.event
+    - node.type.section_page
+  module:
+    - file
+    - media
+    - node
+    - shortcut
+    - system
+    - toolbar
 id: editor
-label: Editor
+label: Redaktør
 weight: 3
 is_admin: null
 permissions:
@@ -38,7 +52,6 @@ permissions:
   - 'delete own download content'
   - 'delete own event content'
   - 'delete own section_page content'
-  - 'display eu cookie compliance popup'
   - 'edit any activity content'
   - 'edit any article content'
   - 'edit any badge content'

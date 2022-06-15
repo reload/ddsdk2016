@@ -1,13 +1,8 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\dds_link\EventSubscriber\DownloadRedirectSubscriber.
- */
-
 namespace Drupal\dds_link\EventSubscriber;
 
-use Drupal\Core\Url;
+use Drupal\Core\File\FileUrlGeneratorInterface;
 use Drupal\file\FileInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -15,7 +10,27 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
+/**
+ * Download redirect subscriber.
+ */
 class DownloadRedirectSubscriber implements EventSubscriberInterface {
+
+  /**
+   * The file URL generator.
+   *
+   * @var \Drupal\Core\File\FileUrlGeneratorInterface
+   */
+  protected $fileUrlGenerator;
+
+  /**
+   * Constructor.
+   *
+   * @param \Drupal\Core\File\FileUrlGeneratorInterface $fileUrlGenerator
+   *   The file URL generator.
+   */
+  public function __construct(FileUrlGeneratorInterface $fileUrlGenerator) {
+    $this->fileUrlGenerator = $fileUrlGenerator;
+  }
 
   /**
    * {@inheritdoc}
@@ -24,14 +39,15 @@ class DownloadRedirectSubscriber implements EventSubscriberInterface {
     return([
       KernelEvents::REQUEST => [
         ['redirectDownloadNodeType'],
-      ]
+      ],
     ]);
   }
 
   /**
    * Redirect requests for download node types to field_file URL.
    *
-   * @param RequestEvent $event
+   * @param \Symfony\Component\HttpKernel\Event\RequestEvent $event
+   *   The event.
    */
   public function redirectDownloadNodeType(RequestEvent $event) {
     $request = $event->getRequest();
@@ -56,9 +72,8 @@ class DownloadRedirectSubscriber implements EventSubscriberInterface {
     }
 
     $file_uri = $request->attributes->get('node')->get('field_file')->first()->entity->getFileUri();
-    $file_downloadable_link = file_create_url($file_uri);
+    $redirect_url = $this->fileUrlGenerator->generate($file_uri);
 
-    $redirect_url = Url::fromUri($file_downloadable_link);
     // We use a temporary redirect so the file can be changed without getting
     // stuck in browser caches.
     $response = new RedirectResponse($redirect_url->toString(), Response::HTTP_TEMPORARY_REDIRECT);

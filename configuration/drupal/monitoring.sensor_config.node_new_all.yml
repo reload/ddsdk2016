@@ -16,7 +16,6 @@ value_label: Nodes
 value_type: number
 caching_time: 3600
 settings:
-  entity_type: node
   time_interval_field: created
   time_interval_value: 86400
   verbose_fields:
@@ -24,5 +23,6 @@ settings:
     - label
     - type
     - created
+  entity_type: node
 thresholds:
   type: none

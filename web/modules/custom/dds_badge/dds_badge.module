@@ -27,7 +27,7 @@ function dds_badge_field_group_form_process(array &$element, &$group, &$complete
   if ($group->group_name === 'group_progression') {
     $element['#states'] = [
       'invisible' => [
-        ':input[name="field_badge_type"]' => array('!value' => 'progression'),
+        ':input[name="field_badge_type"]' => ['!value' => 'progression'],
       ],
     ];
   }
@@ -105,8 +105,10 @@ function dds_badge_preprocess_views_view(&$variables) {
   $variables['exposed']['type']['#options']['All'] = new TranslatableMarkup('Any type', [], ['context' => 'Badge overview filter']);
   $variables['exposed']['maalgruppe']['#options']['All'] = new TranslatableMarkup('Any', [], ['context' => 'Badge overview filter']);
 
+  // phpcs:ignore Drupal.Semantics.FunctionT.NotLiteralString
   $title = new TranslatableMarkup($variables['view']->getTitle());
-  $description = new TranslatableMarkup((string)$variables['header']['area_text_custom']['#markup']);
+  // phpcs:ignore Drupal.Semantics.FunctionT.NotLiteralString
+  $description = new TranslatableMarkup((string) $variables['header']['area_text_custom']['#markup']);
 
   // Title top-image with title/description configured in the theme.
   $variables['top_image'] = [

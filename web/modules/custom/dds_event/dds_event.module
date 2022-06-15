@@ -7,18 +7,25 @@
 
 use Drupal\Core\Form\FormStateInterface;
 
-// Implements HOOK_form_alter for making custom validators.
+/**
+ * Implements hook_form_alter().
+ *
+ * For making custom validators.
+ */
 function dds_event_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   if (in_array($form_id, ['node_event_form', 'node_event_edit_form'])) {
     $form['#validate'][] = 'dds_event_form_node_event_validate';
   }
 }
 
-// Custom validator for the event node form.
-// To make it easier for the editor, the address field has preset a country
-// but if you just press save on an event, the field just says "Denmark"
-// We're gonna check if theres any other fields set, and if not we'll unset
-// the value.
+/**
+ * Custom validator for the event node form.
+ *
+ * To make it easier for the editor, the address field has preset a country
+ * but if you just press save on an event, the field just says "Denmark"
+ * We're gonna check if theres any other fields set, and if not we'll unset
+ * the value.
+ */
 function dds_event_form_node_event_validate($form, FormStateInterface &$form_state) {
   // $address_readonly is as the name implied only a read array - we wont
   // use it to send data back to the form_state, meaning we can check-modify it.

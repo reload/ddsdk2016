@@ -1,3 +1,6 @@
+_core:
+  default_config_hash: AyT9s8OUcclfALRE_imByOMgtZ19eOlqdF6zI3p7yqo
+langcode: en
 uuid: 54b51f9d-45c3-4544-8da2-b05f2579aa74
 name: 'Det Danske Spejderkorps'
 mail: info@dds.dk
@@ -8,7 +11,4 @@ page:
   front: /node/11
 admin_compact_mode: false
 weight_select_max: 100
-langcode: en
 default_langcode: en
-_core:
-  default_config_hash: AyT9s8OUcclfALRE_imByOMgtZ19eOlqdF6zI3p7yqo

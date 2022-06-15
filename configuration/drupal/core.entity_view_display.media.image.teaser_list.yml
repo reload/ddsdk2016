@@ -17,13 +17,13 @@ bundle: image
 mode: teaser_list
 content:
   field_image:
-    weight: 0
+    type: image
     label: hidden
     settings:
-      image_style: 110x83
       image_link: ''
+      image_style: 110x83
     third_party_settings: {  }
-    type: image
+    weight: 0
     region: content
 hidden:
   created: true

@@ -18,15 +18,15 @@ mode: default
 content:
   account:
     weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   field_user_default_author:
+    type: options_select
     weight: 2
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   google_analytics:
     weight: 3
     region: content
@@ -34,22 +34,22 @@ content:
     third_party_settings: {  }
   language:
     weight: 3
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   timezone:
     weight: 4
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   user_picture:
     type: image_image
+    weight: 1
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    weight: 1
-    region: content
 hidden:
   contact: true
   langcode: true

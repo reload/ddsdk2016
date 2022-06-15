@@ -14,11 +14,6 @@ parameters:
 			path: web/modules/custom/dds_jobposting/src/Controller/JobPostingController.php
 
 		-
-			message: "#^Access to an undefined property Drupal\\\\Core\\\\Entity\\\\EntityInterface\\:\\:\\$field_2col_column_size\\.$#"
-			count: 1
-			path: web/modules/custom/dds_layout/dds_layout.module
-
-		-
 			message: "#^Call to an undefined method Drupal\\\\Core\\\\Entity\\\\EntityInterface\\:\\:hasField\\(\\)\\.$#"
 			count: 1
 			path: web/modules/custom/dds_layout/dds_layout.module
@@ -32,11 +27,6 @@ parameters:
 			message: "#^PHPDoc tag @var for variable \\$paragraph contains unknown class Paragraph\\.$#"
 			count: 1
 			path: web/modules/custom/dds_layout/dds_layout.module
-
-		-
-			message: "#^If condition is always true\\.$#"
-			count: 1
-			path: web/modules/custom/dds_layout/src/Form/MungoInspirationPrerender.php
 
 		-
 			message: "#^Call to an undefined method Drupal\\\\Core\\\\Form\\\\FormInterface\\:\\:getEntity\\(\\)\\.$#"
@@ -117,16 +107,6 @@ parameters:
 			message: "#^Call to an undefined method Drupal\\\\Core\\\\Entity\\\\EntityInterface\\:\\:get\\(\\)\\.$#"
 			count: 1
 			path: web/modules/custom/facets_views_block/facets_views_block.module
-
-		-
-			message: "#^Access to an undefined property Drupal\\\\Core\\\\Entity\\\\EntityInterface\\:\\:\\$field_2col_column_size\\.$#"
-			count: 1
-			path: web/themes/custom/mungo/mungo.theme
-
-		-
-			message: "#^Access to an undefined property Drupal\\\\Core\\\\Entity\\\\EntityInterface\\:\\:\\$field_image\\.$#"
-			count: 1
-			path: web/themes/custom/mungo/mungo.theme
 
 		-
 			message: "#^Access to an undefined property Drupal\\\\Core\\\\TypedData\\\\TypedDataInterface\\:\\:\\$entity\\.$#"

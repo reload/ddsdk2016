@@ -17,21 +17,21 @@ bundle: list_deck
 mode: search_index
 content:
   field_deck_title:
-    weight: 0
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 0
     region: content
   field_list_paragraph:
     type: entity_reference_revisions_entity_view
-    weight: 1
     label: hidden
     settings:
       view_mode: search_index
       link: ''
     third_party_settings: {  }
+    weight: 1
     region: content
 hidden:
   created: true

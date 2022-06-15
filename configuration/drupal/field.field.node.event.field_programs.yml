@@ -24,9 +24,6 @@ settings:
     target_bundles:
       program: program
     target_bundles_drag_drop:
-      program_item:
-        weight: 11
-        enabled: false
       2col_deck:
         weight: 12
         enabled: false
@@ -43,8 +40,11 @@ settings:
         weight: 16
         enabled: false
       program:
-        enabled: true
         weight: 17
+        enabled: true
+      program_item:
+        weight: 11
+        enabled: false
       quotation:
         weight: 18
         enabled: false

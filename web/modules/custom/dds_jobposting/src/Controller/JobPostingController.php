@@ -11,7 +11,7 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
 class JobPostingController extends ControllerBase {
 
   /**
-   * Returns the content
+   * Returns the content.
    *
    * @return array
    *   A simple renderable array.
@@ -29,7 +29,7 @@ class JobPostingController extends ControllerBase {
    * @return array
    */
   public function content($paidJobsTid, $volunteerJobsTid) {
-    return   [
+    return [
       'jobposting' => [
         '#theme' => 'dds_jobposting',
         '#top_image' => [
@@ -51,4 +51,5 @@ class JobPostingController extends ControllerBase {
     ];
 
   }
+
 }

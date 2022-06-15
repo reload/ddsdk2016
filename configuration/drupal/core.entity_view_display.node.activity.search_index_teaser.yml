@@ -25,21 +25,21 @@ bundle: activity
 mode: search_index_teaser
 content:
   field_activity_id:
-    weight: 0
+    type: number_integer
     label: hidden
     settings:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    type: number_integer
+    weight: 0
     region: content
   field_content_topic:
-    weight: 1
+    type: entity_reference_label
     label: hidden
     settings:
       link: false
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 1
     region: content
 hidden:
   field_activity_type: true

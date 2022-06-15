@@ -22,57 +22,57 @@ bundle: redirect_page
 mode: default
 content:
   field_content_category:
-    weight: 109
+    type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 109
     region: content
   field_content_tag:
-    weight: 106
+    type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 106
     region: content
   field_content_target_group:
-    weight: 108
+    type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 108
     region: content
   field_content_topic:
-    weight: 104
+    type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 104
     region: content
   field_exclude_from_search:
-    weight: 105
+    type: search_api_exclude_entity_formatter
     label: above
     settings:
       format: yes-no
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    type: search_api_exclude_entity_formatter
+    weight: 105
     region: content
   field_main_media:
-    weight: 102
+    type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 102
     region: content
   field_redirect_destination:
-    weight: 107
+    type: link
     label: above
     settings:
       trim_length: 80
@@ -81,19 +81,19 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
+    weight: 107
     region: content
   field_subtitle:
-    weight: 103
+    type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    weight: 103
     region: content
   links:
-    weight: 100
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 100
+    region: content
 hidden:
   langcode: true

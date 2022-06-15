@@ -28,173 +28,173 @@ third_party_settings:
         - field_key_figures_label_1
         - field_key_figures_desc_1
         - field_key_figures_link_1
+      label: Left
+      region: content
       parent_name: group_key_figures_cols
       weight: 14
-      label: Left
       format_type: tab
       format_settings:
-        formatter: closed
-        description: ''
         classes: ''
         id: ''
+        formatter: closed
+        description: ''
         required_fields: true
-      region: content
     group_key_figures_cols:
       children:
         - group_key_figures_left
         - group_key_figures_middle
         - group_key_figures_right
+      label: Columns
+      region: content
       parent_name: ''
       weight: 14
-      label: Columns
       format_type: tabs
       format_settings:
         label: Columns
-        direction: horizontal
-        id: ''
         classes: ''
-      region: content
+        id: ''
+        direction: horizontal
     group_key_figures_middle:
       children:
         - field_key_figures_figure_2
         - field_key_figures_label_2
         - field_key_figures_desc_2
         - field_key_figures_link_2
+      label: Middle
+      region: content
       parent_name: group_key_figures_cols
       weight: 15
-      label: Middle
       format_type: tab
       format_settings:
-        formatter: closed
-        description: ''
         classes: ''
         id: ''
+        formatter: closed
+        description: ''
         required_fields: true
-      region: content
     group_key_figures_right:
       children:
         - field_key_figures_figure_3
         - field_key_figures_label_3
         - field_key_figures_desc_3
         - field_key_figures_link_3
+      label: Right
+      region: content
       parent_name: group_key_figures_cols
       weight: 16
-      label: Right
       format_type: tab
       format_settings:
-        formatter: closed
-        description: ''
         classes: ''
         id: ''
+        formatter: closed
+        description: ''
         required_fields: true
-      region: content
 id: paragraph.key_figures.default
 targetEntityType: paragraph
 bundle: key_figures
 mode: default
 content:
   field_key_figures_deck_color:
+    type: options_select
     weight: 11
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_key_figures_desc_1:
+    type: string_textfield
     weight: 3
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_key_figures_desc_2:
+    type: string_textfield
     weight: 5
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_key_figures_desc_3:
+    type: string_textfield
     weight: 6
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_key_figures_figure_1:
+    type: string_textfield
     weight: 1
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_key_figures_figure_2:
+    type: string_textfield
     weight: 3
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_key_figures_figure_3:
+    type: string_textfield
     weight: 4
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_key_figures_label_1:
+    type: string_textfield
     weight: 2
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_key_figures_label_2:
+    type: string_textfield
     weight: 4
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_key_figures_label_3:
+    type: string_textfield
     weight: 5
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_key_figures_link_1:
+    type: link_default
     weight: 4
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: content
   field_key_figures_link_2:
+    type: link_default
     weight: 6
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: content
   field_key_figures_link_3:
+    type: link_default
     weight: 7
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: content
 hidden:
   created: true
   status: true

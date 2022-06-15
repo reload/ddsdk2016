@@ -41,48 +41,9 @@ settings:
         weight: 20
         enabled: false
       block:
-        enabled: true
         weight: 21
-      content_link:
-        weight: 22
-        enabled: false
-      dynamic_deck:
-        weight: 23
-        enabled: false
-      factbox:
-        weight: 24
-        enabled: false
-      gallery:
-        weight: 25
-        enabled: false
-      download:
         enabled: true
-        weight: 26
-      hero_banner:
-        weight: 26
-        enabled: false
-      program:
-        weight: 27
-        enabled: false
-      shortcuts:
-        enabled: true
-        weight: 27
-      program_item:
-        weight: 28
-        enabled: false
-      quotation:
-        weight: 29
-        enabled: false
-      situation_links:
-        weight: 30
-        enabled: false
-      text:
-        weight: 31
-        enabled: false
       content_activity_reference:
-        weight: 32
-        enabled: false
-      video:
         weight: 32
         enabled: false
       content_article_reference:
@@ -97,6 +58,24 @@ settings:
       content_event_reference:
         weight: 36
         enabled: false
+      content_link:
+        weight: 22
+        enabled: false
+      download:
+        weight: 26
+        enabled: true
+      dynamic_deck:
+        weight: 23
+        enabled: false
+      factbox:
+        weight: 24
+        enabled: false
+      gallery:
+        weight: 25
+        enabled: false
+      hero_banner:
+        weight: 26
+        enabled: false
       image:
         weight: 42
         enabled: false
@@ -105,5 +84,26 @@ settings:
         enabled: false
       list_deck:
         weight: 44
+        enabled: false
+      program:
+        weight: 27
+        enabled: false
+      program_item:
+        weight: 28
+        enabled: false
+      quotation:
+        weight: 29
+        enabled: false
+      shortcuts:
+        weight: 27
+        enabled: true
+      situation_links:
+        weight: 30
+        enabled: false
+      text:
+        weight: 31
+        enabled: false
+      video:
+        weight: 32
         enabled: false
 field_type: entity_reference_revisions

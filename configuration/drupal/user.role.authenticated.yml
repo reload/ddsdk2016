@@ -1,7 +1,15 @@
 uuid: eb60ca8e-bf5f-46a7-9dca-84b2cbf80386
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - filter.format.full_html
+  module:
+    - contact
+    - filter
+    - media
+    - shortcut
+    - system
 _core:
   default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
 id: authenticated
@@ -9,14 +17,8 @@ label: 'Godkendt bruger'
 weight: 1
 is_admin: false
 permissions:
-  - 'access comments'
   - 'access content'
   - 'access shortcuts'
   - 'access site-wide contact form'
-  - 'display eu cookie compliance popup'
-  - 'post comments'
-  - 'search content'
-  - 'skip comment approval'
-  - 'use text format basic_html'
   - 'use text format full_html'
   - 'view media'

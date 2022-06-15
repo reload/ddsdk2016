@@ -39,7 +39,7 @@ class DefaultDateRedirectEventSubscriber implements EventSubscriberInterface {
     // If we are on the correct view page, check for arguments, if we have
     // none inject a default date and redirect the user.
     if ($this->routeMatch->getRouteName() === 'view.events.events_overview' && empty($event->getRequest()->query->all())) {
-      $url = Url::fromRoute('view.events.events_overview', array('event_after' => date(DDS_SEARCH_DATE_USER_FORMAT)));
+      $url = Url::fromRoute('view.events.events_overview', ['event_after' => date(DDS_SEARCH_DATE_USER_FORMAT)]);
       $event->setResponse(new RedirectResponse($url->toString()));
       // Make sure Drupals page-cache does not cache the redirect for anonymous
       // users.
@@ -52,7 +52,7 @@ class DefaultDateRedirectEventSubscriber implements EventSubscriberInterface {
    */
   public static function getSubscribedEvents() {
     $events = [];
-    $events[KernelEvents::REQUEST][] = array('checkForRedirection');
+    $events[KernelEvents::REQUEST][] = ['checkForRedirection'];
     return $events;
   }
 

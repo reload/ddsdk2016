@@ -17,12 +17,12 @@ mode: extended_teaser
 content:
   field_media_video_embed_field:
     type: video_embed_field_thumbnail
-    weight: 0
     label: hidden
     settings:
       image_style: 16_9_720x405
       link_image_to: ''
     third_party_settings: {  }
+    weight: 0
     region: content
 hidden:
   created: true

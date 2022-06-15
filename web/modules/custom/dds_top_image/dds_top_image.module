@@ -9,15 +9,15 @@
  * Implements hook_theme().
  */
 function dds_top_image_theme() {
-  $hooks = array();
+  $hooks = [];
 
   $hooks['dds_top_image'] = [
-    'variables' => array(
+    'variables' => [
       'title' => NULL,
       'subtitle' => NULL,
       'image' => NULL,
       'image_uri' => NULL,
-    ),
+    ],
   ];
 
   return $hooks;

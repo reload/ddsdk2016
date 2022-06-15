@@ -24,33 +24,18 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       factbox: factbox
       text: text
       video: video
       markup: markup
+    negate: 0
     target_bundles_drag_drop:
-      dynamic_deck:
-        weight: 5
-        enabled: false
-      factbox:
-        enabled: true
-        weight: 6
-      2col_deck:
-        weight: 6
-        enabled: false
-      text:
-        enabled: true
-        weight: 7
-      video:
-        enabled: true
-        weight: 8
-      markup:
-        enabled: true
-        weight: 32
       1col_deck:
         weight: 33
+        enabled: false
+      2col_deck:
+        weight: 6
         enabled: false
       3col_deck:
         weight: 35
@@ -88,6 +73,12 @@ settings:
       download:
         weight: 46
         enabled: false
+      dynamic_deck:
+        weight: 5
+        enabled: false
+      factbox:
+        weight: 6
+        enabled: true
       gallery:
         weight: 49
         enabled: false
@@ -109,6 +100,9 @@ settings:
       list_deck:
         weight: 55
         enabled: false
+      markup:
+        weight: 32
+        enabled: true
       program:
         weight: 56
         enabled: false
@@ -124,4 +118,10 @@ settings:
       situation_links:
         weight: 60
         enabled: false
+      text:
+        weight: 7
+        enabled: true
+      video:
+        weight: 8
+        enabled: true
 field_type: entity_reference_revisions

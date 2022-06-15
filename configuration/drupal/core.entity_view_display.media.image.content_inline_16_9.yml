@@ -17,28 +17,28 @@ bundle: image
 mode: content_inline_16_9
 content:
   field_byline:
-    weight: 1
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 1
     region: content
   field_caption:
-    weight: 2
+    type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    weight: 2
     region: content
   field_image:
-    weight: 0
+    type: image
     label: hidden
     settings:
-      image_style: 16_9_720x405
       image_link: ''
+      image_style: 16_9_720x405
     third_party_settings: {  }
-    type: image
+    weight: 0
     region: content
 hidden:
   created: true

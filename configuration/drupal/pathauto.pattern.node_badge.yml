@@ -10,13 +10,13 @@ type: 'canonical_entities:node'
 pattern: 'maerke/[node:title]'
 selection_criteria:
   0bac02be-1518-4276-a34f-5ba1dd9d5612:
-    id: node_type
-    bundles:
-      badge: badge
+    id: 'entity_bundle:node'
     negate: false
+    uuid: 0bac02be-1518-4276-a34f-5ba1dd9d5612
     context_mapping:
       node: node
-    uuid: 0bac02be-1518-4276-a34f-5ba1dd9d5612
+    bundles:
+      badge: badge
 selection_logic: and
 weight: -5
 relationships: {  }

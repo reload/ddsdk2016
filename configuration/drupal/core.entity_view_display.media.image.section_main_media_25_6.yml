@@ -17,13 +17,13 @@ bundle: image
 mode: section_main_media_25_6
 content:
   field_image:
-    weight: 0
+    type: image
     label: hidden
     settings:
-      image_style: 25_6_1600x384
       image_link: ''
+      image_style: 25_6_1600x384
     third_party_settings: {  }
-    type: image
+    weight: 0
     region: content
 hidden:
   created: true

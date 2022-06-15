@@ -14,7 +14,8 @@ value_label: 'Login attempts'
 value_type: number
 caching_time: 3600
 settings:
-  table: watchdog
+  time_interval_field: timestamp
+  time_interval_value: 86400
   conditions:
     -
       field: type
@@ -27,8 +28,7 @@ settings:
     - message
     - variables
     - timestamp
-  time_interval_field: timestamp
-  time_interval_value: 86400
+  table: watchdog
   history_status: true
 thresholds:
   type: none
