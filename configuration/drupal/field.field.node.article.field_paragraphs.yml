@@ -94,6 +94,9 @@ settings:
       embed:
         enabled: true
         weight: 51
+      events:
+        weight: 53
+        enabled: false
       factbox:
         enabled: true
         weight: -61
