@@ -30,7 +30,6 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       text: text
       image: image
@@ -42,6 +41,7 @@ settings:
       gallery: gallery
       read_more: read_more
       embed: embed
+    negate: 0
     target_bundles_drag_drop:
       1col_deck:
         weight: -53
@@ -74,8 +74,8 @@ settings:
         weight: -47
         enabled: false
       content_link:
-        enabled: true
         weight: -60
+        enabled: true
       content_redirect_page_reference:
         weight: -40
         enabled: false
@@ -92,23 +92,23 @@ settings:
         weight: -54
         enabled: false
       embed:
-        enabled: true
         weight: 51
+        enabled: true
       events:
         weight: 53
         enabled: false
       factbox:
-        enabled: true
         weight: -61
-      gallery:
         enabled: true
+      gallery:
         weight: -55
+        enabled: true
       hero_banner:
         weight: -46
         enabled: false
       image:
-        enabled: true
         weight: -62
+        enabled: true
       inspiration_deck:
         weight: -37
         enabled: false
@@ -122,8 +122,8 @@ settings:
         weight: -34
         enabled: false
       markup:
-        enabled: true
         weight: -57
+        enabled: true
       program:
         weight: -45
         enabled: false
@@ -131,11 +131,11 @@ settings:
         weight: -44
         enabled: false
       quotation:
-        enabled: true
         weight: -58
-      read_more:
         enabled: true
+      read_more:
         weight: 33
+        enabled: true
       shortcuts:
         weight: -33
         enabled: false
@@ -143,9 +143,9 @@ settings:
         weight: -43
         enabled: false
       text:
-        enabled: true
         weight: -63
-      video:
         enabled: true
+      video:
         weight: -59
+        enabled: true
 field_type: entity_reference_revisions

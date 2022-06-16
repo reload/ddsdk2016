@@ -29,114 +29,114 @@ bundle: activity
 mode: default
 content:
   field_activity_id:
+    type: number
     weight: 0
+    region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
-    type: number
-    region: content
   field_activity_type:
+    type: options_select
     weight: 15
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_badge_target_group:
+    type: options_select
     weight: 13
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_content_category:
+    type: options_select
     weight: 4
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_content_topic:
+    type: options_select
     weight: 5
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_duration:
+    type: options_select
     weight: 14
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_gallery_image:
+    type: inline_entity_form_complex
     weight: 17
+    region: content
     settings:
-      match_operator: CONTAINS
       form_mode: default
-      revision: false
       override_labels: false
       label_singular: ''
       label_plural: ''
-      collapsible: false
-      collapsed: false
       allow_new: true
       allow_existing: false
+      match_operator: CONTAINS
       allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
     third_party_settings: {  }
-    type: inline_entity_form_complex
-    region: content
   field_instructions:
+    type: text_textarea
     weight: 10
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
-    region: content
   field_main_media:
+    type: inline_entity_form_complex
     weight: 3
+    region: content
     settings:
       form_mode: main_media
+      override_labels: false
       label_singular: ''
       label_plural: ''
       allow_new: true
-      match_operator: CONTAINS
-      override_labels: false
       allow_existing: false
-      revision: false
+      match_operator: CONTAINS
+      allow_duplicate: false
       collapsible: false
       collapsed: false
-      allow_duplicate: false
+      revision: false
     third_party_settings: {  }
-    type: inline_entity_form_complex
-    region: content
   field_materials:
+    type: text_textarea
     weight: 11
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
-    region: content
   field_questions:
-    weight: 12
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
     type: text_textarea
+    weight: 12
     region: content
-  field_subtitle:
-    weight: 2
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+  field_subtitle:
     type: string_textarea
+    weight: 2
     region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_youtube:
+    type: video_embed_field_textfield
     weight: 16
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: video_embed_field_textfield
-    region: content
   publish_on:
     type: datetime_timestamp_no_default
     weight: 6
@@ -145,19 +145,19 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
+    weight: 9
+    region: content
     settings:
       display_label: true
-    weight: 9
     third_party_settings: {  }
-    region: content
   title:
     type: string_textfield
     weight: 1
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    region: content
   unpublish_on:
     type: datetime_timestamp_no_default
     weight: 7

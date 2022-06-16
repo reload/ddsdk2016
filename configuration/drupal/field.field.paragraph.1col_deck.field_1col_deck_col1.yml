@@ -28,7 +28,6 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       text: text
       video: video
@@ -38,6 +37,7 @@ settings:
       markup: markup
       inspiration_deck: inspiration_deck
       events: events
+    negate: 0
     target_bundles_drag_drop:
       1col_deck:
         weight: -63
@@ -52,8 +52,8 @@ settings:
         weight: -60
         enabled: false
       block:
-        enabled: true
         weight: -69
+        enabled: true
       content_activity_reference:
         weight: -50
         enabled: false
@@ -61,8 +61,8 @@ settings:
         weight: -49
         enabled: false
       content_article_reference_ext:
-        enabled: true
         weight: -68
+        enabled: true
       content_badge_reference:
         weight: -51
         enabled: false
@@ -76,8 +76,8 @@ settings:
         weight: -47
         enabled: false
       content_redirect_page_reference_:
-        enabled: true
         weight: -67
+        enabled: true
       content_section_reference:
         weight: -39
         enabled: false
@@ -91,8 +91,8 @@ settings:
         weight: -38
         enabled: false
       events:
-        enabled: true
         weight: -64
+        enabled: true
       factbox:
         weight: -57
         enabled: false
@@ -106,8 +106,8 @@ settings:
         weight: -44
         enabled: false
       inspiration_deck:
-        enabled: true
         weight: -65
+        enabled: true
       key_figures:
         weight: -41
         enabled: false
@@ -118,8 +118,8 @@ settings:
         weight: -42
         enabled: false
       markup:
-        enabled: true
         weight: -66
+        enabled: true
       program:
         weight: -54
         enabled: false
@@ -139,9 +139,9 @@ settings:
         weight: -45
         enabled: false
       text:
-        enabled: true
         weight: -71
-      video:
         enabled: true
+      video:
         weight: -70
+        enabled: true
 field_type: entity_reference_revisions

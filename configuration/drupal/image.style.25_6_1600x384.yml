@@ -13,6 +13,7 @@ effects:
     weight: 1
     data:
       crop_type: '25_6'
+      automatic_crop_provider: null
   bb9f9f8a-5c2a-4cc7-b383-ee1c0c6692b6:
     uuid: bb9f9f8a-5c2a-4cc7-b383-ee1c0c6692b6
     id: image_scale_and_crop

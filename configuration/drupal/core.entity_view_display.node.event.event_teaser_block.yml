@@ -38,77 +38,77 @@ third_party_settings:
       children:
         - field_event_location_name
         - field_event_price
-      parent_name: ''
-      weight: 5
       label: 'Main info'
+      parent_name: ''
+      region: hidden
+      weight: 5
       format_type: html_element
       format_settings:
+        classes: ''
+        id: ''
         element: div
         show_label: false
         label_element: h3
+        attributes: ''
         effect: none
         speed: fast
-        attributes: ''
-        classes: ''
-        id: ''
-      region: hidden
     group_signup_info:
       children:
         - field_course_id
         - field_event_signup_deadline
         - field_event_signup_instructions
-      parent_name: ''
-      weight: 6
       label: 'Signup info'
+      parent_name: ''
+      region: hidden
+      weight: 6
       format_type: html_element
       format_settings:
+        classes: ''
+        id: ''
         element: div
         show_label: false
         label_element: h3
+        attributes: ''
         effect: none
         speed: fast
-        attributes: ''
-        classes: ''
-        id: ''
-      region: hidden
     group_location_info:
       children:
         - field_event_accommodation
         - field_event_address
         - field_event_area
-      parent_name: ''
-      weight: 8
       label: 'Location info'
+      parent_name: ''
+      region: hidden
+      weight: 8
       format_type: html_element
       format_settings:
+        classes: ''
+        id: ''
         element: div
         show_label: false
         label_element: h3
+        attributes: ''
         effect: none
         speed: fast
-        attributes: ''
-        classes: ''
-        id: ''
-      region: hidden
     group_event_extra_info:
       children:
         - field_content_target_group
         - field_event_host_info
         - field_event_type
-      parent_name: ''
-      weight: 7
       label: 'Extra info'
+      parent_name: ''
+      region: hidden
+      weight: 7
       format_type: html_element
       format_settings:
+        classes: ''
+        id: ''
         element: div
         show_label: false
         label_element: h3
+        attributes: ''
         effect: none
         speed: fast
-        attributes: ''
-        classes: ''
-        id: ''
-      region: hidden
 id: node.event.event_teaser_block
 targetEntityType: node
 bundle: event
@@ -116,21 +116,21 @@ mode: event_teaser_block
 content:
   field_event_end:
     type: datetime_default
-    weight: 1
     label: hidden
     settings:
       timezone_override: ''
       format_type: event_date_long
     third_party_settings: {  }
+    weight: 1
     region: content
   field_event_start:
-    weight: 0
+    type: datetime_default
     label: hidden
     settings:
       timezone_override: ''
       format_type: event_date_long
     third_party_settings: {  }
-    type: datetime_default
+    weight: 0
     region: content
 hidden:
   field_content_category: true
