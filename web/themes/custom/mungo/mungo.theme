@@ -1130,16 +1130,18 @@ function _mungo_preprocess_deck_paragraph($type, &$variables) {
       $col['#attributes']['class'][] = 'col-xs-12';
     }
 
-    if (_dds_track_is_track_universe($node)) {
-      $paragraphs = $variables['paragraph']->get('field_1col_deck_col1')->getValue();
-      foreach ($paragraphs as $paragraph) {
-        /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
-        $paragraph = Paragraph::load($paragraph['target_id']);
-        if ($paragraph->getType() == 'events') {
-          // Add some classes to all of our events paragraphs inside a
-          // 1 col deck paragraph.
-          $variables['attributes']['class'][] = 'has-event-teaser';
-          $variables['attributes']['class'][] = 'track-arrangementer-bg';
+    if ($node instanceof NodeInterface) {
+      if (_dds_track_is_track_universe($node)) {
+        $paragraphs = $variables['paragraph']->get('field_1col_deck_col1')->getValue();
+        foreach ($paragraphs as $paragraph) {
+          /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
+          $paragraph = Paragraph::load($paragraph['target_id']);
+          if ($paragraph->getType() == 'events') {
+            // Add some classes to all of our events paragraphs inside a
+            // 1 col deck paragraph.
+            $variables['attributes']['class'][] = 'has-event-teaser';
+            $variables['attributes']['class'][] = 'track-arrangementer-bg';
+          }
         }
       }
     }
