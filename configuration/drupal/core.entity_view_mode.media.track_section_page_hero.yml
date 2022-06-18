@@ -1,0 +1,10 @@
+uuid: 3914c571-faf1-4bdb-a749-886d7c28f669
+langcode: da
+status: true
+dependencies:
+  module:
+    - media
+id: media.track_section_page_hero
+label: 'Track - section page (hero)'
+targetEntityType: media
+cache: true

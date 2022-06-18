@@ -1,0 +1,15 @@
+uuid: 6b9ffc4b-2e5f-4cff-9a1e-c94dd218294c
+langcode: da
+status: true
+dependencies: {  }
+name: track_section_page_hero
+label: 'Track - section page (hero) '
+effects:
+  9d0363bf-294b-4e3d-9d4c-a45ae62b9c4d:
+    uuid: 9d0363bf-294b-4e3d-9d4c-a45ae62b9c4d
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 949
+      height: 400
+      anchor: center-center
