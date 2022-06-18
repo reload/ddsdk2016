@@ -38,7 +38,7 @@ $_left-spacing: 15px;
 
   // General styles that should apply yo both with and without an image used.
   .section-header-track {
-    z-index: 1;
+    z-index: 0;
     min-height: 300px;
 
     .field--name-title {
