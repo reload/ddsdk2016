@@ -82,7 +82,7 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
 %}
 {{ attach_library('classy/node') }}
 
-{% if content.field_main_media and not is_front%}
+{% if content.field_main_media and not is_front and not is_track_page %}
 {{ attach_library('mungo/object-fit') }}
 <header role="section-header" class="section-header">
       <div class="full-width-image-container narrow">
@@ -98,6 +98,11 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
     </div>
 </header>
 {% endif %}
+{# A section-page header for track-context. #}
+{% if is_track_page and not is_front %}
+  {% include "@mungo/track/track-section-page--header.html.twig" %}
+{% endif %}
+
 {{ grouping_menu }}
 <article{{ attributes.addClass(classes) }}>
 

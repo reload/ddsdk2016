@@ -185,6 +185,12 @@ function _dds_track_prepare_node_full(&$variables) {
   $variables['is_track_page'] = _dds_track_is_track_universe($node);
   $variables['track_universe'] = _dds_track_get_track_universe($node);
 
+  if ($node->bundle() == 'section_page' && !empty($variables['content']['field_main_media'])) {
+    // Change the view mode for media used on section pages when in track
+    // context.
+    $variables['content']['field_main_media'][0]['#view_mode'] = 'track_section_page_hero';
+  }
+
   return $variables;
 }
 

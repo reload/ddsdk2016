@@ -125,3 +125,17 @@
     }
   }
 }
+
+@mixin media-section-page-hero-reached {
+  // A media query for when our max-width of our section-page hero view mode kicks in.
+  @media (min-width: $track-section-page-hero-view-mode-max-width) {
+    @content;
+  }
+}
+
+@mixin media-until-section-page-hero-reached {
+  // When we're kinda in between mobile and our image view mode width.
+  @media (min-width: $screen-xs + 1) {
+    @content;
+  }
+}
