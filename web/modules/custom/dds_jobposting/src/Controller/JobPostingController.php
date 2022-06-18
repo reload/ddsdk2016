@@ -22,8 +22,7 @@ class JobPostingController extends ControllerBase {
    *
    * @param int $paidJobsTid
    *   Taxonomy id of the paid job term.
-   *
-   * @param $volunteerJobsTid
+   * @param int $volunteerJobsTid
    *   Taxonomy id of the volunteer job term.
    *
    * @return array

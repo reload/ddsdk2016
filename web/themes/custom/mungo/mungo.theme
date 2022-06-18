@@ -87,7 +87,7 @@ function mungo_preprocess_field(&$variables) {
     }
   }
   elseif (in_array($field_name, ['field_2col_deck_col1', 'field_2col_deck_col2'])) {
-    /** @var Paragraph $paragraph */
+    /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
     $paragraph = $variables['element']['#object'];
     $sizes = _mungo_2col_size_option_to_text($paragraph->get('field_2col_column_size')->value);
     // Detect the field that is being rendered as the large part of the
@@ -1153,7 +1153,7 @@ function _mungo_preprocess_deck_paragraph($type, &$variables) {
     /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
     $paragraph = $variables['paragraph'];
     if ($paragraph->hasField('field_2col_column_size') && isset($paragraph->get('field_2col_column_size')->value)) {
-      switch (_mungo_2col_size_option_to_text($paragraph->get('field_2col_column_size')->value)) {
+      switch (_mungo_2col_size_option_to_text(intval($paragraph->get('field_2col_column_size')->value))) {
         case '66_33':
           $variables['cols']['field_2col_deck_col1']['#attributes']['class'][] = 'col-md-8';
           $variables['cols']['field_2col_deck_col2']['#attributes']['class'][] = 'col-md-4';
