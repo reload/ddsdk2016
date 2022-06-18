@@ -47,10 +47,20 @@ $_left-spacing: 15px;
       margin: 0;
 
       &.dymo-text-processed * {
-        font-size: 64px;
-        line-height: 66px;
+        font-size: 44px;
+        line-height: 46px;
         color: $track-blue;
         display: block;
+
+        @media (min-width: 375px) {
+          font-size: 54px;
+          line-height: 56px;
+        }
+
+        @include media-small {
+          font-size: 64px;
+          line-height: 66px;
+        }
 
         @include media-medium {
           font-size: 100px;
