@@ -7,6 +7,7 @@
 .page-type-universe {
   @include header-with-bg($targetSelector: page-title);
   @include topic-track($targetSelector: node--keyword);
+  @include topic-track($targetSelector: "node-teaser--keyword > *");
 
   .block-local-tasks-block {
     background-color: $track-blue;

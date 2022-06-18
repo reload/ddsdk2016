@@ -42,7 +42,7 @@ header.header-fixed {
   }
 
   > div {
-    height: 70px;
+    height: $header-height;
 
     @include media-small {
       height: auto;
