@@ -1,5 +1,6 @@
 $_pseudo-shadow-offset: 10px;
 $_gap: $spacing-large;
+
 .paragraph--type--events {
   background-color: map-get($track-colors, "arrangementer");
   color: #fff;
@@ -21,6 +22,12 @@ $_gap: $spacing-large;
         &:last-child {
           padding-bottom: $spacing-medium;
         }
+      }
+    }
+
+    @include media-medium {
+      > * {
+        max-width: calc((100% / 3) - #{$_gap});
       }
     }
   }
@@ -52,7 +59,7 @@ $_gap: $spacing-large;
   .event-card {
     display: flex;
     gap: $spacing-medium;
-    padding: 1rem;
+    padding: $spacing-medium;
     background-color: #fff;
     color: $track-blue;
     height: 100%;
@@ -68,18 +75,22 @@ $_gap: $spacing-large;
 
     &--date {
       font-size: 26px;
+      line-height: 32px;
       font-family: $font-anton;
     }
 
     &--meta {
       display: flex;
       flex-direction: column;
+      overflow: hidden;
 
       h2 {
         font-size: 22px;
+        line-height: 24px;
 
-        @include media-small {
+        @include media-medium {
           font-size: 24px;
+          line-height: 26px;
         }
       }
 
