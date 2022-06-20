@@ -26,6 +26,18 @@
       color: $track-blue;
     }
   }
+
+  .deck-box-head--heading {
+    font-family: $font-anton;
+    color: $track-blue;
+
+    @include media-small {
+      font-size: 36px;
+    }
+  }
+  .deck-box-head--link a {
+    @include track-cta-button;
+  }
 }
 
 @keyframes rotateToLeft {

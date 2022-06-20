@@ -126,6 +126,41 @@
   }
 }
 
+@mixin track-cta-button {
+  background-color: $track-blue;
+  color: $track-light-green;
+  font-weight: 800;
+  padding: 1em;
+  text-transform: initial;
+  position: relative;
+
+  @include media-small {
+    font-size: 18px;
+    padding: 0.5em 1em;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: $track-light-green;
+    transition: top linear 100ms, left linear 100ms;
+  }
+
+  &:hover:before {
+    top: 5px;
+    left: 5px;
+  }
+}
+
 @mixin media-section-page-hero-reached {
   // A media query for when our max-width of our section-page hero view mode kicks in.
   @media (min-width: $track-section-page-hero-view-mode-max-width) {
