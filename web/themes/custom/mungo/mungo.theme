@@ -347,6 +347,8 @@ function mungo_preprocess_paragraph(&$variables) {
       break;
 
     case 'situation_links':
+      /** @var \Drupal\node\NodeInterface $node */
+      $node = \Drupal::routeMatch()->getParameter('node');
       // Prepare properties for paragraph type situation links.
       if ($paragraph->hasField('field_situation_main_link') && !(empty($paragraph->field_situation_main_link->getValue()))) {
         $link = $paragraph->field_situation_main_link->getValue();
@@ -357,6 +359,11 @@ function mungo_preprocess_paragraph(&$variables) {
       }
       if ($paragraph->hasField('field_situation_color') && !empty($paragraph->field_situation_color->value)) {
         $variables['attributes']['class'][] = 'situation-links-color-' . $paragraph->field_situation_color->value;
+        if (_dds_track_is_track_universe($node)) {
+          // The value of this field is e.g "track-skills-bg" which sets a css
+          // background-color with the color of the track.
+          $variables['attributes']['class'][] = $paragraph->field_situation_color->value;
+        }
       }
       if ($paragraph->hasField('field_icon') && !empty($paragraph->field_icon->value)) {
         $variables['content']['icon'] = _mungo_replace_title_with_svg($paragraph->field_icon->value);

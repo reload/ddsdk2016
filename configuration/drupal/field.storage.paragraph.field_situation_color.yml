@@ -23,6 +23,18 @@ settings:
     -
       value: grey
       label: Grey
+    -
+      value: track-skills-bg
+      label: 'Track - skills (purple)'
+    -
+      value: track-patruljeliv-bg
+      label: 'Track - patrol (green)'
+    -
+      value: track-arrangementer-bg
+      label: 'Track - events (yellow)'
+    -
+      value: track-adventurespejd-bg
+      label: 'Track - adventurescout (blue)'
   allowed_values_function: ''
 module: options
 locked: false
