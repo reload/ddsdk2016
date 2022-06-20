@@ -14,13 +14,13 @@
  */
 #}
 {% block content %}
-  {% if site_logo and not track_logo %}
+  {% if site_logo and not is_track_page %}
     <a href="{{ path('<front>') }}" rel="home" class="site-logo">
       <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
     </a>
     {% else %}
-      <a href="{{ path('<front>') }}" rel="home" class="track-logo site-logo">
-        <img src="{{ track_logo }}" alt="{{ 'Home'|t }}" />
+      <a href="{{ track_frontpage_path }}" rel="home" class="track-logo site-logo">
+        <img src="{{ '/themes/custom/mungo/assets/images/track/logo.svg' }}" alt="{{ 'Home - TRACK'|t }}" />
       </a>
   {% endif %}
   {% if site_name %}

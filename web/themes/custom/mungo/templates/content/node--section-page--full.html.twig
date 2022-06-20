@@ -100,7 +100,7 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
 {% endif %}
 {# A section-page header for track-context. #}
 {% if is_track_page and not is_front %}
-  {% include "@mungo/track/track-section-page--header.html.twig" %}
+  {% include "@mungo/track/track-section-page--header.html.twig" with {'is_track_frontpage': is_track_frontpage} %}
 {% endif %}
 
 {{ grouping_menu }}

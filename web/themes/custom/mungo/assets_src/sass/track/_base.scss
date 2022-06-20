@@ -38,6 +38,10 @@
   .deck-box-head--link a {
     @include track-cta-button;
   }
+
+  .track-cta-button {
+    @include track-cta-button;
+  }
 }
 
 @keyframes rotateToLeft {
