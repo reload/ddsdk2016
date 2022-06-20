@@ -21,6 +21,7 @@ use Drupal\taxonomy\Entity\Term;
 use Drupal\dds_layout\Form\MungoInspirationPrerender;
 use Drupal\node\NodeInterface;
 use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\paragraphs\ParagraphInterface;
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -1195,19 +1196,41 @@ function _mungo_preprocess_deck_paragraph($type, &$variables) {
     $variables['attributes']['class'][] = 'three-cols-deck';
   }
   elseif ($type === '4col_deck') {
-    foreach ($variables['cols'] as &$col) {
-      if ($node instanceof NodeInterface) {
-        if (_dds_track_is_track_universe($node)) {
-          // In track-universe, place all columns in a 2 col/2 row grid.
-          $col['#attributes']['class'][] = 'col-xs-6 col-md-3';
+    $reference_types = [
+      'content_article_reference',
+      'content_badge_reference',
+      'content_activity_reference',
+      'content_event_reference',
+    ];
 
-          // Continue through to set classes for the  regular dds universe.
-          continue;
-        }
+    /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
+    $paragraph = $variables['paragraph'];
+    /** @var \Drupal\paragraphs\ParagraphInterface $referenced_paragraph */
+    foreach ($paragraph->referencedEntities() as $referenced_paragraph) {
+      if (!$referenced_paragraph instanceof ParagraphInterface) {
+        continue;
       }
-      $col['#attributes']['class'][] = 'col-md-3';
-      $col['#attributes']['class'][] = 'col-sm-6';
-      $col['#attributes']['class'][] = 'col-xs-12';
+
+      $variables['attributes']['class'][] = 'has-' . str_replace('_', '-', $referenced_paragraph->getType());
+
+      foreach ($variables['cols'] as &$col) {
+        if ($node instanceof NodeInterface && _dds_track_is_track_universe($node)) {
+          if (in_array($referenced_paragraph->getType(), $reference_types)) {
+            // In track-universe, place reference paragraph columns in a
+            // 2col/2 row grid.
+            $col['#attributes']['class'][] = 'col-xs-6';
+            $col['#attributes']['class'][] = 'col-md-3';
+            $col['#attributes']['class'][] = 'track-stack';
+
+            // Continue through to set classes for the regular dds universe.
+            continue;
+          }
+        }
+
+        $col['#attributes']['class'][] = 'col-md-3';
+        $col['#attributes']['class'][] = 'col-sm-6';
+        $col['#attributes']['class'][] = 'col-xs-12';
+      }
     }
     $variables['attributes']['class'][] = 'four-cols-deck';
   }

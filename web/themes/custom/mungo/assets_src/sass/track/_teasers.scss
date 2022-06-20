@@ -13,10 +13,10 @@
     }
 
     .four-cols-deck {
-      [class*="col-"]:nth-child(odd) {
+      .track-stack[class*="col-"]:nth-child(odd) {
         padding-right: $_base-bootstrap-spacing / 2;
       }
-      [class*="col-"]:nth-child(even) {
+      .track-stack[class*="col-"]:nth-child(even) {
         padding-left: $_base-bootstrap-spacing / 2;
       }
     }

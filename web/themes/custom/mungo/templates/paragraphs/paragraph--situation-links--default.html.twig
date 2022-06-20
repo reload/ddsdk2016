@@ -36,21 +36,30 @@
  * @ingroup themeable
  */
 #}
-{%
-set classes = [
-'paragraph',
-'paragraph--type--' ~ paragraph.bundle|clean_class,
-view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-]
-%}
+{% set classes = [
+  'paragraph',
+  'paragraph--type--' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+] %}
 
 <div{{ attributes.addClass(classes) }}>
-    <a href="{{ content.main_link.link }}">
+  <a href="{{ content.main_link.link }}">
     <div class="icon">
-    {{ content.icon|raw }}
+      {{ content.icon|raw }}
     </div>
-    <h2>{{ content.main_link.text }}</h2>
-    </a>
-    {{ content.field_situation_links }}
-    {{ link('View content'|trans, content.main_link.link, {class: 'view-content-link'}) }}
+    {% if is_track_context %}
+    <div class="main-link--wrapper">
+      {% endif %}
+      <h2>{{ content.main_link.text }}</h2>
+      {% if is_track_context %}
+        {% include "@mungo/misc/read-more-circle.html.twig" %}
+      {% endif %}
+
+      {% if is_track_context %}
+      {# Close our wrapper for track-context. #}
+    </div>
+    {% endif %}
+  </a>
+  {{ content.field_situation_links }}
+  {{ link('View content'|trans, content.main_link.link, {class: 'view-content-link'}) }}
 </div>
