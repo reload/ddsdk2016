@@ -1,0 +1,29 @@
+uuid: a8a00db5-423e-40e0-b027-a16bbf077eeb
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_category
+    - paragraphs.paragraphs_type.latest_content_tagging
+    - taxonomy.vocabulary.content_category
+id: paragraph.latest_content_tagging.field_category
+field_name: field_category
+entity_type: paragraph
+bundle: latest_content_tagging
+label: Kategori
+description: 'Ved valg af tag, vil der blive vist en dynamisk liste af indhold med det valgte tag. Vælger du intet tag, så vil de seks seneste artikler blive vist'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      content_category: content_category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

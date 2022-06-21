@@ -1,0 +1,24 @@
+uuid: 8c505615-3db9-4867-864d-38e5e5c5a495
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.latest_content_tagging.field_category
+    - field.field.paragraph.latest_content_tagging.field_deck_title
+    - paragraphs.paragraphs_type.latest_content_tagging
+id: paragraph.latest_content_tagging.default
+targetEntityType: paragraph
+bundle: latest_content_tagging
+mode: default
+content:
+  field_deck_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_category: true
+  search_api_excerpt: true

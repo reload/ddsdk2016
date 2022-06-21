@@ -7,6 +7,7 @@ dependencies:
     - node.type.article
     - paragraphs.paragraphs_type.block
     - paragraphs.paragraphs_type.download
+    - paragraphs.paragraphs_type.latest_content_tagging
     - paragraphs.paragraphs_type.shortcuts
   module:
     - entity_reference_revisions
@@ -27,6 +28,8 @@ settings:
       block: block
       download: download
       shortcuts: shortcuts
+      latest_content_tagging: latest_content_tagging
+    negate: 0
     target_bundles_drag_drop:
       1col_deck:
         weight: 17
@@ -61,11 +64,26 @@ settings:
       content_link:
         weight: 22
         enabled: false
+      content_redirect_page_reference:
+        weight: 48
+        enabled: false
+      content_redirect_page_reference_:
+        weight: 49
+        enabled: false
+      content_section_reference:
+        weight: 50
+        enabled: false
       download:
         weight: 26
         enabled: true
       dynamic_deck:
         weight: 23
+        enabled: false
+      embed:
+        weight: 53
+        enabled: false
+      events:
+        weight: 54
         enabled: false
       factbox:
         weight: 24
@@ -79,11 +97,23 @@ settings:
       image:
         weight: 42
         enabled: false
+      inspiration_deck:
+        weight: 59
+        enabled: false
+      key_figures:
+        weight: 60
+        enabled: false
       latest_content_list:
         weight: 43
         enabled: false
+      latest_content_tagging:
+        weight: 62
+        enabled: true
       list_deck:
         weight: 44
+        enabled: false
+      markup:
+        weight: 64
         enabled: false
       program:
         weight: 27
@@ -93,6 +123,9 @@ settings:
         enabled: false
       quotation:
         weight: 29
+        enabled: false
+      read_more:
+        weight: 68
         enabled: false
       shortcuts:
         weight: 27

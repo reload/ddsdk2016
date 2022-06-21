@@ -1,0 +1,10 @@
+uuid: b8a48864-2c2b-426f-ab99-985074d3d947
+langcode: da
+status: true
+dependencies: {  }
+id: latest_content_tagging
+label: 'Latest content (by tag)'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

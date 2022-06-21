@@ -10,6 +10,7 @@ dependencies:
     - paragraphs.paragraphs_type.content_redirect_page_reference_
     - paragraphs.paragraphs_type.events
     - paragraphs.paragraphs_type.inspiration_deck
+    - paragraphs.paragraphs_type.latest_content_tagging
     - paragraphs.paragraphs_type.markup
     - paragraphs.paragraphs_type.text
     - paragraphs.paragraphs_type.video
@@ -37,6 +38,7 @@ settings:
       markup: markup
       inspiration_deck: inspiration_deck
       events: events
+      latest_content_tagging: latest_content_tagging
     negate: 0
     target_bundles_drag_drop:
       1col_deck:
@@ -114,6 +116,9 @@ settings:
       latest_content_list:
         weight: -43
         enabled: false
+      latest_content_tagging:
+        weight: 62
+        enabled: true
       list_deck:
         weight: -42
         enabled: false
