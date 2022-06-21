@@ -82,6 +82,8 @@
   }
   .has-situation-links {
     $_pseudo-bg-offset: 25px;
+    margin-bottom: $spacing-large;
+
     .row--grid:not(.deck-box-head) [class*="col-"] {
       &:before {
         content: "";
@@ -93,8 +95,12 @@
         width: calc(100% - #{$_pseudo-bg-offset});
         height: 100%;
 
-        @include media-large {
+        @include media-small {
           height: calc(100% - #{$_pseudo-bg-offset});
+        }
+
+        @include media-medium {
+          width: 100%;
         }
       }
 
