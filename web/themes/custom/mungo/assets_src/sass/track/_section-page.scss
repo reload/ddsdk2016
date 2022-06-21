@@ -102,10 +102,17 @@ $_left-spacing: 15px;
 
       &--bg {
         @include rotate-to-left;
+
+        fill: $track-blue;
       }
 
       &--text {
         @include rotate-to-right;
+      }
+
+      &--text *,
+      &--heart {
+        fill: $track-light-green;
       }
     }
   }

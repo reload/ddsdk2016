@@ -208,7 +208,7 @@ function _dds_track_prepare_node_full(&$variables) {
     $variables['content']['field_main_media'][0]['#view_mode'] = 'track_section_page_hero';
 
     $req = \Drupal::request();
-    $variables['is_track_frontpage'] = $req->getRequestUri() == TRACK_UNIVERSE_FRONTPAGE;
+    $variables['is_track_frontpage'] = $req->getPathInfo() == TRACK_UNIVERSE_FRONTPAGE;
   }
 
   return $variables;
