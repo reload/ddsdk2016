@@ -1134,8 +1134,19 @@ function _mungo_preprocess_deck_paragraph($type, &$variables) {
   }
 
   if ($type === '1col_deck') {
-    foreach ($variables['cols'] as &$col) {
-      $col['#attributes']['class'][] = 'col-xs-12';
+    /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
+    $paragraph = $variables['paragraph'];
+    /** @var \Drupal\paragraphs\ParagraphInterface $referenced_paragraph */
+    foreach ($paragraph->referencedEntities() as $referenced_paragraph) {
+      if (!$referenced_paragraph instanceof ParagraphInterface) {
+        continue;
+      }
+
+      $variables['attributes']['class'][] = 'has-' . str_replace('_', '-', $referenced_paragraph->getType());
+
+      foreach ($variables['cols'] as &$col) {
+        $col['#attributes']['class'][] = 'col-xs-12';
+      }
     }
 
     if ($node instanceof NodeInterface) {
