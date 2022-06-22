@@ -10,8 +10,7 @@ use Drupal\node\NodeInterface;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\TermInterface;
 use Drupal\views\Views;
-
-const TRACK_UNIVERSE_FRONTPAGE = '/track-universet';
+use Drupal\dds_track\TrackInterface;
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -107,7 +106,7 @@ function dds_track_preprocess_block(&$variables) {
   }
 
   $variables['is_track_page'] = _dds_track_is_track_universe($node);
-  $variables['track_frontpage_path'] = TRACK_UNIVERSE_FRONTPAGE;
+  $variables['track_frontpage_path'] = TrackInterface::TRACK_UNIVERSE_FRONTPAGE;
 }
 
 /**
@@ -130,7 +129,7 @@ function dds_track_form_alter(&$form, FormStateInterface $form_state, $form_id) 
   /** @var \Drupal\Core\Extension\ModuleHandlerInterface $moduleHandler */
   $moduleHandler = \Drupal::service('module_handler');
   if ($moduleHandler->moduleExists('form_options_attributes')) {
-    $track_tid = _dds_track_get_track_term_id();
+    $track_tid = TrackInterface::TRACK_TERM_ID;
     // The reason we can add #options_attributes is because of the contrib
     // drupal/form_options_attributes module.
     $form['field_content_category']['widget']['#options_attributes'] = [
@@ -198,7 +197,7 @@ function _dds_track_prepare_node_full(&$variables) {
     return $variables;
   }
 
-  $variables['track_frontpage'] = TRACK_UNIVERSE_FRONTPAGE;
+  $variables['track_frontpage'] = TrackInterface::TRACK_UNIVERSE_FRONTPAGE;
   $variables['is_track_page'] = _dds_track_is_track_universe($node);
   $variables['track_universe'] = _dds_track_get_track_universe($node);
 
@@ -208,7 +207,7 @@ function _dds_track_prepare_node_full(&$variables) {
     $variables['content']['field_main_media'][0]['#view_mode'] = 'track_section_page_hero';
 
     $req = \Drupal::request();
-    $variables['is_track_frontpage'] = $req->getPathInfo() == TRACK_UNIVERSE_FRONTPAGE;
+    $variables['is_track_frontpage'] = $req->getPathInfo() == TrackInterface::TRACK_UNIVERSE_FRONTPAGE;
   }
 
   return $variables;
@@ -272,18 +271,5 @@ function _dds_track_is_track_universe(NodeInterface $node): bool {
 
   // We know that the node is in a track context, if the parent term is our
   // "Track" tid.
-  return $content_category_parent_tid == _dds_track_get_track_term_id();
-}
-
-/**
- * Helper function to get id of "Track" term.
- *
- * Since the name of the "Track" term can change, this is a helper function that
- * returns the id of the term associated with the "Track" term.
- *
- * @return int
- *   The id of the "Track" term.
- */
-function _dds_track_get_track_term_id(): int {
-  return 834;
+  return $content_category_parent_tid == TrackInterface::TRACK_TERM_ID;
 }

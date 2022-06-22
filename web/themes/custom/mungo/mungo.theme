@@ -22,6 +22,7 @@ use Drupal\dds_layout\Form\MungoInspirationPrerender;
 use Drupal\node\NodeInterface;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\paragraphs\ParagraphInterface;
+use Drupal\dds_track\TrackInterface;
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -502,7 +503,7 @@ function _mungo_preprocess_super_titles(Node $node, &$variables) {
     // The term id that the editors can add to content to indicate that the
     // content is related to track. We're checking on the id because the name
     // could change.
-    $track_tid = _dds_track_get_track_term_id();
+    $track_tid = TrackInterface::TRACK_TERM_ID;
 
     /** @var Drupal\taxonomy\TermInterface $target_group */
     $target_group = Term::load($item['target_id']);
