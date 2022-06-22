@@ -10,7 +10,7 @@ interface TrackInterface {
   /**
    * The path to the frontpage of the track-universe.
    */
-  const TRACK_UNIVERSE_FRONTPAGE = '/track-universet';
+  const TRACK_UNIVERSE_FRONTPAGE = '/track';
 
   /**
    * The ID of the parent track term.
