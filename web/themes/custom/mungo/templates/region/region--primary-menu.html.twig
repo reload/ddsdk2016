@@ -12,16 +12,25 @@
  * @see template_preprocess_region()
  */
 #}
-{%
-set classes = [
-'region',
-'region-' ~ region|clean_class,
-]
-%}
+{% set classes = [
+  'region',
+  'region-' ~ region|clean_class,
+] %}
 {% if content %}
-    <div{{ attributes.addClass(classes) }}>
-        <div class="container">
-        {{ content }}
-        </div>
+  <div{{ attributes.addClass(classes) }}>
+    <div class="container">
+      <div class="site-logo--container">
+        {% if is_track_page %}
+          <a href="{{ track_frontpage_path }}" rel="home" class="track-logo site-logo">
+            <img src="{{ '/themes/custom/mungo/assets/images/track/logo.svg' }}" alt="{{ 'Home - TRACK'|t }}"/>
+          </a>
+        {% else %}
+          <a href="{{ path('<front>') }}" rel="home" class="site-logo">
+            <img src="{{ dds_logo }}" alt="{{ 'Home'|t }}">
+          </a>
+        {% endif %}
+      </div>
+      {{ content }}
     </div>
+  </div>
 {% endif %}

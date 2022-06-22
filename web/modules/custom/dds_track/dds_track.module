@@ -89,10 +89,12 @@ function dds_track_preprocess_paragraph__situation_links(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
-function dds_track_preprocess_block(&$variables) {
-  if ($variables['base_plugin_id'] != 'system_branding_block') {
+function dds_track_preprocess_region(&$variables) {
+  if ($variables['region'] != 'primary_menu') {
     return;
   }
+
+  $variables['dds_logo'] = base_path() . \Drupal::theme()->getActiveTheme()->getLogo();
 
   if (!\Drupal::routeMatch()->getParameter('node')) {
     return;
@@ -101,11 +103,9 @@ function dds_track_preprocess_block(&$variables) {
   /** @var \Drupal\node\NodeInterface $node */
   $node = \Drupal::routeMatch()->getParameter('node');
 
-  if (!_dds_track_is_track_universe($node)) {
-    return;
-  }
+  $is_track_page = _dds_track_is_track_universe($node);
 
-  $variables['is_track_page'] = _dds_track_is_track_universe($node);
+  $variables['is_track_page'] = $is_track_page;
   $variables['track_frontpage_path'] = TrackInterface::TRACK_UNIVERSE_FRONTPAGE;
 }
 
