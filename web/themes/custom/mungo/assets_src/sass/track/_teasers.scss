@@ -28,7 +28,8 @@
   @include track-teaser;
 }
 
-.node-teaser.track-teaser {
+.node-teaser.track-teaser,
+.node--view-mode-search-index.track-teaser {
   @include track-star;
 }
 
