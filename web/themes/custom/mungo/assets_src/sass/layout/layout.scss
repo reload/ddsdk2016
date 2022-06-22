@@ -3,6 +3,23 @@
  * --------------------------------------------------
  */
 
+// Hide the track menu by default. We only show it in track-context.
+#block-trackmenu {
+  display: none;
+}
+
+.page-type-universe {
+  // Hide default menu.
+  #block-mungo-main-menu {
+    display: none;
+  }
+
+  // Now we're in track-context, show the track menu.
+  #block-trackmenu {
+    display: block;
+  }
+}
+
 /*  Row with equal height columns.
     ------------------------------------------------------- */
 .row-eq-height {
