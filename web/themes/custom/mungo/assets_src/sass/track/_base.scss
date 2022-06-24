@@ -9,6 +9,11 @@
   @include topic-track($targetSelector: node--keyword);
   @include topic-track($targetSelector: "node-teaser--keyword > *");
 
+  ::selection {
+    background-color: $track-blue;
+    color: $track-light-green;
+  }
+
   .block-local-tasks-block {
     background-color: $track-blue;
 
