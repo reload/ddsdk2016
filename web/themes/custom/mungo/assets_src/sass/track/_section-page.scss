@@ -122,6 +122,10 @@ $_left-spacing: 15px;
     max-width: $track-section-page-hero-view-mode-max-width;
     margin: auto;
 
+    .dymo-text-processed * {
+      text-shadow: 5px 5px 0 $track-light-green;
+    }
+
     .track-star,
     .track-bubbles {
       position: absolute;
