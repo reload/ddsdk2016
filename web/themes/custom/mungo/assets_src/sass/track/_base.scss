@@ -44,8 +44,14 @@
     @include track-cta-button;
   }
 
-  .track-cta-button {
-    @include track-cta-button;
+  .track-button--wrapper {
+    max-width: max-content; // Make width whatever the button inside is.
+    margin: auto;
+    padding: $spacing-medium 0;
+
+    .track-cta-button {
+      @include track-cta-button;
+    }
   }
 }
 

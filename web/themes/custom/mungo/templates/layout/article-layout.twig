@@ -118,7 +118,9 @@
           {% block main_content %}{% endblock %}
           {% if is_track_page %}
             {% block track_frontpage_link %}
-              <a class="track-cta-button" href="{{ track_frontpage }}">Gå til TRACK forsiden</a>
+              <div class="track-button--wrapper">
+                <a class="track-cta-button" href="{{ track_frontpage }}">Gå til TRACK forsiden</a>
+              </div>
             {% endblock %}
           {% endif %}
         </div>
