@@ -10,6 +10,7 @@ use Drupal\node\NodeInterface;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\TermInterface;
 use Drupal\views\Views;
+use Drupal\views\ViewExecutable;
 use Drupal\dds_track\TrackInterface;
 
 /**
@@ -22,12 +23,11 @@ function dds_track_preprocess_html(&$variables) {
     return;
   }
 
-  if (!\Drupal::routeMatch()->getParameter('node') instanceof NodeInterface) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  if (!$node instanceof NodeInterface) {
     return;
   }
-
-  /** @var \Drupal\node\NodeInterface $node */
-  $node = \Drupal::routeMatch()->getParameter('node');
 
   if (!_dds_track_is_track_universe($node)) {
     return;
@@ -37,7 +37,7 @@ function dds_track_preprocess_html(&$variables) {
   $variables['attributes']['class'][] = 'page-type-universe';
   // Attach a specific track class that let us know at a high level what track
   // the node is.
-  $variables['attributes']['class'][] = 'universe-' . 'track-' . _dds_track_get_track_universe($node);
+  $variables['attributes']['class'][] = 'universe-track-' . _dds_track_get_track_universe($node);
 }
 
 /**
@@ -63,12 +63,15 @@ function dds_track_preprocess_paragraph__events(&$variables) {
   }
 
   $term_reference_tid = $paragraph->get('field_category')->getString();
-  $category = Term::load($term_reference_tid)->getName();
+  $category_term = Term::load($term_reference_tid);
 
-  /** @var \Drupal\views\ViewExecutable $events_view */
+  if (!$category_term instanceof TermInterface) {
+    return;
+  }
+
   $events_view = Views::getView('events');
-  if (is_object($events_view)) {
-    $variables['events_view_block'] = $events_view->buildRenderable('events_block', ['field_content_category_name' => strtolower($category)]);
+  if ($events_view instanceof ViewExecutable) {
+    $variables['events_view_block'] = $events_view->buildRenderable('events_block', ['field_content_category_name' => strtolower($category_term->getName())]);
   }
 }
 
@@ -76,8 +79,11 @@ function dds_track_preprocess_paragraph__events(&$variables) {
  * Implements hook_preprocess_HOOK().
  */
 function dds_track_preprocess_paragraph__situation_links(&$variables) {
-  /** @var \Drupal\node\NodeInterface $node */
   $node = \Drupal::routeMatch()->getParameter('node');
+
+  if (!$node instanceof NodeInterface) {
+    return;
+  }
 
   if (!_dds_track_is_track_universe($node)) {
     return;
@@ -100,8 +106,10 @@ function dds_track_preprocess_region(&$variables) {
     return;
   }
 
-  /** @var \Drupal\node\NodeInterface $node */
   $node = \Drupal::routeMatch()->getParameter('node');
+  if (!$node instanceof NodeInterface) {
+    return;
+  }
 
   $is_track_page = _dds_track_is_track_universe($node);
 
@@ -150,8 +158,11 @@ function dds_track_form_alter(&$form, FormStateInterface $form_state, $form_id) 
 function _dds_track_get_track_universe(NodeInterface $node): string {
   $category_field = $node->get('field_content_category')->getString();
 
-  /** @var \Drupal\taxonomy\TermInterface $category_term */
   $category_term = Term::load($category_field);
+  if (!$category_term instanceof TermInterface) {
+    // Prevent the site from breaking should we not get a term.
+    return "not-found";
+  }
 
   return strtolower($category_term->getName());
 }
@@ -160,7 +171,8 @@ function _dds_track_get_track_universe(NodeInterface $node): string {
  * Helper function to prepare track nodes in teasers.
  */
 function _dds_track_prepare_node_teaser(&$variables) {
-  if (empty($variables['node']) || !$variables['node'] instanceof NodeInterface) {
+  $node = $variables['node'] ?? NULL;
+  if (!$node instanceof NodeInterface) {
     return $variables;
   }
 
@@ -169,7 +181,6 @@ function _dds_track_prepare_node_teaser(&$variables) {
     return $variables;
   }
 
-  $node = $variables['node'];
   if (!$node->hasField('field_content_category')) {
     return $variables;
   }
