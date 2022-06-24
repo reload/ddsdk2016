@@ -1,7 +1,6 @@
 _core:
   default_config_hash: E1Fj-HATa0rKb6BEPS-Xn5LAVl9DxSWz5o6-EiqwqXU
-hotlink: true
-origin: 'https://dds.dk'
-origin_dir: sites/default/files
+hotlink: false
+origin: ''
+origin_dir: ''
 use_imagecache_root: true
-verify: false
