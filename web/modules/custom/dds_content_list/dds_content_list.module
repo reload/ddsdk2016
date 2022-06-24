@@ -32,24 +32,34 @@ function dds_content_list_preprocess_paragraph(&$variables) {
     $view->setItemsPerPage($num_items);
     $variables['content']['list'] = $view->buildRenderable('default');
   }
+}
 
-  if ($paragraph_type === 'latest_content_tagging') {
-    $view = Views::getView('latest_content');
-    if (!$view || !$view->access('latest_content_block')) {
-      return;
-    }
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Prepare our latest_content_tagging paragraph by passing
+ * the view block: latest_content_block to our template and pass required
+ * parameters with it.
+ */
+function dds_content_list_preprocess_paragraph__latest_content_tagging(&$variables) {
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $variables['paragraph'];
 
-    if (!$paragraph->hasField('field_category') || empty($paragraph->get('field_category')->getString())) {
-      // If no tag is chosen, show all the 6 latest content.
-      $category = "all";
-    }
-    else {
-      // If a tag is chosen, show the 6 latest content with that tag.
-      $category = $paragraph->get('field_category')->getString();
-    }
-
-    $variables['content']['list'] = $view->buildRenderable('latest_content_block', ['field_content_category_target_id' => $category]);
+  $view = Views::getView('latest_content');
+  if (!$view || !$view->access('latest_content_block')) {
+    return;
   }
+
+  if (!$paragraph->hasField('field_category') || empty($paragraph->get('field_category')->getString())) {
+    // If no tag is chosen, show the latest content.
+    $category = "all";
+  }
+  else {
+    // If a tag is chosen, show the latest content with that tag.
+    $category = $paragraph->get('field_category')->getString();
+  }
+
+  $variables['content']['list'] = $view->buildRenderable('latest_content_block', ['field_content_category_target_id' => $category]);
 }
 
 /**
