@@ -12,8 +12,8 @@ type: list_string
 settings:
   allowed_values:
     -
-      value: none
-      label: Ingen
+      value: necessary
+      label: 'Påkrævet funktionaliet / Ingen cookies'
     -
       value: preferences
       label: Præferencer

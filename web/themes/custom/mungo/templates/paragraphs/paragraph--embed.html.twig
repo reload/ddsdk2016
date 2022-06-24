@@ -53,8 +53,8 @@
   </div>
   <div class="embed-code--wrapper">
     <div
-      class="embed-code {% if cookie_consent_category is not same as ('none') %}cookieconsent-optin-{{ cookie_consent_category }}{% endif %}">{{ embed_code|raw }}</div>
-    {% if cookie_consent_category is not same as ('none') %}
+      class="embed-code {% if cookie_consent_category is not same as ('necessary') %}cookieconsent-optin-{{ cookie_consent_category }}{% endif %}">{{ embed_code|raw }}</div>
+    {% if cookie_consent_category is not same as ('necessary') %}
       {# Don't show the cookie disclaimer if "none" is selected. #}
       <div
         class="cookieconsent-optout-{{ cookie_consent_category }}">
