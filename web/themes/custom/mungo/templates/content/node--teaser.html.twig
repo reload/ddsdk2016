@@ -97,7 +97,7 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
         </div>
     {% endif %}
     <div class="node-teaser--content-container">
-    {% if content.field_content_topic or content.field_content_topic or content.field_badge_type or content.field_event_type %}
+    {% if content.field_content_topic or content.field_badge_type or content.field_event_type %}
       <div class="node-teaser--keyword {% if has_track_target_group %}node-teaser--keyword-multiple{% endif %}">
         {% if node.bundle in ['article', 'section_page', 'activity', 'redirect_page'] %}
           {% if super_titles %}
@@ -106,7 +106,10 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
                 <li>{{ title }}</li>
               {% endfor %}
             </ul>
+            {% elseif node.bundle == 'activity' %}
+              {{ content.field_content_topic.0['#taxonomy_term'].name.getString() }}
           {% endif %}
+
         {% elseif node.bundle == 'event' %}
           {{ content.field_event_type }}
         {% elseif node.bundle == 'badge' %}

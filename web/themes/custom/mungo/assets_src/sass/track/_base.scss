@@ -8,6 +8,9 @@
   @include header-with-bg($targetSelector: page-title);
   @include topic-track($targetSelector: node--keyword);
   @include topic-track($targetSelector: "node-teaser--keyword > *");
+  @include topic-track(
+    $targetSelector: "node--type-activity .node-teaser--keyword"
+  );
 
   ::selection {
     background-color: $track-blue;
