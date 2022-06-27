@@ -107,7 +107,7 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
               {% endfor %}
             </ul>
             {% elseif node.bundle == 'activity' %}
-              {{ content.field_content_topic.0['#taxonomy_term'].name.getString() }}
+              {{ content.field_content_topic }}
           {% endif %}
 
         {% elseif node.bundle == 'event' %}
