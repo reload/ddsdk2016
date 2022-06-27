@@ -206,3 +206,14 @@ function dds_update_update_8110() {
     }
   }
 }
+
+/**
+ * Add translations for content behind a cookie consent.
+ */
+function dds_update_update_9301(&$sandbox) {
+  translate_tool_add('Please accept @cookie_consent_category cookies to see this content', 'da', 'Acceptér venligst @cookie_consent_category cookies for at se dette indhold');
+  translate_tool_add('necessary', 'da', 'nødvendige');
+  translate_tool_add('preferences', 'da', 'præferencer');
+  translate_tool_add('statistics', 'da', 'statistik');
+  translate_tool_add('marketing', 'da', 'marketing');
+}

@@ -58,8 +58,8 @@
       {# Don't show the cookie disclaimer if "none" is selected. #}
       <div
         class="cookieconsent-optout-{{ cookie_consent_category }}">
-        <a href="javascript: Cookiebot.renew()">Acceptér venligst {{ cookie_consent_category|trans }} cookies for at se
-          dette indhold</a>
+        <a
+          href="javascript: Cookiebot.renew()">{{ 'Please accept @cookie_consent_category cookies to see this content'|trans({ '@cookie_consent_category': cookie_consent_category }) }}</a>
       </div>
     {% endif %}
   </div>
