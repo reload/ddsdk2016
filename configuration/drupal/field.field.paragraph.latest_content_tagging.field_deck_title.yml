@@ -1,0 +1,19 @@
+uuid: 72e470dd-7b1e-47e9-beb9-be1d70c7d220
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_deck_title
+    - paragraphs.paragraphs_type.latest_content_tagging
+id: paragraph.latest_content_tagging.field_deck_title
+field_name: field_deck_title
+entity_type: paragraph
+bundle: latest_content_tagging
+label: Overskrift
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

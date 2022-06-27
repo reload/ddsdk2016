@@ -6,14 +6,6 @@ parameters:
 			path: web/modules/custom/dds_badge/dds_badge.module
 
 		-
-			message: """
-				#^PHPDoc tag @param has invalid value \\(\\$volunteerJobsTid
-				  Taxonomy id of the volunteer job term\\.\\)\\: Unexpected token "\\$volunteerJobsTid", expected type at offset 135$#
-			"""
-			count: 1
-			path: web/modules/custom/dds_jobposting/src/Controller/JobPostingController.php
-
-		-
 			message: "#^Call to an undefined method Drupal\\\\Core\\\\Entity\\\\EntityInterface\\:\\:hasField\\(\\)\\.$#"
 			count: 1
 			path: web/modules/custom/dds_layout/dds_layout.module
@@ -139,11 +131,6 @@ parameters:
 			path: web/themes/custom/mungo/mungo.theme
 
 		-
-			message: "#^Call to method get\\(\\) on an unknown class Paragraph\\.$#"
-			count: 1
-			path: web/themes/custom/mungo/mungo.theme
-
-		-
 			message: "#^Call to method getFileUri\\(\\) on an unknown class File\\.$#"
 			count: 1
 			path: web/themes/custom/mungo/mungo.theme
@@ -175,11 +162,6 @@ parameters:
 
 		-
 			message: "#^PHPDoc tag @var for variable \\$image_file contains unknown class File\\.$#"
-			count: 1
-			path: web/themes/custom/mungo/mungo.theme
-
-		-
-			message: "#^PHPDoc tag @var for variable \\$paragraph contains unknown class Paragraph\\.$#"
 			count: 1
 			path: web/themes/custom/mungo/mungo.theme
 

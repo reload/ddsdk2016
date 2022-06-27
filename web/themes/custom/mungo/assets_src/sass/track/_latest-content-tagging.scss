@@ -1,0 +1,58 @@
+$_gap: $spacing-small;
+
+.page-type-universe {
+  .has-latest-content-tagging {
+    background-color: map-get($track-colors, "skills");
+
+    .views-element-container {
+      width: 100%;
+      padding-bottom: $spacing-medium;
+    }
+
+    .view-latest-content {
+      .view-content {
+        display: flex;
+        flex-direction: column;
+        gap: $_gap;
+
+        @include media-small {
+          flex-direction: row;
+          flex-wrap: wrap;
+
+          > * {
+            flex: 1 1 calc(50% - #{$_gap});
+          }
+        }
+
+        @include media-medium {
+          gap: $spacing-large;
+
+          > * {
+            flex-basis: calc(33.33% - #{$spacing-large});
+          }
+        }
+      }
+    }
+
+    .node-teaser--list {
+      width: 100%;
+      margin: 0;
+      padding: $_gap;
+      border: 0;
+      background-color: #fff;
+
+      &--meta {
+        padding-left: $_gap;
+      }
+    }
+  }
+}
+
+@each $track, $track-color in $track-colors {
+  .universe-track-#{$track} {
+    .field--name-field-sidedeck .deck-box-head--heading,
+    .field--name-field-sidedeck .view-latest-content {
+      background-color: $track-color;
+    }
+  }
+}

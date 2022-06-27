@@ -42,10 +42,12 @@
   #main-menu-toggle {
     display: none;
   }
-  #main-menu-toggle:checked ~ .burger--main--menu--toggle {
+  #main-menu-toggle:checked ~ .burger--main--menu--toggle,
+  #track-menu-toggle:checked ~ .burger--main--menu--toggle {
     @include burger-to-cross;
   }
-  #main-menu-toggle:checked ~ .menu--main {
+  #main-menu-toggle:checked ~ .menu--main,
+  #track-menu-toggle:checked ~ .menu--main {
     display: block;
   }
 }

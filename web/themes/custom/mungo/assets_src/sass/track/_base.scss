@@ -1,0 +1,75 @@
+.page-type-universe:not(.page-node-type-article, .page-node-type-event, .page-node-type-activity) {
+  background-color: $track-light-green;
+  background-image: url("#{$track-images}/noise.svg");
+  background-size: 40%;
+}
+
+.page-type-universe {
+  @include header-with-bg($targetSelector: page-title);
+  @include topic-track($targetSelector: node--keyword);
+  @include topic-track($targetSelector: "node-teaser--keyword > *");
+
+  ::selection {
+    background-color: $track-blue;
+    color: $track-light-green;
+  }
+
+  .block-local-tasks-block {
+    background-color: $track-blue;
+
+    a {
+      color: $track-light-green;
+
+      &:hover {
+        background-color: $track-green;
+        color: $track-blue;
+      }
+    }
+
+    .is-active a {
+      background-color: $track-light-green;
+      color: $track-blue;
+    }
+  }
+
+  .deck-box-head--heading {
+    font-family: $font-anton;
+    color: $track-blue;
+
+    @include media-small {
+      font-size: 36px;
+    }
+  }
+  .deck-box-head--link a {
+    @include track-cta-button;
+  }
+
+  .track-button--wrapper {
+    max-width: max-content; // Make width whatever the button inside is.
+    margin: auto;
+    padding: $spacing-medium 0;
+
+    .track-cta-button {
+      @include track-cta-button;
+    }
+  }
+}
+
+@keyframes rotateToLeft {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes rotateToRight {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// Create some utility classes for setting background-color with a color in our track-theme.
+@each $track, $color in $track-colors {
+  .track-#{$track}-bg {
+    background-color: $color;
+  }
+}

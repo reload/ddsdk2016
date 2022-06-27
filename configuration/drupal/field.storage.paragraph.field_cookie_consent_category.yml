@@ -1,0 +1,33 @@
+uuid: d242075c-a5bd-47b2-842f-d1b40b589269
+langcode: da
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_cookie_consent_category
+field_name: field_cookie_consent_category
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: necessary
+      label: 'Påkrævet funktionaliet / Ingen cookies'
+    -
+      value: preferences
+      label: Præferencer
+    -
+      value: marketing
+      label: Marketing
+    -
+      value: statistics
+      label: Statistik
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

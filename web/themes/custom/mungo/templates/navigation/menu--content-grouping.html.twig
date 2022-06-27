@@ -20,7 +20,8 @@
 #}
 {{ attach_library('mungo/grouping-menu') }}
 {% import _self as menus %}
-<div class="container">
+<div class="grouping-menu--wrapper full-width-image-container">
+  <div class="container">
     <div class="grouping-menu clearfix">
       {% for item in items %}
         {% if item.in_active_trail %}
@@ -32,9 +33,9 @@
           <ul class="menu menu--grouping-menu">
             {% for item in items %}
               {% set classes = [
-              'menu-item',
-              item.is_expanded ? 'menu-item--expanded',
-              item.in_active_trail ? 'menu-item--active-trail',
+                'menu-item',
+                item.is_expanded ? 'menu-item--expanded',
+                item.in_active_trail ? 'menu-item--active-trail',
               ] %}
               <li{{ item.attributes.addClass(classes) }}>
                 {{ link(item.title, item.url) }}
@@ -44,4 +45,5 @@
         {% endif %}
       </div>
     </div>
+  </div>
 </div>

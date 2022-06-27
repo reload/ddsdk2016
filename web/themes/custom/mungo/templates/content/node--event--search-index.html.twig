@@ -76,6 +76,11 @@
 {% block content %}
   <a href="{{ url }}">
     <div class="search-result__image">
+      {% if attributes.hasClass('track-teaser') %}
+        <figure class="track-star">
+          {% include "@mungo/misc/star-track.html.twig" %}
+        </figure>
+      {% endif %}
       {{ content.field_main_media }}
     </div>
     <div class="search-result__content">

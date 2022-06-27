@@ -85,6 +85,11 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
 
 <a{{ attributes.addClass(classes) }} href="{{ alternative_url ? alternative_url : url }}">
     {% if content.field_main_media|render %}
+      {% if attributes.hasClass('track-teaser') %}
+        <figure class="track-star">
+          {% include "@mungo/misc/star-track.html.twig" %}
+        </figure>
+      {% endif %}
         {{ content.field_main_media }}
     {% else %}
         <div class="no-image fluid-media">
@@ -113,6 +118,10 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
         {{ label }}
     </h2>
 
-    <div class="node-teaser--read-more">{{ 'Read more'|trans }}</div>
+    <div class="node-teaser--read-more">{{ 'Read more'|trans }}
+      {% if attributes.hasClass('track-teaser') %}
+        {% include "@mungo/misc/read-more-circle.html.twig" %}
+      {% endif %}
+    </div>
     </div>
 </a>

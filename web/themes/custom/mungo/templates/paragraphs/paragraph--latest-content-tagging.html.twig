@@ -1,0 +1,14 @@
+{#
+/**
+ * @file
+ * General template for paragraph content links.
+ *
+ * Remove all wrappers.
+ */
+#}
+{% if content.field_deck_title.0 %}
+  <div class="deck-box-head--heading">
+    {{ content.field_deck_title }}
+  </div>
+{% endif %}
+{{ content.list }}

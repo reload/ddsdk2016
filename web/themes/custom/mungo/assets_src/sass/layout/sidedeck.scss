@@ -56,4 +56,41 @@
       width: 100%;
     }
   }
+
+  .field--name-field-sidedeck {
+    .deck-box-head--heading {
+      background-color: $white-two;
+      width: 100%;
+      padding-top: 15px;
+      padding-left: 15px;
+
+      @include media-medium {
+        font-size: 26px;
+      }
+    }
+
+    .view-latest-content {
+      background-color: $white-two;
+      padding: 15px;
+
+      .view-content {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-small;
+      }
+
+      .node-teaser--list {
+        width: 100%;
+        margin: 0;
+        padding: $spacing-small;
+        border: 0;
+        background-color: #fff;
+        overflow: hidden;
+
+        &--meta {
+          padding-left: $spacing-small;
+        }
+      }
+    }
+  }
 }

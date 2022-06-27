@@ -1,0 +1,10 @@
+uuid: e8e8e411-7360-4ee1-b20c-e6d10d944f3d
+langcode: da
+status: true
+dependencies: {  }
+id: events
+label: 'Events teaser'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

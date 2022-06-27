@@ -1,0 +1,176 @@
+@mixin header-with-bg($targetSelector) {
+  .#{$targetSelector} {
+    font-family: $font-anton;
+    text-transform: uppercase;
+    color: $track-light-green;
+    position: relative;
+
+    // If the target is page-title, this is in a article context. Push the title further away from the tag
+    // (node-keyword).
+    @if ($targetSelector == "page-title") {
+      margin-top: 35px;
+
+      @include media-small {
+        margin-top: 50px;
+      }
+    }
+
+    > * {
+      color: $track-light-green;
+      padding: 0 0.2em;
+      background-color: $track-blue;
+      box-decoration-break: clone;
+    }
+  }
+}
+
+@mixin topic-track($targetSelector) {
+  .#{$targetSelector},
+  .#{$targetSelector} a {
+    color: #fff;
+  }
+
+  .#{$targetSelector} {
+    width: max-content;
+    background-color: $track-green;
+    padding: 0.5em;
+  }
+}
+
+@mixin rotate-to-left {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: rotateToLeft $track-star-animation-settings;
+    transform-origin: center;
+  }
+}
+
+@mixin rotate-to-right {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: rotateToRight $track-star-animation-settings;
+    transform-origin: center;
+  }
+}
+
+@mixin track-teaser {
+  // Do not show the border-bottom that is normally shown.
+  border-bottom-color: transparent;
+  display: block;
+  overflow: hidden;
+  position: relative;
+
+  @include topic-track($targetSelector: node-teaser--keyword-list);
+
+  &:hover {
+    .read-more-circle {
+      // When we hover the node-teaser, change the fill color for the svg circle-icon.
+      &--bg {
+        fill: $track-green;
+      }
+    }
+
+    .track-star--bg {
+      fill: $track-blue;
+    }
+
+    .track-star--text *,
+    .track-star--heart {
+      fill: $track-light-green;
+    }
+  }
+
+  .node-teaser--heading {
+    color: $track-blue;
+  }
+
+  .node-teaser--read-more {
+    font-size: 0;
+
+    .read-more-circle {
+      display: block;
+      margin-left: auto;
+
+      &--bg {
+        transition: fill ease-in-out 150ms;
+      }
+    }
+  }
+}
+
+@mixin track-star {
+  .track-star {
+    width: $track-star-width-small;
+    height: $track-star-height-small;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    &--bg {
+      fill: $track-light-green;
+      @include rotate-to-left;
+    }
+
+    &--text {
+      @include rotate-to-right;
+    }
+
+    @include media-large {
+      width: $track-star-width-large;
+      height: $track-star-height-large;
+    }
+  }
+}
+
+@mixin track-cta-button {
+  background-color: $track-blue;
+  color: $track-light-green;
+  font-weight: 800;
+  padding: 1em;
+  text-transform: initial;
+  position: relative;
+
+  @include media-small {
+    font-size: 18px;
+    padding: 0.5em 1em;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: $track-light-green;
+    transition: top linear 100ms, left linear 100ms;
+  }
+
+  &:hover:before {
+    top: 5px;
+    left: 5px;
+  }
+}
+
+@mixin media-section-page-hero-reached {
+  // A media query for when our max-width of our section-page hero view mode kicks in.
+  @media (min-width: $track-section-page-hero-view-mode-max-width) {
+    @content;
+  }
+}
+
+@mixin media-until-section-page-hero-reached {
+  // When we're kinda in between mobile and our image view mode width.
+  @media (min-width: $screen-xs + 1) {
+    @content;
+  }
+}

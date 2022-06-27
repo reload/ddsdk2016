@@ -70,6 +70,8 @@
  *   in different view modes.
  */
 #}
+{% set field_byline = content.field_main_media[0]['#media'].hasField('field_byline') ?
+  content.field_main_media[0]['#media'].get('field_byline').getString() %}
 {%
   set classes = [
     'node',
@@ -98,7 +100,14 @@
         {% endif %}
         {{ title_suffix }}
         {% block title_suffix %}{% endblock %}
+      {% if is_track_page %}
+      <div class="track-star-wrapper {% if field_byline is empty %}no-byline{% endif %}">
+        {% endif %}
         {{ content.field_main_media }}
+        {% if is_track_page %}
+        {% include ["@mungo/misc/star-" ~ track_universe ~ ".html.twig", "@mungo/misc/star-track.html.twig"] %}
+      </div>
+      {% endif %}
         {% block main_media_suffix %}{% endblock %}
       <div class="row">
         <div class="col-md-3 print-full-width">
@@ -106,7 +115,14 @@
         </div>
         <!-- Main content -->
         <div{{ content_attributes.addClass(['node__content', 'col-md-9', 'print-full-width']) }}>
-            {% block main_content %}{% endblock %}
+          {% block main_content %}{% endblock %}
+          {% if is_track_page %}
+            {% block track_frontpage_link %}
+              <div class="track-button--wrapper">
+                <a class="track-cta-button" href="{{ track_frontpage }}">Gå til TRACK forsiden</a>
+              </div>
+            {% endblock %}
+          {% endif %}
         </div>
         <div class="col-md-12 hidden-xs hidden-sm">
           {% block content_below_sidebar %}{% endblock %}

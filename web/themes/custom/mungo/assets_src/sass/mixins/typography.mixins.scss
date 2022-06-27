@@ -67,13 +67,8 @@
   font-weight: bold;
   color: $black;
   letter-spacing: 0.3px;
+  font-size: 18px;
 
-  // Font-size was originally, in ze styleguide 12px, but since body is 13, it
-  // makes no sence.
-  font-size: 14px;
-  @include media-small {
-    font-size: 18px;
-  }
   @include media-medium {
     /* inherit */
   }
@@ -231,7 +226,6 @@
 }
 
 @mixin article-text {
-  font-size: 15px;
   line-height: 2;
   color: $black;
   margin: $spacing-medium 0;

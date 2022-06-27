@@ -1,0 +1,66 @@
+.page-type-universe {
+  @include max-media-xsmall {
+    $_base-bootstrap-spacing: 15px;
+    // Adjust the spacing between the columns in deck layouts.
+    .three-cols-deck {
+      [class*="col-"]:nth-child(2) {
+        padding-right: $_base-bootstrap-spacing / 2;
+      }
+
+      [class*="col-"]:last-child {
+        padding-left: $_base-bootstrap-spacing / 2;
+      }
+    }
+
+    .four-cols-deck {
+      .track-stack[class*="col-"]:nth-child(odd) {
+        padding-right: $_base-bootstrap-spacing / 2;
+      }
+      .track-stack[class*="col-"]:nth-child(even) {
+        padding-left: $_base-bootstrap-spacing / 2;
+      }
+    }
+  }
+}
+
+.page-type-universe .node-teaser,
+.node-teaser.track-teaser {
+  @include track-teaser;
+}
+
+.node-teaser.track-teaser,
+.node--view-mode-search-index.track-teaser {
+  @include track-star;
+}
+
+.page-type-universe .node-teaser.track-teaser {
+  // Do not show the star when we're already in a track-context.
+  .track-star {
+    display: none;
+  }
+}
+
+@each $track-name, $track-color in $track-colors {
+  .node-teaser.track-#{$track-name} {
+    &:hover {
+      // When a node-teaser is hovered, show the track-color as border.
+      border-bottom-color: $track-color;
+    }
+  }
+}
+
+// Teasers in inspiration-deck paragraph.
+.inspiration-deck {
+  .node-teaser.track-teaser {
+    // Hide the teaser keyword.
+    .node-teaser--keyword {
+      display: none;
+    }
+
+    @include header-with-bg(node-teaser--heading);
+
+    a h2.node-teaser--heading {
+      font-size: initial;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+uuid: c24c2e65-c95f-48c4-bebe-7af71d8e72b8
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.embed.field_cookie_consent_category
+    - field.field.paragraph.embed.field_embed
+    - field.field.paragraph.embed.field_icon
+    - field.field.paragraph.embed.field_label
+    - paragraphs.paragraphs_type.embed
+  module:
+    - options
+id: paragraph.embed.default
+targetEntityType: paragraph
+bundle: embed
+mode: default
+content:
+  field_cookie_consent_category:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_embed:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_icon:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_label:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

@@ -116,8 +116,15 @@
     left: 0;
     display: block;
     padding: $spacing-medium;
+
+    @include max-media-xsmall {
+      padding: $spacing-small $spacing-medium;
+      height: 100%;
+    }
+
     h2 {
       @include inspiration_teaser_header;
+      margin: 0;
     }
     p {
       @include inspiration_teaser_text;

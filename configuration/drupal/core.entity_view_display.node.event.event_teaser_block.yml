@@ -1,0 +1,159 @@
+uuid: 28580028-9852-48b6-b92d-522460a7ed35
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.event_teaser_block
+    - field.field.node.event.field_content_category
+    - field.field.node.event.field_content_tag
+    - field.field.node.event.field_content_target_group
+    - field.field.node.event.field_content_topic
+    - field.field.node.event.field_course_id
+    - field.field.node.event.field_event_accommodation
+    - field.field.node.event.field_event_address
+    - field.field.node.event.field_event_area
+    - field.field.node.event.field_event_end
+    - field.field.node.event.field_event_host_info
+    - field.field.node.event.field_event_is_all_day
+    - field.field.node.event.field_event_location_name
+    - field.field.node.event.field_event_price
+    - field.field.node.event.field_event_signup_deadline
+    - field.field.node.event.field_event_signup_instructions
+    - field.field.node.event.field_event_start
+    - field.field.node.event.field_event_teaser
+    - field.field.node.event.field_event_type
+    - field.field.node.event.field_exclude_from_search
+    - field.field.node.event.field_main_media
+    - field.field.node.event.field_metatags
+    - field.field.node.event.field_paragraphs
+    - field.field.node.event.field_programs
+    - node.type.event
+  module:
+    - datetime
+    - field_group
+    - user
+third_party_settings:
+  field_group:
+    group_main_info:
+      children:
+        - field_event_location_name
+        - field_event_price
+      label: 'Main info'
+      parent_name: ''
+      region: hidden
+      weight: 5
+      format_type: html_element
+      format_settings:
+        classes: ''
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_signup_info:
+      children:
+        - field_course_id
+        - field_event_signup_deadline
+        - field_event_signup_instructions
+      label: 'Signup info'
+      parent_name: ''
+      region: hidden
+      weight: 6
+      format_type: html_element
+      format_settings:
+        classes: ''
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_location_info:
+      children:
+        - field_event_accommodation
+        - field_event_address
+        - field_event_area
+      label: 'Location info'
+      parent_name: ''
+      region: hidden
+      weight: 8
+      format_type: html_element
+      format_settings:
+        classes: ''
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_event_extra_info:
+      children:
+        - field_content_target_group
+        - field_event_host_info
+        - field_event_type
+      label: 'Extra info'
+      parent_name: ''
+      region: hidden
+      weight: 7
+      format_type: html_element
+      format_settings:
+        classes: ''
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+id: node.event.event_teaser_block
+targetEntityType: node
+bundle: event
+mode: event_teaser_block
+content:
+  field_event_end:
+    type: datetime_default
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: event_date_long
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_event_start:
+    type: datetime_default
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: event_date_long
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_content_category: true
+  field_content_tag: true
+  field_content_target_group: true
+  field_content_topic: true
+  field_course_id: true
+  field_event_accommodation: true
+  field_event_address: true
+  field_event_area: true
+  field_event_host_info: true
+  field_event_is_all_day: true
+  field_event_location_name: true
+  field_event_price: true
+  field_event_signup_deadline: true
+  field_event_signup_instructions: true
+  field_event_teaser: true
+  field_event_type: true
+  field_exclude_from_search: true
+  field_main_media: true
+  field_metatags: true
+  field_paragraphs: true
+  field_programs: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

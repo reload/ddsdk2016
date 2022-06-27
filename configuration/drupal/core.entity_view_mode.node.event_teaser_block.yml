@@ -1,0 +1,10 @@
+uuid: d66ce02a-513a-4c96-9ffd-1a7ccd7492b1
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: node.event_teaser_block
+label: 'Event teaser - block'
+targetEntityType: node
+cache: true

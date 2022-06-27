@@ -1,0 +1,362 @@
+$_track-icons-size: 108px;
+$_push-overlay-away: $spacing-xlarge;
+$_left-spacing: 15px;
+.page-type-universe.page-node-type-section-page {
+  .main-media {
+    border: 0;
+  }
+
+  .media--view-mode-track-section-page-hero {
+    img {
+      margin: $_push-overlay-away auto auto;
+      height: auto;
+      width: auto;
+      display: block;
+      max-width: 100%;
+      min-height: 254px;
+      object-fit: cover;
+
+      // The mobile version of this image has very specific dimensions, so we need to set them "hard".
+      @media (max-width: $screen-xs) {
+        margin-left: $_left-spacing;
+        width: 75%;
+      }
+
+      // When we're kinda in between mobile and our image view mode width - place the image centered and thus we need
+      // to make the image a little smaller than 100% of container.
+      @include media-until-section-page-hero-reached {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      @include media-section-page-hero-reached {
+        width: 100%;
+      }
+    }
+  }
+
+  // General styles that should apply yo both with and without an image used.
+  .section-header-track {
+    z-index: 0;
+    min-height: 300px;
+
+    .field--name-title {
+      font-family: $font-anton;
+      text-transform: uppercase;
+      margin: 0;
+
+      &.dymo-text-processed * {
+        font-size: 44px;
+        line-height: 46px;
+        color: $track-blue;
+        display: block;
+
+        @media (min-width: 375px) {
+          font-size: 54px;
+          line-height: 56px;
+        }
+
+        @include media-small {
+          font-size: 64px;
+          line-height: 66px;
+        }
+
+        @include media-medium {
+          font-size: 100px;
+          line-height: 100px;
+          max-width: 6ch;
+        }
+      }
+    }
+
+    .dymo-text-processed {
+      &:before {
+        content: initial;
+      }
+
+      * {
+        background: none;
+      }
+    }
+
+    &--text {
+      // This element is already positioned absolute in our section-page.scss, but in case someone should position it
+      // otherwise, let's set it again.
+      position: absolute;
+      top: -$spacing-large;
+      left: 50%;
+      bottom: initial;
+      transform: translateX(-50%);
+
+      @include media-medium {
+        left: 5%;
+        transform: translateX(0);
+      }
+    }
+
+    .track-star {
+      width: $_track-icons-size;
+      height: $_track-icons-size;
+
+      &--bg {
+        @include rotate-to-left;
+
+        fill: $track-blue;
+      }
+
+      &--text {
+        @include rotate-to-right;
+      }
+
+      &--text *,
+      &--heart {
+        fill: $track-light-green;
+      }
+    }
+  }
+
+  // Styles for when an images is used.
+  .section-header-track.has-hero-image {
+    max-width: $track-section-page-hero-view-mode-max-width;
+    margin: auto;
+
+    .dymo-text-processed * {
+      text-shadow: 5px 5px 0 $track-light-green;
+    }
+
+    .track-star,
+    .track-bubbles {
+      position: absolute;
+      bottom: 0;
+    }
+
+    .track-star {
+      width: $_track-icons-size;
+      right: $spacing-small;
+
+      @include media-section-page-hero-reached {
+        top: -$spacing-medium;
+        right: 0;
+      }
+
+      @include media-large {
+        right: -100px;
+        // Make the track-star logo a bit bitter on larger screens.
+        width: auto;
+        height: auto;
+      }
+    }
+
+    .track-bubbles {
+      left: 0;
+      bottom: $spacing-small;
+
+      @include media-until-section-page-hero-reached {
+        left: $spacing-small;
+      }
+
+      @include media-small {
+        width: $_track-icons-size;
+        height: $_track-icons-size;
+      }
+
+      @include media-section-page-hero-reached {
+        top: 75%;
+        transform: translateY(-75%);
+      }
+
+      @include media-large {
+        left: -75px;
+      }
+    }
+  }
+
+  // Styles for when no image is used.
+  .section-header-track.has-no-hero-image {
+    background-image: url("#{$track-images}/noise.svg");
+
+    @include media-medium {
+      min-height: 400px;
+    }
+
+    .section-header-track--text {
+      margin-top: $_push-overlay-away;
+      width: 100%;
+    }
+
+    .field--name-title {
+      text-align: center;
+
+      > span {
+        padding: 0;
+      }
+    }
+    .subtitle {
+      font-size: 26px;
+      width: 70%;
+      margin: $spacing-small auto auto $_left-spacing;
+
+      @include media-until-section-page-hero-reached {
+        margin-left: auto;
+        max-width: 20ch;
+      }
+    }
+    @include header-with-bg($targetSelector: subtitle);
+
+    // Icons.
+    // Fill the t-logo "t" with the color of the current chosen track.
+    @each $track, $track-color in $track-colors {
+      // We don't want to set a bg for our T-icon if the track chosen is "arrangementer",
+      // as the bg color for "arrangementer" is already yellow.
+      @if ($track != "arrangementer") {
+        .track-t--bg.track-#{$track} {
+          fill: map-get($track-colors, "arrangementer");
+        }
+      }
+
+      .track-star--#{$track} {
+        .track-star--text *,
+        .track-star--heart {
+          fill: $track-color;
+        }
+      }
+
+      .track-t--t.track-#{$track} {
+        fill: $track-color;
+      }
+    }
+
+    .track-t,
+    .track-star,
+    .track-3stars,
+    .track-bubbles {
+      position: absolute;
+      z-index: -1;
+    }
+
+    .track-t,
+    .track-star {
+      bottom: $_left-spacing;
+    }
+
+    .track-t {
+      left: $_left-spacing;
+      width: 48px;
+      height: 48px;
+    }
+
+    .track-star {
+      right: $_left-spacing;
+      &--bg * {
+        fill: $track-blue;
+      }
+    }
+
+    .track-3stars {
+      left: $_left-spacing;
+      top: $_left-spacing;
+      width: 55px;
+      height: 55px;
+
+      * {
+        fill: #fff;
+      }
+    }
+
+    .track-bubbles {
+      top: 20%;
+      right: 15%;
+    }
+
+    @include media-until-section-page-hero-reached {
+      // Adjust icons.
+      .track-3stars {
+        width: $_track-icons-size;
+        height: $_track-icons-size;
+      }
+
+      .track-t {
+        width: 78px;
+        height: 78px;
+      }
+
+      .track-bubbles {
+        top: initial;
+        bottom: 0;
+      }
+
+      .section-header-track--text {
+        .subtitle {
+          font-size: 36px;
+        }
+      }
+    }
+
+    @include media-section-page-hero-reached {
+      .section-header-track--text {
+        width: 100%;
+        position: static;
+        transform: initial;
+        margin-top: initial;
+        padding-top: $_push-overlay-away;
+        padding-bottom: $_push-overlay-away;
+
+        .field--name-title {
+          text-align: initial;
+          width: 80%;
+          margin-left: auto;
+
+          &.dymo-text-processed * {
+            max-width: none;
+          }
+        }
+
+        .subtitle {
+          max-width: 60%;
+        }
+      }
+
+      // Adjust icons.
+      .track-t {
+        display: none;
+      }
+
+      .track-3stars {
+        top: 5%;
+        left: 15%;
+      }
+
+      .track-star {
+        height: auto;
+        width: auto;
+      }
+    }
+
+    @include media-large {
+      .section-header-track--text {
+        .field--name-title {
+          width: 70%;
+        }
+
+        .subtitle {
+          font-size: 65px;
+          line-height: 77px;
+          margin: $spacing-large auto;
+        }
+      }
+
+      .track-star {
+        top: 50%;
+        transform: translateY(-50%);
+        right: 10%;
+      }
+
+      .track-bubbles {
+        width: 138px;
+        height: 138px;
+        right: 7%;
+      }
+    }
+  }
+}

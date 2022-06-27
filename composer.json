@@ -79,6 +79,7 @@
         "drupal/facets": "^1.8.0",
         "drupal/field_group": "^3",
         "drupal/field_redirection": "2.x-dev",
+        "drupal/form_options_attributes": "^2.0@beta",
         "drupal/forward": "^4.0",
         "drupal/google_analytics": "^3.1",
         "drupal/http2_server_push": "^1.0.0",
@@ -103,7 +104,7 @@
         "drupal/system_status": "^2.8.0",
         "drupal/token": "^1.9",
         "drupal/translate_tool": "^1.0",
-        "drupal/twig_tweak": "^2.6",
+        "drupal/twig_tweak": "^3.1",
         "drupal/twig_xdebug": "^1.0.0",
         "drupal/video_embed_field": "^2.2.0",
         "drupal/views_bulk_operations": "^3.13",
@@ -148,6 +149,9 @@
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
+            },
+            "file-mapping": {
+                "[web-root]/sites/development.services.yml": false
             }
         },
         "installer-paths": {

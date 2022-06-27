@@ -1,0 +1,77 @@
+.page-type-universe {
+  .track-star-wrapper {
+    position: relative;
+
+    .byline {
+      float: left;
+    }
+
+    svg {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: $track-star-width-small;
+      height: $track-star-height-small;
+
+      @include media-large {
+        width: $track-star-width-large;
+        height: $track-star-height-large;
+      }
+    }
+
+    .track-star--bg {
+      @include rotate-to-left;
+    }
+
+    .track-star--text {
+      @include rotate-to-right;
+    }
+
+    &.no-byline {
+      svg {
+        bottom: -30px;
+      }
+    }
+  }
+
+  .node--type-article .article-text a {
+    color: $track-green;
+    text-decoration: underline;
+  }
+
+  .paragraph--type--quotation {
+    font-family: $font-anton;
+    color: $track-blue;
+
+    .quotation--quote--pre {
+      margin-bottom: -20px;
+      z-index: -1;
+
+      .inner {
+        color: $track-light-green;
+      }
+    }
+
+    @include media-large {
+      width: 100%;
+      margin: auto;
+      float: none;
+    }
+  }
+
+  // Content link.
+  .paragraph--type--content-link {
+    border-color: $track-blue;
+    padding-block: 12px;
+
+    @include topic-track($targetSelector: content-link--text--lead);
+    .content-link--text--lead {
+      font-size: 1rem; // Reset the font size to prevent a huge "button" look.
+      display: inline-block;
+    }
+
+    .content-link--text--title {
+      color: $track-blue;
+    }
+  }
+}

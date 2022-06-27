@@ -1,0 +1,286 @@
+<?php
+
+/**
+ * @file
+ * Hooks and functionality for the Track universe.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\NodeInterface;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\taxonomy\TermInterface;
+use Drupal\views\Views;
+use Drupal\views\ViewExecutable;
+use Drupal\dds_track\TrackInterface;
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Prepare the html for the track universe context.
+ */
+function dds_track_preprocess_html(&$variables) {
+  if (\Drupal::service('router.admin_context')->isAdminRoute()) {
+    return;
+  }
+
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  if (!$node instanceof NodeInterface) {
+    return;
+  }
+
+  if (!_dds_track_is_track_universe($node)) {
+    return;
+  }
+
+  // Attach a general class we can use to style things like the header.
+  $variables['attributes']['class'][] = 'page-type-universe';
+  // Attach a specific track class that let us know at a high level what track
+  // the node is.
+  $variables['attributes']['class'][] = 'universe-track-' . _dds_track_get_track_universe($node);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Attach a html class to the node, if it's in a track-universe context.
+ * This allows us to target nodes in teasers etc.
+ */
+function dds_track_preprocess_node(&$variables) {
+  _dds_track_prepare_node_teaser($variables);
+  _dds_track_prepare_node_full($variables);
+  _dds_track_prepare_event_teaser_block($variables);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function dds_track_preprocess_paragraph__events(&$variables) {
+  /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
+  $paragraph = $variables['paragraph'];
+  if (!$paragraph->hasField('field_category')) {
+    return;
+  }
+
+  $term_reference_tid = $paragraph->get('field_category')->getString();
+  $category_term = Term::load($term_reference_tid);
+
+  if (!$category_term instanceof TermInterface) {
+    return;
+  }
+
+  $events_view = Views::getView('events');
+  if ($events_view instanceof ViewExecutable) {
+    $variables['events_view_block'] = $events_view->buildRenderable('events_block', ['field_content_category_name' => strtolower($category_term->getName())]);
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function dds_track_preprocess_paragraph__situation_links(&$variables) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  if (!$node instanceof NodeInterface) {
+    return;
+  }
+
+  if (!_dds_track_is_track_universe($node)) {
+    return;
+  }
+
+  $variables['is_track_context'] = _dds_track_is_track_universe($node);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function dds_track_preprocess_region(&$variables) {
+  if ($variables['region'] != 'primary_menu') {
+    return;
+  }
+
+  $variables['dds_logo'] = base_path() . \Drupal::theme()->getActiveTheme()->getLogo();
+
+  if (!\Drupal::routeMatch()->getParameter('node')) {
+    return;
+  }
+
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if (!$node instanceof NodeInterface) {
+    return;
+  }
+
+  $is_track_page = _dds_track_is_track_universe($node);
+
+  $variables['is_track_page'] = $is_track_page;
+  $variables['track_frontpage_path'] = TrackInterface::TRACK_UNIVERSE_FRONTPAGE;
+}
+
+/**
+ * Implements hook_form_alter().
+ *
+ * We want to disable the option that is the track term.
+ * We only want the editors to be able to select children of our track term.
+ */
+function dds_track_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Only altering "backend" forms.
+  if (!\Drupal::service('router.admin_context')->isAdminRoute()) {
+    return;
+  }
+
+  // Bail out if the form doesn't have the field we're interested in.
+  if (!array_key_exists('field_content_category', $form)) {
+    return;
+  }
+
+  /** @var \Drupal\Core\Extension\ModuleHandlerInterface $moduleHandler */
+  $moduleHandler = \Drupal::service('module_handler');
+  if ($moduleHandler->moduleExists('form_options_attributes')) {
+    $track_tid = TrackInterface::TRACK_TERM_ID;
+    // The reason we can add #options_attributes is because of the contrib
+    // drupal/form_options_attributes module.
+    $form['field_content_category']['widget']['#options_attributes'] = [
+      $track_tid => ['disabled' => 'disabled'],
+    ];
+  }
+}
+
+/**
+ * Helper function to get the selected track-universe.
+ *
+ * @param \Drupal\node\NodeInterface $node
+ *   The drupal node.
+ *
+ * @return string
+ *   The name of the selected track-universe.
+ */
+function _dds_track_get_track_universe(NodeInterface $node): string {
+  $category_field = $node->get('field_content_category')->getString();
+
+  $category_term = Term::load($category_field);
+  if (!$category_term instanceof TermInterface) {
+    // Prevent the site from breaking should we not get a term.
+    return "not-found";
+  }
+
+  return strtolower($category_term->getName());
+}
+
+/**
+ * Helper function to prepare track nodes in teasers.
+ */
+function _dds_track_prepare_node_teaser(&$variables) {
+  $node = $variables['node'] ?? NULL;
+  if (!$node instanceof NodeInterface) {
+    return $variables;
+  }
+
+  // Bail out if view mode is not a teaser.
+  if ($variables['view_mode'] === 'full' || $variables['view_mode'] === 'preview') {
+    return $variables;
+  }
+
+  if (!$node->hasField('field_content_category')) {
+    return $variables;
+  }
+
+  if (_dds_track_is_track_universe($node)) {
+    $variables['attributes']['class'][] = 'track-teaser';
+    $variables['attributes']['class'][] = 'track-' . _dds_track_get_track_universe($node);
+  }
+
+  return $variables;
+}
+
+/**
+ * Helper function to prepare track nodes in full view mode.
+ */
+function _dds_track_prepare_node_full(&$variables) {
+  if ($variables['view_mode'] !== 'full') {
+    return $variables;
+  }
+
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+
+  if (!_dds_track_is_track_universe($node)) {
+    return $variables;
+  }
+
+  $variables['track_frontpage'] = TrackInterface::TRACK_UNIVERSE_FRONTPAGE;
+  $variables['is_track_page'] = _dds_track_is_track_universe($node);
+  $variables['track_universe'] = _dds_track_get_track_universe($node);
+
+  if ($node->bundle() == 'section_page' && !empty($variables['content']['field_main_media'])) {
+    // Change the view mode for media used on section pages when in track
+    // context.
+    $variables['content']['field_main_media'][0]['#view_mode'] = 'track_section_page_hero';
+
+    $req = \Drupal::request();
+    $variables['is_track_frontpage'] = $req->getPathInfo() == TrackInterface::TRACK_UNIVERSE_FRONTPAGE;
+  }
+
+  return $variables;
+}
+
+/**
+ * Helper function to prepare track nodes in event_teaser_block view mode.
+ */
+function _dds_track_prepare_event_teaser_block(&$variables) {
+  if ($variables['view_mode'] !== 'event_teaser_block') {
+    return $variables;
+  }
+
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+
+  if (!$node->hasField('field_event_start') || !$node->hasField('field_event_end')) {
+    return $variables;
+  }
+
+  $event_start = $node->get('field_event_start');
+  $event_end = $node->get('field_event_end');
+
+  if (empty($event_start->date) ||
+    empty($event_end->date) ||
+    !method_exists($event_start->date, 'format') ||
+    !method_exists($event_end->date, 'format')) {
+    return $variables;
+  }
+
+  $variables['event_time'] = [
+    'start_day' => $event_start->date->format('j'),
+    'start_month' => $event_start->date->format('M'),
+    'start_time' => $event_start->date->format('H:i'),
+    'end_day' => $event_end->date->format('j'),
+    'end_month' => $event_end->date->format('M'),
+    'end_time' => $event_end->date->format('H:i'),
+  ];
+
+  return $variables;
+}
+
+/**
+ * Helper function to check if the current node is in a track-context.
+ *
+ * @return bool
+ *   Whether the current node is a track-universe or not.
+ */
+function _dds_track_is_track_universe(NodeInterface $node): bool {
+  if (!$node->hasField('field_content_category')) {
+    return FALSE;
+  }
+
+  $content_category_tid = $node->get('field_content_category')->getString();
+  $content_category_parent_tid = Term::load($content_category_tid);
+  if (!$content_category_parent_tid instanceof TermInterface) {
+    return FALSE;
+  }
+
+  $content_category_parent_tid = $content_category_parent_tid->get('parent')->getString();
+
+  // We know that the node is in a track context, if the parent term is our
+  // "Track" tid.
+  return $content_category_parent_tid == TrackInterface::TRACK_TERM_ID;
+}

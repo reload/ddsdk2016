@@ -19,6 +19,10 @@ use Drupal\node\Entity\Node;
 use Drupal\taxonomy\TermInterface;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\dds_layout\Form\MungoInspirationPrerender;
+use Drupal\node\NodeInterface;
+use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\paragraphs\ParagraphInterface;
+use Drupal\dds_track\TrackInterface;
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -85,8 +89,11 @@ function mungo_preprocess_field(&$variables) {
     }
   }
   elseif (in_array($field_name, ['field_2col_deck_col1', 'field_2col_deck_col2'])) {
-    /** @var Paragraph $paragraph */
     $paragraph = $variables['element']['#object'];
+    if (!$paragraph instanceof ParagraphInterface) {
+      return;
+    }
+
     $sizes = _mungo_2col_size_option_to_text($paragraph->get('field_2col_column_size')->value);
     // Detect the field that is being rendered as the large part of the
     // two-column deck. It's items should take up 50% of the column aka
@@ -148,6 +155,34 @@ function mungo_preprocess_video_embed_iframe(&$variables) {
 
   if (!empty($provider)) {
     $variables['cookie_consent_category'] = $cookie_consent_categories[$provider];
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function mungo_preprocess_paragraph__embed(&$variables) {
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $variables['paragraph'];
+
+  if (!$paragraph->hasField('field_icon') ||
+    !$paragraph->hasField('field_embed') ||
+    !$paragraph->hasField('field_cookie_consent_category')) {
+    return;
+  }
+
+  if (!empty($paragraph->get('field_icon')->value)) {
+    $variables['icon'] = _mungo_replace_title_with_svg($paragraph->get('field_icon')->value);
+  }
+
+  // This field is mandatory, but let's just check for a value, in case
+  // someone get other ideas in the future :).
+  if (!empty($paragraph->get('field_embed')->getValue())) {
+    $variables['embed_code'] = $paragraph->get('field_embed')->value;
+  }
+
+  if (!empty($paragraph->get('field_cookie_consent_category')->getValue())) {
+    $variables['cookie_consent_category'] = $paragraph->get('field_cookie_consent_category')->value;
   }
 }
 
@@ -317,6 +352,11 @@ function mungo_preprocess_paragraph(&$variables) {
       break;
 
     case 'situation_links':
+      $node = \Drupal::routeMatch()->getParameter('node');
+      if (!$node instanceof NodeInterface) {
+        return;
+      }
+
       // Prepare properties for paragraph type situation links.
       if ($paragraph->hasField('field_situation_main_link') && !(empty($paragraph->field_situation_main_link->getValue()))) {
         $link = $paragraph->field_situation_main_link->getValue();
@@ -327,6 +367,11 @@ function mungo_preprocess_paragraph(&$variables) {
       }
       if ($paragraph->hasField('field_situation_color') && !empty($paragraph->field_situation_color->value)) {
         $variables['attributes']['class'][] = 'situation-links-color-' . $paragraph->field_situation_color->value;
+        if (_dds_track_is_track_universe($node)) {
+          // The value of this field is e.g "track-skills-bg" which sets a css
+          // background-color with the color of the track.
+          $variables['attributes']['class'][] = $paragraph->field_situation_color->value;
+        }
       }
       if ($paragraph->hasField('field_icon') && !empty($paragraph->field_icon->value)) {
         $variables['content']['icon'] = _mungo_replace_title_with_svg($paragraph->field_icon->value);
@@ -464,7 +509,7 @@ function _mungo_preprocess_super_titles(Node $node, &$variables) {
     // The term id that the editors can add to content to indicate that the
     // content is related to track. We're checking on the id because the name
     // could change.
-    $track_tid = 826;
+    $track_tid = TrackInterface::TRACK_TERM_ID;
 
     /** @var Drupal\taxonomy\TermInterface $target_group */
     $target_group = Term::load($item['target_id']);
@@ -1081,6 +1126,12 @@ function _mungo_2col_size_option_to_text(int $value) {
 function _mungo_preprocess_deck_paragraph($type, &$variables) {
   $variables['cols_attributes'] = new Attribute();
 
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  if (!$node instanceof NodeInterface) {
+    return;
+  }
+
   // Detect each column field and move it into a seperat cols.<name>
   // variable.
   // The name is expected to look like this: field_4col_deck_col_4 for the
@@ -1093,8 +1144,35 @@ function _mungo_preprocess_deck_paragraph($type, &$variables) {
   }
 
   if ($type === '1col_deck') {
-    foreach ($variables['cols'] as &$col) {
-      $col['#attributes']['class'][] = 'col-xs-12';
+    /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
+    $paragraph = $variables['paragraph'];
+    /** @var \Drupal\paragraphs\ParagraphInterface $referenced_paragraph */
+    foreach ($paragraph->referencedEntities() as $referenced_paragraph) {
+      if (!$referenced_paragraph instanceof ParagraphInterface) {
+        continue;
+      }
+
+      $variables['attributes']['class'][] = 'has-' . str_replace('_', '-', $referenced_paragraph->getType());
+
+      foreach ($variables['cols'] as &$col) {
+        $col['#attributes']['class'][] = 'col-xs-12';
+      }
+    }
+
+    if ($node instanceof NodeInterface) {
+      if (_dds_track_is_track_universe($node)) {
+        $paragraphs = $variables['paragraph']->get('field_1col_deck_col1')->getValue();
+        foreach ($paragraphs as $paragraph) {
+          /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
+          $paragraph = Paragraph::load($paragraph['target_id']);
+          if ($paragraph->getType() == 'events') {
+            // Add some classes to all of our events paragraphs inside a
+            // 1 col deck paragraph.
+            $variables['attributes']['class'][] = 'has-event-teaser';
+            $variables['attributes']['class'][] = 'track-arrangementer-bg';
+          }
+        }
+      }
     }
   }
   elseif ($type === '2col_deck') {
@@ -1104,7 +1182,7 @@ function _mungo_preprocess_deck_paragraph($type, &$variables) {
     /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
     $paragraph = $variables['paragraph'];
     if ($paragraph->hasField('field_2col_column_size') && isset($paragraph->get('field_2col_column_size')->value)) {
-      switch (_mungo_2col_size_option_to_text($paragraph->get('field_2col_column_size')->value)) {
+      switch (_mungo_2col_size_option_to_text(intval($paragraph->get('field_2col_column_size')->value))) {
         case '66_33':
           $variables['cols']['field_2col_deck_col1']['#attributes']['class'][] = 'col-md-8';
           $variables['cols']['field_2col_deck_col2']['#attributes']['class'][] = 'col-md-4';
@@ -1118,17 +1196,62 @@ function _mungo_preprocess_deck_paragraph($type, &$variables) {
     }
   }
   elseif ($type === '3col_deck') {
-    foreach ($variables['cols'] as &$col) {
+    foreach ($variables['cols'] as $key => &$col) {
+      if ($node instanceof NodeInterface) {
+        if (_dds_track_is_track_universe($node)) {
+          if ($key === 'field_3col_deck_col1') {
+            // Only set the col-xs-12 on the first column.
+            $col['#attributes']['class'][] = 'col-xs-12 col-sm-4';
+          }
+          else {
+            // Set the col-xs-6 for the two other columns.
+            $col['#attributes']['class'][] = 'col-xs-6 col-sm-4';
+          }
+          // Continue through to set classes for the  regular dds universe.
+          continue;
+        }
+      }
       $col['#attributes']['class'][] = 'col-sm-4';
       $col['#attributes']['class'][] = 'col-xs-12';
     }
     $variables['attributes']['class'][] = 'three-cols-deck';
   }
   elseif ($type === '4col_deck') {
-    foreach ($variables['cols'] as &$col) {
-      $col['#attributes']['class'][] = 'col-md-3';
-      $col['#attributes']['class'][] = 'col-sm-6';
-      $col['#attributes']['class'][] = 'col-xs-12';
+    $reference_types = [
+      'content_article_reference',
+      'content_badge_reference',
+      'content_activity_reference',
+      'content_event_reference',
+    ];
+
+    /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
+    $paragraph = $variables['paragraph'];
+    /** @var \Drupal\paragraphs\ParagraphInterface $referenced_paragraph */
+    foreach ($paragraph->referencedEntities() as $referenced_paragraph) {
+      if (!$referenced_paragraph instanceof ParagraphInterface) {
+        continue;
+      }
+
+      $variables['attributes']['class'][] = 'has-' . str_replace('_', '-', $referenced_paragraph->getType());
+
+      foreach ($variables['cols'] as &$col) {
+        if ($node instanceof NodeInterface && _dds_track_is_track_universe($node)) {
+          if (in_array($referenced_paragraph->getType(), $reference_types)) {
+            // In track-universe, place reference paragraph columns in a
+            // 2col/2 row grid.
+            $col['#attributes']['class'][] = 'col-xs-6';
+            $col['#attributes']['class'][] = 'col-md-3';
+            $col['#attributes']['class'][] = 'track-stack';
+
+            // Continue through to set classes for the regular dds universe.
+            continue;
+          }
+        }
+
+        $col['#attributes']['class'][] = 'col-md-3';
+        $col['#attributes']['class'][] = 'col-sm-6';
+        $col['#attributes']['class'][] = 'col-xs-12';
+      }
     }
     $variables['attributes']['class'][] = 'four-cols-deck';
   }

@@ -23,6 +23,18 @@ settings:
     -
       value: grey
       label: Grey
+    -
+      value: track-skills-bg
+      label: 'Track - skills (lilla)'
+    -
+      value: track-patruljeliv-bg
+      label: 'Track - patruljeliv (grøn)'
+    -
+      value: track-arrangementer-bg
+      label: 'Track - arrangementer (gul)'
+    -
+      value: track-adventurespejd-bg
+      label: 'Track - adventurespejd (blå)'
   allowed_values_function: ''
 module: options
 locked: false

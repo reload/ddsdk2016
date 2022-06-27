@@ -1,0 +1,38 @@
+{{ attach_library('mungo/object-fit') }}
+<header
+  class="section-header section-header-track {% if content.field_main_media.0|render %}has-hero-image {% else %}track-{{ track_universe }}-bg has-no-hero-image{% endif %}">
+  {% if content.field_main_media.0|render %}
+    {{ content.field_main_media }}
+    <div class="image-overlay section-header-track--text">
+      {{ label }}
+    </div>
+    {% include "@mungo/misc/track-bubbles.html.twig" %}
+    {% if is_track_frontpage %}
+      {% include "@mungo/misc/star-track.html.twig" %}
+    {% else %}
+      {% include ["@mungo/misc/star-" ~ track_universe ~ ".html.twig", "@mungo/misc/star-track.html.twig"] %}
+    {% endif %}
+
+  {% else %}
+    {# If we don't have an image, we will show a background with the color of the chosen track. #}
+    <div class="section-header-track--text">
+      {{ label }}
+      {% if content.field_subtitle.0|render %}
+        <div class="subtitle">
+          {# The regular field_subtitle outputs with the dymo-text class on it, which prevents us from
+          setting our header-with-bg mixin due to the implementation in base.js (dymo-text behaviour).
+          #}
+          <span>{{ content.field_subtitle.0['#context'].value }}</span>
+        </div>
+      {% endif %}
+    </div>
+    {% include "@mungo/misc/track-3stars.html.twig" %}
+    {% include "@mungo/misc/track-bubbles.html.twig" %}
+    {% include "@mungo/misc/track-t.html.twig" with {'track_universe': track_universe} %}
+    {% if is_track_frontpage %}
+      {% include "@mungo/misc/star-track.html.twig" %}
+    {% else %}
+      {% include ["@mungo/misc/star-" ~ track_universe ~ ".html.twig", "@mungo/misc/star-track.html.twig"] %}
+    {% endif %}
+  {% endif %}
+</header>

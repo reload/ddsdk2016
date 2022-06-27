@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.section_page.field_content_tag
     - field.field.node.section_page.field_content_target_group
     - field.field.node.section_page.field_content_topic
+    - field.field.node.section_page.field_exclude_from_search
     - field.field.node.section_page.field_main_media
     - field.field.node.section_page.field_metatags
     - field.field.node.section_page.field_section
@@ -42,8 +43,10 @@ hidden:
   field_content_category: true
   field_content_tag: true
   field_content_target_group: true
+  field_exclude_from_search: true
   field_metatags: true
   field_section: true
   field_subtitle: true
   langcode: true
   links: true
+  search_api_excerpt: true

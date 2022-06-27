@@ -80,12 +80,18 @@ $output-bourbon-deprecation-warnings: false !default;
 @import "components/shortcuts";
 @import "components/cookie-consent";
 @import "components/markup";
+@import "components/embed";
 
 /**
  * SMACSS Theme.
  */
 @import "theme/backgrounds";
 @import "theme/dymo-text";
+
+/**
+ * Track theme.
+ */
+@import "track/track.bundle";
 
 /**
  * Drupal elements.

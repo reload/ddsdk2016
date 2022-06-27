@@ -4,6 +4,8 @@
  *
  */
 .paragraph--type--situation-links {
+  font-size: $std-font-size;
+
   @include clearfix;
 
   // Initiate border. Color is overridden later.
@@ -83,11 +85,15 @@
     text-decoration: none;
     margin: 0 $spacing-medium;
     color: $bluish;
+    font-size: 14px;
+
     &:after {
       content: " \2192";
     }
     @include media-medium {
       color: #000;
+      font-size: 18px;
+
       &:after {
         content: "";
       }

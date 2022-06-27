@@ -7,6 +7,7 @@ dependencies:
     - node.type.badge
     - paragraphs.paragraphs_type.block
     - paragraphs.paragraphs_type.download
+    - paragraphs.paragraphs_type.latest_content_tagging
   module:
     - entity_reference_revisions
 id: node.badge.field_sidedeck
@@ -25,6 +26,7 @@ settings:
     target_bundles:
       block: block
       download: download
+      latest_content_tagging: latest_content_tagging
     negate: 0
     target_bundles_drag_drop:
       1col_deck:
@@ -66,11 +68,20 @@ settings:
       content_redirect_page_reference_:
         weight: 44
         enabled: false
+      content_section_reference:
+        weight: 50
+        enabled: false
       download:
         weight: 45
         enabled: true
       dynamic_deck:
         weight: 23
+        enabled: false
+      embed:
+        weight: 53
+        enabled: false
+      events:
+        weight: 54
         enabled: false
       factbox:
         weight: 24
@@ -93,6 +104,9 @@ settings:
       latest_content_list:
         weight: 53
         enabled: false
+      latest_content_tagging:
+        weight: 62
+        enabled: true
       list_deck:
         weight: 54
         enabled: false
@@ -107,6 +121,9 @@ settings:
         enabled: false
       quotation:
         weight: 29
+        enabled: false
+      read_more:
+        weight: 68
         enabled: false
       shortcuts:
         weight: 59

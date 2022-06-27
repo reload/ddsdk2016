@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.article.field_content_tag
     - field.field.node.article.field_content_target_group
     - field.field.node.article.field_content_topic
+    - field.field.node.article.field_exclude_from_search
     - field.field.node.article.field_main_media
     - field.field.node.article.field_metatags
     - field.field.node.article.field_paragraphs
@@ -47,9 +48,11 @@ hidden:
   field_content_category: true
   field_content_tag: true
   field_content_target_group: true
+  field_exclude_from_search: true
   field_metatags: true
   field_paragraphs: true
   field_sidedeck: true
   field_subtitle: true
   langcode: true
   links: true
+  search_api_excerpt: true
