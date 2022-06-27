@@ -161,6 +161,11 @@
   }
 }
 
+@mixin track-heading {
+  font-family: $font-anton;
+  color: $track-blue;
+}
+
 @mixin media-section-page-hero-reached {
   // A media query for when our max-width of our section-page hero view mode kicks in.
   @media (min-width: $track-section-page-hero-view-mode-max-width) {
