@@ -1,6 +1,6 @@
 {{ attach_library('mungo/object-fit') }}
 <header
-  class="section-header section-header-track {% if content.field_main_media.0|render %}has-hero-image {% else %}track-{{ track_universe }}-bg has-no-hero-image{% endif %}">
+  class="section-header section-header-track {% if content.field_main_media.0|render %}has-hero-image {% else %}track-{{ track_universe }}-bg has-no-hero-image{% endif %} {% if is_track_frontpage %} is-track-frontpage{% endif %}">
   {% if content.field_main_media.0|render %}
     {{ content.field_main_media }}
     <div class="image-overlay section-header-track--text">
