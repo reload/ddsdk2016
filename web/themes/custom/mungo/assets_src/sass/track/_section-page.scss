@@ -6,7 +6,7 @@ $_left-spacing: 15px;
     border: 0;
   }
 
-  .media--view-mode-track-section-page-hero {
+  .section-header-track .field--name-field-main-media {
     img {
       margin: $_push-overlay-away auto auto;
       height: auto;
@@ -102,7 +102,9 @@ $_left-spacing: 15px;
       &--bg {
         @include rotate-to-left;
 
-        fill: $track-blue;
+        * {
+          fill: $track-blue;
+        }
       }
 
       &--text {
@@ -112,6 +114,14 @@ $_left-spacing: 15px;
       &--text *,
       &--heart {
         fill: $track-light-green;
+      }
+    }
+    @each $track, $track-color in $track-colors {
+      .track-star--#{$track} {
+        .track-star--text *,
+        .track-star--heart {
+          fill: $track-color;
+        }
       }
     }
   }
@@ -356,6 +366,14 @@ $_left-spacing: 15px;
         width: 138px;
         height: 138px;
         right: 7%;
+      }
+    }
+  }
+
+  .section-header-track.is-track-frontpage {
+    .track-star {
+      &--bg {
+        fill: $track-blue;
       }
     }
   }
