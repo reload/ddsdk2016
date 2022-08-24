@@ -30,6 +30,7 @@
 
 .node-teaser.track-teaser,
 .node--view-mode-search-index.track-teaser {
+  position: relative;
   @include track-star;
 }
 
