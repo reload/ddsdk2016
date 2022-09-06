@@ -85,6 +85,9 @@ web:
                 # Provide a longer TTL (2 weeks) for aggregated CSS and JS files.
                 '^/sites/default/files/(css|js)':
                     expires: 2w
+                # Provide a short TTL (1 minute) for cron job exit codes.
+                '^/sites/default/files/.*\.cron':
+                    expires: 1m
 
 # The size of the persistent disk of the application (in MiB).
 disk: 21000
@@ -122,18 +125,32 @@ crons:
     drupal:
         spec: "*/5 * * * *"
         cmd: |
-            cd "$PLATFORM_DOCUMENT_ROOT"
-            drush core:cron --uri=$(platform route:get --primary --property=url)
+            (
+              set -e
+              cd "$PLATFORM_DOCUMENT_ROOT"
+              drush core:cron --uri=$(platform route:get --primary --property=url)
+            )
+            echo "'$?'" > "$PLATFORM_DOCUMENT_ROOT/sites/default/files/drupal.cron"
+
     snapshot:
         spec: '15 0 * * *'
         cmd: |
-            if [ "$PLATFORM_BRANCH" = "master" ] || [ "$PLATFORM_BRANCH" = "develop" ]; then
-                platform snapshot:create --yes --no-wait
-            fi
+            (
+              set -e
+              if [ "$PLATFORM_BRANCH" = "master" ]; then
+                  platform snapshot:create --yes --no-wait
+              fi
+            )
+            echo "'$?'" > "$PLATFORM_DOCUMENT_ROOT/sites/default/files/snapshot.cron"
+
     renewcert:
         # Force a redeploy at 3 am (UTC) on the 1st and 15th of every month.
         spec: '0 3 1,15 * *'
         cmd: |
-            if [ "$PLATFORM_BRANCH" = master ]; then
-                platform redeploy --yes --no-wait
-            fi
+            (
+              set -e
+              if [ "$PLATFORM_BRANCH" = master ]; then
+                  platform redeploy --yes --no-wait
+              fi
+            )
+            echo "'$?'" > "$PLATFORM_DOCUMENT_ROOT/sites/default/files/renewcert.cron"
