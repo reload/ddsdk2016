@@ -20,7 +20,7 @@
     {
       "label": "/",
       "url": "%site-url%/",
-      "referenceUrl": "https://www.dds.dk",
+      "referenceUrl": "https://dds.dk",
       "delay": 2000,
       "removeSelectors": [
         "#CybotCookiebotDialog"
@@ -83,7 +83,7 @@
     {
       "label": "/maerke/bygherre",
       "url": "%site-url%/maerke/bygherre",
-      "referenceUrl": "https://www.dds.dk/maerke/bygherre",
+      "referenceUrl": "https://dds.dk/maerke/bygherre",
       "delay": 2000,
       "removeSelectors": [
         "#CybotCookiebotDialog"
