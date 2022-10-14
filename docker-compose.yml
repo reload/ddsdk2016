@@ -114,7 +114,8 @@ services:
     volumes:
       - '${PWD}:/var/www'
     working_dir: /var/www
-    user: "${UID:?Please set the UID environment variable to your numeric user id.}"
+    # Use UID env variable if set or default to uid 1000.
+    user: "${UID:-1000}"
     environment:
       # Use /tmp as home as it's world writable.
       HOME: '/tmp'
