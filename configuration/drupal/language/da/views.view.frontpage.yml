@@ -2,12 +2,19 @@ label: Forside
 description: 'Alt indhold som vises på forsiden.'
 display:
   default:
+    display_title: Standard
     display_options:
-      empty:
-        area_text_custom:
-          content: 'Der er ikke blevet oprettet forsideindhold endnu.'
-        title:
-          title: 'Velkommen til [site:name]'
+      pager:
+        options:
+          tags:
+            next: 'Næste ›'
+            previous: '‹ Forrige'
+            first: '« Første'
+            last: 'Sidste »'
+          expose:
+            items_per_page_label: 'Antal elementer'
+            items_per_page_options_all_label: '- Alle -'
+            offset_label: Forskydning
       exposed_form:
         options:
           submit_button: Udfør
@@ -15,18 +22,9 @@ display:
           exposed_sorts_label: 'Sortér efter'
           sort_asc_label: Stigende
           sort_desc_label: Faldende
-      pager:
-        options:
-          expose:
-            items_per_page_label: 'Antal elementer'
-            items_per_page_options_all_label: '- Alle -'
-            offset_label: Forskydning
-          tags:
-            previous: '‹ Forrige'
-            next: 'Næste ›'
-            first: '« Første'
-            last: 'Sidste »'
-    display_title: Standard
+      empty:
+        area_text_custom:
+          content: 'Der er ikke blevet oprettet forsideindhold endnu.'
   feed_1:
     display_title: Feed
   page_1:
