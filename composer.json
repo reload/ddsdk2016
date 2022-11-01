@@ -166,11 +166,13 @@
             "drupal/core": {
                 "2949017: There is no way to delete or update file entities of other users incl. user/1": "https://www.drupal.org/files/issues/2019-12-12/2949017-59.patch",
                 "2558207: Add hook to react to image_path_flush() - recommended by the Reloadtina module": "https://www.drupal.org/files/issues/add_hook_image_path_flush-2558207-4.patch",
-                "2857132: Account administration pages language negotiation ignores _format blocking REST resources": "https://www.drupal.org/files/issues/2019-01-28/preserve-format-while-negoatiating-2857132-10-work-in-progress.patch"
+                "2857132: Account administration pages language negotiation ignores _format blocking REST resources": "https://www.drupal.org/files/issues/2019-01-28/preserve-format-while-negoatiating-2857132-10-work-in-progress.patch",
+                "DDS CUSTOM: Support always rebuilding the kernel to fix localization issues.": "patches/drupal_always-rebuild-kernel.patch"
+
+            },
+            "drush/drush": {
+                "DDS CUSTOM: Support always rebuilding the kernel on Cache Rebuild": "patches/drush_always-rebuild-kernel.patch"
             }
-        },
-        "patchLevel": {
-            "drupal/core": "-p2"
         },
         "composer-exit-on-patch-failure": true
     }

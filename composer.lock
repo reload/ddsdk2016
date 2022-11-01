@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "137e96a7d7d6c91c95118f19dc262e3d",
+    "content-hash": "8cc68eb0299fec08c24267af78eaf5e6",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -2888,20 +2888,20 @@
                     "homepage": "https://www.drupal.org/node/2348769/committers"
                 },
                 {
-                    "name": "StryKaizer",
-                    "homepage": "https://www.drupal.org/user/462700"
-                },
-                {
-                    "name": "borisson_",
-                    "homepage": "https://www.drupal.org/user/2393360"
-                },
-                {
                     "name": "drunken monkey",
                     "homepage": "https://www.drupal.org/user/205582"
                 },
                 {
                     "name": "mkalkbrenner",
                     "homepage": "https://www.drupal.org/user/124705"
+                },
+                {
+                    "name": "Nick_vh",
+                    "homepage": "https://www.drupal.org/user/122682"
+                },
+                {
+                    "name": "StryKaizer",
+                    "homepage": "https://www.drupal.org/user/462700"
                 }
             ],
             "description": "The Facet module allows site builders to easily create and manage faceted search interfaces.",
@@ -3817,6 +3817,10 @@
                 {
                     "name": "hipp2bsquare",
                     "homepage": "https://www.drupal.org/user/2473076"
+                },
+                {
+                    "name": "joevagyok",
+                    "homepage": "https://www.drupal.org/user/2876343"
                 },
                 {
                     "name": "mariuss",
@@ -5009,6 +5013,7 @@
                 "drupal/core": "^8.8 || ^9"
             },
             "require-dev": {
+                "drupal/ckeditor": "*",
                 "drupal/colorbox": "^1.0",
                 "drupal/video_embed_media": "*"
             },
@@ -5029,16 +5034,16 @@
             ],
             "authors": [
                 {
-                    "name": "Sam152",
-                    "homepage": "https://www.drupal.org/user/1485048"
-                },
-                {
                     "name": "jec006",
                     "homepage": "https://www.drupal.org/user/855980"
                 },
                 {
                     "name": "plopesc",
                     "homepage": "https://www.drupal.org/user/282415"
+                },
+                {
+                    "name": "Sam152",
+                    "homepage": "https://www.drupal.org/user/1485048"
                 }
             ],
             "description": "A pluggable field type for storing videos from external video hosts such as Vimeo and YouTube.",
