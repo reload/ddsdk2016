@@ -105,10 +105,11 @@ function facets_views_block_preprocess_views_view(&$variables) {
   if (!empty($variables['facets'])) {
     // Reorder the facets and exposed filters on the on various view pages.
     // @todo Move this list of displays to a centralized place.
-    // Same goes for the exposed filter functionality in: mungo_preprocess_views_view().
+    // Same goes for the exposed filter functionality in:
+    // mungo_preprocess_views_view().
     $filter_callbacks = [
-      'events' => '_facets_views_preprocess_event_filters',
-      'activities' => '_facets_views_preprocess_activity_filters',
+      'events' => '_facets_views_block_preprocess_event_filters',
+      'activities' => '_facets_views_block_preprocess_activity_filters',
     ];
 
     if (isset($filter_callbacks[$current_view_id]) && function_exists($filter_callbacks[$current_view_id])) {
@@ -140,7 +141,7 @@ function facets_views_block_theme() {
  * We add the facets to the exposed form, by rendering them and
  * adding them as markup in the form.
  */
-function _facets_views_preprocess_event_filters(&$variables) {
+function _facets_views_block_preprocess_event_filters(&$variables) {
   // Initialize weight.
   $weight = -1;
 
@@ -188,7 +189,7 @@ function _facets_views_preprocess_event_filters(&$variables) {
  * @param array $variables
  *   Variables.
  */
-function _facets_views_preprocess_activity_filters(array &$variables) {
+function _facets_views_block_preprocess_activity_filters(array &$variables) {
   // Initialize weight.
   $weight = -1;
 

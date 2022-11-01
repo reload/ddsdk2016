@@ -8,12 +8,10 @@
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\ViewExecutable;
-
-const DDS_SEARCH_DATE_USER_FORMAT = 'd/m/Y';
-const DDS_SEARCH_DATE_EXECUTION_FORMAT = 'm/d/Y';
+use Drupal\dds_search\DdsSearchInterface;
 
 /**
- * Implements hook_form_alter().
+ * Implements hook_preprocess_views_view_unformatted().
  */
 function dds_search_preprocess_views_view_unformatted(&$variables) {
   /** @var \Drupal\views\ViewExecutable $view */
@@ -100,16 +98,16 @@ function dds_search_form_validate(&$form, FormStateInterface &$form_state) {
  * Reformats a date from d/m/Y to m/d/Y.
  */
 function _dds_search_reformat_date_dk_to_us($value) {
-  $date = DateTime::createFromFormat(DDS_SEARCH_DATE_USER_FORMAT, $value);
-  return $date->format(DDS_SEARCH_DATE_EXECUTION_FORMAT);
+  $date = DateTime::createFromFormat(DdsSearchInterface::DDS_SEARCH_DATE_USER_FORMAT, $value);
+  return $date->format(DdsSearchInterface::DDS_SEARCH_DATE_EXECUTION_FORMAT);
 }
 
 /**
  * Reformats a date from m/d/Y to d/m/Y.
  */
 function _dds_search_reformat_date_us_to_dk($value) {
-  $date = DateTime::createFromFormat(DDS_SEARCH_DATE_EXECUTION_FORMAT, $value);
-  return $date->format(DDS_SEARCH_DATE_USER_FORMAT);
+  $date = DateTime::createFromFormat(DdsSearchInterface::DDS_SEARCH_DATE_EXECUTION_FORMAT, $value);
+  return $date->format(DdsSearchInterface::DDS_SEARCH_DATE_USER_FORMAT);
 }
 
 /**
