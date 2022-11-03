@@ -172,6 +172,9 @@
             },
             "drush/drush": {
                 "DDS CUSTOM: Support always rebuilding the kernel on Cache Rebuild": "patches/drush_always-rebuild-kernel.patch"
+            },
+            "drupal/stage_file_proxy": {
+                "3293275: PHP 8.1 Deprecated function: trim(): Passing null to parameter #1": "https://www.drupal.org/files/issues/2022-06-29/stage_file_proxy-php81-trim-warnings-3293275-2.patch"
             }
         },
         "composer-exit-on-patch-failure": true
