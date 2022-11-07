@@ -12,8 +12,7 @@ use Drupal\user\Entity\User;
  */
 function dds_person_form_alter(&$form, &$form_state, $form_id) {
 
-  // Pre-select a default-author if the user has specified one in his or her
-  // profile.
+  // Pre-select a default-author if the user has specified one.
   // We only alter specific forms we know to contain the author-field.
   if (in_array($form_id, ['node_article_form'])) {
     // Only continue if we can find a default person.

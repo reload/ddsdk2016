@@ -9,14 +9,7 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\node\NodeInterface;
-
-define('DDS_BADGE_TYPE_PROGRESSION', 'progression');
-define('DDS_BADGE_TYPE_SKILL', 'skill');
-
-
-define('DDS_BADGE_LEVEL_BASIC', 'basic');
-define('DDS_BADGE_LEVEL_INTERMEDIATE', 'intermediate');
-define('DDS_BADGE_LEVEL_EXPERT', 'expert');
+use Drupal\dds_badge\DdsBadgeInterface;
 
 /**
  * Implements hook_field_group_form_process().
@@ -40,7 +33,10 @@ function dds_badge_field_group_form_process(array &$element, &$group, &$complete
  */
 function dds_badge_field_widget_form_alter(&$element, &$form_state, $context) {
   if (isset($context['items'])
-    && in_array($context['items']->getName(), ['field_badge_progression', 'field_badge_level'])) {
+    && in_array($context['items']->getName(), [
+      'field_badge_progression',
+      'field_badge_level',
+    ])) {
     $element['#element_validate'][] = '_dds_badge_progression_validate';
   }
 }
@@ -160,9 +156,9 @@ function dds_badge_sort_nodes_by_level(array &$nodes) {
  */
 function dds_badge_level_to_int($level_name) : int {
   $level_map = [
-    DDS_BADGE_LEVEL_BASIC => 0,
-    DDS_BADGE_LEVEL_INTERMEDIATE => 1,
-    DDS_BADGE_LEVEL_EXPERT => 2,
+    DdsBadgeInterface::DDS_BADGE_LEVEL_BASIC => 0,
+    DdsBadgeInterface::DDS_BADGE_LEVEL_INTERMEDIATE => 1,
+    DdsBadgeInterface::DDS_BADGE_LEVEL_EXPERT => 2,
   ];
 
   if (array_key_exists($level_name, $level_map)) {

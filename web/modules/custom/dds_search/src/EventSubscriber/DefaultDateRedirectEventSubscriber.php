@@ -5,6 +5,7 @@ namespace Drupal\dds_search\EventSubscriber;
 use Drupal\Core\PageCache\ResponsePolicy\KillSwitch;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Url;
+use Drupal\dds_search\DdsSearchInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
@@ -15,6 +16,11 @@ use Symfony\Component\HttpKernel\KernelEvents;
  */
 class DefaultDateRedirectEventSubscriber implements EventSubscriberInterface {
 
+  /**
+   * The currently active route match object.
+   *
+   * @var \Drupal\Core\Routing\RouteMatchInterface
+   */
   protected $routeMatch;
 
   /**
@@ -39,7 +45,7 @@ class DefaultDateRedirectEventSubscriber implements EventSubscriberInterface {
     // If we are on the correct view page, check for arguments, if we have
     // none inject a default date and redirect the user.
     if ($this->routeMatch->getRouteName() === 'view.events.events_overview' && empty($event->getRequest()->query->all())) {
-      $url = Url::fromRoute('view.events.events_overview', ['event_after' => date(DDS_SEARCH_DATE_USER_FORMAT)]);
+      $url = Url::fromRoute('view.events.events_overview', ['event_after' => date(DdsSearchInterface::DDS_SEARCH_DATE_USER_FORMAT)]);
       $event->setResponse(new RedirectResponse($url->toString()));
       // Make sure Drupals page-cache does not cache the redirect for anonymous
       // users.

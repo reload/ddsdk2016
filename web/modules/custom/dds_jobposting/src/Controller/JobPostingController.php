@@ -26,6 +26,7 @@ class JobPostingController extends ControllerBase {
    *   Taxonomy id of the volunteer job term.
    *
    * @return array
+   *   The contents of the page.
    */
   public function content($paidJobsTid, $volunteerJobsTid) {
     return [

@@ -14,6 +14,7 @@ use Drupal\Core\Site\Settings;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Template\Attribute;
 use Drupal\Core\Url;
+use Drupal\dds_badge\DdsBadgeInterface;
 use Drupal\file\FileInterface;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\TermInterface;
@@ -341,7 +342,10 @@ function mungo_preprocess_paragraph(&$variables) {
       if (isset($variables['content']['field_insp_teaser_color'][0]['#markup'])) {
         $variables['teaser_text_background_color'] = $variables['content']['field_insp_teaser_color'][0]['#markup'];
 
-        if (in_array($variables['teaser_text_background_color'], ['#ea636f', '#003366'])) {
+        if (in_array($variables['teaser_text_background_color'], [
+          '#ea636f',
+          '#003366',
+        ])) {
           $variables['teaser_text_color'] = 'white';
         }
         else {
@@ -585,7 +589,7 @@ function _mungo_preprocess_node_badge(Node $node, &$variables) {
   $variables['top_image'] = $top_image;
 
   // Add a level menu to badges.
-  if ($node->field_badge_type->value === DDS_BADGE_TYPE_PROGRESSION
+  if ($node->field_badge_type->value === DdsBadgeInterface::DDS_BADGE_TYPE_PROGRESSION
     && !empty($node->field_badge_progression)
   ) {
     // Pick out the progression term the node is associated with.
@@ -733,7 +737,7 @@ function _mungo_preprocess_node_article(Node $node, &$variables) {
 /**
  * Render variables needed for presentation of a person as a author.
  *
- * @param Drupal\taxonomy\TermInterafce $person
+ * @param Drupal\taxonomy\TermInterface $person
  *   A Person term.
  *
  * @return array
@@ -945,7 +949,8 @@ function mungo_preprocess_views_view(&$variables) {
   $view = $variables['view'];
 
   // @todo Move this list of displays to a centralized place.
-  // Same goes for the exposed filter definition in :facets_views_block_preprocess_views_view().
+  // Same goes for the exposed filter definition in
+  // :facets_views_block_preprocess_views_view().
   if (in_array($view->current_display, [
     'events_overview',
     'activities_overview',
@@ -1046,7 +1051,7 @@ function mungo_theme_suggestions_alter(array &$suggestions, array $variables, $h
       // Add view-modes to taxonomies.
       if (!empty($variables['elements']['#view_mode'])) {
         $view_mode = $variables['elements']['#view_mode'];
-        foreach ($suggestions as $id => $suggestion) {
+        foreach ($suggestions as $suggestion) {
           $suggestions[] = $suggestion . '__' . $view_mode;
         }
         $suggestions[] = $hook . '__' . $variables['elements']['#view_mode'];

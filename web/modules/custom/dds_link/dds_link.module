@@ -73,7 +73,7 @@ function dds_link_form_node_form_alter(&$form, FormStateInterface $form_state) {
  * @param Drupal\Core\Form\FormStateInterface $form_state
  *   Form state.
  */
-function _dds_link_node_edit_form_redirect(&$form, FormStateInterface $form_state) {
+function _dds_link_node_edit_form_redirect(array &$form, FormStateInterface $form_state) {
   $entity = $form_state->getFormObject()->getEntity();
 
   $form_state->setRedirectUrl($entity->toUrl('edit-form'));
