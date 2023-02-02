@@ -143,15 +143,3 @@ crons:
               fi
             )
             echo "'$?'" > "$PLATFORM_DOCUMENT_ROOT/sites/default/files/snapshot.cron"
-
-    renewcert:
-        # Force a redeploy at 3 am (UTC) on the 1st and 15th of every month.
-        spec: '0 3 1,15 * *'
-        cmd: |
-            (
-              set -e
-              if [ "$PLATFORM_BRANCH" = master ]; then
-                  platform redeploy --yes --no-wait
-              fi
-            )
-            echo "'$?'" > "$PLATFORM_DOCUMENT_ROOT/sites/default/files/renewcert.cron"
