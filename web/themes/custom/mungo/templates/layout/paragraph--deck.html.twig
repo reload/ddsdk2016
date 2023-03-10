@@ -49,23 +49,23 @@ set classes = [
 
 <div{{ attributes.addClass(classes) }}>
   <div class="container">
-    <div class="row row-equal-columns deck-box-head">
-      {% if content.field_deck_title|render or content.field_deck_link|render %}
+    {% if content.field_deck_title|render or content.field_deck_link|render %}
+      <div class="row row-equal-columns deck-box-head">
         <div class="col-xs-12">
-      <div class="deck-box-head--heading">
-        {% if content.field_deck_title|render %}
-          {{ content.field_deck_title }}
-        {% else %}
-          {# Guarantee container-height even if we don't have a title #}
-          &nbsp;
-        {% endif %}
-      </div>
-      <div class="deck-box-head--link">
-        {{ content.field_deck_link }}
-      </div>
+          <div class="deck-box-head--heading">
+            {% if content.field_deck_title|render %}
+              {{ content.field_deck_title }}
+            {% else %}
+              {# Guarantee container-height even if we don't have a title #}
+              &nbsp;
+            {% endif %}
+          </div>
+          <div class="deck-box-head--link">
+            {{ content.field_deck_link }}
+          </div>
         </div>
-      {% endif %}
-    </div>
+      </div>
+    {% endif %}
 
     <div class="row row-equal-columns row--grid">
       {% if cols %}

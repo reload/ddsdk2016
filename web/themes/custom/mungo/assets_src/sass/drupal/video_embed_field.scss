@@ -4,11 +4,14 @@
 
 .video-embed-container {
   width: 100%;
-  background:$white-one;
 }
 
-.video-embed-iframe-container{
+.video-embed-iframe-container {
   display: block;
   aspect-ratio: 16/9;
   position: relative;
+}
+
+.node-teaser--content-container {
+  background: $white-one;
 }
