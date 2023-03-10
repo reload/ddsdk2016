@@ -1,3 +1,14 @@
 .video-embed-field-responsive-video {
   display: flex;
 }
+
+.video-embed-container {
+  width: 100%;
+  background:$white-one;
+}
+
+.video-embed-iframe-container{
+  display: block;
+  aspect-ratio: 16/9;
+  position: relative;
+}
