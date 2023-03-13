@@ -72,11 +72,20 @@ settings:
       content_redirect_page_reference_:
         weight: 46
         enabled: false
+      content_section_reference:
+        weight: 50
+        enabled: false
       download:
         weight: 47
         enabled: false
       dynamic_deck:
         weight: 48
+        enabled: false
+      embed:
+        weight: 53
+        enabled: false
+      events:
+        weight: 54
         enabled: false
       factbox:
         weight: 49
@@ -98,6 +107,9 @@ settings:
         enabled: false
       latest_content_list:
         weight: 55
+        enabled: false
+      latest_content_tagging:
+        weight: 62
         enabled: false
       list_deck:
         weight: 56

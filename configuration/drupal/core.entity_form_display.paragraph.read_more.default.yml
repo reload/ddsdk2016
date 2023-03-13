@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.read_more.field_1col_deck_col1
+    - field.field.paragraph.read_more.field_title
     - paragraphs.paragraphs_type.read_more
   module:
     - paragraphs
@@ -14,7 +15,7 @@ mode: default
 content:
   field_1col_deck_col1:
     type: entity_reference_paragraphs
-    weight: 0
+    weight: 1
     region: content
     settings:
       title: Paragraph
@@ -23,6 +24,14 @@ content:
       add_mode: dropdown
       form_display_mode: default
       default_paragraph_type: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
 hidden:
   created: true
