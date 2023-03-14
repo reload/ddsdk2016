@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.video.field_content_topic
     - field.field.paragraph.video.field_video
     - field.field.paragraph.video.field_video_caption
     - paragraphs.paragraphs_type.video
@@ -13,6 +14,16 @@ targetEntityType: paragraph
 bundle: video
 mode: default
 content:
+  field_content_topic:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_video:
     type: video_embed_field_textfield
     weight: 0

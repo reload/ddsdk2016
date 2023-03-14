@@ -1,0 +1,18 @@
+<div class="video-embed-container node-teaser">
+  <div class="video-embed-iframe-container">
+    {{ content.field_video }}
+  </div>
+  {% if content.field_content_topic.0 or content.field_video_caption.0 %}
+    <div class="node-teaser--content-container">
+      <div class="node-teaser--keyword ">
+        <ul class="node-teaser--keyword-list">
+          <li>{{ content.field_content_topic }}</li>
+        </ul>
+      </div>
+      <h2 class="node-teaser--heading">
+        <span
+          class="field field--name-title field--type-string field--label-hidden">{{ content.field_video_caption }}</span>
+      </h2>
+    </div>
+  {% endif %}
+</div>

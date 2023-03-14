@@ -1,0 +1,29 @@
+uuid: fc78de37-5e47-467a-ac6f-5efa57142c69
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content_topic
+    - paragraphs.paragraphs_type.video
+    - taxonomy.vocabulary.content_topic
+id: paragraph.video.field_content_topic
+field_name: field_content_topic
+entity_type: paragraph
+bundle: video
+label: Emneord
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      content_topic: content_topic
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
