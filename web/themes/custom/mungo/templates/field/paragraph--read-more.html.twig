@@ -38,29 +38,27 @@
  * @ingroup themeable
  */
 #}
-{%
-  set classes = [
+{% set classes = [
   'paragraph',
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   'read-more',
-]
-%}
+] %}
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
-    <input type="checkbox" class="read-more__controller" id="read-more-{{ paragraph.id() }}" />
+    <input type="checkbox" class="read-more__controller" id="read-more-{{ paragraph.id() }}"/>
     <label class="read-more__button" for="read-more-{{ paragraph.id() }}">
       <span class="read-more__open-text">
-        {{ 'Read more'|trans }}
-      </span>
+          {{ content.field_title.0|default('Read more'|trans) }}
+        </span>
       <span class="read-more__close-text">
-        {{ 'Read less'|trans }}
-      </span>
+          {{ content.field_title.0|default('Read less'|trans) }}
+        </span>
     </label>
     <div class="read-more__content">
       <div class="read-more__content-inner">
         {% block content %}
-          {{ content }}
+          {{ content|without('field_title') }}
         {% endblock %}
       </div>
     </div>
