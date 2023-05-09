@@ -124,3 +124,6 @@ $config['google_analytics.settings']['account'] = 'UA-7162673-26';
 // The following is used in html.html.twig and is not a mistake but an example
 // of how to use the flag.
 // $config['feature_flags']['hotjar20171127'] = TRUE;
+
+// Add plausible url to local env.
+$config['ddsdk']['plausible_domain'] = 'ddsdk.docker';
