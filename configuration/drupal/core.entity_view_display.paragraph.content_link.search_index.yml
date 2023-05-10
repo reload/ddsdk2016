@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.paragraph.search_index
     - field.field.paragraph.content_link.field_content_link
     - field.field.paragraph.content_link.field_content_link_lead
+    - field.field.paragraph.content_link.field_show_as_button
     - field.field.paragraph.content_link.field_show_thumbnail
     - paragraphs.paragraphs_type.content_link
   module:
@@ -37,5 +38,7 @@ content:
     region: content
 hidden:
   created: true
+  field_show_as_button: true
   field_show_thumbnail: true
+  search_api_excerpt: true
   uid: true

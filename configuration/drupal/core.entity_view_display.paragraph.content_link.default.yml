@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.content_link.field_content_link
     - field.field.paragraph.content_link.field_content_link_lead
+    - field.field.paragraph.content_link.field_show_as_button
     - field.field.paragraph.content_link.field_show_thumbnail
     - paragraphs.paragraphs_type.content_link
 id: paragraph.content_link.default
@@ -20,8 +21,19 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  field_show_as_button:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   created: true
   field_content_link: true
   field_show_thumbnail: true
+  search_api_excerpt: true
   uid: true

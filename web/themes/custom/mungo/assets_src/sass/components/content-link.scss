@@ -47,3 +47,22 @@ a.content-link {
     text-decoration: none;
   }
 }
+
+.content-link--button {
+  .content-link--text {
+    border-radius: 15px;
+    background: $bluish;
+    width: 100%;
+    padding: $spacing-medium;
+    text-align: center;
+
+    @include media-small {
+      width: fit-content;
+    }
+  }
+
+  .content-link--text--lead,
+  .content-link--text--title {
+    color: white;
+  }
+}

@@ -819,6 +819,7 @@ function _mungo_preprocess_paragraph_content_link(&$variables) {
   $link = $paragraph->get('field_content_link')->first();
   $lead = empty($paragraph->get('field_content_link_lead')->first()) ? NULL : $paragraph->get('field_content_link_lead')->first()->value;
   $show_thumbnail = (boolean) $variables['paragraph']->get('field_show_thumbnail')->first()->value;
+  $show_as_button = $paragraph->hasField('field_show_as_button') ? $paragraph->get('field_show_as_button')->getString() : NULL;
 
   // Setup the variables we'll try to prepare for the template.
   $thumbnail = NULL;
@@ -897,6 +898,10 @@ function _mungo_preprocess_paragraph_content_link(&$variables) {
 
   // Blank out any existing content.
   $variables['content'] = [];
+
+  if ($show_as_button) {
+    $variables['attributes']['class'][] = 'content-link--button';
+  }
 
   // Add our RAs.
   $variables['content']['lead'] = $lead;
