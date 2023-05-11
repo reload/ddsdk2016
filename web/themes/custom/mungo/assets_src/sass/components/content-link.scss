@@ -37,6 +37,11 @@
   }
 }
 
+// To make sure the text--title has big font if it stands alone since the text-lead is optional.
+.content-link--text > div:first-of-type {
+  text-transform: uppercase;
+}
+
 // Handle the situation where the content-link container is an a-tag.
 a.content-link {
   // Should act as a block-element to be clickable and have a border.
@@ -48,21 +53,46 @@ a.content-link {
   }
 }
 
+// Styling only active if the show_as_button flag is set.
 .content-link--button {
-  .content-link--text {
-    border-radius: 15px;
+  .content-link--button-wrapper {
+    border-radius: 35px;
     background: $bluish;
     width: 100%;
-    padding: $spacing-medium;
+    padding: 15px 20px;
     text-align: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    transition: 200ms ease-in-out;
+
+    svg {
+      height: 17px;
+    }
 
     @include media-small {
       width: fit-content;
+
+      svg {
+        height: 24px;
+      }
+    }
+
+    &:hover {
+      background: $marine-lighter-blue;
     }
   }
 
+  .content-link--text--lead {
+    margin-bottom: 0;
+  }
+
+  // To override the default text color so the text is visible on the button background.
   .content-link--text--lead,
-  .content-link--text--title {
+  .content-link--text--title,
+  .content-link--text > div:first-of-type {
     color: white;
   }
 }

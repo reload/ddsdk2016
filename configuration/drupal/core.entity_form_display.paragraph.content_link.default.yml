@@ -10,6 +10,7 @@ dependencies:
     - paragraphs.paragraphs_type.content_link
   module:
     - link
+    - maxlength
 id: paragraph.content_link.default
 targetEntityType: paragraph
 bundle: content_link
@@ -29,8 +30,11 @@ content:
     region: content
     settings:
       size: 60
-      placeholder: 'Short headline - defaults to "See more"'
-    third_party_settings: {  }
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: null
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
   field_show_as_button:
     type: boolean_checkbox
     weight: 2

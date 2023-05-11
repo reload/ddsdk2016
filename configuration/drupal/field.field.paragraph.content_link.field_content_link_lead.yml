@@ -10,7 +10,7 @@ field_name: field_content_link_lead
 entity_type: paragraph
 bundle: content_link
 label: Lead
-description: 'A short headline that will be displayed over the link. Defaults to "See also" if nothing is specified.'
+description: 'A short headline that will be displayed over the link.'
 required: false
 translatable: false
 default_value: {  }

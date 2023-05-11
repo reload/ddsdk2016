@@ -899,10 +899,6 @@ function _mungo_preprocess_paragraph_content_link(&$variables) {
   // Blank out any existing content.
   $variables['content'] = [];
 
-  if ($show_as_button) {
-    $variables['attributes']['class'][] = 'content-link--button';
-  }
-
   // Add our RAs.
   $variables['content']['lead'] = $lead;
   $variables['content']['thumbnail'] = $thumbnail;
@@ -910,6 +906,7 @@ function _mungo_preprocess_paragraph_content_link(&$variables) {
   $variables['content']['alternative_url'] = $alternative_url;
   $variables['content']['target'] = $target;
   $variables['content']['title'] = $title;
+  $variables['content']['show_as_button'] = $show_as_button;
 }
 
 /**
