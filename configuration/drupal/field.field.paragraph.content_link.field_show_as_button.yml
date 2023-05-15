@@ -1,0 +1,23 @@
+uuid: 8f71a6e9-038c-466e-a8db-509986b3ab39
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_show_as_button
+    - paragraphs.paragraphs_type.content_link
+id: paragraph.content_link.field_show_as_button
+field_name: field_show_as_button
+entity_type: paragraph
+bundle: content_link
+label: 'Show as button'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

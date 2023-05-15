@@ -5,10 +5,12 @@ dependencies:
   config:
     - field.field.paragraph.content_link.field_content_link
     - field.field.paragraph.content_link.field_content_link_lead
+    - field.field.paragraph.content_link.field_show_as_button
     - field.field.paragraph.content_link.field_show_thumbnail
     - paragraphs.paragraphs_type.content_link
   module:
     - link
+    - maxlength
 id: paragraph.content_link.default
 targetEntityType: paragraph
 bundle: content_link
@@ -24,11 +26,21 @@ content:
     third_party_settings: {  }
   field_content_link_lead:
     type: string_textfield
-    weight: 2
+    weight: 3
     region: content
     settings:
       size: 60
-      placeholder: 'Short headline - defaults to "See more"'
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: null
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+  field_show_as_button:
+    type: boolean_checkbox
+    weight: 2
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_show_thumbnail:
     type: boolean_checkbox
