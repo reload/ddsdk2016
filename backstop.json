@@ -21,7 +21,7 @@
       "label": "/",
       "url": "%site-url%/",
       "referenceUrl": "https://dds.dk",
-      "delay": 2000,
+      "delay": 4000,
       "removeSelectors": [
         "#CybotCookiebotDialog"
       ]
@@ -30,7 +30,7 @@
       "label": "/aktiviteter",
       "url": "%site-url%/aktiviteter",
       "referenceUrl": "https://dds.dk/aktiviteter",
-      "delay": 2000,
+      "delay": 4000,
       "removeSelectors": [
         "#CybotCookiebotDialog"
       ]
@@ -39,7 +39,7 @@
       "label": "/maerker",
       "url": "%site-url%/maerker",
       "referenceUrl": "https://dds.dk/maerker",
-      "delay": 2000,
+      "delay": 4000,
       "removeSelectors": [
         "#CybotCookiebotDialog"
       ]
@@ -48,7 +48,7 @@
       "label": "/arrangementer?event_after=20/05/2021",
       "url": "%site-url%/arrangementer?event_after=20/05/2021",
       "referenceUrl": "https://dds.dk/arrangementer?event_after=20/05/2021",
-      "delay": 2000,
+      "delay": 4000,
       "removeSelectors": [
         "#CybotCookiebotDialog"
       ]
@@ -57,7 +57,7 @@
       "label": "/trop-temaside",
       "url": "%site-url%/trop-temaside",
       "referenceUrl": "https://dds.dk/trop-temaside",
-      "delay": 2000,
+      "delay": 4000,
       "removeSelectors": [
         "#CybotCookiebotDialog"
       ]
@@ -66,7 +66,7 @@
       "label": "/artikel/guide-sadan-pakker-du-rygsaekken",
       "url": "%site-url%/artikel/guide-sadan-pakker-du-rygsaekken",
       "referenceUrl": "https://dds.dk/artikel/guide-sadan-pakker-du-rygsaekken",
-      "delay": 2000,
+      "delay": 4000,
       "removeSelectors": [
         "#CybotCookiebotDialog"
       ]
@@ -75,7 +75,7 @@
       "label": "/artikel/fem-flotte-naturperler-til-en-weekendtur",
       "url": "%site-url%/artikel/fem-flotte-naturperler-til-en-weekendtur",
       "referenceUrl": "https://dds.dk/artikel/fem-flotte-naturperler-til-en-weekendtur",
-      "delay": 2000,
+      "delay": 4000,
       "removeSelectors": [
         "#CybotCookiebotDialog"
       ]
@@ -84,7 +84,7 @@
       "label": "/maerke/bygherre",
       "url": "%site-url%/maerke/bygherre",
       "referenceUrl": "https://dds.dk/maerke/bygherre",
-      "delay": 2000,
+      "delay": 4000,
       "removeSelectors": [
         "#CybotCookiebotDialog"
       ]
@@ -93,7 +93,7 @@
       "label": "/arrangement/so21-solandslejr",
       "url": "%site-url%/arrangement/so21-solandslejr",
       "referenceUrl": "https://dds.dk/arrangement/so21-solandslejr",
-      "delay": 2000,
+      "delay": 4000,
       "removeSelectors": [
         "#CybotCookiebotDialog"
       ]
@@ -102,7 +102,7 @@
       "label": "/aktivitet/1-dags-kollektiv",
       "url": "%site-url%/aktivitet/1-dags-kollektiv",
       "referenceUrl": "https://dds.dk/aktivitet/1-dags-kollektiv",
-      "delay": 2000,
+      "delay": 4000,
       "removeSelectors": [
         "#CybotCookiebotDialog"
       ]
@@ -111,7 +111,7 @@
       "label": "/synlighed",
       "url": "%site-url%/synlighed",
       "referenceUrl": "https://dds.dk/synlighed",
-      "delay": 2000,
+      "delay": 4000,
       "removeSelectors": [
         "#CybotCookiebotDialog"
       ]
