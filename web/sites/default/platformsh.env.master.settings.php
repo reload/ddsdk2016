@@ -12,4 +12,4 @@ $config['raven.settings']['public_dsn'] = 'https://286d4190d96d4bfd91634ed7ef06d
 $config['ddsdk']['enable_linkedin_script'] = TRUE;
 
 // Production tracking scripts, overriding docker.settings.php.
-$config['ddsdk']['plausible_domain'] = 'dds.dk';
+$config['plausible_tracking.settings']['domain'] = 'dds.dk';

@@ -1,0 +1,12 @@
+_core:
+  default_config_hash: aCXw17R4EUqdqjEq_0wpNt8yVzEHT5YmzHSqhVOpPVs
+domain: ddsdk.docker
+admin_pages_enabled: 0
+blocked_ips:
+  - ''
+track_downloads: 1
+enable_unofficial_api: 0
+track_query_params: 1
+query_params:
+  - search_text
+track_outbound_link_click: 1
