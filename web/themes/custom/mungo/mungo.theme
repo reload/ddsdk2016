@@ -33,24 +33,7 @@ function mungo_preprocess_html(&$variables) {
   $variables['feature_flags'] = \Drupal::config('feature_flags')->get();
   $variables['enable_linkedin_script'] = \Drupal::config('ddsdk')->get('enable_linkedin_script');
 
-  // Add plausible script.
-  $plausible_domain = \Drupal::config('ddsdk')->get('plausible_domain');
-  if (empty($plausible_domain)) {
-    return;
-  }
 
-  // Including plausible, GDPR-friendly tracking.
-  $variables['page']['#attached']['html_head'][] = [
-    [
-      '#tag' => 'script',
-      '#attributes' => [
-        'src' => 'https://plausible.io/js/script.js',
-        'defer' => TRUE,
-        'data-domain' => $plausible_domain,
-      ],
-    ],
-    'plausible-script',
-  ];
 }
 
 /**
