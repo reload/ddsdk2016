@@ -126,4 +126,4 @@ $config['google_analytics.settings']['account'] = 'UA-7162673-26';
 // $config['feature_flags']['hotjar20171127'] = TRUE;
 
 // Add plausible url to local env.
-$config['ddsdk']['plausible_domain'] = 'ddsdk.docker';
+$config['plausible_tracking.settings']['domain'] = 'ddsdk.docker';
