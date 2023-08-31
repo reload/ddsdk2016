@@ -86,7 +86,6 @@ module:
   path_alias: 0
   pathauto: 0
   plausible_tracking: 0
-  raven: 0
   redirect: 0
   redis: 0
   reloadtina: 0
