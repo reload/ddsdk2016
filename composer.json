@@ -94,7 +94,6 @@
         "drupal/paragraphs": "^1.6.0",
         "drupal/pathauto": "^1.8",
         "drupal/plausible_tracking": "^1.0@beta",
-        "drupal/raven": "^3.2",
         "drupal/redirect": "^1.3.0",
         "drupal/redis": "^1.5",
         "drupal/reloadtina": "^2",
