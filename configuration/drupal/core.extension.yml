@@ -88,7 +88,6 @@ module:
   plausible_tracking: 0
   redirect: 0
   redis: 0
-  reloadtina: 0
   responsive_image: 0
   rest: 0
   scheduler: 0
