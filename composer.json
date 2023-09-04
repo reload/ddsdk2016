@@ -84,7 +84,6 @@
         "drupal/form_options_attributes": "^2.0",
         "drupal/forward": "^4.0",
         "drupal/google_analytics": "^4",
-        "drupal/google_analytics": "^3.1",
         "drupal/image_widget_crop": "^2.2.0",
         "drupal/inline_entity_form": "^1.0@RC",
         "drupal/jquery_ui_accordion": "^1.1",
