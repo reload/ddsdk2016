@@ -17,16 +17,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: reload/action-platformsh-deploy-status@main
-<<<<<<< HEAD
         id: platformsh_url
-=======
->>>>>>> 22b9a18 (Streamline and tweak frontend linter actions.)
         with:
           PLATFORMSH_ID: 55isd6w54kg6s
           PLATFORMSH_KEY: ${{ secrets.DAIS_PLATFORMSH_KEY }}
           ALLOW_CANCEL_CRON: 1
 
-<<<<<<< HEAD
       - name: Cypress
         uses: reload/action-platformsh-cypress@main
         with:
@@ -40,5 +36,3 @@ jobs:
           LOST_PIXEL_API_KEY: ${{ secrets.LOST_PIXEL_API_KEY }}
           LOST_PIXEL_BASE_URL: ${{ steps.platformsh_url.outputs.url }}
 
-=======
->>>>>>> 22b9a18 (Streamline and tweak frontend linter actions.)

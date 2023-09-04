@@ -8,6 +8,8 @@
   "scripts": {
     "watch": "npm config set bin-links true && ./node_modules/.bin/gulp watch",
     "build": "npm config set bin-links true && npm install && ./node_modules/.bin/gulp build",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
     "js:eslint": "eslint $npm_package_config_themepath/assets_src/js/**/*",
     "js:prettier": "prettier $npm_package_config_themepath/assets_src/js/**/*",
     "js:lint": "concurrently 'npm:js:eslint' 'npm:js:prettier -- --check' --raw",
@@ -25,6 +27,7 @@
   "devDependencies": {
     "@reloaddk/daft": "^1.2.0",
     "bootstrap-sass": "^3.4.1",
+    "cypress": "^13.1.0",
     "font-awesome": "^4.7.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
