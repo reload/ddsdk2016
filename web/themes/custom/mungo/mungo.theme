@@ -15,15 +15,15 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Template\Attribute;
 use Drupal\Core\Url;
 use Drupal\dds_badge\DdsBadgeInterface;
+use Drupal\dds_layout\Form\MungoInspirationPrerender;
+use Drupal\dds_track\TrackInterface;
 use Drupal\file\FileInterface;
 use Drupal\node\Entity\Node;
-use Drupal\taxonomy\TermInterface;
-use Drupal\taxonomy\Entity\Term;
-use Drupal\dds_layout\Form\MungoInspirationPrerender;
 use Drupal\node\NodeInterface;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\paragraphs\ParagraphInterface;
-use Drupal\dds_track\TrackInterface;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\taxonomy\TermInterface;
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -32,7 +32,6 @@ function mungo_preprocess_html(&$variables) {
   // Make featureflags available.
   $variables['feature_flags'] = \Drupal::config('feature_flags')->get();
   $variables['enable_linkedin_script'] = \Drupal::config('ddsdk')->get('enable_linkedin_script');
-
 
 }
 

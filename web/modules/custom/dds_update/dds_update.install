@@ -6,6 +6,7 @@
  */
 
 use Drupal\file\Entity\File;
+use Drupal\file\FileInterface;
 use Drupal\locale\SourceString;
 use Drupal\node\Entity\Node;
 
@@ -141,7 +142,7 @@ function dds_update_update_8108() {
 
   $query = $db->select('file_managed', 'fm')->fields('fm', ['fid']);
   $query->leftJoin('file_usage', 'fu', 'fm.fid = fu.fid');
-  $query->condition('fm.status', FILE_STATUS_PERMANENT);
+  $query->condition('fm.status', FileInterface::STATUS_PERMANENT);
   $query->isNull('fu.fid');
   $fids = $query->execute()->fetchCol();
 

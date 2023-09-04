@@ -2,8 +2,8 @@ name: Facets Views Block
 type: module
 description: Provide facets and exposed form to views block templates.
 package: Search
-core: 8.x
-core_version_requirement: ^8 || ^9
+
+core_version_requirement: ^9 || ^10
 dependencies:
   - drupal:views
   - drupal:block

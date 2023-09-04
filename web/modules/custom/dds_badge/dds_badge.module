@@ -8,8 +8,8 @@
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
-use Drupal\node\NodeInterface;
 use Drupal\dds_badge\DdsBadgeInterface;
+use Drupal\node\NodeInterface;
 
 /**
  * Implements hook_field_group_form_process().

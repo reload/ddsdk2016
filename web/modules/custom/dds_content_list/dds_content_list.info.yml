@@ -2,5 +2,5 @@ name: 'DDS Content list'
 description: 'Functionality to support the list-deck paragraph type and related paragraphs and views'
 type: module
 package: DDS
-core: 8.x
-core_version_requirement: ^8 || ^9
+
+core_version_requirement: ^9 || ^10
