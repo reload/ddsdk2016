@@ -86,11 +86,6 @@ parameters:
 			path: web/modules/custom/dds_tracking/dds_tracking.module
 
 		-
-			message: "#^Call to deprecated constant FILE_STATUS_PERMANENT\\: Deprecated in drupal\\:9\\.3\\.0 and is removed from drupal\\:10\\.0\\.0\\. Use \\\\Drupal\\\\file\\\\FileInterface\\:\\:STATUS_PERMANENT or \\\\Drupal\\\\file\\\\FileInterface\\:\\:setPermanent\\(\\)\\.$#"
-			count: 1
-			path: web/modules/custom/dds_update/dds_update.install
-
-		-
 			message: "#^Parameter \\#2 \\$value of method Drupal\\\\Core\\\\Database\\\\Query\\\\ConditionInterface\\:\\:condition\\(\\) expects array\\|Drupal\\\\Core\\\\Database\\\\Query\\\\SelectInterface\\|string\\|null, int given\\.$#"
 			count: 1
 			path: web/modules/custom/dds_update/dds_update.install
@@ -189,4 +184,3 @@ parameters:
 			message: "#^Variable \\$file in PHPDoc tag @var does not match assigned variable \\$uploaded_files\\.$#"
 			count: 1
 			path: web/themes/custom/mungo/theme-settings.php
-
