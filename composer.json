@@ -107,6 +107,7 @@
         "drupal/translate_tool": "^2.0",
         "drupal/twig_tweak": "^3.1",
         "drupal/twig_xdebug": "^1.0.0",
+        "drupal/upgrade_status": "^4.0",
         "drupal/video_embed_field": "^2.2.0",
         "drupal/views_bulk_operations": "^4.2",
         "drush/drush": "^10",
