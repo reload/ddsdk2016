@@ -14,18 +14,27 @@ display:
             previous: '‹ forrige'
             next: 'næste ›'
       fields:
+        node_bulk_form:
+          action_title: Handling
         title:
           label: Titel
+          separator: ', '
         type:
           label: Indholdstype
           separator: ', '
         name:
           label: Forfatter
+          separator: ', '
         status:
           label: Status
           settings:
             format_custom_true: Udgivet
             format_custom_false: 'Ikke udgivet'
+          separator: ', '
+        publish_on:
+          separator: ', '
+        unpublish_on:
+          separator: ', '
         operations:
           label: Handlinger
       filters:
@@ -61,3 +70,4 @@ display:
         uid:
           exception:
             title: Alle
+    display_title: Bruger

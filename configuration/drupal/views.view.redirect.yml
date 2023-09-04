@@ -247,7 +247,7 @@ display:
         type: basic
         options:
           submit_button: Udfør
-          reset_button: false
+          reset_button: true
           reset_button_label: Gendan
           exposed_sorts_label: 'Sortér efter'
           expose_sort_order: true
