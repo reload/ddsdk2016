@@ -5,9 +5,9 @@
  * Functionality for articles.
  */
 
-use Drupal\dds_article\DdsArticleInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Mail\MailFormatHelper;
+use Drupal\dds_article\DdsArticleInterface;
 
 /**
  * Implements hook_form_alter().
