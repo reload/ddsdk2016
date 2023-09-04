@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "09129003dc634617fec002a8a3b68d8f",
+    "content-hash": "44f2523e8c0e8ffe829ae6cfbea9bc61",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -1990,65 +1990,6 @@
             }
         },
         {
-            "name": "drupal/cookieconsent",
-            "version": "1.6.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/cookieconsent.git",
-                "reference": "8.x-1.6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/cookieconsent-8.x-1.6.zip",
-                "reference": "8.x-1.6",
-                "shasum": "3acb8380e230e3a01486e336197e5b543892c409"
-            },
-            "require": {
-                "drupal/core": "^8 || ^9"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-1.6",
-                    "datestamp": "1592402037",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Hans van Wezenbeek (Nitebreed)",
-                    "homepage": "https://www.drupal.org/u/nitebreed",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Steven Buteneers",
-                    "homepage": "https://www.drupal.org/user/3301055"
-                },
-                {
-                    "name": "pjotr",
-                    "homepage": "https://www.drupal.org/user/3487709"
-                }
-            ],
-            "description": "CookieConsent uses the Cookie Consent javascript library for alerting users about the use of cookies on your website",
-            "homepage": "https://www.drupal.org/project/cookieconsent",
-            "keywords": [
-                "Cookie",
-                "CookieConsent",
-                "Drupal"
-            ],
-            "support": {
-                "source": "http://cgit.drupalcode.org/cookieconsent",
-                "issues": "http://drupal.org/project/issues/cookieconsent"
-            }
-        },
-        {
             "name": "drupal/core",
             "version": "9.5.9",
             "source": {
@@ -3144,50 +3085,6 @@
             "support": {
                 "source": "https://git.drupal.org/project/google_analytics.git",
                 "issues": "https://www.drupal.org/project/issues/google_analytics"
-            }
-        },
-        {
-            "name": "drupal/http2_server_push",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/http2_server_push.git",
-                "reference": "8.x-1.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/http2_server_push-8.x-1.1.zip",
-                "reference": "8.x-1.1",
-                "shasum": "00c2b07651095f877b57fdbc08770311b0215c1a"
-            },
-            "require": {
-                "drupal/core": "^8 || ^9"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-1.1",
-                    "datestamp": "1577743983",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Wim Leers",
-                    "homepage": "https://www.drupal.org/user/99777"
-                }
-            ],
-            "description": "Pushes CSS & JS files to the client on servers using HTTP/2.",
-            "homepage": "https://www.drupal.org/project/http2_server_push",
-            "support": {
-                "source": "https://git.drupalcode.org/project/http2_server_push"
             }
         },
         {
