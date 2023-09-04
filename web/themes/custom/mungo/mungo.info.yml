@@ -3,8 +3,7 @@ type: theme
 base theme: classy
 description: 'Mungo is a Mongoose with couragest and speed as its main perks.'
 package: Core
-core: 8.x
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^9 || ^10
 
 libraries:
   - mungo/mungo-theme

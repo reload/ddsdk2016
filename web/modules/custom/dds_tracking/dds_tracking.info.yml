@@ -2,7 +2,7 @@ name: DDS Tracking
 description: Mostly cookiebot related stuff.
 type: module
 package: DDS
-core: 8.x
-core_version_requirement: ^8 || ^9
+
+core_version_requirement: ^9 || ^10
 dependencies:
   - drupal:cookiebot

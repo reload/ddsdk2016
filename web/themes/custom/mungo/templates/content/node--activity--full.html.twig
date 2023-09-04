@@ -111,15 +111,19 @@
   <div class="dds-gallery">
     <div class="dds-gallery__slider">
       <ul class="slides">
-        {% for key, item in content.field_gallery_image if key|first != '#' %}
-          <li>{{ item }}</li>
+        {% for key, item in content.field_gallery_image %}
+          {% if key|first != '#' %}
+            <li>{{ item }}</li>
+          {% endif %}
         {% endfor %}
       </ul>
     </div>
   </div>
   <div class="dds-gallery__print">
-    {% for key, item in content.field_gallery_image if key|first != '#' %}
-      <div>{{ item }}</div>
+    {% for key, item in content.field_gallery_image %}
+      {% if key|first != '#' %}
+        <div>{{ item }}</div>
+      {% endif %}
     {% endfor %}
   </div>
 {% endblock %}

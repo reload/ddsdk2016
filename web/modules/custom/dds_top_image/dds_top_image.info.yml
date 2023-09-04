@@ -1,6 +1,6 @@
 name: Top Image
 type: module
 description: Theme-hook for a top image
-core: 8.x
+
 package: DDS
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^9 || ^10

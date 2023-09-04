@@ -5,8 +5,8 @@
  * Functionality to support lists of content.
  */
 
-use Drupal\views\Views;
 use Drupal\node\NodeInterface;
+use Drupal\views\Views;
 
 /**
  * Implements hook_preprocess_HOOK().

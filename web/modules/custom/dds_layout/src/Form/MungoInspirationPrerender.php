@@ -2,8 +2,8 @@
 
 namespace Drupal\dds_layout\Form;
 
-use Drupal\Core\Security\TrustedCallbackInterface;
 use Drupal\Core\Render\Element;
+use Drupal\Core\Security\TrustedCallbackInterface;
 
 /**
  * Trusted callbacks for allowed languages form alters.
