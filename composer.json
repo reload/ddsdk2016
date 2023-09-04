@@ -23,9 +23,6 @@
                 "dist": {
                     "url": "https://github.com/harvesthq/chosen/releases/download/v1.6.1/chosen_v1.6.1.zip",
                     "type": "zip"
-                },
-                "require": {
-                    "composer/installers": "~1.0"
                 }
             }
         },
@@ -51,6 +48,19 @@
                 "dist": {
                     "url": "https://github.com/furf/jquery-ui-touch-punch/archive/refs/heads/master.zip",
                     "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "drupal/system_status_d10",
+                "version": "1",
+                "type":"drupal-module",
+                "source": {
+                    "url": "https://git.drupalcode.org/issue/system_status-3299281.git",
+                    "type": "git",
+                    "reference": "3299281-automated-drupal-10"
                 }
             }
         }
