@@ -1,5 +1,4 @@
 mungo-theme:
-  version: 0.1
   css:
     base:
       assets/css/mungo.bundle.css: {}
@@ -11,23 +10,15 @@ mungo-theme:
     - core/drupal
 
 typekit:
-  version: 1.x
   js:
     'https://use.typekit.net/del2tvj.js': {}
     assets/js/typekit.js: {}
 
 object-fit:
-  remote: 'https://github.com/bfred-it/object-fit-images'
-  version: '3.2.3'
-  license:
-    name: MIT
-    url: https://github.com/bfred-it/object-fit-images/blob/master/license
-    gpl-compatible: true
   js:
     node_modules/object-fit-images/dist/ofi.js : {}
 
 program:
-  version: 0.1
   js:
     assets/js/program.js: {}
   dependencies:
@@ -35,7 +26,6 @@ program:
     - core/drupal
 
 share-popup:
-  version: 0.1
   js:
     assets/js/share-popup.js : {}
   dependencies:
@@ -43,7 +33,6 @@ share-popup:
       - core/drupal
 
 exposed-filters:
-  version: 0.1
   js:
     assets/js/exposedFilters.js: {}
   dependencies:
@@ -52,7 +41,6 @@ exposed-filters:
     - jquery_ui_datepicker/datepicker
 
 grouping-menu:
-  version: 0.1
   js:
     assets/js/grouping-menu.js: {}
   dependencies:
@@ -60,7 +48,6 @@ grouping-menu:
     - core/drupal
 
 flexslider:
-  version: 1.x
   js:
     /libraries/flexslider/jquery.flexslider-min.js: {}
     assets/js/gallery.js : {}

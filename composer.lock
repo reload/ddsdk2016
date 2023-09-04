@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "09f910048b56bfb03962af729a72745d",
+    "content-hash": "fbab6ce3e63848f19914cda4ee7e5cc0",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -2977,8 +2977,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.2+5-dev",
-                    "datestamp": "1669042760",
+                    "version": "8.x-2.2",
+                    "datestamp": "1668806016",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3550,10 +3550,6 @@
                     "name": "Andrei Ivnitskii",
                     "homepage": "https://www.drupal.org/u/ivnish",
                     "role": "Maintainer"
-                },
-                {
-                    "name": "ivnish",
-                    "homepage": "https://www.drupal.org/user/3547706"
                 },
                 {
                     "name": "jrockowitz",
