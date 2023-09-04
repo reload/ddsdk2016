@@ -4,6 +4,8 @@ base theme: classy
 description: 'Mungo is a Mongoose with couragest and speed as its main perks.'
 package: Core
 core_version_requirement: ^9 || ^10
+dependencies:
+  - classy:classy
 
 libraries:
   - mungo/mungo-theme
