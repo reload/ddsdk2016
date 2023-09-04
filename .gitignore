@@ -18,6 +18,7 @@ web/themes/contrib
 
 # Ignore Drupal's file directory
 web/sites/default/files
+/web/sites/simpletest/
 
 # Ignore local settings file
 web/sites/default/settings.local.php
@@ -37,3 +38,4 @@ node_modules
 .env
 /.editorconfig
 /.gitattributes
+.reset-info

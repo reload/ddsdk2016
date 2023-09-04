@@ -37,18 +37,15 @@ $settings['trusted_host_patterns'] = [
 assert_options(ASSERT_ACTIVE, TRUE);
 \Drupal\Component\Assertion\Handle::register();
 
+// Disabling cache. Comment this line, to simulate prod-like hard cache.
+$no_cache_settings_file = __DIR__ . '/nocache.settings.php';
+
+if(file_exists($no_cache_settings_file)) {
+  require $no_cache_settings_file;
+}
+
 // Show all error messages, with backtrace information.
 $config['system.logging']['error_level'] = 'verbose';
-
-// Disable CSS and JS aggregation.
-$config['system.performance']['css']['preprocess'] = FALSE;
-$config['system.performance']['js']['preprocess'] = FALSE;
-
-// Disable the render cache (this includes the page cache).
-# $settings['cache']['bins']['render'] = 'cache.backend.null';
-
-// Disable Dynamic Page Cache.
-# $settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
 
 // Allow test modules and themes to be installed.
 $settings['extension_discovery_scan_tests'] = TRUE;
