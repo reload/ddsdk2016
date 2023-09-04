@@ -8,8 +8,8 @@
   "scripts": {
     "watch": "npm config set bin-links true && ./node_modules/.bin/gulp watch",
     "build": "npm config set bin-links true && npm install && ./node_modules/.bin/gulp build",
-    "js:eslint": "eslint $npm_package_config_themepath/assets_src/js/**/*.{js,ts}",
-    "js:prettier": "prettier $npm_package_config_themepath/assets_src/js/**/*.{js,ts}",
+    "js:eslint": "eslint $npm_package_config_themepath/assets_src/js/**/*",
+    "js:prettier": "prettier $npm_package_config_themepath/assets_src/js/**/*",
     "js:lint": "concurrently 'npm:js:eslint' 'npm:js:prettier -- --check' --raw",
     "js:format": "concurrently 'npm:js:eslint -- --fix' 'npm:js:prettier -- --write' --max-processes 1 --raw",
     "css:stylelint": "stylelint $npm_package_config_themepath/assets_src/sass/**/*",

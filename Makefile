@@ -27,7 +27,7 @@ _read-timer:
 	echo "Reset took $$RESET_MINS minutes $$RESET_SECS seconds" && \
 	echo "(not including waiting for password)"
 
-_common-reset: _docker-pull docker-up php-vendor site-reset import-po _end-timer docker-dns-up reset-info _read-timer
+_common-reset: _docker-pull docker-up php-vendor site-reset import-po search-api-index _end-timer docker-dns-up reset-info _read-timer
 
 reset: _start-timer docker-remove _common-reset ##	 Remove and reset everything
 
@@ -90,7 +90,8 @@ site-reset: ## Resetting the drupal site.
     wait-for-it -t 100 localhost:9000 && \
     wait-for-it -t 100 db:3306 && \
     echo ' * Run drush deploy' && \
-    drush -y deploy"
+    drush -y deploy && \
+		drush user:password testeditor testeditor"
 
 import-po: ## Imports the da.po files. This is also done on reset targets.
 	@docker compose up fpm -d
@@ -106,6 +107,9 @@ reset-info: ## Display information after site has been reset.
 		echo '============= Drupal info =============' && \
     echo '  Site is available at:' && \
     drush browse && \
+		echo '' && \
+		echo '  Editor login:' && \
+		drush uli --name testeditor && \
 		echo '' && \
 		echo '  Admin login:' && \
     drush uli"

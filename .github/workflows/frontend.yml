@@ -1,13 +1,22 @@
+name: Frontend
 on: pull_request
-name: JavaScript
+
+# Detect if this action is already running, and cancel it.
+# This most likely happened because a second push has been made to a branch.
+concurrency:
+  group: ${{ github.repository_id }}-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
 
   # See https://github.com/reload/action-jsts-quality
-  eslint-reviewdog:
+  reviewdog:
     name: ESLint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v3
@@ -27,3 +36,11 @@ jobs:
           working_directory: './web/themes/custom/mungo'
           prettier_target: './assets_src/js/**/*'
           eslint_target: './assets_src/js'
+
+      - name: Style Quality
+        uses: reload/action-style-quality@main
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          working_directory: ./web/themes/custom/mungo
+          prettier_target: './assets_src/sass/**/*'
+          stylelint_target: './assets_src/sass/**/*'

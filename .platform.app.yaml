@@ -113,7 +113,6 @@ hooks:
       gulp build
       curl -sS https://platform.sh/cli/installer | php
 
-
     # We run deploy hook after your application has been deployed and started.
     # We use set -e to cause a total fail if something goes wrong.
     # Otherwise, a deploy-status file will instead be populated with 1.
