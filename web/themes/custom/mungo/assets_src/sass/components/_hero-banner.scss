@@ -41,7 +41,7 @@
         width: 220px;
         margin: $spacing-small;
         @include media-small {
-          margin: $spacing-large/2;
+          margin: $spacing-large * 0.5;
         }
         @include media-medium {
           width: auto;

@@ -9,3 +9,5 @@ parameters:
   paths:
    - web/modules/custom
    - web/themes/custom
+  excludePaths:
+    - web/themes/custom/mungo/node_modules

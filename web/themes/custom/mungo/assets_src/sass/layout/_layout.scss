@@ -68,7 +68,7 @@
 // Address spacing in between cols when row is wrapped on multiple lines.
 .row--grid {
   $spacing: 15px;
-  $halfspacing: $spacing/2;
+  $halfspacing: $spacing * 0.5;
   margin-top: -$halfspacing;
   margin-bottom: -$halfspacing;
   @include media-small {

@@ -1,21 +1,8 @@
 // As long as we run Bourbun 4 we can hhide the Bourbon 5 warnings.
 // But this should be removed with a future update.
 $output-bourbon-deprecation-warnings: false !default;
-
+@import "tools.bundle";
 @import "tools/bootstrap.custom";
-@import "tools/colors";
-@import "tools/variables";
-@import "burger";
-@import "bourbon";
-@import "polyfill.object-fit";
-
-/**
- * Mixins.
- */
-@import "mixins/breakpoints.mixins";
-@import "mixins/buttons.mixins";
-@import "mixins/menus.mixins";
-@import "mixins/typography.mixins";
 
 /**
  * SMACSS Base.

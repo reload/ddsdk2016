@@ -84,7 +84,7 @@
 
 @mixin inline-menu {
   // Spacing should be large, but only half of it pr element.
-  $halfsize: $spacing-large / 2;
+  $halfsize: $spacing-large * 0.5;
 
   // Subtract the added spacing on the container.
   margin: 0 (-$halfsize);
