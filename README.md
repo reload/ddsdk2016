@@ -1,6 +1,7 @@
 # dds.dk - Det Danske Spejderkorps
 A Drupal 8 project hosted on platform.sh
 
+
 * Confluence space: [DDS](https://reload.atlassian.net/wiki/spaces/DDS)
 * Technical [Documentation](documentation/README.md)
 
