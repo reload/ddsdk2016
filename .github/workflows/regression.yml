@@ -1,0 +1,38 @@
+name: "Site deploy & regression."
+
+on:
+  pull_request:
+    types: [ready_for_review, opened, synchronize]
+
+# Detect if this action is already running, and cancel it.
+# This most likely happened because a second push has been made to a branch.
+concurrency:
+  group: ${{ github.repository_id }}-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  regression:
+    # Don't run action if the pull request is a draft.
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: reload/action-platformsh-deploy-status@main
+        id: platformsh_url
+        with:
+          PLATFORMSH_ID: 55isd6w54kg6s
+          PLATFORMSH_KEY: ${{ secrets.DAIS_PLATFORMSH_KEY }}
+          ALLOW_CANCEL_CRON: 1
+
+      - name: Cypress
+        uses: reload/action-platformsh-cypress@main
+        with:
+          PLATFORMSH_ID: 55isd6w54kg6s
+          PLATFORMSH_KEY: ${{ secrets.DAIS_PLATFORMSH_KEY }}
+          ALLOW_CANCEL_CRON: 1
+
+      - name: Lost Pixel
+        uses: lost-pixel/lost-pixel@v3.4.0
+        env:
+          LOST_PIXEL_API_KEY: ${{ secrets.LOST_PIXEL_API_KEY }}
+          LOST_PIXEL_BASE_URL: ${{ steps.platformsh_url.outputs.url }}
+
