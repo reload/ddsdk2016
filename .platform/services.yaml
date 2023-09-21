@@ -5,7 +5,7 @@
 
 mysqldb:
     type: mysql:10.3
-    disk: 3072
+    disk: 4072
 
 rediscache:
     type: redis:5.0
