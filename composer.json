@@ -82,7 +82,7 @@
         "drupal/field_redirection": "2.x-dev",
         "drupal/form_options_attributes": "^2.0",
         "drupal/forward": "^4.0",
-        "drupal/google_analytics": "^3.1",
+        "drupal/google_analytics": "^4",
         "drupal/http2_server_push": "^1.0.0",
         "drupal/image_widget_crop": "^2.2.0",
         "drupal/inline_entity_form": "^1.0@RC",
