@@ -256,13 +256,15 @@
 @mixin blue-arrowed-read-more {
   @include pre-title;
   @include blue-read-more;
-  &:after {
+
+  &::after {
     content: " \2192";
   }
 }
 @mixin blue-arrowed-read-more-hover {
   @include blue-arrowed-read-more;
-  &:after {
+
+  &::after {
     margin-left: $spacing-small;
   }
 }
@@ -307,7 +309,7 @@
 @mixin icon($char) {
   // Font awesome is available.
   // stylelint-disable-next-line font-family-no-missing-generic-family-keyword
-  font-family: "FontAwesome";
+  font-family: FontAwesome;
   speak: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

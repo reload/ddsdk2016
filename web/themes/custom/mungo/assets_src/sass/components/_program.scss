@@ -12,7 +12,7 @@
   z-index: 1;
   position: relative;
 
-  &:before {
+  &::before {
     @extend .glyphicon;
     @extend .glyphicon-chevron-down;
     @include transform(rotate(0deg));
@@ -55,7 +55,7 @@
       font-weight: bold;
     }
 
-    &:before {
+    &::before {
       @extend .glyphicon;
       @extend .glyphicon-menu-down;
       @include transform(rotate(0deg));

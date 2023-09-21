@@ -65,6 +65,7 @@
     padding-block: 12px;
 
     @include topic-track($targetSelector: content-link--text--lead);
+
     .content-link--text--lead {
       font-size: 1rem; // Reset the font size to prevent a huge "button" look.
       display: inline-block;

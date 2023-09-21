@@ -2,6 +2,7 @@
 .inspiration-deck {
   // Reset width.
   width: 100%;
+
   .is-safari & {
     // The width of inspiration deck is 1140px (site-width) which isn't good
     // when calculating aspect ratio. Half 570px in 8:4 has a height of 213.75px
@@ -12,9 +13,11 @@
       padding: 0 20px;
     }
   }
+
   *[class*="col-md"] {
     // Remove bootstrap gutter.
     padding: 0;
+
     .inner {
       overflow: hidden;
     }
@@ -25,10 +28,12 @@
   // The ratio is either ratio-{xs|sm|md}-{4_3|8_3} others can be implemented.
   *[class*="ratio-"] {
     position: relative;
-    &:after {
+
+    &::after {
       content: " ";
       display: block;
     }
+
     .inner {
       position: absolute;
       top: 0;
@@ -36,26 +41,30 @@
       bottom: 0;
       left: 0;
     }
-    &.ratio-xs-4_3:after {
+
+    &.ratio-xs-4_3::after {
       margin-top: 75%;
     }
-    &.ratio-xs-8_3:after {
+
+    &.ratio-xs-8_3::after {
       margin-top: 37.5%;
     }
 
     @include media-small {
-      &.ratio-sm-4_3:after {
+      &.ratio-sm-4_3::after {
         margin-top: 75%;
       }
-      &.ratio-sm-8_3:after {
+
+      &.ratio-sm-8_3::after {
         margin-top: 37.5%;
       }
     }
     @include media-medium {
-      &.ratio-md-4_3:after {
+      &.ratio-md-4_3::after {
         margin-top: 75%;
       }
-      &.ratio-md-8_3:after {
+
+      &.ratio-md-8_3::after {
         margin-top: 37.5%;
       }
     }
@@ -71,6 +80,7 @@
       display: block;
       height: 100%;
       width: 100%;
+
       img {
         transition: all 0.3s;
         @include filter(brightness(70%));
@@ -85,16 +95,19 @@
       position: absolute;
       left: 0;
       bottom: 0;
+
       .node-teaser--keyword,
       h2.node-teaser--heading {
         color: #fff;
       }
+
       h2.node-teaser--heading {
         //@include list-heading-large;
         @include inspiration_header;
         color: #fff;
         margin-bottom: 0;
       }
+
       .node-teaser--read-more {
         display: none;
       }
@@ -109,6 +122,7 @@
       border: 0;
     }
   }
+
   .content {
     text-decoration: none;
     position: absolute;
@@ -126,6 +140,7 @@
       @include inspiration_teaser_header;
       margin: 0;
     }
+
     p {
       @include inspiration_teaser_text;
     }

@@ -15,7 +15,7 @@
         function (event, offsets) {
           $("header.header-fixed").css("top", offsets.top);
           $("header.header-fixed").css("left", offsets.left);
-        }
+        },
       );
     },
   };

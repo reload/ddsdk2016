@@ -143,7 +143,7 @@
     text-decoration: none;
   }
 
-  &:before {
+  &::before {
     content: "";
     position: absolute;
     top: 0;
@@ -152,10 +152,12 @@
     height: 100%;
     z-index: -1;
     background-color: $track-light-green;
-    transition: top linear 100ms, left linear 100ms;
+    transition:
+      top linear 100ms,
+      left linear 100ms;
   }
 
-  &:hover:before {
+  &:hover::before {
     top: 5px;
     left: 5px;
   }

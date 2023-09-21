@@ -24,9 +24,11 @@ $fa-font-path: "../fonts/font-awesome";
     @include media-small {
       margin: 0 5px;
     }
+
     a {
       color: $bluish;
     }
+
     i {
       font-size: $icon-font-size;
     }

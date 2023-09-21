@@ -14,7 +14,7 @@
     &__active_title {
       background-color: #fff;
 
-      &:before {
+      &::before {
         content: "";
         background-image: url("#{$track-images}/arrow.svg");
         background-repeat: no-repeat;
@@ -29,7 +29,7 @@
 
     &.is-active {
       .grouping-menu__active_title {
-        &:before {
+        &::before {
           transform: translateY(-50%) rotate(180deg);
         }
       }

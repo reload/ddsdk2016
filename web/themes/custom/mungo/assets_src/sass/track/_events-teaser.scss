@@ -1,8 +1,10 @@
+@use "sass:map";
+
 $_pseudo-shadow-offset: 10px;
 $_gap: $spacing-large;
 
 .paragraph--type--events {
-  background-color: map-get($track-colors, "arrangementer");
+  background-color: map.get($track-colors, "arrangementer");
   color: #fff;
 
   a {
@@ -44,7 +46,7 @@ $_gap: $spacing-large;
     position: relative;
     z-index: 1;
 
-    &:before {
+    &::before {
       content: "";
       position: absolute;
       top: $_pseudo-shadow-offset;
@@ -52,7 +54,7 @@ $_gap: $spacing-large;
       z-index: -1;
       width: 100%;
       height: 100%;
-      background-color: map-get($track-colors, "skills");
+      background-color: map.get($track-colors, "skills");
     }
   }
 

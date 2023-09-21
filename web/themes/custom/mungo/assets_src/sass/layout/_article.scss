@@ -46,10 +46,12 @@
   @include media-small {
     display: flex;
     align-items: center;
+
     .media-container {
       width: 50%;
       margin-right: 15px;
     }
+
     .content-container {
       width: 50%;
       margin-left: 15px;
@@ -61,6 +63,7 @@
   .caption {
     display: none;
   }
+
   a:hover {
     text-decoration: none;
   }
@@ -75,9 +78,11 @@
       margin: 0;
       margin-bottom: $spacing-small;
     }
+
     &--keyword {
       @include pre-title;
     }
+
     &--subtitle {
       // Subtitle should not appear as subtitle on node-full-view.
       .subtitle {
@@ -91,10 +96,12 @@
         }
       }
     }
+
     &--read-more {
       @include blue-arrowed-read-more;
     }
   }
+
   &:hover {
     .node-extended-teaser--read-more {
       @include blue-arrowed-read-more-hover;
@@ -111,8 +118,9 @@
 
   &:hover {
     text-decoration: none;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 2px rgb(0 0 0 / 50%);
     border-bottom: 5px solid $bluish;
+
     img {
       @include filter(brightness(80%));
     }
@@ -136,6 +144,7 @@
   }
 
   $_keyword-gap: $spacing-small;
+
   &--keyword {
     // Set margins negative for all teasers
     margin-bottom: -$spacing-small;
@@ -149,7 +158,7 @@
   }
 
   &--keyword-multiple {
-    li:not(:first-child):before {
+    li:not(:first-child)::before {
       content: "\2011"; // This is a non-breaking hyphen.
       margin-right: $_keyword-gap; // Use the same margin as we have gap in our list.
     }
@@ -159,6 +168,7 @@
   .node-teaser--list--meta &--keyword {
     margin-bottom: 0;
   }
+
   &--read-more {
     @include blue-arrowed-read-more;
   }

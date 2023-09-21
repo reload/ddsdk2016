@@ -1,3 +1,5 @@
+@use "sass:color";
+
 /*  Forms.
     ------------------------------------------------------- */
 input[type="text"],
@@ -8,7 +10,7 @@ input[type="time"] {
   display: block;
   padding: $spacing-input;
   margin-bottom: 10px;
-  line-height: 1.42857143;
+  line-height: 1.4286;
   color: $bluish;
   vertical-align: middle;
   background-color: white;
@@ -36,11 +38,11 @@ input[type="submit"] {
   color: white;
 
   &:hover {
-    background-color: lighten($bluish, 10%);
+    background-color: color.adjust($bluish, $lightness: 10%);
   }
 }
 
-input[type="checkbox"] + label:before {
+input[type="checkbox"] + label::before {
   content: "";
 }
 
@@ -49,6 +51,7 @@ input[type="checkbox"]:checked {
   position: absolute;
   left: -9999px;
 }
+
 input[type="checkbox"]:not(:checked) + label,
 input[type="checkbox"]:checked + label {
   position: relative;
@@ -59,8 +62,8 @@ input[type="checkbox"]:checked + label {
 }
 
 // Checkbox aspect.
-input[type="checkbox"]:not(:checked) + label:before,
-input[type="checkbox"]:checked + label:before {
+input[type="checkbox"]:not(:checked) + label::before,
+input[type="checkbox"]:checked + label::before {
   position: absolute;
   left: 0;
   top: 0;
@@ -72,7 +75,7 @@ input[type="checkbox"]:checked + label:before {
 }
 
 // Checked mark aspect
-input[type="checkbox"]:checked + label:before {
+input[type="checkbox"]:checked + label::before {
   @extend .glyphicon;
   @extend .glyphicon-ok;
   position: absolute;
@@ -83,8 +86,8 @@ input[type="checkbox"]:checked + label:before {
 }
 
 // Disabled checkbox.
-input[type="checkbox"]:disabled:not(:checked) + label:before,
-input[type="checkbox"]:disabled:checked + label:before {
+input[type="checkbox"]:disabled:not(:checked) + label::before,
+input[type="checkbox"]:disabled:checked + label::before {
   box-shadow: none;
   border-color: $warm-grey;
   background-color: $pale-grey;

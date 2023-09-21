@@ -42,7 +42,8 @@ footer {
 .footer_bottom {
   .container {
     position: relative;
-    &:after {
+
+    &::after {
       @include media-small {
         content: "";
         background: url("../images/footer_tree_dummy_ikon.svg");
@@ -73,6 +74,7 @@ footer {
   ul {
     padding: 0;
   }
+
   li {
     list-style: none;
     line-height: 1.69;

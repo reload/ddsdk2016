@@ -44,8 +44,8 @@
   flex-direction: row;
 
   // Safari fix for before and after on rows.
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     display: block;
   }
 
@@ -75,6 +75,7 @@
     margin-top: -$spacing;
     margin-bottom: -$spacing;
   }
+
   > * {
     /* New nested flex container - Safari fix */
     display: flex;

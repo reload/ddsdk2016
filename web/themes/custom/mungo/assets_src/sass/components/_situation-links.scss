@@ -22,12 +22,15 @@
     &-red {
       border-color: $medium-pink;
     }
+
     &-yellow {
       border-color: $dull-yellow;
     }
+
     &-blue {
       border-color: $bluish;
     }
+
     &-grey {
       border-color: $pinkish-grey;
     }
@@ -43,6 +46,7 @@
     }
 
     box-shadow: 0 0 3px #000;
+
     a {
       color: $bluish;
       text-decoration: none;
@@ -58,6 +62,7 @@
       float: none;
     }
     padding: $spacing-small 0;
+
     svg {
       height: 100px;
     }
@@ -87,14 +92,14 @@
     color: $bluish;
     font-size: 14px;
 
-    &:after {
+    &::after {
       content: " \2192";
     }
     @include media-medium {
       color: #000;
       font-size: 18px;
 
-      &:after {
+      &::after {
         content: "";
       }
     }
@@ -104,11 +109,13 @@
     display: none;
     @include media-medium {
       display: block;
+
       a {
         margin: 0 $spacing-medium;
         display: block;
         color: #000;
         padding: 5px;
+
         &:hover {
           color: $light-navy;
           text-decoration: underline;
@@ -119,6 +126,7 @@
 
   // The general link at the bottom of the box.
   position: relative;
+
   .view-content-link {
     display: none;
     @include media-medium {

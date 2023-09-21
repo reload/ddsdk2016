@@ -2,6 +2,7 @@
   ul {
     @include inline-menu;
   }
+
   a {
     display: inline-block;
     width: 48px;
@@ -11,6 +12,7 @@
 
   svg {
     fill: #fff;
+
     path {
       stroke: #fff;
     }

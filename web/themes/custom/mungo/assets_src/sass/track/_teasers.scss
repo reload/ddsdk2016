@@ -16,6 +16,7 @@
       .track-stack[class*="col-"]:nth-child(odd) {
         padding-right: $_base-bootstrap-spacing * 0.5;
       }
+
       .track-stack[class*="col-"]:nth-child(even) {
         padding-left: $_base-bootstrap-spacing * 0.5;
       }

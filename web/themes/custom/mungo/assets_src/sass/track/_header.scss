@@ -30,7 +30,7 @@ $_menu-item-track-height: 25px;
     background-color: transparent;
     position: relative;
 
-    &:before {
+    &::before {
       content: "";
       position: absolute;
       top: 50%;
@@ -74,8 +74,8 @@ $_menu-item-track-height: 25px;
 
     // Change color of all three lines in the burger menu.
     .burger--main--menu--toggle,
-    .burger--main--menu--toggle:before,
-    .burger--main--menu--toggle:after {
+    .burger--main--menu--toggle::before,
+    .burger--main--menu--toggle::after {
       background-color: $track-blue;
       border: 0;
       border-radius: 0;
@@ -111,11 +111,11 @@ $_menu-item-track-height: 25px;
       @include media-small {
         color: $track-blue;
 
-        &:before {
+        &::before {
           background-color: #fff;
         }
 
-        &:after {
+        &::after {
           content: "";
           background-color: $track-blue;
           width: $_menu-item-track-width;

@@ -2,7 +2,8 @@
 .dymo-text-processed {
   position: relative;
   margin-left: 30px;
-  &:before {
+
+  &::before {
     content: " ";
     background-color: white;
     position: absolute;
@@ -11,6 +12,7 @@
     height: 100%;
     display: inline-block;
   }
+
   span {
     background: white;
     color: black;

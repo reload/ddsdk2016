@@ -26,9 +26,10 @@
 
     @include image-text;
   }
+
   .byline {
     .byline--label {
-      &:after {
+      &::after {
         content: ":";
       }
     }

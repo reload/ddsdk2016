@@ -1,11 +1,14 @@
 .block-local-tasks-container {
   position: relative;
   z-index: 1;
+
   > div {
     ul {
       margin: 0;
+
       li {
         margin: 0;
+
         a {
           padding: 10px 20px;
         }

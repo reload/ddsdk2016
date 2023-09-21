@@ -86,7 +86,7 @@
           // When leaving a top-level item (or any decendants) remove the open
           // class from the top-level item and.
           $(this).removeClass("opened");
-        }
+        },
       );
 
       // React on the main menu being opened on mobile where the trigger is a
@@ -130,7 +130,7 @@
       // without closing menus. That is, all menu-items, toggle-elements, etc.
       $(
         "label[for='search-field-expose'],#search-block-form" +
-          ",#search-field-expose"
+          ",#search-field-expose",
       ).on("click", function (e) {
         e.stopPropagation();
       });

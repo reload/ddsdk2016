@@ -28,19 +28,19 @@
       display: inline-block;
       margin-top: 5px;
 
-      &:after {
+      &::after {
         content: ",";
         margin-right: 2px;
       }
 
       &:last-child {
-        &:after {
+        &::after {
           content: "";
         }
       }
 
       &:first-child {
-        &:before {
+        &::before {
           content: "";
         }
       }

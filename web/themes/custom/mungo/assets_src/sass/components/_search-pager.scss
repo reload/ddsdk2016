@@ -3,6 +3,7 @@
   // Inject some spacing between the pager and the search-results.
   margin-top: $spacing-small;
   margin-bottom: $spacing-small;
+
   .pager__item {
     padding: 0;
   }
@@ -17,6 +18,7 @@
 .pager__item a {
   @include squared-blue-button();
 }
+
 .pager__item.is-active a {
   @include squared-blue-button("active");
 }

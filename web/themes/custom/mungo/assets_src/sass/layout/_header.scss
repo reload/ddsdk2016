@@ -28,6 +28,7 @@ header.header-fixed {
       display: flex;
       justify-content: space-between;
     }
+
     li {
       display: inline-block;
     }
@@ -58,6 +59,7 @@ header.header-fixed {
       display: block;
     }
     height: 30px;
+
     .container {
       // Centre menu vertically, visually.
       padding-top: 8px;
@@ -65,7 +67,7 @@ header.header-fixed {
   }
 
   /* Display a line after menu */
-  &:after {
+  &::after {
     display: block;
     content: "";
     height: 1px;
@@ -88,6 +90,7 @@ header.header-fixed {
     .container {
       position: relative;
       text-align: right;
+
       .site-logo--container {
         margin-top: $spacing-small;
         text-align: center;
@@ -97,6 +100,7 @@ header.header-fixed {
           // Move left to align with bootstraps .container.b
           left: $spacing-small;
         }
+
         img {
           width: 122px;
           height: 50px;
@@ -123,6 +127,7 @@ header.header-fixed {
       cursor: pointer;
       color: $bluish;
       z-index: 1;
+
       span {
         // Make a little room between label and magnifying glass.
         margin-left: $spacing-small;
@@ -138,10 +143,11 @@ header.header-fixed {
         position: relative;
       }
 
-      &:after {
+      &::after {
         content: "";
       }
     }
+
     form {
       width: 100%;
       background: $white-two;
@@ -157,6 +163,7 @@ header.header-fixed {
       .form-submit {
         display: none;
       }
+
       button {
         border: 1px solid $bluish;
         background: $bluish;
@@ -173,6 +180,7 @@ header.header-fixed {
           top: $spacing-large;
         }
       }
+
       input.form-search {
         box-sizing: border-box;
         -webkit-appearance: none;
@@ -198,6 +206,7 @@ header.header-fixed {
     // Open collapse search field.
     #search-field-expose {
       display: none;
+
       &:checked ~ form {
         display: block;
       }

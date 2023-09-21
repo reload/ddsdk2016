@@ -1,6 +1,7 @@
 .paragraph--type--hero-banner {
   position: relative;
   overflow: hidden;
+
   .container {
     position: absolute;
     top: 0;
@@ -20,6 +21,7 @@
       @include feature-heading-small;
       color: #fff;
     }
+
     .field--type-link {
       font-size: 0;
 
@@ -30,10 +32,12 @@
       @include media-medium {
         margin: 0;
       }
+
       > * {
         display: inline-block;
         font-size: $font-size-base;
       }
+
       a {
         @include cta-button-transparent;
         // We need this fixed width to equal sized
@@ -52,6 +56,7 @@
 
   img {
     transition: filter 0.5s;
+
     &.blured {
       -webkit-filter: blur(5px);
       filter: blur(5px);

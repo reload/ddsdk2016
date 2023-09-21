@@ -36,6 +36,7 @@
           // Double-enforce color to override cores styling.
           color: $bluish;
         }
+
         &:hover {
           text-decoration: none;
         }
@@ -51,6 +52,7 @@ ul.menu.menu--grouping-menu {
     @include inline-menu;
   }
   margin: 0;
+
   li {
     margin: $spacing-small;
     @include media-medium {
@@ -77,8 +79,9 @@ ul.menu.menu--grouping-menu {
   // Add a downwards-pointing icon.
   position: relative;
 
-  &:before {
+  &::before {
     @include menu_chevron;
+
     .is-active & {
       @include menu_chevron("up");
     }

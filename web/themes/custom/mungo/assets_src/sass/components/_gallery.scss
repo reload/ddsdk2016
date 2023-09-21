@@ -35,16 +35,16 @@
         width: 42px;
         height: 100%;
         overflow: hidden;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgb(0 0 0 / 50%);
         top: 0;
         text-decoration: none;
         pointer-events: auto;
 
         &:hover {
-          background: rgba(0, 0, 0, 0.8);
+          background: rgb(0 0 0 / 80%);
         }
 
-        &:before {
+        &::before {
           display: inline-block;
           width: 42px;
           height: 52px;
@@ -57,7 +57,8 @@
         &.flex-next {
           right: 0;
           border-radius: 5px 0 0 5px;
-          &:before {
+
+          &::before {
             // Right chevron.
             @include icon("\f054");
           }
@@ -66,7 +67,8 @@
         &.flex-prev {
           left: 0;
           border-radius: 0 5px 5px 0;
-          &:before {
+
+          &::before {
             // Left chevron.
             @include icon("\f053");
           }

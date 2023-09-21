@@ -74,7 +74,7 @@
   }
 
   // Add icon to left.
-  &:before {
+  &::before {
     position: absolute;
     content: "\2192";
     top: auto;
