@@ -56,7 +56,7 @@ parameters:
 			path: web/modules/custom/dds_metatag/dds_metatag.module
 
 		-
-			message: "#^Access to an undefined property Drupal\\\\Core\\\\TypedData\\\\TypedDataInterface\\:\\:\\$entity\\.$#"
+			message: "#^Access to an undefined property Drupal\\\\Core\\\\Field\\\\FieldItemInterface\\:\\:\\$entity\\.$#"
 			count: 1
 			path: web/modules/custom/dds_person/dds_person.module
 
@@ -86,6 +86,11 @@ parameters:
 			path: web/modules/custom/dds_tracking/dds_tracking.module
 
 		-
+			message: "#^Offset 'type' does not exist on string\\.$#"
+			count: 2
+			path: web/modules/custom/dds_tracking/dds_tracking.module
+
+		-
 			message: "#^Parameter \\#2 \\$value of method Drupal\\\\Core\\\\Database\\\\Query\\\\ConditionInterface\\:\\:condition\\(\\) expects array\\|Drupal\\\\Core\\\\Database\\\\Query\\\\SelectInterface\\|string\\|null, int given\\.$#"
 			count: 1
 			path: web/modules/custom/dds_update/dds_update.install
@@ -96,12 +101,12 @@ parameters:
 			path: web/modules/custom/facets_views_block/facets_views_block.module
 
 		-
-			message: "#^Access to an undefined property Drupal\\\\Core\\\\TypedData\\\\TypedDataInterface\\:\\:\\$entity\\.$#"
+			message: "#^Access to an undefined property Drupal\\\\Core\\\\Field\\\\FieldItemInterface\\:\\:\\$entity\\.$#"
 			count: 2
 			path: web/themes/custom/mungo/mungo.theme
 
 		-
-			message: "#^Access to an undefined property Drupal\\\\Core\\\\TypedData\\\\TypedDataInterface\\:\\:\\$value\\.$#"
+			message: "#^Access to an undefined property Drupal\\\\Core\\\\Field\\\\FieldItemInterface\\:\\:\\$value\\.$#"
 			count: 1
 			path: web/themes/custom/mungo/mungo.theme
 
@@ -118,11 +123,6 @@ parameters:
 		-
 			message: "#^Call to an undefined method Drupal\\\\Core\\\\Entity\\\\EntityInterface\\:\\:hasField\\(\\)\\.$#"
 			count: 1
-			path: web/themes/custom/mungo/mungo.theme
-
-		-
-			message: "#^Call to an undefined method Drupal\\\\Core\\\\TypedData\\\\TypedDataInterface\\:\\:get\\(\\)\\.$#"
-			count: 2
 			path: web/themes/custom/mungo/mungo.theme
 
 		-
@@ -157,11 +157,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$person of function _mungo_preprocess_author_presentation expects Drupal\\\\taxonomy\\\\TermInterface, Drupal\\\\Core\\\\Entity\\\\EntityInterface given\\.$#"
-			count: 1
-			path: web/themes/custom/mungo/mungo.theme
-
-		-
-			message: "#^Parameter \\#1 \\$value of function _mungo_2col_size_option_to_text expects int, string given\\.$#"
 			count: 1
 			path: web/themes/custom/mungo/mungo.theme
 
