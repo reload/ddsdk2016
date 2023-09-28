@@ -1,0 +1,221 @@
+// Magical values to push content down. This must adjusted if the fixed menu
+// changes.
+body .layout-container {
+  padding-top: 71px;
+}
+
+@include media-small {
+  body .layout-container {
+    padding-top: 131px;
+  }
+}
+
+@include media-medium {
+  body .layout-container {
+    padding-top: 101px;
+  }
+}
+
+header.header-fixed {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 2;
+  background-color: #fff;
+
+  .menu--top-menu {
+    ul {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    li {
+      display: inline-block;
+    }
+
+    @include media-medium {
+      ul {
+        justify-content: flex-end;
+        gap: $spacing-medium;
+        padding-right: $spacing-medium;
+      }
+    }
+  }
+
+  > div {
+    height: $header-height;
+
+    @include media-small {
+      height: auto;
+    }
+  }
+
+  .region-top-menu {
+    // Hide the top menu on mobile. Show from tablet and up.
+    display: none;
+    font-size: $std-font-size;
+
+    @include media-small {
+      display: block;
+    }
+    height: 30px;
+
+    .container {
+      // Centre menu vertically, visually.
+      padding-top: 8px;
+    }
+  }
+
+  /* Display a line after menu */
+  &::after {
+    display: block;
+    content: "";
+    height: 1px;
+    width: 100%;
+    // If you're debugging why the line is overlapping content below it
+    // you probably need to adjust the values in the body .layout-container
+    // selector in this file.
+    @include background-image(
+      linear-gradient(
+        to left,
+        transparent 0%,
+        $warm-grey 25%,
+        $warm-grey 75%,
+        transparent 100%
+      )
+    );
+  }
+
+  .region-primary-menu {
+    .container {
+      position: relative;
+      text-align: right;
+
+      .site-logo--container {
+        margin-top: $spacing-small;
+        text-align: center;
+        @include media-small {
+          position: absolute;
+          z-index: 1;
+          // Move left to align with bootstraps .container.b
+          left: $spacing-small;
+        }
+
+        img {
+          width: 122px;
+          height: 50px;
+        }
+      }
+    }
+  }
+
+  /**
+   * Searchbox in header.
+   */
+
+  .block-search {
+    @include media-medium {
+      display: inline-block;
+      float: right;
+    }
+
+    label {
+      position: absolute;
+      top: 26px;
+      left: 0;
+      margin-left: 10px;
+      cursor: pointer;
+      color: $bluish;
+      z-index: 1;
+
+      span {
+        // Make a little room between label and magnifying glass.
+        margin-left: $spacing-small;
+      }
+
+      @include media-small {
+        // Move to the right instead.
+        left: auto;
+        right: 0;
+      }
+      @include media-medium {
+        margin-left: $spacing-large;
+        position: relative;
+      }
+
+      &::after {
+        content: "";
+      }
+    }
+
+    form {
+      width: 100%;
+      background: $white-two;
+      position: absolute;
+      display: none;
+      left: 0;
+      right: 20px;
+      padding: $spacing-small;
+      padding-right: 56px;
+      top: 70px;
+      @include search-field;
+      // Hide standard form-submit button. It has text and we dont need that.
+      .form-submit {
+        display: none;
+      }
+
+      button {
+        border: 1px solid $bluish;
+        background: $bluish;
+        color: #fff;
+        position: absolute;
+        right: $spacing-small;
+        top: $spacing-small;
+        width: 47px;
+        height: 47px;
+        @include media-medium {
+          width: 67px;
+          height: 67px;
+          right: $spacing-large;
+          top: $spacing-large;
+        }
+      }
+
+      input.form-search {
+        box-sizing: border-box;
+        -webkit-appearance: none;
+        border-radius: 0;
+        padding: $spacing-small;
+        height: 47px;
+        @include media-medium {
+          height: 67px;
+          padding: $spacing-medium;
+        }
+        width: 100%;
+        border: 1px solid $bluish;
+      }
+      @include media-small {
+        top: 100px;
+      }
+      @include media-medium {
+        padding: $spacing-large;
+        padding-right: 96px;
+        top: 70px;
+      }
+    }
+    // Open collapse search field.
+    #search-field-expose {
+      display: none;
+
+      &:checked ~ form {
+        display: block;
+      }
+    }
+  }
+}
+
+nav.menu--main {
+  @include media-medium {
+    display: inline-block;
+  }
+}

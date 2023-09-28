@@ -1,0 +1,91 @@
+/*
+ * General layout classes.
+ * --------------------------------------------------
+ */
+
+// Hide the track menu by default. We only show it in track-context.
+#block-trackmenu {
+  display: none;
+}
+
+.page-type-universe {
+  // Hide default menu.
+  #block-mungo-main-menu {
+    display: none;
+  }
+
+  // Now we're in track-context, show the track menu.
+  #block-trackmenu {
+    display: block;
+  }
+}
+
+/*  Row with equal height columns.
+    ------------------------------------------------------- */
+.row-eq-height {
+  display: flex;
+}
+
+/*  Divider between columns.
+    ------------------------------------------------------- */
+.col-divider {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  height: 1px;
+  width: 100%;
+  border-bottom: 1px solid $pinkish-grey;
+}
+
+// Ensure all elements on the same row has the same size.
+.row-equal-columns {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  flex-direction: row;
+
+  // Safari fix for before and after on rows.
+  &::before,
+  &::after {
+    display: block;
+  }
+
+  // /* New nested flex container - Safari fix */
+  .node-teaser {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start !important;
+  }
+
+  // Set width to 100% - Safari fix.
+  .paragraph,
+  .paragraph--type--situation-links {
+    width: 100%;
+  }
+
+  @extend .row--grid;
+}
+
+// Address spacing in between cols when row is wrapped on multiple lines.
+.row--grid {
+  $spacing: 15px;
+  $halfspacing: $spacing * 0.5;
+  margin-top: -$halfspacing;
+  margin-bottom: -$halfspacing;
+  @include media-small {
+    margin-top: -$spacing;
+    margin-bottom: -$spacing;
+  }
+
+  > * {
+    /* New nested flex container - Safari fix */
+    display: flex;
+    flex-wrap: wrap;
+
+    padding-top: $halfspacing;
+    padding-bottom: $halfspacing;
+    @include media-small {
+      padding-top: $spacing;
+      padding-bottom: $spacing;
+    }
+  }
+}

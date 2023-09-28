@@ -1,0 +1,139 @@
+// Styling of a grouping-menu placed underneath the main-image of a section.
+// The menu is styled as a drop-down on mobiles, and as a horizontal menu
+// with an underlining of the active element on desktop.
+
+// Default setup of the entire menu.
+.grouping-menu {
+  @include capitalized-menu-item;
+  color: $bluish;
+
+  // On mobile we push it down a bit and seperate it from the next element.
+  margin: $spacing-medium 0;
+
+  // On desktop we want the menu to be positioned close to the cover-image
+  // and the next element.
+  @include media-medium {
+    margin: 0;
+  }
+
+  // Hide the main menu until the title is clicked.
+  .grouping-menu__menu {
+    display: none;
+
+    // But allow it to show on desktop.
+    @include media-medium {
+      display: block;
+    }
+  }
+
+  ul.menu--grouping-menu {
+    li {
+      a {
+        // Double-enforce color to override cores styling.
+        color: $bluish;
+
+        &.is-active {
+          // Double-enforce color to override cores styling.
+          color: $bluish;
+        }
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+// Styling of display and margins of elements. Heavyhanded selector to win
+// over core.
+ul.menu.menu--grouping-menu {
+  @include media-medium {
+    @include inline-menu;
+  }
+  margin: 0;
+
+  li {
+    margin: $spacing-small;
+    @include media-medium {
+      padding: $spacing-small 0;
+      margin: 0 $spacing-medium;
+    }
+  }
+}
+
+// Styling of the active-title element used as the main menu-element on
+// mobile.
+.grouping-menu__active_title {
+  // Don't display it on desktop.
+  @include media-medium {
+    display: none;
+  }
+  padding: $spacing-small;
+  width: $dropdown-menu-size;
+  max-width: 100%;
+
+  // Surround the button with a border
+  border: 1px solid $bluish;
+
+  // Add a downwards-pointing icon.
+  position: relative;
+
+  &::before {
+    @include menu_chevron;
+
+    .is-active & {
+      @include menu_chevron("up");
+    }
+  }
+}
+
+// Styling of the is-active state that is only available on mobile.
+@include max-media-small {
+  .grouping-menu.is-active {
+    // We're going to position the menu on top of the container.
+    position: relative;
+
+    // Position the menu on top of the active-title.
+    .grouping-menu__menu {
+      position: absolute;
+      top: 0;
+      width: 350px;
+      max-width: 100%;
+
+      // Push the menu down so that the active-title shows on before it.
+      margin-top: 35px;
+
+      // We get the top-border from the active-title button.
+      border-right: 1px solid $bluish;
+      border-bottom: 1px solid $bluish;
+      border-left: 1px solid $bluish;
+      z-index: 1;
+      background-color: white;
+      display: block;
+    }
+  }
+
+  .form-item.form-item-maalgruppe {
+    margin: -10px 0 0;
+  }
+
+  .badge-overview--filters {
+    > .container {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+// Styling of the active menu-item (current page).
+.menu--grouping-menu li.menu-item--active-trail {
+  // Don't show it on mobile - we use the active-title element instead.
+  display: none;
+
+  // Display it on table/desktop and underline it.
+  @include media-medium {
+    display: inline-block;
+    border-bottom: 4px solid $bluish;
+  }
+}

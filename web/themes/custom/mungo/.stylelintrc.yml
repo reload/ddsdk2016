@@ -1,3 +1,5 @@
+plugins:
+  - stylelint-order
 extends:
   - "@reloaddk/stylelint-recommended-scss"
 rules:
@@ -10,13 +12,13 @@ rules:
   declaration-empty-line-before: null
   property-no-vendor-prefix: null
   value-no-vendor-prefix: null
-  no-empty-source: null
   selector-max-id: null
-  shorthand-property-no-redundant-values: null
-  color-hex-length: null
-  selector-pseudo-element-colon-notation: single
-  scss/at-extend-no-missing-placeholder: null
+  selector-id-pattern: null
+  declaration-block-no-redundant-longhand-properties: null
+  keyframes-name-pattern: null
+  function-no-unknown: null
   scss/at-mixin-pattern: "^[a-z_][a-z0-9_-]*$"
   scss/dollar-variable-pattern: "^[a-z_][a-z0-9_-]*$"
   scss/percent-placeholder-pattern: "^[a-z_][a-z0-9_-]*$"
+  scss/at-extend-no-missing-placeholder: null
   selector-class-pattern: "[A-Za-z0-9_-]+"

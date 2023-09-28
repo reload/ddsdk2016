@@ -1,0 +1,9 @@
+// Calculation of percentage.
+// $items: number of items element represents.
+// $total-items: represents number of total items.
+@use "sass:math";
+
+@function calc-percentage($items, $total-items) {
+  $width: $total-items - $items;
+  @return math.div($items, $total-items) * 100%;
+}

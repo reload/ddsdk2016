@@ -1,0 +1,69 @@
+@mixin cta-button {
+  min-width: 180px;
+  display: inline-block;
+  @include capitalized-small-text;
+  text-decoration: none;
+  margin-right: 15px;
+  padding: 15px 35px;
+
+  @include max-media-xsmall {
+    padding: 10px 20px;
+    min-width: 1px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+  }
+}
+
+@mixin cta-button-transparent {
+  @include cta-button;
+  color: #fff;
+  border: 2px solid #fff;
+  background-color: rgb(52 52 52 / 30%);
+
+  &:hover {
+    background-color: #fff;
+    color: #000;
+  }
+}
+
+// Use the state-argument when you need a button that acts like a menu and
+// you want to hightlight the currently selected button(s).
+@mixin cta-button-blue($state: "inactive") {
+  @include cta-button;
+  color: white;
+  border: 1px solid #fff;
+
+  @if $state == "inactive" {
+    background-color: $bluish;
+
+    &:hover {
+      background-color: $light-navy;
+    }
+  } @else if $state == "active" {
+    background-color: $light-navy;
+  }
+}
+
+// Style links as squared buttons as long as they are somewhat short.
+@mixin squared-blue-button($state: "inactive") {
+  color: white;
+  display: inline-block;
+
+  @include capitalized-small-text;
+
+  text-decoration: none;
+
+  // Make the buttons square for short links.
+  min-width: $spacing-medium * 2;
+  padding: $spacing-small;
+
+  @if $state == "inactive" {
+    background-color: $bluish;
+
+    &:hover {
+      background-color: $light-navy;
+    }
+  } @else if $state == "active" {
+    background-color: $light-navy;
+  }
+}

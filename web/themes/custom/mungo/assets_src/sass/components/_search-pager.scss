@@ -1,0 +1,24 @@
+// Style the pager on the search-page.
+.pager__items {
+  // Inject some spacing between the pager and the search-results.
+  margin-top: $spacing-small;
+  margin-bottom: $spacing-small;
+
+  .pager__item {
+    padding: 0;
+  }
+
+  @include media-small {
+    margin-top: $spacing-medium;
+    margin-bottom: $spacing-medium;
+  }
+}
+
+// Style the pager-links as buttons
+.pager__item a {
+  @include squared-blue-button();
+}
+
+.pager__item.is-active a {
+  @include squared-blue-button("active");
+}

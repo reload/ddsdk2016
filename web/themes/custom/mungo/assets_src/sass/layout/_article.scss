@@ -1,0 +1,282 @@
+/*  General layout and styling for articles.
+    ------------------------------------------------------- */
+.page-node-type-article {
+  background-color: white;
+
+  // Author, share-links etc
+  .node__meta {
+    // Sourround the meta-area with borders on mobile.
+    border-top: 1px solid $pale-grey;
+    border-bottom: 1px solid $pale-grey;
+
+    display: flex;
+    align-items: center;
+
+    @include media-medium {
+      border: 0;
+      display: block;
+    }
+  }
+}
+
+// A small "keyword" label on top of the title.
+.node--view-mode-full {
+  .node--keyword {
+    @include pre-title;
+
+    // We need to get close to the title below us which has a margin so
+    // we use a negative margin to get close, and then compensate with
+    // a positive top-margin.
+    margin-top: $spacing-medium;
+    margin-bottom: -$spacing-medium;
+
+    @include media-small {
+      margin-top: $spacing-large;
+      margin-bottom: -$spacing-large;
+    }
+  }
+}
+
+/*  Default and extended teaser.
+    ------------------------------------------------------- */
+
+// Node extended teaser is special. It does not use bootstrap grid, but flexbox
+// in order to center vertically.
+.node-extended-teaser-container {
+  @include media-small {
+    display: flex;
+    align-items: center;
+
+    .media-container {
+      width: 50%;
+      margin-right: 15px;
+    }
+
+    .content-container {
+      width: 50%;
+      margin-left: 15px;
+    }
+  }
+
+  // Reset this.
+  .byline,
+  .caption {
+    display: none;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+  // Node teaser view. This doesn't include the main image.
+  .node-extended-teaser {
+    // Since all is a link. reset color.
+    color: #000;
+
+    // Fields.
+    &--heading {
+      @include feature-heading-medium;
+      margin: 0;
+      margin-bottom: $spacing-small;
+    }
+
+    &--keyword {
+      @include pre-title;
+    }
+
+    &--subtitle {
+      // Subtitle should not appear as subtitle on node-full-view.
+      .subtitle {
+        margin-bottom: $spacing-medium;
+        font-weight: 300;
+        font-size: 15px;
+        line-height: 25px;
+        @include media-small {
+          font-size: 17px;
+          line-height: 28px;
+        }
+      }
+    }
+
+    &--read-more {
+      @include blue-arrowed-read-more;
+    }
+  }
+
+  &:hover {
+    .node-extended-teaser--read-more {
+      @include blue-arrowed-read-more-hover;
+    }
+  }
+}
+
+.node-teaser {
+  transition: all 0.3s;
+  border-bottom: 5px solid #fff;
+
+  height: 100%;
+  width: 100%;
+
+  &:hover {
+    text-decoration: none;
+    box-shadow: 0 0 2px rgb(0 0 0 / 50%);
+    border-bottom: 5px solid $bluish;
+
+    img {
+      @include filter(brightness(80%));
+    }
+
+    .node-teaser--read-more {
+      @include blue-arrowed-read-more-hover;
+    }
+  }
+
+  background-color: #fff;
+  display: block;
+
+  .main-media {
+    margin: 0;
+    border: 0;
+  }
+  // Indent content that is not image.
+  &--content-container {
+    color: #000;
+    padding: $spacing-medium;
+  }
+
+  $_keyword-gap: $spacing-small;
+
+  &--keyword {
+    // Set margins negative for all teasers
+    margin-bottom: -$spacing-small;
+    @include pre-title;
+
+    &-list {
+      display: flex;
+      gap: $_keyword-gap;
+      list-style-type: none;
+    }
+  }
+
+  &--keyword-multiple {
+    li:not(:first-child)::before {
+      content: "\2011"; // This is a non-breaking hyphen.
+      margin-right: $_keyword-gap; // Use the same margin as we have gap in our list.
+    }
+  }
+  // Keyword gets to close in teaser-lists so we reset the margin added for
+  // standard teasers back to zero.
+  .node-teaser--list--meta &--keyword {
+    margin-bottom: 0;
+  }
+
+  &--read-more {
+    @include blue-arrowed-read-more;
+  }
+
+  // When no image.
+  .no-image img {
+    background: $marine-blue;
+  }
+}
+
+.node-teaser--heading {
+  @include list-heading-medium;
+}
+
+.three-cols-deck .node-teaser--heading {
+  @include list-heading-large;
+}
+
+/*  List teaser variant.
+    ------------------------------------------------------- */
+.node-teaser--list {
+  // Adapt to the parent background.
+  background-color: transparent;
+  border-top: 1px solid $pinkish-grey;
+
+  // Override default teaser bottom.
+  border-bottom: 0;
+  padding: 20px 0;
+  width: calc(100% - 10px);
+
+  // Add invisible border on the left to keep
+  // element from moving on hover:
+  border-left: 5px solid transparent;
+  margin-left: -5px;
+
+  @include media-small {
+    width: calc(50% - 10px);
+  }
+
+  @include media-medium {
+    width: calc(100% - 10px);
+  }
+
+  // Override hover state on teaser.
+  &:hover {
+    border-bottom: 0;
+    box-shadow: none;
+    border-left: 5px solid $bluish;
+  }
+
+  // Fields.
+  &--heading {
+    @include list-heading-small;
+
+    margin: 5px 0;
+  }
+
+  &--main-media {
+    width: calc-percentage(3, 12);
+    display: inline-block;
+    float: left;
+
+    @include media-medium {
+      width: calc-percentage(4, 12);
+    }
+  }
+
+  &--meta {
+    width: calc-percentage(9, 12);
+    display: inline-block;
+    padding-left: 15px;
+
+    @include media-small {
+      width: calc-percentage(8, 12);
+    }
+
+    // If there is no image, we will render the meta data
+    // in full width.
+    .no-image & {
+      width: 100%;
+      padding-left: 0;
+    }
+  }
+
+  @include media-small {
+    // Overide border behaviour on tablet.
+    border-top: 0;
+    border-bottom: 1px solid $pinkish-grey;
+
+    &:nth-child(1),
+    &:nth-child(2) {
+      border-top: 1px solid $pinkish-grey;
+    }
+  }
+
+  // On Desktop we go 100% again.
+  @include media-medium {
+    width: 100%;
+
+    // Reset.
+    border-top: 1px solid $pinkish-grey;
+    border-top: 0;
+  }
+}
+
+/*  Sidebar deck globally.
+    ------------------------------------------------------- */
+.article__sidebar {
+  margin-top: 30px;
+  overflow: hidden;
+}

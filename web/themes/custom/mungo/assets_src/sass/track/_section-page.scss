@@ -1,6 +1,9 @@
+@use "sass:map";
+
 $_track-icons-size: 108px;
 $_push-overlay-away: $spacing-xlarge;
 $_left-spacing: 15px;
+
 .page-type-universe.page-node-type-section-page {
   .main-media {
     border: 0;
@@ -71,7 +74,7 @@ $_left-spacing: 15px;
     }
 
     .dymo-text-processed {
-      &:before {
+      &::before {
         content: initial;
       }
 
@@ -202,6 +205,7 @@ $_left-spacing: 15px;
         padding: 0;
       }
     }
+
     .subtitle {
       font-size: 26px;
       width: 70%;
@@ -221,7 +225,7 @@ $_left-spacing: 15px;
       // as the bg color for "arrangementer" is already yellow.
       @if ($track != "arrangementer") {
         .track-t--bg.track-#{$track} {
-          fill: map-get($track-colors, "arrangementer");
+          fill: map.get($track-colors, "arrangementer");
         }
       }
 
@@ -258,6 +262,7 @@ $_left-spacing: 15px;
 
     .track-star {
       right: $_left-spacing;
+
       &--bg * {
         fill: $track-blue;
       }

@@ -12,17 +12,19 @@ mungo-theme:
 
 typekit:
   version: 1.x
-  header: true
   js:
-    https://use.typekit.net/del2tvj.js: { every_page: true }
-    assets/js/typekit.js: { every_page: true }
+    'https://use.typekit.net/del2tvj.js': {}
+    assets/js/typekit.js: {}
 
 object-fit:
-  version: 0.1
-  footer: true
+  remote: 'https://github.com/bfred-it/object-fit-images'
+  version: '3.2.3'
+  license:
+    name: MIT
+    url: https://github.com/bfred-it/object-fit-images/blob/master/license
+    gpl-compatible: true
   js:
-    assets/js/ofi.js : {}
-    assets/js/object-fit.js : {}
+    node_modules/object-fit-images/dist/ofi.js : {}
 
 program:
   version: 0.1

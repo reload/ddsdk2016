@@ -1,0 +1,63 @@
+.author-presentation {
+  // Make sure the outer-container can contain the image on mobile.
+  // The size is mobile-image-size + top-margin + bottom-margin.
+  min-height: 70px;
+
+  // Depiction of the author.
+  .author__image {
+    // Inject some spacing between the image and the meta-elements to the
+    // right of the picture
+    margin-right: $spacing-medium;
+
+    // Fix the image-size.
+    height: 50px;
+    width: 50px;
+
+    // Float the image so that we get the meta-fields on its right.
+    float: left;
+
+    // Give the image a circular mask by having it go 100% inside a overflow
+    // -hidden container with an border-radius larger than 50% of its size.
+    overflow: hidden;
+    border-radius: 50px;
+
+    img {
+      height: auto;
+      width: 100%;
+    }
+    @include media-medium {
+      // Larger image on desktop.
+      height: 100px;
+      width: 100px;
+      float: none;
+    }
+  }
+
+  // Meta-textfields show in relation to the author.
+  .author__meta {
+    line-height: 1.73;
+    font-size: 11px;
+    @include media-medium {
+      margin-top: $spacing-small;
+    }
+  }
+
+  // Style the two text-elements individually.
+  .published-on {
+    @include media-medium {
+      font-weight: 600;
+      color: $warm-grey;
+      font-size: 10px;
+      line-height: 2.3;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+    }
+  }
+
+  .author__name {
+    @include media-medium {
+      line-height: 1.5;
+      font-size: 13px;
+    }
+  }
+}

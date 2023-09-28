@@ -1,0 +1,82 @@
+footer {
+  .layout-container > & {
+    overflow: hidden;
+  }
+}
+
+.region-footer-contact {
+  position: relative;
+  z-index: 3;
+}
+
+.footer__fb {
+  margin-bottom: $spacing-large;
+
+  > h3 {
+    margin-bottom: 0;
+  }
+
+  .footer__fb-link {
+    display: block;
+    float: left;
+    padding-right: $spacing-medium;
+    padding-top: $spacing-medium;
+    max-width: 45%;
+    min-width: 260px;
+
+    text-decoration: none;
+    box-sizing: border-box;
+
+    > img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.footer_top {
+  padding: 20px 0 30px;
+}
+
+// Three image.
+.footer_bottom {
+  .container {
+    position: relative;
+
+    &::after {
+      @include media-small {
+        content: "";
+        background: url("../images/footer_tree_dummy_ikon.svg");
+        background-repeat: no-repeat;
+        background-position: 0 5px;
+        height: 261px;
+        width: 279px;
+        display: block;
+        position: absolute;
+        right: -100px;
+        bottom: 0;
+      }
+    }
+  }
+}
+
+.menu--social-links {
+  @include inline-menu;
+  padding: 0;
+  padding-top: $spacing-small;
+}
+
+.region-footer-social {
+  padding: $spacing-large 0;
+}
+
+.menu--footer {
+  ul {
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+    line-height: 1.69;
+  }
+}

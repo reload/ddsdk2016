@@ -1,0 +1,160 @@
+// Make deck behave accordingly to design.
+.inspiration-deck {
+  // Reset width.
+  width: 100%;
+
+  .is-safari & {
+    // The width of inspiration deck is 1140px (site-width) which isn't good
+    // when calculating aspect ratio. Half 570px in 8:4 has a height of 213.75px
+    // and subpixels are treated differently here in ie. Chrome and Safari.
+    // Safari rounds down where Chrome rounds up.
+    // Setting width to 1100px (by adding padding) solves this.
+    @include media-large {
+      padding: 0 20px;
+    }
+  }
+
+  *[class*="col-md"] {
+    // Remove bootstrap gutter.
+    padding: 0;
+
+    .inner {
+      overflow: hidden;
+    }
+  }
+  // Set the ratio for containers.
+  // For understanding ratio calculated this way visit
+  // http://www.goldenapplewebdesign.com/responsive-aspect-ratios-with-pure-css/
+  // The ratio is either ratio-{xs|sm|md}-{4_3|8_3} others can be implemented.
+  *[class*="ratio-"] {
+    position: relative;
+
+    &::after {
+      content: " ";
+      display: block;
+    }
+
+    .inner {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    &.ratio-xs-4_3::after {
+      margin-top: 75%;
+    }
+
+    &.ratio-xs-8_3::after {
+      margin-top: 37.5%;
+    }
+
+    @include media-small {
+      &.ratio-sm-4_3::after {
+        margin-top: 75%;
+      }
+
+      &.ratio-sm-8_3::after {
+        margin-top: 37.5%;
+      }
+    }
+    @include media-medium {
+      &.ratio-md-4_3::after {
+        margin-top: 75%;
+      }
+
+      &.ratio-md-8_3::after {
+        margin-top: 37.5%;
+      }
+    }
+  }
+
+  a {
+    border: 0;
+    // Overriding node_teaser theming and resetting image to span whole height of
+    // container.
+
+    .main-media,
+    .main-media * {
+      display: block;
+      height: 100%;
+      width: 100%;
+
+      img {
+        transition: all 0.3s;
+        @include filter(brightness(70%));
+        // stylelint-disable-next-line font-family-no-missing-generic-family-keyword
+        font-family: "object-fit: cover;";
+        object-fit: cover;
+        height: 100%;
+      }
+    }
+    // Resetting the content container.
+    .node-teaser--content-container {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+
+      .node-teaser--keyword,
+      h2.node-teaser--heading {
+        color: #fff;
+      }
+
+      h2.node-teaser--heading {
+        //@include list-heading-large;
+        @include inspiration_header;
+        color: #fff;
+        margin-bottom: 0;
+      }
+
+      .node-teaser--read-more {
+        display: none;
+      }
+    }
+
+    // Resetting normal node_teaser hover effect, removing text and
+    // brighten image.
+    &:hover {
+      img {
+        @include filter(brightness(100%));
+      }
+      border: 0;
+    }
+  }
+
+  .content {
+    text-decoration: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    padding: $spacing-medium;
+
+    @include max-media-xsmall {
+      padding: $spacing-small $spacing-medium;
+      height: 100%;
+    }
+
+    h2 {
+      @include inspiration_teaser_header;
+      margin: 0;
+    }
+
+    p {
+      @include inspiration_teaser_text;
+    }
+  }
+}
+
+// The freaking width of the col-sm-4 translates to 239.98px.
+.inspiration-deck .col-sm-4 {
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    width: 240px;
+  }
+}
+
+// Wierd reset.
+.is-safari .row-equal-columns .inspiration-deck a.node-teaser {
+  height: 100% !important;
+}

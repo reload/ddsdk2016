@@ -1,8 +1,10 @@
+@use "sass:map";
+
 $_gap: $spacing-small;
 
 .page-type-universe {
   .has-latest-content-tagging {
-    background-color: map-get($track-colors, "skills");
+    background-color: map.get($track-colors, "skills");
 
     .views-element-container {
       width: 100%;

@@ -13,7 +13,7 @@
       color: inherit;
     }
 
-    h2:after,
+    h2::after,
     .icon,
     .view-content-link {
       display: none;
@@ -80,12 +80,13 @@
       }
     }
   }
+
   .has-situation-links {
     $_pseudo-bg-offset: 25px;
     margin-bottom: $spacing-large;
 
     .row--grid:not(.deck-box-head) [class*="col-"] {
-      &:before {
+      &::before {
         content: "";
         position: absolute;
         left: $_pseudo-bg-offset;
@@ -105,7 +106,7 @@
       }
 
       &:last-child {
-        &:before {
+        &::before {
           @include max-media-xsmall {
             top: 10px;
           }

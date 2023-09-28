@@ -1,4 +1,8 @@
-.page-type-universe:not(.page-node-type-article, .page-node-type-event, .page-node-type-activity) {
+.page-type-universe:not(
+    .page-node-type-article,
+    .page-node-type-event,
+    .page-node-type-activity
+  ) {
   background-color: $track-light-green;
   background-image: url("#{$track-images}/noise.svg");
   background-size: 40%;
@@ -40,6 +44,7 @@
       font-size: 36px;
     }
   }
+
   .deck-box-head--link a {
     @include track-cta-button;
   }
