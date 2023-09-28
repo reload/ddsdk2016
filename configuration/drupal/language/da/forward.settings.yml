@@ -1,5 +1,6 @@
 forward_interface_title: 'Send denne [forward:entity-type]'
 forward_link_title: 'Videresend denne [forward:entity-type] til en ven.'
+forward_form_title: 'Videresend denne [forward:entity-type] til en ven.'
 forward_form_instructions: 'Del <em>[forward:entity-title]</em> fra [site:name].'
 forward_form_confirmation: 'Indholdet er nu sent.'
 forward_email_subject: '[forward:sender-name] har sendt en [dds_article:type] til dig fra [site:name]'

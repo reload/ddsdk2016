@@ -1,8 +1,10 @@
 cookiebot_cbid: 947a3db6-53aa-4ed5-8531-416c10ee0416
 cookiebot_block_cookies: false
 cookiebot_iab_enabled: false
+cookiebot_drupal_culture: false
+cookiebot_disable_async_loading: false
 cookiebot_show_declaration: true
-cookiebot_show_declaration_node_path: /cookiepolitik
+cookiebot_show_declaration_node: '4478'
 exclude_paths: ''
 exclude_admin_theme: true
 exclude_uid_1: false
