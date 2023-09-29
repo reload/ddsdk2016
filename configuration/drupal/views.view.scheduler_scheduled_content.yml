@@ -78,7 +78,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          action_title: Action
+          action_title: Handling
           include_exclude: exclude
           selected_actions: {  }
         title:
@@ -91,7 +91,7 @@ display:
           entity_type: node
           entity_field: title
           plugin_id: field
-          label: Title
+          label: Titel
           exclude: false
           alter:
             alter_text: false
@@ -138,7 +138,7 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: field
-          label: 'Content Type'
+          label: Indholdstype
           exclude: false
           alter:
             alter_text: false
@@ -203,7 +203,7 @@ display:
           entity_type: user
           entity_field: name
           plugin_id: field
-          label: Author
+          label: Forfatter
           exclude: false
           alter:
             alter_text: false
@@ -313,8 +313,8 @@ display:
           type: boolean
           settings:
             format: custom
-            format_custom_false: Unpublished
-            format_custom_true: Published
+            format_custom_false: 'Ikke udgivet'
+            format_custom_true: Udgivet
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -382,6 +382,15 @@ display:
             date_format: short
             custom_date_format: ''
             timezone: ''
+            tooltip:
+              date_format: ''
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -449,6 +458,15 @@ display:
             date_format: short
             custom_date_format: ''
             timezone: ''
+            tooltip:
+              date_format: ''
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -468,7 +486,7 @@ display:
           admin_label: ''
           entity_type: node
           plugin_id: entity_operations
-          label: Operations
+          label: Handlinger
           exclude: false
           alter:
             alter_text: false
@@ -518,8 +536,8 @@ display:
           total_pages: null
           id: 0
           tags:
-            next: 'next ›'
-            previous: '‹ previous'
+            next: 'næste ›'
+            previous: '‹ forrige'
             first: '« first'
             last: 'last »'
       exposed_form:
@@ -527,11 +545,11 @@ display:
         options:
           submit_button: Filter
           reset_button: true
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
+          reset_button_label: Gendan
+          exposed_sorts_label: 'Sortér efter'
           expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
+          sort_asc_label: Stigende
+          sort_desc_label: Faldende
       access:
         type: perm
         options:
@@ -611,7 +629,7 @@ display:
           exposed: true
           expose:
             operator_id: title_op
-            label: Title
+            label: Titel
             description: ''
             use_operator: false
             operator: title_op
@@ -654,7 +672,7 @@ display:
           exposed: true
           expose:
             operator_id: type_op
-            label: 'Content type'
+            label: Indholdstype
             description: ''
             use_operator: false
             operator: type_op
@@ -713,7 +731,7 @@ display:
               administrator: '0'
           is_grouped: true
           group_info:
-            label: 'Published status'
+            label: Publiceringsstatus
             description: ''
             identifier: status
             optional: true
@@ -724,11 +742,11 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: Published
+                title: Udgivet
                 operator: '='
                 value: '1'
               2:
-                title: Unpublished
+                title: 'Ikke udgivet'
                 operator: '='
                 value: '0'
         langcode:
@@ -747,7 +765,7 @@ display:
           exposed: true
           expose:
             operator_id: langcode_op
-            label: Language
+            label: Sprog
             description: ''
             use_operator: false
             operator: langcode_op
@@ -1004,8 +1022,8 @@ display:
     display_plugin: page
     position: 1
     display_options:
-      display_description: 'Overview of all scheduled content, as a tab on main ''content admin'' page'
-      display_comment: 'Revision nid relationship is required because the content type is only stored at ''content'' level, not ''content revision'' level.'
+      display_description: "Overview of all scheduled content, as a tab on main 'content admin' page"
+      display_comment: "Revision nid relationship is required because the content type is only stored at 'content' level, not 'content revision' level."
       display_extenders: {  }
       path: admin/content/scheduled
       menu:
@@ -1019,7 +1037,7 @@ display:
         context: '0'
       tab_options:
         type: normal
-        title: Content
+        title: Indhold
         description: 'Find and manage scheduled content'
         weight: -10
         menu_name: admin
@@ -1035,7 +1053,7 @@ display:
       tags: {  }
   user_page:
     id: user_page
-    display_title: User
+    display_title: Bruger
     display_plugin: page
     position: 2
     display_options:
@@ -1070,7 +1088,7 @@ display:
           exception:
             value: all
             title_enable: false
-            title: All
+            title: Alle
           title_enable: false
           title: ''
           default_argument_type: fixed
@@ -1104,7 +1122,7 @@ display:
         arguments: false
         filters: true
         filter_groups: true
-      display_description: 'Scheduled content tab on user profile, showing just that user''s scheduled content'
+      display_description: "Scheduled content tab on user profile, showing just that user's scheduled content"
       display_comment: 'Access to the user view is controlled via a custom RouteSubscriber. The high-level "view published content" permission is added to satisfy the security_review module'
       display_extenders: {  }
       path: user/%user/scheduled
@@ -1118,7 +1136,7 @@ display:
         context: '0'
       tab_options:
         type: normal
-        title: Content
+        title: Indhold
         description: 'Find and manage scheduled content'
         weight: -10
         menu_name: admin

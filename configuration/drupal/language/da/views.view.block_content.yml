@@ -1,10 +1,7 @@
-label: 'Brugerdefineret blokbibliotek'
-description: 'Find og håndtér brugerdefinerede blokke.'
 display:
   default:
     display_title: Standard
     display_options:
-      title: 'Brugerdefineret blokbibliotek'
       fields:
         info:
           label: Beskrivelse
@@ -32,9 +29,6 @@ display:
           exposed_sorts_label: 'Sortér efter'
           sort_asc_label: Stigende
           sort_desc_label: Faldende
-      empty:
-        area_text_custom:
-          content: 'Der er ingen brugerdefinerede blokke. '
       filters:
         info:
           expose:
@@ -46,4 +40,4 @@ display:
     display_title: Side
     display_options:
       menu:
-        title: 'Brugerdefineret blokbibliotek'
+        title: Blokke

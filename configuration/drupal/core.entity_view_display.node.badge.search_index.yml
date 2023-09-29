@@ -4,6 +4,7 @@ status: false
 dependencies:
   config:
     - core.entity_view_mode.node.search_index
+    - field.field.node.badge.field_2018_badge
     - field.field.node.badge.field_badge_cover_image
     - field.field.node.badge.field_badge_level
     - field.field.node.badge.field_badge_progression
@@ -105,9 +106,11 @@ content:
     weight: 6
     region: content
 hidden:
+  field_2018_badge: true
   field_badge_level: true
   field_badge_progression: true
   field_content_tag: true
   field_content_topic: true
   langcode: true
   links: true
+  search_api_excerpt: true

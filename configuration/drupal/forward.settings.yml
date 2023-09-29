@@ -22,7 +22,7 @@ forward_bypass_access_control: 0
 forward_filter_format_html: ''
 forward_filter_format_plain_text: ''
 forward_flood_control_limit: 10
-forward_flood_control_error: 'You can''t send more than @number messages per hour. Please try again later.'
+forward_flood_control_error: "You can't send more than @number messages per hour. Please try again later."
 forward_entity_node: true
 forward_view_full: true
 forward_view_teaser: false

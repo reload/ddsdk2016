@@ -51,6 +51,7 @@ permissions:
   - 'delete own badge content'
   - 'delete own download content'
   - 'delete own event content'
+  - 'delete own files'
   - 'delete own section_page content'
   - 'edit any activity content'
   - 'edit any article content'

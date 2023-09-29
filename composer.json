@@ -67,7 +67,7 @@
     ],
     "require": {
         "ext-dom": "*",
-        "composer/installers": "^1.9",
+        "composer/installers": "^2",
         "cweagans/composer-patches": "^1.7",
         "drmonty/chosen": "^1.6",
         "drupal/address": "^1.9",
@@ -75,13 +75,14 @@
         "drupal/better_exposed_filters": "^6",
         "drupal/chosen": "^4",
         "drupal/chosen_lib": "^4",
+        "drupal/ckeditor": "^1.0",
         "drupal/classy": "^1.0",
         "drupal/color": "^1.0",
         "drupal/cookiebot": "^1.0@alpha",
-        "drupal/core": "^9",
-        "drupal/core-composer-scaffold": "^9",
-        "drupal/core-project-message": "^9",
-        "drupal/core-recommended": "^9",
+        "drupal/core": "^10",
+        "drupal/core-composer-scaffold": "^10",
+        "drupal/core-project-message": "^10",
+        "drupal/core-recommended": "^10",
         "drupal/crop": "^2.1",
         "drupal/ctools": "^4",
         "drupal/editor_advanced_link": "^2",
@@ -106,15 +107,15 @@
         "drupal/paragraphs": "^1.6.0",
         "drupal/pathauto": "^1.8",
         "drupal/plausible_tracking": "^1.0@beta",
+        "drupal/recommended-project": "^10",
         "drupal/redirect": "^1.3.0",
         "drupal/redis": "^1.5",
-        "drupal/reloadtina": "^2.0",
         "drupal/scheduler": "^2",
         "drupal/search_api": "^1.19",
         "drupal/search_api_exclude_entity": "^2",
         "drupal/search_api_solr": "^4.2.0",
         "drupal/stage_file_proxy": "^2",
-        "drupal/system_status": "^2.8.0",
+        "drupal/system_status_d10": "^1.0",
         "drupal/token": "^1.9",
         "drupal/translate_tool": "^2.0",
         "drupal/twig_tweak": "^3.1",
@@ -122,7 +123,7 @@
         "drupal/upgrade_status": "^4.0",
         "drupal/video_embed_field": "^2.2.0",
         "drupal/views_bulk_operations": "^4.2",
-        "drush/drush": "^10",
+        "drush/drush": "^12",
         "furf/jquery-ui-touch-punch": "dev-master",
         "predis/predis": "^1.1",
         "woothemes/flexslider": "^2.6.3"
@@ -130,7 +131,7 @@
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
         "drupal/coder": "^8.3",
-        "drupal/core-dev": "^9",
+        "drupal/core-dev": "^10",
         "mglaman/phpstan-drupal": "^1",
         "phpspec/prophecy-phpunit": "^2",
         "phpstan/extension-installer": "^1",
@@ -178,14 +179,9 @@
         },
         "patches": {
             "drupal/core": {
-                "2949017: There is no way to delete or update file entities of other users incl. user/1": "https://www.drupal.org/files/issues/2019-12-12/2949017-59.patch",
                 "2558207: Add hook to react to image_path_flush() - recommended by the Reloadtina module": "https://www.drupal.org/files/issues/add_hook_image_path_flush-2558207-4.patch",
                 "2857132: Account administration pages language negotiation ignores _format blocking REST resources": "https://www.drupal.org/files/issues/2019-01-28/preserve-format-while-negoatiating-2857132-10-work-in-progress.patch",
-                "3294680: Avoid Watchdog notice spam.": "https://www.drupal.org/files/issues/2022-07-07/3294680-2.patch",
-                "DDS CUSTOM: Support always rebuilding the kernel to fix localization issues.": "patches/drupal_always-rebuild-kernel.patch"
-            },
-            "drush/drush": {
-                "DDS CUSTOM: Support always rebuilding the kernel on Cache Rebuild": "patches/drush_always-rebuild-kernel.patch"
+                "3294680: Avoid Watchdog notice spam.": "https://www.drupal.org/files/issues/2022-07-07/3294680-2.patch"
             },
             "drupal/system_status": {
                 "3299281: D10 compatibility": "https://www.drupal.org/files/issues/2022-07-23/system_status.2.x-dev.rector.patch"

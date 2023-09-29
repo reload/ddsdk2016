@@ -17,7 +17,7 @@ settings:
   repo_path: null
   status_cmd: 'git status --porcelain'
   check_branch: false
-  ahead_cmd: 'git log --graph --pretty=format:''%h -%d %s (%ci)'' @{u}..'
+  ahead_cmd: "git log --graph --pretty=format:'%h -%d %s (%ci)' @{u}.."
   branches_cmd: 'git rev-parse --symbolic --branches'
   actual_branch_cmd: 'git symbolic-ref HEAD --short'
   expected_branch: null
