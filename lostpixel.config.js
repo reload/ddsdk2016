@@ -4,7 +4,7 @@ module.exports = {
         { path: '/arrangementer?search_text=telt&event_after=21%2F09%2F2023&event_before=30%2F09%2F2023', name: 'arrangementer' },
         { path: '/aktivitet/1-dags-kollektiv', name: 'aktivitet' },
         { path: '/maerker?maalgruppe=30', name: 'mærker' },
-        { path: '/maerke/bygherre', name: 'mærke' },
+        { path: '/maerke/familiespejder', name: 'mærke' },
         { path: '/artikel/guide-sadan-pakker-du-rygsaekken', name: 'artikel' },
       ],
       mask: [
