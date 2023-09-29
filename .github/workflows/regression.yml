@@ -31,7 +31,7 @@ jobs:
           ALLOW_CANCEL_CRON: 1
 
       - name: Lost Pixel
-        uses: lost-pixel/lost-pixel@v3.4.0
+        uses: lost-pixel/lost-pixel@v3.7.1
         env:
           LOST_PIXEL_API_KEY: ${{ secrets.LOST_PIXEL_API_KEY }}
           LOST_PIXEL_BASE_URL: ${{ steps.platformsh_url.outputs.url }}
