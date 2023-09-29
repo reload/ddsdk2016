@@ -8,13 +8,14 @@
     // eslint-disable-next-line no-unused-vars
     attach: function (context, settings) {
       // Toggling the hide/show of hidden filters on mobile.
-      $(".js-filters-exposed-toggle-foldout")
-        .once()
-        .on("click", function (e) {
+      $(".js-filters-exposed-toggle-foldout:not(.is-initialized)").on(
+        "click",
+        function (e) {
           e.preventDefault();
-
+          $(this).addClass("is-initialized");
           $(".js-filters-exposed").toggleClass("is-open");
-        });
+        },
+      );
 
       $("#edit-event-before").datepicker({
         changeMonth: true,

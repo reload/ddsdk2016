@@ -91,11 +91,6 @@ parameters:
 			path: web/modules/custom/dds_tracking/dds_tracking.module
 
 		-
-			message: "#^Parameter \\#2 \\$value of method Drupal\\\\Core\\\\Database\\\\Query\\\\ConditionInterface\\:\\:condition\\(\\) expects array\\|Drupal\\\\Core\\\\Database\\\\Query\\\\SelectInterface\\|string\\|null, int given\\.$#"
-			count: 1
-			path: web/modules/custom/dds_update/dds_update.install
-
-		-
 			message: "#^Call to an undefined method Drupal\\\\Core\\\\Entity\\\\EntityInterface\\:\\:get\\(\\)\\.$#"
 			count: 1
 			path: web/modules/custom/facets_views_block/facets_views_block.module

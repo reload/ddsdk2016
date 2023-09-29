@@ -570,7 +570,7 @@ function _mungo_preprocess_node_download(Node $node, &$variables) {
   catch (\Exception $e) {
     // Noop. If destination parameter lookup failed just proceed without adding
     // one.
-    watchdog_exception('mungo', $e);
+    \Drupal::logger('mungo')->error($e);
   }
 
   // Get the inline svg icon.
