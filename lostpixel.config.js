@@ -7,13 +7,15 @@ module.exports = {
         { path: '/maerke/bygherre', name: 'mærke' },
         { path: '/artikel/guide-sadan-pakker-du-rygsaekken', name: 'artikel' },
       ],
+      mask: [
+        {selector: '.site-logo--container'}
+      ],
       baseUrl: process.env.LOST_PIXEL_BASE_URL,
     },
     lostPixelProjectId: 'clm87pkuu9umnln0eu69t81eu',
     apiKey: process.env.LOST_PIXEL_API_KEY,
     waitBeforeScreenshot: 2000,
     beforeScreenshot: async (page) => {
-
       await page.addStyleTag({
         content: `
           #CybotCookiebotDialog,
