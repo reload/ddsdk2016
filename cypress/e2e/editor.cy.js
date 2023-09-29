@@ -23,12 +23,7 @@ describe('Editor flow', () => {
 
   it('Check that article is available', () => {
     cy.drupalStartup();
-    cy.visit('/');
-
-    cy.get('header').contains('Søg').click();
-    cy.get('[name="search_text"]').type(`cypress-test{enter}`);
-    cy.get('.node--view-mode-teaser').contains(pageTitle).first().click();
-
+    cy.visit(`/artikel/${pageTitle}`);
     cy.get('.page-title').contains(pageTitle).should('be.visible')
   });
 })
