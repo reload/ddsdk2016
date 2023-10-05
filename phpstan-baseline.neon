@@ -56,7 +56,7 @@ parameters:
 			path: web/modules/custom/dds_metatag/dds_metatag.module
 
 		-
-			message: "#^Access to an undefined property Drupal\\\\Core\\\\TypedData\\\\TypedDataInterface\\:\\:\\$entity\\.$#"
+			message: "#^Access to an undefined property Drupal\\\\Core\\\\Field\\\\FieldItemInterface\\:\\:\\$entity\\.$#"
 			count: 1
 			path: web/modules/custom/dds_person/dds_person.module
 
@@ -86,9 +86,9 @@ parameters:
 			path: web/modules/custom/dds_tracking/dds_tracking.module
 
 		-
-			message: "#^Call to deprecated constant FILE_STATUS_PERMANENT\\: Deprecated in drupal\\:9\\.3\\.0 and is removed from drupal\\:10\\.0\\.0\\. Use \\\\Drupal\\\\file\\\\FileInterface\\:\\:STATUS_PERMANENT or \\\\Drupal\\\\file\\\\FileInterface\\:\\:setPermanent\\(\\)\\.$#"
-			count: 1
-			path: web/modules/custom/dds_update/dds_update.install
+			message: "#^Offset 'type' does not exist on string\\.$#"
+			count: 2
+			path: web/modules/custom/dds_tracking/dds_tracking.module
 
 		-
 			message: "#^Parameter \\#2 \\$value of method Drupal\\\\Core\\\\Database\\\\Query\\\\ConditionInterface\\:\\:condition\\(\\) expects array\\|Drupal\\\\Core\\\\Database\\\\Query\\\\SelectInterface\\|string\\|null, int given\\.$#"
@@ -101,12 +101,12 @@ parameters:
 			path: web/modules/custom/facets_views_block/facets_views_block.module
 
 		-
-			message: "#^Access to an undefined property Drupal\\\\Core\\\\TypedData\\\\TypedDataInterface\\:\\:\\$entity\\.$#"
+			message: "#^Access to an undefined property Drupal\\\\Core\\\\Field\\\\FieldItemInterface\\:\\:\\$entity\\.$#"
 			count: 2
 			path: web/themes/custom/mungo/mungo.theme
 
 		-
-			message: "#^Access to an undefined property Drupal\\\\Core\\\\TypedData\\\\TypedDataInterface\\:\\:\\$value\\.$#"
+			message: "#^Access to an undefined property Drupal\\\\Core\\\\Field\\\\FieldItemInterface\\:\\:\\$value\\.$#"
 			count: 1
 			path: web/themes/custom/mungo/mungo.theme
 
@@ -123,11 +123,6 @@ parameters:
 		-
 			message: "#^Call to an undefined method Drupal\\\\Core\\\\Entity\\\\EntityInterface\\:\\:hasField\\(\\)\\.$#"
 			count: 1
-			path: web/themes/custom/mungo/mungo.theme
-
-		-
-			message: "#^Call to an undefined method Drupal\\\\Core\\\\TypedData\\\\TypedDataInterface\\:\\:get\\(\\)\\.$#"
-			count: 2
 			path: web/themes/custom/mungo/mungo.theme
 
 		-
@@ -166,11 +161,6 @@ parameters:
 			path: web/themes/custom/mungo/mungo.theme
 
 		-
-			message: "#^Parameter \\#1 \\$value of function _mungo_2col_size_option_to_text expects int, string given\\.$#"
-			count: 1
-			path: web/themes/custom/mungo/mungo.theme
-
-		-
 			message: "#^Right side of && is always true\\.$#"
 			count: 1
 			path: web/themes/custom/mungo/mungo.theme
@@ -189,4 +179,3 @@ parameters:
 			message: "#^Variable \\$file in PHPDoc tag @var does not match assigned variable \\$uploaded_files\\.$#"
 			count: 1
 			path: web/themes/custom/mungo/theme-settings.php
-

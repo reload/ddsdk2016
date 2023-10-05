@@ -1,10 +1,10 @@
 describe('Editor flow', () => {
+  const pageTitle = `cypress-test-${Date.now()}`;
+
   it('Create article as editor', () => {
     cy.editorLogin();
 
-    cy.get('[href="/node/add/article"]').contains('Artikel').click();
-
-    const pageTitle = `cypress-test-${Date.now()}`;
+    cy.get('.region-content a').contains('Artikel').click();
 
     cy.get('[name="title[0][value]"]').type(pageTitle);
 
@@ -19,6 +19,11 @@ describe('Editor flow', () => {
 
     cy.get('#edit_field_content_target_group_chosen input[type="text"]').type('f{enter}');
     cy.get('[value="Gem"]').click();
+  });
 
+  it('Check that article is available', () => {
+    cy.drupalStartup();
+    cy.visit(`/artikel/${pageTitle}`);
+    cy.get('.page-title').contains(pageTitle).should('be.visible')
   });
 })

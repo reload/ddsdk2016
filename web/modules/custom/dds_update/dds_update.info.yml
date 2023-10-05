@@ -2,7 +2,7 @@ name: DDS Update
 description: Global update hooks, such as for translations.
 type: module
 package: DDS
-core: 8.x
-core_version_requirement: ^8 || ^9
+
+core_version_requirement: ^9 || ^10
 dependencies:
   - drupal:locale

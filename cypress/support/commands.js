@@ -24,5 +24,5 @@ Cypress.Commands.add('editorLogin', () => {
   cy.get('.page-title').contains('testeditor').should('be.visible');
 
   cy.get('[href="/admin/content"]').contains('Indhold').should('be.visible').first().click();
-  cy.get('.action-links').contains('Tilføj indhold').should('be.visible').first().click();
+  cy.get('.region-content').contains('Tilføj indhold').should('be.visible').first().click();
 });

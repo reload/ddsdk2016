@@ -20,7 +20,6 @@ dependencies:
     - node.type.activity
   module:
     - inline_entity_form
-    - scheduler
     - text
     - video_embed_field
 id: node.activity.default
@@ -137,12 +136,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  publish_on:
-    type: datetime_timestamp_no_default
-    weight: 6
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   status:
     type: boolean_checkbox
     weight: 9
@@ -158,12 +151,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  unpublish_on:
-    type: datetime_timestamp_no_default
-    weight: 7
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   url_redirects:
     weight: 8
     region: content
@@ -174,5 +161,7 @@ hidden:
   langcode: true
   path: true
   promote: true
+  publish_on: true
   sticky: true
   uid: true
+  unpublish_on: true

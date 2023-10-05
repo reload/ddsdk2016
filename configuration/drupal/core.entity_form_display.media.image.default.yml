@@ -46,9 +46,18 @@ content:
       show_crop_area: false
       show_default_crop: true
     third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 100
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
 hidden:
   created: true
   langcode: true
   name: true
   path: true
+  publish_on: true
   uid: true
+  unpublish_on: true
