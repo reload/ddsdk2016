@@ -1,0 +1,21 @@
+diff --git a/src/Commands/core/CacheCommands.php b/src/Commands/core/CacheCommands.php
+index 165cb3b68..f08413bc2 100644
+--- a/src/Commands/core/CacheCommands.php
++++ b/src/Commands/core/CacheCommands.php
+@@ -239,8 +239,15 @@ final class CacheCommands extends DrushCommands implements CustomEventAwareInter
+         Settings::initialize($root, $site_path, $this->autoloader);
+
+         // drupal_rebuild() calls drupal_flush_all_caches() itself, so we don't do it manually.
+-        drupal_rebuild($this->autoloader, $request);
++
++        // Always rebuild the kernel when running cache rebuild. Otherwise our localizations
++        // will be shown with the correct language for some reason.
++        // Note: This requires on a local Drupal Core patch to be applied.
++
++        drupal_rebuild($this->autoloader, $request, true);
+         $this->logger()->success(dt('Cache rebuild complete.'));
++
++        // As this command replaces `drush cache-clear all` for Drupal 8 users, clear
+     }
+
+     #[CLI\Hook(type: HookManager::ARGUMENT_VALIDATOR, target: self::CLEAR)]
