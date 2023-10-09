@@ -22,6 +22,8 @@ content:
     settings:
       responsive_image_style: 16_9_responsive
       image_link: ''
+      image_loading:
+        attribute: eager
     third_party_settings: {  }
     weight: 0
     region: content
@@ -31,5 +33,6 @@ hidden:
   field_caption: true
   langcode: true
   name: true
+  search_api_excerpt: true
   thumbnail: true
   uid: true

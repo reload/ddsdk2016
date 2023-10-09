@@ -11,7 +11,7 @@ field_name: field_content_author
 entity_type: node
 bundle: article
 label: Author
-description: '* The author of the content. The author is <b>NOT</b> required when article type is <b>''simple''</b>.'
+description: "* The author of the content. The author is <b>NOT</b> required when article type is <b>'simple'</b>."
 required: false
 translatable: false
 default_value: {  }

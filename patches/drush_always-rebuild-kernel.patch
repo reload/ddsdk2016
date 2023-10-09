@@ -1,29 +1,21 @@
-From 433ce295c9d5066520dcfcb17e82a7c92b4ebe9d Mon Sep 17 00:00:00 2001
-From: Kasper Garnaes <kasper.garnaes@gmail.com>
-Date: Mon, 11 Oct 2021 17:02:28 +0200
-Subject: [PATCH] Always rebuild the kernel when running Drush rebuild
-
-Otherwise our locations will not show up right. This depends on a
-Drupal Core patch to be applied.
----
- src/Commands/core/CacheCommands.php | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
-
 diff --git a/src/Commands/core/CacheCommands.php b/src/Commands/core/CacheCommands.php
-index 6b80f6ab2..d68ec0445 100644
+index 165cb3b68..f08413bc2 100644
 --- a/src/Commands/core/CacheCommands.php
 +++ b/src/Commands/core/CacheCommands.php
-@@ -231,7 +231,10 @@ class CacheCommands extends DrushCommands implements CustomEventAwareInterface,
-         Settings::initialize($root, $site_path, $autoloader);
+@@ -239,8 +239,15 @@ final class CacheCommands extends DrushCommands implements CustomEventAwareInter
+         Settings::initialize($root, $site_path, $this->autoloader);
 
          // drupal_rebuild() calls drupal_flush_all_caches() itself, so we don't do it manually.
--        drupal_rebuild($autoloader, $request);
+-        drupal_rebuild($this->autoloader, $request);
++
 +        // Always rebuild the kernel when running cache rebuild. Otherwise our localizations
 +        // will be shown with the correct language for some reason.
 +        // Note: This requires on a local Drupal Core patch to be applied.
-+        drupal_rebuild($autoloader, $request, true);
++
++        drupal_rebuild($this->autoloader, $request, true);
          $this->logger()->success(dt('Cache rebuild complete.'));
++
++        // As this command replaces `drush cache-clear all` for Drupal 8 users, clear
+     }
 
-         // As this command replaces `drush cache-clear all` for Drupal 8 users, clear
---
-2.30.1 (Apple Git-130)+GitX
+     #[CLI\Hook(type: HookManager::ARGUMENT_VALIDATOR, target: self::CLEAR)]

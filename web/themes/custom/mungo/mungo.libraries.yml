@@ -8,7 +8,6 @@ mungo-theme:
   dependencies:
     - core/jquery
     - core/drupal
-    - core/jquery.once
 
 typekit:
   js:

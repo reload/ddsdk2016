@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.search_index_teaser
+    - field.field.node.badge.field_2018_badge
     - field.field.node.badge.field_badge_cover_image
     - field.field.node.badge.field_badge_level
     - field.field.node.badge.field_badge_progression
@@ -43,6 +44,7 @@ content:
     weight: 0
     region: content
 hidden:
+  field_2018_badge: true
   field_badge_cover_image: true
   field_badge_level: true
   field_badge_progression: true
@@ -56,3 +58,4 @@ hidden:
   field_sidedeck: true
   langcode: true
   links: true
+  search_api_excerpt: true

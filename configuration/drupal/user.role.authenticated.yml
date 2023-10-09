@@ -6,6 +6,7 @@ dependencies:
     - filter.format.full_html
   module:
     - contact
+    - file
     - filter
     - media
     - shortcut
@@ -20,5 +21,6 @@ permissions:
   - 'access content'
   - 'access shortcuts'
   - 'access site-wide contact form'
+  - 'delete own files'
   - 'use text format full_html'
   - 'view media'

@@ -5,10 +5,12 @@ dependencies:
   config:
     - rest.resource.monitoring_sensor_result
   module:
+    - file
     - rest
 id: monitoring
 label: Monitoring
 weight: 4
 is_admin: null
 permissions:
+  - 'delete own files'
   - 'restful get monitoring-sensor-result'

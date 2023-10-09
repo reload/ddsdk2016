@@ -20,7 +20,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: Search
+      title: Søg
       fields:
         nid:
           id: nid
@@ -427,6 +427,7 @@ display:
         - 'user.node_grants:view'
       tags:
         - 'config:search_api.index.nodes'
+        - 'search_api_list:nodes'
   content_search:
     id: content_search
     display_title: Page
@@ -437,7 +438,10 @@ display:
         type: none
       defaults:
         cache: false
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
       path: soeg
     cache_metadata:
       max-age: -1
@@ -449,3 +453,4 @@ display:
         - 'user.node_grants:view'
       tags:
         - 'config:search_api.index.nodes'
+        - 'search_api_list:nodes'

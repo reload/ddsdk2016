@@ -40,7 +40,7 @@ function dds_search_form_views_exposed_form_alter(&$form, FormStateInterface $fo
   }
 
   // Only apply if any facet query parameters are provided.
-  $facet_query = \Drupal::request()->query->filter('f');
+  $facet_query = \Drupal::request()->query->filter('f', NULL, \FILTER_DEFAULT, \FILTER_REQUIRE_ARRAY);
   if (empty($facet_query)) {
     return;
   }
@@ -133,10 +133,8 @@ function dds_search_views_pre_render(ViewExecutable $view) {
  *   The view-mode we want to alter.
  * @param \Drupal\Core\Entity\EntityInterface $entity
  *   The entity being viewed.
- * @param array $context
- *   Context.
  */
-function dds_search_entity_view_mode_alter(&$view_mode, EntityInterface $entity, array $context) {
+function dds_search_entity_view_mode_alter(&$view_mode, EntityInterface $entity) {
   // Only allow authenticated users for now.
   if (\Drupal::currentUser()->isAuthenticated()) {
     $force_view_mode = \Drupal::request()->query->get('force_view_mode');

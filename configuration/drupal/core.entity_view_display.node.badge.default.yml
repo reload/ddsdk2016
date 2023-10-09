@@ -111,3 +111,4 @@ hidden:
   field_exclude_from_search: true
   langcode: true
   links: true
+  search_api_excerpt: true

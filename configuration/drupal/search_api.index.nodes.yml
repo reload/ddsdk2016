@@ -298,7 +298,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: field_event_teaser
     type: text
-    boost: !!float 2
+    boost: 2.0
     dependencies:
       config:
         - field.storage.node.field_event_teaser
@@ -359,7 +359,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: field_subtitle
     type: text
-    boost: !!float 2
+    boost: 2.0
     dependencies:
       config:
         - field.storage.node.field_subtitle
@@ -483,7 +483,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: title
     type: text
-    boost: !!float 3
+    boost: 3.0
     dependencies:
       module:
         - node
@@ -578,15 +578,15 @@ processor_settings:
       preprocess_index: 0
     boosts:
       'entity:node':
-        datasource_boost: !!float 1
+        datasource_boost: 1.0
         bundle_boosts:
-          activity: !!float 1
-          article: !!float 1
-          badge: !!float 1
-          download: !!float 1
-          event: !!float 1
-          redirect_page: !!float 2
-          section_page: !!float 1
+          activity: 1.0
+          article: 1.0
+          badge: 1.0
+          download: 1.0
+          event: 1.0
+          redirect_page: 2.0
+          section_page: 1.0
 tracker_settings:
   default:
     indexing_order: fifo
