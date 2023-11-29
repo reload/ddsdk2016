@@ -11,10 +11,13 @@ libraries:
   - mungo/mungo-theme
   - mungo/typekit
 
-stylesheets-remove:
-  - '@classy/css/components/inline-form.css'
-  - '@classy/css/components/item-list.css'
-  - '@classy/css/components/form.css'
+libraries-override:
+  classy/base:
+    css:
+      component:
+        css/components/inline-form.css: false
+        css/components/item-list.css: false
+        css/components/form.css: false
 
 regions:
   header: Header

@@ -23,7 +23,7 @@ _read-timer:
 	@. ./.reset-info && \
 	RESET_TOTAL_SECS=$$((RESET_END_TIME-RESET_START_TIME)) && \
 	RESET_MINS=$$(( RESET_TOTAL_SECS / 60 )) && \
-  RESET_SECS=$$(( RESET_TOTAL_SECS % 60 )) && \
+	RESET_SECS=$$(( RESET_TOTAL_SECS % 60 )) && \
 	echo "Reset took $$RESET_MINS minutes $$RESET_SECS seconds" && \
 	echo "(not including waiting for password)"
 
@@ -75,7 +75,7 @@ docker-logs: ## Show docker logs from the containers
 php-vendor: ## Install PHP packages, using composer.
 	@docker compose up fpm -d
 	@docker compose exec fpm sh -c  "\
-    echo ' * Waiting php container to be ready' && \
+		echo ' * Waiting php container to be ready' && \
 		wait-for-it -t 100 localhost:9000 && \
 		git config --global --add safe.directory '*' && \
 		echo 'composer installing' && \
@@ -87,12 +87,12 @@ site-reset: ## Resetting the drupal site.
 	@mkdir -p "web/sites/default/files/translations"
 	@docker compose up fpm -d
 	@docker compose exec fpm sh -c  "\
-    echo 'Site reset' && \
-    echo '* Waiting for PHP and DB to be ready..' && \
-    wait-for-it -t 100 localhost:9000 && \
-    wait-for-it -t 100 db:3306 && \
-    echo ' * Run drush deploy' && \
-    drush -y deploy && \
+		echo 'Site reset' && \
+		echo '* Waiting for PHP and DB to be ready..' && \
+		wait-for-it -t 100 localhost:9000 && \
+		wait-for-it -t 100 db:3306 && \
+		echo ' * Run drush deploy' && \
+		drush -y deploy && \
 		drush user:password testeditor testeditor"
 
 import-po: ## Imports the da.po files. This is also done on reset targets.
@@ -107,19 +107,19 @@ reset-info: ## Display information after site has been reset.
 	@clear
 	@docker compose exec fpm sh -c "\
 		echo '============= Drupal info =============' && \
-    echo '  Site is available at:' && \
-    drush browse && \
+		echo '  Site is available at:' && \
+		drush browse && \
 		echo '' && \
 		echo '  Editor login:' && \
 		drush uli --name testeditor && \
 		echo '' && \
 		echo '  Admin login:' && \
-    drush uli"
+		drush uli"
 	@$(MAKE) cache-info
 
 search-api-index: ## Clear + re-index search api index.
-	docker-compose exec fpm drush search-api-clear
-	docker-compose exec fpm drush search-api-index
+	docker compose exec fpm drush search-api-clear
+	docker compose exec fpm drush search-api-index
 
 checks: ##	 Run the same checks as GitHub actions will do when pushing to PR.
 	@docker compose up node fpm -d
