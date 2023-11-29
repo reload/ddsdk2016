@@ -118,8 +118,8 @@ reset-info: ## Display information after site has been reset.
 	@$(MAKE) cache-info
 
 search-api-index: ## Clear + re-index search api index.
-	docker-compose exec fpm drush search-api-clear
-	docker-compose exec fpm drush search-api-index
+	docker compose exec fpm drush search-api-clear
+	docker compose exec fpm drush search-api-index
 
 checks: ##	 Run the same checks as GitHub actions will do when pushing to PR.
 	@docker compose up node fpm -d
