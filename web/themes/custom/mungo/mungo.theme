@@ -33,6 +33,25 @@ function mungo_preprocess_html(&$variables) {
   $variables['feature_flags'] = \Drupal::config('feature_flags')->get();
   $variables['enable_linkedin_script'] = \Drupal::config('ddsdk')->get('enable_linkedin_script');
 
+  // Add a sleeknote for DDS.dk.
+  // Login with settings can be found in lastpass.
+  // Information for settings/related can be found in DDSDK-676 and DDSDK-674.
+  $script = [
+    '#tag' => 'script',
+    '#attributes' => ['type' => 'text/javascript', 'id' => 'sleeknoteScript'],
+    '#value' => '
+            (function () {
+                 var sleeknoteScriptTag = document.createElement("script");
+                sleeknoteScriptTag.type = "text/javascript";
+                sleeknoteScriptTag.charset = "utf-8";
+                sleeknoteScriptTag.src = ("//sleeknotecustomerscripts.sleeknote.com/150036.js");
+                var s = document.getElementById("sleeknoteScript");
+                s.parentNode.insertBefore(sleeknoteScriptTag, s);
+            })();
+        ',
+  ];
+
+  $variables['#attached']['html_head'][] = [$script, 'sleeknoteScript'];
 }
 
 /**
