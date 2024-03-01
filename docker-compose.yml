@@ -110,7 +110,7 @@ services:
       VIRTUAL_HOST: "ddsdk-mail.${DEV_TLD:-docker}"
 
   npm:
-    image: node:16
+    image: node:20-slim
     volumes:
       - '${PWD}:/var/www'
     working_dir: /var/www
