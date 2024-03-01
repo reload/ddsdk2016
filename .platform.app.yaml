@@ -107,7 +107,7 @@ hooks:
       export NVM_DIR="$HOME/.nvm"
       [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
       nvm current
-      nvm install 16
+      nvm install 20
       (cd "$PLATFORM_DOCUMENT_ROOT/../" && npm install && npm run build)
       curl -sS https://platform.sh/cli/installer | php
 
