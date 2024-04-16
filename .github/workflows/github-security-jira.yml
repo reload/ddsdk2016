@@ -17,4 +17,5 @@ jobs:
           JIRA_USER: security+jira@reload.dk
           JIRA_PROJECT: DDSDK
           JIRA_ISSUE_TYPE: Security
+          JIRA_PRIORITY: Undecided
           JIRA_WATCHERS: ${{ vars.JIRA_WATCHERS }}
