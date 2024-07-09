@@ -113,7 +113,7 @@ services:
     image: node:20-slim
     volumes:
       - '${PWD}:/var/www'
-    working_dir: /var/www
+    working_dir: '/var/www/web/themes/custom/mungo'
     # Use UID env variable if set or default to uid 1000.
     user: "${UID:-1000}"
     environment:
