@@ -8,22 +8,22 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-
   # See https://github.com/reload/action-jsts-quality
   reviewdog:
     name: ESLint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Install dependencies
+        working-directory: ./web/themes/custom/mungo
         run: |
           npm install
           npm run lint
