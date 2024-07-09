@@ -108,7 +108,7 @@ hooks:
       [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
       nvm current
       nvm install 20
-      (cd "$PLATFORM_DOCUMENT_ROOT/../" && npm install && npm run build)
+      (cd "$PLATFORM_DOCUMENT_ROOT/themes/custom/mungo" && npm install && npm run build)
       curl -sS https://platform.sh/cli/installer | php
 
     # We run deploy hook after your application has been deployed and started.
