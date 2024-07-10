@@ -31,7 +31,7 @@ _common-reset: _docker-pull docker-up php-vendor site-reset import-po search-api
 
 reset: _start-timer docker-remove _common-reset ##	 Remove and reset everything
 
-up: docker-up import-po docker-dns-up reset-info ## 	 Setup everything, in the current known state.
+up: docker-up import-po reset-info ## 	 Setup everything, in the current known state.
 
 enable-cache: ## Enable hard caches, making your local site act more like prod.
 	@(rm -rf web/sites/default/nocache.settings.php || true)
