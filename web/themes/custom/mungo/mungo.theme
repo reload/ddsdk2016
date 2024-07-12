@@ -218,7 +218,7 @@ function mungo_form_search_block_form_alter(&$form, FormStateInterface $form_sta
   $form['actions']['search_submit'] = [
     '#type' => 'html_tag',
     '#tag' => 'button',
-    '#value' => '<span class="glyphicon glyphicon-search"></span>',
+    '#value' => '<span class="search-submit-button-icon"></span>',
   ];
 }
 
@@ -226,17 +226,15 @@ function mungo_form_search_block_form_alter(&$form, FormStateInterface $form_sta
  * Implements hook_form_alter().
  */
 function mungo_form_alter(&$form, &$form_state, $form_id) {
-  // Set identical place-holder text in a number of search form fields.
-  $search_placeholder_text = t('Search for content ...', [], ['context' => 'content search']);
-
   // The search-page itself (/soeg).
   if (!empty($form['#id']) && $form['#id'] === 'views-exposed-form-search-content-search') {
-    $form['search_text']['#placeholder'] = $search_placeholder_text;
+    $form['search_text']['#placeholder'] = t('Search for content ...', [], ['context' => 'content search']);
   }
 
   // The search-popup in the menu.
   if ($form_id === 'search_block_form') {
-    $form['keys']['#placeholder'] = $search_placeholder_text;
+    $form['keys']['#placeholder'] = t('What are you searching for?');
+    ;
   }
 
   if (preg_match('/^forward_form_node_\d+$/', $form_id)) {
@@ -1300,4 +1298,44 @@ function mungo_theme($existing, $type, $theme, $path) {
  */
 function mungo_preprocess_page(&$variables) {
   $variables['ddsdk_show_sizebar'] = Settings::get('ddsdk_show_sizebar', FALSE);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Prepares and combines menus for the burger menu.
+ */
+function mungo_preprocess_region(&$variables) {
+  $primary_main_menu_id = 'mungo_main_menu';
+  $primary_track_menu_id = 'trackmenu';
+  $secondary_service_menu_id = 'mungo_topmenu';
+
+  if (
+    !isset($variables["elements"][$primary_main_menu_id]["content"]["#items"]) ||
+    !isset($variables["elements"][$secondary_service_menu_id]["content"]["#items"]) ||
+    !isset($variables["elements"][$primary_track_menu_id]["content"]["#items"])
+  ) {
+    return;
+  }
+
+  // Add class to service menu items,
+  // so it can be styled different in the burger menu.
+  foreach ($variables["elements"][$secondary_service_menu_id]["content"]["#items"] as &$service_menu_item) {
+    $service_menu_item['attributes']->addClass('is-service-parent');
+
+    // We style external links differently.
+    if ($service_menu_item['url']->isExternal()) {
+      $service_menu_item['attributes']->addClass('is-external-link');
+    }
+  }
+
+  $variables['main_burger_menu'] = array_merge(
+    $variables["elements"][$primary_main_menu_id]["content"]["#items"],
+    $variables["elements"][$secondary_service_menu_id]["content"]["#items"]
+  );
+
+  $variables['track_burger_menu'] = array_merge(
+    $variables["elements"][$primary_track_menu_id]["content"]["#items"],
+    $variables["elements"][$secondary_service_menu_id]["content"]["#items"]
+  );
 }

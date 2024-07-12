@@ -67,3 +67,10 @@
     background-color: $light-navy;
   }
 }
+
+@mixin focus-visible {
+  &:focus-visible {
+    outline: 5px auto $bluish;
+    outline-offset: 5px;
+  }
+}

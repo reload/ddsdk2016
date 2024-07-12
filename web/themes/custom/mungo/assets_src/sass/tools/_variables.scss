@@ -14,11 +14,18 @@ $spacing-small-plus: 15px;
 $spacing-medium: 20px;
 $spacing-medium-plus: 25px;
 $spacing-large: 30px;
+$spacing-large-plus: 45px;
 $spacing-xlarge: 60px;
 $spacing-input-submit: 16px 35px;
 $spacing-input: 8px 12px;
 
-$header-height: 70px;
+$admin-tool-bar-height: 39px;
+
+// Header height and spacing.
+$header-height: 82px;
+$header-spacing-x--desktop: $spacing-large;
+$header-spacing-x--mobile: $spacing-small-plus;
+$header-spacing-y: $spacing-small-plus;
 
 // Menu that is rendered as a drop-down on mobile. Eg. see grouping-menu.
 $dropdown-menu-size: 350px;
@@ -29,3 +36,7 @@ $shortcut-link-padding-left: 10px;
 // https://fontawesome.com/icons?d=gallery&q=down
 $icon__arrow-up: "\f077";
 $icon__arrow-down: "\f078";
+
+// Burger menu.
+$burger-menu-width: 420px;
+$burger-menu-animation-timing: 0.5s;

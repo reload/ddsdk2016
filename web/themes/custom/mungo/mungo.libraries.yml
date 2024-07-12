@@ -4,7 +4,7 @@ mungo-theme:
       assets/css/mungo.bundle.css: {}
   js:
     assets/js/base.js : {}
-    assets/js/dropdownmenu.js: {}
+    assets/js/burger-menu.js: {}
   dependencies:
     - core/jquery
     - core/drupal

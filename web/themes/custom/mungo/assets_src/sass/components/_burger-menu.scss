@@ -1,0 +1,280 @@
+@use "sass:math";
+
+.burger-menu {
+  height: 100vh;
+  @supports (height: 100dvh) {
+    height: 100dvh;
+  }
+
+  position: absolute;
+  top: 0;
+  width: 100%;
+  transform: translateX(100%);
+  transition: 0.5s ease-in-out;
+  transition-delay: $burger-menu-animation-timing;
+  background-color: transparent;
+  z-index: 5;
+
+  @include media-burger-menu-large {
+    transition-property: transform;
+    transition-delay: 0s;
+  }
+
+  .has-open-burger-menu & {
+    transition-property: transform;
+    transform: translateX(0);
+  }
+}
+
+%burger-menu__menu-item-states {
+  &:active,
+  &:focus,
+  &:hover {
+    color: var(--menu-item--active) !important;
+    text-decoration: unset;
+    outline: none;
+  }
+
+  @include focus-visible;
+}
+
+%burger-menu__button {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin: 0;
+  @include menu-item--large;
+  @extend %burger-menu__menu-item-states;
+
+  $_icon-size: 24px;
+  $_padding: $spacing-small;
+
+  position: relative;
+  padding-right: $_icon-size + $_padding;
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: $_icon-size;
+
+    box-sizing: border-box;
+    background-image: url("../images/arrow-right--bluish.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: $_icon-size $_icon-size;
+  }
+}
+
+.burger-menu__button {
+  @extend %burger-menu__button;
+}
+
+.burger-menu__menu-controller {
+  position: absolute;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  visibility: hidden;
+
+  &:checked {
+    ~ .burger-menu__menu {
+      transform: translateX(0);
+      visibility: visible;
+      opacity: 1;
+      z-index: 1;
+
+      &[data-level="1"] {
+        // Make sure this layer covers the entire height
+        // of it's parent layer. This is a hack but
+        // I was unable to make this relate
+        // to the wrapper which is the closes
+        // parent with position absolute.
+        height: 9999px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+}
+
+.burger-menu__wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-top: $header-height;
+  background-color: var(--header-background-color);
+
+  height: 100vh;
+
+  .user-logged-in & {
+    height: calc(100vh - $admin-tool-bar-height);
+  }
+
+  @supports (height: 100dvh) {
+    height: 100dvh;
+
+    .user-logged-in & {
+      height: calc(100dvh - $admin-tool-bar-height);
+    }
+  }
+
+  @include media-burger-menu-large {
+    width: $burger-menu-width;
+    left: auto;
+  }
+}
+
+.burger-menu__menu {
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  padding-left: $header-spacing-x--mobile;
+  padding-right: $header-spacing-x--mobile;
+
+  @include media-burger-menu-large {
+    padding-left: $header-spacing-x--desktop;
+    padding-right: $header-spacing-x--desktop;
+  }
+
+  box-sizing: border-box;
+  list-style-type: none;
+  background-color: var(--header-background-color);
+  transition-timing-function: ease-in-out;
+  transition-duration: $burger-menu-animation-timing;
+  transition-delay: 0s, math.div($burger-menu-animation-timing, 3);
+  transition-property: transform, opacity;
+
+  transform: translateX(400%);
+  visibility: hidden;
+  opacity: 0;
+
+  &[data-level="0"] {
+    transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
+    height: 100%;
+  }
+
+  &[data-level="1"] {
+    height: 0;
+  }
+}
+
+.burger-menu__menu-item {
+  // Style primary menu item links as buttons.
+  &:not(.is-service-parent) a {
+    @extend %burger-menu__button;
+  }
+
+  // Remove default styling.
+  &.menu-item {
+    list-style: none;
+    padding: 0;
+  }
+
+  + .burger-menu__menu-item {
+    margin-top: $spacing-medium-plus;
+
+    [data-level="1"] & {
+      margin-top: $spacing-small-plus;
+    }
+  }
+
+  [data-level="1"] a {
+    @include menu-item--medium;
+    // Remove the arrow icon.
+    &::after {
+      content: none;
+    }
+  }
+
+  a {
+    @extend %burger-menu__menu-item-states;
+  }
+}
+
+.burger-menu__search-form {
+  margin-bottom: $spacing-large-plus;
+}
+
+.burger-menu__back {
+  @extend %burger-menu__button;
+  @include menu-item--mini;
+
+  $_icon-size: 15px;
+  $_padding: $spacing-small-plus;
+  display: block;
+  padding: 0;
+  padding-left: $_icon-size + $_padding;
+  height: auto;
+  margin: 0 0 $spacing-large 0;
+  border: 0;
+  background: none;
+  appearance: none;
+  text-align: left;
+
+  &::after {
+    right: auto;
+    left: 0;
+    background-image: url("../images/arrow-right--bluish.svg");
+    transition: left $burger-menu-animation-timing ease-in-out;
+    transform: rotate(180deg);
+  }
+}
+
+.burger-menu__close {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 0; // IE needs 0 width in order to not be on top of everything else.
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+
+  .has-open-burger-menu & {
+    background-color: var(--overlay-color);
+    transition: background-color $burger-menu-animation-timing ease-in;
+    transition-delay: $burger-menu-animation-timing;
+    // Set the width to auto, as the burger menu is now open and the user can click this part to close the burger menu.
+    width: auto;
+  }
+}
+
+.burger-menu__menu-item.is-service-parent {
+  a {
+    @include menu-item--small;
+    @extend %burger-menu__menu-item-states;
+  }
+
+  margin-top: $spacing-large-plus;
+  padding-top: 0;
+
+  &.is-external-link::after {
+    content: url("../images/external-link.svg");
+    display: inline;
+    vertical-align: middle;
+    margin-left: 5px;
+  }
+
+  + .burger-menu__menu-item.is-service-parent {
+    padding-top: $spacing-small;
+  }
+
+  + .burger-menu__menu-item {
+    margin-top: 0;
+  }
+
+  &:last-of-type {
+    margin-bottom: $spacing-large-plus;
+  }
+}
