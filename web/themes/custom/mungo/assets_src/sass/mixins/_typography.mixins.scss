@@ -200,10 +200,6 @@
   text-transform: uppercase;
 }
 
-@mixin search-field {
-  font-size: 18px;
-}
-
 @mixin label {
   font-size: 18px;
   color: $black;
@@ -318,4 +314,46 @@
   font-style: normal;
   font-variant: normal;
   text-transform: none;
+}
+
+@mixin menu-item--mini {
+  font-family: $modern-font;
+  color: $bluish;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 14px;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+@mixin menu-item--small {
+  font-family: $modern-font;
+  color: var(--menu-item);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+@mixin menu-item--medium {
+  font-family: $modern-font;
+  color: var(--menu-item);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+@mixin menu-item--large {
+  font-family: $modern-font;
+  color: var(--menu-item);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+@mixin search-field {
+  font-family: $modern-font;
+  color: $marine-blue;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25px;
 }
