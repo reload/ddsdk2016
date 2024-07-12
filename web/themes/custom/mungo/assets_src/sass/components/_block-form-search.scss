@@ -1,0 +1,53 @@
+.block-search {
+  $_search-border-radius: 10px;
+  $_search-background: $sand--25;
+  $_search-spacing: $spacing-small-plus;
+  $_search-icon-size: 24px;
+
+  position: relative;
+
+  form {
+    width: 100%;
+    @include search-field;
+    // Hide standard form-submit button. It has text and we dont need that.
+    .form-submit {
+      display: none;
+    }
+
+    button {
+      border-top-left-radius: $_search-border-radius;
+      border-bottom-left-radius: $_search-border-radius;
+      border: unset;
+      color: $bluish;
+      background: $_search-background;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      padding: $_search-spacing;
+
+      .search-submit-button-icon {
+        background-image: url("../images/search.svg");
+        display: block;
+        width: $_search-icon-size;
+        height: $_search-icon-size;
+      }
+    }
+
+    input.form-search {
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      border-radius: $_search-border-radius;
+      border: unset;
+      padding: $_search-spacing;
+      padding-left: $_search-icon-size + $_search-spacing * 2;
+      width: 100%;
+      background: $_search-background;
+
+      // change placeholder text
+      &::placeholder {
+        @include search-field;
+      }
+    }
+  }
+}

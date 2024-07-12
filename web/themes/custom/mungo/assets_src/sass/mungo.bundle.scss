@@ -67,6 +67,9 @@ $output-bourbon-deprecation-warnings: false !default;
 @import "components/cookie-consent";
 @import "components/markup";
 @import "components/embed";
+@import "components/burger-menu";
+@import "components/burger-icon";
+@import "components/block-form-search";
 
 /**
  * SMACSS Theme.
