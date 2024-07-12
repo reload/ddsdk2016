@@ -25,6 +25,7 @@ web/sites/default/settings.local.php
 docker-compose.override.yml
 
 # Ignore directory for Node Package Manager (npm)
+node_modules/
 .docker-sync
 .last-pull-*
 
