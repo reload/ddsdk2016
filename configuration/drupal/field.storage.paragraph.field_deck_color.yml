@@ -17,6 +17,12 @@ settings:
     -
       value: white
       label: White
+    -
+      value: light-sand
+      label: 'Light Sand'
+    -
+      value: sand
+      label: Sand
   allowed_values_function: ''
 module: options
 locked: false
