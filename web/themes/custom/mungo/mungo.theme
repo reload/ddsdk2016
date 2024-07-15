@@ -1306,21 +1306,25 @@ function mungo_preprocess_page(&$variables) {
  * Prepares and combines menus for the burger menu.
  */
 function mungo_preprocess_region(&$variables) {
-  $primary_main_menu_id = 'mungo_main_menu';
-  $primary_track_menu_id = 'trackmenu';
-  $secondary_service_menu_id = 'mungo_topmenu';
+  if ($variables['region'] != 'primary_menu') {
+    return;
+  }
+
+  $primary_main_menu = _mungo_load_menu_tree('main');
+  $primary_track_menu = _mungo_load_menu_tree('track-menu');
+  $secondary_service_menu = _mungo_load_menu_tree('top-menu');
 
   if (
-    !isset($variables["elements"][$primary_main_menu_id]["content"]["#items"]) ||
-    !isset($variables["elements"][$secondary_service_menu_id]["content"]["#items"]) ||
-    !isset($variables["elements"][$primary_track_menu_id]["content"]["#items"])
+    empty($primary_main_menu) ||
+    empty($primary_track_menu) ||
+    empty($secondary_service_menu)
   ) {
     return;
   }
 
   // Add class to service menu items,
   // so it can be styled different in the burger menu.
-  foreach ($variables["elements"][$secondary_service_menu_id]["content"]["#items"] as &$service_menu_item) {
+  foreach ($secondary_service_menu['#items'] as &$service_menu_item) {
     $service_menu_item['attributes']->addClass('is-service-parent');
 
     // We style external links differently.
@@ -1330,12 +1334,43 @@ function mungo_preprocess_region(&$variables) {
   }
 
   $variables['main_burger_menu'] = array_merge(
-    $variables["elements"][$primary_main_menu_id]["content"]["#items"],
-    $variables["elements"][$secondary_service_menu_id]["content"]["#items"]
+    $primary_main_menu['#items'],
+    $secondary_service_menu['#items']
   );
 
   $variables['track_burger_menu'] = array_merge(
-    $variables["elements"][$primary_track_menu_id]["content"]["#items"],
-    $variables["elements"][$secondary_service_menu_id]["content"]["#items"]
+    $primary_track_menu['#items'],
+    $secondary_service_menu['#items']
   );
+}
+
+/**
+ * Helper function to load a menu tree.
+ */
+function _mungo_load_menu_tree(string $menu_id): array {
+  $menu_tree_service = \Drupal::menuTree();
+
+  // Build the typical default set of menu tree parameters.
+  $parameters = $menu_tree_service->getCurrentRouteMenuTreeParameters($menu_id);
+
+  // Load the tree based on this set of parameters.
+  $tree = $menu_tree_service->load($menu_id, $parameters);
+
+  // Transform the tree using the manipulators you want.
+  $manipulators = [
+    [
+      // Only show links that are accessible for the current user.
+      'callable' => 'menu.default_tree_manipulators:checkAccess',
+    ],
+    [
+      // Use the default sorting of menu links.
+      'callable' => 'menu.default_tree_manipulators:generateIndexAndSort',
+    ],
+  ];
+
+  $tree = $menu_tree_service
+    ->transform($tree, $manipulators);
+
+  // Finally, build a render array from the transformed tree.
+  return $menu_tree_service->build($tree);
 }
