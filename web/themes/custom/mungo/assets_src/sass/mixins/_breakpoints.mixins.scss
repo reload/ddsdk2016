@@ -1,18 +1,18 @@
-@mixin media-small {
+@mixin media-small($definition: "min-width") {
   // 768px: Tablet portrait
-  @media (min-width: $screen-sm-min) {
+  @media ($definition: $screen-sm-min) {
     @content;
   }
 }
-@mixin media-medium {
+@mixin media-medium($definition: "min-width") {
   // 992px: Tablet landscape / Desktop
-  @media (min-width: $screen-md-min) {
+  @media ($definition: $screen-md-min) {
     @content;
   }
 }
-@mixin media-large {
+@mixin media-large($definition: "min-width") {
   // 1200px: Wide Desktop (not currently used)
-  @media (min-width: $screen-lg-min) {
+  @media ($definition: $screen-lg-min) {
     @content;
   }
 }
