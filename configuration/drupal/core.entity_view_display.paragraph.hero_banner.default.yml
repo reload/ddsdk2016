@@ -6,10 +6,9 @@ dependencies:
     - field.field.paragraph.hero_banner.field_background_image
     - field.field.paragraph.hero_banner.field_deck_color
     - field.field.paragraph.hero_banner.field_label
-    - field.field.paragraph.hero_banner.field_links
+    - field.field.paragraph.hero_banner.field_popular_search_key_words
     - paragraphs.paragraphs_type.hero_banner
   module:
-    - link
     - options
 id: paragraph.hero_banner.default
 targetEntityType: paragraph
@@ -20,7 +19,7 @@ content:
     type: entity_reference_entity_view
     label: hidden
     settings:
-      view_mode: '20_7'
+      view_mode: without_meta
       link: false
     third_party_settings: {  }
     weight: 0
@@ -30,7 +29,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 2
     region: content
   field_label:
     type: string
@@ -38,20 +37,17 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 2
+    weight: 1
     region: content
-  field_links:
-    type: link
+  field_popular_search_key_words:
+    type: string
     label: hidden
     settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
+      link_to_entity: false
     third_party_settings: {  }
-    weight: 1
+    weight: 3
     region: content
 hidden:
   created: true
+  search_api_excerpt: true
   uid: true

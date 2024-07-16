@@ -357,3 +357,30 @@
   font-weight: 400;
   line-height: 25px;
 }
+
+@mixin hero-banner-label {
+  color: $grey;
+  font-family: $manrope-font;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+@mixin link {
+  color: $marine-blue;
+  font-family: $manrope-font;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  text-decoration-line: underline;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $link--active;
+    // Disable the default focus outline.
+    outline: none;
+  }
+}

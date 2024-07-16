@@ -1,6 +1,5 @@
 .block-search {
   $_search-border-radius: 10px;
-  $_search-background: $sand--25;
   $_search-spacing: $spacing-small-plus;
   $_search-icon-size: 24px;
 
@@ -19,7 +18,7 @@
       border-bottom-left-radius: $_search-border-radius;
       border: unset;
       color: $bluish;
-      background: $_search-background;
+      background: var(--search-form-block-background-color);
       position: absolute;
       left: 0;
       top: 0;
@@ -42,7 +41,7 @@
       padding: $_search-spacing;
       padding-left: $_search-icon-size + $_search-spacing * 2;
       width: 100%;
-      background: $_search-background;
+      background: var(--search-form-block-background-color);
 
       // change placeholder text
       &::placeholder {

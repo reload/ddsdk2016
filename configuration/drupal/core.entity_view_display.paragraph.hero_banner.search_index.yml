@@ -7,7 +7,7 @@ dependencies:
     - field.field.paragraph.hero_banner.field_background_image
     - field.field.paragraph.hero_banner.field_deck_color
     - field.field.paragraph.hero_banner.field_label
-    - field.field.paragraph.hero_banner.field_links
+    - field.field.paragraph.hero_banner.field_popular_search_key_words
     - paragraphs.paragraphs_type.hero_banner
 id: paragraph.hero_banner.search_index
 targetEntityType: paragraph
@@ -26,5 +26,6 @@ hidden:
   created: true
   field_background_image: true
   field_deck_color: true
-  field_links: true
+  field_popular_search_key_words: true
+  search_api_excerpt: true
   uid: true

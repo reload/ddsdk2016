@@ -1,65 +1,76 @@
-.paragraph--type--hero-banner {
-  position: relative;
-  overflow: hidden;
-
-  .container {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-
-    // Vertically align middle.
+.hero-banner {
+  &__content {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    gap: $spacing-large;
+    padding: 0 0 $spacing-large 0;
 
-    text-align: center;
-
-    // Theme the text bit of the banner.
-    h2 {
-      @include feature-heading-small;
-      color: #fff;
-    }
-
-    .field--type-link {
-      font-size: 0;
-
-      margin: 0 100px;
-      @include media-small {
-        margin: 0 100px;
-      }
-      @include media-medium {
-        margin: 0;
-      }
-
-      > * {
-        display: inline-block;
-        font-size: $font-size-base;
-      }
-
-      a {
-        @include cta-button-transparent;
-        // We need this fixed width to equal sized
-        // buttons on tablet and mobile.
-        width: 220px;
-        margin: $spacing-small;
-        @include media-small {
-          margin: $spacing-large * 0.5;
-        }
-        @include media-medium {
-          width: auto;
-        }
-      }
+    @include media-medium {
+      flex-direction: row-reverse;
+      padding: $spacing-large 0;
     }
   }
 
-  img {
-    transition: filter 0.5s;
+  &__image-container {
+    flex: 1;
 
-    &.blured {
-      -webkit-filter: blur(5px);
-      filter: blur(5px);
+    // Make the image go full viewport width on mobile.
+    // Ignore side padding and margin.
+    @include media-medium("max-width") {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
     }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__text-container {
+    flex: 1;
+  }
+
+  &__title {
+    @include feature-heading-medium;
+    color: $marine-blue;
+    margin: 0;
+  }
+
+  &__search-form {
+    --search-form-block-background-color: #{$white-one};
+    margin-top: $spacing-medium;
+
+    @include media-medium {
+      margin-top: $spacing-large-plus;
+    }
+  }
+
+  &__popular-search-words-label {
+    @include hero-banner-label;
+    margin-top: $spacing-small-plus;
+    margin-bottom: 8px;
+  }
+
+  &__popular-search-words-list {
+    // Disable default styling
+    list-style-type: none;
+    padding: 0;
+
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+
+    @include media-medium {
+      gap: $spacing-small;
+    }
+  }
+
+  &__popular-search-words-list-item a {
+    @include link;
   }
 }
