@@ -1,9 +1,9 @@
 // When we're in a universe context.
 .page-type-universe {
   --header-background-color: #{$track-light-green};
-  --menu-item--active: #{$menu-item-track--active};
+  --menu-item--active: #{$track-menu-item--active};
   --menu-item: #{$track-blue};
-  --overlay-color: #{$overlay-color-track};
+  --overlay-color: #{$track-overlay-color};
 
   .header-fixed {
     .track-logo img {

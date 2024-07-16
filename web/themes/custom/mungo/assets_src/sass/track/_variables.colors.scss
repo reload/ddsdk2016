@@ -4,8 +4,8 @@ $track-blue: #332670;
 $track-green: #00b687;
 $track-light-green: #70f0bd;
 $track-page-background-color: $track-light-green;
-$menu-item-track--active: #004d32;
-$overlay-color-track: color.adjust($track-blue, $alpha: -0.3);
+$track-menu-item--active: #004d32;
+$track-overlay-color: color.adjust($track-blue, $alpha: -0.3);
 
 $track-colors: (
   "skills": #cd9ad9,
