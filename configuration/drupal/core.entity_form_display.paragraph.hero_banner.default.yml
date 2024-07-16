@@ -3,15 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_form_mode.media.20_7
+    - core.entity_form_mode.media.16_9_only
     - field.field.paragraph.hero_banner.field_background_image
     - field.field.paragraph.hero_banner.field_deck_color
     - field.field.paragraph.hero_banner.field_label
-    - field.field.paragraph.hero_banner.field_links
+    - field.field.paragraph.hero_banner.field_popular_search_key_words
     - paragraphs.paragraphs_type.hero_banner
   module:
     - inline_entity_form
-    - link
 id: paragraph.hero_banner.default
 targetEntityType: paragraph
 bundle: hero_banner
@@ -19,13 +18,22 @@ mode: default
 content:
   field_background_image:
     type: inline_entity_form_simple
-    weight: 0
+    weight: 1
     region: content
     settings:
-      form_mode: '20_7'
+      form_mode: 16_9_only
       override_labels: false
       label_singular: ''
       label_plural: ''
+      hide_fieldset: false
+      hide_title: false
+      collapsible: false
+      collapsed: false
+      revision: false
+      config_labels_button: simple_label
+      labels:
+        label_singular_image: ''
+        label_plural_image: ''
     third_party_settings: {  }
   field_deck_color:
     type: options_select
@@ -35,19 +43,19 @@ content:
     third_party_settings: {  }
   field_label:
     type: string_textfield
-    weight: 1
+    weight: 0
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_links:
-    type: link_default
+  field_popular_search_key_words:
+    type: string_textfield
     weight: 2
     region: content
     settings:
-      placeholder_url: ''
-      placeholder_title: ''
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
 hidden:
   created: true

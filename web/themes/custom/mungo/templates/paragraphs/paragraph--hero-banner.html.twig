@@ -37,22 +37,39 @@
  */
 #}
 {%
-set classes = [
-'paragraph',
-'paragraph--type--' ~ paragraph.bundle|clean_class,
-view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-    'paragraphs-background-grey'
-]
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    'paragraphs-background-grey',
+    'hero-banner'
+  ]
 %}
-{{ attach_library('mungo/object-fit') }}
 <div{{ attributes.addClass(classes) }}>
-    <div class="full-width-image-container">
+  <div class="container">
+    <div class="hero-banner__content">
+      <div class="hero-banner__image-container">
         {{ content.field_background_image }}
-        <div class="container">
-            <div class="content">
-                <h2>{{ content.field_label }}</h2>
-                {{ content.field_links }}
-            </div>
+      </div>
+      <div class="hero-banner__text-container">
+        <h2 class="hero-banner__title">{{ content.field_label }}</h2>
+        <div class="hero-banner__search-form">
+          {{ search_form_block|raw }}
+
+          {% if popular_search_word_links %}
+            <p class="hero-banner__popular-search-words-label" id="popular-search-words">
+              {{ "Popular searches"|t }}
+            </p>
+            <ul class="hero-banner__popular-search-words-list" aria-labelledby="popular-search-words">
+              {% for link in popular_search_word_links %}
+                <li class="hero-banner__popular-search-words-list-item">
+                  {{ link }}
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
         </div>
+      </div>
     </div>
+  </div>
 </div>

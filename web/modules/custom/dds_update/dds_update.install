@@ -233,3 +233,10 @@ function dds_update_update_9302() {
     translate_tool_add($english, 'da', $danish);
   }
 }
+
+/**
+ * Add translations for the hero banner.
+ */
+function dds_update_update_9303() {
+  translate_tool_add('Popular searches', 'da', 'Populære søgninger');
+}

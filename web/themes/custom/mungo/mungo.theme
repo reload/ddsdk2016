@@ -5,6 +5,9 @@
  * Main theme-file for the Mungo theme.
  */
 
+use Drupal\block\BlockInterface;
+use Drupal\block\Entity\Block;
+use Drupal\Component\Render\MarkupInterface;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
@@ -24,6 +27,8 @@ use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\paragraphs\ParagraphInterface;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\TermInterface;
+use Symfony\Component\Routing\Exception\RouteNotFoundException;
+use Symfony\Component\Routing\Route;
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -1373,4 +1378,70 @@ function _mungo_load_menu_tree(string $menu_id): array {
 
   // Finally, build a render array from the transformed tree.
   return $menu_tree_service->build($tree);
+}
+
+/**
+ * Implements hook_preprocess_paragraph__hero_banner().
+ *
+ * Adds search form and creates popular search links.
+ */
+function mungo_preprocess_paragraph__hero_banner(&$variables): void {
+  $variables['search_form_block'] = _mungo_get_search_form_block();
+
+  if (
+    $variables['paragraph']->hasField('field_popular_search_key_words') &&
+    !$variables['paragraph']->get('field_popular_search_key_words')->isEmpty()
+  ) {
+    $variables['popular_search_word_links'] = _mungo_create_popular_search_word_links(
+      $variables['paragraph']->get('field_popular_search_key_words')->getValue()
+    );
+  }
+}
+
+/**
+ * Get markup for the search form block.
+ */
+function _mungo_get_search_form_block(): ?MarkupInterface {
+  $block_entity = Block::load('ddssearchform');
+
+  if (!$block_entity instanceof BlockInterface) {
+    return NULL;
+  }
+
+  // Load the correct view mode.
+  $block = \Drupal::entityTypeManager()
+    ->getViewBuilder('block')
+    ->view($block_entity);
+
+  // Render the block and add it to the variables.
+  return \Drupal::service('renderer')->render($block);
+};
+
+/**
+ * Create links from popular search words.
+ */
+function _mungo_create_popular_search_word_links(array $search_words): ?array {
+  // The route the links will link to.
+  $search_page_route = 'view.search.content_search';
+  $search_param_name = 'search_text';
+
+  try {
+    // Make sure the route exists.
+    $route = \Drupal::service('router.route_provider')->getRouteByName($search_page_route);
+    if (!$route instanceof Route) {
+      return NULL;
+    }
+
+    $links = [];
+    foreach ($search_words as $search_word) {
+      $url = Url::fromRoute($search_page_route, [], ['query' => [$search_param_name => $search_word['value']]]);
+      $link = Link::fromTextAndUrl($search_word['value'], $url)->toRenderable();
+      $links[] = $link;
+    }
+
+    return $links;
+  }
+  catch (RouteNotFoundException) {
+    return NULL;
+  }
 }

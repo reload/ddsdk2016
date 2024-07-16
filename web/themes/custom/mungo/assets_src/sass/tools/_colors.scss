@@ -28,6 +28,10 @@ $sand--50: #e9e2d3;
 $sand--25: #f4f1e9;
 $sand--10: #fbf9f6;
 
+$grey: #7a878b;
+
+$link--active: $light-navy;
+
 // Define as css variables so they're easy to
 // override in the track universe context.
 :root {
@@ -35,4 +39,5 @@ $sand--10: #fbf9f6;
   --menu-item--active: #{$light-navy};
   --menu-item: #{$marine-blue};
   --overlay-color: #{color.adjust($sand, $alpha: -0.3)};
+  --search-form-block-background-color: #{$sand--25};
 }
