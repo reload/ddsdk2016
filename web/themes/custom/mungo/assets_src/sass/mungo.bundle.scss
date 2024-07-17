@@ -5,6 +5,14 @@ $output-bourbon-deprecation-warnings: false !default;
 @import "tools/bootstrap.custom";
 
 /**
+ * Track theme tools.
+ *
+ * It's important to load variables and mixins
+ * before components to ensure access.
+ */
+@import "track/track-tools.bundle";
+
+/**
  * SMACSS Base.
  */
 @import "base/functions";
@@ -78,7 +86,7 @@ $output-bourbon-deprecation-warnings: false !default;
 @import "theme/dymo-text";
 
 /**
- * Track theme.
+ * Track theme components.
  */
 @import "track/track.bundle";
 
