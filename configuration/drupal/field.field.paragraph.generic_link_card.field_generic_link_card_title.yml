@@ -1,0 +1,19 @@
+uuid: 51cb897d-6ac9-4a42-a630-750c1af96d31
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_generic_link_card_title
+    - paragraphs.paragraphs_type.generic_link_card
+id: paragraph.generic_link_card.field_generic_link_card_title
+field_name: field_generic_link_card_title
+entity_type: paragraph
+bundle: generic_link_card
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

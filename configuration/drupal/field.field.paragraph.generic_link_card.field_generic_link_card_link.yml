@@ -1,0 +1,23 @@
+uuid: 5cd6cf68-8220-4049-a3fd-e561e83257d1
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_generic_link_card_link
+    - paragraphs.paragraphs_type.generic_link_card
+  module:
+    - link
+id: paragraph.generic_link_card.field_generic_link_card_link
+field_name: field_generic_link_card_link
+entity_type: paragraph
+bundle: generic_link_card
+label: Link
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link

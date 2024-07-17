@@ -12,6 +12,7 @@ dependencies:
     - paragraphs.paragraphs_type.content_event_reference
     - paragraphs.paragraphs_type.content_redirect_page_reference
     - paragraphs.paragraphs_type.content_section_reference
+    - paragraphs.paragraphs_type.generic_link_card
     - paragraphs.paragraphs_type.markup
     - paragraphs.paragraphs_type.shortcuts
     - paragraphs.paragraphs_type.text
@@ -43,6 +44,7 @@ settings:
       content_section_reference: content_section_reference
       markup: markup
       shortcuts: shortcuts
+      generic_link_card: generic_link_card
     negate: 0
     target_bundles_drag_drop:
       1col_deck:
@@ -93,12 +95,21 @@ settings:
       dynamic_deck:
         weight: -51
         enabled: false
+      embed:
+        weight: 54
+        enabled: false
+      events:
+        weight: 55
+        enabled: false
       factbox:
         weight: -50
         enabled: false
       gallery:
         weight: -49
         enabled: false
+      generic_link_card:
+        weight: 58
+        enabled: true
       hero_banner:
         weight: -48
         enabled: false
@@ -113,6 +124,9 @@ settings:
         enabled: false
       latest_content_list:
         weight: -40
+        enabled: false
+      latest_content_tagging:
+        weight: 64
         enabled: false
       list_deck:
         weight: -39
