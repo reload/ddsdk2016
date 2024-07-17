@@ -384,3 +384,19 @@
     outline: none;
   }
 }
+
+@mixin generic-link-card-header {
+  color: var(--generic-link-card-text-color);
+  font-family: $feature-font;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+@mixin generic-link-card-desc {
+  color: var(--generic-link-card-text-color);
+  font-family: $manrope-font;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+}

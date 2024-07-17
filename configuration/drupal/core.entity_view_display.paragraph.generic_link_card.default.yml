@@ -1,0 +1,45 @@
+uuid: 47dfd2d0-c5cf-4920-a43c-615a209187db
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.generic_link_card.field_generic_link_card_link
+    - field.field.paragraph.generic_link_card.field_generic_link_card_title
+    - field.field.paragraph.generic_link_card.field_generic_link_desc
+    - paragraphs.paragraphs_type.generic_link_card
+  module:
+    - link
+id: paragraph.generic_link_card.default
+targetEntityType: paragraph
+bundle: generic_link_card
+mode: default
+content:
+  field_generic_link_card_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_generic_link_card_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_generic_link_desc:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true
