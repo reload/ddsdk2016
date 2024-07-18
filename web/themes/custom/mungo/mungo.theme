@@ -442,7 +442,7 @@ function mungo_preprocess_menu(&$variables) {
  * Get file content based on part of title.
  */
 function _mungo_replace_title_with_svg($title) {
-  $file_path = \Drupal::service('extension.list.theme')->getPath('mungo') . '/assets/images/Ikoner_DDS_DK_ikon_' . $title . '.svg';
+  $file_path = \Drupal::service('extension.list.theme')->getPath('mungo') . '/assets/images/lucide/Ikoner_DDS_DK_ikon_' . $title . '.svg';
   if (!file_exists($file_path)) {
     return FALSE;
   }

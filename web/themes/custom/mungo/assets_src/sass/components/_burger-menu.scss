@@ -62,7 +62,7 @@
     width: $_icon-size;
 
     box-sizing: border-box;
-    background-image: url("../images/arrow-right--bluish.svg");
+    background-image: url("../images/lucide/arrow-right--bluish.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: $_icon-size $_icon-size;
@@ -225,7 +225,7 @@
   &::after {
     right: auto;
     left: 0;
-    background-image: url("../images/arrow-right--bluish.svg");
+    background-image: url("../images/lucide/arrow-right--bluish.svg");
     transition: left $burger-menu-animation-timing ease-in-out;
     transform: rotate(180deg);
   }
@@ -260,7 +260,7 @@
   padding-top: 0;
 
   &.is-external-link::after {
-    content: url("../images/external-link.svg");
+    content: url("../images/lucide/external-link.svg");
     display: inline;
     vertical-align: middle;
     margin-left: 5px;
