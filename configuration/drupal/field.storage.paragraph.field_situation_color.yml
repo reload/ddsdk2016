@@ -24,6 +24,12 @@ settings:
       value: grey
       label: Grey
     -
+      value: dark-blue
+      label: 'Dark Blue'
+    -
+      value: green
+      label: Green
+    -
       value: track-skills-bg
       label: 'Track - skills (lilla)'
     -

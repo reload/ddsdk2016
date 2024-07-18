@@ -3,139 +3,93 @@
  * Contains styling regarding situation links.
  *
  */
-.paragraph--type--situation-links {
-  font-size: $std-font-size;
+.situation-links {
+  background: $white-one;
+  border-radius: $border-radius--medium;
+  padding: $spacing-medium $spacing-medium $spacing-large $spacing-medium;
 
-  @include clearfix;
+  // Make sure the links align
+  // across the different situations cards.
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  gap: $spacing-large;
 
-  // Initiate border. Color is overridden later.
-  // Mobile border is on left, desktop above and below.
-  border-left: 10px solid green;
-  @include media-medium {
-    border-top: 10px solid green;
-    border-left: 0 solid green;
-  }
-  border-bottom: 0 solid green;
-
-  // Set the border color.
-  &.situation-links-color {
-    &-red {
-      border-color: $medium-pink;
-    }
-
-    &-yellow {
-      border-color: $dull-yellow;
-    }
-
-    &-blue {
-      border-color: $bluish;
-    }
-
-    &-grey {
-      border-color: $pinkish-grey;
-    }
-  }
-  // On hover of the whole situation box do magic with borders.
-  // Add shadow and such.
-  &:hover {
-    border-right-width: 10px;
-    @include media-medium {
-      @include translate(0, -20px);
-      border-right-width: 0;
-      border-bottom-width: 10px;
-    }
-
-    box-shadow: 0 0 3px #000;
-
-    a {
-      color: $bluish;
-      text-decoration: none;
-    }
-  }
-
-  @include transition(transform 0.4s);
-
-  // Size the icon
-  .icon {
-    float: left;
-    @include media-medium {
-      float: none;
-    }
-    padding: $spacing-small 0;
+  .spejder-icon-wrapper {
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    display: grid;
+    place-content: center;
+    color: $white-one;
 
     svg {
-      height: 100px;
+      width: 25px;
+      height: 25px;
     }
   }
-  background: #fff;
-  min-height: 120px;
-  @include media-medium {
-    text-align: center;
-    min-height: 350px;
+
+  &.situation-links-color {
+    &-red .spejder-icon-wrapper {
+      background-color: $medium-pink;
+    }
+
+    &-yellow .spejder-icon-wrapper {
+      background-color: $dull-yellow;
+    }
+
+    &-blue .spejder-icon-wrapper {
+      background-color: $bluish;
+    }
+
+    &-dark-blue .spejder-icon-wrapper {
+      background-color: $marine-blue;
+    }
+
+    &-grey .spejder-icon-wrapper {
+      background-color: $pinkish-grey;
+    }
+
+    &-green .spejder-icon-wrapper {
+      background-color: $green;
+    }
   }
 
-  // Vertically align middle.
-  > a {
+  .situation-links__main-link {
+    flex: 30%;
     display: flex;
     align-items: center;
-    justify-content: left;
-    @include media-medium {
-      display: block;
+    gap: $spacing-small-plus;
+
+    // To prevent text overflow.
+    @include media-between-medium-large {
+      flex-direction: column;
+      align-items: unset;
     }
-  }
 
-  // The box heading.
-  h2 {
-    @include list-heading-medium;
-    text-decoration: none;
-    margin: 0 $spacing-medium;
-    color: $bluish;
-    font-size: 14px;
-
-    &::after {
-      content: " \2192";
-    }
-    @include media-medium {
-      color: #000;
-      font-size: 18px;
-
-      &::after {
-        content: "";
+    &:active,
+    &:focus,
+    &:hover {
+      // Also add active styling to the title.
+      &,
+      .situation-links__main-link-title {
+        @extend %link-active--no-underline;
       }
     }
+    @include focus-visible;
   }
-  // The list of links.
+
+  .situation-links__main-link-title {
+    @include situation-links-heading;
+    margin: 0;
+  }
+
   .field--name-field-situation-links {
-    display: none;
-    @include media-medium {
-      display: block;
-
-      a {
-        margin: 0 $spacing-medium;
-        display: block;
-        color: #000;
-        padding: 5px;
-
-        &:hover {
-          color: $light-navy;
-          text-decoration: underline;
-        }
-      }
-    }
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-small;
   }
 
-  // The general link at the bottom of the box.
-  position: relative;
-
-  .view-content-link {
-    display: none;
-    @include media-medium {
-      display: block;
-      position: absolute;
-      top: 300px;
-      left: 0;
-      right: 0;
-      @include blue-arrowed-read-more;
-    }
+  .field--name-field-situation-links a {
+    @include link-arrow;
   }
 }

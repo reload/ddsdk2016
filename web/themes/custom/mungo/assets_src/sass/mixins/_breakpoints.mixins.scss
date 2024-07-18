@@ -38,3 +38,9 @@
     @content;
   }
 }
+
+@mixin media-between-medium-large {
+  @media (min-width: $screen-md) and (max-width: $screen-lg) {
+    @content;
+  }
+}
