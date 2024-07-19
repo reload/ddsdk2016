@@ -6,15 +6,7 @@
     ------------------------------------------------------- */
 .article__sidebar {
   .paragraph--type--shortcuts {
-    background-color: $white-two;
-
-    @include media-small {
-      padding: 35px 15px 55px;
-    }
-
-    @include media-large {
-      padding: 10px;
-    }
+    margin-bottom: $spacing-medium;
   }
 
   .field--name-field-shortcuts-title {
