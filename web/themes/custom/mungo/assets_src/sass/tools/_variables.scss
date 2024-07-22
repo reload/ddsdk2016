@@ -45,3 +45,9 @@ $burger-menu-animation-timing: 0.5s;
 // Border radius.
 $border-radius--small: 10px;
 $border-radius--medium: 15px;
+
+// General spacing between elements.
+$element-spacing-y-mobile: $spacing-medium;
+$element-spacing-y-desktop: $spacing-large;
+$element-spacing-x-mobile: $spacing-small-plus;
+$element-spacing-x-desktop: $spacing-large;

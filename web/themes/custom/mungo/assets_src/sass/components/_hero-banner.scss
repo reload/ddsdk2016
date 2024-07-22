@@ -3,11 +3,11 @@
     display: flex;
     flex-direction: column;
     gap: $spacing-large;
-    padding: 0 0 $spacing-large 0;
+    padding: 0 0 $element-spacing-y-mobile 0;
 
     @include media-medium {
       flex-direction: row-reverse;
-      padding: $spacing-large 0;
+      padding: $element-spacing-y-desktop 0;
     }
   }
 
