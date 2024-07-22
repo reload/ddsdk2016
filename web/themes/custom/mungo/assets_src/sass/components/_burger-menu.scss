@@ -204,6 +204,9 @@
 
 .burger-menu__search-form {
   margin-bottom: $spacing-large-plus;
+  // Make sure the focus outline is visible,
+  // and not cut off by the overflow hidden container.
+  margin-top: 6px;
 }
 
 .burger-menu__back {

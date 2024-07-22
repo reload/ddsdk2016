@@ -47,6 +47,7 @@
       &::placeholder {
         @include search-field;
       }
+      @include focus-visible;
     }
   }
 }
