@@ -34,6 +34,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: $spacing-small;
   }
 
   &__title {
@@ -48,6 +49,10 @@
 
     &--hidden {
       display: none;
+    }
+
+    svg path {
+      stroke: currentColor;
     }
   }
 
