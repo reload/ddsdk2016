@@ -137,12 +137,12 @@
   overflow-y: scroll;
   overflow-x: hidden;
 
-  padding-left: $header-spacing-x--mobile;
-  padding-right: $header-spacing-x--mobile;
+  padding-left: $element-spacing-x-mobile;
+  padding-right: $element-spacing-x-mobile;
 
   @include media-burger-menu-large {
-    padding-left: $header-spacing-x--desktop;
-    padding-right: $header-spacing-x--desktop;
+    padding-left: $element-spacing-x-desktop;
+    padding-right: $element-spacing-x-desktop;
   }
 
   box-sizing: border-box;

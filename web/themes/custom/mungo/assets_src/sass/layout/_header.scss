@@ -35,11 +35,11 @@ header.header-fixed {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 $header-spacing-x--mobile;
+      padding: 0 $element-spacing-x-mobile;
       height: $header-height;
 
       @include media-burger-menu-large {
-        padding: 0 $header-spacing-x--desktop;
+        padding: 0 $element-spacing-x-desktop;
       }
     }
 
