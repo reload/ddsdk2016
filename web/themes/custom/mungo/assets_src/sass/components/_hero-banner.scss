@@ -33,6 +33,9 @@
 
   &__text-container {
     flex: 1;
+    @include media-medium {
+      margin-top: $spacing-small-plus;
+    }
   }
 
   &__title {
