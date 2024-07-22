@@ -15,7 +15,7 @@
 
   &:not(:first-of-type) {
     padding-top: $spacing-small;
-    border-top: $sand--50 1px solid;
+    border-top: $border-color 1px solid;
   }
 }
 

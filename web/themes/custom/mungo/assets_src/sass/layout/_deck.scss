@@ -60,7 +60,7 @@
 
     &:hover {
       // The content-list behaves kinda buggy on tablet and mobile.
-      border-bottom: 1px solid $pinkish-grey;
+      border-bottom: 1px solid $border-color;
       @include media-medium {
         border-bottom: 0;
       }
