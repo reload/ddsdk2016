@@ -317,7 +317,7 @@
 }
 
 @mixin menu-item--mini {
-  font-family: $modern-font;
+  font-family: $std-font;
   color: $bluish;
   font-size: 10px;
   font-weight: 600;
@@ -327,7 +327,7 @@
 }
 
 @mixin menu-item--small {
-  font-family: $modern-font;
+  font-family: $std-font;
   color: var(--menu-item);
   font-size: 14px;
   font-weight: 400;
@@ -335,7 +335,7 @@
 }
 
 @mixin menu-item--medium {
-  font-family: $modern-font;
+  font-family: $std-font;
   color: var(--menu-item);
   font-size: 16px;
   font-weight: 400;
@@ -343,7 +343,7 @@
 }
 
 @mixin menu-item--large {
-  font-family: $modern-font;
+  font-family: $std-font;
   color: var(--menu-item);
   font-size: 22px;
   font-weight: 400;
@@ -351,7 +351,7 @@
 }
 
 @mixin search-field {
-  font-family: $modern-font;
+  font-family: $std-font;
   color: $marine-blue;
   font-size: 16px;
   font-weight: 400;
@@ -360,7 +360,7 @@
 
 @mixin hero-banner-label {
   color: $grey;
-  font-family: $manrope-font;
+  font-family: $std-font;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
@@ -377,7 +377,7 @@
 
 @mixin generic-link-card-desc {
   color: var(--generic-link-card-text-color);
-  font-family: $manrope-font;
+  font-family: $std-font;
   font-size: 13px;
   font-weight: 400;
   line-height: 20px;
@@ -416,7 +416,7 @@
 
 @mixin link {
   color: $marine-blue;
-  font-family: $manrope-font;
+  font-family: $std-font;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -432,7 +432,7 @@
 }
 
 @mixin link-arrow--small {
-  font-family: $manrope-font;
+  font-family: $std-font;
   color: $marine-blue;
   font-size: 14px;
   font-weight: 400;
@@ -451,7 +451,7 @@
 }
 
 @mixin link-arrow--medium {
-  font-family: $manrope-font;
+  font-family: $std-font;
   color: $marine-blue;
   font-size: 16px;
   font-weight: 400;
