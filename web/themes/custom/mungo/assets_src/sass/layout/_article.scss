@@ -1,7 +1,7 @@
 /*  General layout and styling for articles.
     ------------------------------------------------------- */
 .page-node-type-article {
-  background-color: white;
+  background-color: $body-background-color;
 
   // Author, share-links etc
   .node__meta {
