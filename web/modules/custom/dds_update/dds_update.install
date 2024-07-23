@@ -218,3 +218,25 @@ function dds_update_update_9301(&$sandbox) {
   translate_tool_add('statistics', 'da', 'statistik');
   translate_tool_add('marketing', 'da', 'marketing');
 }
+
+/**
+ * Add translations for burger menu.
+ */
+function dds_update_update_9302() {
+  $translations = [
+    'Close menu' => 'Luk menu',
+    'Back' => 'Tilbage',
+    'What are you searching for?' => 'Hvad søger du?',
+  ];
+
+  foreach ($translations as $english => $danish) {
+    translate_tool_add($english, 'da', $danish);
+  }
+}
+
+/**
+ * Add translations for the hero banner.
+ */
+function dds_update_update_9303() {
+  translate_tool_add('Popular searches', 'da', 'Populære søgninger');
+}

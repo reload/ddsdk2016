@@ -32,8 +32,8 @@
 
   // When displayed on a mobile still need to push the elements before and
   // after us a bit away.
-  border-top: 1px solid $pale-grey;
-  border-bottom: 1px solid $pale-grey;
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
 
   @include media-medium {
     border: 0;

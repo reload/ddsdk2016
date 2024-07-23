@@ -23,9 +23,9 @@
     "cypress:run": "cypress run",
     "tests": "npm run cypress:run",
     "lint": "concurrently 'npm:js:lint' 'npm:css:lint'",
-    "format": "npm run clean && concurrently 'npm:js:format' 'npm:css:format'",
+    "format": "concurrently 'npm:js:format' 'npm:css:format'",
     "build": "concurrently 'npm:js:build' 'npm:css:build' 'npm:fonts:build' 'npm:images:build'",
-    "watch": "concurrently 'npm:js:watch' 'npm:css:watch'",
+    "watch": "concurrently 'npm:js:watch' 'npm:css:watch' 'npm:fonts:watch' 'npm:images:watch'",
     "start": "npm run watch --raw"
   },
   "devDependencies": {

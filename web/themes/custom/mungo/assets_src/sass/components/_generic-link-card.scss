@@ -1,0 +1,63 @@
+.generic-link-card {
+  --generic-link-card-background-color: #{$purple};
+  --generic-link-card-text-color: #{$white-one};
+
+  background: var(--generic-link-card-background-color);
+  border-radius: $border-radius--medium;
+  display: flex;
+  padding: $spacing-medium;
+  flex-direction: column;
+  gap: 5px;
+
+  &:focus,
+  &:active,
+  &:hover {
+    text-decoration: none;
+    cursor: pointer;
+    --generic-link-card-background-color: #{$marine-lighter-blue};
+  }
+
+  // The editor can enable track styling on track-links.
+  &--track {
+    --generic-link-card-background-color: #{$track-light-green};
+    --generic-link-card-text-color: #{$track-blue};
+
+    &:focus,
+    &:active,
+    &:hover {
+      --generic-link-card-background-color: #{$track-blue};
+      --generic-link-card-text-color: #{$track-light-green};
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $spacing-small;
+  }
+
+  &__title {
+    margin: 0;
+    @include generic-link-card-header;
+  }
+
+  // Display an icon if the link is external.
+  &__external-icon {
+    display: block;
+    color: var(--generic-link-card-text-color);
+
+    &--hidden {
+      display: none;
+    }
+
+    svg path {
+      stroke: currentColor;
+    }
+  }
+
+  &__desc {
+    margin: 0;
+    @include generic-link-card-desc;
+  }
+}

@@ -5,7 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.paragraph.search_index
     - field.field.paragraph.shortcuts.field_shortcuts
-    - field.field.paragraph.shortcuts.field_shortcuts_title
     - paragraphs.paragraphs_type.shortcuts
 id: paragraph.shortcuts.search_index
 targetEntityType: paragraph
@@ -15,5 +14,5 @@ content: {  }
 hidden:
   created: true
   field_shortcuts: true
-  field_shortcuts_title: true
+  search_api_excerpt: true
   uid: true

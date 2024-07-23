@@ -25,10 +25,21 @@
   }
 }
 
+// @todo: Change the name to match the actual color applied.
+// The value comes from a list field where the value is
+// in use, so we can't change it.
 .paragraphs--deck-color--grey {
-  background-color: $pale-grey;
+  background-color: $sand--25;
 }
 
 .paragraphs--deck-color--white {
   background-color: #fff;
+}
+
+.paragraphs--deck-color--light-sand {
+  background-color: $sand--25;
+}
+
+.paragraphs--deck-color--sand {
+  background-color: $sand--50;
 }

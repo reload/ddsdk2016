@@ -1,0 +1,9 @@
+// Control styling of all icons in the list field.
+// They're usually named Ikoner_DDS_DK_ikon_*.svg.
+.lucide.spejder-icon {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

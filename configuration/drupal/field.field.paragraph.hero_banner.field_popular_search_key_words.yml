@@ -1,0 +1,19 @@
+uuid: 4f0a3abb-1d4a-4d57-9646-9e0e99bfd4c0
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_popular_search_key_words
+    - paragraphs.paragraphs_type.hero_banner
+id: paragraph.hero_banner.field_popular_search_key_words
+field_name: field_popular_search_key_words
+entity_type: paragraph
+bundle: hero_banner
+label: 'Popular search words'
+description: "Write popular search words that'll link to the search page."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -3,8 +3,8 @@
 // A content link consists of an optional image a lead-text and the link itself.
 .content-link {
   // Set border around paragraph.
-  border-top: 1px solid $pale-grey;
-  border-bottom: 1px solid $pale-grey;
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
 
   // Make sure we have plenty spacing between the border and our inner content.
   padding-top: $spacing-medium;

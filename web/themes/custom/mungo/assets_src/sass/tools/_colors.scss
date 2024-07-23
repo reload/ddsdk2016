@@ -1,4 +1,6 @@
-$green: green;
+@use "sass:color";
+
+$green: #1d6d38;
 
 /* Styleguide colors */
 $medium-pink: #ea636f;
@@ -19,3 +21,29 @@ $pale-grey: #e6e7ea;
 $pinkish-grey: #cbcbcb;
 $white-two: #f5f5f5;
 $white-one: #fff;
+
+$sand: #d3c5a6;
+$sand--75: #ded3bc;
+$sand--50: #e9e2d3;
+$sand--25: #f4f1e9;
+$sand--10: #fbf9f6;
+
+$grey: #7a878b;
+
+$purple: #7554a2;
+
+$link--active: $light-navy;
+
+$body-background-color: $sand--10;
+
+$border-color: $sand--50;
+
+// Define as css variables so they're easy to
+// override in the track universe context.
+:root {
+  --header-background-color: #{$white-one};
+  --menu-item--active: #{$light-navy};
+  --menu-item: #{$marine-blue};
+  --overlay-color: #{color.adjust($sand, $alpha: -0.3)};
+  --search-form-block-background-color: #{$sand--25};
+}

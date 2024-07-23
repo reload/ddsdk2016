@@ -1,0 +1,52 @@
+{% import _self as menus %}
+
+{% macro menu_links(items, attributes, menu_level, parent_id, search_form) %}
+  {% import _self as menus %}
+
+  <ul{{ attributes.addClass('burger-menu__menu', 'js-burger-menu-menu').setAttribute('data-level', menu_level) }}>
+    {% if menu_level > 0 %}
+      <li class="burger-menu__menu-item burger-menu__menu-item--back">
+        <button class="burger-menu__back js-burger-menu-back" data-target-controller-id="{{ parent_id }}">
+          {{ 'Back'|t }}
+        </button>
+      </li>
+    {% else %}
+      <li class="burger-menu__search-form">
+        {{ search_form }}
+      </li>
+    {% endif %}
+
+    {% for item_key, item in items %}
+      {%
+        set classes = [
+        'burger-menu__menu-item',
+        'js-burger-menu-item',
+        item.in_active_trail ? 'is-active-trail' : '',
+      ]
+      %}
+      <li{{ item.attributes.addClass(classes).setAttribute('data-burger-id', item_key) }}>
+        {% if item.below %}
+          <input class="burger-menu__menu-controller js-burger-menu-controller" type="radio" id="{{ item_key }}" name="{{ menu_id }}" />
+          <label class="burger-menu__button" for="{{ item_key }}" tabindex="0">{{ item.title }}</label>
+          {{ menus.menu_links(item.below, attributes, menu_level + 1, item_key, item.title) }}
+
+        {% else %}
+          {{ link(item.title, item.url) }}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+{% set menu_id = 'main-burger-menu' %}
+<nav role="navigation" aria-labelledby="{{ menu_id }}" class="burger-menu js-burger-menu">
+  <h2 id="{{ menu_id }}" class="visually-hidden">Main navigation</h2>
+  {#
+    We call a macro which calls itself to render the full tree.
+    @see https://twig.symfony.com/doc/1.x/tags/macro.html
+  #}
+  <div class="burger-menu__close js-burger-menu-toggle" tabindex="-1" aria-label="{{ 'Close menu'|trans }}"></div>
+  <aside class="burger-menu__wrapper">
+    {{ menus.menu_links(burger_menu, attributes, 0, 'burger_menu_', search_form) }}
+  </aside>
+</nav>

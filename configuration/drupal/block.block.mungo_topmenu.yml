@@ -1,0 +1,25 @@
+uuid: ec17f0ba-86f6-4885-8202-b8d2d1d53a0b
+langcode: da
+status: false
+dependencies:
+  config:
+    - system.menu.top-menu
+  module:
+    - system
+  theme:
+    - mungo
+id: mungo_topmenu
+theme: mungo
+region: primary_menu
+weight: 0
+provider: null
+plugin: 'system_menu_block:top-menu'
+settings:
+  id: 'system_menu_block:top-menu'
+  label: 'Top menu'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

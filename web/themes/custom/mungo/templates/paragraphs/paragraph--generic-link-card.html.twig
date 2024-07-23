@@ -1,0 +1,32 @@
+{% set classes = [
+  'paragraph',
+  'paragraph--type--' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  not paragraph.isPublished() ? 'paragraph--unpublished',
+  'generic-link-card',
+  has_track_styling ? 'generic-link-card--track' : '',
+] %}
+{% set link_url = content.field_generic_link_card_link.0['#title'] %}
+{% set link_is_external = content.field_generic_link_card_link.0['#url'].isExternal() %}
+
+{% block paragraph %}
+  <a
+    {{ attributes.addClass(classes) }}
+    {{ attributes.setAttribute('href', link_url)}}
+  >
+    <header class="generic-link-card__header">
+      <h2 class="generic-link-card__title">
+        {{ content.field_generic_link_card_title.0['#context'].value }}
+      </h2>
+      <div class="generic-link-card__external-icon {{ link_is_external ? '' : 'generic-link-card__external-icon--hidden' }}">
+        {% include active_theme_path() ~ '/assets/images/lucide/external-link.svg' %}
+      </div>
+    </header>
+
+    {% if content.field_generic_link_desc.0 %}
+      <p class="generic-link-card__desc">
+        {{ content.field_generic_link_desc.0['#context'].value }}
+      </p>
+    {% endif %}
+  </a>
+{% endblock paragraph %}

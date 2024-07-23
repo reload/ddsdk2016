@@ -1,13 +1,13 @@
 /*  General layout and styling for articles.
     ------------------------------------------------------- */
 .page-node-type-article {
-  background-color: white;
+  background-color: $body-background-color;
 
   // Author, share-links etc
   .node__meta {
     // Sourround the meta-area with borders on mobile.
-    border-top: 1px solid $pale-grey;
-    border-bottom: 1px solid $pale-grey;
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
 
     display: flex;
     align-items: center;
@@ -192,7 +192,7 @@
 .node-teaser--list {
   // Adapt to the parent background.
   background-color: transparent;
-  border-top: 1px solid $pinkish-grey;
+  border-top: 1px solid $border-color;
 
   // Override default teaser bottom.
   border-bottom: 0;
@@ -256,11 +256,11 @@
   @include media-small {
     // Overide border behaviour on tablet.
     border-top: 0;
-    border-bottom: 1px solid $pinkish-grey;
+    border-bottom: 1px solid $border-color;
 
     &:nth-child(1),
     &:nth-child(2) {
-      border-top: 1px solid $pinkish-grey;
+      border-top: 1px solid $border-color;
     }
   }
 
@@ -269,7 +269,7 @@
     width: 100%;
 
     // Reset.
-    border-top: 1px solid $pinkish-grey;
+    border-top: 1px solid $border-color;
     border-top: 0;
   }
 }

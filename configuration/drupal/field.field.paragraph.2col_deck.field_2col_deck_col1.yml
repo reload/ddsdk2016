@@ -97,11 +97,20 @@ settings:
       dynamic_deck:
         weight: -49
         enabled: false
+      embed:
+        weight: 54
+        enabled: false
+      events:
+        weight: 55
+        enabled: false
       factbox:
         weight: -48
         enabled: false
       gallery:
         weight: -47
+        enabled: false
+      generic_link_card:
+        weight: 58
         enabled: false
       hero_banner:
         weight: -46
@@ -118,6 +127,9 @@ settings:
       latest_content_list:
         weight: -56
         enabled: true
+      latest_content_tagging:
+        weight: 64
+        enabled: false
       list_deck:
         weight: -55
         enabled: true

@@ -1,0 +1,10 @@
+uuid: 44ab38d3-9a89-4b6d-8ea4-11003b09e3ab
+langcode: da
+status: true
+dependencies: {  }
+id: generic_link_card
+label: 'Link card'
+icon_uuid: null
+icon_default: null
+description: 'Link to any kind of content presented as a card with title and description.'
+behavior_plugins: {  }

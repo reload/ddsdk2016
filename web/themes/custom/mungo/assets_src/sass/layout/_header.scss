@@ -1,19 +1,7 @@
 // Magical values to push content down. This must adjusted if the fixed menu
 // changes.
 body .layout-container {
-  padding-top: 71px;
-}
-
-@include media-small {
-  body .layout-container {
-    padding-top: 131px;
-  }
-}
-
-@include media-medium {
-  body .layout-container {
-    padding-top: 101px;
-  }
+  padding-top: $header-height;
 }
 
 header.header-fixed {
@@ -21,34 +9,6 @@ header.header-fixed {
   width: 100%;
   top: 0;
   z-index: 2;
-  background-color: #fff;
-
-  .menu--top-menu {
-    ul {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    li {
-      display: inline-block;
-    }
-
-    @include media-medium {
-      ul {
-        justify-content: flex-end;
-        gap: $spacing-medium;
-        padding-right: $spacing-medium;
-      }
-    }
-  }
-
-  > div {
-    height: $header-height;
-
-    @include media-small {
-      height: auto;
-    }
-  }
 
   .region-top-menu {
     // Hide the top menu on mobile. Show from tablet and up.
@@ -66,156 +26,66 @@ header.header-fixed {
     }
   }
 
-  /* Display a line after menu */
-  &::after {
-    display: block;
-    content: "";
-    height: 1px;
-    width: 100%;
-    // If you're debugging why the line is overlapping content below it
-    // you probably need to adjust the values in the body .layout-container
-    // selector in this file.
-    @include background-image(
-      linear-gradient(
-        to left,
-        transparent 0%,
-        $warm-grey 25%,
-        $warm-grey 75%,
-        transparent 100%
-      )
-    );
-  }
-
   .region-primary-menu {
-    .container {
+    .header-controls {
+      z-index: 6;
       position: relative;
-      text-align: right;
+      background-color: var(--header-background-color);
 
-      .site-logo--container {
-        margin-top: $spacing-small;
-        text-align: center;
-        @include media-small {
-          position: absolute;
-          z-index: 1;
-          // Move left to align with bootstraps .container.b
-          left: $spacing-small;
-        }
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 $element-spacing-x-mobile;
+      height: $header-height;
 
-        img {
-          width: 122px;
-          height: 50px;
-        }
+      @include media-burger-menu-large {
+        padding: 0 $element-spacing-x-desktop;
       }
     }
-  }
 
-  /**
-   * Searchbox in header.
-   */
-
-  .block-search {
-    @include media-medium {
-      display: inline-block;
-      float: right;
+    .site-logo--container img {
+      width: 122px;
+      height: 50px;
     }
 
-    label {
-      position: absolute;
-      top: 26px;
-      left: 0;
-      margin-left: 10px;
+    .header__burger {
+      display: flex;
+      align-items: center;
+      border: 0;
+      background-color: transparent;
       cursor: pointer;
-      color: $bluish;
-      z-index: 1;
+      padding: 0;
 
-      span {
-        // Make a little room between label and magnifying glass.
-        margin-left: $spacing-small;
-      }
-
+      // On mobile the text is not hidden but
+      // we still want the text to be visible for screen-readers.
+      font-size: 0;
       @include media-small {
-        // Move to the right instead.
-        left: auto;
-        right: 0;
-      }
-      @include media-medium {
-        margin-left: $spacing-large;
-        position: relative;
+        @include menu-item--small();
       }
 
-      &::after {
-        content: "";
-      }
-    }
-
-    form {
-      width: 100%;
-      background: $white-two;
-      position: absolute;
-      display: none;
-      left: 0;
-      right: 20px;
-      padding: $spacing-small;
-      padding-right: 56px;
-      top: 70px;
-      @include search-field;
-      // Hide standard form-submit button. It has text and we dont need that.
-      .form-submit {
+      // Change burger text depending on open/close state.
+      .header__burger-close-text {
         display: none;
       }
 
-      button {
-        border: 1px solid $bluish;
-        background: $bluish;
-        color: #fff;
-        position: absolute;
-        right: $spacing-small;
-        top: $spacing-small;
-        width: 47px;
-        height: 47px;
-        @include media-medium {
-          width: 67px;
-          height: 67px;
-          right: $spacing-large;
-          top: $spacing-large;
+      .has-open-burger-menu & {
+        .header__burger-open-text {
+          display: none;
+        }
+
+        .header__burger-close-text {
+          display: inline;
         }
       }
 
-      input.form-search {
-        box-sizing: border-box;
-        -webkit-appearance: none;
-        border-radius: 0;
-        padding: $spacing-small;
-        height: 47px;
-        @include media-medium {
-          height: 67px;
-          padding: $spacing-medium;
-        }
-        width: 100%;
-        border: 1px solid $bluish;
+      .burger-icon {
+        width: 30px;
+        height: 30px;
+        // Spacing between text and icon.
+        margin-left: 7px;
       }
-      @include media-small {
-        top: 100px;
-      }
-      @include media-medium {
-        padding: $spacing-large;
-        padding-right: 96px;
-        top: 70px;
-      }
-    }
-    // Open collapse search field.
-    #search-field-expose {
-      display: none;
 
-      &:checked ~ form {
-        display: block;
-      }
+      @extend %burger-menu__menu-item-states;
     }
-  }
-}
-
-nav.menu--main {
-  @include media-medium {
-    display: inline-block;
   }
 }

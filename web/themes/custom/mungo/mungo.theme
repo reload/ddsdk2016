@@ -5,6 +5,9 @@
  * Main theme-file for the Mungo theme.
  */
 
+use Drupal\block\BlockInterface;
+use Drupal\block\Entity\Block;
+use Drupal\Component\Render\MarkupInterface;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
@@ -24,6 +27,8 @@ use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\paragraphs\ParagraphInterface;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\TermInterface;
+use Symfony\Component\Routing\Exception\RouteNotFoundException;
+use Symfony\Component\Routing\Route;
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -218,7 +223,7 @@ function mungo_form_search_block_form_alter(&$form, FormStateInterface $form_sta
   $form['actions']['search_submit'] = [
     '#type' => 'html_tag',
     '#tag' => 'button',
-    '#value' => '<span class="glyphicon glyphicon-search"></span>',
+    '#value' => '<span class="search-submit-button-icon"></span>',
   ];
 }
 
@@ -226,17 +231,15 @@ function mungo_form_search_block_form_alter(&$form, FormStateInterface $form_sta
  * Implements hook_form_alter().
  */
 function mungo_form_alter(&$form, &$form_state, $form_id) {
-  // Set identical place-holder text in a number of search form fields.
-  $search_placeholder_text = t('Search for content ...', [], ['context' => 'content search']);
-
   // The search-page itself (/soeg).
   if (!empty($form['#id']) && $form['#id'] === 'views-exposed-form-search-content-search') {
-    $form['search_text']['#placeholder'] = $search_placeholder_text;
+    $form['search_text']['#placeholder'] = t('Search for content ...', [], ['context' => 'content search']);
   }
 
   // The search-popup in the menu.
   if ($form_id === 'search_block_form') {
-    $form['keys']['#placeholder'] = $search_placeholder_text;
+    $form['keys']['#placeholder'] = t('What are you searching for?');
+    ;
   }
 
   if (preg_match('/^forward_form_node_\d+$/', $form_id)) {
@@ -439,7 +442,7 @@ function mungo_preprocess_menu(&$variables) {
  * Get file content based on part of title.
  */
 function _mungo_replace_title_with_svg($title) {
-  $file_path = \Drupal::service('extension.list.theme')->getPath('mungo') . '/assets/images/Ikoner_DDS_DK_ikon_' . $title . '.svg';
+  $file_path = \Drupal::service('extension.list.theme')->getPath('mungo') . '/assets/images/lucide/Ikoner_DDS_DK_ikon_' . $title . '.svg';
   if (!file_exists($file_path)) {
     return FALSE;
   }
@@ -1300,4 +1303,145 @@ function mungo_theme($existing, $type, $theme, $path) {
  */
 function mungo_preprocess_page(&$variables) {
   $variables['ddsdk_show_sizebar'] = Settings::get('ddsdk_show_sizebar', FALSE);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Prepares and combines menus for the burger menu.
+ */
+function mungo_preprocess_region(&$variables) {
+  if ($variables['region'] != 'primary_menu') {
+    return;
+  }
+
+  $primary_main_menu = _mungo_load_menu_tree('main');
+  $primary_track_menu = _mungo_load_menu_tree('track-menu');
+  $secondary_service_menu = _mungo_load_menu_tree('top-menu');
+
+  if (
+    empty($primary_main_menu) ||
+    empty($primary_track_menu) ||
+    empty($secondary_service_menu)
+  ) {
+    return;
+  }
+
+  // Add class to service menu items,
+  // so it can be styled different in the burger menu.
+  foreach ($secondary_service_menu['#items'] as &$service_menu_item) {
+    $service_menu_item['attributes']->addClass('is-service-parent');
+
+    // We style external links differently.
+    if ($service_menu_item['url']->isExternal()) {
+      $service_menu_item['attributes']->addClass('is-external-link');
+    }
+  }
+
+  $variables['main_burger_menu'] = array_merge(
+    $primary_main_menu['#items'],
+    $secondary_service_menu['#items']
+  );
+
+  $variables['track_burger_menu'] = array_merge(
+    $primary_track_menu['#items'],
+    $secondary_service_menu['#items']
+  );
+}
+
+/**
+ * Helper function to load a menu tree.
+ */
+function _mungo_load_menu_tree(string $menu_id): array {
+  $menu_tree_service = \Drupal::menuTree();
+
+  // Build the typical default set of menu tree parameters.
+  $parameters = $menu_tree_service->getCurrentRouteMenuTreeParameters($menu_id);
+
+  // Load the tree based on this set of parameters.
+  $tree = $menu_tree_service->load($menu_id, $parameters);
+
+  // Transform the tree using the manipulators you want.
+  $manipulators = [
+    [
+      // Only show links that are accessible for the current user.
+      'callable' => 'menu.default_tree_manipulators:checkAccess',
+    ],
+    [
+      // Use the default sorting of menu links.
+      'callable' => 'menu.default_tree_manipulators:generateIndexAndSort',
+    ],
+  ];
+
+  $tree = $menu_tree_service
+    ->transform($tree, $manipulators);
+
+  // Finally, build a render array from the transformed tree.
+  return $menu_tree_service->build($tree);
+}
+
+/**
+ * Implements hook_preprocess_paragraph__hero_banner().
+ *
+ * Adds search form and creates popular search links.
+ */
+function mungo_preprocess_paragraph__hero_banner(&$variables): void {
+  $variables['search_form_block'] = _mungo_get_search_form_block();
+
+  if (
+    $variables['paragraph']->hasField('field_popular_search_key_words') &&
+    !$variables['paragraph']->get('field_popular_search_key_words')->isEmpty()
+  ) {
+    $variables['popular_search_word_links'] = _mungo_create_popular_search_word_links(
+      $variables['paragraph']->get('field_popular_search_key_words')->getValue()
+    );
+  }
+}
+
+/**
+ * Get markup for the search form block.
+ */
+function _mungo_get_search_form_block(): ?MarkupInterface {
+  $block_entity = Block::load('ddssearchform');
+
+  if (!$block_entity instanceof BlockInterface) {
+    return NULL;
+  }
+
+  // Load the correct view mode.
+  $block = \Drupal::entityTypeManager()
+    ->getViewBuilder('block')
+    ->view($block_entity);
+
+  // Render the block and add it to the variables.
+  return \Drupal::service('renderer')->render($block);
+};
+
+/**
+ * Create links from popular search words.
+ */
+function _mungo_create_popular_search_word_links(array $search_words): ?array {
+  // The route the links will link to.
+  $search_page_route = 'view.search.content_search';
+  $search_param_name = 'search_text';
+
+  try {
+    // Make sure the route exists.
+    $route = \Drupal::service('router.route_provider')->getRouteByName($search_page_route);
+    if (!$route instanceof Route) {
+      return NULL;
+    }
+
+    $links = [];
+    foreach ($search_words as $search_word) {
+      $url = Url::fromRoute($search_page_route, [], ['query' => [$search_param_name => $search_word['value']]]);
+      $link = Link::fromTextAndUrl($search_word['value'], $url)->toRenderable();
+      $links[] = $link;
+    }
+
+    return $links;
+  }
+  catch (RouteNotFoundException) {
+    return NULL;
+  }
 }

@@ -5,6 +5,14 @@ $output-bourbon-deprecation-warnings: false !default;
 @import "tools/bootstrap.custom";
 
 /**
+ * Track theme tools.
+ *
+ * It's important to load variables and mixins
+ * before components to ensure access.
+ */
+@import "track/track-tools.bundle";
+
+/**
  * SMACSS Base.
  */
 @import "base/functions";
@@ -14,6 +22,7 @@ $output-bourbon-deprecation-warnings: false !default;
 @import "base/print";
 @import "base/reset";
 @import "base/wysiwyg";
+@import "base/icons";
 
 /**
  * SMACSS Layout.
@@ -67,6 +76,10 @@ $output-bourbon-deprecation-warnings: false !default;
 @import "components/cookie-consent";
 @import "components/markup";
 @import "components/embed";
+@import "components/burger-menu";
+@import "components/burger-icon";
+@import "components/block-form-search";
+@import "components/generic-link-card";
 
 /**
  * SMACSS Theme.
@@ -75,7 +88,7 @@ $output-bourbon-deprecation-warnings: false !default;
 @import "theme/dymo-text";
 
 /**
- * Track theme.
+ * Track theme components.
  */
 @import "track/track.bundle";
 

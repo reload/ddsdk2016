@@ -1,132 +1,14 @@
-// Reset hover states on the "Track" menu link.
-.block.menu--main ul.menu--main {
-  > li > .menu-item--track:hover {
-    background-color: transparent;
-  }
-}
-
-// We use important here due to the high specificity in header.scss.
-// It's safe to do, because we only target the .track-logo and not the regular .site-logo.
-// The px values are taken from the design
-.track-logo img {
-  @include max-media-small {
-    width: 179px !important;
-  }
-
-  @include media-large {
-    width: 160px !important;
-  }
-}
-
-$_menu-item-track-width: 80%;
-$_menu-item-track-height: 25px;
-// Styles for the "Track" link when in DDS (regular) context.
-// NOTE: this .menu-item--track class is set (or should be) in the Drupal menu UI.
-.menu-item--track {
-  background-color: $track-light-green;
-  text-transform: uppercase;
-
-  @include media-small {
-    background-color: transparent;
-    position: relative;
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: $track-light-green;
-      width: $_menu-item-track-width;
-      height: $_menu-item-track-height;
-      z-index: -1;
-    }
-  }
-}
-
 // When we're in a universe context.
 .page-type-universe {
-  .block.menu--main ul.menu--main {
-    // Due to the new Track logo being a little wider than the regular dds, we adjust the spacing when in a universe
-    // context.
-    > li > a {
-      padding-left: 11px;
-      padding-right: 11px;
-
-      @include media-small {
-        color: $track-blue;
-      }
-
-      @include media-large {
-        padding-left: 20px;
-        padding-right: 20px;
-      }
-    }
-  }
+  --header-background-color: #{$track-light-green};
+  --menu-item--active: #{$track-menu-item--active};
+  --menu-item: #{$track-blue};
+  --overlay-color: #{$track-overlay-color};
+  --search-form-block-background-color: #{$track-search-form-block-background-color};
 
   .header-fixed {
-    background-color: $track-light-green;
-    color: $track-blue;
-
     .track-logo img {
-      width: 179px;
-    }
-
-    // Change color of all three lines in the burger menu.
-    .burger--main--menu--toggle,
-    .burger--main--menu--toggle::before,
-    .burger--main--menu--toggle::after {
-      background-color: $track-blue;
-      border: 0;
-      border-radius: 0;
-    }
-
-    // Search icon and text.
-    .block-search {
-      label {
-        color: $track-blue;
-
-        @include max-media-xsmall {
-          font-size: 22px;
-
-          .search-field-label {
-            display: none;
-          }
-        }
-      }
-    }
-  }
-
-  @include media-small {
-    .block.menu--main ul.menu--main,
-    .block.menu--track-menu ul.menu--main {
-      background-color: $track-light-green;
-
-      > li > .menu-item--track:hover {
-        background-color: transparent;
-      }
-    }
-
-    .menu-item--track {
-      @include media-small {
-        color: $track-blue;
-
-        &::before {
-          background-color: #fff;
-        }
-
-        &::after {
-          content: "";
-          background-color: $track-blue;
-          width: $_menu-item-track-width;
-          height: $_menu-item-track-height;
-          position: absolute;
-          top: 55%;
-          left: 55%;
-          transform: translate(-50%, -50%);
-          z-index: -2;
-        }
-      }
+      width: 160px;
     }
   }
 }

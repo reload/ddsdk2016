@@ -1,122 +1,134 @@
-.page-type-universe {
-  .paragraph--type--situation-links {
-    border: 0;
-    color: $track-blue;
-    min-height: 80px;
+.situation-links-track {
+  color: $track-blue;
+  min-height: 80px;
 
-    &:hover {
-      box-shadow: none;
-    }
-
-    a,
-    h2 {
-      color: inherit;
-    }
-
-    h2::after,
-    .icon,
-    .view-content-link {
-      display: none;
-    }
-
-    > a {
-      height: 100%;
-    }
-
-    .main-link--wrapper {
-      width: 100%;
-      display: flex;
-      align-items: center;
-
-      @include max-media-xsmall {
-        height: 100%;
-        align-items: center;
-      }
-
-      h2 {
-        width: 70%;
-        font-size: 18px;
-        line-height: 28px;
-      }
-
-      .read-more-circle {
-        width: 30%;
-
-        &--bg {
-          margin-left: auto;
-          margin-right: $spacing-small;
-        }
-      }
-    }
-
+  &:hover {
     @include media-medium {
-      min-height: 140px;
-
-      .main-link--wrapper {
-        height: 100%;
-        position: relative;
-        align-items: initial;
-        padding-top: $spacing-small;
-        padding-left: $spacing-small;
-
-        h2 {
-          margin: 0;
-          text-align: left;
-        }
-
-        .read-more-circle {
-          width: auto;
-          position: absolute;
-          bottom: $spacing-small;
-          right: $spacing-small;
-        }
-      }
+      @include translate(0, -20px);
     }
 
-    @include media-large {
-      .main-link--wrapper {
-        padding-top: $spacing-medium;
-        padding-left: $spacing-medium;
+    a {
+      text-decoration: none;
+    }
+  }
+
+  @include transition(transform 0.4s);
+
+  a,
+  h2 {
+    color: inherit;
+  }
+
+  h2::after,
+  .icon,
+  .view-content-link {
+    display: none;
+  }
+
+  > a {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    @include media-medium {
+      display: block;
+    }
+  }
+
+  .main-link--wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    @include max-media-xsmall {
+      height: 100%;
+      align-items: center;
+    }
+
+    h2 {
+      width: 70%;
+      font-size: 18px;
+      line-height: 28px;
+      margin: 0 $spacing-medium;
+    }
+
+    .read-more-circle {
+      width: 30%;
+
+      &--bg {
+        margin-left: auto;
+        margin-right: $spacing-small;
       }
     }
   }
 
-  .has-situation-links {
-    $_pseudo-bg-offset: 25px;
-    margin-bottom: $spacing-large;
+  @include media-medium {
+    min-height: 140px;
 
-    .row--grid:not(.deck-box-head) [class*="col-"] {
-      &::before {
-        content: "";
-        position: absolute;
-        left: $_pseudo-bg-offset;
-        top: $_pseudo-bg-offset;
-        z-index: -1;
-        background: $track-blue;
-        width: calc(100% - #{$_pseudo-bg-offset});
-        height: 100%;
+    .main-link--wrapper {
+      height: 100%;
+      position: relative;
+      align-items: initial;
+      padding-top: $spacing-small;
+      padding-left: $spacing-small;
 
-        @include media-small {
-          height: calc(100% - #{$_pseudo-bg-offset});
-        }
-
-        @include media-medium {
-          width: 100%;
-        }
+      h2 {
+        margin: 0;
+        text-align: left;
       }
 
-      &:last-child {
-        &::before {
-          @include max-media-xsmall {
-            top: 10px;
-          }
+      .read-more-circle {
+        width: auto;
+        position: absolute;
+        bottom: $spacing-small;
+        right: $spacing-small;
+      }
+    }
+  }
 
-          @include media-large {
-            // A little trick to make an element break out of it's container:
-            // https://twitter.com/ChallengesCss/status/1534494160589307904?s=20&t=oA-I3N6UDKNnGC687qIM8A
-            box-shadow: 100vmax 0 0 100vmax $track-blue;
-            clip-path: inset(0 -100vmax);
-          }
+  @include media-large {
+    .main-link--wrapper {
+      padding-top: $spacing-medium;
+      padding-left: $spacing-medium;
+    }
+  }
+}
+
+.page-type-universe .has-situation-links {
+  $_pseudo-bg-offset: 25px;
+  margin-bottom: $spacing-large;
+
+  .row--grid:not(.deck-box-head) [class*="col-"] {
+    &::before {
+      content: "";
+      position: absolute;
+      left: $_pseudo-bg-offset;
+      top: $_pseudo-bg-offset;
+      z-index: -1;
+      background: $track-blue;
+      width: calc(100% - #{$_pseudo-bg-offset});
+      height: 100%;
+
+      @include media-small {
+        height: calc(100% - #{$_pseudo-bg-offset});
+      }
+
+      @include media-medium {
+        width: 100%;
+      }
+    }
+
+    &:last-child {
+      &::before {
+        @include max-media-xsmall {
+          top: 10px;
+        }
+
+        @include media-large {
+          // A little trick to make an element break out of it's container:
+          // https://twitter.com/ChallengesCss/status/1534494160589307904?s=20&t=oA-I3N6UDKNnGC687qIM8A
+          box-shadow: 100vmax 0 0 100vmax $track-blue;
+          clip-path: inset(0 -100vmax);
         }
       }
     }

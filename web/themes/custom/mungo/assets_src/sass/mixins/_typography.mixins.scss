@@ -200,10 +200,6 @@
   text-transform: uppercase;
 }
 
-@mixin search-field {
-  font-size: 18px;
-}
-
 @mixin label {
   font-size: 18px;
   color: $black;
@@ -318,4 +314,157 @@
   font-style: normal;
   font-variant: normal;
   text-transform: none;
+}
+
+@mixin menu-item--mini {
+  font-family: $std-font;
+  color: $bluish;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 14px;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+@mixin menu-item--small {
+  font-family: $std-font;
+  color: var(--menu-item);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+@mixin menu-item--medium {
+  font-family: $std-font;
+  color: var(--menu-item);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+@mixin menu-item--large {
+  font-family: $std-font;
+  color: var(--menu-item);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+@mixin search-field {
+  font-family: $std-font;
+  color: $marine-blue;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+@mixin hero-banner-label {
+  color: $grey;
+  font-family: $std-font;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+@mixin generic-link-card-header {
+  color: var(--generic-link-card-text-color);
+  font-family: $feature-font;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+@mixin generic-link-card-desc {
+  color: var(--generic-link-card-text-color);
+  font-family: $std-font;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+@mixin situation-links-heading {
+  font-family: $feature-font;
+  color: $marine-blue;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+// Link mixins and extensions.
+%link-active {
+  color: $link--active;
+  // Disable the default focus outline.
+  outline: none;
+}
+
+%link-active--no-underline {
+  color: $link--active;
+  text-decoration: none;
+  // Disable the default focus outline.
+  outline: none;
+}
+
+%link-arrow-icon {
+  content: url("../images/lucide/arrow-right--bluish.svg");
+  display: inline-block;
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+  vertical-align: text-top;
+}
+
+@mixin link {
+  color: $marine-blue;
+  font-family: $std-font;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  text-decoration-line: underline;
+
+  &:hover,
+  &:focus,
+  &:active {
+    @extend %link-active;
+  }
+  @include focus-visible;
+}
+
+@mixin link-arrow--small {
+  font-family: $std-font;
+  color: $marine-blue;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+
+  &:hover,
+  &:focus,
+  &:active {
+    @extend %link-active--no-underline;
+  }
+  @include focus-visible;
+
+  &::before {
+    @extend %link-arrow-icon;
+  }
+}
+
+@mixin link-arrow--medium {
+  font-family: $std-font;
+  color: $marine-blue;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25px;
+
+  &:hover,
+  &:focus,
+  &:active {
+    @extend %link-active--no-underline;
+  }
+  @include focus-visible;
+
+  &::before {
+    @extend %link-arrow-icon;
+  }
 }
