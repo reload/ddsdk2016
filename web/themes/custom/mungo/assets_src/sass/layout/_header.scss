@@ -85,7 +85,7 @@ header.header-fixed {
         margin-left: 7px;
       }
 
-      @include focus-visible;
+      @extend %burger-menu__menu-item-states;
     }
   }
 }
